@@ -1,15 +1,15 @@
-import dts from 'vite-plugin-dts';
-import path from 'path';
+// vite.config.ts
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
+import dts from 'vite-plugin-dts';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    dist: {
-      entry: path.resolve(__dirname, 'src/component/index.ts'),
-      name: 'Connect Desig System',
-      fileName: (format) => `connect-design-system.${format}.js`,
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'Connect-Design-System',
+      fileName: 'connect-design-system',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -21,7 +21,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
+    libInjectCss(),
     dts({
       include: ['src/component/'],
     }),
