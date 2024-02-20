@@ -1,16 +1,4 @@
-// import PropTypes from 'prop-types';
-
-// InputBox.propTypes = {
-//   type: PropTypes.oneOf(['checkbox', 'radio']),
-//   id: PropTypes.string,
-//   name: PropTypes.string,
-//   value: PropTypes.string,
-//   checked: PropTypes.bool,
-//   disabled: PropTypes.bool,
-//   correct: PropTypes.bool,
-//   incorrect: PropTypes.bool,
-//   label: PropTypes.string,
-// }
+import React from 'react';
 
 export type InputBoxProps = {
   type: 'checkbox' | 'radio';
