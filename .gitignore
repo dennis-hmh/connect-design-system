@@ -1,25 +1,49 @@
-# Logs
+# logs
 logs
 *.log
+
+# npm & yarn
+.npm
 npm-debug.log*
+package-lock.json
+
+.yarn
+.yarn-integrity
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-.yarn/*
+node_modules/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
+# TypeScript
+typings/
+*.tsbuildinfo
+
+# Lint directories
+.eslintcache
+.stylelintcache
+
+# env & config
+*.env*
+config/local*
+*/config/local*
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static/
+
+# Bundles
+_build/
+dist/
+.cache
+.parcel-cache
+
+# IDE
 .idea
+.vscode
+.vscode-test
+.devcontainer
+
+# Misc
+.cache/
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
