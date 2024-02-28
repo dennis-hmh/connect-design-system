@@ -47,6 +47,7 @@ Correct.args = {
 Incorrect.args = {
   ...Default.args,
   checked: true,
+  disabled: true,
   incorrect: true,
 };
 

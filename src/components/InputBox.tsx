@@ -9,7 +9,7 @@ export type InputBoxProps = {
   disabled: boolean;
   correct: boolean;
   incorrect: boolean;
-  children: React.ReactElement;
+  children: React.ReactNode;
 };
 
 export function InputBox({

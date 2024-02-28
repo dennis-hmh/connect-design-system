@@ -1,5 +1,7 @@
 /*! 1.4 */
 .connect__gk {
+  --border-radius: 1rem;
+  --border-width: 0.25rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.625rem;
@@ -25,8 +27,6 @@
   --spacer-md: 1.4375rem;
   --spacer-sm: 0.75rem;
   --spacer-xs: 0.375rem;
-  --border-width: 0.375rem;
-  --border-radius: 0.75rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -88,6 +88,8 @@
   }
 }
 .connect__g1 {
+  --border-radius: 1rem;
+  --border-width: 0.25rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.375rem;
@@ -113,8 +115,6 @@
   --spacer-md: 1.25rem;
   --spacer-sm: 0.625rem;
   --spacer-xs: 0.3125rem;
-  --border-width: 0.3125rem;
-  --border-radius: 0.625rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -176,6 +176,8 @@
   }
 }
 .connect__g23 {
+  --border-radius: 1rem;
+  --border-width: 0.25rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.375rem;
@@ -201,8 +203,18 @@
   --spacer-md: 1.0625rem;
   --spacer-sm: 0.5625rem;
   --spacer-xs: 0.25rem;
-  --border-width: 0.25rem;
-  --border-radius: 0.5rem;
+
+  --color-correct-bg: var(--connect__feedback-green-bg);
+  --color-correct: var(--connect__feedback-green);
+  --color-incorrect-bg: rgba(215, 231, 241, 1);
+  --color-incorrect-bg-35: rgba(215, 231, 241, 1);
+  --color-incorrect: rgba(115, 130, 143, 1);
+
+  --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
+  --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
+
+  --icon-correct: url(images/correct35.svg);
+  --icon-incorrect: url(images/incorrect35.svg);
 }
 
 @media (min-width: 40.625rem) {
@@ -264,6 +276,8 @@
   }
 }
 .connect__g45 {
+  --border-radius: 0.75rem;
+  --border-width: 0.1875rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.375rem;
@@ -289,8 +303,6 @@
   --spacer-md: 1rem;
   --spacer-sm: 0.5rem;
   --spacer-xs: 0.25rem;
-  --border-width: 0.1875rem;
-  --border-radius: 0.375rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -352,6 +364,8 @@
   }
 }
 .connect__g68 {
+  --border-radius: 0.375rem;
+  --border-width: 0.125rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.375rem;
@@ -377,8 +391,6 @@
   --spacer-md: 0.9375rem;
   --spacer-sm: 0.5rem;
   --spacer-xs: 0.25rem;
-  --border-width: 0.125rem;
-  --border-radius: 0.25rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -440,6 +452,8 @@
   }
 }
 .connect__g912 {
+  --border-radius: 0.375rem;
+  --border-width: 0.125rem;
   --heading-xl: 2.625rem;
   --heading-xl-lheight: 3rem;
   --heading-lg: 2.125rem;
@@ -465,8 +479,6 @@
   --spacer-md: 0.9375rem;
   --spacer-sm: 0.5rem;
   --spacer-xs: 0.25rem;
-  --border-width: 0.0625rem;
-  --border-radius: 0.125rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -533,9 +545,9 @@
   --connect__bp-md: 40.625rem;
   --connect__bp-lg: 55rem;
   --connect__bp-xl: 80rem;
-  --connect__font-sans: "Source Sans Pro", "Helvetica", "Verdana", sans-serif;
-  --connect__font-serif: "Source Serif Pro", "Times New Roman", serif;
-  --connect__font-mono: "Source Code Pro", "Courier", "Courier New", monospace;
+  --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
+  --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
+  --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
   --connect__yellow-c70: rgb(68, 56, 8);
   --connect__yellow-c65: rgb(94, 77, 8);
   --connect__yellow-c60: rgb(107, 87, 6);
@@ -985,11 +997,20 @@
   --connect__apple-s40: rgb(119, 158, 0);
   --connect__apple-s45: rgb(105, 140, 0);
   --connect__apple-s50: rgb(96, 128, 0);
-  --connect__feedback-green: #008000;
-  --connect__feedback-red: #e60000;
+
+  --connect__feedback-green: rgb(0, 161, 0);
+  --connect__feedback-green-bg: rgb(210, 247, 174);
+  --connect__feedback-green-border: rgb(0, 161, 0);
+  --connect__feedback-red: rgb(243, 0, 0);
+  --connect__feedback-red-bg: rgba(255, 214, 212, 1);
 }
 
-.connect__gk, .connect__g1, .connect__g23, .connect__g45, .connect__g68, .connect__g912 {
+.connect__gk,
+.connect__g1,
+.connect__g23,
+.connect__g45,
+.connect__g68,
+.connect__g912 {
   font-size-adjust: ex-height 0.486;
 }
 

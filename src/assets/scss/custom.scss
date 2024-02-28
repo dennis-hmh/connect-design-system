@@ -61,10 +61,10 @@
   --color-text-disabled: var(--connect__gray-c55);
   --color-action-bg: var(--connect__blue-c5);
   --color-selected: rgba(0, 105, 254, 1);
-  --color-correct-bg: var(--feedback-green-bg);
-  --color-incorrect-bg: var(--feedback-red-bg);
+  //--color-correct-bg: var(--feedback-green-bg);
+  //--color-incorrect-bg: var(--feedback-red-bg);
   --color-correct: var(--feedback-green);
-  --color-incorrect: var(--$feedback-red);
+  --color-incorrect: var(--feedback-red);
   --color-text: var(--connect-$text-color);
 
   --icon-correct: url(images/icons/correct-912.svg);
@@ -236,7 +236,7 @@ button.connect__button {
 //             position: absolute;
 //             top: 0;
 //             left: var(--spacer-md);
-//             width: calc(100% - var(--spacer-lg));
+//             width: calc(100% - var(--spacer-xl));
 //             height: var(--border-width);
 //             content: "";
 //             background: var(--color-action-disabled);
@@ -323,8 +323,8 @@ input[type='checkbox'].connect__input {
 
     &:before {
       content: '';
-      width: calc(var(--spacer-lg) - var(--border-width) * 2);
-      height: calc(var(--spacer-lg) - var(--border-width) * 2);
+      width: calc(var(--spacer-xl) - var(--border-width) * 2);
+      height: calc(var(--spacer-xl) - var(--border-width) * 2);
       background-color: white;
       margin-left: var(--spacer-sm);
       margin-right: var(--spacer-md);
@@ -487,7 +487,7 @@ input[type='radio'].connect__input {
 // }
 
 // .source__flipcards, .source__reveal {
-//   --flipcard-height: calc(var(--spacer-lg) * 10);
+//   --flipcard-height: calc(var(--spacer-xl) * 10);
 //   list-style: none;
 //   grid-column: 1 / span 12;
 //   display: flex;
@@ -503,13 +503,13 @@ input[type='radio'].connect__input {
 //     flex-basis: 100%;
 
 //     @include respond-md {
-//       flex-basis: calc(50% - var(--spacer-lg));
+//       flex-basis: calc(50% - var(--spacer-xl));
 //       margin-left: var(--spacer-md);
 //       margin-right: var(--spacer-md);
 //     }
 
 //     @include respond-lg {
-//       flex-basis: calc(33.3333% - var(--spacer-lg));
+//       flex-basis: calc(33.3333% - var(--spacer-xl));
 //     }
 
 //     &:before {
@@ -680,7 +680,7 @@ input[type='radio'].connect__input {
 //   &--four {
 //     @include respond-xl {
 //       li {
-//         flex-basis: calc(25% - var(--spacer-lg));
+//         flex-basis: calc(25% - var(--spacer-xl));
 //       }
 //     }
 //   }
@@ -729,8 +729,8 @@ input[type='radio'].connect__input {
 //   border-radius: var(--border-radius);
 //   border: var(--border-width) solid var(--active-color);
 //   @include caption;
-//   padding: calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-lg) + var(--spacer-md) + var(--border-width)) calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-md) - var(--border-width));
-//   background: var(--icon), linear-gradient(90deg, rgba(0, 114, 219, 0) 0%, rgba(0, 114, 219, 0) calc(100% - var(--border-width) * 2 - var(--spacer-lg)), var(--active-color) calc(100% - var(--border-width) * 2 - var(--spacer-lg)), var(--active-color) 100%);
+//   padding: calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-xl) + var(--spacer-md) + var(--border-width)) calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-md) - var(--border-width));
+//   background: var(--icon), linear-gradient(90deg, rgba(0, 114, 219, 0) 0%, rgba(0, 114, 219, 0) calc(100% - var(--border-width) * 2 - var(--spacer-xl)), var(--active-color) calc(100% - var(--border-width) * 2 - var(--spacer-xl)), var(--active-color) 100%);
 //   background-size: var(--ui-icon) var(--ui-icon), 100% 100%;
 //   background-position: calc(100% - (var(--ui-button) - var(--ui-icon)) / 2 - var(--border-width)) center, top left;
 //   background-repeat: no-repeat;
