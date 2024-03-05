@@ -12,7 +12,6 @@ MultipleChoiceQuestionImage.propTypes = {
   correct: PropTypes.bool,
   incorrect: PropTypes.bool,
   label: PropTypes.string,
-  grade: PropTypes.oneOf(['g35', 'g68', 'g912']),
 };
 
 export function MultipleChoiceQuestionImage({
@@ -25,13 +24,12 @@ export function MultipleChoiceQuestionImage({
   correct,
   incorrect,
   label,
-  grade,
 }) {
   const isCorrect = correct ? 'correct' : '';
   const isIncorrect = incorrect ? 'incorrect' : '';
 
   return (
-    <div className={grade}>
+    <>
       <form className="mcq">
         <input
           type={type}
@@ -43,6 +41,6 @@ export function MultipleChoiceQuestionImage({
         />
         <label htmlFor={id}>{image ? <img src={imageSrc} /> : label}</label>
       </form>
-    </div>
+    </>
   );
 }

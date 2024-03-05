@@ -70,6 +70,11 @@
   --icon-correct: url(images/icons/correct-912.svg);
   --icon-incorrect: url(images/icons/incorrect-912.svg);
 
+  --icon-correct: url(../images/correct912.svg);
+  --icon-incorrect: url(../images/incorrect912.svg);
+  --icon-height: 1.5rem;
+  --icon-width: 1.5rem;
+
   --feedback-green: rgb(0, 161, 0);
   --feedback-green-bg: rgb(210, 247, 174);
   --feedback-green-border: rgb(0, 161, 0);
@@ -82,10 +87,15 @@
   --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
   --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
 
-  --icon-correct: url(images/icons/correct-35.svg);
-  --icon-incorrect: url(images/icons/incorrect-35.svg);
+  --icon-correct: url(../images/correct35.svg);
+  --icon-incorrect: url(../images/incorrect35.svg);
   --icon-height: 2rem;
   --icon-width: 2rem;
+}
+
+.connect__g68 {
+  --icon-height: 1.75rem;
+  --icon-width: 1.75rem;
 }
 
 // Component Styles
@@ -299,8 +309,7 @@ input[type='text'].connect__input {
   }
 }
 
-input[type='radio'].connect__input,
-input[type='checkbox'].connect__input {
+.connect__input {
   position: absolute;
   opacity: 0;
 
@@ -397,8 +406,7 @@ input[type='radio'].connect__input {
 }
 
 .mcq {
-  input[type='radio'].connect__input,
-  input[type='checkbox'].connect__input {
+  &.connect__input {
     + label {
       padding: var(--spacer-sm) var(--spacer-md);
       border-radius: var(--border-radius);
@@ -441,7 +449,7 @@ input[type='radio'].connect__input {
       }
     }
 
-    &.correct {
+    &-correct {
       + label {
         // border-color: var(--color-correct);
         padding-right: var(--spacer-md);
@@ -456,7 +464,8 @@ input[type='radio'].connect__input {
         }
       }
     }
-    &.incorrect {
+
+    &-incorrect {
       + label {
         // border-color: var(--color-incorrect);
         padding-right: var(--spacer-md);

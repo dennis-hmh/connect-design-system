@@ -303,6 +303,18 @@
   --spacer-md: 1rem;
   --spacer-sm: 0.5rem;
   --spacer-xs: 0.25rem;
+
+  --color-correct-bg: var(--connect__feedback-green-bg);
+  --color-correct: var(--connect__feedback-green);
+  --color-incorrect-bg: rgba(215, 231, 241, 1);
+  --color-incorrect-bg-35: rgba(215, 231, 241, 1);
+  --color-incorrect: rgba(115, 130, 143, 1);
+
+  --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
+  --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
+
+  --icon-correct: url(images/correct35.svg);
+  --icon-incorrect: url(images/incorrect35.svg);
 }
 
 @media (min-width: 40.625rem) {

@@ -14,7 +14,7 @@
     "paths": {
       "connect-design-system": ["src/component/index.ts"]
     },
-    "typeRoots": ["src/component/index.d.ts"],
+    "typeRoots": ["node_modules/@types", "src/types"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

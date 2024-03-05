@@ -1,3 +1,4 @@
+import React from 'react';
 import { Preview } from '@storybook/react';
 
 import '../src/assets/css/source.css';
@@ -23,10 +24,10 @@ const preview: Preview = {
         {
           name: 'Grade 9-12',
           class: 'connect__g912',
-        }
-      ]
+        },
+      ],
     },
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
