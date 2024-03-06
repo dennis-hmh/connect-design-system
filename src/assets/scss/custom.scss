@@ -364,14 +364,10 @@ input[type='text'].connect__input {
   }
   &:checked {
     + label {
+      --shadow-inner: var(--shadow-selected);
       &:before {
         background-color: var(--color-action-default);
       }
-    }
-  }
-  &:checked:not(:disabled) {
-    + label {
-      --shadow-inner: var(--shadow-selected);
     }
   }
 
@@ -381,13 +377,13 @@ input[type='text'].connect__input {
     }
   }
 
-  &-correct {
+  &-correct:checked {
     + label {
       --shadow-inner: var(--shadow-correct);
       background-color: var(--color-correct-bg, white);
     }
   }
-  &-incorrect {
+  &-incorrect:checked {
     + label {
       --shadow-inner: var(--shadow-incorrect);
       background-color: var(--color-incorrect-bg, white);
@@ -420,10 +416,14 @@ input[type='radio'].connect__input {
       }
 
       &:has(img) {
-        padding: var(--spacer-sm);
+        padding: var(--spacer-md);
 
         img {
           border-radius: calc(var(--border-radius) - var(--spacer-sm));
+        }
+
+        &:after {
+          content: unset;
         }
       }
     }

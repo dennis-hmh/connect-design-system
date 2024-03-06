@@ -21,12 +21,11 @@ Default.args = {
   id: 'answer',
   name: 'mcq',
   value: 'The mouse rides a bike',
-  correct: false,
-  incorrect: false,
   checked: false,
   disabled: false,
-  label: 'The mouse rides a bike',
-  grade: 'g35',
+  correct: false,
+  incorrect: false,
+  children: 'The mouse rides a bike',
 };
 
 Checked.args = {
@@ -44,6 +43,7 @@ Correct.args = {
 Incorrect.args = {
   ...Default.args,
   checked: true,
+  disabled: true,
   incorrect: true,
 };
 

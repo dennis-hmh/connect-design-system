@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './components';
 import { InputBox } from './components/InputBox';
+import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
           disabled={false}
           correct={false}
           incorrect={false}
-          children={'The mouse ride a bike'}
+          children={'The mouse rides a bike'}
         />
         <br />
         <InputBox
@@ -32,7 +33,44 @@ const App = () => {
           disabled={false}
           correct={false}
           incorrect={false}
-          children={'The mouse ride a bike'}
+          children={'The mouse rides a bike'}
+        />
+        <br />
+        <MultipleChoiceQuestion
+          type={'checkbox'}
+          image={false}
+          id={'msq-id'}
+          name={'mcq-name'}
+          value={'The mouse rides a bikd'}
+          checked={true}
+          disabled={false}
+          correct={false}
+          incorrect={false}
+          children={'The mouse rides a bike'}
+        />
+        <MultipleChoiceQuestion
+          type={'checkbox'}
+          image={false}
+          id={'msq-id'}
+          name={'mcq-name'}
+          value={'The mouse rides a bikd'}
+          checked={true}
+          disabled={false}
+          correct={true}
+          incorrect={false}
+          children={'The mouse rides a bike'}
+        />
+        <MultipleChoiceQuestion
+          type={'checkbox'}
+          image={true}
+          id={'msq-id'}
+          name={'mcq-name'}
+          value={'The mouse rides a bikd'}
+          checked={true}
+          disabled={false}
+          correct={true}
+          incorrect={false}
+          children={'The mouse rides a bike'}
         />
       </div>
     </>
