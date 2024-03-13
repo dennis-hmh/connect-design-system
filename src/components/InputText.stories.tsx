@@ -1,9 +1,17 @@
+import React from 'react';
 import { InputText } from './InputText';
 
 export default {
   component: InputText,
   title: 'Input Text',
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    design: {
+      type: 'figma',
+      url: '',
+    },
+  },
 };
 
 export const Default = (args) => <InputText {...args} />;
@@ -16,7 +24,6 @@ Default.args = {
   incorrect: false,
   value: '',
   disabled: false,
-  grade: 'g35',
 };
 
 Correct.args = {

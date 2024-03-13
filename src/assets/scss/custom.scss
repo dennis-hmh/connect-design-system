@@ -275,14 +275,18 @@ input[type='text'].connect__input {
   --color-incorrect-bg: var(--feedback-red-bg);
   --shadow-inner: var(--shadow-inner-gray);
   --shadow-outer: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  --white-border: 0px 0px 0px 2px #fff;
+  --shadow-inner: 3px 4px 3px 1px rgba(0, 0, 0, 0.15) inset,
+    0px 3px 2px 0px rgba(0, 0, 0, 0.3) inset;
+  background-color: var(--color-action-disabled);
+  box-shadow: var(--shadow-inner), var(--white-border), var(--shadow-outer);
   border-radius: var(--border-radius);
-  border: 0.125rem solid whrgba(41, 30, 30, 0);
-  //@include body-md;
+  border: 0.125rem solid rgba(41, 30, 30, 0);
   font-family: var(--connect__font-sans);
   font-size: var(--body-md);
+  line-height: var(--body-md-lheight);
   padding: calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-md) - var(--border-width));
-  background-color: var(--color-action-disabled);
-  box-shadow: var(--shadow-inner), var(--shadow-outer);
+  outline: unset;
 
   &:not(:disabled):not(:focus) {
     &:hover {
@@ -290,13 +294,16 @@ input[type='text'].connect__input {
     }
   }
 
-  &:focus {
+  &:focus,
+  &:active {
     background-color: var(--color-action-bg);
-    --shadow-outer: var(--shadow-focus);
+    //--shadow-outer: var(--shadow-focus);
+    --shadow-inner: 3px 4px 3px 1px rgba(0, 105, 254, 0.15) inset,
+      0px 3px 2px 0px rgba(0, 105, 254, 0.3) inset;
   }
 
   &:disabled {
-    box-shadow: unset;
+    --shadow-inner: 0 0 0 0 rgba(0, 0, 0, 0) inset;
   }
 
   &-correct {
@@ -304,12 +311,31 @@ input[type='text'].connect__input {
     color: black;
   }
   &-incorrect {
-    background-color: var(--color-incorrect-bg-35, --feedback-red-bg);
+    background-color: var(--color-incorrect-bg-35, var(--color-incorrect-bg));
     color: black;
   }
 }
 
-.connect__input {
+label.status:has(.connect__input-correct),
+label.status:has(.connect__input-incorrect) {
+  --status-icon: var(--icon-correct);
+  &::after {
+    background: var(--status-icon) no-repeat center left;
+    background-size: contain;
+    content: '';
+    display: inline-block;
+    height: var(--icon-width);
+    width: var(--icon-height);
+    transform: translate(calc(var(--icon-width) * -0.5), calc(var(--icon-width) * -0.5));
+  }
+}
+
+label.status:has(.connect__input-incorrect) {
+  --status-icon: var(--icon-incorrect);
+}
+
+input[type='checkbox'].connect__input,
+input[type='radio'].connect__input {
   position: absolute;
   opacity: 0;
 
