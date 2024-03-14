@@ -286,7 +286,6 @@ input[type='text'].connect__input {
   font-size: var(--body-md);
   line-height: var(--body-md-lheight);
   padding: calc(var(--spacer-sm) - var(--border-width)) calc(var(--spacer-md) - var(--border-width));
-  outline: unset;
 
   &:not(:disabled):not(:focus) {
     &:hover {
@@ -509,17 +508,86 @@ input[type='radio'].connect__input {
   }
 }
 
-// input[type=radio], input[type=checkbox] {
-//   &:focus {
-//     outline: none;
-//   }
-//   &:focus-visible {
-//     + label {
-//       --focus-indicator: 0px 0px 0px 1px #fff, 0px 0px 0px 3px #ca0092, 0 0 0 4px #fff;
-//       box-shadow: var(--focus-indicator);
-//     }
-//   }
-// }
+input[type='radio'],
+input[type='checkbox'] {
+  &:focus {
+    outline: none;
+  }
+  // &:focus-visible {
+  //   + label {
+  //     --focus-indicator: 0px 0px 0px 1px #fff, 0px 0px 0px 3px #ca0092, 0 0 0 4px #fff;
+  //     box-shadow: var(--focus-indicator);
+  //   }
+  // }
+}
+
+.connect__card {
+  --shadow-outer: var(--shadow-default);
+  background: white;
+  border: var(--border-width) solid white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-outline), var(--shadow-outer);
+  display: grid;
+  font-family: var(--connect__font-sans);
+  font-size: var(--body-md);
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacer-md);
+  //max-width: 25vw;
+  margin: var(--spacer-md);
+
+  & > * + * {
+    margin-top: var(--spacer-md);
+  }
+
+  figure,
+  header,
+  .content,
+  footer {
+    margin: var(--spacer-md) var(--spacer-sm) 0;
+    grid-column: 1 / -1;
+    &:empty {
+      margin: unset;
+    }
+    &:last-child {
+      margin-bottom: var(--spacer-md);
+    }
+  }
+
+  figure {
+    margin: var(--spacer-sm);
+    img {
+      height: 100;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      margin-top: var(--spacer-sm);
+    }
+    + header {
+      margin-top: unset;
+    }
+  }
+
+  header {
+    h2,
+    h3,
+    h4 {
+      font-size: var(--heading-sm);
+      margin: 0;
+    }
+  }
+
+  .content {
+    & > * + * {
+      margin: 0;
+      margin-top: var(--spacer-md);
+    }
+  }
+
+  footer {
+  }
+}
 
 // .source__flipcards, .source__reveal {
 //   --flipcard-height: calc(var(--spacer-xl) * 10);

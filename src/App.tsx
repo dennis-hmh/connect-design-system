@@ -1,13 +1,19 @@
 import React from 'react';
-import { Button } from './components';
+import { Button } from './components/Button';
 import { InputBox } from './components/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
+import { Card } from './components/Card';
 import './assets/scss/custom.scss';
 
 const App = () => {
   return (
     <>
-      <div className="connect__g45">
+      <div className="connect__g45" style={{ background: '#38F', padding: 20 }}>
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      {/* <div className="connect__g45">
         <Button children={'Click'} primary={true} disabled={false} />
         <br />
         <br />
@@ -72,7 +78,7 @@ const App = () => {
           incorrect={false}
           children={'The mouse rides a bike'}
         />
-      </div>
+      </div> */}
     </>
   );
 };
