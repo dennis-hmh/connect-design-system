@@ -348,7 +348,7 @@ input[type='radio'].connect__input {
     font-family: var(--connect__font-sans);
     font-size: var(--body-md);
     line-height: var(--body-md-lheight);
-    width: fit-content;
+    width: 100%;
     padding: var(--spacer-sm) var(--spacer-md) var(--spacer-sm) var(--spacer-sm);
     border-radius: var(--border-radius);
     position: relative;
