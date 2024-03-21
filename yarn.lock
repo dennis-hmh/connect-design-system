@@ -1712,9 +1712,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@connect/connect-design-sytem@workspace:.":
+"@connect/connect-design-system@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@connect/connect-design-sytem@workspace:."
+  resolution: "@connect/connect-design-system@workspace:."
   dependencies:
     "@storybook/addon-a11y": ^7.4.1
     "@storybook/addon-designs": ^7.0.7
