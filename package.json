@@ -1,9 +1,8 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
-  "type": "module",
   "main": "./dist/connect-design-system.umd.js",
   "scripts": {
     "dev": "vite",
