@@ -5,19 +5,21 @@ export type InputTextProps = {
   correct: boolean;
   incorrect: boolean;
   value: string;
+  typeNumber: boolean;
   disabled: boolean;
 };
 
-export function InputText({ correct, incorrect, value, disabled }: InputTextProps) {
+export function InputText({ correct, incorrect, value, typeNumber, disabled }: InputTextProps) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
+  const isNumber = typeNumber ? 'text' : 'number';
 
   //const [text, setText] = useState('');
 
   return (
     <label className="status">
       <input
-        type="text"
+        type={isNumber}
         className={`connect__input ${isCorrect} ${isIncorrect}`}
         defaultValue={value}
         disabled={disabled}
