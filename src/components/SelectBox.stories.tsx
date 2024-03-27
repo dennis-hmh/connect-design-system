@@ -18,13 +18,12 @@ Default.args = {
   correct: false,
   incorrect: false,
   disabled: false,
-  grade: 'g35',
+  value: '',
 };
 
 Correct.args = {
   ...Default.args,
   correct: true,
-  disabled: true,
 };
 
 Incorrect.args = {
