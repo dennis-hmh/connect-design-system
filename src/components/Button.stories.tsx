@@ -20,6 +20,8 @@ export const Secondary = (args) => <Button {...args} />;
 Primary.args = {
   children: 'Check',
   primary: true,
+  correct: false,
+  incorrect: false,
   disabled: false,
 };
 
