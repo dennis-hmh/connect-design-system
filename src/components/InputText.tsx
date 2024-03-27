@@ -12,7 +12,7 @@ export type InputTextProps = {
 export function InputText({ correct, incorrect, value, typeNumber, disabled }: InputTextProps) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
-  const isNumber = typeNumber ? 'text' : 'number';
+  const isNumber = typeNumber ? 'number' : 'text';
 
   //const [text, setText] = useState('');
 
