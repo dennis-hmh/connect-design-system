@@ -107,6 +107,8 @@ button.connect__button {
   --shadow-outer: var(--shadow-flat);
   --shadow-inner: var(--shadow-selected-trans);
   --active-color: var(--color-action-default);
+  --icon-correct: url(../images/circle-tick-green.svg);
+  --icon-incorrect: url(../images/circle-cross-grey.svg);
   background-color: var(--active-color);
   box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
   border-radius: var(--border-radius);
@@ -150,7 +152,7 @@ button.connect__button {
     color: var(--color-text);
 
     &::after {
-      background: var(--icon-correct) no-repeat 0rem 0rem;
+      background: var(--icon-correct) no-repeat 0 0;
       background-size: contain;
       content: '';
       display: inline-block;
@@ -164,6 +166,16 @@ button.connect__button {
     --shadow-inner: var(--shadow-incorrect);
     background-color: var(--color-incorrect-bg);
     color: var(--color-text);
+
+    &::after {
+      background: var(--icon-incorrect) no-repeat 0 0;
+      background-size: contain;
+      content: '';
+      display: inline-block;
+      height: calc(var(--icon-height) / 1.5);
+      transform: translate(calc(var(--spacer-sm) / 2), calc(var(--spacer-sm) / 2));
+      width: calc(var(--icon-width) / 1.5);
+    }
   }
 
   &:disabled {
