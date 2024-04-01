@@ -23,7 +23,7 @@ Default.args = {
   correct: false,
   incorrect: false,
   value: '',
-  typeNumber: false,
+  number: false,
   disabled: false,
 };
 
