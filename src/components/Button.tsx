@@ -3,9 +3,9 @@ import React from 'react';
 export type ButtonProps = {
   children: React.ReactNode;
   primary: boolean;
-  correct: boolean;
-  incorrect: boolean;
-  disabled: boolean;
+  correct?: boolean;
+  incorrect?: boolean;
+  disabled?: boolean;
 };
 
 export function Button({ children, primary, correct, incorrect, disabled }: ButtonProps) {
