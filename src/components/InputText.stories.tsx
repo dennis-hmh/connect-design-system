@@ -18,6 +18,7 @@ export const Default = (args) => <InputText {...args} />;
 export const Correct = (args) => <InputText {...args} />;
 export const InCorrect = (args) => <InputText {...args} />;
 export const Disabled = (args) => <InputText {...args} />;
+export const Number = (args) => <InputText {...args} />;
 
 Default.args = {
   correct: false,
@@ -44,4 +45,10 @@ Disabled.args = {
   ...Default.args,
   value: 'answer',
   disabled: true,
+};
+
+Number.args = {
+  ...Default.args,
+  value: 1,
+  number: true,
 };

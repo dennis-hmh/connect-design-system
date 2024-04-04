@@ -4,7 +4,7 @@ import React from 'react';
 export type InputTextProps = {
   correct: boolean;
   incorrect: boolean;
-  value: string;
+  value: string | number;
   number?: boolean;
   disabled?: boolean;
 };
