@@ -3,16 +3,17 @@ import React, { useState } from 'react';
 export type SelectBoxProp = {
   correct: boolean;
   incorrect: boolean;
-  disabled: boolean;
+  disabled?: boolean;
+  options?: string[];
   value: string;
-  options: string[];
+  label: string;
 };
 
-export function SelectBox({ correct, incorrect, disabled }: SelectBoxProp) {
+export function SelectBox({ correct, incorrect, disabled, options = [] }: SelectBoxProp) {
   const isCorrect = correct ? 'connect__select-correct' : '';
   const isIncorrect = incorrect ? 'connect__select-incorrect' : '';
 
-  const options = [
+  const zeldaOptions = [
     { label: 'Tears of the Kingdom', value: 'tears-of-the-kingdom' },
     { label: 'Breath of the Wild', value: 'breath-of-the-wild' },
     { label: 'Skyward Sword', value: 'skyard-sword' },
@@ -31,12 +32,12 @@ export function SelectBox({ correct, incorrect, disabled }: SelectBoxProp) {
   return (
     <label>
       <select
-        className={`connect__select ${isCorrect} ${isIncorrect} `}
-        value={value}
+        className={`connect__select ${isCorrect} ${isIncorrect}`}
+        defaultValue={value}
         onChange={handleChange}
         disabled={disabled}
       >
-        {options.map((option, index) => (
+        {zeldaOptions.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>
