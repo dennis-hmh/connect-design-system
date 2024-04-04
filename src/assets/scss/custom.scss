@@ -65,7 +65,7 @@
   //--color-incorrect-bg: var(--feedback-red-bg);
   --color-correct: var(--feedback-green);
   --color-incorrect: var(--feedback-red);
-  --color-text: var(--connect-$text-color);
+  --color-text: var(--connect__text-color);
 
   --icon-correct: url(images/icons/correct-912.svg);
   --icon-incorrect: url(images/icons/incorrect-912.svg);
@@ -182,6 +182,71 @@ button.connect__button {
     --active-color: var(--color-action-disabled);
     color: var(--color-text-disabled);
     cursor: unset;
+  }
+}
+
+.connect__button-split {
+  --shadow-outer: var(--shadow-flat);
+  --shadow-inner: var(--shadow-selected-trans);
+  --active-color: var(--color-action-default);
+  --icon-correct: url(../images/circle-tick-green.svg);
+  --icon-incorrect: url(../images/circle-cross-grey.svg);
+  background-color: var(--active-color);
+  box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
+  border-radius: var(--border-radius);
+  border: 0.125rem solid white;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  width: fit-content;
+  button {
+    background: unset;
+    border: unset;
+    color: white;
+    cursor: pointer;
+    font-family: var(--connect__font-sans);
+    font-size: var(--caption);
+    line-height: var(--caption-lheight);
+    padding: calc(var(--spacer-sm) - var(--border-width))
+      calc(var(--spacer-md) - var(--border-width));
+
+    &:nth-child(2) {
+      border-left: 0.125rem solid white;
+
+      svg {
+        height: 16px;
+      }
+
+      &:hover {
+        + ul {
+          display: block;
+        }
+      }
+    }
+
+    + ul {
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
+      color: var(--color-text);
+      display: none;
+      font-family: var(--connect__font-sans);
+      font-size: var(--caption);
+      line-height: var(--caption-lheight);
+      list-style-type: none;
+      margin-top: calc(var(--border-width) * 2);
+      padding: var(--spacer-sm);
+      position: absolute;
+      width: calc(100% - var(--spacer-md) + var(--border-width));
+      z-index: 1;
+
+      li {
+        padding-bottom: var(--spacer-sm);
+
+        &:last-child {
+          padding-bottom: unset;
+        }
+      }
+    }
   }
 }
 

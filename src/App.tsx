@@ -9,6 +9,11 @@ import './assets/scss/custom.scss';
 const App = () => {
   return (
     <>
+      <div className="connect__g45">
+        <Button primary={true} children={'submitted'} correct={true} />
+      </div>
+      <br />
+      <br />
       <div className="connect__g45" style={{ background: '#38F', padding: 20 }}>
         <Card />
         <Card />
@@ -94,6 +99,7 @@ const App = () => {
         <br />
         <br />
         <InputText correct={false} incorrect={false} value={''} disabled={false} />
+        <InputText correct={false} incorrect={false} value={''} number={true} />
         <br />
         <br />
         <InputText correct={true} incorrect={false} value={'correct here'} disabled={false} />

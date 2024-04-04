@@ -560,6 +560,7 @@
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
+  --connect__text-color: var(--connect__gray-c70);
   --connect__yellow-c70: rgb(68, 56, 8);
   --connect__yellow-c65: rgb(94, 77, 8);
   --connect__yellow-c60: rgb(107, 87, 6);
