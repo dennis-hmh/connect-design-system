@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 export type ButtonSplitProps<T> = {
-  disabled?: boolean;
+  children: React.ReactNode;
   data: { label: string; value: T };
+  disabled?: boolean;
 };
 
-export function ButtonSplit<T>({ disabled, data }: ButtonSplitProps<T>) {
+export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>) {
   const [name, setName] = useState('Split Button');
   const [open, setOpen] = useState(false);
 
@@ -25,7 +26,7 @@ export function ButtonSplit<T>({ disabled, data }: ButtonSplitProps<T>) {
   return (
     <div className={`connect__button-split`} ref={drop}>
       <button type="button" className={``} disabled={disabled}>
-        {name}
+        {children}
       </button>
       <button
         type="button"

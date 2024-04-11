@@ -17,7 +17,7 @@ export default {
 export const Primary = (args) => <ButtonSplit {...args} />;
 
 Primary.args = {
-  disabled: false,
+  children: 'Split Button',
   data: [
     { label: '', value: 'Item 1' },
     { label: '', value: 'Item 2' },
@@ -25,4 +25,5 @@ Primary.args = {
     { label: '', value: 'Item 4' },
     { label: '', value: 'Item 5' },
   ],
+  disabled: false,
 };
