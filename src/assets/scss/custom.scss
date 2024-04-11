@@ -188,22 +188,36 @@ button.connect__button {
 .connect__button-split {
   --shadow-outer: var(--shadow-flat);
   --shadow-inner: var(--shadow-selected-trans);
-  --active-color: var(--color-action-default);
-  --icon-correct: url(../images/circle-tick-green.svg);
-  --icon-incorrect: url(../images/circle-cross-grey.svg);
-  background-color: var(--active-color);
-  box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
   border-radius: var(--border-radius);
   border: 0.125rem solid white;
-  color: white;
-  cursor: pointer;
+  box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
   position: relative;
   width: fit-content;
+
+  &:not(:disabled) {
+    &:hover {
+      --shadow-outer: var(--shadow-hover-button);
+    }
+    &:active {
+      --shadow-outer: var(--shadow-flat);
+    }
+  }
+
+  &:focus-visible,
+  &:focus-within {
+    --shadow-outer: var(--shadow-focus);
+    outline: unset;
+  }
+
   button {
-    background: unset;
-    border: unset;
+    --active-color: var(--color-action-default);
+    --icon-correct: url(../images/circle-tick-green.svg);
+    --icon-incorrect: url(../images/circle-cross-grey.svg);
+    background-color: var(--active-color);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
     color: white;
     cursor: pointer;
+    border: unset;
     font-family: var(--connect__font-sans);
     font-size: var(--caption);
     line-height: var(--caption-lheight);
@@ -211,16 +225,13 @@ button.connect__button {
       calc(var(--spacer-md) - var(--border-width));
 
     &:nth-child(2) {
+      background-color: var(--active-color);
       border-left: 0.125rem solid white;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
 
       svg {
-        height: 16px;
-      }
-
-      &:hover {
-        + ul {
-          display: block;
-        }
+        height: 1rem;
+        width: 1.25rem;
       }
     }
 
@@ -228,7 +239,7 @@ button.connect__button {
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
       color: var(--color-text);
-      display: none;
+      display: block;
       font-family: var(--connect__font-sans);
       font-size: var(--caption);
       line-height: var(--caption-lheight);
@@ -246,6 +257,16 @@ button.connect__button {
           padding-bottom: unset;
         }
       }
+    }
+
+    &:disabled {
+      --active-color: var(--color-action-disabled);
+      color: var(--color-text-disabled);
+      cursor: unset;
+    }
+
+    &:focus-visible {
+      outline: unset;
     }
   }
 }
