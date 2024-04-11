@@ -1,21 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const testData = [
-  { label: '', value: 'Item 1' },
-  { label: '', value: 'Item 2' },
-  { label: '', value: 'Item 3' },
-  { label: '', value: 'Item 4' },
-  { label: '', value: 'Item 5' },
-  { label: '', value: 'Item 6' },
-  { label: '', value: 'Item 7' },
-  { label: '', value: 'Item 8' },
-];
-
-export type ButtonSplitProps = {
+export type ButtonSplitProps<T> = {
   disabled?: boolean;
+  data: { label: string; value: T };
 };
 
-export function ButtonSplit({ disabled }: ButtonSplitProps) {
+export function ButtonSplit<T>({ disabled, data }: ButtonSplitProps<T>) {
   const [name, setName] = useState('Split Button');
   const [open, setOpen] = useState(false);
 
@@ -50,20 +40,16 @@ export function ButtonSplit({ disabled }: ButtonSplitProps) {
           />
         </svg>
       </button>
-      {open && <ButtonSplitMenu data={testData} />}
+      {open && <ButtonSplitMenu data={data} />}
     </div>
   );
 }
 
-export type DropDownMenuProps = {
-  children: React.ReactNode;
-};
-
-export function ButtonSplitMenu({ data }) {
+function ButtonSplitMenu({ data }) {
   return (
     <ul>
       {data.map((item, index) => (
-        <li key={index}>{item.value}</li>
+        <li key={item.label + index}>{item.value}</li>
       ))}
     </ul>
   );

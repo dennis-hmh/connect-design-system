@@ -18,4 +18,11 @@ export const Primary = (args) => <ButtonSplit {...args} />;
 
 Primary.args = {
   disabled: false,
+  data: [
+    { label: '', value: 'Item 1' },
+    { label: '', value: 'Item 2' },
+    { label: '', value: 'Item 3' },
+    { label: '', value: 'Item 4' },
+    { label: '', value: 'Item 5' },
+  ],
 };
