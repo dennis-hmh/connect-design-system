@@ -8,9 +8,10 @@ interface GridProps {
   gutter?: boolean | GapSizes;
   className?: string;
   style?: string;
+  dataTestId?: string;
 }
 
-const Grid: React.FC<GridProps> = ({ children, gap, className }) => {
+const Grid: React.FC<GridProps> = ({ children, gap, className, dataTestId }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
     xl: 'var(--connect-spacer-xl)',
@@ -28,7 +29,7 @@ const Grid: React.FC<GridProps> = ({ children, gap, className }) => {
   };
 
   return (
-    <section className={className} style={styles}>
+    <section className={className} style={styles} data-test={dataTestId}>
       {children}
     </section>
   );
