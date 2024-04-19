@@ -44,28 +44,22 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
 
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {
     if (values) {
-      const direction = getInheritedValue(values, previousBreakpoint, 'direction', 'column');
-      const spacingKey = getInheritedValue(values, previousBreakpoint, 'spacing', 'xs');
-      const alignItems = getInheritedValue(values, previousBreakpoint, 'alignItems', 'stretch');
-      const justifyContent = getInheritedValue(
-        values,
-        previousBreakpoint,
-        'justifyContent',
-        'start',
-      );
-      const flexWrap = getInheritedValue(values, previousBreakpoint, 'flexWrap', 'wrap');
+      // Only apply a property if it is explicitly set or inherited from a previous breakpoint
+      const direction = values.direction ?? previousBreakpoint.direction ?? 'column';
+      const spacingKey = values.spacing ?? previousBreakpoint.spacing ?? 'xs';
+      const alignItems = values.alignItems ?? previousBreakpoint.alignItems ?? 'stretch';
+      const justifyContent = values.justifyContent ?? previousBreakpoint.justifyContent ?? 'start';
+      const flexWrap = values.flexWrap ?? previousBreakpoint.flexWrap ?? 'wrap';
 
-      // Use spacerSizes to set the gap
-      const spacing = `var(--connect-spacer-${spacingKey})`;
+      // Now, only update the style object if the current breakpoint explicitly sets the property
+      if (values.direction) style[`--${breakpoint}-direction`] = direction;
+      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect-spacer-${spacingKey})`;
+      if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
+      if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
+      if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
 
-      // Update style with breakpoint values
-      style[`--${breakpoint}-direction`] = direction;
-      style[`--${breakpoint}-spacing`] = spacing;
-      style[`--${breakpoint}-alignItems`] = alignItems;
-      style[`--${breakpoint}-justifyContent`] = justifyContent;
-      style[`--${breakpoint}-flexWrap`] = flexWrap;
-
-      previousBreakpoint = values;
+      // Update previousBreakpoint for inheritance
+      previousBreakpoint = { ...previousBreakpoint, ...values };
     }
   });
 
