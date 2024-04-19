@@ -1,4 +1,5 @@
 import React, { ReactNode, ElementType } from 'react';
+import { Color } from '../utils/color';
 
 type Size =
   | 'heading-xl'
@@ -14,6 +15,7 @@ type Size =
 interface TypographyProps {
   children: ReactNode;
   component?: ElementType;
+  color?: Color;
   family?: 'default' | 'secondary';
   size?: Size;
   style?: React.CSSProperties['fontStyle'];
@@ -28,6 +30,7 @@ interface TypographyProps {
 const Typography: React.FC<TypographyProps> = ({
   children,
   component: Component = 'span',
+  color,
   family,
   size,
   style,
@@ -39,6 +42,11 @@ const Typography: React.FC<TypographyProps> = ({
   dataTestId,
 }) => {
   const styleProps: React.CSSProperties = {};
+
+  if (color) {
+    const colorVariable = `--connect__${color}`;
+    styleProps.color = `var(${colorVariable})`;
+  }
 
   if (family) {
     styleProps.fontFamily = `var(--font-family-${family})`;
