@@ -7,7 +7,6 @@ export type ButtonSplitProps<T> = {
 };
 
 export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>) {
-  const [name, setName] = useState('Split Button');
   const [open, setOpen] = useState(false);
 
   const drop = useRef<HTMLInputElement | null>(null);
@@ -46,7 +45,7 @@ export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>
   );
 }
 
-function ButtonSplitMenu({ data }) {
+export function ButtonSplitMenu({ data }) {
   return (
     <ul>
       {data.map((item, index) => (

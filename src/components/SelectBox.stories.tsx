@@ -18,7 +18,13 @@ Default.args = {
   correct: false,
   incorrect: false,
   disabled: false,
-  value: '',
+  data: [
+    { label: 'Option 1', value: 'option-1' },
+    { label: 'Option 2', value: 'option-2' },
+    { label: 'Option 3', value: 'option-3' },
+    { label: 'Option 4', value: 'option-4' },
+    { label: 'Option 5', value: 'option-5' },
+  ],
 };
 
 Correct.args = {
