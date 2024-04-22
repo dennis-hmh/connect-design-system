@@ -11,7 +11,7 @@ interface GridProps {
   dataTestId?: string;
 }
 
-const Grid: React.FC<GridProps> = ({ children, gap, className, dataTestId }) => {
+const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestId }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
     xl: 'var(--connect-spacer-xl)',
@@ -28,8 +28,14 @@ const Grid: React.FC<GridProps> = ({ children, gap, className, dataTestId }) => 
     gap: gridGap,
   };
 
+  const additionalClassName = gutter === true ? ' connect-gutter' : '';
+
   return (
-    <section className={className} style={styles} data-test={dataTestId}>
+    <section
+      className={`${className || ''}${additionalClassName}`}
+      style={styles}
+      data-test-id={dataTestId}
+    >
       {children}
     </section>
   );
