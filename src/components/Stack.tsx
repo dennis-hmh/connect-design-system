@@ -1,17 +1,15 @@
-import React, { ReactNode, CSSProperties } from 'react';
-
-type SpacerSizes = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+import React from 'react';
 
 interface BreakpointValues {
   direction?: 'row' | 'column';
-  spacing?: SpacerSizes;
+  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
 }
 
 interface StackProps {
-  children: ReactNode;
+  children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -32,7 +30,7 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
     return (currentSize?.[property] ?? previousSize[property] ?? defaultValue) as T;
   };
 
-  const style: CSSProperties = {};
+  const style: React.CSSProperties = {};
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
 

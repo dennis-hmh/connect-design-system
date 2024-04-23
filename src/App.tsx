@@ -4,6 +4,10 @@ import { InputBox } from './components/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
 import { InputText } from './components/InputText';
 import { Card } from './components/Card';
+import Grid from './components/Grid';
+import GridItem from './components/GridItem';
+import Stack from './components/Stack';
+import Typography from './components/Typography';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -108,6 +112,139 @@ const App = () => {
         <br />
         <InputText correct={false} incorrect={false} value={'disabled answer'} disabled={true} />
       </div>
+      <Grid gutter={true} gap="xl">
+        <GridItem className="connect__gk" lg={{ startCol: 1, spanCol: 6 }}>
+          <Stack>
+            <Typography component="h1">Grade k H1</Typography>
+            <Typography component="h2">h2</Typography>
+            <Typography component="h3">h3</Typography>
+            <Typography component="h4">h4</Typography>
+            <Typography component="p">I am a paragraph</Typography>
+            <Typography component="h2" size="heading-xl">
+              h2 styled as h1
+            </Typography>
+            <Typography component="h3" size="heading-lg">
+              h3 styled as h2
+            </Typography>
+            <Typography component="h4" size="heading-md">
+              h4 styled as h3
+            </Typography>
+            <Stack
+              lg={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
+              <Button primary={true} children={'Button'} />
+              <Button primary={false} children={'Button'} />
+            </Stack>
+          </Stack>
+        </GridItem>
+
+        <GridItem className="connect__g23" lg={{ startCol: 7, spanCol: 6 }}>
+          <Stack>
+            <Typography component="h1" weight={900}>
+              Grade 2-3 H1
+            </Typography>
+            <Typography component="h2">h2</Typography>
+            <Typography component="h3" weight={400}>
+              h3
+            </Typography>
+            <Typography component="h4">h4</Typography>
+            <Typography component="p">I am a paragraph</Typography>
+            <Typography component="h2" size="heading-xl">
+              h2 styled as h1
+            </Typography>
+            <Typography component="h3" size="heading-lg">
+              h3 styled as h2
+            </Typography>
+            <Typography component="h4" size="heading-md">
+              h4 styled as h3
+            </Typography>
+            <Stack
+              lg={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
+              <Button primary={true} children={'Button'} />
+              <Button primary={false} children={'Button'} />
+            </Stack>
+          </Stack>
+        </GridItem>
+
+        <GridItem className="connect__g68" lg={{ startCol: 1, spanCol: 6 }}>
+          <Stack>
+            <Typography component="h1">Grade 6-8 H1</Typography>
+            <Typography component="h2">h2</Typography>
+            <Typography component="h3">h3</Typography>
+            <Typography component="h4">h4</Typography>
+            <Typography component="p">I am a paragraph</Typography>
+            <Typography component="h2" size="heading-xl">
+              h2 styled as h1
+            </Typography>
+            <Typography component="h3" size="heading-lg">
+              h3 styled as h2
+            </Typography>
+            <Typography component="h4" size="heading-md">
+              h4 styled as h3
+            </Typography>
+            <Stack
+              lg={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
+              <Button primary={true} children={'Button'} />
+              <Button primary={false} children={'Button'} />
+            </Stack>
+          </Stack>
+        </GridItem>
+
+        <GridItem className="connect__g912" lg={{ startCol: 7, spanCol: 6 }}>
+          <Stack>
+            <Typography component="h1" color="blue-s50">
+              Grade 9-12 h1
+            </Typography>
+            <Typography component="h2" color="green-s50">
+              h2
+            </Typography>
+            <Typography component="h3" color="orange-s50">
+              h3
+            </Typography>
+            <Typography component="h4" color="turquoise-c50">
+              h4
+            </Typography>
+            <Typography component="p">I am a paragraph</Typography>
+            <Typography component="h2" size="heading-xl">
+              h2 styled as h1
+            </Typography>
+            <Typography component="h3" size="heading-lg">
+              h3 styled as h2
+            </Typography>
+            <Typography component="h4" size="heading-md">
+              h4 styled as h3
+            </Typography>
+            <Stack
+              lg={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
+              <Button primary={true} children={'Button'} />
+              <Button primary={false} children={'Button'} />
+            </Stack>
+          </Stack>
+        </GridItem>
+      </Grid>
     </>
   );
 };

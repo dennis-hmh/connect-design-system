@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface BreakpointValues {
   startCol?: number;
@@ -7,7 +7,7 @@ interface BreakpointValues {
 }
 
 interface GridItemProps {
-  children: ReactNode;
+  children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
