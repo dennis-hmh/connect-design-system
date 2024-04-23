@@ -422,12 +422,17 @@ input[type='number'].connect__input {
     }
   }
 
+  &:focus-visible {
+    box-shadow: var(--shadow-focus), var(--shadow-inner);
+    outline: unset;
+  }
+
   &:focus,
   &:active {
-    background-color: var(--color-action-bg);
+    //background-color: var(--color-action-bg);
     //--shadow-outer: var(--shadow-focus);
-    --shadow-inner: 3px 4px 3px 1px rgba(0, 105, 254, 0.15) inset,
-      0px 3px 2px 0px rgba(0, 105, 254, 0.3) inset;
+    // --shadow-inner: 3px 4px 3px 1px rgba(0, 105, 254, 0.15) inset,
+    //   0px 3px 2px 0px rgba(0, 105, 254, 0.3) inset;
     outline: unset;
   }
 
