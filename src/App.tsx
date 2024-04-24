@@ -112,7 +112,7 @@ const App = () => {
         <br />
         <InputText correct={false} incorrect={false} value={'disabled answer'} disabled={true} />
       </div>
-      <Grid gutter={true} gap="xl">
+      <Grid gutter={true} gap="md">
         <GridItem className="connect__gk" lg={{ startCol: 1, spanCol: 6 }}>
           <Stack>
             <Typography component="h1">Grade k H1</Typography>

@@ -20,16 +20,6 @@ interface StackProps {
 }
 
 const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, dataTestId }) => {
-  // Helper function to inherit values
-  const getInheritedValue = <T,>(
-    currentSize: BreakpointValues | undefined,
-    previousSize: BreakpointValues,
-    property: keyof BreakpointValues,
-    defaultValue: T,
-  ): T => {
-    return (currentSize?.[property] ?? previousSize[property] ?? defaultValue) as T;
-  };
-
   const style: React.CSSProperties = {};
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
