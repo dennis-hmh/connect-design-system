@@ -98,15 +98,15 @@ const App = () => {
         />
         <br />
         <br />
-        <InputText correct={false} incorrect={false} value={''} disabled={false} />
-        <InputText correct={false} incorrect={false} value={''} number={true} />
+        <InputText correct={false} incorrect={false} disabled={false} />
+        <InputText correct={false} incorrect={false} number={true} />
         <br />
         <br />
-        <InputText correct={true} incorrect={false} value={'correct here'} disabled={false} />
-        <InputText correct={false} incorrect={true} value={'incorrect here'} disabled={false} />
+        <InputText correct={true} incorrect={false} disabled={false} />
+        <InputText correct={false} incorrect={true} disabled={false} />
         <br />
         <br />
-        <InputText correct={false} incorrect={false} value={'disabled answer'} disabled={true} />
+        <InputText correct={false} incorrect={false} disabled={true} />
       </div>
     </>
   );
