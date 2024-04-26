@@ -45,7 +45,7 @@ export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>
   );
 }
 
-export function ButtonSplitMenu({ data }) {
+function ButtonSplitMenu({ data }) {
   return (
     <ul>
       {data.map((item, index) => (

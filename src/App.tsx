@@ -4,6 +4,8 @@ import { InputBox } from './components/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
 import { InputText } from './components/InputText';
 import { Card } from './components/Card';
+import { SelectBox } from './components/SelectBox';
+import { ButtonSplit } from './components/ButtonSplit';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -28,8 +30,6 @@ const App = () => {
           type={'checkbox'}
           id={'text-id-1'}
           name={'text-name'}
-          value={'The mouse rides a bike'}
-          checked={true}
           disabled={false}
           correct={false}
           incorrect={false}
@@ -40,8 +40,6 @@ const App = () => {
           type={'radio'}
           id={'text-id-2'}
           name={'radio-name'}
-          value={'The mouse rides a bike second'}
-          checked={false}
           disabled={false}
           correct={false}
           incorrect={false}
@@ -52,8 +50,6 @@ const App = () => {
           type={'radio'}
           id={'text-id-3'}
           name={'radio-name'}
-          value={'The mouse rides a bike first'}
-          checked={false}
           disabled={false}
           correct={false}
           incorrect={false}
@@ -65,8 +61,6 @@ const App = () => {
           image={false}
           id={'msq-id-1'}
           name={'mcq-name'}
-          value={'The mouse rides a bikd'}
-          checked={true}
           disabled={false}
           correct={false}
           incorrect={false}
@@ -77,8 +71,6 @@ const App = () => {
           image={false}
           id={'msq-id-2'}
           name={'mcq-name'}
-          value={'The mouse rides a bikd'}
-          checked={true}
           disabled={false}
           correct={true}
           incorrect={false}
@@ -89,8 +81,6 @@ const App = () => {
           image={true}
           id={'msq-id-3'}
           name={'mcq-name'}
-          value={'The mouse rides a bikd'}
-          checked={true}
           disabled={false}
           correct={true}
           incorrect={false}
@@ -107,6 +97,10 @@ const App = () => {
         <br />
         <br />
         <InputText correct={false} incorrect={false} disabled={true} />
+        <br />
+        <br />
+        <ButtonSplit children={'My Split Button'} data={{ label: 'My Label', value: 'my-value' }} />
+        <SelectBox correct={false} incorrect={false} />
       </div>
     </>
   );

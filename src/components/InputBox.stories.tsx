@@ -24,29 +24,28 @@ Default.args = {
   type: 'checkbox',
   id: 'answer',
   name: 'input',
-  value: 'The mouse rides a bike',
+  isChecked: false,
   correct: false,
   incorrect: false,
-  checked: false,
   disabled: false,
   children: 'The mouse rides a bike',
 };
 
 Checked.args = {
   ...Default.args,
-  checked: true,
+  isChecked: true,
 };
 
 Correct.args = {
   ...Default.args,
-  checked: true,
+  isChecked: true,
   disabled: true,
   correct: true,
 };
 
 Incorrect.args = {
   ...Default.args,
-  checked: true,
+  isChecked: true,
   disabled: true,
   incorrect: true,
 };

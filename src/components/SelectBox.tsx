@@ -4,7 +4,7 @@ export type SelectBoxProp<T> = {
   correct: boolean;
   incorrect: boolean;
   disabled?: boolean;
-  data: { label: string; value: T };
+  data?: { label: string; value: T };
 };
 
 export function SelectBox<T>({ correct, incorrect, disabled, data }: SelectBoxProp<T>) {
@@ -31,7 +31,7 @@ export function SelectBox<T>({ correct, incorrect, disabled, data }: SelectBoxPr
   );
 }
 
-export function SelectBoxOptions({ data }) {
+function SelectBoxOptions({ data }) {
   return (
     <>
       {data.map((option, index) => (

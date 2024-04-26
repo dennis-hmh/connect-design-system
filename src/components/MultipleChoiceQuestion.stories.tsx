@@ -24,8 +24,6 @@ Default.args = {
   image: false,
   id: 'answer',
   name: 'mcq',
-  value: 'The mouse rides a bike',
-  checked: false,
   disabled: false,
   correct: false,
   incorrect: false,
@@ -34,19 +32,16 @@ Default.args = {
 
 Checked.args = {
   ...Default.args,
-  checked: true,
 };
 
 Correct.args = {
   ...Default.args,
-  checked: true,
   disabled: true,
   correct: true,
 };
 
 Incorrect.args = {
   ...Default.args,
-  checked: true,
   disabled: true,
   incorrect: true,
 };

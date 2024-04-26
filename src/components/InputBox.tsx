@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export type InputBoxProps = {
   type: 'checkbox' | 'radio';
   id: string;
   name: string;
-  value: string;
-  checked: boolean;
   disabled: boolean;
   correct: boolean;
   incorrect: boolean;
@@ -15,9 +13,7 @@ export type InputBoxProps = {
 export function InputBox({
   type,
   id,
-  value,
   name,
-  checked,
   disabled,
   correct,
   incorrect,
@@ -26,15 +22,17 @@ export function InputBox({
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
 
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <>
       <input
         type={type}
         id={id}
         className={`connect__input ${isCorrect} ${isIncorrect}`}
-        value={value}
         name={name}
-        defaultChecked={checked}
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e.target.checked)}
         disabled={disabled}
       />
       <label htmlFor={id}>{children}</label>

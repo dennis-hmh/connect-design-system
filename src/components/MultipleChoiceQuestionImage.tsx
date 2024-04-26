@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import imageSrc from '../assets/scss/images/zelda.jpeg';
 
-export type MultipleChoiceQuestionProp = {
+export type MultipleChoiceQuestionImageProp = {
   type: 'checkbox' | 'radio';
   image: boolean;
   id: string;
   name: string;
-  value: string;
-  checked: boolean;
   disabled: boolean;
   correct: boolean;
   incorrect: boolean;
@@ -19,15 +17,15 @@ export function MultipleChoiceQuestionImage({
   image,
   id,
   name,
-  value,
-  checked,
   disabled,
   correct,
   incorrect,
   children,
-}: MultipleChoiceQuestionProp) {
+}: MultipleChoiceQuestionImageProp) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
+
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <>
@@ -36,8 +34,8 @@ export function MultipleChoiceQuestionImage({
         id={id}
         className={`mcq connect__input ${isCorrect} ${isIncorrect}`}
         name={name}
-        value={value}
-        defaultChecked={checked}
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e.target.checked)}
         disabled={disabled}
       />
       <label htmlFor={id}>{image ? <img src={imageSrc} /> : children}</label>
