@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-type GapSizes = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type GapSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 interface GridProps {
-  children: ReactNode;
+  children: React.ReactNode;
   gap?: GapSizes;
   gutter?: boolean | GapSizes;
   className?: string;
@@ -14,11 +14,11 @@ interface GridProps {
 const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestId }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
-    xl: 'var(--connect-spacer-xl)',
-    lg: 'var(--connect-spacer-lg)',
-    md: 'var(--connect-spacer-md)',
-    sm: 'var(--connect-spacer-sm)',
     xs: 'var(--connect-spacer-xs)',
+    sm: 'var(--connect-spacer-sm)',
+    md: 'var(--connect-spacer-md)',
+    lg: 'var(--connect-spacer-lg)',
+    xl: 'var(--connect-spacer-xl)',
   };
 
   // If gap is not provided or the value is not defined in gapSizes, default to 'var(--grid-gap)'
@@ -28,11 +28,11 @@ const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestI
     gap: gridGap,
   };
 
-  const additionalClassName = gutter === true ? ' connect-gutter' : '';
+  const additionalClassName = gutter === true ? 'connect__grid-gutter' : '';
 
   return (
     <section
-      className={`${className || ''}${additionalClassName}`}
+      className={`${className || ''} connect__grid ${additionalClassName}`}
       style={styles}
       data-test-id={dataTestId}
     >

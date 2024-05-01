@@ -1,5 +1,5 @@
-import React, { ReactNode, ElementType } from 'react';
-import { Color } from '../utils/color';
+import React from 'react';
+import { Color } from '../utils/colors';
 
 type Size =
   | 'heading-xl'
@@ -13,8 +13,8 @@ type Size =
   | 'credits';
 
 interface TypographyProps {
-  children: ReactNode;
-  component?: ElementType;
+  children: React.ReactNode;
+  component?: React.ElementType;
   color?: Color;
   family?: 'default' | 'secondary';
   size?: Size;
@@ -41,34 +41,34 @@ const Typography: React.FC<TypographyProps> = ({
   className,
   dataTestId,
 }) => {
-  const styleProps: React.CSSProperties = {};
+  const typoProps: React.CSSProperties = {};
 
   if (color) {
     const colorVariable = `--connect__${color}`;
-    styleProps.color = `var(${colorVariable})`;
+    typoProps.color = `var(${colorVariable})`;
   }
 
   if (family) {
-    styleProps.fontFamily = `var(--font-family-${family})`;
+    typoProps.fontFamily = `var(--font-family-${family})`;
   }
   if (letterSpacing) {
-    styleProps.letterSpacing = `var(--letter-spacing-${letterSpacing})`;
+    typoProps.letterSpacing = `var(--letter-spacing-${letterSpacing})`;
   }
-  if (style) styleProps.fontStyle = style;
-  if (weight) styleProps.fontWeight = weight;
-  if (textAlign) styleProps.textAlign = textAlign;
-  if (textTransform) styleProps.textTransform = textTransform;
+  if (style) typoProps.fontStyle = style;
+  if (weight) typoProps.fontWeight = weight;
+  if (textAlign) typoProps.textAlign = textAlign;
+  if (textTransform) typoProps.textTransform = textTransform;
   if (size) {
-    styleProps.fontSize = `var(--connect-${size})`;
-    styleProps.lineHeight = `var(--connect-${size}-lheight)`;
+    typoProps.fontSize = `var(--connect-${size})`;
+    typoProps.lineHeight = `var(--connect-${size}-lheight)`;
   }
 
-  // Only add the style attribute if styleProps is not empty
-  const hasStyles = Object.keys(styleProps).length > 0;
+  // Only add the style attribute if typoProps is not empty
+  const hasStyles = Object.keys(typoProps).length > 0;
 
   return (
     <Component
-      {...(hasStyles ? { style: styleProps } : {})}
+      {...(hasStyles ? { style: typoProps } : {})}
       className={className}
       data-test={dataTestId}
     >

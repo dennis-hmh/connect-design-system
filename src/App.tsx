@@ -6,6 +6,10 @@ import { InputText } from './components/InputText';
 import { Card } from './components/Card';
 import { SelectBox } from './components/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit';
+import Grid from './components/Grid';
+import GridItem from './components/GridItem';
+import Stack from './components/Stack';
+import Typography from './components/Typography';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -102,6 +106,37 @@ const App = () => {
         <ButtonSplit children={'My Split Button'} data={{ label: 'My Label', value: 'my-value' }} />
         <SelectBox correct={false} incorrect={false} />
       </div>
+      <Grid className="connect__g45" gutter={true} gap="md">
+        <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+          <Stack>
+            <Typography component="h1">Grade k H1</Typography>
+            <Typography component="h2">h2</Typography>
+            <Typography component="h3">h3</Typography>
+            <Typography component="h4">h4</Typography>
+            <Typography component="p">I am a paragraph</Typography>
+            <Typography component="h2" size="heading-xl">
+              h2 styled as h1
+            </Typography>
+            <Typography component="h3" size="heading-lg">
+              h3 styled as h2
+            </Typography>
+            <Typography component="h4" size="heading-md">
+              h4 styled as h3
+            </Typography>
+            <Stack
+              lg={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
+              <Button primary={true} children={'Button'} />
+              <Button primary={false} children={'Button'} />
+            </Stack>
+          </Stack>
+        </GridItem>
+      </Grid>
     </>
   );
 };

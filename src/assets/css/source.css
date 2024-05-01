@@ -2,14 +2,14 @@
 .connect__gk {
   --border-radius: 1rem;
   --border-width: 0.25rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.625rem;
-  --heading-lg-lheight: 3rem;
-  --heading-md: 2.625rem;
-  --heading-md-lheight: 3rem;
-  --heading-sm: 2.375rem;
-  --heading-sm-lheight: 3rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.625rem;
+  --connect-heading-lg-lheight: 3rem;
+  --connect-heading-md: 2.625rem;
+  --connect-heading-md-lheight: 3rem;
+  --connect-heading-sm: 2.375rem;
+  --connect-heading-sm-lheight: 3rem;
   --body-lg: 2.375rem;
   --body-lg-lheight: 3rem;
   --body-lg-head-lheight: 3rem;
@@ -22,23 +22,23 @@
   --caption-lheight: 2.25rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 2.875rem;
-  --spacer-lg: 2.1875rem;
-  --spacer-md: 1.4375rem;
-  --spacer-sm: 0.75rem;
-  --spacer-xs: 0.375rem;
+  --connect-spacer-xl: 2.875rem;
+  --connect-spacer-lg: 2.1875rem;
+  --connect-spacer-md: 1.4375rem;
+  --connect-spacer-sm: 0.75rem;
+  --connect-spacer-xs: 0.375rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__gk {
-    --heading-xl: 3.75rem;
-    --heading-xl-lheight: 4.25rem;
-    --heading-lg: 3.375rem;
-    --heading-lg-lheight: 3.875rem;
-    --heading-md: 3.375rem;
-    --heading-md-lheight: 3.875rem;
-    --heading-sm: 3rem;
-    --heading-sm-lheight: 3.75rem;
+    --connect-heading-xl: 3.75rem;
+    --connect-heading-xl-lheight: 4.25rem;
+    --connect-heading-lg: 3.375rem;
+    --connect-heading-lg-lheight: 3.875rem;
+    --connect-heading-md: 3.375rem;
+    --connect-heading-md-lheight: 3.875rem;
+    --connect-heading-sm: 3rem;
+    --connect-heading-sm-lheight: 3.75rem;
     --body-lg: 3rem;
     --body-lg-lheight: 3.75rem;
     --body-lg-head-lheight: 3.75rem;
@@ -51,23 +51,23 @@
     --caption-lheight: 2.5rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 3.375rem;
-    --spacer-lg: 2.5625rem;
-    --spacer-md: 1.6875rem;
-    --spacer-sm: 0.875rem;
-    --spacer-xs: 0.4375rem;
+    --connect-spacer-xl: 3.375rem;
+    --connect-spacer-lg: 2.5625rem;
+    --connect-spacer-md: 1.6875rem;
+    --connect-spacer-sm: 0.875rem;
+    --connect-spacer-xs: 0.4375rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__gk {
-    --heading-xl: 5.75rem;
-    --heading-xl-lheight: 6.5rem;
-    --heading-lg: 4.75rem;
-    --heading-lg-lheight: 5.375rem;
-    --heading-md: 4.75rem;
-    --heading-md-lheight: 5.375rem;
-    --heading-sm: 4rem;
-    --heading-sm-lheight: 5rem;
+    --connect-heading-xl: 5.75rem;
+    --connect-heading-xl-lheight: 6.5rem;
+    --connect-heading-lg: 4.75rem;
+    --connect-heading-lg-lheight: 5.375rem;
+    --connect-heading-md: 4.75rem;
+    --connect-heading-md-lheight: 5.375rem;
+    --connect-heading-sm: 4rem;
+    --connect-heading-sm-lheight: 5rem;
     --body-lg: 4rem;
     --body-lg-lheight: 5rem;
     --body-lg-head-lheight: 5rem;
@@ -80,24 +80,24 @@
     --caption-lheight: 2.875rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 4.125rem;
-    --spacer-lg: 3.125rem;
-    --spacer-md: 2.0625rem;
-    --spacer-sm: 1.0625rem;
-    --spacer-xs: 0.5rem;
+    --connect-spacer-xl: 4.125rem;
+    --connect-spacer-lg: 3.125rem;
+    --connect-spacer-md: 2.0625rem;
+    --connect-spacer-sm: 1.0625rem;
+    --connect-spacer-xs: 0.5rem;
   }
 }
 .connect__g1 {
   --border-radius: 1rem;
   --border-width: 0.25rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.375rem;
-  --heading-lg-lheight: 3rem;
-  --heading-md: 2.125rem;
-  --heading-md-lheight: 2.625rem;
-  --heading-sm: 1.875rem;
-  --heading-sm-lheight: 2.375rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.375rem;
+  --connect-heading-lg-lheight: 3rem;
+  --connect-heading-md: 2.125rem;
+  --connect-heading-md-lheight: 2.625rem;
+  --connect-heading-sm: 1.875rem;
+  --connect-heading-sm-lheight: 2.375rem;
   --body-lg: 1.875rem;
   --body-lg-lheight: 2.875rem;
   --body-lg-head-lheight: 2.375rem;
@@ -110,23 +110,23 @@
   --caption-lheight: 2.125rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 2.5rem;
-  --spacer-lg: 1.875rem;
-  --spacer-md: 1.25rem;
-  --spacer-sm: 0.625rem;
-  --spacer-xs: 0.3125rem;
+  --connect-spacer-xl: 2.5rem;
+  --connect-spacer-lg: 1.875rem;
+  --connect-spacer-md: 1.25rem;
+  --connect-spacer-sm: 0.625rem;
+  --connect-spacer-xs: 0.3125rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__g1 {
-    --heading-xl: 3.75rem;
-    --heading-xl-lheight: 4.25rem;
-    --heading-lg: 3rem;
-    --heading-lg-lheight: 3.75rem;
-    --heading-md: 2.625rem;
-    --heading-md-lheight: 3.25rem;
-    --heading-sm: 2.25rem;
-    --heading-sm-lheight: 2.875rem;
+    --connect-heading-xl: 3.75rem;
+    --connect-heading-xl-lheight: 4.25rem;
+    --connect-heading-lg: 3rem;
+    --connect-heading-lg-lheight: 3.75rem;
+    --connect-heading-md: 2.625rem;
+    --connect-heading-md-lheight: 3.25rem;
+    --connect-heading-sm: 2.25rem;
+    --connect-heading-sm-lheight: 2.875rem;
     --body-lg: 2.25rem;
     --body-lg-lheight: 3.375rem;
     --body-lg-head-lheight: 2.875rem;
@@ -139,23 +139,23 @@
     --caption-lheight: 2.25rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.875rem;
-    --spacer-lg: 2.1875rem;
-    --spacer-md: 1.4375rem;
-    --spacer-sm: 0.75rem;
-    --spacer-xs: 0.375rem;
+    --connect-spacer-xl: 2.875rem;
+    --connect-spacer-lg: 2.1875rem;
+    --connect-spacer-md: 1.4375rem;
+    --connect-spacer-sm: 0.75rem;
+    --connect-spacer-xs: 0.375rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__g1 {
-    --heading-xl: 5.75rem;
-    --heading-xl-lheight: 6.5rem;
-    --heading-lg: 4rem;
-    --heading-lg-lheight: 5rem;
-    --heading-md: 3.25rem;
-    --heading-md-lheight: 4.125rem;
-    --heading-sm: 2.75rem;
-    --heading-sm-lheight: 3.5rem;
+    --connect-heading-xl: 5.75rem;
+    --connect-heading-xl-lheight: 6.5rem;
+    --connect-heading-lg: 4rem;
+    --connect-heading-lg-lheight: 5rem;
+    --connect-heading-md: 3.25rem;
+    --connect-heading-md-lheight: 4.125rem;
+    --connect-heading-sm: 2.75rem;
+    --connect-heading-sm-lheight: 3.5rem;
     --body-lg: 2.75rem;
     --body-lg-lheight: 4.125rem;
     --body-lg-head-lheight: 3.5rem;
@@ -168,24 +168,24 @@
     --caption-lheight: 2.625rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 3.375rem;
-    --spacer-lg: 2.5625rem;
-    --spacer-md: 1.6875rem;
-    --spacer-sm: 0.875rem;
-    --spacer-xs: 0.4375rem;
+    --connect-spacer-xl: 3.375rem;
+    --connect-spacer-lg: 2.5625rem;
+    --connect-spacer-md: 1.6875rem;
+    --connect-spacer-sm: 0.875rem;
+    --connect-spacer-xs: 0.4375rem;
   }
 }
 .connect__g23 {
   --border-radius: 1rem;
   --border-width: 0.25rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.375rem;
-  --heading-lg-lheight: 3rem;
-  --heading-md: 1.875rem;
-  --heading-md-lheight: 2.375rem;
-  --heading-sm: 1.875rem;
-  --heading-sm-lheight: 2.375rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.375rem;
+  --connect-heading-lg-lheight: 3rem;
+  --connect-heading-md: 1.875rem;
+  --connect-heading-md-lheight: 2.375rem;
+  --connect-heading-sm: 1.875rem;
+  --connect-heading-sm-lheight: 2.375rem;
   --body-lg: 1.5rem;
   --body-lg-lheight: 2.25rem;
   --body-lg-head-lheight: 1.875rem;
@@ -198,11 +198,11 @@
   --caption-lheight: 1.875rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 2.125rem;
-  --spacer-lg: 1.625rem;
-  --spacer-md: 1.0625rem;
-  --spacer-sm: 0.5625rem;
-  --spacer-xs: 0.25rem;
+  --connect-spacer-xl: 2.125rem;
+  --connect-spacer-lg: 1.625rem;
+  --connect-spacer-md: 1.0625rem;
+  --connect-spacer-sm: 0.5625rem;
+  --connect-spacer-xs: 0.25rem;
 
   --color-correct-bg: var(--connect__feedback-green-bg);
   --color-correct: var(--connect__feedback-green);
@@ -219,14 +219,14 @@
 
 @media (min-width: 40.625rem) {
   .connect__g23 {
-    --heading-xl: 3.75rem;
-    --heading-xl-lheight: 4.25rem;
-    --heading-lg: 3rem;
-    --heading-lg-lheight: 3.75rem;
-    --heading-md: 2.25rem;
-    --heading-md-lheight: 2.875rem;
-    --heading-sm: 2.25rem;
-    --heading-sm-lheight: 2.875rem;
+    --connect-heading-xl: 3.75rem;
+    --connect-heading-xl-lheight: 4.25rem;
+    --connect-heading-lg: 3rem;
+    --connect-heading-lg-lheight: 3.75rem;
+    --connect-heading-md: 2.25rem;
+    --connect-heading-md-lheight: 2.875rem;
+    --connect-heading-sm: 2.25rem;
+    --connect-heading-sm-lheight: 2.875rem;
     --body-lg: 1.625rem;
     --body-lg-lheight: 2.5rem;
     --body-lg-head-lheight: 2.125rem;
@@ -239,23 +239,23 @@
     --caption-lheight: 2rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.25rem;
-    --spacer-lg: 1.6875rem;
-    --spacer-md: 1.125rem;
-    --spacer-sm: 0.5625rem;
-    --spacer-xs: 0.3125rem;
+    --connect-spacer-xl: 2.25rem;
+    --connect-spacer-lg: 1.6875rem;
+    --connect-spacer-md: 1.125rem;
+    --connect-spacer-sm: 0.5625rem;
+    --connect-spacer-xs: 0.3125rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__g23 {
-    --heading-xl: 5.75rem;
-    --heading-xl-lheight: 6.5rem;
-    --heading-lg: 4rem;
-    --heading-lg-lheight: 5rem;
-    --heading-md: 2.75rem;
-    --heading-md-lheight: 3.5rem;
-    --heading-sm: 2.75rem;
-    --heading-sm-lheight: 3.5rem;
+    --connect-heading-xl: 5.75rem;
+    --connect-heading-xl-lheight: 6.5rem;
+    --connect-heading-lg: 4rem;
+    --connect-heading-lg-lheight: 5rem;
+    --connect-heading-md: 2.75rem;
+    --connect-heading-md-lheight: 3.5rem;
+    --connect-heading-sm: 2.75rem;
+    --connect-heading-sm-lheight: 3.5rem;
     --body-lg: 1.875rem;
     --body-lg-lheight: 2.875rem;
     --body-lg-head-lheight: 2.375rem;
@@ -268,24 +268,24 @@
     --caption-lheight: 2.125rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.625rem;
-    --spacer-lg: 2rem;
-    --spacer-md: 1.3125rem;
-    --spacer-sm: 0.6875rem;
-    --spacer-xs: 0.3125rem;
+    --connect-spacer-xl: 2.625rem;
+    --connect-spacer-lg: 2rem;
+    --connect-spacer-md: 1.3125rem;
+    --connect-spacer-sm: 0.6875rem;
+    --connect-spacer-xs: 0.3125rem;
   }
 }
 .connect__g45 {
   --border-radius: 0.75rem;
   --border-width: 0.1875rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.375rem;
-  --heading-lg-lheight: 3rem;
-  --heading-md: 2.125rem;
-  --heading-md-lheight: 2.625rem;
-  --heading-sm: 1.625rem;
-  --heading-sm-lheight: 2.125rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.375rem;
+  --connect-heading-lg-lheight: 3rem;
+  --connect-heading-md: 2.125rem;
+  --connect-heading-md-lheight: 2.625rem;
+  --connect-heading-sm: 1.625rem;
+  --connect-heading-sm-lheight: 2.125rem;
   --body-lg: 1.375rem;
   --body-lg-lheight: 2.125rem;
   --body-lg-head-lheight: 1.75rem;
@@ -298,11 +298,11 @@
   --caption-lheight: 1.875rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 2rem;
-  --spacer-lg: 1.5rem;
-  --spacer-md: 1rem;
-  --spacer-sm: 0.5rem;
-  --spacer-xs: 0.25rem;
+  --connect-spacer-xl: 2rem;
+  --connect-spacer-lg: 1.5rem;
+  --connect-spacer-md: 1rem;
+  --connect-spacer-sm: 0.5rem;
+  --connect-spacer-xs: 0.25rem;
 
   --color-correct-bg: var(--connect__feedback-green-bg);
   --color-correct: var(--connect__feedback-green);
@@ -319,14 +319,14 @@
 
 @media (min-width: 40.625rem) {
   .connect__g45 {
-    --heading-xl: 3.75rem;
-    --heading-xl-lheight: 4.25rem;
-    --heading-lg: 3rem;
-    --heading-lg-lheight: 3.75rem;
-    --heading-md: 2.625rem;
-    --heading-md-lheight: 3.25rem;
-    --heading-sm: 1.875rem;
-    --heading-sm-lheight: 2.375rem;
+    --connect-heading-xl: 3.75rem;
+    --connect-heading-xl-lheight: 4.25rem;
+    --connect-heading-lg: 3rem;
+    --connect-heading-lg-lheight: 3.75rem;
+    --connect-heading-md: 2.625rem;
+    --connect-heading-md-lheight: 3.25rem;
+    --connect-heading-sm: 1.875rem;
+    --connect-heading-sm-lheight: 2.375rem;
     --body-lg: 1.5rem;
     --body-lg-lheight: 2.25rem;
     --body-lg-head-lheight: 1.875rem;
@@ -339,23 +339,23 @@
     --caption-lheight: 1.875rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.125rem;
-    --spacer-lg: 1.625rem;
-    --spacer-md: 1.0625rem;
-    --spacer-sm: 0.5625rem;
-    --spacer-xs: 0.25rem;
+    --connect-spacer-xl: 2.125rem;
+    --connect-spacer-lg: 1.625rem;
+    --connect-spacer-md: 1.0625rem;
+    --connect-spacer-sm: 0.5625rem;
+    --connect-spacer-xs: 0.25rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__g45 {
-    --heading-xl: 5.75rem;
-    --heading-xl-lheight: 6.5rem;
-    --heading-lg: 4rem;
-    --heading-lg-lheight: 5rem;
-    --heading-md: 3.25rem;
-    --heading-md-lheight: 4.125rem;
-    --heading-sm: 2.25rem;
-    --heading-sm-lheight: 2.875rem;
+    --connect-heading-xl: 5.75rem;
+    --connect-heading-xl-lheight: 6.5rem;
+    --connect-heading-lg: 4rem;
+    --connect-heading-lg-lheight: 5rem;
+    --connect-heading-md: 3.25rem;
+    --connect-heading-md-lheight: 4.125rem;
+    --connect-heading-sm: 2.25rem;
+    --connect-heading-sm-lheight: 2.875rem;
     --body-lg: 1.6875rem;
     --body-lg-lheight: 2.625rem;
     --body-lg-head-lheight: 2.125rem;
@@ -368,24 +368,24 @@
     --caption-lheight: 1.875rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.25rem;
-    --spacer-lg: 1.6875rem;
-    --spacer-md: 1.125rem;
-    --spacer-sm: 0.5625rem;
-    --spacer-xs: 0.3125rem;
+    --connect-spacer-xl: 2.25rem;
+    --connect-spacer-lg: 1.6875rem;
+    --connect-spacer-md: 1.125rem;
+    --connect-spacer-sm: 0.5625rem;
+    --connect-spacer-xs: 0.3125rem;
   }
 }
 .connect__g68 {
   --border-radius: 0.375rem;
   --border-width: 0.125rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.375rem;
-  --heading-lg-lheight: 3rem;
-  --heading-md: 1.875rem;
-  --heading-md-lheight: 2.375rem;
-  --heading-sm: 1.5rem;
-  --heading-sm-lheight: 1.875rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.375rem;
+  --connect-heading-lg-lheight: 3rem;
+  --connect-heading-md: 1.875rem;
+  --connect-heading-md-lheight: 2.375rem;
+  --connect-heading-sm: 1.5rem;
+  --connect-heading-sm-lheight: 1.875rem;
   --body-lg: 1.3125rem;
   --body-lg-lheight: 2rem;
   --body-lg-head-lheight: 2rem;
@@ -398,23 +398,23 @@
   --caption-lheight: 1.625rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 1.875rem;
-  --spacer-lg: 1.4375rem;
-  --spacer-md: 0.9375rem;
-  --spacer-sm: 0.5rem;
-  --spacer-xs: 0.25rem;
+  --connect-spacer-xl: 1.875rem;
+  --connect-spacer-lg: 1.4375rem;
+  --connect-spacer-md: 0.9375rem;
+  --connect-spacer-sm: 0.5rem;
+  --connect-spacer-xs: 0.25rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__g68 {
-    --heading-xl: 3.75rem;
-    --heading-xl-lheight: 4.25rem;
-    --heading-lg: 3rem;
-    --heading-lg-lheight: 3.75rem;
-    --heading-md: 2.25rem;
-    --heading-md-lheight: 2.875rem;
-    --heading-sm: 1.625rem;
-    --heading-sm-lheight: 2.125rem;
+    --connect-heading-xl: 3.75rem;
+    --connect-heading-xl-lheight: 4.25rem;
+    --connect-heading-lg: 3rem;
+    --connect-heading-lg-lheight: 3.75rem;
+    --connect-heading-md: 2.25rem;
+    --connect-heading-md-lheight: 2.875rem;
+    --connect-heading-sm: 1.625rem;
+    --connect-heading-sm-lheight: 2.125rem;
     --body-lg: 1.375rem;
     --body-lg-lheight: 2.125rem;
     --body-lg-head-lheight: 2.125rem;
@@ -427,23 +427,23 @@
     --caption-lheight: 1.75rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2rem;
-    --spacer-lg: 1.5rem;
-    --spacer-md: 1rem;
-    --spacer-sm: 0.5rem;
-    --spacer-xs: 0.25rem;
+    --connect-spacer-xl: 2rem;
+    --connect-spacer-lg: 1.5rem;
+    --connect-spacer-md: 1rem;
+    --connect-spacer-sm: 0.5rem;
+    --connect-spacer-xs: 0.25rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__g68 {
-    --heading-xl: 5.75rem;
-    --heading-xl-lheight: 6.5rem;
-    --heading-lg: 4rem;
-    --heading-lg-lheight: 5rem;
-    --heading-md: 2.75rem;
-    --heading-md-lheight: 3.5rem;
-    --heading-sm: 1.875rem;
-    --heading-sm-lheight: 2.375rem;
+    --connect-heading-xl: 5.75rem;
+    --connect-heading-xl-lheight: 6.5rem;
+    --connect-heading-lg: 4rem;
+    --connect-heading-lg-lheight: 5rem;
+    --connect-heading-md: 2.75rem;
+    --connect-heading-md-lheight: 3.5rem;
+    --connect-heading-sm: 1.875rem;
+    --connect-heading-sm-lheight: 2.375rem;
     --body-lg: 1.5rem;
     --body-lg-lheight: 2.25rem;
     --body-lg-head-lheight: 2.25rem;
@@ -456,24 +456,24 @@
     --caption-lheight: 1.75rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 2.125rem;
-    --spacer-lg: 1.625rem;
-    --spacer-md: 1.0625rem;
-    --spacer-sm: 0.5625rem;
-    --spacer-xs: 0.25rem;
+    --connect-spacer-xl: 2.125rem;
+    --connect-spacer-lg: 1.625rem;
+    --connect-spacer-md: 1.0625rem;
+    --connect-spacer-sm: 0.5625rem;
+    --connect-spacer-xs: 0.25rem;
   }
 }
 .connect__g912 {
   --border-radius: 0.375rem;
   --border-width: 0.125rem;
-  --heading-xl: 2.625rem;
-  --heading-xl-lheight: 3rem;
-  --heading-lg: 2.125rem;
-  --heading-lg-lheight: 2.625rem;
-  --heading-md: 1.875rem;
-  --heading-md-lheight: 2.375rem;
-  --heading-sm: 1.5rem;
-  --heading-sm-lheight: 1.875rem;
+  --connect-heading-xl: 2.625rem;
+  --connect-heading-xl-lheight: 3rem;
+  --connect-heading-lg: 2.125rem;
+  --connect-heading-lg-lheight: 2.625rem;
+  --connect-heading-md: 1.875rem;
+  --connect-heading-md-lheight: 2.375rem;
+  --connect-heading-sm: 1.5rem;
+  --connect-heading-sm-lheight: 1.875rem;
   --body-lg: 1.3125rem;
   --body-lg-lheight: 2rem;
   --body-lg-head-lheight: 2rem;
@@ -486,23 +486,23 @@
   --caption-lheight: 1.5rem;
   --credits: 0.875rem;
   --credits-lheight: 1.375rem;
-  --spacer-xl: 1.875rem;
-  --spacer-lg: 1.4375rem;
-  --spacer-md: 0.9375rem;
-  --spacer-sm: 0.5rem;
-  --spacer-xs: 0.25rem;
+  --connect-spacer-xl: 1.875rem;
+  --connect-spacer-lg: 1.4375rem;
+  --connect-spacer-md: 0.9375rem;
+  --connect-spacer-sm: 0.5rem;
+  --connect-spacer-xs: 0.25rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__g912 {
-    --heading-xl: 3.375rem;
-    --heading-xl-lheight: 3.875rem;
-    --heading-lg: 2.625rem;
-    --heading-lg-lheight: 3.25rem;
-    --heading-md: 2.25rem;
-    --heading-md-lheight: 2.875rem;
-    --heading-sm: 1.625rem;
-    --heading-sm-lheight: 2.125rem;
+    --connect-heading-xl: 3.375rem;
+    --connect-heading-xl-lheight: 3.875rem;
+    --connect-heading-lg: 2.625rem;
+    --connect-heading-lg-lheight: 3.25rem;
+    --connect-heading-md: 2.25rem;
+    --connect-heading-md-lheight: 2.875rem;
+    --connect-heading-sm: 1.625rem;
+    --connect-heading-sm-lheight: 2.125rem;
     --body-lg: 1.375rem;
     --body-lg-lheight: 2.125rem;
     --body-lg-head-lheight: 2.125rem;
@@ -515,23 +515,23 @@
     --caption-lheight: 1.5rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 1.875rem;
-    --spacer-lg: 1.4375rem;
-    --spacer-md: 0.9375rem;
-    --spacer-sm: 0.5rem;
-    --spacer-xs: 0.25rem;
+    --connect-spacer-xl: 1.875rem;
+    --connect-spacer-lg: 1.4375rem;
+    --connect-spacer-md: 0.9375rem;
+    --connect-spacer-sm: 0.5rem;
+    --connect-spacer-xs: 0.25rem;
   }
 }
 @media (min-width: 80rem) {
   .connect__g912 {
-    --heading-xl: 4.75rem;
-    --heading-xl-lheight: 5.375rem;
-    --heading-lg: 3.25rem;
-    --heading-lg-lheight: 4.125rem;
-    --heading-md: 2.75rem;
-    --heading-md-lheight: 3.5rem;
-    --heading-sm: 1.875rem;
-    --heading-sm-lheight: 2.375rem;
+    --connect-heading-xl: 4.75rem;
+    --connect-heading-xl-lheight: 5.375rem;
+    --connect-heading-lg: 3.25rem;
+    --connect-heading-lg-lheight: 4.125rem;
+    --connect-heading-md: 2.75rem;
+    --connect-heading-md-lheight: 3.5rem;
+    --connect-heading-sm: 1.875rem;
+    --connect-heading-sm-lheight: 2.375rem;
     --body-lg: 1.5rem;
     --body-lg-lheight: 2.25rem;
     --body-lg-head-lheight: 2.25rem;
@@ -544,11 +544,11 @@
     --caption-lheight: 1.5rem;
     --credits: 0.875rem;
     --credits-lheight: 1.375rem;
-    --spacer-xl: 1.875rem;
-    --spacer-lg: 1.4375rem;
-    --spacer-md: 0.9375rem;
-    --spacer-sm: 0.5rem;
-    --spacer-xs: 0.25rem;
+    --connect-spacer-xl: 1.875rem;
+    --connect-spacer-lg: 1.4375rem;
+    --connect-spacer-md: 0.9375rem;
+    --connect-spacer-sm: 0.5rem;
+    --connect-spacer-xs: 0.25rem;
   }
 }
 :root {
@@ -560,6 +560,7 @@
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
+  --gutter-width: 1rem;
   --connect__text-color: var(--connect__gray-c70);
   --connect__yellow-c70: rgb(68, 56, 8);
   --connect__yellow-c65: rgb(94, 77, 8);
@@ -1016,6 +1017,58 @@
   --connect__feedback-green-border: rgb(0, 161, 0);
   --connect__feedback-red: rgb(243, 0, 0);
   --connect__feedback-red-bg: rgba(255, 214, 212, 1);
+
+  font-family: var(--connect__font-sans);
+}
+
+:root {
+  --base-fontsize: 1.3125rem;
+  --col-width: calc((100vw - 2rem) / 12);
+  /* Common across statics and interactions */
+  --base-lheight: 2rem;
+  --half-lheight: 1rem;
+  --quart-lheight: 0.5rem;
+  --eighth-lheight: 0.25rem;
+  --base-fontsize: 1.3125rem;
+  --col-width: calc((100vw - 2rem) / 12);
+  --gutter-width: 1rem;
+  --ui-button: 2rem;
+  --ui-icon: 1.25rem;
+}
+@media (min-width: 40.625rem) {
+  :root {
+    --base-fontsize: 1.375rem;
+    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
+    --base-lheight: 2.125rem;
+    --half-lheight: 1.0625rem;
+    --quart-lheight: 0.5625rem;
+    --eighth-lheight: 0.25rem;
+    --base-fontsize: 1.375rem;
+    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
+    --gutter-width: Max(calc(4.875rem - var(--half-lheight)), calc((100vw - 80rem) / 2));
+    --ui-button: 2rem;
+    --ui-icon: 1.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  :root {
+    --base-fontsize: 1.5rem;
+    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
+    --base-lheight: 2.25rem;
+    --half-lheight: 1.125rem;
+    --quart-lheight: 0.5625rem;
+    --eighth-lheight: 0.3125rem;
+    --body-lg: 1.6875rem;
+    --body-md: 1.5rem;
+    --body-sm: 1.375rem;
+    --caption: 1.25rem;
+    --body-lg-lheight: 2.625rem;
+    --body-md-lheight: 2.25rem;
+    --body-sm-lheight: 2.125rem;
+    --caption-lheight: 1.875rem;
+    --body-lg-head-lheight: 2.125rem;
+    --body-md-head-lheight: 2.25rem;
+  }
 }
 
 .connect__gk,
@@ -1031,54 +1084,65 @@
   font-size-adjust: ex-height 0.486;
 }
 
+h1,
 .connect__h1 {
-  margin-top: calc(var(--spacer-xl) * 3);
-  font-size: var(--heading-xl);
-  line-height: var(--heading-xl-lheight);
+  margin-top: calc(var(--connect-spacer-xl) * 3);
+  font-size: var(--connect-heading-xl);
+  line-height: var(--connect-heading-xl-lheight);
 }
 
+h2,
 .connect__h2 {
-  margin-top: calc(var(--spacer-xl) * 2 + var(--spacer-md));
-  font-size: var(--heading-lg);
-  line-height: var(--heading-lg-lheight);
+  margin-top: calc(var(--connect-spacer-xl) * 2 + var(--connect-spacer-md));
+  font-size: var(--connect-heading-lg);
+  line-height: var(--connect-heading-lg-lheight);
 }
 
+h3,
 .connect__h3 {
-  margin-top: calc(var(--spacer-xl) * 2);
-  font-size: var(--heading-md);
-  line-height: var(--heading-md-lheight);
+  margin-top: calc(var(--connect-spacer-xl) * 2);
+  font-size: var(--connect-heading-md);
+  line-height: var(--connect-heading-md-lheight);
 }
 
+h4,
 .connect__h4 {
-  margin-top: calc(var(--spacer-xl) + var(--spacer-md));
-  font-size: var(--heading-sm);
-  line-height: var(--heading-sm-lheight);
+  margin-top: calc(var(--connect-spacer-xl) + var(--connect-spacer-md));
+  font-size: var(--connect-heading-sm);
+  line-height: var(--connect-heading-sm-lheight);
 }
 
+h5,
 .connect__h5 {
-  margin-top: var(--spacer-xl);
+  margin-top: var(--connect-spacer-xl);
   font-size: var(--body-lg);
   line-height: var(--body-lg-head-lheight);
 }
 
+h6,
 .connect__h6 {
-  margin-top: var(--spacer-md);
+  margin-top: var(--connect-spacer-md);
   font-size: var(--body-md);
   line-height: var(--body-md-head-lheight);
 }
 
-.connect__p,
-.connect__li {
-  font-size: var(--body-md);
-  line-height: var(--body-md-lheight);
-}
-
+p,
+ol,
+ul,
 .connect__p,
 .connect__ol,
 .connect__ul {
-  margin-top: var(--spacer-md);
+  font-size: var(--body-md);
+  line-height: var(--body-md-lheight);
+  margin-top: var(--connect-spacer-md);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .connect__h1,
 .connect__h2,
 .connect__h3,
