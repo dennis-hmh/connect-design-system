@@ -61,7 +61,7 @@ const GridItem: React.FC<GridItemProps> = ({
   });
 
   // Construct the class string based on the breakpoints provided
-  const classes = `grid-item ${className || ''} ${Object.keys(breakpoints)
+  const classes = `connect__grid-item ${className || ''} ${Object.keys(breakpoints)
     .filter((bp) => breakpoints[bp])
     .map((bp) => `connect-${bp}`)
     .join(' ')}`;

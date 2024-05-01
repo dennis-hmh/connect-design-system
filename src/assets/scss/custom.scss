@@ -1209,7 +1209,7 @@ select.connect__select {
 //   }
 // }
 
-section {
+section.connect__grid {
   --default-grid-gap: var(--connect-spacer-xl);
   -webkit-font-smoothing: antialiased;
   grid-template-columns: repeat(12, 1fr);
@@ -1220,12 +1220,12 @@ section {
   grid-auto-rows: auto;
   align-content: start;
 
-  &.connect-gutter {
+  &.connect__grid-gutter {
     padding: calc(var(--connect-spacer-xl) * 2) var(--gutter-width);
   }
 }
 
-.grid-item {
+.connect__grid-item {
   grid-column: var(--start-col, 1) / span var(--span-col, 12);
   grid-row: var(--xs-row-span, auto);
 }
@@ -1258,7 +1258,7 @@ section {
   }
 }
 
-.connect-stack {
+.connect__stack {
   --connect-stack-spacing: var(--xs-spacing);
   --connect-stack-direction: var(--xs-direction);
   --connect-stack-align: var(--xs-alignItems);

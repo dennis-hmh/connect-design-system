@@ -28,11 +28,11 @@ const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestI
     gap: gridGap,
   };
 
-  const additionalClassName = gutter === true ? 'connect-gutter' : '';
+  const additionalClassName = gutter === true ? 'connect__grid-gutter' : '';
 
   return (
     <section
-      className={`${className || ''}${additionalClassName}`}
+      className={`${className || ''} connect__grid ${additionalClassName}`}
       style={styles}
       data-test-id={dataTestId}
     >
