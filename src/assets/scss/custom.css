@@ -315,9 +315,6 @@ input[type=radio].connect__input + label::before {
   margin-right: var(--connect-spacer-md);
   border-radius: calc(var(--border-radius) - var(--connect-spacer-sm));
   box-shadow: 0 0 0 var(--border-width) white, 0 0 0 calc(var(--border-width) * 2) var(--color-action-default);
-  height: calc(var(--spacer-xl) - var(--border-width) * 2);
-  margin-left: var(--spacer-sm);
-  margin-right: var(--spacer-md);
   min-width: calc(var(--spacer-xl) - var(--border-width) * 2);
 }
 input[type=checkbox].connect__input:not(:disabled) + label,
@@ -349,14 +346,14 @@ input[type=checkbox].connect__input:disabled + label,
 input[type=radio].connect__input:disabled + label {
   --shadow-outer: var(--shadow-flat);
 }
-input[type=checkbox].connect__input-correct + label,
-input[type=radio].connect__input-correct + label {
+input[type=checkbox].connect__input.connect__input-correct + label,
+input[type=radio].connect__input.connect__input-correct + label {
   --shadow-inner: var(--shadow-correct);
   background-color: var(--color-correct-bg, white);
   --status-icon: var(--icon-correct);
 }
-input[type=checkbox].connect__input-correct + label::after,
-input[type=radio].connect__input-correct + label::after {
+input[type=checkbox].connect__input.connect__input-correct + label::after,
+input[type=radio].connect__input.connect__input-correct + label::after {
   background: var(--status-icon) no-repeat center left;
   background-size: contain;
   content: "";
@@ -367,14 +364,14 @@ input[type=radio].connect__input-correct + label::after {
   top: calc(var(--icon-width) * -0.5 / 2);
   right: calc(var(--icon-width) * -0.5);
 }
-input[type=checkbox].connect__input-incorrect + label,
-input[type=radio].connect__input-incorrect + label {
+input[type=checkbox].connect__input.connect__input-incorrect + label,
+input[type=radio].connect__input.connect__input-incorrect + label {
   --shadow-inner: var(--shadow-incorrect);
   background-color: var(--color-incorrect-bg, white);
   --status-icon: var(--icon-incorrect);
 }
-input[type=checkbox].connect__input-incorrect + label::after,
-input[type=radio].connect__input-incorrect + label::after {
+input[type=checkbox].connect__input.connect__input-incorrect + label::after,
+input[type=radio].connect__input.connect__input-incorrect + label::after {
   background: var(--status-icon) no-repeat center left;
   background-size: contain;
   content: "";

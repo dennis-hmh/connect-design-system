@@ -505,9 +505,6 @@ input[type='radio'].connect__input {
       box-shadow:
         0 0 0 var(--border-width) white,
         0 0 0 calc(var(--border-width) * 2) var(--color-action-default);
-      height: calc(var(--spacer-xl) - var(--border-width) * 2);
-      margin-left: var(--spacer-sm);
-      margin-right: var(--spacer-md);
       min-width: calc(var(--spacer-xl) - var(--border-width) * 2);
     }
   }
@@ -545,7 +542,7 @@ input[type='radio'].connect__input {
     }
   }
 
-  &-correct {
+  &.connect__input-correct {
     + label {
       --shadow-inner: var(--shadow-correct);
       background-color: var(--color-correct-bg, white);
@@ -564,7 +561,7 @@ input[type='radio'].connect__input {
       }
     }
   }
-  &-incorrect {
+  &.connect__input-incorrect {
     + label {
       --shadow-inner: var(--shadow-incorrect);
       background-color: var(--color-incorrect-bg, white);

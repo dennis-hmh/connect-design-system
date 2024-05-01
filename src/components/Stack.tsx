@@ -20,11 +20,7 @@ interface StackProps {
 }
 
 const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, dataTestId }) => {
-<<<<<<< HEAD
-  const style: CSSProperties = {};
-=======
   const style: React.CSSProperties = {};
->>>>>>> andrew
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
 
