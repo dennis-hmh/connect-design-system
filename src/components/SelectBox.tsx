@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
-export type SelectBoxProp<T> = {
-  correct: boolean;
-  incorrect: boolean;
+type SelectBoxProp<T> = {
+  data: { label: string; value: T }[];
+  correct?: boolean;
+  incorrect?: boolean;
   disabled?: boolean;
-  data?: { label: string; value: T };
 };
 
-export function SelectBox<T>({ correct, incorrect, disabled, data }: SelectBoxProp<T>) {
-  const isCorrect = correct ? 'connect__select-correct' : '';
-  const isIncorrect = incorrect ? 'connect__select-incorrect' : '';
+export function SelectBox<T>({ data, correct, incorrect, disabled }: SelectBoxProp<T>) {
+  const [select, setSelect] = useState('');
 
-  const [value, setValue] = useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setSelect(event.target.value);
   };
+
+  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}`;
 
   return (
     <label>
       <select
-        className={`connect__select ${isCorrect} ${isIncorrect}`}
-        defaultValue={value}
+        className={selectClasses}
+        value={select}
+        aria-label="Select Item"
         onChange={handleChange}
         disabled={disabled}
       >
@@ -31,11 +31,11 @@ export function SelectBox<T>({ correct, incorrect, disabled, data }: SelectBoxPr
   );
 }
 
-function SelectBoxOptions({ data }) {
+function SelectBoxOptions<T>({ data }: { data: { label: string; value: T }[] }) {
   return (
     <>
       {data.map((option, index) => (
-        <option key={option.value + index} value={option.value}>
+        <option key={index} value={String(option.value)}>
           {option.label}
         </option>
       ))}

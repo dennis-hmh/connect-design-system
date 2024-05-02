@@ -103,8 +103,21 @@ const App = () => {
         <InputText correct={false} incorrect={false} disabled={true} />
         <br />
         <br />
-        <ButtonSplit children={'My Split Button'} data={{ label: 'My Label', value: 'my-value' }} />
-        <SelectBox correct={false} incorrect={false} />
+        <ButtonSplit
+          children={'My Split Button'}
+          data={[
+            { label: 'My First Label', value: 'my-first-value' },
+            { label: 'My Second Label', value: 'my-second-value' },
+            { label: 'My Third Label', value: 'my-third-value' },
+          ]}
+        />
+        <SelectBox
+          data={[
+            { label: 'My First Label', value: 'my-first-value' },
+            { label: 'My Second Label', value: 'my-second-value' },
+            { label: 'My Third Label', value: 'my-third-value' },
+          ]}
+        />
       </div>
       <Grid className="connect__g45" gutter={true} gap="md">
         <GridItem lg={{ startCol: 1, spanCol: 6 }}>

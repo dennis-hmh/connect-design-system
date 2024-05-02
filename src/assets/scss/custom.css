@@ -315,7 +315,7 @@ input[type=radio].connect__input + label::before {
   margin-right: var(--connect-spacer-md);
   border-radius: calc(var(--border-radius) - var(--connect-spacer-sm));
   box-shadow: 0 0 0 var(--border-width) white, 0 0 0 calc(var(--border-width) * 2) var(--color-action-default);
-  min-width: calc(var(--spacer-xl) - var(--border-width) * 2);
+  min-width: calc(var(--connect-spacer-xl) - var(--border-width) * 2);
 }
 input[type=checkbox].connect__input:not(:disabled) + label,
 input[type=radio].connect__input:not(:disabled) + label {

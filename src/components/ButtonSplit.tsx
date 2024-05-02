@@ -1,27 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
 
 export type ButtonSplitProps<T> = {
   children: React.ReactNode;
-  data: { label: string; value: T };
+  data: { label: string; value: T }[];
   disabled?: boolean;
 };
 
 export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>) {
   const [open, setOpen] = useState(false);
+  const drop = useRef<HTMLDivElement>(null);
 
-  const drop = useRef<HTMLInputElement | null>(null);
-  function handleClick(e) {
-    if (!e.target.closest(`.${drop.current?.className}`) && open) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (drop.current && !drop.current.contains(event.target as Node) && open) {
       setOpen(false);
     }
-  }
-  useEffect(() => {
-    document.addEventListener('click', handleClick);
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  });
+  };
 
+  const handleToggle = () => setOpen(!open);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleToggle();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [open]);
   return (
     <div className={`connect__button-split`} ref={drop}>
       <button type="button" className={``} disabled={disabled}>
@@ -31,7 +39,10 @@ export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>
         type="button"
         className={``}
         disabled={disabled}
-        onClick={() => setOpen((open) => !open)}
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={handleToggle}
+        onKeyDown={handleKeyDown}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
           <path
@@ -45,12 +56,14 @@ export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>
   );
 }
 
-export function ButtonSplitMenu({ data }) {
+function ButtonSplitMenu<T>({ data }: { data: { label: string; value: T }[] }) {
   return (
-    <ul>
-      {data.map((item, index) => (
-        <li key={item.label + index}>{item.value}</li>
-      ))}
-    </ul>
+    <>
+      <ul role="menu">
+        {data.map((option) => (
+          <li role="menuitem">{option.label}</li>
+        ))}
+      </ul>
+    </>
   );
 }

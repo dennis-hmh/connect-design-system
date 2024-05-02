@@ -237,6 +237,7 @@ button.connect__button {
     }
 
     + ul {
+      background-color: white;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
       color: var(--color-text);
@@ -505,7 +506,7 @@ input[type='radio'].connect__input {
       box-shadow:
         0 0 0 var(--border-width) white,
         0 0 0 calc(var(--border-width) * 2) var(--color-action-default);
-      min-width: calc(var(--spacer-xl) - var(--border-width) * 2);
+      min-width: calc(var(--connect-spacer-xl) - var(--border-width) * 2);
     }
   }
 
