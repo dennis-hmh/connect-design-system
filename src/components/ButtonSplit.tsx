@@ -4,9 +4,10 @@ export type ButtonSplitProps<T> = {
   children: React.ReactNode;
   data: { label: string; value: T }[];
   disabled?: boolean;
+  dataTestId?: string;
 };
 
-export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>) {
+export function ButtonSplit<T>({ children, disabled, data, dataTestId }: ButtonSplitProps<T>) {
   const [open, setOpen] = useState(false);
   const drop = useRef<HTMLDivElement>(null);
 
@@ -30,8 +31,9 @@ export function ButtonSplit<T>({ children, disabled, data }: ButtonSplitProps<T>
       document.removeEventListener('click', handleClickOutside);
     };
   }, [open]);
+
   return (
-    <div className={`connect__button-split`} ref={drop}>
+    <div className={`connect__button-split`} ref={drop} data-testid={dataTestId}>
       <button type="button" className={``} disabled={disabled}>
         {children}
       </button>

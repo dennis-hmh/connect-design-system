@@ -54,7 +54,7 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
   const classes = `connect__stack ${className || ''} ${breakpointClasses}`;
 
   return (
-    <div className={classes} style={style} data-test={dataTestId}>
+    <div className={classes} style={style} data-testid={dataTestId}>
       {children}
     </div>
   );

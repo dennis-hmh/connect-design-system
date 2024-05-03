@@ -4,20 +4,22 @@ export type InputBoxProps = {
   type: 'checkbox' | 'radio';
   id: string;
   name: string;
-  disabled: boolean;
-  correct: boolean;
-  incorrect: boolean;
   children: React.ReactNode;
+  disabled?: boolean;
+  correct?: boolean;
+  incorrect?: boolean;
+  dataTestId?: string;
 };
 
 export function InputBox({
   type,
   id,
   name,
+  children,
   disabled,
   correct,
   incorrect,
-  children,
+  dataTestId,
 }: InputBoxProps) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
@@ -34,6 +36,7 @@ export function InputBox({
         checked={isChecked}
         onChange={(e) => setIsChecked(e.target.checked)}
         disabled={disabled}
+        data-testid={dataTestId}
       />
       <label htmlFor={id}>{children}</label>
     </>

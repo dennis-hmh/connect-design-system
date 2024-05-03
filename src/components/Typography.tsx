@@ -70,7 +70,7 @@ const Typography: React.FC<TypographyProps> = ({
     <Component
       {...(hasStyles ? { style: typoProps } : {})}
       className={className}
-      data-test={dataTestId}
+      data-testid={dataTestId}
     >
       {children}
     </Component>

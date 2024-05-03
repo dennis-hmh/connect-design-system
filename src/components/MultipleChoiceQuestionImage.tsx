@@ -6,10 +6,11 @@ export type MultipleChoiceQuestionImageProp = {
   image: boolean;
   id: string;
   name: string;
-  disabled: boolean;
-  correct: boolean;
-  incorrect: boolean;
   children: React.ReactNode;
+  disabled?: boolean;
+  correct?: boolean;
+  incorrect?: boolean;
+  dataTestId?: string;
 };
 
 export function MultipleChoiceQuestionImage({
@@ -17,10 +18,11 @@ export function MultipleChoiceQuestionImage({
   image,
   id,
   name,
+  children,
   disabled,
   correct,
   incorrect,
-  children,
+  dataTestId,
 }: MultipleChoiceQuestionImageProp) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
@@ -37,6 +39,7 @@ export function MultipleChoiceQuestionImage({
         checked={isChecked}
         onChange={(e) => setIsChecked(e.target.checked)}
         disabled={disabled}
+        data-testid={dataTestId}
       />
       <label htmlFor={id}>{image ? <img src={imageSrc} /> : children}</label>
     </>

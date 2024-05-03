@@ -6,9 +6,10 @@ export type InputTextProps = {
   incorrect: boolean;
   number?: boolean;
   disabled?: boolean;
+  dataTestId?: string;
 };
 
-export function InputText({ correct, incorrect, number, disabled }: InputTextProps) {
+export function InputText({ correct, incorrect, number, disabled, dataTestId }: InputTextProps) {
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
   const isNumber = number ? 'number' : 'text';
@@ -23,6 +24,7 @@ export function InputText({ correct, incorrect, number, disabled }: InputTextPro
         disabled={disabled}
         value={text}
         onChange={(e) => setText(e.target.value)}
+        data-testid={dataTestId}
       />
     </label>
   );

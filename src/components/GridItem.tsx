@@ -68,7 +68,7 @@ const GridItem: React.FC<GridItemProps> = ({
 
   // Wrap children in a div and apply the styles and class
   return (
-    <div className={classes} style={style} data-test={dataTestId}>
+    <div className={classes} style={style} data-testid={dataTestId}>
       {children}
     </div>
   );

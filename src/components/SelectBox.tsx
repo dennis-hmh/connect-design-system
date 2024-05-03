@@ -5,9 +5,10 @@ type SelectBoxProp<T> = {
   correct?: boolean;
   incorrect?: boolean;
   disabled?: boolean;
+  dataTestId?: string;
 };
 
-export function SelectBox<T>({ data, correct, incorrect, disabled }: SelectBoxProp<T>) {
+export function SelectBox<T>({ data, correct, incorrect, disabled, dataTestId }: SelectBoxProp<T>) {
   const [select, setSelect] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -24,6 +25,7 @@ export function SelectBox<T>({ data, correct, incorrect, disabled }: SelectBoxPr
         aria-label="Select Item"
         onChange={handleChange}
         disabled={disabled}
+        data-testid={dataTestId}
       >
         <SelectBoxOptions data={data} />
       </select>

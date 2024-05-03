@@ -34,7 +34,7 @@ const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestI
     <section
       className={`${className || ''} connect__grid ${additionalClassName}`}
       style={styles}
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
     >
       {children}
     </section>

@@ -7,12 +7,9 @@ export type ButtonProps = {
   correct?: boolean;
   incorrect?: boolean;
   submit?: 'button' | 'submit';
-  buttonId?: string;
-  buttonRef?: React.Ref<HTMLButtonElement>; // Updated to use React.Ref for buttonRef
-  ariaLabel?: string;
   eventName?: string;
   clickHandler?: Function;
-  feedbackBtn?: 'feedback-button' | '';
+  dataTestId?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -22,12 +19,9 @@ export const Button: React.FC<ButtonProps> = ({
   correct,
   incorrect,
   submit = 'button',
-  buttonId,
-  buttonRef,
-  ariaLabel,
   eventName,
   clickHandler,
-  feedbackBtn = 'feedback-button',
+  dataTestId,
 }) => {
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
@@ -35,13 +29,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      ref={buttonRef}
-      id={buttonId ? buttonId : undefined}
-      aria-label={ariaLabel}
       type={submit}
-      className={`connect__button ${feedbackBtn} ${isPrimary} ${isCorrect} ${isIncorrect}`}
+      className={`connect__button ${isPrimary} ${isCorrect} ${isIncorrect}`}
       onClick={clickHandler ? () => clickHandler(eventName) : undefined}
       disabled={disabled}
+      data-testid={dataTestId}
     >
       {children}
     </button>
