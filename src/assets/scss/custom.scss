@@ -558,7 +558,7 @@ input[type='radio'].connect__input {
         width: var(--icon-height);
         //transform: translate(calc(var(--icon-width) * 0.75), calc(var(--icon-width) * -0.5));
         top: calc(var(--icon-width) * -0.5 / 2);
-        right: calc(var(--icon-width) * -0.5);
+        right: calc(var(--icon-width) * -0.5 / 2);
       }
     }
   }

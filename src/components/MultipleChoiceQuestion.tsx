@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import imageSrc from '../assets/scss/images/zelda.jpeg';
 
 export type MultipleChoiceQuestionProp = {
@@ -27,17 +27,22 @@ export function MultipleChoiceQuestion({
   const isCorrect = correct ? 'connect__input-correct' : '';
   const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
 
+  const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(false);
+  const handleChange = () => {
+    setIsChecked(checkRef.current?.checked ?? false);
+  };
 
   return (
     <>
       <input
+        ref={checkRef}
         type={type}
         id={id}
         className={`mcq connect__input ${isCorrect} ${isIncorrect}`}
         name={name}
         checked={isChecked}
-        onChange={(e) => setIsChecked(e.target.checked)}
+        onChange={handleChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
