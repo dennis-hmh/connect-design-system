@@ -700,7 +700,9 @@ input[type='checkbox'] {
   grid-template-columns: repeat(12, 1fr);
   gap: var(--connect-spacer-md);
   //max-width: 25vw;
+  //min-width: 100%;
   margin: var(--connect-spacer-md);
+  width: auto;
 
   & > * + * {
     margin-top: var(--connect-spacer-md);
@@ -737,10 +739,12 @@ input[type='checkbox'] {
   }
 
   header {
+    h1,
     h2,
     h3,
-    h4 {
-      font-size: var(--heading-sm);
+    h4,
+    h5,
+    h6 {
       margin: 0;
     }
   }

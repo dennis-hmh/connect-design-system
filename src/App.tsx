@@ -10,25 +10,41 @@ import Grid from './components/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack';
 import Typography from './components/Typography';
+import imageSrc from './assets/images/zelda.jpg';
 import './assets/scss/custom.scss';
 
 const App = () => {
   return (
     <>
-      <div className="connect__g45">
-        <Button primary={true} children={'submitted'} correct={true} />
-      </div>
-      <br />
       <br />
       <div className="connect__g45" style={{ background: '#38F', padding: 20 }}>
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          image={true}
+          imageSrc={imageSrc}
+          imageAlt="Description of the image"
+          imageCaption="Caption for the image"
+          headerElement="h3"
+          headerContent="This is the Card Header"
+          mainContent="This is the main content of the card"
+          footerContent="This is the footer content"
+        />
+        <Card
+          image={false}
+          imageSrc={imageSrc}
+          imageAlt="Description of the image"
+          imageCaption="Caption for the image"
+          headerContent="This is the Card Header"
+          mainContent="This is the main content of the card"
+          footerContent="This is the footer content"
+        />
       </div>
       <div className="connect__g45">
         <Button children={'Click'} primary={true} disabled={false} />
         <br />
         <br />
+        <div className="connect__g45">
+          <Button primary={true} children={'submitted'} correct={true} />
+        </div>
         <br />
         <InputBox
           type={'checkbox'}
@@ -122,18 +138,18 @@ const App = () => {
       <Grid className="connect__g45" gutter={true} gap="md">
         <GridItem lg={{ startCol: 1, spanCol: 6 }}>
           <Stack>
-            <Typography component="h1">Grade k H1</Typography>
-            <Typography component="h2">h2</Typography>
-            <Typography component="h3">h3</Typography>
-            <Typography component="h4">h4</Typography>
-            <Typography component="p">I am a paragraph</Typography>
-            <Typography component="h2" size="heading-xl">
+            <Typography element="h1">Grade k H1</Typography>
+            <Typography element="h2">h2</Typography>
+            <Typography element="h3">h3</Typography>
+            <Typography element="h4">h4</Typography>
+            <Typography element="p">I am a paragraph</Typography>
+            <Typography element="h2" size="heading-xl">
               h2 styled as h1
             </Typography>
-            <Typography component="h3" size="heading-lg">
+            <Typography element="h3" size="heading-lg">
               h3 styled as h2
             </Typography>
-            <Typography component="h4" size="heading-md">
+            <Typography element="h4" size="heading-md">
               h4 styled as h3
             </Typography>
             <Stack

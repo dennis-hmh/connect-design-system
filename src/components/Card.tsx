@@ -1,21 +1,42 @@
 import React from 'react';
-import { CardFigure } from './CardFigure';
+import { Figure } from './Figure';
 import { CardHeader } from './CardHeader';
 import { CardMain } from './CardMain';
 import { CardFooter } from './CardFooter';
-import imageSrc from '../assets/scss/images/zelda.jpeg';
 
 export type CardProps = {
-  dataTestId?: string;
+  image: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  headerElement?: keyof React.ReactHTML;
+  headerContent?: React.ReactNode;
+  mainContent: React.ReactNode;
+  footerContent?: React.ReactNode;
 };
 
-export function Card({ dataTestId }: CardProps) {
+export function Card({
+  image,
+  imageSrc,
+  imageAlt,
+  imageCaption,
+  headerElement,
+  headerContent,
+  mainContent,
+  footerContent,
+}: CardProps) {
   return (
-    <article className="connect__card" data-testid={dataTestId}>
-      <CardFigure altText={'Zelda stands on a legde'} imageSrc={imageSrc} imageCaption={'Zelda'} />
-      <CardHeader children={'A React Header'} />
-      <CardMain children={'Some React Text'} />
-      <CardFooter children={'React footer'} />
+    <article className="connect__card">
+      {image && (
+        <Figure
+          altText={imageAlt || ''}
+          imageSrc={imageSrc || ''}
+          imageCaption={imageCaption || ''}
+        />
+      )}
+      <CardHeader headerElement={headerElement}>{headerContent}</CardHeader>
+      <CardMain>{mainContent}</CardMain>
+      <CardFooter>{footerContent}</CardFooter>
     </article>
   );
 }
