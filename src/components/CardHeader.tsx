@@ -1,13 +1,17 @@
 import React from 'react';
+import Typography from './Typography';
 
-export type HeaderProps = {
+type ValidElementTag = keyof JSX.IntrinsicElements;
+
+export type CardHeaderProps = {
+  headerElement?: ValidElementTag;
   children: React.ReactNode;
 };
 
-export function CardHeader({ children }: HeaderProps) {
+export function CardHeader({ headerElement, children }: CardHeaderProps) {
   return (
     <header>
-      <h2> {children} </h2>
+      <Typography element={headerElement}>{children}</Typography>
     </header>
   );
 }
