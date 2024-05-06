@@ -14,7 +14,7 @@ type Size =
 
 interface TypographyProps {
   children: React.ReactNode;
-  component?: React.ElementType;
+  element?: React.ElementType;
   color?: Color;
   family?: 'default' | 'secondary';
   size?: Size;
@@ -29,7 +29,7 @@ interface TypographyProps {
 
 const Typography: React.FC<TypographyProps> = ({
   children,
-  component: Component = 'span',
+  element: Component = 'span',
   color,
   family,
   size,
