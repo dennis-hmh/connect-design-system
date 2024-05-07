@@ -1,3 +1,4 @@
 import './assets/scss/custom.scss';
 
-export * from './components';
+export { GradeBand } from './enum/gradeband';
+export * from './components/';
