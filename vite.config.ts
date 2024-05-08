@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
+import css from 'rollup-plugin-css-only'; // Import the plugin
 
 export default defineConfig({
   build: {
@@ -24,10 +25,11 @@ export default defineConfig({
   plugins: [
     libInjectCss(),
     dts({
-      include: ['src/component/'],
+      include: ['src/components/'],
     }),
     react({
       jsxRuntime: 'classic',
     }),
+    css({ output: 'button.css' }),
   ],
 });

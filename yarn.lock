@@ -1745,6 +1745,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-hooks: ^1.0.1
+    rollup-plugin-css-only: ^4.5.2
     sass: ^1.66.1
     storybook: ^7.4.0
     storybook-addon-pseudo-states: ^2.1.2
@@ -2981,7 +2982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:5.1.0, @rollup/pluginutils@npm:^5.1.0":
+"@rollup/pluginutils@npm:5, @rollup/pluginutils@npm:5.1.0, @rollup/pluginutils@npm:^5.1.0":
   version: 5.1.0
   resolution: "@rollup/pluginutils@npm:5.1.0"
   dependencies:
@@ -11621,6 +11622,17 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-css-only@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "rollup-plugin-css-only@npm:4.5.2"
+  dependencies:
+    "@rollup/pluginutils": 5
+  peerDependencies:
+    rollup: <5
+  checksum: d5ea59ad35841149dfee80fc20fe05034c610a365a8cab69c6d5086232874d28abcc404dbf87a79a085faed2cd18e273394a2872e74d06f6a45ff34f7cbc4c6d
   languageName: node
   linkType: hard
 
