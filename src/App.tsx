@@ -45,6 +45,15 @@ const App = () => {
         <div className="connect__g45">
           <Button primary={true} children={'submitted'} correct={true} />
         </div>
+        <div className="connect__g45">
+          <Button primary={true} children={'submitted'} incorrect={true} />
+        </div>
+        <div className="connect__g912">
+          <Button primary={true} children={'submitted'} correct={true} />
+        </div>
+        <div className="connect__g912">
+          <Button primary={true} children={'submitted'} incorrect={true} />
+        </div>
         <br />
         <InputBox
           type={'checkbox'}

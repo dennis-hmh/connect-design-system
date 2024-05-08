@@ -20,9 +20,12 @@ export const Secondary = (args) => <Button {...args} />;
 Primary.args = {
   children: 'Check',
   primary: true,
+  disabled: false,
   correct: false,
   incorrect: false,
-  disabled: false,
+  submit: 'button',
+  eventName: '',
+  clickHandler: '',
 };
 
 Secondary.args = {

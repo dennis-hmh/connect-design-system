@@ -32,10 +32,10 @@
   --color-correct: var(--feedback-green);
   --color-incorrect: var(--feedback-red);
   --color-text: var(--connect__text-color);
-  --icon-correct: url(images/icons/correct-912.svg);
-  --icon-incorrect: url(images/icons/incorrect-912.svg);
-  --icon-correct: url(../images/correct912.svg);
-  --icon-incorrect: url(../images/incorrect912.svg);
+  --icon-correct: url(../images/correct-912.svg);
+  --icon-incorrect: url(../images/incorrect-912.svg);
+  --icon-correct: url(../images/correct-912.svg);
+  --icon-incorrect: url(../images/incorrect-912.svg);
   --icon-height: 1.5rem;
   --icon-width: 1.5rem;
   --icon-arrow: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" title="arrow-down" width="20" height="20" fill="none" viewBox="0 0 20 20"><path fill=" %23000000 " d="M4.707 7.293a1 1 0 0 0-1.414 1.414l6 6a1 1 0 0 0 1.414 0l6-6a1 1 0 0 0-1.414-1.414L10 12.586 4.707 7.293Z"/></svg>');
@@ -50,8 +50,8 @@
 .connect__g45 {
   --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
   --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
-  --icon-correct: url(../images/correct35.svg);
-  --icon-incorrect: url(../images/incorrect35.svg);
+  --icon-correct: url(../images/correct-35.svg);
+  --icon-incorrect: url(../images/incorrect-35.svg);
   --icon-height: 2rem;
   --icon-width: 2rem;
 }
@@ -188,6 +188,7 @@ button.connect__button:disabled {
   width: 1.25rem;
 }
 .connect__button-split button + ul {
+  background-color: white;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
   color: var(--color-text);
@@ -362,7 +363,7 @@ input[type=radio].connect__input.connect__input-correct + label::after {
   position: absolute;
   width: var(--icon-height);
   top: calc(var(--icon-width) * -0.5 / 2);
-  right: calc(var(--icon-width) * -0.5);
+  right: calc(var(--icon-width) * -0.5 / 2);
 }
 input[type=checkbox].connect__input.connect__input-incorrect + label,
 input[type=radio].connect__input.connect__input-incorrect + label {
@@ -449,6 +450,7 @@ input[type=checkbox]:focus {
   grid-template-columns: repeat(12, 1fr);
   gap: var(--connect-spacer-md);
   margin: var(--connect-spacer-md);
+  width: auto;
 }
 .connect__card > * + * {
   margin-top: var(--connect-spacer-md);
@@ -472,31 +474,38 @@ input[type=checkbox]:focus {
 .connect__card footer:last-child {
   margin-bottom: var(--connect-spacer-md);
 }
-.connect__card figure {
-  margin: var(--connect-spacer-sm);
-}
-.connect__card figure img {
-  height: 100;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.connect__card figure figcaption {
-  margin-top: var(--connect-spacer-sm);
+.connect__card header h1,
+.connect__card header h2,
+.connect__card header h3,
+.connect__card header h4,
+.connect__card header h5,
+.connect__card header h6 {
+  margin: 0;
 }
 .connect__card figure + header {
   margin-top: unset;
-}
-.connect__card header h2,
-.connect__card header h3,
-.connect__card header h4 {
-  font-size: var(--heading-sm);
-  margin: 0;
 }
 .connect__card .content > * + * {
   margin: 0;
   margin-top: var(--connect-spacer-md);
 }
+.connect__figure,
+figure {
+  margin: var(--connect-spacer-sm);
+}
+.connect__figure img,
+figure img {
+  height: 100;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.connect__figure figcaption,
+figure figcaption {
+  font-size: var(--caption);
+  margin-top: var(--connect-spacer-sm);
+}
+
 .connect__select,
 select.connect__select {
   --active-color: var(--color-action-default);

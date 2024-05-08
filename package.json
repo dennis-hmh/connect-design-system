@@ -1,6 +1,6 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./dist/connect-design-system.umd.js",

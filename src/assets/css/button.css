@@ -1,0 +1,86 @@
+.connect__button,
+button.connect__button {
+  --shadow-outer: var(--shadow-flat);
+  --shadow-inner: var(--shadow-selected-trans);
+  --active-color: var(--color-action-default);
+  --icon-correct: url(../images/circle-tick-green.svg);
+  --icon-incorrect: url(../images/circle-cross-grey.svg);
+  background-color: var(--active-color);
+  box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
+  border-radius: var(--border-radius);
+  border: 0.125rem solid white;
+  color: white;
+  cursor: pointer;
+  font-family: var(--connect__font-sans);
+  font-size: var(--caption);
+  line-height: var(--caption-lheight);
+  padding: calc(var(--connect-spacer-sm) - var(--border-width))
+    calc(var(--connect-spacer-md) - var(--border-width));
+  width: fit-content;
+
+  &:not(:disabled) {
+    &:hover {
+      --shadow-outer: var(--shadow-hover-button);
+    }
+    &:active {
+      --shadow-outer: var(--shadow-flat);
+    }
+  }
+
+  &:focus-visible {
+    --shadow-outer: var(--shadow-focus);
+    outline: unset;
+  }
+
+  &.connect__button-secondary,
+  &.button.connect__button-secondary {
+    --shadow-inner: var(--shadow-selected);
+    background-color: white;
+    color: var(--active-color);
+
+    &.connect__button-correct,
+    &.connect__button-incorrect {
+      background-color: white;
+    }
+  }
+
+  &.connect__button-correct,
+  &.button.connect__button-correct {
+    --shadow-inner: var(--shadow-correct);
+    background-color: var(--color-correct-bg);
+    color: var(--color-text);
+
+    &::after {
+      background: var(--icon-correct) no-repeat 0 0;
+      background-size: contain;
+      content: '';
+      display: inline-block;
+      height: calc(var(--icon-height) / 1.5);
+      transform: translate(calc(var(--connect-spacer-sm) / 2), calc(var(--connect-spacer-sm) / 2));
+      width: calc(var(--icon-width) / 1.5);
+    }
+  }
+
+  &.connect__button-incorrect,
+  &.button.connect__button-incorrect {
+    --shadow-inner: var(--shadow-incorrect);
+    background-color: var(--color-incorrect-bg);
+    color: var(--color-text);
+
+    &::after {
+      background: var(--icon-incorrect) no-repeat 0 0;
+      background-size: contain;
+      content: '';
+      display: inline-block;
+      height: calc(var(--icon-height) / 1.5);
+      transform: translate(calc(var(--connect-spacer-sm) / 2), calc(var(--connect-spacer-sm) / 2));
+      width: calc(var(--icon-width) / 1.5);
+    }
+  }
+
+  &:disabled {
+    --active-color: var(--color-action-disabled);
+    color: var(--color-text-disabled);
+    cursor: unset;
+  }
+}

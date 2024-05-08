@@ -213,8 +213,8 @@
   --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
   --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
 
-  --icon-correct: url(images/correct35.svg);
-  --icon-incorrect: url(images/incorrect35.svg);
+  --icon-correct: url(../images/correct-35.svg);
+  --icon-incorrect: url(../images/incorrect-35.svg);
 }
 
 @media (min-width: 40.625rem) {
@@ -275,6 +275,7 @@
     --connect-spacer-xs: 0.3125rem;
   }
 }
+.connect__g35,
 .connect__g45 {
   --border-radius: 0.75rem;
   --border-width: 0.1875rem;
@@ -313,11 +314,12 @@
   --shadow-correct: 0 0 0 0.125rem var(--color-correct) inset;
   --shadow-incorrect: 0 0 0 0.125rem var(--color-incorrect) inset;
 
-  --icon-correct: url(images/correct35.svg);
-  --icon-incorrect: url(images/incorrect35.svg);
+  --icon-correct: url(../images/checked-35.svg);
+  --icon-incorrect: url(../images/incorrect-35.svg);
 }
 
 @media (min-width: 40.625rem) {
+  .connect__g35,
   .connect__g45 {
     --connect-heading-xl: 3.75rem;
     --connect-heading-xl-lheight: 4.25rem;
@@ -347,6 +349,7 @@
   }
 }
 @media (min-width: 80rem) {
+  .connect__g35,
   .connect__g45 {
     --connect-heading-xl: 5.75rem;
     --connect-heading-xl-lheight: 6.5rem;
