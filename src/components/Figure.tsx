@@ -9,9 +9,9 @@ export type FigureProps = {
 
 export function Figure({ altText, imageSrc, imageCaption, dataTestId }: FigureProps) {
   return (
-    <figure data-testid={dataTestId}>
+    <figure className="connect__figure" data-testid={dataTestId}>
       <img alt={altText} src={imageSrc} />
-      {imageCaption ? <figcaption> {imageCaption} </figcaption> : ''}
+      {imageCaption && <figcaption> {imageCaption} </figcaption>}
     </figure>
   );
 }

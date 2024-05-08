@@ -722,22 +722,6 @@ input[type='checkbox'] {
     }
   }
 
-  figure {
-    margin: var(--connect-spacer-sm);
-    img {
-      height: 100;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    figcaption {
-      margin-top: var(--connect-spacer-sm);
-    }
-    + header {
-      margin-top: unset;
-    }
-  }
-
   header {
     h1,
     h2,
@@ -749,6 +733,10 @@ input[type='checkbox'] {
     }
   }
 
+  figure + header {
+    margin-top: unset;
+  }
+
   .content {
     & > * + * {
       margin: 0;
@@ -757,6 +745,21 @@ input[type='checkbox'] {
   }
 
   footer {
+  }
+}
+
+.connect__figure,
+figure {
+  margin: var(--connect-spacer-sm);
+  img {
+    height: 100;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  figcaption {
+    font-size: var(--caption);
+    margin-top: var(--connect-spacer-sm);
   }
 }
 
