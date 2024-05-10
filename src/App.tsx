@@ -6,6 +6,7 @@ import { InputText } from './components/InputText';
 import { Card } from './components/Card';
 import { SelectBox } from './components/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit';
+import { Chip } from './components/Chip';
 import Grid from './components/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack';
@@ -18,6 +19,7 @@ const App = () => {
     <>
       <br />
       <div className="connect__g45" style={{ background: '#38F', padding: 20 }}>
+        <Chip children={'word'} num={10} />
         <Card
           image={true}
           imageSrc={imageSrc}

@@ -1353,3 +1353,11 @@ section.connect__grid {
     }
   }
 }
+
+.connect__chip {
+  background-color: var(--background-color, white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-default);
+  padding: var(--connect-spacer-sm);
+  width: fit-content;
+}
