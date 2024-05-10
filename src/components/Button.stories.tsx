@@ -24,7 +24,6 @@ Primary.args = {
   correct: false,
   incorrect: false,
   submit: 'button',
-  eventName: '',
   clickHandler: '',
 };
 

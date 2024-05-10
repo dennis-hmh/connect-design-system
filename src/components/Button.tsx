@@ -8,8 +8,7 @@ export type ButtonProps = {
   correct?: boolean;
   incorrect?: boolean;
   submit?: 'button' | 'submit';
-  eventName?: string;
-  clickHandler?: Function;
+  clickHandler?: any;
   dataTestId?: string;
 };
 
@@ -20,7 +19,6 @@ export const Button: React.FC<ButtonProps> = ({
   correct,
   incorrect,
   submit = 'button',
-  eventName,
   clickHandler,
   dataTestId,
 }) => {
@@ -32,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       type={submit}
       className={`connect__button ${isPrimary} ${isCorrect} ${isIncorrect}`}
-      onClick={clickHandler ? () => clickHandler(eventName) : undefined}
+      onClick={clickHandler}
       disabled={disabled}
       data-testid={dataTestId}
     >
