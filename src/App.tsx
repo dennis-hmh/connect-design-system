@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from './components/Button';
 import { InputBox } from './components/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
@@ -7,6 +7,8 @@ import { Card } from './components/Card';
 import { SelectBox } from './components/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit';
 import { Chip } from './components/Chip';
+import { ConnectTheme } from './components/ConnectTheme';
+import { GradeBand } from './enum/gradeband';
 import Grid from './components/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack';
@@ -15,169 +17,164 @@ import imageSrc from './assets/images/zelda.jpg';
 import './assets/scss/custom.scss';
 
 const App = () => {
+  const themeWrapperRef = useRef(null);
+
   return (
-    <>
-      <br />
-      <div className="connect__g45" style={{ background: '#38F', padding: 20 }}>
-        <Chip children={'word'} num={10} />
-        <Card
-          image={true}
-          imageSrc={imageSrc}
-          imageAlt="Description of the image"
-          imageCaption="Caption for the image"
-          headerElement="h3"
-          headerContent="This is the Card Header"
-          mainContent="This is the main content of the card"
-          footerContent="This is the footer content"
-        />
-        <Card
-          image={false}
-          imageSrc={imageSrc}
-          imageAlt="Description of the image"
-          imageCaption="Caption for the image"
-          headerContent="This is the Card Header"
-          mainContent="This is the main content of the card"
-          footerContent="This is the footer content"
-        />
-      </div>
-      <div className="connect__g45">
-        <Button children={'Click'} primary={true} disabled={false} />
-        <br />
-        <br />
-        <div className="connect__g45">
-          <Button primary={true} children={'submitted'} correct={true} />
-        </div>
-        <div className="connect__g45">
-          <Button primary={true} children={'submitted'} incorrect={true} />
-        </div>
-        <div className="connect__g912">
-          <Button primary={true} children={'submitted'} correct={true} />
-        </div>
-        <div className="connect__g912">
-          <Button primary={true} children={'submitted'} incorrect={true} />
-        </div>
-        <br />
-        <InputBox
-          type={'checkbox'}
-          id={'text-id-1'}
-          name={'text-name'}
-          disabled={false}
-          correct={false}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <br />
-        <InputBox
-          type={'radio'}
-          id={'text-id-2'}
-          name={'radio-name'}
-          disabled={false}
-          correct={false}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <br />
-        <InputBox
-          type={'radio'}
-          id={'text-id-3'}
-          name={'radio-name'}
-          disabled={false}
-          correct={false}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <br />
-        <MultipleChoiceQuestion
-          type={'checkbox'}
-          image={false}
-          id={'msq-id-1'}
-          name={'mcq-name'}
-          disabled={false}
-          correct={false}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <MultipleChoiceQuestion
-          type={'checkbox'}
-          image={false}
-          id={'msq-id-2'}
-          name={'mcq-name'}
-          disabled={false}
-          correct={true}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <MultipleChoiceQuestion
-          type={'checkbox'}
-          image={true}
-          id={'msq-id-3'}
-          name={'mcq-name'}
-          disabled={false}
-          correct={true}
-          incorrect={false}
-          children={'The mouse rides a bike'}
-        />
-        <br />
-        <br />
-        <InputText correct={false} incorrect={false} disabled={false} />
-        <InputText correct={false} incorrect={false} number={true} />
-        <br />
-        <br />
-        <InputText correct={true} incorrect={false} disabled={false} />
-        <InputText correct={false} incorrect={true} disabled={false} />
-        <br />
-        <br />
-        <InputText correct={false} incorrect={false} disabled={true} />
-        <br />
-        <br />
-        <ButtonSplit
-          children={'My Split Button'}
-          data={[
-            { label: 'My First Label', value: 'my-first-value' },
-            { label: 'My Second Label', value: 'my-second-value' },
-            { label: 'My Third Label', value: 'my-third-value' },
-          ]}
-        />
-        <SelectBox
-          data={[
-            { label: 'My First Label', value: 'my-first-value' },
-            { label: 'My Second Label', value: 'my-second-value' },
-            { label: 'My Third Label', value: 'my-third-value' },
-          ]}
-        />
-      </div>
-      <Grid className="connect__g45" gutter={true} gap="md">
-        <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-          <Stack>
-            <Typography element="h1">Grade k H1</Typography>
-            <Typography element="h2">h2</Typography>
-            <Typography element="h3">h3</Typography>
-            <Typography element="h4">h4</Typography>
-            <Typography element="p">I am a paragraph</Typography>
-            <Typography element="h2" size="heading-xl">
-              h2 styled as h1
-            </Typography>
-            <Typography element="h3" size="heading-lg">
-              h3 styled as h2
-            </Typography>
-            <Typography element="h4" size="heading-md">
-              h4 styled as h3
-            </Typography>
+    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Grid gutter={true} gap="md">
+          <GridItem>
+            <Chip children={'word'} num={10} />
+            <br />
+            <Card
+              image={true}
+              imageSrc={imageSrc}
+              imageAlt="Description of the image"
+              imageCaption="Caption for the image"
+              headerElement="h3"
+              headerContent="This is the Card Header"
+              mainContent="This is the main content of the card"
+              footerContent="This is the footer content"
+            />
+            <Card
+              image={false}
+              imageSrc={imageSrc}
+              imageAlt="Description of the image"
+              imageCaption="Caption for the image"
+              headerContent="This is the Card Header"
+              mainContent="This is the main content of the card"
+              footerContent="This is the footer content"
+            />
             <Stack
-              lg={{
+              md={{
                 direction: 'row',
-                spacing: 'xs',
-                alignItems: 'start',
-                justifyContent: 'start',
+                spacing: 'md',
               }}
             >
-              <Button primary={true} children={'Button'} />
-              <Button primary={false} children={'Button'} />
+              <Button children={'Click'} primary={true} disabled={false} />
+              <Button children={'Click'} primary={false} disabled={false} />
+              <Button primary={true} children={'submitted'} correct={true} />
+              <Button primary={true} children={'submitted'} incorrect={true} />
+              <Button primary={false} children={'submitted'} correct={true} />
+              <Button primary={false} children={'submitted'} incorrect={true} />
             </Stack>
-          </Stack>
-        </GridItem>
-      </Grid>
-    </>
+            <br />
+            <InputBox
+              type={'checkbox'}
+              id={'text-id-1'}
+              name={'text-name'}
+              disabled={false}
+              correct={false}
+              incorrect={false}
+              children={'The mouse rides a bike'}
+            />
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-2'}
+              name={'radio-name'}
+              children={'The mouse rides a bike'}
+            />
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-3'}
+              name={'radio-name'}
+              children={'The mouse rides a bike'}
+            />
+            <br />
+            <MultipleChoiceQuestion
+              type={'checkbox'}
+              image={false}
+              id={'msq-id-1'}
+              name={'mcq-name'}
+              children={'The mouse rides a bike'}
+            />
+            <MultipleChoiceQuestion
+              type={'checkbox'}
+              image={false}
+              id={'msq-id-2'}
+              name={'mcq-name'}
+              correct={true}
+              children={'The mouse rides a bike'}
+            />
+            <MultipleChoiceQuestion
+              type={'checkbox'}
+              image={true}
+              id={'msq-id-3'}
+              name={'mcq-name'}
+              correct={true}
+              children={'The mouse rides a bike'}
+            />
+            <br />
+            <br />
+            <Stack
+              md={{
+                direction: 'row',
+                spacing: 'md',
+              }}
+            >
+              <InputText correct={false} incorrect={false} disabled={false} />
+              <InputText correct={false} incorrect={false} number={true} />
+              <InputText correct={false} incorrect={false} disabled={true} />
+              <InputText correct={true} incorrect={false} disabled={false} />
+              <InputText correct={false} incorrect={true} disabled={false} />
+            </Stack>
+            <br />
+            <Stack
+              md={{
+                spacing: 'md',
+              }}
+            >
+              <ButtonSplit
+                children={'My Split Button'}
+                data={[
+                  { label: 'My First Label', value: 'my-first-value' },
+                  { label: 'My Second Label', value: 'my-second-value' },
+                  { label: 'My Third Label', value: 'my-third-value' },
+                ]}
+              />
+              <SelectBox
+                data={[
+                  { label: 'My First Label', value: 'my-first-value' },
+                  { label: 'My Second Label', value: 'my-second-value' },
+                  { label: 'My Third Label', value: 'my-third-value' },
+                ]}
+              />
+            </Stack>
+          </GridItem>
+          <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+            <Stack>
+              <Typography element="h1">Grade k H1</Typography>
+              <Typography element="h2">h2</Typography>
+              <Typography element="h3">h3</Typography>
+              <Typography element="h4">h4</Typography>
+              <Typography element="p">I am a paragraph</Typography>
+              <Typography element="h2" size="heading-xl">
+                h2 styled as h1
+              </Typography>
+              <Typography element="h3" size="heading-lg">
+                h3 styled as h2
+              </Typography>
+              <Typography element="h4" size="heading-md">
+                h4 styled as h3
+              </Typography>
+              <Stack
+                lg={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
+                <Button primary={true} children={'Button'} />
+                <Button primary={false} children={'Button'} />
+              </Stack>
+            </Stack>
+          </GridItem>
+        </Grid>
+      </div>
+    </ConnectTheme>
   );
 };
 

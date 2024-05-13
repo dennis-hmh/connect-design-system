@@ -462,8 +462,10 @@ label.status:has(.connect__input-incorrect) {
     content: '';
     display: inline-block;
     height: var(--icon-width);
-    width: var(--icon-height);
+    position: absolute;
     transform: translate(calc(var(--icon-width) * -0.5), calc(var(--icon-width) * -0.5));
+    width: var(--icon-height);
+    z-index: 10;
   }
 }
 
@@ -492,7 +494,7 @@ input[type='radio'].connect__input {
     border-radius: var(--border-radius);
     position: relative;
     border: 0.125rem solid white;
-    // box-shadow: var(--shadow-1), var(--shadow-2), var(--shadow-3), var(--shadow-4), var(--shadow-5), var(--shadow-inset);
+    width: auto;
 
     &::before {
       content: '';
@@ -612,6 +614,9 @@ input[type='radio'].connect__input {
 
         img {
           border-radius: calc(var(--border-radius) - var(--connect-spacer-sm));
+          width: calc(
+            100% - var(--connect-spacer-xl) - var(--border-width) * 2 - var(--connect-spacer-md)
+          );
         }
 
         &::after {
@@ -701,7 +706,7 @@ input[type='checkbox'] {
   gap: var(--connect-spacer-md);
   //max-width: 25vw;
   //min-width: 100%;
-  margin: var(--connect-spacer-md);
+  margin-bottom: var(--connect-spacer-md);
   width: auto;
 
   & > * + * {
@@ -1252,13 +1257,13 @@ select.connect__select {
 section.connect__grid {
   --default-grid-gap: var(--connect-spacer-xl);
   -webkit-font-smoothing: antialiased;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--default-grid-gap);
-  display: grid;
-  width: 100%;
-  grid-template-rows: max-content;
-  grid-auto-rows: auto;
   align-content: start;
+  display: grid;
+  gap: var(--default-grid-gap);
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: max-content;
+  width: auto;
 
   &.connect__grid-gutter {
     padding: calc(var(--connect-spacer-xl) * 2) var(--gutter-width);
@@ -1309,7 +1314,7 @@ section.connect__grid {
   display: flex;
   flex-flow: var(--connect-stack-direction, column);
   flex-wrap: var(--connect-stack-wrap, wrap);
-  gap: var(--connect-spacer-sm, var(--connect-stack-spacing));
+  gap: var(--connect-stack-spacing, var(--connect-spacer-sm));
   justify-content: var(--connect-justify-content, start);
   width: 100%;
 
