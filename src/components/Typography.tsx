@@ -16,11 +16,11 @@ interface TypographyProps {
   children: React.ReactNode;
   element?: React.ElementType;
   color?: Color;
-  family?: 'default' | 'secondary';
+  family?: 'sans' | 'serif' | 'mono';
   size?: Size;
-  style?: React.CSSProperties['fontStyle'];
-  weight?: number;
-  letterSpacing?: 'normal' | 'wide';
+  style?: 'normal' | 'italic' | 'oblique';
+  weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  letterSpacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   textAlign?: React.CSSProperties['textAlign'];
   textTransform?: React.CSSProperties['textTransform'];
   className?: string;
@@ -31,9 +31,9 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   element: Component = 'span',
   color,
-  family,
+  family = 'sans',
   size,
-  style,
+  style = 'normal',
   weight,
   letterSpacing,
   textAlign,
@@ -49,10 +49,10 @@ const Typography: React.FC<TypographyProps> = ({
   }
 
   if (family) {
-    typoProps.fontFamily = `var(--font-family-${family})`;
+    typoProps.fontFamily = `var(--connect__font-${family})`;
   }
   if (letterSpacing) {
-    typoProps.letterSpacing = `var(--letter-spacing-${letterSpacing})`;
+    typoProps.letterSpacing = `var(--connect-spacer-${letterSpacing})`;
   }
   if (style) typoProps.fontStyle = style;
   if (weight) typoProps.fontWeight = weight;
