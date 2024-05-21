@@ -24,5 +24,4 @@ Default.args = {
   textAlign: '',
   textTransform: '',
   className: '',
-  dataTestId: '',
 };

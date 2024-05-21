@@ -1,3 +1,4 @@
+import React from 'react';
 import { MultipleChoiceQuestionImage } from './MultipleChoiceQuestionImage';
 
 export default {

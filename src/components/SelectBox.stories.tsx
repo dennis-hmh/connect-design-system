@@ -1,3 +1,4 @@
+import React from 'react';
 import { SelectBox } from './SelectBox';
 
 export default {

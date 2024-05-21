@@ -1,3 +1,4 @@
+import React from 'react';
 import { MultipleChoiceQuestion } from './MultipleChoiceQuestion';
 
 export default {
