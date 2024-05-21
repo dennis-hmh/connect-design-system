@@ -13,6 +13,7 @@ export type CardProps = {
   headerContent?: React.ReactNode;
   mainContent: React.ReactNode;
   footerContent?: React.ReactNode;
+  dataTestId?: string;
 };
 
 export function Card({
@@ -24,9 +25,10 @@ export function Card({
   headerContent,
   mainContent,
   footerContent,
+  dataTestId,
 }: CardProps) {
   return (
-    <article className="connect__card">
+    <article className="connect__card" data-testid={dataTestId}>
       {image && (
         <Figure
           altText={imageAlt || ''}
