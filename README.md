@@ -43,4 +43,4 @@ For more information, please contact HMH Core PXD at [Core-PXD@hmhco.com](mailto
 
 ## Acknowledgments
 
-- Thanks to all the contributors who spend time to improve this design system.
+Thanks to all the contributors who spend time to improve this design system.
