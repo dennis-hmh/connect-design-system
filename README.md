@@ -14,10 +14,12 @@ To install the Connect Design System, you need to have Node.js installed on your
 
 After installation, you can import the components you need into your React project:
 
-Typescript: `import { Button, TextInput } from '@connect/connect-design-system';`
+Typescript: 
+`import { Button, TextInput } from '@connect/connect-design-system';`
 
-TSX: `<Button onClick={handleClick}>Click me!</Button>
-<TextInput onChange={handleInputChange} placeholder="Enter text here" />`
+TSX: 
+`<Button onClick={handleClick}>Click me!</Button>`
+`<TextInput onChange={handleInputChange} placeholder="Enter text here" />`
 
 ## Development
 
