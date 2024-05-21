@@ -8,7 +8,7 @@ HMH Core PXD
 
 ## Installation
 
-To install the Connect Design System, you need to have Node.js installed on your machine. Then, you can install the package via npm: npm install @connect/connect-design-system
+To install the Connect Design System, you need to have Node.js installed on your machine. Then, you can install the package via npm: `npm install @connect/connect-design-system`
 
 ## Usage
 
@@ -21,17 +21,17 @@ TSX: `<Button onClick={handleClick}>Click me!</Button>
 
 ## Development
 
-This project uses Vite for development. To start the development server, run: npm run dev
+This project uses Vite for development. To start the development server, run: `npm run dev`
 
 ## Building
 
-To build the project for production, use: npm run build
+To build the project for production, use: `npm run build`
 
 This command compiles TypeScript and bundles the project using Vite.
 
 ## Storybook
 
-To view components in isolation, this project utilizes Storybook: npm run storybook
+To view components in isolation, this project utilizes Storybook: `npm run storybook`
 
 ## License
 
