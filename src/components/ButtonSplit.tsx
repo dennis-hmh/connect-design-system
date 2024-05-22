@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
 
-export type ButtonSplitProps<T> = {
+export type ButtonSplitProps = {
   children: React.ReactNode;
-  data: { label: string; value: T }[];
+  data: { label: string; value: React.ReactNode }[];
   disabled?: boolean;
   dataTestId?: string;
 };
 
-export function ButtonSplit<T>({ children, disabled, data, dataTestId }: ButtonSplitProps<T>) {
+export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSplitProps) {
   const [open, setOpen] = useState(false);
   const drop = useRef<HTMLDivElement>(null);
 
@@ -58,12 +58,16 @@ export function ButtonSplit<T>({ children, disabled, data, dataTestId }: ButtonS
   );
 }
 
-function ButtonSplitMenu<T>({ data }: { data: { label: string; value: T }[] }) {
+function ButtonSplitMenu<T extends React.ReactNode>({
+  data,
+}: {
+  data: { label: string; value: T }[];
+}) {
   return (
     <>
       <ul role="menu">
         {data.map((option) => (
-          <li role="menuitem">{option.label}</li>
+          <li role="menuitem">{option.value}</li>
         ))}
       </ul>
     </>
