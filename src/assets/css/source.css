@@ -1083,10 +1083,6 @@
   font-size-adjust: ex-height 0.486;
 }
 
-* {
-  font-size-adjust: ex-height 0.486;
-}
-
 h1,
 .connect__h1 {
   margin-top: calc(var(--connect-spacer-xl) * 3);

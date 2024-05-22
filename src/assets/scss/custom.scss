@@ -1,18 +1,4 @@
-// @import "custom/grades/grade_45";
-// @import "source/variables";
-// @import "source/reset";
-// @import "source/mixins";
-// @import "source/_functions";
-// @import "source/icons/icon-map";
-// @import "source/_icons";
-
 @import '../css/source.css';
-
-// *,
-// *:before,
-// *:after {
-//   transition: all 0.2s ease-in-out;
-// }
 
 /*! Variables and gradeband values */
 
@@ -82,6 +68,8 @@
   --feedback-green-border: rgb(0, 161, 0);
   --feedback-red: rgb(243, 0, 0);
   --feedback-red-bg: rgba(255, 214, 212, 1);
+
+  --transition: all 0.2s ease-in-out;
 }
 
 .connect__g23,
@@ -120,6 +108,7 @@ button.connect__button {
   line-height: var(--caption-lheight);
   padding: calc(var(--connect-spacer-sm) - var(--border-width))
     calc(var(--connect-spacer-md) - var(--border-width));
+  transition: var(--transition);
   width: fit-content;
 
   &:not(:disabled) {
@@ -193,6 +182,7 @@ button.connect__button {
   border: 0.125rem solid white;
   box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
   position: relative;
+  transition: var(--transition);
   width: fit-content;
 
   &:not(:disabled) {
@@ -418,6 +408,7 @@ input[type='number'].connect__input {
   line-height: var(--body-md-lheight);
   padding: calc(var(--connect-spacer-sm) - var(--border-width))
     calc(var(--connect-spacer-md) - var(--border-width));
+  transition: var(--transition);
 
   &:not(:disabled):not(:focus) {
     &:hover {
@@ -707,6 +698,7 @@ input[type='checkbox'] {
   //max-width: 25vw;
   //min-width: 100%;
   margin-bottom: var(--connect-spacer-md);
+  transition: var(--transition);
   width: auto;
 
   & > * + * {
