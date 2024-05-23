@@ -135,6 +135,7 @@ const App = () => {
                 ]}
               />
               <SelectBox
+                defaultValue={'my-third-value'}
                 data={[
                   { label: 'My First Label', value: 'my-first-value' },
                   { label: 'My Second Label', value: 'my-second-value' },
