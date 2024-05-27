@@ -13,6 +13,7 @@ export default {
 export const Default = (args) => <SelectBox {...args} />;
 export const Correct = (args) => <SelectBox {...args} />;
 export const Incorrect = (args) => <SelectBox {...args} />;
+export const AnswerShown = (args) => <SelectBox {...args} />;
 export const Disabled = (args) => <SelectBox {...args} />;
 
 Default.args = {
@@ -36,6 +37,12 @@ Correct.args = {
 Incorrect.args = {
   ...Default.args,
   incorrect: true,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  answerShown: true,
+  value: 'answer shown',
 };
 
 Disabled.args = {

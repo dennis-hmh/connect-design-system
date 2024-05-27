@@ -18,6 +18,7 @@ export const Default = (args) => <MultipleChoiceQuestion {...args} />;
 export const Checked = (args) => <MultipleChoiceQuestion {...args} />;
 export const Correct = (args) => <MultipleChoiceQuestion {...args} />;
 export const Incorrect = (args) => <MultipleChoiceQuestion {...args} />;
+export const AnswerShown = (args) => <MultipleChoiceQuestion {...args} />;
 export const Disabled = (args) => <MultipleChoiceQuestion {...args} />;
 
 Default.args = {
@@ -28,6 +29,8 @@ Default.args = {
   disabled: false,
   correct: false,
   incorrect: false,
+  shown: false,
+  checked: false,
   children: 'The mouse rides a bike',
 };
 
@@ -37,14 +40,19 @@ Checked.args = {
 
 Correct.args = {
   ...Default.args,
-  disabled: true,
   correct: true,
+  checked: true,
 };
 
 Incorrect.args = {
   ...Default.args,
-  disabled: true,
   incorrect: true,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  answerShown: true,
+  value: 'answer shown',
 };
 
 Disabled.args = {

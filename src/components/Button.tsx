@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/button.css';
+import Icon from './Icons';
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -9,6 +9,9 @@ export type ButtonProps = {
   incorrect?: boolean;
   submit?: 'button' | 'submit';
   clickHandler?: any;
+  iconId?: string;
+  iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  fill?: string;
   dataTestId?: string;
 };
 
@@ -20,6 +23,9 @@ export const Button: React.FC<ButtonProps> = ({
   incorrect,
   submit = 'button',
   clickHandler,
+  iconId,
+  iconSize = 'md',
+  fill = '',
   dataTestId,
 }) => {
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
@@ -34,6 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       data-testid={dataTestId}
     >
+      {iconId && <Icon id={iconId} size={iconSize} fill={fill} />}
       {children}
     </button>
   );
