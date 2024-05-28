@@ -350,6 +350,7 @@ button.connect__button {
   position: relative;
   resize: var(--resize);
   transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
+  width: var(--connect__input-width, 100%);
 
   &:not(:disabled) {
     &:hover,
@@ -391,14 +392,15 @@ button.connect__button {
       resize: none;
     }
   }
-}
 
-// min 2 lines
-// max 4 lines
-textarea {
-  field-sizing: content;
-  max-height: calc(4lh + 2 * var(--input-padding-y));
-  min-height: calc(2lh + 2 * var(--input-padding-y));
+  // min 2 lines
+  // max 4 lines
+
+  & textarea {
+    field-sizing: content;
+    max-height: calc(4lh + 2 * var(--input-padding-y));
+    min-height: calc(2lh + 2 * var(--input-padding-y));
+  }
 }
 
 .connect__select,
@@ -656,8 +658,7 @@ select.connect__select {
   }
 }
 
-.connect__figure,
-figure {
+.connect__figure {
   margin: var(--connect__spacer-sm);
   img {
     height: 100;
@@ -734,7 +735,7 @@ section.connect__grid {
   flex-wrap: var(--connect-stack-wrap, wrap);
   gap: var(--connect-stack-spacing, var(--connect__spacer-sm));
   justify-content: var(--connect-justify-content, start);
-  width: var(--connect-stack-width, auto);
+  width: 100%;
 
   @media (min-width: 30rem) {
     &.stack-sm {
@@ -774,6 +775,17 @@ section.connect__grid {
       --connect-stack-wrap: var(--xl-flexWrap);
       --connect-justify-content: var(--xl-justifyContent);
     }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -828,12 +840,15 @@ section.connect__grid {
 }
 
 .connect__icon {
-  --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
-  --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
-  fill: var(--icon-fill);
-  stroke: var(--icon-stroke, transparent);
   height: var(--connect__icon-size);
   width: var(--connect__icon-size);
+
+  svg {
+    --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
+    --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
+    fill: var(--icon-fill);
+    stroke: var(--icon-stroke, transparent);
+  }
 
   &-xs {
     --connect__icon-size: var(--connect__icon-xs);

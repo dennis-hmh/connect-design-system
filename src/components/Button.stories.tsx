@@ -5,6 +5,7 @@ export default {
   component: Button,
   title: 'Button',
   tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     design: {
@@ -35,7 +36,9 @@ Secondary.args = {
 
 IconButton.args = {
   ...Primary.args,
+  children: '',
   iconId: 'delete',
-  iconSize: 'xs',
-  fill: 'blue-c50',
+  iconSize: 'lg',
+  fill: '',
+  ariaLabel: '',
 };

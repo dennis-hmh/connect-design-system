@@ -14,11 +14,11 @@ interface GridProps {
 const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestId }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
-    xs: 'var(--connect-spacer-xs)',
-    sm: 'var(--connect-spacer-sm)',
-    md: 'var(--connect-spacer-md)',
-    lg: 'var(--connect-spacer-lg)',
-    xl: 'var(--connect-spacer-xl)',
+    xs: 'var(--connect__spacer-xs)',
+    sm: 'var(--connect__spacer-sm)',
+    md: 'var(--connect__spacer-md)',
+    lg: 'var(--connect__spacer-lg)',
+    xl: 'var(--connect__spacer-xl)',
   };
 
   // If gap is not provided or the value is not defined in gapSizes, default to 'var(--grid-gap)'

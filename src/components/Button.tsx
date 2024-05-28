@@ -12,6 +12,8 @@ export type ButtonProps = {
   iconId?: string;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: string;
+  iconPosition?: 'before' | 'after';
+  ariaLabel?: string;
   dataTestId?: string;
 };
 
@@ -26,12 +28,16 @@ export const Button: React.FC<ButtonProps> = ({
   iconId,
   iconSize = 'md',
   fill = '',
+  iconPosition = 'before',
+  ariaLabel,
   dataTestId,
 }) => {
+
+  
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
   const isIncorrect = incorrect ? 'connect__button-incorrect' : '';
-
+  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} /> : null;
   return (
     <button
       type={submit}
@@ -39,9 +45,11 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={clickHandler}
       disabled={disabled}
       data-testid={dataTestId}
+      aria-label={ariaLabel || (iconId && !children ? 'Icon button' : undefined)}
     >
-      {iconId && <Icon id={iconId} size={iconSize} fill={fill} />}
+      {iconPosition === 'before' && iconElement}
       {children}
+      {iconPosition === 'after' && iconElement}
     </button>
   );
 };

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Color } from '../utils/colors';
 
 type IconProps = {
   id: string;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  fill?: Color;
+  fill?: string;
   stroke?: string;
   focusable?: boolean;
 };
 
 const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }) => {
   const fillColorVariable = fill ? `--connect__${fill}` : '--connect__white';
+  const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   return (
     // Added return statement
@@ -19,7 +19,7 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
       style={
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,
-          stroke: stroke ? `var(${stroke})` : undefined,
+          '--connect__icon-stroke-color': `var(${strokeColorVariable})`,
         } as React.CSSProperties & { [key: string]: string | undefined }
       }
       aria-hidden="true"

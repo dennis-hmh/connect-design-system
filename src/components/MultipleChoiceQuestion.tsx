@@ -47,7 +47,7 @@ export function MultipleChoiceQuestion({
     inputAriaLabel += ', answer shown';
   }
 
-  //const shouldBeReadOnly = correct || incorrect || answerShown;
+  // const shouldBeReadOnly = correct || incorrect || answerShown;
 
   return (
     <div className="connect__mcq-label-wrapper">
