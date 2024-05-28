@@ -1,8 +1,8 @@
 import React, { useState, useRef, ChangeEvent } from 'react';
 
 type SelectBoxProp<T extends string | number> = {
-  data: { label: string; value: T }[];
-  defaultValue?: T;
+  data: { value: string; label: T }[];
+  defaultValue?: string;
   correct?: boolean;
   incorrect?: boolean;
   disabled?: boolean;
@@ -17,11 +17,11 @@ export function SelectBox<T extends string | number>({
   disabled,
   dataTestId,
 }: SelectBoxProp<T>) {
-  const [select, setSelect] = useState<T | string>(defaultValue || '');
+  const [select, setSelect] = useState(defaultValue || '');
   const selectRef = useRef<HTMLSelectElement>(null);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelect(event.target.value as T);
+    setSelect(event.target.value);
   };
 
   const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}`;
@@ -46,7 +46,7 @@ export function SelectBox<T extends string | number>({
 function SelectBoxOptions<T extends string | number>({
   data,
 }: {
-  data: { label: string; value: T }[];
+  data: { value: string; label: T }[];
 }) {
   return (
     <>
