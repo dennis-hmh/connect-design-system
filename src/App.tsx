@@ -8,11 +8,11 @@ import { SelectBox } from './components/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit';
 import { Chip } from './components/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
-import { GradeBand } from './enum/gradeband';
 import Grid from './components/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack';
 import Typography from './components/Typography';
+import { GradeBand } from './enum/gradeband';
 import imageSrc from './assets/images/zelda.jpg';
 import './assets/scss/custom.scss';
 
