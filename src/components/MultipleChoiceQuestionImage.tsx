@@ -7,6 +7,7 @@ export type MultipleChoiceQuestionImageProp = {
   id: string;
   name: string;
   children: React.ReactNode;
+  checked?: boolean;
   disabled?: boolean;
   correct?: boolean;
   incorrect?: boolean;
@@ -15,20 +16,20 @@ export type MultipleChoiceQuestionImageProp = {
 
 export function MultipleChoiceQuestionImage({
   type,
-  image,
+  image = true,
   id,
   name,
   children,
+  checked,
   disabled,
   correct,
   incorrect,
   dataTestId,
 }: MultipleChoiceQuestionImageProp) {
-  const isCorrect = correct ? 'connect__input-correct' : '';
-  const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
+  const inputClasses = `mcq connect__input ${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(checked || false);
   const handleChange = () => {
     setIsChecked(checkRef.current?.checked ?? false);
   };
@@ -39,7 +40,7 @@ export function MultipleChoiceQuestionImage({
         ref={checkRef}
         type={type}
         id={id}
-        className={`mcq connect__input ${isCorrect} ${isIncorrect}`}
+        className={inputClasses}
         name={name}
         checked={isChecked}
         onChange={handleChange}

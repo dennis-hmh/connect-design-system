@@ -24,6 +24,7 @@ Default.args = {
   type: 'checkbox',
   id: 'answer',
   name: 'input',
+  checked: false,
   correct: false,
   incorrect: false,
   disabled: false,
@@ -32,16 +33,19 @@ Default.args = {
 
 Checked.args = {
   ...Default.args,
+  checked: true,
 };
 
 Correct.args = {
   ...Default.args,
+  checked: true,
   disabled: true,
   correct: true,
 };
 
 Incorrect.args = {
   ...Default.args,
+  checked: true,
   disabled: true,
   incorrect: true,
 };

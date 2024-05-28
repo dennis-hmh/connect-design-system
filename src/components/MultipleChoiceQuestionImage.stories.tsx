@@ -21,6 +21,7 @@ Default.args = {
   image: true,
   id: 'answer',
   name: 'mcq',
+  checked: false,
   disabled: false,
   correct: false,
   incorrect: false,
@@ -29,16 +30,19 @@ Default.args = {
 
 Checked.args = {
   ...Default.args,
+  checked: true,
 };
 
 Correct.args = {
   ...Default.args,
   checked: true,
+  correct: true,
   disabled: true,
 };
 
 Incorrect.args = {
   ...Default.args,
+  checked: true,
   disabled: true,
   incorrect: true,
 };
