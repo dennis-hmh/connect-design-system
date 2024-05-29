@@ -9,7 +9,7 @@ type IconProps = {
 };
 
 const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }) => {
-  const fillColorVariable = fill ? `--connect__${fill}` : '--connect__white';
+  const fillColorVariable = fill ? `--connect__${fill}` : '';
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   return (

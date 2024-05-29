@@ -32,7 +32,7 @@ export function SelectBox<T>({
     inputAriaLabel += ', answer shown';
   }
 
-  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-shown' : ''}${answerShown ? 'connect__select-incorrect' : ''}`;
+  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}${answerShown ? 'connect__select-shown' : ''}`;
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (

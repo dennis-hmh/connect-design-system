@@ -576,7 +576,6 @@
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
   --gutter-width: 1rem;
-  --connect__text-color: var(--connect__gray-c70);
   --connect__yellow-c70: rgb(68, 56, 8);
   --connect__yellow-c65: rgb(94, 77, 8);
   --connect__yellow-c60: rgb(107, 87, 6);
@@ -1026,17 +1025,6 @@
   --connect__apple-s40: rgb(119, 158, 0);
   --connect__apple-s45: rgb(105, 140, 0);
   --connect__apple-s50: rgb(96, 128, 0);
-
-  --connect__feedback-gray: rgb(115, 130, 143);
-
-  --connect__feedback-red: rgb(243, 0, 0);
-  --connect__feedback-red-bg: var(--connect__red-s15, rgb(255, 204, 204));
-
-  --connect__feedback-green: var(--connect__green-s40);
-  --connect__feedback-green-bg: rgb(230, 245, 181);
-  --connect__feedback-green-border: var(--connect__green-c25);
-
-  --connect__feedback-shown-bg: var(--connect__gray-c70);
 
   font-family: var(--connect__font-sans);
 }

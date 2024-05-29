@@ -10,11 +10,31 @@ export default {
   },
 };
 
-export const Default = (args) => <SelectBox {...args} />;
-export const Correct = (args) => <SelectBox {...args} />;
-export const Incorrect = (args) => <SelectBox {...args} />;
-export const AnswerShown = (args) => <SelectBox {...args} />;
-export const Disabled = (args) => <SelectBox {...args} />;
+export const Default = (args) => (
+  <div style={{ minWidth: '180px' }}>
+    <SelectBox {...args} />
+  </div>
+);
+export const Correct = (args) => (
+  <div style={{ minWidth: '180px' }}>
+    <SelectBox {...args} />
+  </div>
+);
+export const Incorrect = (args) => (
+  <div style={{ minWidth: '180px' }}>
+    <SelectBox {...args} />
+  </div>
+);
+export const AnswerShown = (args) => (
+  <div style={{ minWidth: '180px' }}>
+    <SelectBox {...args} />
+  </div>
+);
+export const Disabled = (args) => (
+  <div style={{ minWidth: '180px' }}>
+    <SelectBox {...args} />
+  </div>
+);
 
 Default.args = {
   correct: false,
@@ -42,7 +62,6 @@ Incorrect.args = {
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
-  value: 'answer shown',
 };
 
 Disabled.args = {
