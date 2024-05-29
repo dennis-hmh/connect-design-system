@@ -109,7 +109,7 @@
   --connect__effects-inner-edge: 2px;
   --inner-status: 4px;
   --color-incorrect-status: var(--connect__incorrect-mid);
-  --grade-checkbox-checked-state-based-border-c: transparent;
+  --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
 }
 
 .connect__g68,
