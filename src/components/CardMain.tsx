@@ -5,5 +5,5 @@ export type CardMainProp = {
 };
 
 export function CardMain({ children }: CardMainProp) {
-  return <div className="content">{children}</div>;
+  return <div className="connect__card-content">{children}</div>;
 }

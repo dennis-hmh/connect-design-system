@@ -5,5 +5,5 @@ export type FooterProps = {
 };
 
 export function CardFooter({ children }: FooterProps) {
-  return <footer>{children}</footer>;
+  return <footer className="connect__card-footer">{children}</footer>;
 }

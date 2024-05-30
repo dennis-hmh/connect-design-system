@@ -103,96 +103,67 @@ section {
 body {
   line-height: 1;
 }
-// ol,
-// ul {
-//   list-style: none;
-// }
-// blockquote,
-// q {
-//   quotes: none;
-// }
-// blockquote:before,
-// blockquote:after,
-// q:before,
-// q:after {
-//   content: "";
-//   content: none;
-// }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url("fonts/sourcesans3vf-roman.ttf.woff2") format("woff2"),
-    url("fonts/sourcesans3vf-roman.ttf.woff") format("woff"),
-    url("fonts/sourcesans3vf-roman.ttf") format("truetype");
+  src:
+    url('fonts/sourcesans3vf-roman.ttf.woff2') format('woff2'),
+    url('fonts/sourcesans3vf-roman.ttf.woff') format('woff'),
+    url('fonts/sourcesans3vf-roman.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url("fonts/sourcesans3vf-italic.ttf.woff2") format("woff2"),
-    url("fonts/sourcesans3vf-italic.ttf.woff") format("woff"),
-    url("fonts/sourcesans3vf-italic.ttf") format("truetype");
+  src:
+    url('fonts/sourcesans3vf-italic.ttf.woff2') format('woff2'),
+    url('fonts/sourcesans3vf-italic.ttf.woff') format('woff'),
+    url('fonts/sourcesans3vf-italic.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Serif Pro";
+  font-family: 'Source Serif Pro';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url("fonts/sourceserifvariable-roman.ttf.woff2") format("woff2"),
-    url("fonts/sourceserifvariable-roman.ttf.woff") format("woff"),
-    url("fonts/sourceserifvariable-roman.ttf") format("truetype");
+  src:
+    url('fonts/sourceserifvariable-roman.ttf.woff2') format('woff2'),
+    url('fonts/sourceserifvariable-roman.ttf.woff') format('woff'),
+    url('fonts/sourceserifvariable-roman.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Serif Pro";
+  font-family: 'Source Serif Pro';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url("fonts/sourceserifvariable-italic.ttf.woff2") format("woff2"),
-    url("fonts/sourceserifvariable-italic.ttf.woff") format("woff"),
-    url("fonts/sourceserifvariable-italic.ttf") format("truetype");
+  src:
+    url('fonts/sourceserifvariable-italic.ttf.woff2') format('woff2'),
+    url('fonts/sourceserifvariable-italic.ttf.woff') format('woff'),
+    url('fonts/sourceserifvariable-italic.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Code Pro";
+  font-family: 'Source Code Pro';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url("fonts/sourcecodevariable-roman.ttf") format("truetype");
+  src: url('fonts/sourcecodevariable-roman.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Code Pro";
+  font-family: 'Source Code Pro';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url("fonts/sourcecodevariable-italic.ttf") format("truetype");
+  src: url('fonts/sourcecodevariable-italic.ttf') format('truetype');
 }
 
 *:focus {
-  outline: none; 
-}
-
-*:focus-visible:not(.source__flipcards summary), 
-.source__flipcards details:not([open]) summary:focus-visible .source__flipcards__front, 
-.source__flipcards details[open] summary:focus-visible {
-   --focus-indicator: 0px 0px 0px 1px #fff, 0px 0px 0px 3px rgba(255, 46, 171, 1), 0 0 0 4px #fff; 
-   --focus-indicator: 0 .125rem 0 .0625rem rgba(255, 46, 171, 1), 0 0 0 .0625rem rgba(255, 46, 171, 1), 0 .0625rem 0 .1875rem rgba(255, 255, 255, 1), 0 0 0 .125rem rgba(255, 255, 255, 1);
-   box-shadow: var(--focus-indicator);
-}
-
-.g35:focus-visible,
-.g68:focus-visible,
-.g912:focus-visible {
-  box-shadow: none !important;
+  outline: none;
 }
