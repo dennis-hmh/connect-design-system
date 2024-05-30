@@ -14,10 +14,10 @@ export const Default = (args) => <Typography {...args} />;
 
 Default.args = {
   children: 'Typography',
-  element: 'span',
+  element: 'h1',
   color: '',
   family: 'sans',
-  size: 'body-md',
+  size: '',
   style: 'normal',
   weight: '',
   letterSpacing: '',
