@@ -1162,37 +1162,31 @@
 }
 
 .connect__h1 {
-  margin-top: calc(var(--connect-spacer-xl) * 3);
   font-size: var(--connect__heading-xl);
   line-height: var(--connect__heading-xl-lheight);
 }
 
 .connect__h2 {
-  margin-top: calc(var(--connect-spacer-xl) * 2 + var(--connect-spacer-md));
   font-size: var(--connect__heading-lg);
   line-height: var(--connect__heading-lg-lheight);
 }
 
 .connect__h3 {
-  margin-top: calc(var(--connect-spacer-xl) * 2);
   font-size: var(--connect__heading-md);
   line-height: var(--connect__heading-md-lheight);
 }
 
 .connect__h4 {
-  margin-top: calc(var(--connect-spacer-xl) + var(--connect-spacer-md));
   font-size: var(--connect__heading-sm);
   line-height: var(--connect__heading-sm-lheight);
 }
 
 .connect__h5 {
-  margin-top: var(--connect-spacer-xl);
   font-size: var(--connect__body-lg);
   line-height: var(--connect__body-lg-head-lheight);
 }
 
 .connect__h6 {
-  margin-top: var(--connect-spacer-md);
   font-size: var(--connect__body-md);
   line-height: var(--connect__body-md-head-lheight);
 }
@@ -1202,7 +1196,6 @@
 .connect__ul {
   font-size: var(--connect__body-md);
   line-height: var(--connect__body-md-lheight);
-  margin-top: var(--connect-spacer-md);
 }
 
 .connect__h1,
