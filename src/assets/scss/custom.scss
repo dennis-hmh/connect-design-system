@@ -1177,6 +1177,46 @@ input[type='radio'].connect__input {
   }
 }
 
+progress[value] {
+  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
+  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
+  --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
+  --input-outer-shadow: var(--connect__shadow-spread-level-2);
+
+  --border-radius: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  transition: all 150ms linear;
+  transition-property: width, background-color;
+  width: 100%;
+
+  &::-webkit-progress-bar {
+    --border-radius: 1rem;
+    background: var(--progress-bg, (var(--white)));
+    border-radius: var(--border-radius);
+    box-shadow:
+      var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
+      var(--input-outer-shadow) var(--outer-shadow-color, var(--connect__neutrals-white));
+  }
+
+  &::-webkit-progress-value {
+    background: var(--connect__selected-mid);
+    border-radius: var(--border-radius);
+    transition: all 150ms linear;
+    transition-property: width, background-color;
+  }
+  &::-moz-progress-bar {
+    background: var(--connect__selected-mid);
+    border-radius: var(--border-radius);
+    transition: all 150ms linear;
+    transition-property: width, background-color;
+  }
+}
+
 [class*='connect_']:disabled {
   --active-color: var(--connect__neutrals-mid);
   --state-based-bg: var(--connect__neutrals-pale);
