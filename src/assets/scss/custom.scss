@@ -790,11 +790,42 @@ section.connect__grid {
 }
 
 .connect__chip {
-  background-color: var(--background-color, white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-default);
-  padding: var(--connect__spacer-sm);
-  width: fit-content;
+  --chip-fs: var(--theme-chip-fs, var(--caption));
+  --chip-lh: var(--theme-chip-lh, var(--caption-lheight));
+
+  --chip-border-w: var(--theme-chip-border-w, 0px);
+  --chip-border-c: var(--connect__neutrals-white, transparent);
+  --chip-radius: var(--theme-border-radius, var(--border-radius));
+
+  --chip-color: var(--active-color, var(--connect__neutrals-dark));
+  --chip-bg: var(--theme-chip-bg, var(--connect__neutrals-white));
+
+  --chip-padding-y: var(--connect__spacer-xs);
+  --chip-padding-x: var(--connect__spacer-md);
+
+  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+  --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
+  --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
+
+  background-color: var(--chip-bg);
+  box-shadow:
+    var(--connect__shadow-level-1) var(--connect__shadow-10),
+    var(--connect__shadow-level-2) var(--connect__shadow-20),
+    var(--connect__shadow-level-3) var(--connect__shadow-14),
+    var(--connect__shadow-level-4) var(--connect__shadow-12);
+
+  border: var(--chip-border-w) solid var(--chip-border-c, transparent);
+  border-radius: var(--chip-radius, 0);
+  color: var(--theme-button-color, var(--chip-color));
+  font-size: var(--chip-fs);
+  font-family: var(--connect__font-sans);
+
+  line-height: var(--chip-lh);
+  padding: calc(var(--chip-padding-y) - var(--chip-border-w))
+    calc(var(--chip-padding-x) - var(--chip-border-w));
+
+  width: var(--chip-w, fit-content);
 }
 
 .connect__icon-wrapper {
