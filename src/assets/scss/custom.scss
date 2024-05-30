@@ -532,53 +532,31 @@ select.connect__select {
 }
 
 .connect__button-split {
-  --shadow-outer: var(--shadow-flat);
-  --shadow-inner: var(--shadow-selected-trans);
-  border-radius: var(--border-radius);
-  border: 0.125rem solid white;
-  box-shadow: var(--shadow-outline), var(--shadow-outer), var(--shadow-inner);
+  display: inline-flex;
+  flex-flow: var(--button-flow);
+  cursor: unset;
+
   position: relative;
   width: fit-content;
 
-  &:not(:disabled) {
-    &:hover {
-      --shadow-outer: var(--shadow-hover-button);
-    }
-    &:active {
-      --shadow-outer: var(--shadow-flat);
-    }
-  }
-
-  &:focus-visible,
-  &:focus-within {
-    --shadow-outer: var(--shadow-focus);
-    outline: unset;
-  }
-
   button {
-    --active-color: var(--color-action-default);
-    --icon-correct: url(../images/circle-tick-green.svg);
-    --icon-incorrect: url(../images/circle-cross-grey.svg);
-    background-color: var(--active-color);
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
-    color: white;
+    --button-fs: var(--theme-button-fs, var(--body-sm));
+    --button-lh: var(--theme-button-lh, var(--body-sm-lheight));
+    --button-color: var(--active-color, var(--connect__neutrals-dark));
+    --button-bg: var(--state-based-bg, var(--connect__selected-mid));
+    background-color: var(--theme-button-bg, var(--button-bg));
+    color: var(--theme-button-color, var(--button-color));
     cursor: pointer;
     border: unset;
-    font-family: var(--connect__font-sans);
-    font-size: var(--caption);
-    line-height: var(--caption-lheight);
-    padding: calc(var(--connect__spacer-sm) - var(--border-width))
-      calc(var(--connect__spacer-md) - var(--border-width));
+    display: inline-flex;
+
+    font-size: var(--button-fs);
+    line-height: var(--button-lh);
 
     &:nth-child(2) {
-      background-color: var(--active-color);
-      border-left: 0.125rem solid white;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
-
-      svg {
-        height: 1rem;
-        width: 1.25rem;
-      }
+      border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__neutrals-white);
+      padding-left: var(--button-gap);
+      transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     + ul {
@@ -594,6 +572,7 @@ select.connect__select {
       margin-top: calc(var(--border-width) * 2);
       padding: var(--connect__spacer-sm);
       position: absolute;
+      top: 100%;
       width: calc(100% - var(--connect__spacer-md) + var(--border-width));
       z-index: 1;
 
