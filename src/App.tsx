@@ -14,7 +14,7 @@ import GridItem from './components/GridItem';
 import Stack from './components/Stack';
 import Typography from './components/Typography';
 import imageSrc from './assets/images/zelda.jpg';
-import './assets/scss/custom.scss';
+import './assets/scss/new-custom.scss';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
