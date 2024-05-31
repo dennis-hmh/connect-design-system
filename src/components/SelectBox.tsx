@@ -5,6 +5,7 @@ type SelectBoxProp<T extends string | number> = {
   defaultValue?: string;
   correct?: boolean;
   incorrect?: boolean;
+  answerShown?: boolean;
   disabled?: boolean;
   dataTestId?: string;
 };
@@ -14,6 +15,7 @@ export function SelectBox<T extends string | number>({
   defaultValue,
   correct,
   incorrect,
+  answerShown,
   disabled,
   dataTestId,
 }: SelectBoxProp<T>) {
@@ -24,17 +26,29 @@ export function SelectBox<T extends string | number>({
     setSelect(event.target.value);
   };
 
-  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}`;
+  let inputAriaLabel = 'Select Item';
+  if (correct) {
+    inputAriaLabel += ', marked as correct';
+  } else if (incorrect) {
+    inputAriaLabel += ', marked as incorrect';
+  } else if (answerShown) {
+    inputAriaLabel += ', answer shown';
+  }
+
+  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}${answerShown ? 'connect__select-shown' : ''}`;
+  const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (
-    <label>
+    <label className={`connect__icon-wrapper ${correct} ${incorrect} ${answerShown}`}>
       <select
         ref={selectRef}
         className={selectClasses}
         value={select}
-        aria-label="Select Item"
+        aria-label={`Select Item${correct ? ', marked as correct' : ''}
+        ${incorrect ? ', marked as incorrect' : ''}
+        ${answerShown ? ', answer shown' : ''}`}
         onChange={handleChange}
-        disabled={disabled}
+        disabled={shouldBeDisabled}
         data-testid={dataTestId}
       >
         <SelectBoxOptions data={data} />

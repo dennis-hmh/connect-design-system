@@ -41,7 +41,7 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
 
       // Now, only update the style object if the current breakpoint explicitly sets the property
       if (values.direction) style[`--${breakpoint}-direction`] = direction;
-      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect-spacer-${spacingKey})`;
+      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
       if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
       if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
       if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;

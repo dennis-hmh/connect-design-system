@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
+import Icon from './Icons';
 
 export type ButtonSplitProps = {
   children: React.ReactNode;
   data: { label: string; value: React.ReactNode }[];
   disabled?: boolean;
+  iconId?: string;
+  iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  fill?: string;
+  ariaLabel?: string;
   dataTestId?: string;
 };
 
@@ -33,7 +38,11 @@ export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSpli
   }, [open]);
 
   return (
-    <div className={`connect__button-split`} ref={drop} data-testid={dataTestId}>
+    <div
+      className={`connect__button-split connect__button connect__button-primary`}
+      ref={drop}
+      data-testid={dataTestId}
+    >
       <button type="button" className={``} disabled={disabled}>
         {children}
       </button>
@@ -45,13 +54,9 @@ export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSpli
         aria-expanded={open}
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
+        aria-label="Toggle extra options"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
-          <path
-            fill="#fff"
-            d="M4.707 7.293a1 1 0 0 0-1.414 1.414l6 6a1 1 0 0 0 1.414 0l6-6a1 1 0 0 0-1.414-1.414L10 12.586 4.707 7.293Z"
-          />
-        </svg>
+        <Icon id={open ? 'arrow-up' : 'arrow-down'} size="sm" fill="neutrals-white" />
       </button>
       {open && <ButtonSplitMenu data={data} />}
     </div>

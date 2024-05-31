@@ -23,25 +23,25 @@
   --connect__shadow-14: rgba(0, 0, 0, 0.14);
   --connect__shadow-20: rgba(0, 0, 0, 0.2);
 
-  --connect__shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__shadow-spread-level-1: 0rem 0rem 0rem 0.0625rem;
-  --connect__shadow-spread-level-2: 0rem 0rem 0rem 0.125rem;
-  --connect__shadow-spread-level-3: 0rem 0.0625rem 0rem 0.0625rem;
-  --connect__shadow-spread-level-4: 0rem 0.125rem 0.0625rem -0.0625rem;
-  --connect__shadow-spread-level-5: 0rem 0.0625rem 0.1875rem 0.0625rem;
-  --connect__shadow-spread-level-6: 0rem 0.1875rem 0rem -0.125rem;
-  --connect__shadow-spread-level-7: 0rem 0.1875rem 0.1875rem -0.125rem;
-  --connect__shadow-spread-level-8: 0rem 0.1875rem 0.25rem 0rem;
-  --connect__shadow-spread-level-9: 0rem 0.0625rem 0.5rem 0rem;
-  --connect__shadow-spread-level-10: 0rem 0.3125rem 0.3125rem -0.1875rem;
-  --connect__shadow-spread-level-11: 0rem 0.5rem 0.625rem 0.0625rem;
-  --connect__shadow-spread-level-12: 0rem 0.1875rem 0.875rem 0.125rem;
-  --connect__shadow-spread-level-13: 0rem 0.1875rem 0.875rem 0.75rem;
-  --connect__shadow-spread-level-14: 0rem 0.25rem 0.1875rem 0rem;
-  --connect__shadow-spread-level-15: 0rem 0.0625rem 0rem 0.1875rem;
-  --connect__shadow-spread-level-16: 0rem 0.1875rem 0rem 0.0625rem;
-  --connect__shadow-spread-level-17: 0rem 0.125rem 0rem 0rem;
-  --connect__shadow-spread-level-18: 0rem 0.0625rem 0.0625rem 0rem;
+  --connect__shadow-spread-level-0: 0px 0px 0px 0px;
+  --connect__shadow-spread-level-1: 0px 0px 0px 1px;
+  --connect__shadow-spread-level-2: 0px 0px 0px 2px;
+  --connect__shadow-spread-level-3: 0px 1px 0px 1px;
+  --connect__shadow-spread-level-4: 0px 2px 1px -1px;
+  --connect__shadow-spread-level-5: 0px 1px 3px 1px;
+  --connect__shadow-spread-level-6: 0px 3px 0px -2px;
+  --connect__shadow-spread-level-7: 0px 3px 3px -2px;
+  --connect__shadow-spread-level-8: 0px 3px 4px 0px;
+  --connect__shadow-spread-level-9: 0px 1px 8px 0px;
+  --connect__shadow-spread-level-10: 0px 5px 5px -3px;
+  --connect__shadow-spread-level-11: 0px 8px 10px 1px;
+  --connect__shadow-spread-level-12: 0px 3px 14px 2px;
+  --connect__shadow-spread-level-13: 0px 3px 14px 12px;
+  --connect__shadow-spread-level-14: 0px 4px 3px 0px;
+  --connect__shadow-spread-level-15: 0px 1px 0px 3px;
+  --connect__shadow-spread-level-16: 0px 3px 0px 1px;
+  --connect__shadow-spread-level-17: 0px 2px 0px 0px;
+  --connect__shadow-spread-level-18: 0px 1px 1px 0px;
 
   --connect__neutrals-dark: var(--connect__gray-c70);
   --connect__neutrals-mid: var(--connect__gray-c55);
@@ -91,23 +91,23 @@
 }
 
 .connect__g23 {
-  --connect__effects-inner-edge: 0.375rem;
-  --inner-status: 0.625rem;
+  --connect__effects-inner-edge: 6px;
+  --inner-status: 10px;
 }
 
 .connect__g45 {
-  --connect__effects-inner-edge: 0.1875rem;
-  --inner-status: 0.375rem;
+  --connect__effects-inner-edge: 3px;
+  --inner-status: 6px;
 }
 
 .connect__g68 {
-  --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__effects-inner-edge: 2px;
+  --inner-status: 4px;
 }
 
 .connect__g912 {
-  --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__effects-inner-edge: 2px;
+  --inner-status: 4px;
   --color-incorrect-status: var(--connect__incorrect-mid);
   --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
 }
@@ -123,7 +123,8 @@
   --disabled-opacity: 0.5;
 }
 
-.connect__button {
+.connect__button,
+button.connect__button {
   //typography
   --connect__button-fs: var(--theme-button-fs, var(--connect__body-sm));
   --connect__button-lh: var(--theme-button-lh, var(--connect__body-sm-lheight));
@@ -131,12 +132,12 @@
   --connect__button-text-transform: var(--theme-button-transform, capitalize);
 
   // borders / radius
-  --connect__button-border-w: var(--theme-button-border-w, 0rem);
+  --connect__button-border-w: var(--theme-button-border-w, 0px);
   --connect__button-border-c: var(--connect__neutrals-white, transparent);
   --connect__button-radius: var(--theme-border-radius, var(--border-radius));
 
   //shadows
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
+  --inner-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
     var(--inner-shadow-color, transparent) inset;
   --inner-shadow-color: var(--connect__neutrals-white);
 
@@ -164,9 +165,9 @@
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0)
+    0px 0px 0px var(--inner-status, 0)
       var(--inner-status-color-state, var(--inner-status-color, transparent)) inset,
-    0rem 0rem 0rem var(--connect__button-inner-divider, 0)
+    0px 0px 0px var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -227,17 +228,9 @@
     --connect__button-inner-divider: var(--connect__button-padding-y);
     --connect__button-inner-divider-color: var(--connect__neutrals-white);
 
-    &[class*='connect_']:disabled {
+    &:disabled {
       --state-based-bg: var(--connect__neutrals-white);
       --inner-status-color: var(--connect__neutrals-pale);
-    }
-
-    &[class*='-correct']:disabled {
-      --inner-status-color: var(--connect__correct-light);
-    }
-
-    &[class*='-incorrect']:disabled {
-      --inner-status-color: var(--connect__incorrect-light);
     }
 
     &.connect__button-incorrect {
@@ -280,7 +273,7 @@
       --connect__button-bg: var(--connect__neutrals-white);
     }
 
-    --border-radius: 0.875rem;
+    --border-radius: 14px;
     --connect__button-padding-y: calc(var(--connect__spacer-xs) + var(--connect__spacer-xs));
     --connect__button-padding-x: calc(var(--connect__spacer-xs) + var(--connect__spacer-xs));
     background: var(--connect__button-bg);
@@ -340,13 +333,13 @@
 
   --connect__input-padding-y: var(--connect__spacer-sm);
   --connect__input-padding-x: var(--connect__spacer-md);
-  --connect__input-fs: var(--connect__body-sm, 1.25rem);
+  --connect__input-fs: var(--connect__body-sm, 20px);
   --connect__input-lh: var(--connect__body-sm-lheight, 1.5);
 
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white, transparent);
 
-  --connect__input-border-w: 0rem;
+  --connect__input-border-w: 0px;
   --connect__input-border-c: var(--connect__neutrals-white, transparent);
 
   --caret-color: var(--connect__selected-mid);
@@ -431,15 +424,16 @@
   }
 }
 
-.connect__select {
+.connect__select,
+select.connect__select {
   // Palette
   --connect__select-bg: var(--state-based-bg, var(--connect__neutrals-white));
   --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --connect__select-border-w: 0rem;
+  --connect__select-border-w: 0px;
   --connect__select-border-c: var(--connect__select-border-c, transparent);
 
   // typography
-  --connect__select-fs: var(--connect__body-sm, 1.25rem);
+  --connect__select-fs: var(--connect__body-sm, 20px);
   --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
   --connect__select-font-w: 400;
   --connect__select-text-transform: capitalize;
@@ -544,7 +538,6 @@
   flex-flow: var(--connect__button-flow);
 
   position: relative;
-  transition: var(--transition);
   width: fit-content;
 
   button {
@@ -625,7 +618,7 @@
 }
 
 .connect__card {
-  --connect__card-border-w: var(--theme-chip-border-w, 0rem);
+  --connect__card-border-w: var(--theme-chip-border-w, 0px);
   --connect__card-border-c: var(--connect__neutrals-white, transparent);
   --connect__card-radius: var(--theme-border-radius, var(--border-radius));
 
@@ -710,28 +703,28 @@ section.connect__grid {
   grid-row: var(--xs-row-span, auto);
 }
 
-@media (min-width: 30rem) {
+@media (min-width: 480px) {
   .connect-sm {
     grid-column: var(--sm-start-col) / span var(--sm-span-col);
     grid-row: var(--sm-row-span, auto);
   }
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect-md {
     grid-column: var(--md-start-col) / span var(--md-span-col);
     grid-row: var(--md-row-span, auto);
   }
 }
 
-@media (min-width: 55rem) {
+@media (min-width: 880px) {
   .connect-lg {
     grid-column: var(--lg-start-col) / span var(--lg-span-col);
     grid-row: var(--lg-row-span, auto);
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect-xl {
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
     grid-row: var(--xl-row-span, auto);
@@ -810,7 +803,7 @@ section.connect__grid {
   --connect__chip-fs: var(--theme-chip-fs, var(--connect__caption));
   --connect__chip-lh: var(--theme-chip-lh, var(--connect__caption-lheight));
 
-  --connect__chip-border-w: var(--theme-chip-border-w, 0rem);
+  --connect__chip-border-w: var(--theme-chip-border-w, 0px);
   --connect__chip-border-c: var(--connect__neutrals-white, transparent);
   --connect__chip-radius: var(--theme-border-radius, var(--border-radius));
 
@@ -928,18 +921,18 @@ section.connect__grid {
 }
 .connect__mcq-label {
   // typography
-  --connect__label-fs: var(--connect__body-sm, 1.25rem);
+  --connect__label-fs: var(--connect__body-sm, 20px);
   --connect__label-lh: var(--connect__body-sm-lheight, 1.5);
   --connect__label-font-w: 400;
   --connect__label-text-transform: capitalize;
 
   // borders / radius
-  --connect__label-border-w: 0rem;
+  --connect__label-border-w: 0px;
   --connect__label-border-c: var(--connect__neutrals-white, transparent);
   --connect__label-radius: var(--border-radius);
 
   //shadows
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
+  --inner-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
     var(--inner-shadow-color, transparent) inset;
   --inner-shadow-color: var(--connect__neutrals-white);
   --starting-shadow-color: var(--connect__neutrals-white);
@@ -956,9 +949,9 @@ section.connect__grid {
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0px 0px 0px var(--inner-status, 6px)
       var(--mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
-    0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
+    0px 0px 0px var(--connect__effects-inner-edge, 8px)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -997,7 +990,7 @@ section.connect__grid {
   --connect__input-dimensions: calc(var(--connect__spacer-lg) - var(--border-width));
 
   &::before {
-    --connect__input-border-w: 0.125rem;
+    --connect__input-border-w: 2px;
     border: var(--connect__input-border-w) solid
       var(--checkbox-checked-state-based-border-c, var(--connect__selected-mid));
     border-radius: calc(var(--border-radius) - var(--connect__spacer-sm));
@@ -1045,7 +1038,7 @@ section.connect__grid {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__spacer-xs);
   --connect__label-padding-x: var(--connect__spacer-xs);
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
+  --inner-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
     var(--inner-shadow-color, transparent) inset;
   --inner-shadow-color: var(--connect__neutrals-white);
   --starting-shadow-color: transparent;
@@ -1057,9 +1050,8 @@ section.connect__grid {
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
-      var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
-    0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
+    0px 0px 0px var(--inner-status, 6px) var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
+    0px 0px 0px var(--connect__effects-inner-edge, 8px)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -1120,6 +1112,7 @@ section.connect__grid {
     content: unset;
   }
 }
+
 input[type='checkbox'].connect__input,
 input[type='radio'].connect__input {
   opacity: 0;
@@ -1129,7 +1122,7 @@ input[type='radio'].connect__input {
     + .connect__mcq-label {
       --active-color: var(--connect__neutrals-mid);
       --checkbox-checked-state-based-border-c: var(--connect__gray-c45);
-      --checkbox-state-based-bg: var(--checked-incorrect-bg);
+      --checkbox-state-based-bg: var(--connect__neutrals-pale);
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
@@ -1151,7 +1144,7 @@ input[type='radio'].connect__input {
         background-color: var(--checkbox-state-based-bg, var(--connect__selected-mid));
         background-image: var(--checked-state-icon, transparent);
         background-size: contain;
-        box-shadow: 0rem 0 0 var(--connect__input-border-w)
+        box-shadow: 0px 0 0 var(--connect__input-border-w)
           var(--checkbox-state-based-bg, var(--connect__neutrals-white)) inset;
       }
     }
@@ -1183,6 +1176,7 @@ input[type='radio'].connect__input {
     }
   }
 }
+
 progress[value] {
   --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
@@ -1191,7 +1185,7 @@ progress[value] {
   --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
   --input-outer-shadow: var(--connect__shadow-spread-level-2);
 
-  --border-radius: 2.5rem;
+  --border-radius: 40px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1222,6 +1216,7 @@ progress[value] {
     transition-property: width, background-color;
   }
 }
+
 [class*='connect_']:disabled {
   --active-color: var(--connect__neutrals-mid);
   --state-based-bg: var(--connect__neutrals-pale);
@@ -1235,6 +1230,7 @@ progress[value] {
 
   cursor: not-allowed;
 }
+
 [class*='-correct'],
 [class*='-correct']:disabled {
   --mcq-starting-shadow-color: transparent;
@@ -1249,6 +1245,7 @@ progress[value] {
 
   --checked-state-icon: var(--checked-correct);
 }
+
 [class*='-incorrect'],
 [class*='-incorrect']:disabled {
   --mcq-starting-shadow-color: transparent;
@@ -1263,6 +1260,7 @@ progress[value] {
   );
   --checked-state-icon: var(--checked-incorrect);
 }
+
 [class*='-shown'],
 [class*='-shown']:disabled {
   --mcq-starting-shadow-color: transparent;
@@ -1276,6 +1274,7 @@ progress[value] {
   --checkbox-state-based-bg: var(--connect__neutrals-dark);
   --checked-state-icon: var(--checked-correct);
 }
+
 [class*='-correct'],
 [class*='-incorrect'],
 [class*='-shown'] {

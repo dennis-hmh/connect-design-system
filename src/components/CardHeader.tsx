@@ -10,7 +10,7 @@ export type CardHeaderProps = {
 
 export function CardHeader({ headerElement, children }: CardHeaderProps) {
   return (
-    <header>
+    <header className="connect__card-header">
       <Typography element={headerElement}>{children}</Typography>
     </header>
   );

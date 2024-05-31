@@ -5,6 +5,7 @@ export default {
   component: Button,
   title: 'Button',
   tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     design: {
@@ -16,6 +17,7 @@ export default {
 
 export const Primary = (args) => <Button {...args} />;
 export const Secondary = (args) => <Button {...args} />;
+export const IconButton = (args) => <Button {...args} />;
 
 Primary.args = {
   children: 'Check',
@@ -30,4 +32,13 @@ Primary.args = {
 Secondary.args = {
   ...Primary.args,
   primary: false,
+};
+
+IconButton.args = {
+  ...Primary.args,
+  children: '',
+  iconId: 'delete',
+  iconSize: 'lg',
+  fill: '',
+  ariaLabel: '',
 };

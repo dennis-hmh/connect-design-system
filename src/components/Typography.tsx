@@ -52,15 +52,15 @@ const Typography: React.FC<TypographyProps> = ({
     typoProps.fontFamily = `var(--connect__font-${family})`;
   }
   if (letterSpacing) {
-    typoProps.letterSpacing = `var(--connect-spacer-${letterSpacing})`;
+    typoProps.letterSpacing = `var(--connect__spacer-${letterSpacing})`;
   }
   if (style) typoProps.fontStyle = style;
   if (weight) typoProps.fontWeight = weight;
   if (textAlign) typoProps.textAlign = textAlign;
   if (textTransform) typoProps.textTransform = textTransform;
   if (size) {
-    typoProps.fontSize = `var(--connect-${size})`;
-    typoProps.lineHeight = `var(--connect-${size}-lheight)`;
+    typoProps.fontSize = `var(--connect__${size})`;
+    typoProps.lineHeight = `var(--connect__${size}-lheight)`;
   }
 
   // Only add the style attribute if typoProps is not empty

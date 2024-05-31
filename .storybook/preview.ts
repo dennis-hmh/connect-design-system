@@ -2,7 +2,7 @@ import React from 'react';
 import { Preview } from '@storybook/react';
 
 import '../src/assets/css/source.css';
-import '../src/assets/scss/custom.scss';
+import '../src/assets/scss/new-custom.scss';
 
 const preview: Preview = {
   parameters: {

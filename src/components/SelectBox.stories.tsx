@@ -16,6 +16,7 @@ export const Default = Template.bind({});
 export const SelectedValue = Template.bind({});
 export const Correct = Template.bind({});
 export const Incorrect = Template.bind({});
+export const AnswerShown = Template.bind({});
 export const Disabled = Template.bind({});
 
 Default.args = {
@@ -45,6 +46,11 @@ Correct.args = {
 Incorrect.args = {
   ...Default.args,
   incorrect: true,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  answerShown: true,
 };
 
 Disabled.args = {

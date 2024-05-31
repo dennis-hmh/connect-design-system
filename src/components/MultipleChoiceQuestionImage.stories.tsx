@@ -14,6 +14,8 @@ export const Default = (args) => <MultipleChoiceQuestionImage {...args} />;
 export const Checked = (args) => <MultipleChoiceQuestionImage {...args} />;
 export const Correct = (args) => <MultipleChoiceQuestionImage {...args} />;
 export const Incorrect = (args) => <MultipleChoiceQuestionImage {...args} />;
+export const AnswerShown = (args) => <MultipleChoiceQuestionImage {...args} />;
+
 export const Disabled = (args) => <MultipleChoiceQuestionImage {...args} />;
 
 Default.args = {
@@ -35,16 +37,17 @@ Checked.args = {
 
 Correct.args = {
   ...Default.args,
-  checked: true,
   correct: true,
-  disabled: true,
 };
 
 Incorrect.args = {
   ...Default.args,
-  checked: true,
-  disabled: true,
   incorrect: true,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  answerShown: true,
 };
 
 Disabled.args = {

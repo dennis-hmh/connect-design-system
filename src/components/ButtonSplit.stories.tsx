@@ -19,11 +19,11 @@ export const Primary = (args) => <ButtonSplit {...args} />;
 Primary.args = {
   children: 'Split Button',
   data: [
-    { label: '', value: 'Item 1' },
-    { label: '', value: 'Item 2' },
-    { label: '', value: 'Item 3' },
-    { label: '', value: 'Item 4' },
-    { label: '', value: 'Item 5' },
+    { label: 'Dropdown item 1', value: 'Item 1' },
+    { label: 'Dropdown item 2', value: 'Item 2' },
+    { label: 'Dropdown item 3', value: 'Item 3' },
+    { label: 'Dropdown item 4', value: 'Item 4' },
+    { label: 'Dropdown item 5', value: 'Item 5' },
   ],
   disabled: false,
 };

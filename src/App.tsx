@@ -14,7 +14,7 @@ import Stack from './components/Stack';
 import Typography from './components/Typography';
 import { GradeBand } from './enum/gradeband';
 import imageSrc from './assets/images/zelda.jpg';
-import './assets/scss/custom.scss';
+import './assets/scss/new-custom.scss';
 
 const App = () => {
   const themeWrapperRef = useRef(null);

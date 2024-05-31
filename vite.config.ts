@@ -5,6 +5,7 @@ import { resolve } from 'path';
 import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
 import css from 'rollup-plugin-css-only'; // Import the plugin
+import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
 
 export default defineConfig({
   build: {
@@ -31,5 +32,9 @@ export default defineConfig({
       jsxRuntime: 'classic',
     }),
     css({ output: 'button.css' }),
+    ViteSvgSpriteWrapper({
+			icons: './src/assets/icons/**/*.svg',
+			outputDir: './public/'
+		}),
   ],
 });

@@ -9,8 +9,11 @@ export type MultipleChoiceQuestionProp = {
   children: React.ReactNode;
   checked?: boolean;
   disabled?: boolean;
+  readonly?: boolean;
   correct?: boolean;
   incorrect?: boolean;
+  answerShown?: boolean;
+
   dataTestId?: string;
 };
 
@@ -24,9 +27,12 @@ export function MultipleChoiceQuestion({
   disabled,
   correct,
   incorrect,
+  answerShown,
   dataTestId,
 }: MultipleChoiceQuestionProp) {
-  const inputClasses = `mcq connect__input ${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''}`;
+  const isCorrect = correct ? 'connect__mcq-label-correct' : '';
+  const isIncorrect = incorrect ? 'connect__mcq-label-incorrect' : '';
+  const isAnswerShown = answerShown ? 'connect__mcq-label-shown' : '';
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -34,20 +40,39 @@ export function MultipleChoiceQuestion({
     setIsChecked(checkRef.current?.checked ?? false);
   };
 
+  let inputAriaLabel = 'Multiple Choice Question';
+  if (correct) {
+    inputAriaLabel += ', marked as correct';
+  } else if (incorrect) {
+    inputAriaLabel += ', marked as incorrect';
+  } else if (answerShown) {
+    inputAriaLabel += ', answer shown';
+  }
+
+  // const shouldBeReadOnly = correct || incorrect || answerShown;
+
   return (
-    <>
+    <div className="connect__mcq-label-wrapper">
       <input
         ref={checkRef}
         type={type}
         id={id}
-        className={inputClasses}
+        className="connect__input"
         name={name}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
+        aria-label={`Input field${correct ? ', marked as correct' : ''}
+        ${incorrect ? ', marked as incorrect' : ''}
+        ${answerShown ? ', answer shown' : ''}`}
         data-testid={dataTestId}
       />
-      <label htmlFor={id}>{image ? <img src={imageSrc} /> : children}</label>
-    </>
+      <label
+        className={`connect__mcq-label ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        htmlFor={id}
+      >
+        {image ? <img src={imageSrc} /> : children}
+      </label>
+    </div>
   );
 }

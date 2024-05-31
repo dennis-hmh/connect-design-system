@@ -9,6 +9,7 @@ export type InputBoxProps = {
   disabled?: boolean;
   correct?: boolean;
   incorrect?: boolean;
+  answerShown?: boolean;
   dataTestId?: string;
 };
 
@@ -21,9 +22,12 @@ export function InputBox({
   disabled,
   correct,
   incorrect,
+  answerShown,
   dataTestId,
 }: InputBoxProps) {
-  const inputClasses = `connect__input ${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''}`;
+  const isCorrect = correct ? 'connect__input-correct' : '';
+  const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
+  const isAnswerShown = answerShown ? 'connect__mcq-label-shown' : '';
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -32,19 +36,24 @@ export function InputBox({
   };
 
   return (
-    <>
+    <div className="connect__mcq-label-wrapper">
       <input
         ref={checkRef}
         type={type}
         id={id}
-        className={inputClasses}
+        className={`connect__input ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id}>{children}</label>
-    </>
+      <label
+        className={`connect__mcq-label ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        htmlFor={id}
+      >
+        {children}
+      </label>
+    </div>
   );
 }
