@@ -1159,6 +1159,11 @@
     font-size: var(--connect__body-md);
     line-height: var(--connect__body-md-head-lheight);
   }
+
+  :is(h1, h2, h3, h4, h5, h6):not([class]),
+  :is(h1, h2, h3, h4, h5, h6)[class=''] {
+    margin: 0;
+  }
 }
 
 .connect__h1 {
