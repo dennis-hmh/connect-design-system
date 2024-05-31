@@ -227,9 +227,17 @@
     --connect__button-inner-divider: var(--connect__button-padding-y);
     --connect__button-inner-divider-color: var(--connect__neutrals-white);
 
-    &:disabled {
+    &[class*='connect_']:disabled {
       --state-based-bg: var(--connect__neutrals-white);
       --inner-status-color: var(--connect__neutrals-pale);
+    }
+
+    &[class*='-correct']:disabled {
+      --inner-status-color: var(--connect__correct-light);
+    }
+
+    &[class*='-incorrect']:disabled {
+      --inner-status-color: var(--connect__incorrect-light);
     }
 
     &.connect__button-incorrect {
@@ -1120,7 +1128,7 @@ input[type='radio'].connect__input {
     + .connect__mcq-label {
       --active-color: var(--connect__neutrals-mid);
       --checkbox-checked-state-based-border-c: var(--connect__gray-c45);
-      --checkbox-state-based-bg: var(--connect__neutrals-pale);
+      --checkbox-state-based-bg: var(--checked-incorrect-bg);
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
