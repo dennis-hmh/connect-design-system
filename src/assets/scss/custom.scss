@@ -1130,6 +1130,7 @@ input[type='radio'].connect__input {
       --active-color: var(--connect__neutrals-mid);
       --checkbox-checked-state-based-border-c: var(--connect__gray-c45);
       --checkbox-state-based-bg: var(--checked-incorrect-bg);
+      --checkbox-state-based-bg: var(--connect__neutrals-pale); //add this back, MWA 6/3
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
@@ -1235,8 +1236,8 @@ progress[value] {
 
   cursor: not-allowed;
 }
-[class*='-correct'],
-[class*='-correct']:disabled {
+[class*='-correct']:not(:disabled),
+[class*='-correct']:is(:disabled) {
   --mcq-starting-shadow-color: transparent;
   --state-icon: var(--icon-correct);
   --state-based-bg: var(--connect__correct-pale);
