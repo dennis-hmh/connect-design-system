@@ -37,16 +37,19 @@ Checked.args = {
 
 Correct.args = {
   ...Default.args,
+  checked: true,
   correct: true,
 };
 
 Incorrect.args = {
   ...Default.args,
+  checked: true,
   incorrect: true,
 };
 
 AnswerShown.args = {
   ...Default.args,
+  checked: true,
   answerShown: true,
 };
 

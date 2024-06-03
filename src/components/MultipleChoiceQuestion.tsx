@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import imageSrc from '../assets/scss/images/zelda.jpeg';
+import { Figure } from './Figure';
+import defaultImageSrc from '../assets/scss/images/zelda.jpeg';
 
 export type MultipleChoiceQuestionProp = {
   type: 'checkbox' | 'radio';
@@ -9,17 +10,17 @@ export type MultipleChoiceQuestionProp = {
   children: React.ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  readonly?: boolean;
+  answerShown?: boolean;
   correct?: boolean;
   incorrect?: boolean;
-  answerShown?: boolean;
-
+  imageSrc?: string;
+  imageCaption?: string;
   dataTestId?: string;
 };
 
 export function MultipleChoiceQuestion({
   type,
-  image,
+  image = false,
   id,
   name,
   children,
@@ -28,11 +29,11 @@ export function MultipleChoiceQuestion({
   correct,
   incorrect,
   answerShown,
+  imageSrc,
+  imageCaption,
   dataTestId,
 }: MultipleChoiceQuestionProp) {
-  const isCorrect = correct ? 'connect__mcq-label-correct' : '';
-  const isIncorrect = incorrect ? 'connect__mcq-label-incorrect' : '';
-  const isAnswerShown = answerShown ? 'connect__mcq-label-shown' : '';
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -57,7 +58,7 @@ export function MultipleChoiceQuestion({
         ref={checkRef}
         type={type}
         id={id}
-        className="connect__input"
+        className={`connect__input ${inputStates}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
@@ -68,10 +69,19 @@ export function MultipleChoiceQuestion({
         data-testid={dataTestId}
       />
       <label
-        className={`connect__mcq-label ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        className={`connect__mcq-label ${image ? 'connect__mcq-card' : ''} ${inputStates}`}
         htmlFor={id}
       >
-        {image ? <img src={imageSrc} /> : children}
+        {image ? (
+          <Figure
+            altText={`Image for ${name}`}
+            imageSrc={imageSrc || defaultImageSrc}
+            imageCaption={imageCaption || ''}
+            dataTestId={dataTestId}
+          />
+        ) : (
+          children
+        )}
       </label>
     </div>
   );

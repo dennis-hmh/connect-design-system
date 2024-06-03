@@ -18,6 +18,7 @@ export const Default = (args) => <InputBox {...args} />;
 export const Checked = (args) => <InputBox {...args} />;
 export const Correct = (args) => <InputBox {...args} />;
 export const Incorrect = (args) => <InputBox {...args} />;
+export const AnswerShown = (args) => <InputBox {...args} />;
 export const Disabled = (args) => <InputBox {...args} />;
 
 Default.args = {
@@ -39,15 +40,19 @@ Checked.args = {
 Correct.args = {
   ...Default.args,
   checked: true,
-  disabled: true,
   correct: true,
 };
 
 Incorrect.args = {
   ...Default.args,
   checked: true,
-  disabled: true,
   incorrect: true,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  checked: true,
+  answerShown: true,
 };
 
 Disabled.args = {

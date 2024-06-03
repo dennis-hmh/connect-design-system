@@ -33,9 +33,7 @@ export function MultipleChoiceQuestionImage({
   imageCaption,
   dataTestId,
 }: MultipleChoiceQuestionImageProp) {
-  const isCorrect = correct ? 'connect__mcq-label-correct' : '';
-  const isIncorrect = incorrect ? 'connect__mcq-label-incorrect' : '';
-  const isAnswerShown = answerShown ? 'connect__mcq-label-shown' : '';
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -58,7 +56,7 @@ export function MultipleChoiceQuestionImage({
         ref={checkRef}
         type={type}
         id={id}
-        className={`connect__input ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        className={`connect__input ${inputStates}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
@@ -69,7 +67,7 @@ export function MultipleChoiceQuestionImage({
         data-testid={dataTestId}
       />
       <label
-        className={`connect__mcq-label connect__mcq-card ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        className={`connect__mcq-label ${image ? 'connect__mcq-card' : ''} ${inputStates}`}
         htmlFor={id}
       >
         {image ? (
