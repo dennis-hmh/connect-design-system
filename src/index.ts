@@ -1,3 +1,3 @@
-import './assets/scss/new-custom.scss';
+import './assets/scss/custom.scss';
 
 export * from './components/';
