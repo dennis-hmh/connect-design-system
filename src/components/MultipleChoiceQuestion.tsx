@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Figure } from './Figure';
-import defaultImageSrc from '../assets/scss/images/zelda.jpeg';
 
 export type MultipleChoiceQuestionProp = {
   type: 'checkbox' | 'radio';
@@ -63,9 +62,7 @@ export function MultipleChoiceQuestion({
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
-        aria-label={`Input field${correct ? ', marked as correct' : ''}
-        ${incorrect ? ', marked as incorrect' : ''}
-        ${answerShown ? ', answer shown' : ''}`}
+        aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
       <label
@@ -75,7 +72,7 @@ export function MultipleChoiceQuestion({
         {image ? (
           <Figure
             altText={`Image for ${name}`}
-            imageSrc={imageSrc || defaultImageSrc}
+            imageSrc={imageSrc || ''}
             imageCaption={imageCaption || ''}
             dataTestId={dataTestId}
           />

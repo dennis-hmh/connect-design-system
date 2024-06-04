@@ -1,4 +1,5 @@
 import React from 'react';
+import defaultImageSrc from '../assets/images/zelda.jpg';
 
 export type FigureProps = {
   altText: string;
@@ -10,7 +11,7 @@ export type FigureProps = {
 export function Figure({ altText, imageSrc, imageCaption, dataTestId }: FigureProps) {
   return (
     <figure className="connect__figure" data-testid={dataTestId}>
-      <img alt={altText} src={imageSrc} />
+      <img alt={altText} src={imageSrc || defaultImageSrc} />
       {imageCaption && <figcaption> {imageCaption} </figcaption>}
     </figure>
   );

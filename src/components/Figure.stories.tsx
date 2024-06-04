@@ -15,7 +15,7 @@ export const WithoutCaption = (arg) => <Figure {...arg} />;
 
 Default.args = {
   altText: 'This is Alt Text',
-  imageSrc: '/src/assets/images/zelda.jpg',
+  imageSrc: '',
   imageCaption: 'This is an image caption',
 };
 

@@ -30,7 +30,7 @@ Default.args = {
   disabled: false,
   correct: false,
   incorrect: false,
-  shown: false,
+  answerShown: false,
   children: 'The mouse rides a bike',
 };
 

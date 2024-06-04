@@ -19,7 +19,7 @@ export const WithoutImage = (args) => <Card {...args} />;
 
 Default.args = {
   image: true,
-  imageSrc: '/src/assets/images/zelda.jpg',
+  imageSrc: '',
   imageAlt: 'Zelda',
   imageCaption: 'Zelda caption',
   headerElement: 'h2',

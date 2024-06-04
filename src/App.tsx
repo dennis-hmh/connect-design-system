@@ -69,20 +69,53 @@ const App = () => {
               children={'The mouse rides a bike'}
             />
             <br />
+            <br />
+            <br />
             <InputBox
               type={'radio'}
               id={'text-id-2'}
               name={'radio-name'}
-              children={'The mouse rides a bike'}
+              children={'The mouse rides a bike 1'}
             />
             <br />
             <InputBox
               type={'radio'}
               id={'text-id-3'}
               name={'radio-name'}
-              children={'The mouse rides a bike'}
+              children={'The mouse rides a bike 2'}
             />
             <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-4'}
+              name={'radio-name'}
+              children={'The mouse rides a bike 3'}
+            />
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-5'}
+              name={'radio-name'}
+              children={'The mouse rides a bike 4'}
+            />
+            <br />
+            <br />
+            <br />
+            {/* <label>
+              <input type="radio" name="test" value="one" />
+              Test 1
+            </label>
+            <label>
+              <input type="radio" name="test" value="two" />
+              Test 2
+            </label>
+            <label>
+              <input type="radio" name="test" value="three" />
+              Test 3
+            </label>
+            <br />
+            <br />
+            <br /> */}
             <MultipleChoiceQuestion
               type={'checkbox'}
               image={false}
