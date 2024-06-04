@@ -31,7 +31,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "./src/**/*"],
-  "exclude": ["**/*.stories.tsx"],
+  "include": ["src", "src/**/*", "src/types/**/*"],
+  "exclude": ["**/*.stories.tsx", "node_modules/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
