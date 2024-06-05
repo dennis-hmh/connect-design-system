@@ -1184,7 +1184,12 @@ input[type='radio'].connect__input {
     }
   }
 }
-progress[value] {
+.connect__progress-wrapper {
+  width: 100%;
+}
+.connect__progress[value] {
+  --progressbar-color: var(--progress-color, var(--connect__selected-mid));
+
   --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
@@ -1197,9 +1202,10 @@ progress[value] {
   -moz-appearance: none;
   appearance: none;
   border: none;
+  border-radius: var(--border-radius);
   transition: all 150ms linear;
   transition-property: width, background-color;
-  width: 100%;
+  //width: 100%;
 
   &::-webkit-progress-bar {
     --border-radius: 1rem;
@@ -1209,15 +1215,14 @@ progress[value] {
       var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
       var(--input-outer-shadow) var(--outer-shadow-color, var(--connect__neutrals-white));
   }
-
   &::-webkit-progress-value {
-    background: var(--connect__selected-mid);
+    background: var(--progressbar-color);
     border-radius: var(--border-radius);
     transition: all 150ms linear;
     transition-property: width, background-color;
   }
   &::-moz-progress-bar {
-    background: var(--connect__selected-mid);
+    background: var(--progressbar-color);
     border-radius: var(--border-radius);
     transition: all 150ms linear;
     transition-property: width, background-color;
