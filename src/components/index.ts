@@ -7,6 +7,7 @@ export { MultipleChoiceQuestion } from './MultipleChoiceQuestion';
 export { SelectBox } from './SelectBox';
 export { Chip } from './Chip';
 export { ConnectTheme } from './ConnectTheme';
+export { ProgressBar } from './ProgressBar';
 export { default as Grid } from './Grid';
 export { default as GridItem } from './GridItem';
 export { default as Stack } from './Stack';

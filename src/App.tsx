@@ -13,6 +13,7 @@ import GridItem from './components/GridItem';
 import Stack from './components/Stack';
 import Typography from './components/Typography';
 import { GradeBand } from './enum/gradeband';
+import { ProgressBar } from './components/ProgressBar';
 import imageSrc from './assets/images/zelda.jpg';
 import './assets/scss/custom.scss';
 
@@ -24,6 +25,9 @@ const App = () => {
       <div ref={themeWrapperRef}>
         <Grid gutter={true} gap="md">
           <GridItem>
+            <ProgressBar value={30} />
+            <br />
+            <br />
             <Chip children={'word'} num={10} />
             <br />
             <Card
