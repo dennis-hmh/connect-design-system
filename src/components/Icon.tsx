@@ -1,10 +1,12 @@
 import React from 'react';
+import { Color } from '../utils/colors';
+import { IconId } from '../utils/icon-list';
 
 type IconProps = {
-  id: string;
+  id: IconId;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  fill?: string;
-  stroke?: string;
+  fill?: Color | undefined;
+  stroke?: Color | undefined;
   focusable?: boolean;
 };
 
@@ -13,7 +15,6 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   return (
-    // Added return statement
     <svg
       className={`connect__icon connect__icon-${size}`}
       style={

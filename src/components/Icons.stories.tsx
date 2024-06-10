@@ -3,8 +3,9 @@ import Grid from './Grid';
 import GridItem from './GridItem';
 import Typography from './Typography';
 import Stack from './Stack';
-import Icon from './Icons'; // Ensure this is the correct import
-import { ColorBase, ColorShade } from '../utils/colors';
+import Icon from './Icon'; // Ensure this is the correct import
+import { IconId } from '../utils/icon-list';
+import { Color, ColorBase, ColorShade } from '../utils/colors';
 
 type ColorOption = {
   name: string;
@@ -88,8 +89,8 @@ export const Icons: React.FC = () => {
   const [filter, setFilter] = useState<string>('');
   const [category, setCategory] = useState<string>('');
   const [iconSize, setIconSize] = useState<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'>('lg');
-  const [fillColor, setFillColor] = useState<string>('--connect__gray-c70');
-  const [strokeColor, setStrokeColor] = useState<string>('');
+  const [fillColor, setFillColor] = useState<Color | undefined>(undefined);
+  const [strokeColor, setStrokeColor] = useState<Color | undefined>(undefined);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -136,7 +137,10 @@ export const Icons: React.FC = () => {
             <Typography element="p" size="caption">
               Fill Colour
             </Typography>
-            <select className="connect__select" onChange={(e) => setFillColor(e.target.value)}>
+            <select
+              className="connect__select"
+              onChange={(e) => setFillColor(e.target.value as Color | undefined)}
+            >
               <option value="none">Default</option>
               <hr />
               {colors.map((group, index) => (
@@ -158,7 +162,10 @@ export const Icons: React.FC = () => {
             <Typography element="p" size="caption">
               Stroke Colour
             </Typography>
-            <select className="connect__select" onChange={(e) => setStrokeColor(e.target.value)}>
+            <select
+              className="connect__select"
+              onChange={(e) => setStrokeColor(e.target.value as Color | undefined)}
+            >
               <option value="none">Default</option>
               <hr />
               {colors.map((group, index) => (
@@ -204,7 +211,7 @@ export const Icons: React.FC = () => {
                         }}
                       >
                         <Icon
-                          id={id}
+                          id={id as IconId}
                           size={iconSize}
                           fill={fillColor}
                           stroke={strokeColor}

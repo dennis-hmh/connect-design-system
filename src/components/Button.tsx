@@ -1,5 +1,7 @@
 import React from 'react';
-import Icon from './Icons';
+import Icon from './Icon';
+import { IconId } from 'src/utils/icon-list';
+import { Color } from 'src/utils/colors';
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -9,9 +11,9 @@ export type ButtonProps = {
   incorrect?: boolean;
   submit?: 'button' | 'submit';
   clickHandler?: any;
-  iconId?: string;
+  iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  fill?: string;
+  fill?: Color;
   iconPosition?: 'before' | 'after';
   ariaLabel?: string;
   dataTestId?: string;
@@ -27,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   clickHandler,
   iconId,
   iconSize = 'md',
-  fill = '',
+  fill = 'white',
   iconPosition = 'before',
   ariaLabel,
   dataTestId,
