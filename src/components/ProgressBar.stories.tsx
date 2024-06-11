@@ -6,11 +6,11 @@ export default {
   title: 'Progress Bar',
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
-    design: {
-      type: 'figma',
-      url: '',
-    },
+    // layout: 'centered',
+    // design: {
+    //   type: 'figma',
+    //   url: '',
+    // },
   },
 };
 

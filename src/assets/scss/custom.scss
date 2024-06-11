@@ -1205,7 +1205,7 @@ input[type='radio'].connect__input {
   border-radius: var(--border-radius);
   transition: all 150ms linear;
   transition-property: width, background-color;
-  //width: 100%;
+  width: 100%;
 
   &::-webkit-progress-bar {
     --border-radius: 1rem;
