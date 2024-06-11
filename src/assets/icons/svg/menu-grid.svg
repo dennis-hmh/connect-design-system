@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:path d="M18 6H6V18H18V6Z" fill="currentcolor" />
+            <ns0:path d="M34 6H22V18H34V6Z" fill="currentcolor" />
+            <ns0:path d="M18 22H6V34H18V22Z" fill="currentcolor" />
+            <ns0:path d="M34 22H22V34H34V22Z" fill="currentcolor" />
+        </svg>

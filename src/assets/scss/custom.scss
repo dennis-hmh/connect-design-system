@@ -888,12 +888,13 @@ section.connect__grid {
 }
 
 .connect__icon {
+  --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
+  --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
+  color: var(--icon-fill);
   height: var(--connect__icon-size);
   width: var(--connect__icon-size);
 
   svg {
-    --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
-    --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
     fill: var(--icon-fill);
     stroke: var(--icon-stroke, transparent);
   }

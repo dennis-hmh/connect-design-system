@@ -33,8 +33,8 @@ export default defineConfig({
     }),
     css({ output: 'button.css' }),
     ViteSvgSpriteWrapper({
-			icons: './src/assets/icons/**/*.svg',
-			outputDir: './public/'
+			icons: './src/assets/icons/svg/**/*.svg',
+			outputDir: './public/svg/'
 		}),
   ],
 });

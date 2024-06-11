@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const svgContent = fs.readFileSync('../assets/icons/sprite.svg', 'utf8');
+const svgContent = fs.readFileSync('./src/assets/icons/sprite.svg', 'utf8');
 
 const regex = /<symbol[^>]+id="([^"]+)"/g;
 
@@ -12,4 +12,7 @@ while ((match = regex.exec(svgContent)) !== null) {
 
 console.log(ids, 'Done!');
 
-fs.writeFileSync('icon-list.ts', `export type IconId = \n  '${ids.join("'|\n  '")}'\n;\n // To generate lists run 'Node ./src/utils/sprite-ids.js'`);
+fs.writeFileSync(
+  'icon-list.ts',
+  `export type IconId = \n  '${ids.join("'|\n  '")}'\n;\n // To generate lists run 'Node src/utils/sprite-ids.js'`,
+);

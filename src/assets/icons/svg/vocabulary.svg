@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 46 41"><ns0:circle cx="33" cy="16.5" r="2.5" fill="currentcolor" />
+            <ns0:circle cx="13" cy="16.5" r="2.5" fill="currentcolor" />
+            <ns0:circle cx="23" cy="16.5" r="2.5" fill="currentcolor" />
+            <ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M3 6.5L3 26.5C3 28.5711 4.58017 30.25 6.52941 30.25H17.1176L23 37.75L28.8824 30.25H39.4706C41.4198 30.25 43 28.5711 43 26.5V6.5C43 4.42893 41.4198 2.75 39.4706 2.75H6.52941C4.58017 2.75 3 4.42893 3 6.5Z" stroke="var(--connect__icon-stroke-color, #2d2d2d)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>

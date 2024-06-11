@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:rect x="4" y="32" width="32" height="6" fill="currentcolor" />
+            <ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M23.4414 6L29.1527 24.0876C29.3349 24.6646 29.7684 25.128 30.332 25.3482L32 26V28H22V26L25.2258 25L23.8923 20H16.1077L14.7742 25L18 26V28H8V26L9.66802 25.3482C10.2316 25.128 10.6651 24.6646 10.8473 24.0876L16.5586 6H23.4414ZM19.4414 10L17.4412 16H22.5588L20.5586 10H19.4414Z" fill="currentcolor" />
+        </svg>

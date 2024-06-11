@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:path d="M32 36H8C6.8 36 6 35.2 6 34V6C6 4.8 6.8 4 8 4H16V8H10V32H30V22H34V34C34 35.2 33.2 36 32 36Z" fill="currentcolor" />
+            <ns0:path d="M20.8 20L30 10.8V18H34V6C34 4.8 33.2 4 32 4H20V8H27.2L18 17.2" fill="currentcolor" />
+        </svg>

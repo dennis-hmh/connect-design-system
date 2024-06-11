@@ -27,8 +27,11 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
       focusable={focusable}
     >
       <use
-        xlinkHref={`src/assets/icons/sprite.svg#${id}`}
-        href={`src/assets/icons/sprite.svg#${id}`}
+        // xlinkHref={`src/assets/icons/sprite.svg#${id}`}
+        // href={`src/assets/icons/sprite.svg#${id}`}
+        
+        xlinkHref={`../svg/sprite.svg#${id}`}
+        href={`../svg/sprite.svg#${id}`}
       />
     </svg>
   );
