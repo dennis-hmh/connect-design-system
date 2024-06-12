@@ -32,9 +32,9 @@ export default defineConfig({
       jsxRuntime: 'classic',
     }),
     css({ output: 'button.css' }),
-    ViteSvgSpriteWrapper({
-			icons: './src/assets/icons/**/*.svg',
-			outputDir: './public/'
-		}),
+    // ViteSvgSpriteWrapper({
+		// 	icons: './src/assets/icons/svg/*.svg',
+		// 	outputDir: './public/svg/'
+		// }),
   ],
 });
