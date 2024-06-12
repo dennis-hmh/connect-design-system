@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M6 36H34C35.2 36 36 35.2 36 34V6C36 4.8 35.2 4 34 4H6C4.8 4 4 4.8 4 6V34C4 35.2 4.8 36 6 36ZM32 32H8V8H32V32Z" fill="currentcolor" />
-            <ns0:path d="M16 12C17.2 12 18 12.8 18 14C18 15.2 17.2 16 16 16C14.8 16 14 15.2 14 14C14 12.8 14.8 12 16 12Z" fill="currentcolor" />
-            <ns0:path d="M10 28L14 20L18 24L24 16L30 28H10Z" fill="currentcolor" />
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M6 36H34C35.2 36 36 35.2 36 34V6C36 4.8 35.2 4 34 4H6C4.8 4 4 4.8 4 6V34C4 35.2 4.8 36 6 36ZM32 32H8V8H32V32Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+            <ns0:path d="M16 12C17.2 12 18 12.8 18 14C18 15.2 17.2 16 16 16C14.8 16 14 15.2 14 14C14 12.8 14.8 12 16 12Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+            <ns0:path d="M10 28L14 20L18 24L24 16L30 28H10Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
         </svg>

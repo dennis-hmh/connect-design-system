@@ -10,7 +10,7 @@ def extract_symbols_to_svgs(input_file, output_folder):
     root = tree.getroot()
     ns = {'svg': 'http://www.w3.org/2000/svg'}
 
-    symbols_found = root.findall('svg:symbol', ns)
+    symbols_found = root.findall('.//svg:symbol', ns)
     print(f"Found {len(symbols_found)} symbols.")  # Debugging output
 
     for symbol in symbols_found:
@@ -18,7 +18,7 @@ def extract_symbols_to_svgs(input_file, output_folder):
         print(f"Processing symbol with ID: {symbol_id}")  # Debugging output
 
         if symbol_id:
-            svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", fill="var(--connect__icon-fill-color, #2d2d2d)")
+            svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg")
             svg.set('viewBox', symbol.get('viewBox'))
             svg.extend(symbol)
             new_tree = ET.ElementTree(svg)
@@ -27,6 +27,6 @@ def extract_symbols_to_svgs(input_file, output_folder):
             print(f"Written: {output_path}")  # Debugging output
 
 # Usage
-input_svg_file = '../assets/icons/sprite.svg'
-output_directory = '../assets/icons/svg'
+input_svg_file = './src/assets/icons/sprite.svg'
+output_directory = './src/assets/icons/svg'
 extract_symbols_to_svgs(input_svg_file, output_directory)

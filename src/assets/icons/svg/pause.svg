@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:path d="M16.4 8H11.6C10.64 8 10 8.68571 10 9.71429V30.2857C10 31.3143 10.64 32 11.6 32H16.4C17.36 32 18 31.3143 18 30.2857V9.71429C18 8.68571 17.36 8 16.4 8Z" fill="currentcolor" />
-            <ns0:path d="M28.4 8H23.6C22.64 8 22 8.68571 22 9.71429V30.2857C22 31.3143 22.64 32 23.6 32H28.4C29.36 32 30 31.3143 30 30.2857V9.71429C30 8.68571 29.36 8 28.4 8Z" fill="currentcolor" />
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path d="M16.4 8H11.6C10.64 8 10 8.68571 10 9.71429V30.2857C10 31.3143 10.64 32 11.6 32H16.4C17.36 32 18 31.3143 18 30.2857V9.71429C18 8.68571 17.36 8 16.4 8Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+            <ns0:path d="M28.4 8H23.6C22.64 8 22 8.68571 22 9.71429V30.2857C22 31.3143 22.64 32 23.6 32H28.4C29.36 32 30 31.3143 30 30.2857V9.71429C30 8.68571 29.36 8 28.4 8Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
         </svg>

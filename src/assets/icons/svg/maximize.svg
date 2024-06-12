@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="var(--connect__icon-fill-color, #2d2d2d)" viewBox="0 0 40 40"><ns0:path d="M22 8H29.2L21.2 16L24 18.8L32 10.8V18H36V4H22V8Z" fill="currentcolor" />
-            <ns0:path d="M16 21.2L8 29.2V22H4V36H18V32H10.8L18.8 24L16 21.2Z" fill="currentcolor" />
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path d="M22 8H29.2L21.2 16L24 18.8L32 10.8V18H36V4H22V8Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+            <ns0:path d="M16 21.2L8 29.2V22H4V36H18V32H10.8L18.8 24L16 21.2Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
         </svg>

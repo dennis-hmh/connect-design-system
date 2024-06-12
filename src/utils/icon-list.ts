@@ -4,11 +4,12 @@ export type IconId =
   'align-left'|
   'align-right'|
   'arrow-down'|
+  'arrow-up'|
   'arrow-left'|
   'arrow-left-dbl'|
   'arrow-right'|
+  'undo-arrow'|
   'arrow-right-dbl'|
-  'arrow-up'|
   'audio-description'|
   'audio-next'|
   'audio-pause'|
@@ -16,21 +17,15 @@ export type IconId =
   'audio-previous'|
   'audio-replay'|
   'bold'|
-  'calendar'|
   'change'|
   'circle'|
   'circle-cross'|
-  'circle-filled'|
   'circle-outline'|
+  'circle-filled'|
   'circle-tick'|
-  'clock'|
-  'close'|
   'closed-captioning'|
   'color'|
-  'color-nine'|
-  'color-one'|
   'color-palette'|
-  'correct'|
   'correct-six-twelve'|
   'cross-xs'|
   'delete'|
@@ -40,18 +35,13 @@ export type IconId =
   'flip'|
   'glyphs'|
   'help'|
-  'image'|
-  'incorrect'|
   'incorrect-six-twelve'|
   'info'|
   'italic'|
   'light-bulb'|
   'line'|
-  'line-arrow'|
   'line-arrows'|
-  'line-dash'|
   'line-medium'|
-  'line-solid'|
   'line-thick'|
   'line-thickness'|
   'line-thin'|
@@ -67,59 +57,75 @@ export type IconId =
   'open'|
   'pause'|
   'pdf'|
-  'pencil'|
   'play'|
-  'print'|
   'redo'|
   'reload'|
-  'retangle-filled'|
-  'retangle-outline'|
   'save'|
   'save-as'|
   'settings'|
   'shapes'|
-  'shapes-connector'|
   'shapes-three'|
-  'shapes-two'|
-  'shown-correct'|
   'shown-correct-six-twelve'|
   'size'|
   'square'|
-  'square-filled'|
   'square-outline'|
   'stamp'|
-  'stamp-five'|
-  'stamp-four'|
-  'stamp-one'|
-  'stamp-seven'|
-  'stamp-six'|
-  'stamp-three'|
-  'stamp-two'|
   'star'|
   'star-outline'|
-  'stroke-one'|
-  'stroke-three'|
-  'stroke-two'|
-  'text'|
   'text-label'|
   'tick'|
   'tick-xs'|
   'transcript'|
-  'triange-outline'|
   'triangle'|
   'triangle-down'|
-  'triangle-filled'|
   'triangle-outline'|
   'triangle-up'|
   'underline'|
   'undo'|
-  'undo-arrow'|
   'upload'|
   'video-clip'|
   'vocabulary'|
   'volume-high'|
   'volume-low'|
   'volume-mid'|
-  'volume-mute'
+  'volume-mute'|
+  'correct'|
+  'incorrect'|
+  'shown-correct'|
+  'square-filled'|
+  'triangle-filled'|
+  'square-outline'|
+  'shapes'|
+  'color-one'|
+  'color-nine'|
+  'draw'|
+  'line-dash'|
+  'pencil'|
+  'line-solid'|
+  'close'|
+  'shapes-two'|
+  'retangle-filled'|
+  'retangle-outline'|
+  'square-filled'|
+  'line-arrow'|
+  'square-outline'|
+  'stamp-four'|
+  'stroke-one'|
+  'shapes-connector'|
+  'text'|
+  'calendar'|
+  'print'|
+  'stamp-three'|
+  'triangle-filled'|
+  'stamp-one'|
+  'stroke-three'|
+  'stamp-seven'|
+  'stamp-five'|
+  'stamp-six'|
+  'stroke-two'|
+  'stamp-two'|
+  'triange-outline'|
+  'image'|
+  'clock'
 ;
  // To generate lists run 'Node src/utils/sprite-ids.js'
