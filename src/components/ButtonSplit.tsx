@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
-import Icon from './Icons';
+import Icon from './Icon';
 
 export type ButtonSplitProps = {
   children: React.ReactNode;
@@ -56,7 +56,7 @@ export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSpli
         onKeyDown={handleKeyDown}
         aria-label="Toggle extra options"
       >
-        <Icon id={open ? 'arrow-up' : 'arrow-down'} size="sm" fill="neutrals-white" />
+        <Icon id={open ? 'arrow-up' : 'arrow-down'} size="sm" fill="white" />
       </button>
       {open && <ButtonSplitMenu data={data} />}
     </div>

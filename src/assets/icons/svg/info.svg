@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M22.711 16.8002C22.711 15.5202 21.8399 14.6669 20.5333 14.6669H14V18.9335H18.3555V31.7334H14V36H27.0665V31.7334H22.711V16.8002Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+            <ns0:ellipse cx="19.4444" cy="7.19997" rx="3.26663" ry="3.19997" fill="var(--connect__icon-fill-color, #2d2d2d)" />
+        </svg>

@@ -39,6 +39,6 @@ IconButton.args = {
   children: '',
   iconId: 'delete',
   iconSize: 'lg',
-  fill: '',
+  fill: 'white',
   ariaLabel: '',
 };

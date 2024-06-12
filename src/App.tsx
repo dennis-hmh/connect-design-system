@@ -57,8 +57,8 @@ const App = () => {
             >
               <Button children={'Click'} primary={true} disabled={false} />
               <Button children={'Click'} primary={false} disabled={false} />
-              <Button primary={true} children={'submitted'} correct={true} />
-              <Button primary={true} children={'submitted'} incorrect={true} />
+              <Button primary={true} children={'submitted'} correct={true} iconId={'correct'} iconPosition={'after'} />
+              <Button primary={true} children={'submitted'} incorrect={true} iconId={'incorrect'} iconPosition={'after'} />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />
             </Stack>
