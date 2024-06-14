@@ -40,13 +40,11 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
       const flexWrap = values.flexWrap ?? previousBreakpoint.flexWrap ?? 'wrap';
 
       // Now, only update the style object if the current breakpoint explicitly sets the property
-      if (values.direction) style[`--${breakpoint}-connect-stack-direction`] = direction;
-      if (values.spacing)
-        style[`--${breakpoint}-connect-stack-spacing`] = `var(--connect-spacer-${spacingKey})`;
-      if (values.alignItems) style[`--${breakpoint}-connect-stack-align-items`] = alignItems;
-      if (values.justifyContent)
-        style[`--${breakpoint}-connect-stack-justify-content`] = justifyContent;
-      if (values.flexWrap) style[`--${breakpoint}-connect-stack-flex-wrap`] = flexWrap;
+      if (values.direction) style[`--${breakpoint}-direction`] = direction;
+      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
+      if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
+      if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
+      if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
 
       // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
