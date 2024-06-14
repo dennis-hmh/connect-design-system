@@ -2,15 +2,15 @@ import React from 'react';
 
 export type AccordionProps<T extends React.ReactNode> = {
   data: { title: string; content: T }[];
-  varients?: 'default' | 'divider' | 'color';
+  variants?: 'default' | 'divider' | 'color';
 };
 
 export function Accordion<T extends React.ReactNode>({
   data,
-  varients = 'default',
+  variants = 'default',
 }: AccordionProps<T>) {
   return (
-    <ul className={`connect__accordion connect__accordion--${varients}`}>
+    <ul className={`connect__accordion connect__accordion--${variants}`}>
       <ListItem data={data} />
     </ul>
   );

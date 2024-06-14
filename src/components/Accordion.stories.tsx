@@ -1,3 +1,4 @@
+import React from 'react';
 import { Accordion } from './Accordion';
 
 export default {
@@ -28,7 +29,7 @@ Default.args = {
         'This is a paragraph of placeholder text. It is only here to help show the layout of the page and how the text will flow. Replace this placeholder text with your own meaningful content.',
     },
     {
-      title: 'Title Fout',
+      title: 'Title Four',
       content:
         'This is a paragraph of placeholder text. It is only here to help show the layout of the page and how the text will flow. Replace this placeholder text with your own meaningful content.',
     },
@@ -38,14 +39,15 @@ Default.args = {
         'This is a paragraph of placeholder text. It is only here to help show the layout of the page and how the text will flow. Replace this placeholder text with your own meaningful content.',
     },
   ],
+  varients: 'default',
 };
 
 Divider.args = {
   ...Default.args,
-  variant: 'divider',
+  variants: 'divider',
 };
 
 Color.args = {
   ...Default.args,
-  variant: 'color',
+  variants: 'color',
 };
