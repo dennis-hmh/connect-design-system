@@ -14,7 +14,6 @@ import Stack from './components/Stack';
 import Typography from './components/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar';
-import imageSrc from './assets/images/zelda.jpg';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -32,7 +31,6 @@ const App = () => {
             <br />
             <Card
               image={true}
-              imageSrc={imageSrc}
               imageAlt="Description of the image"
               imageCaption="Caption for the image"
               headerElement="h3"
@@ -42,7 +40,6 @@ const App = () => {
             />
             <Card
               image={false}
-              imageSrc={imageSrc}
               imageAlt="Description of the image"
               imageCaption="Caption for the image"
               headerContent="This is the Card Header"
