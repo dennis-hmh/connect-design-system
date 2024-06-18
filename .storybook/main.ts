@@ -26,6 +26,14 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  managerHead: (head) => `
+    ${head}
+    <style>
+      button[id="drag-drop"] { display: none; }
+      button[id="flipcards"] { display: none; }
+      button[id="reveal"] {display: none; }
+    </style>
+  `,
   async viteFinal(config) {
     return {
       ...config,
