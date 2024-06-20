@@ -1,5 +1,4 @@
 import React from 'react';
-import defaultImageSrc from '../assets/images/zelda.jpg';
 
 export type FigureProps = {
   altText: string;
@@ -7,6 +6,8 @@ export type FigureProps = {
   imageCaption?: string;
   dataTestId?: string;
 };
+
+const defaultImageSrc = '../../public/images/zelda.jpg';
 
 export function Figure({ altText, imageSrc, imageCaption, dataTestId }: FigureProps) {
   return (
