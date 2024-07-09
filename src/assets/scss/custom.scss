@@ -724,20 +724,20 @@
     &:hover,
     &.hover {
       &::before {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
       }
     }
-  
+
     &:active,
     &.active {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
     }
-  
+
     &:focus-visible:not(:active),
     &.focus-visible:not(:active) {
       --connect__shadow-10: var(--connect__focus-mid);
@@ -1009,6 +1009,8 @@ section.connect__grid {
 }
 
 .connect__icon-wrapper {
+  --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
+  --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
   display: inline-flex;
   flex: 1;
   position: relative;
@@ -1022,30 +1024,26 @@ section.connect__grid {
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(
-      calc(var(--connect__icon-size, var(--connect__icon-sm)) / 3),
-      calc(var(--connect__icon-size, var(--connect__icon-sm)) / -3)
-    );
+    transform: translate(var(--translateY), var(--translateX));
+    height: var(--connect__icon-size, var(--connect__icon-md));
+    width: var(--connect__icon-size, var(--connect__icon-md));
   }
-
-  &:has([class*='-correct']),
-  &:has([class*='-incorrect']),
-  &:has([class*='-shown']) {
-    &::after {
-      height: var(--connect__icon-size, var(--connect__icon-sm));
-      width: var(--connect__icon-size, var(--connect__icon-sm));
-    }
-  }
-
-  &:has([class*='-correct']) {
+  &.connect__input-correct {
     --state-icon: var(--icon-correct);
   }
-
-  &:has([class*='-incorrect']) {
+  &.connect__input-incorrect {
     --state-icon: var(--icon-incorrect);
   }
-
-  &:has([class*='-shown']) {
+  &.connect__input-shown {
+    --state-icon: var(--icon-shown);
+  }
+  > .connect__select-correct {
+    --state-icon: var(--icon-correct);
+  }
+  > .connect__select-incorrect {
+    --state-icon: var(--icon-incorrect);
+  }
+  > .connect__select-shown {
     --state-icon: var(--icon-shown);
   }
 }
