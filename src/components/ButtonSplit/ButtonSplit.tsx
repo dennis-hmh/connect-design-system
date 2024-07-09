@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
-import Icon from './Icon';
+import Icon from '../Icon/Icon';
 
 export type ButtonSplitProps = {
   children: React.ReactNode;

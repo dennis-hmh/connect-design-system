@@ -40,5 +40,5 @@ IconButton.args = {
   iconId: 'delete',
   iconSize: 'lg',
   fill: 'white',
-  ariaLabel: '',
+  ariaLabel: 'Delete button',
 };

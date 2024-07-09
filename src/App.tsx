@@ -1,19 +1,19 @@
 import React, { useRef } from 'react';
-import { Button } from './components/Button';
-import { InputBox } from './components/InputBox';
-import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion';
-import { InputText } from './components/InputText';
-import { Card } from './components/Card';
-import { SelectBox } from './components/SelectBox';
-import { ButtonSplit } from './components/ButtonSplit';
-import { Chip } from './components/Chip';
+import { Button } from './components/Button/Button';
+import { InputBox } from './components/InputBox/InputBox';
+import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
+import { InputText } from './components/InputText/InputText';
+import { Card } from './components/Card/Card';
+import { SelectBox } from './components/SelectBox/SelectBox';
+import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
+import { Chip } from './components/Chip/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
+import { Typography } from './components/Typography/Typography';
+import { GradeBand } from './enum/gradeband';
+import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import Grid from './components/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack';
-import Typography from './components/Typography';
-import { GradeBand } from './enum/gradeband';
-import { ProgressBar } from './components/ProgressBar';
 import './assets/scss/custom.scss';
 
 const App = () => {
@@ -54,8 +54,20 @@ const App = () => {
             >
               <Button children={'Click'} primary={true} disabled={false} />
               <Button children={'Click'} primary={false} disabled={false} />
-              <Button primary={true} children={'submitted'} correct={true} iconId={'correct'} iconPosition={'after'} />
-              <Button primary={true} children={'submitted'} incorrect={true} iconId={'incorrect'} iconPosition={'after'} />
+              <Button
+                primary={true}
+                children={'submitted'}
+                correct={true}
+                iconId={'correct'}
+                iconPosition={'after'}
+              />
+              <Button
+                primary={true}
+                children={'submitted'}
+                incorrect={true}
+                iconId={'incorrect'}
+                iconPosition={'after'}
+              />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />
             </Stack>

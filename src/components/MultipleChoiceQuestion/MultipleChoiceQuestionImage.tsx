@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Figure } from './Figure';
+import { Figure } from '../Figure/Figure';
 
-export type MultipleChoiceQuestionProp = {
+export type MultipleChoiceQuestionImageProp = {
   type: 'checkbox' | 'radio';
   image: boolean;
   id: string;
@@ -17,9 +17,9 @@ export type MultipleChoiceQuestionProp = {
   dataTestId?: string;
 };
 
-export function MultipleChoiceQuestion({
+export function MultipleChoiceQuestionImage({
   type,
-  image = false,
+  image = true,
   id,
   name,
   children,
@@ -31,7 +31,7 @@ export function MultipleChoiceQuestion({
   imageSrc,
   imageCaption,
   dataTestId,
-}: MultipleChoiceQuestionProp) {
+}: MultipleChoiceQuestionImageProp) {
   const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
@@ -48,8 +48,6 @@ export function MultipleChoiceQuestion({
   } else if (answerShown) {
     inputAriaLabel += ', answer shown';
   }
-
-  // const shouldBeReadOnly = correct || incorrect || answerShown;
 
   return (
     <div className="connect__mcq-label-wrapper">

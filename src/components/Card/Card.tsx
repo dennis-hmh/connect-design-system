@@ -1,5 +1,5 @@
 import React from 'react';
-import { Figure } from './Figure';
+import { Figure } from '../Figure/Figure';
 import { CardHeader } from './CardHeader';
 import { CardMain } from './CardMain';
 import { CardFooter } from './CardFooter';
