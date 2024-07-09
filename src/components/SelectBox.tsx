@@ -35,11 +35,12 @@ export function SelectBox<T extends string | number>({
     inputAriaLabel += ', answer shown';
   }
 
+  const wrapperClasses = `connect__icon-wrapper ${correct ? 'connect__icon-correct' : ''} ${incorrect ? 'connect__icon-incorrect' : ''} ${answerShown ? 'connect__icon-shown' : ''}`;
   const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}${answerShown ? 'connect__select-shown' : ''}`;
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (
-    <label className={`connect__icon-wrapper ${correct} ${incorrect} ${answerShown}`}>
+    <label className={wrapperClasses}>
       <select
         ref={selectRef}
         className={selectClasses}
