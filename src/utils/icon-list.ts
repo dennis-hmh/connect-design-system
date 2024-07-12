@@ -8,8 +8,8 @@ export type IconId =
   'arrow-left'|
   'arrow-left-dbl'|
   'arrow-right'|
-  'undo-arrow'|
   'arrow-right-dbl'|
+  'undo-arrow'|
   'audio-description'|
   'audio-next'|
   'audio-pause'|
@@ -18,19 +18,14 @@ export type IconId =
   'audio-replay'|
   'bold'|
   'change'|
-  'circle'|
   'circle-cross'|
-  'circle-outline'|
-  'circle-filled'|
   'circle-tick'|
   'closed-captioning'|
   'color'|
-  'color-palette'|
   'correct-six-twelve'|
   'cross-xs'|
   'delete'|
   'download'|
-  'draw'|
   'erase'|
   'flip'|
   'glyphs'|
@@ -39,12 +34,6 @@ export type IconId =
   'info'|
   'italic'|
   'light-bulb'|
-  'line'|
-  'line-arrows'|
-  'line-medium'|
-  'line-thick'|
-  'line-thickness'|
-  'line-thin'|
   'list-bullet'|
   'list-number'|
   'maximize'|
@@ -63,23 +52,14 @@ export type IconId =
   'save'|
   'save-as'|
   'settings'|
-  'shapes'|
-  'shapes-three'|
   'shown-correct-six-twelve'|
   'size'|
-  'square'|
-  'square-outline'|
-  'stamp'|
   'star'|
   'star-outline'|
   'text-label'|
   'tick'|
   'tick-xs'|
   'transcript'|
-  'triangle'|
-  'triangle-down'|
-  'triangle-outline'|
-  'triangle-up'|
   'underline'|
   'undo'|
   'upload'|
@@ -92,40 +72,14 @@ export type IconId =
   'correct'|
   'incorrect'|
   'shown-correct'|
-  'square-filled'|
-  'triangle-filled'|
-  'square-outline'|
-  'shapes'|
-  'color-one'|
-  'color-nine'|
   'draw'|
-  'line-dash'|
   'pencil'|
-  'line-solid'|
   'close'|
-  'shapes-two'|
-  'retangle-filled'|
-  'retangle-outline'|
-  'square-filled'|
-  'line-arrow'|
-  'square-outline'|
-  'stamp-four'|
-  'stroke-one'|
-  'shapes-connector'|
   'text'|
   'calendar'|
   'print'|
-  'stamp-three'|
-  'triangle-filled'|
-  'stamp-one'|
-  'stroke-three'|
-  'stamp-seven'|
-  'stamp-five'|
-  'stamp-six'|
-  'stroke-two'|
-  'stamp-two'|
-  'triange-outline'|
   'image'|
   'clock'
 ;
+
  // To generate lists run 'Node src/utils/sprite-ids.js'

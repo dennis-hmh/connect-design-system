@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M22.3333 13H13.6667C13.2987 13 13 13.298 13 13.6667V22.3333C13 22.702 13.2987 23 13.6667 23H22.3333C22.7013 23 23 22.702 23 22.3333V13.6667C23 13.298 22.7013 13 22.3333 13Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <ns0:path fill-rule="evenodd" clip-rule="evenodd" d="M11.6667 12.9999C11.6667 12.2633 12.2633 11.6666 13 11.6666H18.8453C18.164 8.67995 15.254 6.53261 11.962 7.08728C9.49334 7.50395 7.50334 9.49461 7.08734 11.9639C6.53334 15.2553 8.68067 18.1646 11.6667 18.8453V12.9999Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-        </svg>
