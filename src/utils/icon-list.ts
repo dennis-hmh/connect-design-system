@@ -45,15 +45,12 @@ export type IconId =
   'pause'|
   'pdf'|
   'play'|
-  'redo'|
   'reload'|
   'save'|
   'save-as'|
   'settings'|
   'shown-correct-six-twelve'|
   'size'|
-  'star'|
-  'star-outline'|
   'text-label'|
   'tick'|
   'tick-xs'|
@@ -87,18 +84,19 @@ export type IconId =
   'lines-outline'|
   'placeholder'|
   'redo'|
-  'shapes-circle-outline'|
-  'shapes-circle'|
+  'undo'|
+  'circle-outline'|
+  'circle'|
   'shapes-outline'|
-  'shapes-rectangule-outline'|
-  'shapes-rectangle'|
-  'shapes-triangle-outline'|
+  'rectangle-outline'|
+  'rectangle'|
+  'triangle-outline'|
   'special-shapes-one'|
-  'shapes-triangle'|
+  'triangle'|
   'special-shapes-three'|
   'special-shapes-two'|
+  'stamps-measure-outline'|
   'stamps-counter-outline'|
-  'stamps-measures-outline'|
   'stamps-special-shapes-outline'
 ;
  // To generate lists run 'Node src/utils/sprite-ids.js'
