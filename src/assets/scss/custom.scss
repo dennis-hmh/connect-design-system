@@ -1355,6 +1355,361 @@ input[type='radio'].connect__input {
     transition-property: width, background-color;
   }
 }
+
+.connect__toolbar {
+  --connect__toolbar-direction: row wrap;
+  --connect__toolbar-align: center;
+
+  --connect__toolbar-padding-y: var(--connect__spacer-xs);
+  --connect__toolbar-padding-x: var(--connect__spacer-sm);
+
+  --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
+
+  background-color: var(--connect__neutrals-pale);
+  display: flex;
+  flex-flow: var(--connect__toolbar-direction, column wrap);
+  align-items: var(--connect__toolbar-align, baseline);
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  margin: 0;
+  padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
+
+  &.vertical {
+    --connect__toolbar-direction: column wrap;
+    --connect__toolbar-padding-x: 0;
+    align-content: start;
+
+    //menus on the toolbar, these can contain lists,
+    // they look like buttons
+
+    .connect__toolbar-menu {
+      --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
+
+      --connect__menu-divider-line-w: calc(100% - var(--connect__menu-divider-line-x-offset) * 2);
+      --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
+      --connect__menu-divider-line-y-offset: calc(-1 * var(--connect__menu-divider-line-x-offset));
+    }
+
+    .connect__toolbar-item-menu {
+      --connect__toolbar-item-menu-y-offset: 0;
+      --connect__toolbar-item-menu-x-offset: calc(
+        var(--connect__toolbar-width) + var(--connect__spacer-sm)
+      );
+
+      --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
+    }
+
+    .connect__toolbar-item-menu-item {
+      &:has(ul) {
+        &:nth-of-type(n + 3) {
+          --menu-col-start: 2;
+          --menu-col-span: 1;
+          --menu-row-start: 1;
+          --menu-row-span: 2;
+          --connect__toolbar-sub-menu-divider-w: 3px;
+          --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
+          --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
+          --connect__toolbar-sub-menu-divider-left: calc(-1 * var(--connect__spacer-xs));
+
+          ul {
+            margin-left: var(--connect__toolbar-sub-menu-padding-x);
+          }
+        }
+
+        // First menu should have line at bottom
+        // not full width
+        &:nth-of-type(1) {
+          --menu-row-start: 1;
+          --menu-col-start: 1;
+          --connect__toolbar-sub-menu-divider-w: calc(
+            100% - calc(var(--connect__toolbar-sub-menu-padding-x) * 2)
+          );
+          --connect__toolbar-sub-menu-divider-left: var(--connect__toolbar-sub-menu-padding-x);
+          --connect__toolbar-sub-menu-divider-top: unset;
+          --connect__toolbar-sub-menu-divider-bottom: calc(
+            -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(
+                --connect__toolbar-sub-menu-divider-h
+              ) ;
+          );
+          --connect__toolbar-sub-menu-divider-h: 3px;
+        }
+
+        &:nth-of-type(2) {
+          --menu-col-start: 1;
+          --menu-row-start: 2;
+        }
+
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          ul {
+            padding-left: 0;
+            margin-right: var(--connect__toolbar-sub-menu-padding-x);
+          }
+        }
+
+        ul {
+          flex-flow: column wrap;
+        }
+      }
+    }
+
+    .connect__toolbar-item-menu-item-sub-menu {
+      height: 100%;
+    }
+  }
+
+  // These are the menus running along the top
+  .connect__toolbar-menu {
+    --connect__toolbar-direction: row wrap;
+    --connect__toolbar-align: center;
+    --connect__toolbar-justify: center;
+    --connect__toolbar-gap: var(--connect__spacer-xs);
+
+    --connect__toolbar-menu-padding-x: 0;
+    --connect__toolbar-menu-margin: 0;
+
+    --connect__menu-divider-line-y-offset: var(--connect__spacer-xs);
+    --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-sm) * -1);
+
+    --connect__menu-divider-line-h: calc(
+      100% - calc(var(--connect__menu-divider-line-y-offset) * 2)
+    );
+
+    display: flex;
+    flex-flow: var(--connect__toolbar-direction, column wrap);
+    align-items: var(--connect__toolbar-align, baseline);
+    justify-content: var(--connect__toolbar-justify, baseline);
+    gap: var(--connect__toolbar-gap);
+    position: relative;
+    padding: var(--connect__toolbar-menu-padding-x);
+    margin: var(--connect__toolbar-menu-margin);
+
+    &:nth-of-type(2) {
+      --connect__icon-fill-color: var(--connect__gray-c45);
+      &::after {
+        content: '';
+        position: absolute;
+        left: var(--connect__menu-divider-line-x-offset);
+        top: var(--connect__menu-divider-line-y-offset);
+        height: var(--connect__menu-divider-line-h);
+        width: var(--connect__menu-divider-line-w, 2px);
+        background-color: var(--connect__gray-c45);
+        border-radius: 24px;
+      }
+    }
+  }
+
+  .connect__toolbar-item {
+    position: relative;
+
+    .tooltip {
+      visibility: hidden;
+    }
+
+    &:has(.connect__toolbar-item-menu:hover) {
+      .tooltip {
+        visibility: hidden;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      .tooltip {
+        visibility: visible;
+      }
+    }
+  }
+
+  // default the auto flow to column dense
+  // this will set single lists to flow row wise
+  .connect__toolbar-item-menu {
+    --connect__toolbar-sub-menu-divider-c: var(--connect__gray-c10);
+    --connect__toolbar-row-gap: var(--connect__spacer-xs);
+    --connect__toolbar-col-gap: var(--connect__spacer-xs);
+    --connect__toolbar-item-menu-y-offset: calc(100% + var(--connect__spacer-md, 0));
+    --connect__toolbar-item-menu-x-offset: 0;
+    --connect__toolbar-sub-menu-flow: column;
+    --connect__toolbar-sub-menu-cols: var(--demo-cols, 1);
+
+    --starting-speed: 90ms;
+    --transition-origin-start: center;
+    --starting-bezier: cubic-bezier(0.33, 0, 0.67, 1);
+
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
+    grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
+    padding: var(--connect__spacer-xs);
+    border-radius: var(--border-radius);
+    background: var(--connect__neutrals-white);
+    column-gap: var(--connect__toolbar-col-gap);
+    row-gap: var(--connect__toolbar-row-gap);
+
+    box-shadow:
+      var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
+      var(--connect__shadow-spread-level-4) var(--connect__shadow-20),
+      var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
+      var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
+
+    position: absolute;
+    top: var(--connect__toolbar-item-menu-y-offset);
+    left: var(--connect__toolbar-item-menu-x-offset);
+    transform: scale(1);
+    transform-origin: var(--transition-origin-start, top);
+    transition:
+      opacity var(--starting-speed) var(--starting-bezier),
+      transform var(--starting-speed) var(--starting-bezier) allow-discrete,
+      display var(--starting-speed) var(--starting-bezier) allow-discrete;
+  }
+
+  .connect__toolbar-item-menu-item {
+    --row-start: var(--menu-row-start, auto);
+    --row-span: var(--menu-row-span, auto);
+    --col-start: var(--menu-col-start, auto);
+
+    --connect__toolbar-sub-menu-padding-x: var(--connect__spacer-xs);
+    --connect__toolbar-sub-menu-padding-y: var(--connect__spacer-xs);
+    --connect__toolbar-sub-menu-divider-h: 3px;
+    --connect__toolbar-sub-menu-divider-w: 3px;
+
+    grid-column: var(--menu-col-start) / span var(--menu-col-span);
+    grid-row: var(--row-start) / span var(--row-span);
+
+    ul {
+      display: flex;
+    }
+
+    // only apply these if theres a nested list
+    &:has(ul) {
+      position: relative;
+
+      li {
+        padding: 1px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: var(--connect__toolbar-sub-menu-divider-c);
+        left: var(--connect__toolbar-sub-menu-divider-left, initial);
+        right: var(--connect__toolbar-sub-menu-divider-right, initial);
+        top: var(--connect__toolbar-sub-menu-divider-top, initial);
+        bottom: var(--connect__toolbar-sub-menu-divider-bottom, initial);
+        height: var(--connect__toolbar-sub-menu-divider-h, initial);
+        width: var(--connect__toolbar-sub-menu-divider-w, initial);
+      }
+
+      &:nth-of-type(n + 3) {
+        --menu-col-span: 2;
+        --menu-col-start: 1;
+        --connect__toolbar-sub-menu-divider-w: calc(100% + calc(var(--connect__spacer-xs) * 2));
+        // --connect__toolbar-sub-menu-divider-top: calc(
+        //   -1 * var(--connect__spacer-xs)
+        // );
+        --connect__toolbar-sub-menu-divider-top: 0;
+        --connect__toolbar-sub-menu-divider-left: calc(-1 * var(--connect__spacer-xs));
+
+        ul {
+          margin-top: var(--connect__toolbar-sub-menu-padding-y);
+        }
+      }
+
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        --menu-col-span: 1;
+      }
+
+      &:nth-of-type(1) {
+        --connect__toolbar-sub-menu-divider-h: calc(100% - calc(var(--connect__spacer-xs) * 2));
+        --connect__toolbar-sub-menu-divider-right: calc(-1 * var(--connect__spacer-xs) / 2);
+        --connect__toolbar-sub-menu-divider-top: var(--connect__spacer-xs);
+
+        ul {
+          margin-right: var(--connect__toolbar-sub-menu-padding-x);
+        }
+      }
+
+      &:nth-of-type(2) {
+        --menu-col-start: 2;
+
+        ul {
+          margin-left: var(--connect__toolbar-sub-menu-padding-x);
+        }
+      }
+
+      &:has(:nth-of-type(3)) {
+        &:nth-of-type(2) {
+          &::after {
+            content: unset;
+          }
+        }
+      }
+    }
+
+    .connect__button {
+      &.selected {
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+        --inner-status-color: var(--connect__selected-mid);
+
+        svg {
+          --connect__icon-fill-color: currentColor;
+        }
+      }
+    }
+  }
+
+  .connect__toolbar-item-menu-item-sub-menu {
+    li {
+      flex: 1;
+    }
+  }
+
+  @starting-style {
+    .connect__toolbar-item-menu {
+      display: none;
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  .connect__button {
+    &:hover {
+    }
+    &:active {
+    }
+    &:focus-visible {
+    }
+
+    &.selected {
+      --inner-status-color: var(--connect__selected-mid);
+
+      &:hover {
+      }
+      &:active {
+      }
+      &:focus-visible {
+      }
+    }
+
+    svg {
+      margin: var(--connect__spacer-xs);
+      height: var(--connect__icon-sm);
+      width: var(--connect__icon-sm);
+    }
+  }
+
+  img {
+    border-radius: 9px;
+  }
+
+  li {
+    &:focus-visible {
+      outline: 0;
+    }
+  }
+}
+
 [class*='connect_']:disabled {
   --active-color: var(--connect__neutrals-mid);
   --state-based-bg: var(--connect__neutrals-pale);

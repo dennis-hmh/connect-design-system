@@ -34,8 +34,6 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   dataTestId,
 }) => {
-
-  
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
   const isIncorrect = incorrect ? 'connect__button-incorrect' : '';
