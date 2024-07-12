@@ -45,6 +45,7 @@ export type IconId =
   'pause'|
   'pdf'|
   'play'|
+  'redo'|
   'reload'|
   'save'|
   'save-as'|
@@ -73,7 +74,31 @@ export type IconId =
   'calendar'|
   'print'|
   'image'|
-  'clock'
+  'clock'|
+  'color'|
+  'counter-one'|
+  'draw-outline'|
+  'draw-size-one'|
+  'draw-size-three'|
+  'draw-size-two'|
+  'line-arrow'|
+  'line-dashed'|
+  'line'|
+  'lines-outline'|
+  'placeholder'|
+  'redo'|
+  'shapes-circle-outline'|
+  'shapes-circle'|
+  'shapes-outline'|
+  'shapes-rectangule-outline'|
+  'shapes-rectangle'|
+  'shapes-triangle-outline'|
+  'special-shapes-one'|
+  'shapes-triangle'|
+  'special-shapes-three'|
+  'special-shapes-two'|
+  'stamps-counter-outline'|
+  'stamps-measures-outline'|
+  'stamps-special-shapes-outline'
 ;
-
  // To generate lists run 'Node src/utils/sprite-ids.js'
