@@ -9,7 +9,6 @@ export type IconId =
   'arrow-left-dbl'|
   'arrow-right'|
   'arrow-right-dbl'|
-  'undo-arrow'|
   'audio-description'|
   'audio-next'|
   'audio-pause'|
@@ -21,7 +20,6 @@ export type IconId =
   'circle-cross'|
   'circle-tick'|
   'closed-captioning'|
-  'color'|
   'correct-six-twelve'|
   'cross-xs'|
   'delete'|
@@ -47,7 +45,6 @@ export type IconId =
   'pause'|
   'pdf'|
   'play'|
-  'redo'|
   'reload'|
   'save'|
   'save-as'|
@@ -61,7 +58,6 @@ export type IconId =
   'tick-xs'|
   'transcript'|
   'underline'|
-  'undo'|
   'upload'|
   'video-clip'|
   'vocabulary'|
@@ -72,8 +68,6 @@ export type IconId =
   'correct'|
   'incorrect'|
   'shown-correct'|
-  'draw'|
-  'pencil'|
   'close'|
   'text'|
   'calendar'|
