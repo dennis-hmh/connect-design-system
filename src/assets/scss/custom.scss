@@ -25,16 +25,19 @@
 .connect__g45 {
   --connect__effects-inner-edge: 0.1875rem;
   --inner-status: 0.375rem;
+  --inner-divider-width: 8px;
 }
 
 .connect__g68 {
   --connect__effects-inner-edge: 0.125rem;
   --inner-status: 0.25rem;
+  --inner-divider-width: 0.375rem;
 }
 
 .connect__g912 {
   --connect__effects-inner-edge: 0.125rem;
   --inner-status: 0.25rem;
+  --inner-divider-width: 0.375rem;
   --color-incorrect-status: var(--connect__incorrect-mid);
   --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
 }
@@ -78,16 +81,8 @@
 
   // spacings
   --connect__button-gap: var(--connect__spacer-sm);
-  --connect__button-padding-y: calc(
-    var(--connect__button-padding-y-override, var(--connect__spacer-sm)) - var(
-        --connect__button-border-w
-      )
-  );
-  --connect__button-padding-x: calc(
-    var(--connect__button-padding-x-override, var(--connect__spacer-md)) - var(
-        --connect__button-border-w
-      )
-  );
+  --connect__button-padding-y: calc(var(--connect__spacer-sm) - var(--connect__button-border-w));
+  --connect__button-padding-x: calc(var(--connect__spacer-md) - var(--connect__button-border-w));
   --connect__button-justify-content: var(--btn-justify, space-between);
   --connect__button-flow: var(--btn-flow, row wrap);
 
@@ -109,7 +104,7 @@
     var(--connect__shadow-level-4) var(--connect__shadow-12);
 
   color: var(--theme-button-color, var(--connect__button-color));
-  cursor: pointer;
+  cursor: var(--connect__disabled-cursor, pointer);
   display: inline-flex;
   flex-flow: var(--connect__button-flow);
   font-family: var(--connect__font-sans);
@@ -122,10 +117,14 @@
   padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
     calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
   text-transform: var(--connect__button-text-transform, initial);
-  transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   width: var(--connect__button-w, fit-content);
 
-  &:not(:disabled):not(.connect__button-toolbar) {
+  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
+      [class*='-incorrect']
+    ):not([class*='-shown']) {
     &:hover,
     &.hover {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
@@ -143,7 +142,7 @@
   &:focus-visible:not(:active) {
     --connect__shadow-10: var(--connect__focus-mid);
     --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-19);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
     outline: unset;
@@ -152,6 +151,10 @@
   &-primary {
     --active-color: var(--connect__neutrals-white);
     --icon-fill: var(--connect__icon-fill-color);
+
+    &:disabled {
+      --state-based-bg: var(--connect__neutrals-pale);
+    }
   }
 
   &-secondary {
@@ -250,8 +253,8 @@
     --connect__button-bg: unset;
     --inner-shadow-color: unset;
 
-    --connect__button-padding-y-override: var(--connect__spacer-xs);
-    --connect__button-padding-x-override: var(--connect__spacer-xs);
+    --connect__button-padding-y: var(--connect__spacer-xs);
+    --connect__button-padding-x: var(--connect__spacer-xs);
 
     &.selected {
       --connect__button-bg: var(--connect__selected-mid);
@@ -336,15 +339,12 @@
   }
 
   &:disabled {
+    --connect__disabled-cursor: not-allowed;
+    --state-based-bg: var(--connect__neutrals-pale);
+
     svg {
       --connect__icon-fill-color: var(--connect__gray-c45);
     }
-  }
-
-  &[class*='-correct'],
-  &[class*='-incorrect'],
-  &[class*='-shown'] {
-    --active-color: var(--connect__neutrals-dark);
   }
 
   &:has(svg) {
@@ -392,8 +392,15 @@
     var(--connect__input-outer-shadow) var(--outer-shadow-color, #fff);
   caret-color: var(--caret-color);
 
+  border-radius: var(--radius-border-radius, 0.875rem);
+  background: var(--neutrals-white, #fff);
+  border-radius: var(--radius-border-radius, 0.875rem);
+  background: var(--neutrals-white, #fff);
+
+  /* Inputs/Hovered */
+
   color: var(--connect__input-text-color);
-  cursor: pointer;
+  cursor: var(--connect__disabled-cursor, text);
 
   display: inline-flex;
   flex: 1;
@@ -404,14 +411,14 @@
   padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
   position: relative;
   resize: var(--resize);
-  transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   width: var(--connect__input-width, 100%);
 
   &:not(:disabled) {
     &:hover,
-    &:active,
-    &.active,
-    &.hover {
+    &:active {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
@@ -420,12 +427,11 @@
 
   &.active,
   &:focus-visible,
-  &.focus &:active {
+  &:active {
     outline: unset;
   }
 
-  &:focus-visible:not(:active),
-  &.focus-visible:not(:active) {
+  &:focus-visible:not(:active) {
     --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
@@ -434,10 +440,12 @@
 
     --starting-shadow-color: var(--connect__focus-mid);
     --connect__input-focus-shadow: var(--connect__focus-mid);
+
+    border-radius: var(--radius-border-radius, 0.875rem);
+    background: var(--neutrals-white, #fff);
   }
 
-  &:active:not(:disabled),
-  &.active:not(.disabled) {
+  &:active:not(:disabled) {
     --starting-shadow-color: var(--connect__selected-mid);
   }
 
@@ -446,6 +454,31 @@
 
     &:disabled {
       resize: none;
+    }
+  }
+
+  &.connect__input-selected,
+  &.connect__input-selected:disabled {
+    --caret-color: var(--connect__selected-mid);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
+    --starting-shadow-color: var(--connect__selected-mid);
+
+    &:hover {
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+    }
+
+    &:focus-visible {
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
+      --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
+      --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
+      --starting-shadow-color: var(--connect__focus-mid);
+      --connect__input-focus-shadow: var(--connect__focus-mid);
     }
   }
 
@@ -518,7 +551,7 @@
   width: 100%;
 
   &:not(:disabled) {
-    cursor: pointer;
+    cursor: var(--connect__cursor);
 
     &:hover,
     &:active,
@@ -572,7 +605,6 @@
   flex-flow: var(--connect__button-flow);
 
   position: relative;
-  transition: var(--transition);
   width: fit-content;
 
   button {
@@ -580,10 +612,12 @@
     --connect__button-lh: var(--theme-button-lh, var(--connect__body-sm-lheight));
     --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
     --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
+
     background-color: var(--theme-button-bg, var(--connect__button-bg));
     border: unset;
     color: var(--theme-button-color, var(--connect__button-color));
-    cursor: pointer;
+    cursor: var(--connect__disabled-cursor, pointer);
+
     display: inline-flex;
 
     font-size: var(--connect__button-fs);
@@ -592,7 +626,6 @@
     &:nth-child(2) {
       border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__neutrals-white);
       padding-left: var(--connect__button-gap);
-      transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     + ul {
@@ -624,6 +657,7 @@
       z-index: 1;
 
       li {
+        cursor: var(--connect__disabled-cursor, pointer);
         padding: var(--connect__spacer-sm);
 
         &:first-of-type {
@@ -643,7 +677,6 @@
     &:disabled {
       --active-color: var(--color-action-disabled);
       color: var(--connect__neutrals-mid);
-      cursor: unset;
     }
 
     &:focus-visible {
@@ -741,7 +774,9 @@
       height: 100%;
       left: 0;
       position: absolute;
-      transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
+      transition-property: color, background-color, border-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
       top: 0;
       width: 100%;
       z-index: -1;
@@ -1235,7 +1270,9 @@ section.connect__grid {
 
   position: relative;
   text-transform: var(--connect__label-text-transform, initial);
-  transition: all 90ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition-property: color, background, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   width: var(--connect__label-w, fit-content);
 
   // palette
@@ -1460,7 +1497,8 @@ input[type='radio'].connect__input {
   appearance: none;
   border: none;
   border-radius: var(--border-radius);
-  transition: all 150ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
   transition-property: width, background-color;
   width: 100%;
 
@@ -1475,13 +1513,15 @@ input[type='radio'].connect__input {
   &::-webkit-progress-value {
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
-    transition: all 150ms linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
     transition-property: width, background-color;
   }
   &::-moz-progress-bar {
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
-    transition: all 150ms linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
     transition-property: width, background-color;
   }
 }
@@ -1848,9 +1888,30 @@ input[type='radio'].connect__input {
   }
 }
 
+[class*='connect_'] {
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  figure {
+    margin: var(--connect__fig-margin, 0);
+    figcaption {
+      font-size: var(--connect__fig-fs, var(--connect__caption));
+      margin-top: var(--connect__fig-mt, 0);
+      padding-top: var(--connect__fig-pt, var(--connect__fig-py));
+      padding-right: var(--connect__fig-pr, var(--connect__fig-px));
+      padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
+      padding-left: var(--connect__fig-pl, var(--connect__fig-px));
+      text-align: var(--connect__fig-text-align, left);
+      text-wrap: var(--connect__fig-text-wrap, initial);
+    }
+  }
+}
+
 [class*='connect_']:disabled {
   --active-color: var(--connect__neutrals-mid);
-  --state-based-bg: var(--connect__neutrals-pale);
+  // --state-based-bg: var(--connect__neutrals-white);
   --connect__icon-fill-color: var(--connect__neutrals-light);
   --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
   --checkbox-state-based-bg: var(--connect__neutrals-pale);
@@ -1859,10 +1920,10 @@ input[type='radio'].connect__input {
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
 
-  cursor: not-allowed;
+  --connect__disabled-cursor: not-allowed;
 }
-[class*='-correct']:not(:disabled),
-[class*='-correct']:is(:disabled) {
+[class*='-correct'],
+[class*='-correct']:disabled {
   --mcq-starting-shadow-color: transparent;
   --state-icon: var(--icon-correct);
   --state-based-bg: var(--connect__correct-pale);
@@ -1906,13 +1967,15 @@ input[type='radio'].connect__input {
 [class*='-incorrect'],
 [class*='-shown'] {
   &:disabled {
-    --active-color: var(--connect__neutrals-dark);
+    --active-color: var(--connect__neutrals-mid);
   }
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --active-color: var(--connect__neutrals-dark);
-  cursor: not-allowed;
+  --active-color: var(--connect__neutrals-mid);
+  --connect__disabled-cursor: not-allowed;
+
+  --connect__card-inner-state-divider: var(--connect__neutrals-null);
 
   &:hover,
   &.hover,
