@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ToolbarItem from './ToolbarItem';
 import { ToolbarButton } from './ToolbarButton';
 import { IconId } from '../utils/icon-list';
 import { Color } from '../utils/colors';
@@ -20,74 +21,6 @@ const colorOptions: { id: string; fill: Color }[] = [
   { id: 'color', fill: 'blue-s40' },
   { id: 'color', fill: 'cerise-s40' },
 ];
-
-const ToolbarItem: React.FC<ToolbarItemProps & { expandedId: string | null }> = ({
-  id,
-  label,
-  fill,
-  children,
-  onClick,
-  expandedId,
-}) => {
-  const expanded = id === expandedId;
-  const isSelected = id === expandedId;
-  return (
-    <li className={`connect__toolbar-item ${isSelected ? 'selected' : ''}`} role="none">
-      <ToolbarButton
-        iconId={id as IconId}
-        clickHandler={() => onClick && onClick(id)}
-        ariaLabel={label || id}
-        ariaExpanded={expanded}
-        ariaHasPopup={!!children}
-        className={isSelected ? 'selected' : ''}
-        fill={fill}
-      />
-      {expanded && children && (
-        <ul
-          className="connect__toolbar-item-menu"
-          role="menu"
-          aria-label={`${label || id} Submenu`}
-        >
-          <li role="none" className="connect__toolbar-item-menu-item">
-            <ul
-              role="menu"
-              className="connect__toolbar-item-menu-item-sub-menu"
-              aria-label="Outline Shapes"
-            >
-              {children
-                .filter((child) => !child.fill)
-                .map((child) => (
-                  <ToolbarItem
-                    key={child.id}
-                    {...child}
-                    expandedId={expandedId}
-                    onClick={onClick}
-                  />
-                ))}
-            </ul>
-          </li>
-          <li role="none" className="connect__toolbar-item-menu-item">
-            <ul
-              role="menu"
-              className="connect__toolbar-item-menu-item-sub-menu"
-              aria-label="Filled Squares"
-            >
-              {colorOptions.map((color) => (
-                <ToolbarItem
-                  key={color.id + color.fill}
-                  id={color.id}
-                  fill={color.fill}
-                  expandedId={expandedId}
-                  onClick={onClick}
-                />
-              ))}
-            </ul>
-          </li>
-        </ul>
-      )}
-    </li>
-  );
-};
 
 const Toolbar: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -172,8 +105,8 @@ const Toolbar: React.FC = () => {
             onClick={() => item.onClick && item.onClick(item.id)}
           >
             <ToolbarButton
-              iconId={item.id}
-              ariaLabel={item.label}
+              iconId={item.id as IconId}
+              ariaLabel={item.label || ''}
               ariaExpanded={false}
               ariaHasPopup={false}
               className={item.id === expandedId ? 'selected' : ''}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 type TooltipProps = {
   label: string;
@@ -6,17 +6,20 @@ type TooltipProps = {
 };
 
 const Tooltip: React.FC<TooltipProps> = ({ label, children }) => {
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <div
-      className="connect__tooltip"
+      className="connect__tooltip-wrapper"
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
-      style={{ display: isVisible ? 'block' : 'none' }}
-      aria-label={label}
     >
       {children}
+      {isVisible && (
+        <div className="connect__tooltip" aria-label={label}>
+          {label}
+        </div>
+      )}
     </div>
   );
 };
