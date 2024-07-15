@@ -12,7 +12,6 @@ type ToolbarItemProps = {
   expanded?: boolean;
   onClick?: (id: string) => void;
 };
-
 const colorOptions: { id: string; fill: Color }[] = [
   { id: 'color', fill: 'gray-c70' },
   { id: 'color', fill: 'red-s40' },
@@ -26,6 +25,7 @@ const Toolbar: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const handleItemClick = (id: string) => {
+    console.log(`Clicked item: ${id}`);
     setExpandedId(expandedId === id ? null : id);
   };
 
@@ -90,7 +90,13 @@ const Toolbar: React.FC = () => {
         aria-label="Menu with the shapes and color options"
       >
         {toolbarItems.map((item) => (
-          <ToolbarItem key={item.id} {...item} expandedId={expandedId} onClick={handleItemClick} />
+          <ToolbarItem
+            key={item.id}
+            {...item}
+            expanded={expandedId === item.id} // Add this line
+            expandedId={expandedId}
+            onClick={() => handleItemClick(item.id)}
+          />
         ))}
       </ul>
       <ul

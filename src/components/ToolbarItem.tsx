@@ -33,6 +33,9 @@ const ToolbarItem: React.FC<ToolbarItemProps & { expandedId: string | null }> = 
 }) => {
   const expanded = id === expandedId;
   const isSelected = id === expandedId;
+
+  console.log(`ToolbarItem: ${id}, expanded: ${expanded}, isSelected: ${isSelected}`);
+
   return (
     <li className={`connect__toolbar-item ${isSelected ? 'selected' : ''}`} role="none">
       <Tooltip label={label || id}>

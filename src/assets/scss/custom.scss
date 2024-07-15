@@ -1672,22 +1672,22 @@ input[type='radio'].connect__input {
   .connect__toolbar-item {
     position: relative;
 
-    .tooltip {
-      visibility: hidden;
-    }
+    // .tooltip {
+    //   visibility: hidden;
+    // }
 
-    &:has(.connect__toolbar-item-menu:hover) {
-      .tooltip {
-        visibility: hidden;
-      }
-    }
+    // &:has(.connect__toolbar-item-menu:hover) {
+    //   .tooltip {
+    //     visibility: hidden;
+    //   }
+    // }
 
-    &:hover,
-    &:focus-visible {
-      .tooltip {
-        visibility: visible;
-      }
-    }
+    // &:hover,
+    // &:focus-visible {
+    //   .tooltip {
+    //     visibility: visible;
+    //   }
+    // }
   }
 
   // default the auto flow to column dense
@@ -1835,13 +1835,13 @@ input[type='radio'].connect__input {
     }
   }
 
-  @starting-style {
-    .connect__toolbar-item-menu {
-      display: none;
-      opacity: 0;
-      transform: scale(0);
-    }
-  }
+  // @starting-style {
+  //   .connect__toolbar-item-menu {
+  //     display: none;
+  //     opacity: 0;
+  //     transform: scale(0);
+  //   }
+  // }
 
   .connect__button {
     &:hover {

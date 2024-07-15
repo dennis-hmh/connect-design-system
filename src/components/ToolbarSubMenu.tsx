@@ -1,5 +1,5 @@
 import React from 'react';
-import ToolbarItem, { ToolbarItemProps } from './ToolbarItem.tsx';
+import ToolbarItem, { ToolbarItemProps } from './ToolbarItem';
 import { Color } from '../utils/colors';
 
 type ToolbarSubMenuProps = {
