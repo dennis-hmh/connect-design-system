@@ -4,9 +4,9 @@ The `Accordion` component is a versatile UI element used to show and hide conten
 
 ## Features
 
-- **Generic Type Support**: The component is designed to be flexible, supporting generic types for React nodes. This allows for a wide variety of content to be passed to the accordion.
-- **React Integration**: Built with React, it seamlessly integrates into React projects, providing a smooth development experience.
-- **Customizable**: Thanks to its generic type support, it can be easily customized to fit the needs of various use cases.
+- **TypeScript Support**: Utilizes TypeScript for type safety and to define props clearly, making the component easy to use and integrate.
+- **Customizable**: Provides various props to customize the accordion's appearance and behavior, such as expanded state, animation, and custom headers.
+- **Easy to Use**: Designed with simplicity in mind, making it straightforward to integrate into any React project.
 
 ## Installation
 
@@ -16,8 +16,12 @@ To use the `Accordion` component in your project, follow these steps:
 2. Copy the `Accordion.tsx` file into your project's component directory.
 3. Import the `Accordion` component where you need it:
 
+```bash
+npm install @connect/connect-design-system@1.8.3
+```
+
 ```tsx
-import Accordion from './path/to/Accordion';
+import Accordion from '@connect/connect-design-system@1.8.3';
 ```
 
 ## Usage
@@ -25,21 +29,20 @@ import Accordion from './path/to/Accordion';
 Here's a basic example of how to use the Accordion component:
 
 ```tsx
-import React from 'react';
-import Accordion from './path/to/Accordion';
+iimport React from 'react';
+import { Accordion } from '@connect/connect-design-system@1.8.3';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <Accordion>{/* Your content here */}</Accordion>
-    </div>
+    <Accordion
+      title="Section 1"
+    >
+      <p>This is the content of the accordion section.</p>
+    </Accordion>
   );
-};
-
+}
 export default App;
 ```
-
-Replace {/_ Your content here _/} with the content you want to show/hide within the accordion.
 
 ## Props
 

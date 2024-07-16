@@ -17,34 +17,33 @@ To use the `ButtonSplit` component in your project, follow these steps:
 2. Copy the `ButtonSplit.tsx` file into your project's component directory.
 3. Import the `ButtonSplit` component where you need it:
 
+```bash
+npm install @connect/connect-design-system@1.8.3
+```
+
 ```tsx
-import ButtonSplit from './path/to/ButtonSplit';
+import { ButtonSplit } from '@connect/connect-design-system@1.8.3';
 ```
 
 Usage
-Here's how to use the ButtonSplit component in your application:
-
-import React from 'react';
-import ButtonSplit from './path/to/ButtonSplit';
+Here's a basic example of how to use the ButtonSplit component in your application:
 
 ```tsx
-const App = () => {
-  const data = [
-    { label: 'Option 1', value: '1' },
-    { label: 'Option 2', value: '2' },
-    // Add more options as needed
-  ];
+import React from 'react';
+import { ButtonSplit } from '@connect/connect-design-system@1.8.3';
 
+function App() {
   return (
-    <div>
-      <ButtonSplit data={data} dataTestId="button-split-test-id" disabled={false}>
-        Click Me
-      </ButtonSplit>
-    </div>
+    <ButtonSplit
+      children={'My Split Button'}
+      data={[
+        { label: 'My First Label', value: 'my-first-value' },
+        { label: 'My Second Label', value: 'my-second-value' },
+        { label: 'My Third Label', value: 'my-third-value' },
+      ]}
+    />
   );
-};
-
-export default App;
+}
 ```
 
 ## Props

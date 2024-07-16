@@ -16,36 +16,48 @@ To incorporate the `Button` component into your project, follow these instructio
 2. Place the `Button.tsx` file into your project's component directory.
 3. Import the `Button` component in the file where you want to use it:
 
+```bash
+npm install @connect/connect-design-system@1.9.0
+```
+
 ```tsx
-import Button from './components/Button/Button';
+import Button from '@connect/connect-design-system@1.9.0';
 ```
 
 ## Usage
 
 Here is a simple example of how to use the Button component:
-import React from 'react';
-import Button from './components/Button/Button';
 
 ```tsx
-const App = () => {
-  return (
-    <div>
-      <Button onClick={() => console.log('Button clicked!')}>Click Me</Button>
-    </div>
-  );
-};
+import React from 'react';
+import { Button } from '@connect/connect-design-system@1.9.0';
 
-export default App;
+function App() {
+  return (
+    <Button primary clickHandler={() => console.log('Button clicked')} ariaLabel="Example Button">
+      {(children = 'Example')}
+    </Button>
+  );
+}
 ```
 
 ## Props
 
 The Button component accepts the following props:
 
-- children: The content inside the button, typically text or icons.
-- onClick: Function to call when the button is clicked.
-- disabled: Boolean to enable or disable the button.
-- Additional styling props like color, size, etc., to customize the appearance.
+- `children` **required**: ReactNode - Flexibility to be string, number, JSX element, array, null or undefined.
+- `primary` **required**: Boolean - If true, the button is styled as a primary button.
+- `disabled`: Boolean - Optional. If true, the button is disabled.
+- `correct`: Boolean - Optional. If true, styles the button to indicate correctness.
+- `incorrect`: Boolean - Optional. If true, styles the button to indicate incorrectness.
+- `submit`: 'button' | 'submit' - Defines the button type.
+- `clickHandler`: Function - Optional. A function to handle click events.
+- `iconId`: IconId - Optional. Specifies an icon to be included in the button.
+- `iconSize`: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' - Optional. Defines the size of the icon.
+- `fill`: Color - Optional. Defines the fill color of the icon.
+- `iconPosition`: 'before' | 'after' - Optional. Positions the icon relative to the button text.
+- `ariaLabel`: String - Optional. Provides an accessible label for the button.
+- `dataTestId`: String - Optional. Provides a test ID for the button.
 
 ## Contributing
 
