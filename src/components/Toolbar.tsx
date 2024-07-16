@@ -51,7 +51,7 @@ const Toolbar: React.FC = () => {
     },
     {
       id: 'line',
-      label: 'Line Tool',
+      label: 'Lines',
       children: [
         { id: 'line-arrow', label: 'Line Arrow' },
         { id: 'line', label: 'Line' },
@@ -59,9 +59,22 @@ const Toolbar: React.FC = () => {
         ...colorOptions.map((color) => ({ id: color.id, fill: color.fill })),
       ],
     },
+
+    {
+      id: 'stamps-counter-outline',
+      label: 'Counters',
+    },
+    {
+      id: 'stamps-measure-outline',
+      label: 'Measurements',
+    },
+    {
+      id: 'stamps-special-shapes-outline',
+      label: 'Special Shapes',
+    },
     {
       id: 'draw-outline',
-      label: 'Draw tool',
+      label: 'Pen',
       children: [
         { id: 'draw-size-one', label: 'Draw Size One' },
         { id: 'draw-size-two', label: 'Draw Size Two' },
@@ -70,16 +83,8 @@ const Toolbar: React.FC = () => {
       ],
     },
     {
-      id: 'stamps-measure-outline',
-      label: 'Stamps for Measure',
-    },
-    {
-      id: 'stamps-counter-outline',
-      label: 'Stamps for Counter',
-    },
-    {
-      id: 'stamps-special-shapes-outline',
-      label: 'Stamps for Special Shapes',
+      id: 'text',
+      label: 'Text',
     },
   ];
 
