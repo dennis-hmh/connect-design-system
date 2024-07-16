@@ -160,11 +160,11 @@ const App = () => {
                 spacing: 'md',
               }}
             >
-              <InputText correct={false} incorrect={false} disabled={false} />
-              <InputText correct={false} incorrect={false} number={true} />
-              <InputText correct={false} incorrect={false} disabled={true} />
-              <InputText correct={true} incorrect={false} disabled={false} />
-              <InputText correct={false} incorrect={true} disabled={false} />
+              <InputText correct={false} defaultText={'works?'} />
+              <InputText correct={false} number={true} />
+              <InputText correct={false} incorrect={false} />
+              <InputText correct={true} />
+              <InputText correct={false} incorrect={true} />
             </Stack>
             <br />
             <Stack
