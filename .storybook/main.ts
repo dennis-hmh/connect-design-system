@@ -6,7 +6,10 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)', '../src/components/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../src/**/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
   core: {
     builder: '@storybook/builder-vite',
   },
