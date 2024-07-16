@@ -1,7 +1,7 @@
 import React from 'react';
-import Icon from './Icon';
-import { IconId } from '../utils/icon-list';
-import { Color } from '../utils/colors';
+import Icon from '../Icon/Icon';
+import { IconId } from '../../utils/icon-list';
+import { Color } from '../../utils/colors';
 
 export type ButtonProps = {
   children: React.ReactNode;

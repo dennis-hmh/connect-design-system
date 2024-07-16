@@ -31,10 +31,10 @@ export default defineConfig({
     react({
       jsxRuntime: 'classic',
     }),
-    css({ output: 'button.css' }),
+    // css({ output: 'button.css' }),
     // ViteSvgSpriteWrapper({
-		// 	icons: './src/assets/icons/svg/*.svg',
-		// 	outputDir: './public/svg/'
-		// }),
+    // 	icons: './src/assets/icons/svg/*.svg',
+    // 	outputDir: './public/svg/'
+    // }),
   ],
 });

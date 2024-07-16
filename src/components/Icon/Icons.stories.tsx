@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
-import Grid from './Grid';
-import GridItem from './GridItem';
-import Typography from './Typography';
-import Stack from './Stack';
+import Grid from '../Grid';
+import GridItem from '../GridItem';
+import { Typography } from '../Typography/Typography';
+import Stack from '../Stack';
 import Icon from './Icon'; // Ensure this is the correct import
-import { IconId } from '../utils/icon-list';
-import { Color, ColorBase, ColorShade } from '../utils/colors';
+import { IconId } from '../../utils/icon-list';
+import { Color, ColorBase, ColorShade } from '../../utils/colors';
 
 type ColorOption = {
   name: string;

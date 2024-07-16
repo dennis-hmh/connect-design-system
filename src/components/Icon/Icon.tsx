@@ -1,6 +1,6 @@
 import React from 'react';
-import { Color } from '../utils/colors';
-import { IconId } from '../utils/icon-list';
+import { Color } from '../../utils/colors';
+import { IconId } from '../../utils/icon-list';
 
 type IconProps = {
   id: IconId;
@@ -29,7 +29,7 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
       <use
         // xlinkHref={`src/assets/icons/sprite.svg#${id}`}
         // href={`src/assets/icons/sprite.svg#${id}`}
-        
+
         xlinkHref={`../svg/sprite.svg#${id}`}
         href={`../svg/sprite.svg#${id}`}
       />

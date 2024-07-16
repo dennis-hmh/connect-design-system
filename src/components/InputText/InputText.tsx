@@ -3,10 +3,11 @@ import { useState } from 'react';
 
 export type InputTextProps = {
   correct: boolean;
-  incorrect: boolean;
+  incorrect?: boolean;
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
+  defaultText?: string;
   dataTestId?: string;
 };
 
@@ -16,14 +17,14 @@ export function InputText({
   answerShown,
   number,
   disabled,
+  defaultText,
   dataTestId,
 }: InputTextProps) {
-  const isCorrect = correct ? 'connect__input-correct' : '';
-  const isIncorrect = incorrect ? 'connect__input-incorrect' : '';
-  const isAnswerShown = answerShown ? 'connect__input-shown' : '';
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
+
   const isNumber = number ? 'number' : 'text';
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState(defaultText);
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -37,16 +38,14 @@ export function InputText({
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (
-    <label className={`connect__icon-wrapper ${isCorrect} ${isIncorrect} ${isAnswerShown}`}>
+    <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
-        className={`connect__input ${isCorrect} ${isIncorrect} ${isAnswerShown}`}
+        className={`connect__input ${inputStates}`}
         disabled={shouldBeDisabled}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        aria-label={`Input field${correct ? ', marked as correct' : ''}
-        ${incorrect ? ', marked as incorrect' : ''}
-        ${answerShown ? ', answer shown' : ''}`}
+        aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
     </label>
