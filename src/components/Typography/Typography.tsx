@@ -1,5 +1,5 @@
 import React from 'react';
-import { Color } from '../utils/colors';
+import { Color } from '../../utils/colors';
 
 type Size =
   | 'heading-xl'
@@ -27,7 +27,7 @@ interface TypographyProps {
   dataTestId?: string;
 }
 
-const Typography: React.FC<TypographyProps> = ({
+export const Typography: React.FC<TypographyProps> = ({
   children,
   element: Component = 'span',
   color,
@@ -63,12 +63,9 @@ const Typography: React.FC<TypographyProps> = ({
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
   }
 
-  // Only add the style attribute if typoProps is not empty
-  const hasStyles = Object.keys(typoProps).length > 0;
-
   return (
     <Component
-      {...(hasStyles ? { style: typoProps } : {})}
+      {...(Object.keys(typoProps).length > 0 ? { style: typoProps } : {})}
       className={className}
       data-testid={dataTestId}
     >
@@ -76,5 +73,3 @@ const Typography: React.FC<TypographyProps> = ({
     </Component>
   );
 };
-
-export default Typography;

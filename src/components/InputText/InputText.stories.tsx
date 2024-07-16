@@ -24,7 +24,7 @@ export const Number = (args) => <InputText {...args} />;
 Default.args = {
   correct: false,
   incorrect: false,
-  value: '',
+  defaultText: '',
   number: false,
   disabled: false,
 };
@@ -32,30 +32,30 @@ Default.args = {
 Correct.args = {
   ...Default.args,
   correct: true,
-  value: 'answer',
+  defaultText: 'Answer correct',
   disabled: true,
 };
 
 InCorrect.args = {
   ...Default.args,
   incorrect: true,
-  value: 'answer',
+  defaultText: 'Answer incorrect',
 };
 
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
-  value: 'answer shown',
+  defaultText: 'Answer shown',
 };
 
 Disabled.args = {
   ...Default.args,
-  value: 'answer',
+  defaultText: 'Disabled input field',
   disabled: true,
 };
 
 Number.args = {
   ...Default.args,
-  value: 1,
+  defaultText: 100,
   number: true,
 };
