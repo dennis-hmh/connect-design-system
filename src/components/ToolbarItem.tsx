@@ -10,7 +10,6 @@ export type ToolbarItemProps = {
   label?: string;
   fill?: Color;
   children?: ToolbarItemProps[];
-  expanded?: boolean;
   onClick?: (id: string) => void;
 };
 
@@ -23,14 +22,13 @@ const colorOptions: { id: string; fill: Color }[] = [
   { id: 'color', fill: 'cerise-s40' },
 ];
 
-const ToolbarItem: React.FC<ToolbarItemProps & { expandedId: string | null }> = ({
-  id,
-  label,
-  fill,
-  children,
-  onClick,
-  expandedId,
-}) => {
+const ToolbarItem: React.FC<
+  ToolbarItemProps & {
+    expandedId: string | null;
+    selectedId: string | null;
+    onSubMenuItemClick: (id: string) => void;
+  }
+> = ({ id, label, fill, children, onClick, expandedId, selectedId, onSubMenuItemClick }) => {
   const expanded = id === expandedId;
   const isSelected = id === expandedId;
 
@@ -52,8 +50,8 @@ const ToolbarItem: React.FC<ToolbarItemProps & { expandedId: string | null }> = 
       {expanded && children && (
         <ToolbarSubMenu
           children={children}
-          expandedId={expandedId}
-          onClick={onClick || (() => {})}
+          selectedId={selectedId}
+          onClick={onSubMenuItemClick}
           colorOptions={colorOptions}
         />
       )}

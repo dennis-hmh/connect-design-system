@@ -4,14 +4,14 @@ import { Color } from '../utils/colors';
 
 type ToolbarSubMenuProps = {
   children: ToolbarItemProps[];
-  expandedId: string | null;
+  selectedId: string | null;
   onClick: (id: string) => void;
   colorOptions: { id: string; fill: Color }[];
 };
 
 const ToolbarSubMenu: React.FC<ToolbarSubMenuProps> = ({
   children,
-  expandedId,
+  selectedId,
   onClick,
   colorOptions,
 }) => {
@@ -26,7 +26,14 @@ const ToolbarSubMenu: React.FC<ToolbarSubMenuProps> = ({
           {children
             .filter((child) => !child.fill)
             .map((child) => (
-              <ToolbarItem key={child.id} {...child} expandedId={expandedId} onClick={onClick} />
+              <ToolbarItem
+                key={child.id}
+                {...child}
+                onClick={onClick}
+                expandedId={null}
+                selectedId={selectedId}
+                onSubMenuItemClick={onClick}
+              />
             ))}
         </ul>
       </li>
@@ -41,8 +48,10 @@ const ToolbarSubMenu: React.FC<ToolbarSubMenuProps> = ({
               key={color.id + color.fill}
               id={color.id}
               fill={color.fill}
-              expandedId={expandedId}
               onClick={onClick}
+              expandedId={null}
+              selectedId={selectedId}
+              onSubMenuItemClick={onClick}
             />
           ))}
         </ul>

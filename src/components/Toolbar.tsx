@@ -9,9 +9,9 @@ type ToolbarItemProps = {
   label?: string;
   fill?: Color;
   children?: ToolbarItemProps[];
-  expanded?: boolean;
   onClick?: (id: string) => void;
 };
+
 const colorOptions: { id: string; fill: Color }[] = [
   { id: 'color', fill: 'gray-c70' },
   { id: 'color', fill: 'red-s40' },
@@ -23,10 +23,16 @@ const colorOptions: { id: string; fill: Color }[] = [
 
 const Toolbar: React.FC = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleItemClick = (id: string) => {
     console.log(`Clicked item: ${id}`);
     setExpandedId(expandedId === id ? null : id);
+  };
+
+  const handleSubMenuItemClick = (id: string) => {
+    console.log(`Clicked sub-menu item: ${id}`);
+    setSelectedId(selectedId === id ? null : id);
   };
 
   const toolbarItems: ToolbarItemProps[] = [
@@ -93,9 +99,10 @@ const Toolbar: React.FC = () => {
           <ToolbarItem
             key={item.id}
             {...item}
-            expanded={expandedId === item.id} // Add this line
             expandedId={expandedId}
-            onClick={() => handleItemClick(item.id)}
+            selectedId={selectedId}
+            onClick={handleItemClick}
+            onSubMenuItemClick={handleSubMenuItemClick}
           />
         ))}
       </ul>
