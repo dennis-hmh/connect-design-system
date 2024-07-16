@@ -108,6 +108,7 @@ const Toolbar: React.FC = () => {
             selectedId={selectedId}
             onClick={handleItemClick}
             onSubMenuItemClick={handleSubMenuItemClick}
+            colorOptions={colorOptions} // Pass colorOptions here
           />
         ))}
       </ul>

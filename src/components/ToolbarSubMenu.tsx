@@ -33,6 +33,7 @@ const ToolbarSubMenu: React.FC<ToolbarSubMenuProps> = ({
                 expandedId={null}
                 selectedId={selectedId}
                 onSubMenuItemClick={onClick}
+                isSubMenuItem={true} // Pass the new prop
               />
             ))}
         </ul>
@@ -52,6 +53,7 @@ const ToolbarSubMenu: React.FC<ToolbarSubMenuProps> = ({
               expandedId={null}
               selectedId={selectedId}
               onSubMenuItemClick={onClick}
+              isSubMenuItem={true} // Pass the new prop
             />
           ))}
         </ul>

@@ -11,16 +11,9 @@ export type ToolbarItemProps = {
   fill?: Color;
   children?: ToolbarItemProps[];
   onClick?: (id: string) => void;
+  isSubMenuItem?: boolean;
+  colorOptions?: { id: string; fill: Color }[];
 };
-
-const colorOptions: { id: string; fill: Color }[] = [
-  { id: 'color', fill: 'gray-c70' },
-  { id: 'color', fill: 'red-s40' },
-  { id: 'color', fill: 'golden-s25' },
-  { id: 'color', fill: 'green-s40' },
-  { id: 'color', fill: 'blue-s40' },
-  { id: 'color', fill: 'cerise-s40' },
-];
 
 const ToolbarItem: React.FC<
   ToolbarItemProps & {
@@ -28,15 +21,26 @@ const ToolbarItem: React.FC<
     selectedId: string | null;
     onSubMenuItemClick: (id: string) => void;
   }
-> = ({ id, label, fill, children, onClick, expandedId, selectedId, onSubMenuItemClick }) => {
+> = ({
+  id,
+  label,
+  fill,
+  children,
+  onClick,
+  expandedId,
+  selectedId,
+  onSubMenuItemClick,
+  isSubMenuItem,
+  colorOptions,
+}) => {
   const expanded = id === expandedId;
   const isSelected = id === expandedId;
 
   console.log(`ToolbarItem: ${id}, expanded: ${expanded}, isSelected: ${isSelected}`);
 
   return (
-    <li className={`connect__toolbar-item ${isSelected ? 'selected' : ''}`} role="none">
-      <Tooltip label={label || id}>
+    <li className="connect__toolbar-item" role="none">
+      {isSubMenuItem ? (
         <ToolbarButton
           iconId={id as IconId}
           clickHandler={() => onClick && onClick(id)}
@@ -46,13 +50,25 @@ const ToolbarItem: React.FC<
           className={isSelected ? 'selected' : ''}
           fill={fill}
         />
-      </Tooltip>
+      ) : (
+        <Tooltip label={label || id}>
+          <ToolbarButton
+            iconId={id as IconId}
+            clickHandler={() => onClick && onClick(id)}
+            ariaLabel={label || id}
+            ariaExpanded={expanded}
+            ariaHasPopup={!!children}
+            className={isSelected ? 'selected' : ''}
+            fill={fill}
+          />
+        </Tooltip>
+      )}
       {expanded && children && (
         <ToolbarSubMenu
           children={children}
           selectedId={selectedId}
           onClick={onSubMenuItemClick}
-          colorOptions={colorOptions}
+          colorOptions={colorOptions || []}
         />
       )}
     </li>
