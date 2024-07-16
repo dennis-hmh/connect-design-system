@@ -1,9 +1,9 @@
 import React from 'react';
 import Toolbar from './Toolbar';
-import { Card } from './Card/Card';
-import Stack from './Stack';
-import { Typography } from './Typography/Typography';
-import { Button } from './Button/Button';
+import { Card } from '../Card/Card';
+import Stack from '../Stack';
+import { Typography } from '../Typography/Typography';
+import { Button } from '../Button/Button';
 
 export default {
   component: Toolbar,

@@ -1,6 +1,6 @@
 import React from 'react';
-import ToolbarItem, { ToolbarItemProps } from './ToolbarItem';
-import { Color } from '../utils/colors';
+import ToolbarItem, { ToolbarItemProps } from '../ToolbarItem/ToolbarItem';
+import { Color } from '../../utils/colors';
 
 type ToolbarSubMenuProps = {
   children: ToolbarItemProps[];

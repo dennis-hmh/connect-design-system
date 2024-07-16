@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ToolbarItem from './ToolbarItem';
-import { ToolbarButton } from './ToolbarButton';
-import { IconId } from '../utils/icon-list';
-import { Color } from '../utils/colors';
+import ToolbarItem from '../ToolbarItem/ToolbarItem';
+import { ToolbarButton } from '../ToolbarButton/ToolbarButton';
+import { IconId } from '../../utils/icon-list';
+import { Color } from '../../utils/colors';
 
 type ToolbarItemProps = {
   id: IconId | string;

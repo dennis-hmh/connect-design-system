@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Icon from './Icon/Icon';
-import { IconId } from '../utils/icon-list';
-import { Color } from '../utils/colors';
+import Icon from '../Icon/Icon';
+import { IconId } from '../../utils/icon-list';
+import { Color } from '../../utils/colors';
 
 export type ToolbarButtonProps = {
   clickHandler?: () => void;

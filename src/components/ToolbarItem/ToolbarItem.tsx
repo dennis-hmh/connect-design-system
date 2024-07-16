@@ -1,9 +1,9 @@
 import React from 'react';
-import { ToolbarButton } from './ToolbarButton';
-import { IconId } from '../utils/icon-list';
-import { Color } from '../utils/colors';
-import ToolbarSubMenu from './ToolbarSubMenu';
-import Tooltip from './Tooltip';
+import { ToolbarButton } from '../ToolbarButton/ToolbarButton';
+import { IconId } from '../../utils/icon-list';
+import { Color } from '../../utils/colors';
+import ToolbarSubMenu from '../ToolbarSubMenu/ToolbarSubMenu';
+import Tooltip from '../Tooltip/Tooltip';
 
 export type ToolbarItemProps = {
   id: IconId | string;
