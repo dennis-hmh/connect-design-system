@@ -1117,6 +1117,16 @@
   --connect__spacer-md: calc(var(--base-lheight) * 0.5);
   --connect__spacer-sm: calc(var(--base-lheight) * 0.25);
   --connect__spacer-xs: calc(var(--base-lheight) * 0.125);
+
+  --connect__transition-default: 100ms;
+  --connect__transition-medium: 200ms;
+  --connect__transition-slow: 300ms;
+
+  --connect__ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --connect__ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --connect__ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --connect__linear: cubic-bezier(0, 0, 1, 1);
+  --connect__bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 @media (min-width: 40.625rem) {
   :root {
