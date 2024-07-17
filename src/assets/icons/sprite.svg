@@ -720,11 +720,15 @@
                 d="M17.1392 15L23.5569 21.4177C24.1477 22.0084 24.1477 22.9662 23.5569 23.5569C22.9662 24.1477 22.0084 24.1477 21.4177 23.5569L15 17.1392L8.58229 23.5569C7.99155 24.1477 7.03378 24.1477 6.44305 23.5569C5.85232 22.9662 5.85232 22.0084 6.44305 21.4177L12.8608 15L6.44305 8.58229C5.85232 7.99155 5.85232 7.03378 6.44305 6.44305C7.03378 5.85232 7.99155 5.85232 8.58229 6.44305L15 12.8608L21.4177 6.44305C22.0084 5.85232 22.9662 5.85232 23.5569 6.44305C24.1477 7.03378 24.1477 7.99155 23.5569 8.58229L17.1392 15Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="text">
-            <path d="M12 0H0V6H2L4 4H10V24L6 26V28H12H18V26L14 24V4H20L22 6H24V0H12Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <path d="M16 10V16H18L20 14H22V24L20 26V28H28V26L26 24V14H28L30 16H32V10H16Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 22" id="text">
+            <g id="Frame 55">
+                <path id="Path"
+                    d="M9 0.5H0V5H1.5L3 3.5H7.5V18.5L4.5 20V21.5H9H13.5V20L10.5 18.5V3.5H15L16.5 5H18V0.5H9Z"
+                    fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
+                <path id="Path_2"
+                    d="M12 8V12.5H13.5L15 11H16.5V18.5L15 20V21.5H21V20L19.5 18.5V11H21L22.5 12.5H24V8H12Z"
+                    fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
+            </g>
         </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="calendar">
             <g clip-path="url(#clip0_788_4254)">

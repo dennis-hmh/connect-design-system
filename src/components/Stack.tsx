@@ -50,7 +50,6 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
       if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
       if (values.paddingX) style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
       if (values.paddingY) style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
-
       // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
     }

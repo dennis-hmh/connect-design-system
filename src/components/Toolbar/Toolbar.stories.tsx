@@ -35,7 +35,7 @@ export const ToolbarInCard = () => (
     headerContent={
       <Stack xs={{ direction: 'column', paddingX: 'sm' }}>
         <Typography element="h5" size="body-sm">
-          Title
+          I am the anatomy title, Here there is no header element
         </Typography>
         <Typography element="h5" size="body-sm">
           Stem
@@ -45,18 +45,34 @@ export const ToolbarInCard = () => (
     mainContent={
       <>
         <Toolbar />
-        <div style={{ background: 'rgb(204 204 204 / 5%)', height: 500 }}></div>
+        <div
+          style={{
+            height: 500,
+            width: '100%',
+            backgroundColor: 'rgb(204, 204, 204, 0.15)',
+          }}
+        ></div>
       </>
     }
     footerContent={
       <Stack
-        xs={{ direction: 'column', spacing: 'xs', paddingX: 'sm' }}
-        sm={{ direction: 'row', justifyContent: 'space-between', paddingX: 'sm' }}
+        sm={{
+          direction: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          spacing: 'xs',
+          paddingX: 'sm',
+        }}
       >
+        <Stack>
+          <Typography element="p" size="body-sm" color="red-c50">
+            Feedback
+          </Typography>
+        </Stack>
         <Button primary={false} clickHandler={() => {}}>
           Cancel
         </Button>
-        <Button primary={true} clickHandler={() => {}}>
+        <Button disabled primary={true} clickHandler={() => {}}>
           Save
         </Button>
       </Stack>
