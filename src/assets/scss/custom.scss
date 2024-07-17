@@ -1309,7 +1309,7 @@ Stack Container Styles:
       - Sets the flex wrap property.
     gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
       - Sets the gap between elements inside the stack.
-    justify-content: var(---connect__justify-content, start);
+    justify-content: var(--connect__justify-content, start);
       - Sets the justification of content along the main axis.
     padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
       - Sets the padding of the stack.
@@ -1345,7 +1345,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   flex-flow: var(--connect__stack-direction, column);
   flex-wrap: var(--connect__stack-wrap, wrap);
   gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
-  justify-content: var(---connect__justify-content, start);
+  justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
   width: 100%;
 
