@@ -27,6 +27,7 @@ Default.args = {
   defaultText: '',
   number: false,
   disabled: false,
+  answerShown: false,
 };
 
 Correct.args = {
@@ -40,6 +41,7 @@ InCorrect.args = {
   ...Default.args,
   incorrect: true,
   defaultText: 'Answer incorrect',
+  disabled: true,
 };
 
 AnswerShown.args = {
@@ -50,7 +52,7 @@ AnswerShown.args = {
 
 Disabled.args = {
   ...Default.args,
-  defaultText: 'Disabled input field',
+  defaultText: 'Disabled',
   disabled: true,
 };
 

@@ -7,7 +7,7 @@ export type InputTextProps = {
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  defaultText?: string;
+  defaultText?: string | number;
   dataTestId?: string;
 };
 
