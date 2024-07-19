@@ -48,29 +48,29 @@ export const ToolbarInCard = () => (
         <div
           style={{
             height: 500,
-            width: '100%',
             backgroundColor: 'rgb(204, 204, 204, 0.15)',
+            border: '3px dashed var(--connect__selected-mid)',
+            boxShadow: '0 0 0 var(--connect__spacer-sm) var(--connect__neutrals-white) inset',
+            background: 'var(--connect__selected-light)',
           }}
         ></div>
       </>
     }
     footerContent={
       <Stack
+        xs={{
+          paddingX: 'sm',
+        }}
         sm={{
           direction: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
-          spacing: 'xs',
+          spacing: 'sm',
           paddingX: 'sm',
         }}
       >
-        <Stack>
-          <Typography element="p" size="body-sm" color="red-c50">
-            Feedback
-          </Typography>
-        </Stack>
         <Button primary={false} clickHandler={() => {}}>
-          Cancel
+          Clear Canvas
         </Button>
         <Button disabled primary={true} clickHandler={() => {}}>
           Save

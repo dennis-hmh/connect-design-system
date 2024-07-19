@@ -1101,6 +1101,8 @@ Styles:
     var(--connect__shadow-level-3) var(--connect__shadow-14),
     var(--connect__shadow-level-4) var(--connect__shadow-12);
   box-sizing: border-box;
+  container-type: inline-size;
+  container-name: card;
   display: inline-flex;
   flex-flow: var(--connect__card-flow);
   gap: var(--connect__card-gap);
@@ -1130,6 +1132,108 @@ Styles:
       margin: 0;
     }
   }
+
+  &:has(menu) {
+    @container card (max-width: 650px) {
+      .connect__card-content {
+        --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
+        display: grid;
+        grid-template-columns: var(--connect__toolbar-width) 1fr;
+      }
+
+      .connect__toolbar {
+        --connect__toolbar-direction: column wrap;
+        --connect__toolbar-padding-x: 0;
+        align-content: start;
+        grid-column: 1;
+
+        .connect__toolbar-menu {
+          --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
+
+          --connect__menu-divider-line-w: calc(
+            100% - var(--connect__menu-divider-line-x-offset) * 2
+          );
+          --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
+          --connect__menu-divider-line-y-offset: calc(
+            -1 * var(--connect__menu-divider-line-x-offset)
+          );
+        }
+
+        .connect__toolbar-item-menu {
+          --connect__toolbar-item-menu-y-offset: 0;
+          --connect__toolbar-item-menu-x-offset: calc(
+            var(--connect__toolbar-width) + var(--connect__spacer-sm)
+          );
+
+          --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
+          --connect__toolbar-sub-menu-flow: row;
+          --connect__toolbar-sub-menu-cols: 2;
+        }
+
+        .connect__toolbar-item-menu-item {
+          &:nth-of-type(1) {
+            --menu-row-start: 1;
+            --menu-col-start: 1;
+            --connect__toolbar-sub-menu-divider-w: calc(
+              100% - calc(var(--connect__toolbar-sub-menu-padding-x) * 2)
+            );
+            --connect__toolbar-sub-menu-divider-left: var(--connect__toolbar-sub-menu-padding-x);
+            --connect__toolbar-sub-menu-divider-top: unset;
+            --connect__toolbar-sub-menu-divider-bottom: calc(
+              -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
+            );
+            --connect__toolbar-sub-menu-divider-w: 3px;
+            --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
+            --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
+            --connect__toolbar-sub-menu-divider-left: unset;
+            --connect__toolbar-sub-menu-divider-right: calc(-1 * var(--connect__spacer-xs));
+
+            ul {
+              margin-right: var(--connect__toolbar-sub-menu-padding-x);
+            }
+          }
+
+          &:nth-of-type(2) {
+            --menu-row-start: 1;
+            --connect__toolbar-sub-menu-divider-w: 3px;
+            --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
+            --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
+
+            ul {
+              margin-left: var(--connect__toolbar-sub-menu-padding-x);
+            }
+          }
+
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            ul {
+              padding-left: 0;
+            }
+          }
+
+          ul {
+            flex-flow: column wrap;
+          }
+        }
+
+        .connect__toolbar-item-menu-item-sub-menu {
+          height: 100%;
+        }
+      }
+
+      .connect__button {
+        --connect__button-justify-content: center;
+        --connect__button-w: 100%;
+      }
+
+      .connect__tooltip {
+        --connect__tooltip-vertical-left: unset;
+        --connect__tooltip-vertical-right: 100%;
+        --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
+        --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
+      }
+    }
+  }
 }
 
 .connect__figure {
@@ -1154,10 +1258,77 @@ Styles:
     .connect__tooltip {
       --connect__tooltip-opacity: 1;
       --connect__tooltip-visibility: visible;
-      --connect__tooltip-transition: var(--ease-in);
+      --connect__tooltip-transition: var(--connect__ease-in);
     }
   }
 }
+
+/*
+.connect__tooltip Component
+
+Variables related to theme/overrides:
+  --connect__tooltip-bg: Background color of the tooltip.
+  --connect__tooltip-color: Text color of the tooltip.
+  --connect__tooltip-padding-y: Vertical padding inside the tooltip.
+  --connect__tooltip-padding-x: Horizontal padding inside the tooltip.
+  --shadow-level-1: Shadow level 1 for the tooltip.
+  --shadow-level-2: Shadow level 2 for the tooltip.
+  --shadow-level-3: Shadow level 3 for the tooltip.
+  --shadow-level-4: Shadow level 4 for the tooltip.
+  --connect__tooltip-opacity: Opacity of the tooltip.
+  --connect__tooltip-visibility: Visibility of the tooltip.
+  --connect__tooltip-transition: Transition effect for the tooltip.
+  --connect__tooltip-top: Top position of the tooltip.
+  --connect__tooltip-right: Right position of the tooltip.
+  --connect__tooltip-left: Left position of the tooltip.
+  --connect__tooltip-translateX: Horizontal translation of the tooltip.
+  --connect__tooltip-translateY: Vertical translation of the tooltip.
+
+Tooltip Styles:
+  align-items: center;
+    - Aligns items along the cross axis.
+  align-content: center;
+    - Aligns content along the cross axis.
+  border-radius: var(--Text-Inner-Spacing, 0.25rem);
+    - Rounds the corners of the tooltip.
+  background: var(--connect__tooltip-bg);
+    - Sets the background color of the tooltip.
+  box-shadow:
+    var(--shadow-level-1) var(--connect__shadow-10),
+    var(--shadow-level-2) var(--connect__shadow-20),
+    var(--shadow-level-3) var(--connect__shadow-14),
+    var(--shadow-level-4) var(--connect__shadow-12);
+    - Applies multiple box shadows to the tooltip.
+  color: var(--connect__tooltip-color);
+    - Sets the text color of the tooltip.
+  display: inline-block;
+    - Displays the tooltip as an inline-block element.
+  justify-content: center;
+    - Centers the content along the main axis.
+  padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
+    - Applies padding inside the tooltip.
+  position: absolute;
+    - Positions the tooltip absolutely.
+  top: 0;
+    - Sets the top position of the tooltip.
+  left: var(--connect__tooltip-left);
+    - Sets the left position of the tooltip.
+  transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
+    - Translates the tooltip based on the specified values.
+
+Transition Styles:
+  transition:
+    opacity,
+    visibility,
+    transform var(--connect__transition-default) var(--connect__tooltip-transition) allow-discrete;
+    - Applies transitions to opacity, visibility, and transform properties.
+  white-space: nowrap;
+    - Prevents the tooltip text from wrapping.
+  opacity: var(--connect__tooltip-opacity);
+    - Sets the opacity of the tooltip.
+  visibility: var(--connect__tooltip-visibility);
+    - Sets the visibility of the tooltip.
+*/
 
 .connect__tooltip {
   --connect__tooltip-bg: var(--theme__tooltip-bg, var(--connect__neutrals-dark));
@@ -1176,6 +1347,14 @@ Styles:
 
   --connect__tooltip-transition: var(--ease-in-out);
 
+  --connect__tooltip-top: var(--connect__tooltip-vertical-top, unset);
+  --connect__tooltip-right: var(--connect__tooltip-vertical-right, unset);
+
+  --connect__tooltip-left: var(--connect__tooltip-vertical-left, 50%);
+
+  --connect__tooltip-translateX: var(--connect__tooltip-vertical-translateX, -50%);
+  --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY, -100%);
+
   align-items: center;
   align-content: center;
   border-radius: var(--Text-Inner-Spacing, 0.25rem);
@@ -1190,17 +1369,18 @@ Styles:
   justify-content: center;
   padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
   position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  transition:
-    opacity,
-    visibility,
-    transform var(--connect__transition-default) var(--connect__tooltip-transition) allow-discrete;
+  top: 0;
+  left: var(--connect__tooltip-left);
+  transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
+  transform-origin: bottom;
+
+  transition-property: visibility, opacity, transform;
+  transition-timing-function: var(--connect__ease-in);
+  transition-duration: var(--connect__transition-default);
+
   white-space: nowrap;
   opacity: var(--connect__tooltip-opacity);
   visibility: var(--connect__tooltip-visibility);
-  width: 100%;
 }
 
 /*
@@ -1855,6 +2035,12 @@ input[type='radio'].connect__input {
   --connect__toolbar-padding-x: var(--connect__spacer-sm);
   --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
   --connect__toolbar-bg: var(--theme-connect_toolbar-bg, var(--connect__neutrals-pale));
+
+  // --connect__toolbar-tooltip-transformX: var(--connect__toolbar-padding-x);
+  // --connect__tooltip-translateX: translateX(
+  //   calc(-50% + var(--connect__toolbar-tooltip-transformX))
+  // );
+
   background-color: var(--connect__toolbar-bg);
   display: flex;
   flex-flow: var(--connect__toolbar-direction, column wrap);
