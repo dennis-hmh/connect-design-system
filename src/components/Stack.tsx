@@ -6,6 +6,8 @@ interface BreakpointValues {
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 interface StackProps {
@@ -38,14 +40,16 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
       const alignItems = values.alignItems ?? previousBreakpoint.alignItems ?? 'stretch';
       const justifyContent = values.justifyContent ?? previousBreakpoint.justifyContent ?? 'start';
       const flexWrap = values.flexWrap ?? previousBreakpoint.flexWrap ?? 'wrap';
-
+      const paddingX = values.paddingX ?? previousBreakpoint.paddingX ?? '';
+      const paddingY = values.paddingY ?? previousBreakpoint.paddingY ?? '';
       // Now, only update the style object if the current breakpoint explicitly sets the property
       if (values.direction) style[`--${breakpoint}-direction`] = direction;
       if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
       if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
       if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
       if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
-
+      if (values.paddingX) style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
+      if (values.paddingY) style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
       // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
     }

@@ -1,4 +1,1 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path d="M22 4H14V8H22V4Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <ns0:path d="M30 4H26V10C26 11.0667 25.0667 12 24 12H12C10.9333 12 10 11.0667 10 10V4H8C5.73333 4 4 5.73333 4 8V32C4 34.1333 5.73333 36 8 36H32C34.1333 36 36 34.1333 36 32V10L30 4ZM30 28C30 29.0667 28.9333 30 28 30H12C10.9333 30 10 28.9333 10 28V20C10 18.9333 11.0667 18 12 18H28C29.0667 18 30 19.0667 30 20V28Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-        </svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><ns0:path fill="var(--connect__icon-fill-color, #2d2d2d)" d="M22 4H14V8H22V4Z"/><ns0:path fill="var(--connect__icon-fill-color, #2d2d2d)" d="M30 4H26V10C26 11.0667 25.0667 12 24 12H12C10.9333 12 10 11.0667 10 10V4H8C5.73333 4 4 5.73333 4 8V32C4 34.1333 5.73333 36 8 36H32C34.1333 36 36 34.1333 36 32V10L30 4ZM30 28C30 29.0667 28.9333 30 28 30H12C10.9333 30 10 28.9333 10 28V20C10 18.9333 11.0667 18 12 18H28C29.0667 18 30 19.0667 30 20V28Z"/></svg>

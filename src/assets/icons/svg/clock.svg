@@ -1,5 +1,1 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><ns0:path d="M18 36C8 36 0 28 0 18C0 8 8 0 18 0C28 0 36 8 36 18C36 28 28 36 18 36ZM18 4C10.2 4 4 10.2 4 18C4 25.8 10.2 32 18 32C25.8 32 32 25.8 32 18C32 10.2 25.8 4 18 4Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <ns0:path d="M26 20H18C16.8 20 16 19.2 16 18V10C16 8.8 16.8 8 18 8C19.2 8 20 8.8 20 10V16H26C27.2 16 28 16.8 28 18C28 19.2 27.2 20 26 20Z" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-
-        </svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><ns0:path fill="var(--connect__icon-fill-color, #2d2d2d)" d="M18 36C8 36 0 28 0 18C0 8 8 0 18 0C28 0 36 8 36 18C36 28 28 36 18 36ZM18 4C10.2 4 4 10.2 4 18C4 25.8 10.2 32 18 32C25.8 32 32 25.8 32 18C32 10.2 25.8 4 18 4Z"/><ns0:path fill="var(--connect__icon-fill-color, #2d2d2d)" d="M26 20H18C16.8 20 16 19.2 16 18V10C16 8.8 16.8 8 18 8C19.2 8 20 8.8 20 10V16H26C27.2 16 28 16.8 28 18C28 19.2 27.2 20 26 20Z"/></svg>
