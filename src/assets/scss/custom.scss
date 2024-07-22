@@ -1101,8 +1101,6 @@ Styles:
     var(--connect__shadow-level-3) var(--connect__shadow-14),
     var(--connect__shadow-level-4) var(--connect__shadow-12);
   box-sizing: border-box;
-  container-type: inline-size;
-  container-name: card;
   display: inline-flex;
   flex-flow: var(--connect__card-flow);
   gap: var(--connect__card-gap);
@@ -1134,7 +1132,10 @@ Styles:
   }
 
   &:has(menu) {
-    @container card (max-width: 650px) {
+    container-type: inline-size;
+    container-name: cpl-card;
+
+    @container cpl-card (max-width: 40.625rem) {
       .connect__card-content {
         --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
         display: grid;
@@ -1146,6 +1147,13 @@ Styles:
         --connect__toolbar-padding-x: 0;
         align-content: start;
         grid-column: 1;
+
+        .connect__tooltip {
+          --connect__tooltip-vertical-left: unset;
+          --connect__tooltip-vertical-right: 100%;
+          --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
+          --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
+        }
 
         .connect__toolbar-menu {
           --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
@@ -1171,8 +1179,12 @@ Styles:
         }
 
         .connect__toolbar-item-menu-item {
+          --menu-row-start: 1;
+          --connect__toolbar-sub-menu-divider-w: var(--connect__effects-inner-edge);
+          --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
+          --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
+
           &:nth-of-type(1) {
-            --menu-row-start: 1;
             --menu-col-start: 1;
             --connect__toolbar-sub-menu-divider-w: calc(
               100% - calc(var(--connect__toolbar-sub-menu-padding-x) * 2)
@@ -1182,24 +1194,18 @@ Styles:
             --connect__toolbar-sub-menu-divider-bottom: calc(
               -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
             );
-            --connect__toolbar-sub-menu-divider-w: 3px;
             --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
             --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
             --connect__toolbar-sub-menu-divider-left: unset;
             --connect__toolbar-sub-menu-divider-right: calc(-1 * var(--connect__spacer-xs));
 
-            ul {
+            .connect__toolbar-item-menu-item-sub-menu {
               margin-right: var(--connect__toolbar-sub-menu-padding-x);
             }
           }
 
           &:nth-of-type(2) {
-            --menu-row-start: 1;
-            --connect__toolbar-sub-menu-divider-w: 3px;
-            --connect__toolbar-sub-menu-divider-h: calc(100% + calc(var(--connect__spacer-xs) * 2));
-            --connect__toolbar-sub-menu-divider-top: calc(-1 * var(--connect__spacer-xs));
-
-            ul {
+            .connect__toolbar-item-menu-item-sub-menu {
               margin-left: var(--connect__toolbar-sub-menu-padding-x);
             }
           }
@@ -1224,13 +1230,6 @@ Styles:
       .connect__button {
         --connect__button-justify-content: center;
         --connect__button-w: 100%;
-      }
-
-      .connect__tooltip {
-        --connect__tooltip-vertical-left: unset;
-        --connect__tooltip-vertical-right: 100%;
-        --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
-        --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
       }
     }
   }
@@ -2353,6 +2352,7 @@ input[type='radio'].connect__input {
 [class*='connect_'] {
   img {
     max-width: 100%;
+    max-inline-size: 100%;
     display: block;
   }
 

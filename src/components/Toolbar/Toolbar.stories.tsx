@@ -4,6 +4,7 @@ import { Card } from '../Card/Card';
 import Stack from '../Stack';
 import { Typography } from '../Typography/Typography';
 import { Button } from '../Button/Button';
+import Tooltip from '../Tooltip/Tooltip';
 
 export default {
   component: Toolbar,
@@ -47,11 +48,12 @@ export const ToolbarInCard = () => (
         <Toolbar />
         <div
           style={{
-            height: 500,
-            backgroundColor: 'rgb(204, 204, 204, 0.15)',
-            border: '3px dashed var(--connect__selected-mid)',
-            boxShadow: '0 0 0 var(--connect__spacer-sm) var(--connect__neutrals-white) inset',
             background: 'var(--connect__selected-light)',
+            // border: '3px solid var(--connect__selected-mid)',
+            boxShadow: '0 0 0 var(--connect__spacer-sm) var(--connect__neutrals-white) inset',
+            height: 500,
+            width: '100%',
+            margin: 'auto',
           }}
         ></div>
       </>
@@ -69,12 +71,16 @@ export const ToolbarInCard = () => (
           paddingX: 'sm',
         }}
       >
-        <Button primary={false} clickHandler={() => {}}>
-          Clear Canvas
-        </Button>
-        <Button disabled primary={true} clickHandler={() => {}}>
-          Save
-        </Button>
+        <Tooltip label="Clear the canvas">
+          <Button primary={false} clickHandler={() => {}}>
+            Clear Canvas
+          </Button>
+        </Tooltip>
+        <Tooltip label="Save your work">
+          <Button disabled primary={true} clickHandler={() => {}}>
+            Save
+          </Button>
+        </Tooltip>
       </Stack>
     }
   />

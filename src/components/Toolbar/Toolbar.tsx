@@ -3,6 +3,7 @@ import ToolbarItem from '../ToolbarItem/ToolbarItem';
 import { ToolbarButton } from '../ToolbarButton/ToolbarButton';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
+import Tooltip from '../Tooltip/Tooltip';
 
 type ToolbarItemProps = {
   id: IconId | string;
@@ -40,7 +41,7 @@ const Toolbar: React.FC = () => {
       id: 'shapes-outline',
       label: 'Shapes',
       children: [
-        { id: 'rectangle', label: 'Square Shape' },
+        { id: 'save', label: 'Save icon' },
         { id: 'triangle', label: 'Triangle Shape' },
         { id: 'circle', label: 'Circle Shape' },
         { id: 'rectangle-outline', label: 'Rectangle Outline' },
@@ -123,13 +124,15 @@ const Toolbar: React.FC = () => {
             className={`connect__toolbar-item ${item.id === expandedId ? 'selected' : ''}`}
             onClick={() => item.onClick && item.onClick(item.id)}
           >
-            <ToolbarButton
-              iconId={item.id as IconId}
-              ariaLabel={item.label || ''}
-              ariaExpanded={false}
-              ariaHasPopup={false}
-              className={item.id === expandedId ? 'selected' : ''}
-            />
+            <Tooltip label={item.label || ''}>
+              <ToolbarButton
+                iconId={item.id as IconId}
+                ariaLabel={item.label || ''}
+                ariaExpanded={false}
+                ariaHasPopup={false}
+                className={item.id === expandedId ? 'selected' : ''}
+              />
+            </Tooltip>
           </li>
         ))}
       </ul>
