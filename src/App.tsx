@@ -13,7 +13,7 @@ import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import Grid from './components/Grid';
 import GridItem from './components/GridItem';
-import Stack from './components/Stack';
+import Stack from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 
 const App = () => {
