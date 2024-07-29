@@ -11,7 +11,7 @@ import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-import Grid from './components/Grid';
+import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack/Stack';
 import './assets/scss/custom.scss';
