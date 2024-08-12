@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
-import Grid from '../Grid';
+import Grid from '../Grid/Grid';
 import GridItem from '../GridItem';
 import { Typography } from '../Typography/Typography';
 import Stack from '../Stack';
