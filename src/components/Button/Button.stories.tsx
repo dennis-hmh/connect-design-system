@@ -1,44 +1,66 @@
-import React from 'react';
-import { Button } from './Button';
+import React, { useRef } from 'react';
+import { Button, ButtonProps } from './Button';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
-  component: Button,
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
+
+const meta: Meta<typeof Button> = {
   title: 'Button',
-  tags: ['autodocs'],
-
-  parameters: {
-    layout: 'centered',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/9iretC8KPFzFM1RfV4Cezm/3-12-UI-system?type=design&node-id=583%3A5057&mode=dev',
-    },
-  },
+  component: Button,
 };
 
-export const Primary = (args) => <Button {...args} />;
-export const Secondary = (args) => <Button {...args} />;
-export const IconButton = (args) => <Button {...args} />;
+export default meta;
+type Story = StoryObj<typeof Button>;
 
+const Template: StoryFn<ButtonProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Button {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Primary: Story = Template.bind({});
 Primary.args = {
-  children: 'Check',
+  children: 'Primary Button',
   primary: true,
   disabled: false,
   correct: false,
   incorrect: false,
   submit: 'button',
-  clickHandler: '',
+  clickHandler: () => console.log('Button clicked'),
+  ariaLabel: 'Primary Button',
+  gradeBand: GradeBand.G4_5,
 };
 
+export const Secondary: Story = Template.bind({});
 Secondary.args = {
   ...Primary.args,
+  children: 'Secondary Button',
   primary: false,
+  ariaLabel: 'Secondary Button',
 };
 
-IconButton.args = {
+export const Correct: Story = Template.bind({});
+Correct.args = {
+  ...Primary.args,
+  children: 'Correct Button',
+  correct: true,
+  iconId: 'correct',
+  iconSize: 'md',
+  iconPosition: 'after',
+  ariaLabel: 'Correct Button',
+};
+
+export const Icon: Story = Template.bind({});
+Icon.args = {
   ...Primary.args,
   children: '',
-  iconId: 'delete',
-  iconSize: 'lg',
-  fill: 'white',
-  ariaLabel: 'Delete button',
+  iconId: 'arrow-right',
+  ariaLabel: 'Icon Button',
 };
