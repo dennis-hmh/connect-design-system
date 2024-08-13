@@ -25,9 +25,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     'storybook-addon-pseudo-states',
-    'storybook-addon-themes',
-    'storybook-addon-react-docgen',
-    '@chromatic-com/storybook'
+    '@chromatic-com/storybook',
   ],
 
   docs: {},
@@ -49,8 +47,8 @@ const config: StorybookConfig = {
   },
 
   typescript: {
-    reactDocgen: 'react-docgen-typescript'
-  }
+    reactDocgen: 'react-docgen-typescript',
+  },
 };
 
 export default config;

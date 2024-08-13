@@ -6,7 +6,13 @@ import '../src/assets/scss/custom.scss';
 
 const preview: Preview = {
   parameters: {
-    themes: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+    /* themes: {
       default: 'Grade 4-5',
       list: [
         {
@@ -26,13 +32,7 @@ const preview: Preview = {
           class: 'connect__g912',
         },
       ],
-    },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
+    }, */
   },
 };
 
