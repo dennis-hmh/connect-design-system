@@ -9,7 +9,7 @@ export type FigureProps = {
   gradeBand?: GradeBand;
 };
 
-const defaultImageSrc = '../../public/images/zelda.jpg';
+const defaultImageSrc = '../../images/zelda.jpg';
 
 export function Figure({ altText, imageSrc, imageCaption, dataTestId }: FigureProps) {
   return (
