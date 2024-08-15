@@ -1,7 +1,10 @@
-import React from 'react';
-import { InputText } from './InputText';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { InputText, InputTextProps } from './InputText';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof InputText> = {
   component: InputText,
   title: 'Input Text',
   tags: ['autodocs'],
@@ -14,12 +17,27 @@ export default {
   },
 };
 
-export const Default = (args) => <InputText {...args} />;
-export const Correct = (args) => <InputText {...args} />;
-export const InCorrect = (args) => <InputText {...args} />;
-export const AnswerShown = (args) => <InputText {...args} />;
-export const Disabled = (args) => <InputText {...args} />;
-export const Number = (args) => <InputText {...args} />;
+export default meta;
+type Story = StoryObj<typeof InputText>;
+
+const Template: StoryFn<InputTextProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <InputText {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const InCorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
+export const Number: Story = Template.bind({});
 
 Default.args = {
   correct: false,

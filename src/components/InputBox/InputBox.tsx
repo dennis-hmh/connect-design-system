@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type InputBoxProps = {
   type: 'checkbox' | 'radio';
@@ -11,6 +12,7 @@ export type InputBoxProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export function InputBox({

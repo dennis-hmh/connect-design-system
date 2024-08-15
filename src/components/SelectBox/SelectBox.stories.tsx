@@ -1,15 +1,32 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import { SelectBox } from './SelectBox';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { SelectBox, SelectBoxProps } from './SelectBox';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof SelectBox> = {
   component: SelectBox,
   title: 'Select Box',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof SelectBox>;
+
+const Template: StoryFn<SelectBoxProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <SelectBox {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
 
 const options = [
   { value: 'option-1', label: 'Option 1' },
@@ -19,14 +36,12 @@ const options = [
   { value: 'option-5', label: 'Option 5' },
 ];
 
-const Template: typeof SelectBox = (args) => <SelectBox {...args} />;
-
-export const Default = Template.bind({});
-export const SelectedValue = Template.bind({});
-export const Correct = Template.bind({});
-export const Incorrect = Template.bind({});
-export const AnswerShown = Template.bind({});
-export const Disabled = Template.bind({});
+export const Default: Story = Template.bind({});
+export const SelectedValue: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
 
 Default.args = {
   data: options,
@@ -34,6 +49,7 @@ Default.args = {
   correct: false,
   incorrect: false,
   disabled: false,
+  gradeBand: GradeBand.G4_5,
 };
 
 SelectedValue.args = {

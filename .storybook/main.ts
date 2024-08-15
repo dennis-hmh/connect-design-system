@@ -6,16 +6,18 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+
   stories: [
     '../src/**/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
+
   core: {
     builder: '@storybook/builder-vite',
   },
-  features: {
-    legacyMdx1: true,
-  },
+
+  features: {},
+
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -23,12 +25,11 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     'storybook-addon-pseudo-states',
-    'storybook-addon-themes',
-    'storybook-addon-react-docgen',
+    '@chromatic-com/storybook',
   ],
-  docs: {
-    autodocs: 'tag',
-  },
+
+  docs: {},
+
   managerHead: (head) => `
     ${head}
     <style>
@@ -37,11 +38,16 @@ const config: StorybookConfig = {
       button[id="reveal"] {display: none; }
     </style>
   `,
+
   async viteFinal(config) {
     return {
       ...config,
       plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
     };
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
 

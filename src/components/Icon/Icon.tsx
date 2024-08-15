@@ -1,16 +1,26 @@
 import React from 'react';
 import { Color } from '../../utils/colors';
 import { IconId } from '../../utils/icon-list';
+import { GradeBand } from 'src/enum/gradeband';
 
-type IconProps = {
+export type IconProps = {
   id: IconId;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color | undefined;
   stroke?: Color | undefined;
   focusable?: boolean;
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
-const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }) => {
+export const Icon: React.FC<IconProps> = ({
+  id,
+  size,
+  fill,
+  stroke,
+  focusable = false,
+  dataTestId,
+}) => {
   const fillColorVariable = fill ? `--connect__${fill}` : '';
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
@@ -25,6 +35,7 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
       }
       aria-hidden="true"
       focusable={focusable}
+      data-testid={dataTestId}
     >
       <use
         // xlinkHref={`src/assets/icons/sprite.svg#${id}`}
@@ -36,5 +47,3 @@ const Icon: React.FC<IconProps> = ({ id, size, fill, stroke, focusable = false }
     </svg>
   );
 };
-
-export default Icon;

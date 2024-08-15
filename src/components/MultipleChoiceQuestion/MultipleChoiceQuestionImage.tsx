@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Figure } from '../Figure/Figure';
+import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionImageProp = {
   type: 'checkbox' | 'radio';
@@ -15,6 +16,7 @@ export type MultipleChoiceQuestionImageProp = {
   imageSrc?: string;
   imageCaption?: string;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export function MultipleChoiceQuestionImage({

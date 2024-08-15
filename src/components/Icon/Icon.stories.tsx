@@ -1,7 +1,10 @@
-import React from 'react';
-import Icon from './Icon';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { Icon, IconProps } from './Icon';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof Icon> = {
   component: Icon,
   title: 'Icon',
   tags: ['autodocs'],
@@ -10,12 +13,27 @@ export default {
   },
 };
 
-export const Default = (args) => <Icon {...args} />;
+export default meta;
+type Story = StoryObj<typeof Icon>;
 
+const Template: StoryFn<IconProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Icon {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
 Default.args = {
   id: 'add',
   size: 'md',
-  fill: '',
-  stroke: '',
+  fill: undefined,
+  stroke: undefined,
   focusable: false,
+  gradeBand: GradeBand.G4_5,
 };
