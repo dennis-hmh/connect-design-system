@@ -1,21 +1,35 @@
-import React from 'react';
-import { ButtonSplit } from './ButtonSplit';
+import React, { useRef } from 'react';
+import { ButtonSplit, ButtonSplitProps } from './ButtonSplit';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+
+const meta: Meta<typeof ButtonSplit> = {
+  title: 'ButtonSplit',
   component: ButtonSplit,
-  title: 'Button Split',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/9iretC8KPFzFM1RfV4Cezm/3-12-UI-system?type=design&node-id=583%3A5057&mode=dev',
-    },
   },
 };
 
-export const Primary = (args) => <ButtonSplit {...args} />;
+export default meta;
+type Story = StoryObj<typeof ButtonSplit>;
 
+const Template: StoryFn<ButtonSplitProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <ButtonSplit {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Primary: Story = Template.bind({});
 Primary.args = {
   children: 'Split Button',
   data: [
@@ -26,4 +40,5 @@ Primary.args = {
     { label: 'Dropdown item 5', value: 'Item 5' },
   ],
   disabled: false,
+  gradeBand: GradeBand.G4_5,
 };

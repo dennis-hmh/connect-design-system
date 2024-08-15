@@ -1,25 +1,41 @@
-import React from 'react';
-import { MultipleChoiceQuestion } from './MultipleChoiceQuestion';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { MultipleChoiceQuestion, MultipleChoiceQuestionProp } from './MultipleChoiceQuestion';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof MultipleChoiceQuestion> = {
   component: MultipleChoiceQuestion,
-  title: 'MCQ',
+  title: 'MultipleChoiceQuestion',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/sYNh2CVOzu9zZZTrXBSneQ/3-12-UI-Starter-Kit?type=design&node-id=169%3A5490&mode=design&t=kQMSIlVeqiaeDUoy-1',
-    },
   },
 };
 
-export const Default = (args) => <MultipleChoiceQuestion {...args} />;
-export const Checked = (args) => <MultipleChoiceQuestion {...args} />;
-export const Correct = (args) => <MultipleChoiceQuestion {...args} />;
-export const Incorrect = (args) => <MultipleChoiceQuestion {...args} />;
-export const AnswerShown = (args) => <MultipleChoiceQuestion {...args} />;
-export const Disabled = (args) => <MultipleChoiceQuestion {...args} />;
+export default meta;
+type Story = StoryObj<typeof MultipleChoiceQuestion>;
+
+const Template: StoryFn<MultipleChoiceQuestionProp> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  const gradeBand = args.gradeBand ?? GradeBand.G4_5;
+
+  return (
+    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <MultipleChoiceQuestion {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
+export const Checked: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
@@ -32,6 +48,7 @@ Default.args = {
   incorrect: false,
   answerShown: false,
   children: 'The mouse rides a bike',
+  gradeBand: GradeBand.G4_5,
 };
 
 Checked.args = {

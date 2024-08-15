@@ -3,6 +3,7 @@ import { Figure } from '../Figure/Figure';
 import { CardHeader } from './CardHeader';
 import { CardMain } from './CardMain';
 import { CardFooter } from './CardFooter';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type CardProps = {
   image: boolean;
@@ -14,6 +15,7 @@ export type CardProps = {
   mainContent: React.ReactNode;
   footerContent?: React.ReactNode;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export function Card({

@@ -1,16 +1,18 @@
 import React, { useState, useRef, ChangeEvent } from 'react';
+import { GradeBand } from 'src/enum/gradeband';
 
-type SelectBoxProp<T extends string | number> = {
-  data: { value: string; label: T }[];
+export type SelectBoxProps = {
+  data: { value: string; label: string | number }[];
   defaultValue?: string;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
-export function SelectBox<T extends string | number>({
+export function SelectBox({
   data,
   defaultValue,
   correct,
@@ -18,7 +20,7 @@ export function SelectBox<T extends string | number>({
   answerShown,
   disabled,
   dataTestId,
-}: SelectBoxProp<T>) {
+}: SelectBoxProps) {
   const [select, setSelect] = useState(defaultValue || '');
   const selectRef = useRef<HTMLSelectElement>(null);
 

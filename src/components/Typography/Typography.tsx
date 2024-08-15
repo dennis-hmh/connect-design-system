@@ -1,5 +1,6 @@
 import React from 'react';
 import { Color } from '../../utils/colors';
+import { GradeBand } from '../../enum/gradeband';
 
 type Size =
   | 'heading-xl'
@@ -12,7 +13,7 @@ type Size =
   | 'caption'
   | 'credits';
 
-interface TypographyProps {
+export interface TypographyProps {
   children: React.ReactNode;
   element?: React.ElementType;
   color?: Color;
@@ -25,6 +26,7 @@ interface TypographyProps {
   textTransform?: React.CSSProperties['textTransform'];
   className?: string;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 }
 
 export const Typography: React.FC<TypographyProps> = ({

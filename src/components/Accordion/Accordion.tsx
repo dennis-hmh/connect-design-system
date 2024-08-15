@@ -1,16 +1,16 @@
 import React from 'react';
+import { GradeBand } from 'src/enum/gradeband';
 
-export type AccordionProps<T extends React.ReactNode> = {
-  data: { title: string; content: T }[];
+export type AccordionProps = {
+  data: { title: string; content: React.ReactNode }[];
   variants?: 'default' | 'divider' | 'color';
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
-export function Accordion<T extends React.ReactNode>({
-  data,
-  variants = 'default',
-}: AccordionProps<T>) {
+export function Accordion({ data, variants = 'default', dataTestId }: AccordionProps) {
   return (
-    <ul className={`connect__accordion connect__accordion--${variants}`}>
+    <ul className={`connect__accordion connect__accordion--${variants}`} data-testid={dataTestId}>
       <ListItem data={data} />
     </ul>
   );

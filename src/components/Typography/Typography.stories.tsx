@@ -1,7 +1,10 @@
-import React from 'react';
-import { Typography } from '../Typography/Typography';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { Typography, TypographyProps } from './Typography';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof Typography> = {
   component: Typography,
   title: 'Typography',
   tags: ['autodocs'],
@@ -10,18 +13,36 @@ export default {
   },
 };
 
-export const Default = (args) => <Typography {...args} />;
+export default meta;
+type Story = StoryObj<typeof Typography>;
+
+const Template: StoryFn<TypographyProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  const gradeBand = args.gradeBand ?? GradeBand.G4_5;
+
+  return (
+    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Typography {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
 
 Default.args = {
   children: 'Typography',
   element: 'h1',
-  color: '',
+  color: undefined,
   family: 'sans',
-  size: '',
+  size: undefined,
   style: 'normal',
-  weight: '',
-  letterSpacing: '',
-  textAlign: '',
-  textTransform: '',
-  className: '',
+  weight: undefined,
+  letterSpacing: undefined,
+  textAlign: undefined,
+  textTransform: undefined,
+  className: undefined,
+  gradeBand: GradeBand.G4_5,
 };
