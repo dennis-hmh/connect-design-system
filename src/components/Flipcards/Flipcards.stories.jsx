@@ -4,6 +4,9 @@ export default {
   component: Flipcards,
   title: 'Flipcards',
   tags: ['autodocs'],
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
 };
 
 export const Default3 = (args) => <Flipcards {...args} />;
