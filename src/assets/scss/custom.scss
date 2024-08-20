@@ -1438,6 +1438,38 @@ Transition Styles:
   }
 }
 
+/* Footer Styles
+*/
+
+.connect__footer {
+  --connect__footer-bg: var(--theme__footer-bg, var(--connect__neutrals-mid));
+
+  --connect__footer-position: var(--theme__footer-position, absolute);
+  --connect__footer-position-b: var(--theme__footer-position, 0);
+  --connect__footer-h: var(--theme__footer-h, var(--connect__spacer-sm));
+  --connect__footer-w: var(--theme__footer-w, 100vw);
+
+  --connect__transform-x-value-multiplier: var(--theme-connect__transform-x-value-multiplier, -1);
+  --connect__transform-x-value: 1rem;
+  --connect__transform-x: calc(
+    var(--theme__transform-x, var(--connect__transform-x-value, 0)) *
+      var(--connect__transform-x-value-multiplier)
+  );
+
+  position: var(--connect__footer-position);
+  bottom: var(--connect__footer-position-b);
+  width: var(--connect__footer-w);
+  height: var(--connect__footer-h);
+  background-color: var(--connect__footer-bg);
+  transform: translateX(var(--connect__transform-x));
+}
+
+@media (min-width: 40.625rem) {
+  .connect__footer {
+    --connect__transform-x-value: var(--gutter-width);
+  }
+}
+
 /*
 .connect__grid Component
 
