@@ -5,6 +5,9 @@ import { GradeBand } from '../../enum/gradeband';
 export type MultipleChoiceQuestionProp = {
   type: 'checkbox' | 'radio';
   image: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageCaption?: string;
   id: string;
   name: string;
   children: React.ReactNode;
@@ -13,8 +16,6 @@ export type MultipleChoiceQuestionProp = {
   answerShown?: boolean;
   correct?: boolean;
   incorrect?: boolean;
-  imageSrc?: string;
-  imageCaption?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -22,6 +23,9 @@ export type MultipleChoiceQuestionProp = {
 export function MultipleChoiceQuestion({
   type,
   image = false,
+  imageAlt,
+  imageSrc,
+  imageCaption,
   id,
   name,
   children,
@@ -30,8 +34,6 @@ export function MultipleChoiceQuestion({
   correct,
   incorrect,
   answerShown,
-  imageSrc,
-  imageCaption,
   dataTestId,
 }: MultipleChoiceQuestionProp) {
   const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
@@ -50,8 +52,6 @@ export function MultipleChoiceQuestion({
   } else if (answerShown) {
     inputAriaLabel += ', answer shown';
   }
-
-  // const shouldBeReadOnly = correct || incorrect || answerShown;
 
   return (
     <div className="connect__mcq-label-wrapper">
@@ -73,7 +73,7 @@ export function MultipleChoiceQuestion({
       >
         {image ? (
           <Figure
-            altText={`Image for ${name}`}
+            altText={imageAlt || `Image for ${name}`}
             imageSrc={imageSrc || ''}
             imageCaption={imageCaption || ''}
             dataTestId={dataTestId}
