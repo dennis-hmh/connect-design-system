@@ -207,9 +207,9 @@ States:
   padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
     calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
   text-transform: var(--connect__button-text-transform, initial);
+  transition-duration: var(--connect__transition-default);
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: var(--ease-in-out);
-  transition-duration: var(--connect__transition-default);
   width: var(--connect__button-w, fit-content);
 
   &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
@@ -553,9 +553,9 @@ States:
   padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
   position: relative;
   resize: var(--resize);
+  transition-duration: var(--connect__transition-default);
   transition-property: color, background-color, border-color;
   transition-timing-function: var(--connect__ease-in-out);
-  transition-duration: var(--connect__transition-default);
   width: var(--connect__input-width, 100%);
 
   &:not(:disabled) {
@@ -581,9 +581,9 @@ States:
 
     --starting-shadow-color: var(--connect__focus-mid);
     --connect__input-focus-shadow: var(--connect__focus-mid);
+    background: var(--neutrals-white, #fff);
 
     border-radius: var(--radius-border-radius, 0.875rem);
-    background: var(--neutrals-white, #fff);
   }
 
   &:active:not(:disabled) {
@@ -877,9 +877,9 @@ States:
   padding-left: 0;
 
   > li {
-    padding-left: 0;
-    margin-top: var(--border-width);
     margin-left: 0;
+    margin-top: var(--border-width);
+    padding-left: 0;
 
     &::before {
       content: none;
@@ -909,18 +909,18 @@ States:
   }
 
   summary {
-    padding-top: var(--connect__spacer-sm);
-    padding-bottom: var(--connect__spacer-sm);
-    min-height: calc(var(--ui-button) + var(--connect__spacer-md));
+    align-items: center;
     border-radius: var(--border-radius);
-
-    font-size: var(--connect__body-lg);
-    list-style: none;
     cursor: pointer;
     // position: relative;
     display: flex;
-    align-items: center;
+
+    font-size: var(--connect__body-lg);
     justify-content: space-between;
+    list-style: none;
+    min-height: calc(var(--ui-button) + var(--connect__spacer-md));
+    padding-bottom: var(--connect__spacer-sm);
+    padding-top: var(--connect__spacer-sm);
 
     *,
     & + * {
@@ -930,18 +930,18 @@ States:
 
     &::after {
       --active-color: var(--connect__selected-mid);
-
-      width: var(--ui-button);
-      height: var(--ui-button);
-      content: '';
-      margin-left: var(--connect__spacer-md);
-      border-radius: 50%;
-      border: var(--border-width) solid var(--active-color);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: var(--ui-icon) var(--ui-icon);
       background-position: center center;
       background-repeat: no-repeat;
+      background-size: var(--ui-icon) var(--ui-icon);
+      border: var(--border-width) solid var(--active-color);
+      border-radius: 50%;
+      content: '';
       flex-shrink: 0;
+      height: var(--ui-button);
+      margin-left: var(--connect__spacer-md);
+
+      width: var(--ui-button);
     }
 
     &::before {
@@ -961,10 +961,10 @@ States:
       height: 100%;
       left: 0;
       position: absolute;
+      top: 0;
+      transition-duration: 150ms;
       transition-property: color, background-color, border-color;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 150ms;
-      top: 0;
       width: 100%;
       z-index: -1;
     }
@@ -1006,14 +1006,14 @@ States:
 
         &::before {
           --active-color: var(--connect__selected-mid);
+          background: var(--active-color);
+          content: '';
+          height: var(--border-width);
+          left: var(--connect__spacer-md);
 
           position: absolute;
           top: 0;
-          left: var(--connect__spacer-md);
           width: calc(100% - var(--connect__spacer-xl));
-          height: var(--border-width);
-          content: '';
-          background: var(--active-color);
         }
       }
     }
@@ -1132,8 +1132,8 @@ Styles:
   }
 
   &:has(menu) {
-    container-type: inline-size;
     container-name: cpl-card;
+    container-type: inline-size;
 
     @container cpl-card (max-width: 40.625rem) {
       .connect__card-content {
@@ -1250,8 +1250,8 @@ Styles:
 }
 
 .connect__tooltip-wrapper {
-  position: relative;
   display: inline-block;
+  position: relative;
 
   &:hover {
     .connect__tooltip {
@@ -1353,11 +1353,11 @@ Transition Styles:
 
   --connect__tooltip-translateX: var(--connect__tooltip-vertical-translateX, -50%);
   --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY, -100%);
+  align-content: center;
 
   align-items: center;
-  align-content: center;
-  border-radius: var(--Text-Inner-Spacing, 0.25rem);
   background: var(--connect__tooltip-bg);
+  border-radius: var(--Text-Inner-Spacing, 0.25rem);
   box-shadow:
     var(--shadow-level-1) var(--connect__shadow-10),
     var(--shadow-level-2) var(--connect__shadow-20),
@@ -1366,20 +1366,76 @@ Transition Styles:
   color: var(--connect__tooltip-color);
   display: inline-block;
   justify-content: center;
+  left: var(--connect__tooltip-left);
+  opacity: var(--connect__tooltip-opacity);
   padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
   position: absolute;
   top: 0;
-  left: var(--connect__tooltip-left);
   transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
   transform-origin: bottom;
+  transition-duration: var(--connect__transition-default);
 
   transition-property: visibility, opacity, transform;
   transition-timing-function: var(--connect__ease-in);
-  transition-duration: var(--connect__transition-default);
+  visibility: var(--connect__tooltip-visibility);
 
   white-space: nowrap;
-  opacity: var(--connect__tooltip-opacity);
-  visibility: var(--connect__tooltip-visibility);
+}
+
+/* Header Styles 
+  padding: 
+          Padding can take Top,Right,Bottom,Left.
+          By default only the padding bottom is enabled
+          all paddings are multiplied by the base line height
+          To change the paddings, pass a whole number to the padding value.
+
+*/
+
+.connect__header {
+  --connect__header-padding-t: 0;
+  --connect__header-padding-r: 0;
+  --connect__header-padding-l: 0;
+  --connect__header-padding-b: 1;
+  --connect__header-padding-multi: var(--base-lheight);
+
+  --connect__header-bg: var(--theme__header-bg, var(--connect__neutrals-null));
+
+  --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__gray-c5));
+  --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
+  --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
+  --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
+
+  padding: calc(
+      var(--theme__header-padding-t, var(--connect__header-padding-t)) *
+        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
+    )
+    calc(
+      var(--theme__header-padding-r, var(--connect__header-padding-r)) *
+        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
+    )
+    calc(
+      var(--theme__header-padding-b, var(--connect__header-padding-b)) *
+        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
+    )
+    calc(
+      var(--theme__header-padding-l, var(--connect__header-padding-l)) *
+        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
+    );
+  background-color: var(--connect__header-bg);
+  position: relative;
+
+  display: flex;
+
+  &:before {
+    background: var(--connect__header-breakout-bg);
+    content: '';
+    height: var(--connect__header-breakout-h);
+    left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
+    position: absolute;
+    top: 0;
+    width: calc(100% + var(--connect__header-breakout-w) * var(--gutter-width));
+    z-index: -1;
+  }
 }
 
 /*
@@ -1647,11 +1703,11 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
     background-repeat: repeat;
     background-size: contain;
     content: '';
+    height: var(--connect__icon-size, var(--connect__icon-md));
     position: absolute;
     right: 0;
     top: 0;
     transform: translate(var(--translateY), var(--translateX));
-    height: var(--connect__icon-size, var(--connect__icon-md));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
   &.connect__input-correct {
@@ -1766,9 +1822,9 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   position: relative;
   text-transform: var(--connect__label-text-transform, initial);
+  transition-duration: var(--connect__transition-default);
   transition-property: color, background, border-color;
   transition-timing-function: var(--connect__ease-in-out);
-  transition-duration: var(--connect__transition-default);
   width: var(--connect__label-w, fit-content);
 
   // palette
@@ -1994,9 +2050,9 @@ input[type='radio'].connect__input {
   appearance: none;
   border: none;
   border-radius: var(--border-radius);
-  transition-timing-function: var(--connect__progress-transition-ease);
   transition-duration: var (--connect__progress-transition);
   transition-property: width, background-color;
+  transition-timing-function: var(--connect__progress-transition-ease);
   width: 100%;
 
   &::-webkit-progress-bar {
@@ -2013,8 +2069,8 @@ input[type='radio'].connect__input {
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
     transition-duration: var (--connect__progress-transition);
-    transition-timing-function: var(--connect__progress-transition-ease);
     transition-property: width, background-color;
+    transition-timing-function: var(--connect__progress-transition-ease);
   }
   &::-moz-progress-bar {
     --connect__progress-transition: var(--connect__transition-default);
@@ -2022,8 +2078,8 @@ input[type='radio'].connect__input {
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
     transition-duration: var (--connect__progress-transition);
-    transition-timing-function: var(--connect__progress-transition-ease);
     transition-property: width, background-color;
+    transition-timing-function: var(--connect__progress-transition-ease);
   }
 }
 
@@ -2034,6 +2090,7 @@ input[type='radio'].connect__input {
   --connect__toolbar-padding-x: var(--connect__spacer-sm);
   --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
   --connect__toolbar-bg: var(--theme-connect_toolbar-bg, var(--connect__neutrals-pale));
+  align-items: var(--connect__toolbar-align, baseline);
 
   // --connect__toolbar-tooltip-transformX: var(--connect__toolbar-padding-x);
   // --connect__tooltip-translateX: translateX(
@@ -2043,7 +2100,6 @@ input[type='radio'].connect__input {
   background-color: var(--connect__toolbar-bg);
   display: flex;
   flex-flow: var(--connect__toolbar-direction, column wrap);
-  align-items: var(--connect__toolbar-align, baseline);
   justify-content: space-between;
   margin: 0;
   padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
@@ -2116,8 +2172,8 @@ input[type='radio'].connect__input {
         &:nth-of-type(1),
         &:nth-of-type(2) {
           ul {
-            padding-left: 0;
             margin-right: var(--connect__toolbar-sub-menu-padding-x);
+            padding-left: 0;
           }
         }
 
@@ -2147,8 +2203,8 @@ input[type='radio'].connect__input {
     position: relative;
 
     .connect__toolbar-item-menu-item-sub-menu {
-      padding: 0;
       display: flex;
+      padding: 0;
     }
 
     &:nth-of-type(1),
@@ -2188,14 +2244,14 @@ input[type='radio'].connect__input {
 
     &:has(ul) {
       &::after {
-        content: '';
-        position: absolute;
         background-color: var(--connect__toolbar-sub-menu-divider-c);
+        bottom: var(--connect__toolbar-sub-menu-divider-bottom, initial);
+        content: '';
+        height: var(--connect__toolbar-sub-menu-divider-h, initial);
         left: var(--connect__toolbar-sub-menu-divider-left, initial);
+        position: absolute;
         right: var(--connect__toolbar-sub-menu-divider-right, initial);
         top: var(--connect__toolbar-sub-menu-divider-top, initial);
-        bottom: var(--connect__toolbar-sub-menu-divider-bottom, initial);
-        height: var(--connect__toolbar-sub-menu-divider-h, initial);
         width: var(--connect__toolbar-sub-menu-divider-w, initial);
       }
 
@@ -2229,8 +2285,8 @@ input[type='radio'].connect__input {
     }
 
     svg {
-      margin: var(--connect__spacer-xs);
       height: var(--connect__icon-sm);
+      margin: var(--connect__spacer-xs);
       width: var(--connect__icon-sm);
     }
   }
@@ -2268,27 +2324,27 @@ input[type='radio'].connect__input {
   --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-sm) * -1);
 
   --connect__menu-divider-line-h: calc(100% - calc(var(--connect__menu-divider-line-y-offset) * 2));
+  align-items: var(--connect__toolbar-align, baseline);
 
   display: flex;
   flex-flow: var(--connect__toolbar-direction, column wrap);
-  align-items: var(--connect__toolbar-align, baseline);
-  justify-content: var(--connect__toolbar-justify, baseline);
   gap: var(--connect__toolbar-gap);
-  position: relative;
-  padding: var(--connect__toolbar-menu-padding-x);
+  justify-content: var(--connect__toolbar-justify, baseline);
   margin: var(--connect__toolbar-menu-margin);
+  padding: var(--connect__toolbar-menu-padding-x);
+  position: relative;
 
   &:nth-of-type(2) {
     --connect__icon-fill-color: var(--connect__gray-c45);
     &::after {
-      content: '';
-      position: absolute;
-      left: var(--connect__menu-divider-line-x-offset);
-      top: var(--connect__menu-divider-line-y-offset);
-      height: var(--connect__menu-divider-line-h);
-      width: var(--connect__menu-divider-line-w, 0.125rem);
       background-color: var(--connect__gray-c45);
       border-radius: 1.5rem;
+      content: '';
+      height: var(--connect__menu-divider-line-h);
+      left: var(--connect__menu-divider-line-x-offset);
+      position: absolute;
+      top: var(--connect__menu-divider-line-y-offset);
+      width: var(--connect__menu-divider-line-w, 0.125rem);
     }
   }
 }
@@ -2305,26 +2361,26 @@ input[type='radio'].connect__input {
   --starting-speed: 90ms;
   --transition-origin-start: center;
   --starting-bezier: cubic-bezier(0.33, 0, 0.67, 1);
-
-  opacity: 1;
-  display: grid;
-  grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
-  grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
-  padding: var(--connect__spacer-xs);
-  border-radius: var(--border-radius);
   background: var(--connect__neutrals-white);
-  column-gap: var(--connect__toolbar-col-gap);
-  row-gap: var(--connect__toolbar-row-gap);
+  border-radius: var(--border-radius);
 
   box-shadow:
     var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
     var(--connect__shadow-spread-level-4) var(--connect__shadow-20),
     var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
     var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
+  column-gap: var(--connect__toolbar-col-gap);
+  display: grid;
+  grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
+  grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
+  left: var(--connect__toolbar-item-menu-x-offset);
+
+  opacity: 1;
+  padding: var(--connect__spacer-xs);
 
   position: absolute;
+  row-gap: var(--connect__toolbar-row-gap);
   top: var(--connect__toolbar-item-menu-y-offset);
-  left: var(--connect__toolbar-item-menu-x-offset);
   transform: scale(1);
   transform-origin: var(--transition-origin-start, top);
   transition:
@@ -2351,9 +2407,9 @@ input[type='radio'].connect__input {
 
 [class*='connect_'] {
   img {
-    max-width: 100%;
-    max-inline-size: 100%;
     display: block;
+    max-inline-size: 100%;
+    max-width: 100%;
   }
 
   figure {
@@ -2361,18 +2417,18 @@ input[type='radio'].connect__input {
     figcaption {
       font-size: var(--connect__fig-fs, var(--connect__caption));
       margin-top: var(--connect__fig-mt, 0);
-      padding-top: var(--connect__fig-pt, var(--connect__fig-py));
-      padding-right: var(--connect__fig-pr, var(--connect__fig-px));
       padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
       padding-left: var(--connect__fig-pl, var(--connect__fig-px));
+      padding-right: var(--connect__fig-pr, var(--connect__fig-px));
+      padding-top: var(--connect__fig-pt, var(--connect__fig-py));
       text-align: var(--connect__fig-text-align, left);
       text-wrap: var(--connect__fig-text-wrap, initial);
     }
   }
 
   ul {
-    margin-inline-start: 0;
     margin-inline-end: 0;
+    margin-inline-start: 0;
   }
 }
 
