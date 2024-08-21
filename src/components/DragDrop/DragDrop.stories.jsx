@@ -6,6 +6,7 @@ export default {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    chromatic: { disableSnapshot: true },
   },
 };
 

@@ -34,9 +34,14 @@ import { Button } from '@connect/connect-design-system@1.9.0';
 
 function App() {
   return (
-    <Button primary clickHandler={() => console.log('Button clicked')} ariaLabel="Example Button">
-      {(children = 'Example')}
-    </Button>
+    <Button
+      children={'Example'}
+      primary={true}
+      correct={true}
+      iconId={'correct'}
+      iconPosition={'after'}
+      ariaLabel="Example Button"
+    />
   );
 }
 ```

@@ -1,7 +1,8 @@
 import React from 'react';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ export type ButtonProps = {
   iconPosition?: 'before' | 'after';
   ariaLabel?: string;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export const Button: React.FC<ButtonProps> = ({

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, KeyboardEvent } from 'react';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonSplitProps = {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ export type ButtonSplitProps = {
   fill?: string;
   ariaLabel?: string;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSplitProps) {

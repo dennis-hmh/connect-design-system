@@ -1,25 +1,39 @@
-import React from 'react';
-import { InputBox } from './InputBox';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { InputBox, InputBoxProps } from './InputBox';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof InputBox> = {
   component: InputBox,
   title: 'Input Box',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/sYNh2CVOzu9zZZTrXBSneQ/3-12-UI-Starter-Kit?type=design&node-id=374%3A4384&mode=design&t=kQMSIlVeqiaeDUoy-1',
-    },
   },
 };
 
-export const Default = (args) => <InputBox {...args} />;
-export const Checked = (args) => <InputBox {...args} />;
-export const Correct = (args) => <InputBox {...args} />;
-export const Incorrect = (args) => <InputBox {...args} />;
-export const AnswerShown = (args) => <InputBox {...args} />;
-export const Disabled = (args) => <InputBox {...args} />;
+export default meta;
+type Story = StoryObj<typeof InputBox>;
+
+const Template: StoryFn<InputBoxProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <InputBox {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
+export const Checked: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
@@ -30,6 +44,7 @@ Default.args = {
   incorrect: false,
   disabled: false,
   children: 'The mouse rides a bike',
+  gradeBand: GradeBand.G4_5,
 };
 
 Checked.args = {

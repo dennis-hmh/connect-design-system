@@ -1,5 +1,6 @@
 import React from 'react';
 import { Color } from '../../utils/colors';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type ProgressBarProps = {
   value: number;
@@ -7,6 +8,7 @@ export type ProgressBarProps = {
   backgroundColor?: Color;
   barColor?: Color;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export function ProgressBar({

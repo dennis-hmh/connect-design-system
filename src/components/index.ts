@@ -9,7 +9,7 @@ export { Chip } from './Chip/Chip';
 export { ConnectTheme } from './ConnectTheme';
 export { ProgressBar } from './ProgressBar/ProgressBar';
 export { Typography } from './Typography/Typography';
-export { default as Grid } from './Grid';
+export { default as Grid } from './Grid/Grid';
 export { default as GridItem } from './GridItem';
 export { default as Stack } from './Stack/Stack';
 export { GradeBand } from '../enum/gradeband';

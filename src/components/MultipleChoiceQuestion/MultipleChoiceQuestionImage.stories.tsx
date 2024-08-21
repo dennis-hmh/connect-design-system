@@ -1,22 +1,44 @@
-import React from 'react';
-import { MultipleChoiceQuestionImage } from './MultipleChoiceQuestionImage';
+import React, { useRef } from 'react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import {
+  MultipleChoiceQuestionImage,
+  MultipleChoiceQuestionImageProp,
+} from './MultipleChoiceQuestionImage';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
-export default {
+const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   component: MultipleChoiceQuestionImage,
-  title: 'MCQ Image',
+  title: 'MultipleChoiceQuestionImage',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
 };
 
-export const Default = (args) => <MultipleChoiceQuestionImage {...args} />;
-export const Checked = (args) => <MultipleChoiceQuestionImage {...args} />;
-export const Correct = (args) => <MultipleChoiceQuestionImage {...args} />;
-export const Incorrect = (args) => <MultipleChoiceQuestionImage {...args} />;
-export const AnswerShown = (args) => <MultipleChoiceQuestionImage {...args} />;
+export default meta;
+type Story = StoryObj<typeof MultipleChoiceQuestionImage>;
 
-export const Disabled = (args) => <MultipleChoiceQuestionImage {...args} />;
+const Template: StoryFn<MultipleChoiceQuestionImageProp> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  const gradeBand = args.gradeBand ?? GradeBand.G4_5;
+
+  return (
+    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <MultipleChoiceQuestionImage {...args} />
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default: Story = Template.bind({});
+export const Checked: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
@@ -28,6 +50,7 @@ Default.args = {
   correct: false,
   incorrect: false,
   children: 'The mouse rides a bike',
+  gradeBand: GradeBand.G4_5,
 };
 
 Checked.args = {
