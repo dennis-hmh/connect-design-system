@@ -2,7 +2,6 @@ import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type FigCaptionProps = {
-  children?: React.ReactNode;
   caption?: string;
   cite?: string;
   gradeBand?: GradeBand;
