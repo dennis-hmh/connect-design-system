@@ -1519,7 +1519,7 @@ Transition Styles:
 
   --connect__footer-position: var(--theme__footer-position, relative);
   --connect__footer-position-t: var(--theme__footer-position, 0);
-  --connect__footer-h: var(--theme__footer-h, var(-connect__spacer-sm));
+  --connect__footer-h: var(--theme__footer-h, var(--connect__spacer-sm));
   --connect__footer-w: var(--theme__footer-w, 100vw);
 
   --connect__footer-breakout-l: var(--theme__header-breakout-l, -1);
