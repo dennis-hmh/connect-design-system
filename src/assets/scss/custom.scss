@@ -1418,20 +1418,6 @@ Transition Styles:
   --connect__header-bg-size: var(--theme__header-bg-size, cover);
   --connect__header-bg-repeat: var(--theme__header-bg-repeat, no-repeat);
 
-  // Breakout section background variables
-  --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__gray-c5));
-  --connect__header-breakout-bg-image: var(--theme__header-breakout-bg-image, none);
-  --connect__header-breakout-gradient-type: var(--theme__header-breakout-gradient-type, none);
-  --connect__header-breakout-gradient-direction: var(
-    --theme__header-breakout-gradient-direction,
-    to right
-  );
-  --connect__header-breakout-gradient-colors: var(--theme__header-breakout-gradient-colors, none);
-
-  // Breakout section dimension variables
-  --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
-  --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
-  --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
   background-color: var(--connect__header-bg);
 
   // Main header background
@@ -1471,9 +1457,28 @@ Transition Styles:
     );
   position: relative;
 
+  &::before,
+  &::after {
+    position: absolute;
+  }
+
   // Breakout section (pseudo-element)
   &:before {
-    // Breakout section background
+    // Breakout section background variables
+    --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__gray-c5));
+    --connect__header-breakout-bg-image: var(--theme__header-breakout-bg-image, none);
+    --connect__header-breakout-gradient-type: var(--theme__header-breakout-gradient-type, none);
+    --connect__header-breakout-gradient-direction: var(
+      --theme__header-breakout-gradient-direction,
+      to right
+    );
+    --connect__header-breakout-gradient-colors: var(--theme__header-breakout-gradient-colors, none);
+
+    // Breakout section dimension variables
+    --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
+    --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
+    --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
+
     background-color: var(--connect__header-breakout-bg);
     content: '';
     height: var(--connect__header-breakout-h);
@@ -1483,37 +1488,88 @@ Transition Styles:
     width: calc(100% + var(--connect__header-breakout-w) * var(--gutter-width));
     z-index: -1;
   }
+
+  &::after {
+    --connect__header-breakout-content-after: ;
+    --connect__header-breakout-z-after: ;
+    --connect__header-breakout-content-top-after: ;
+    --connect__header-breakout-content-right-after: ;
+    --connect__header-breakout-content-bottom-after: ;
+    --connect__header-breakout-content-left-after: ;
+    --connect__header-breakout-content-w-after: ;
+
+    content: var(--connect__header-content);
+    top: calc(
+      var(--connect__header-breakout-content-top-after) *
+        var(--connect__header-breakout-content-mulit-after)
+    );
+    width: calc(
+      var(--connect__header-breakout-content-w-after) *
+        var(--connect__header-breakout-content-mulit-after)
+    );
+    z-index: var(--connect__header-z-after);
+  }
 }
 
 /* Footer Styles
 */
 
 .connect__footer {
-  --connect__footer-bg: var(--theme__footer-bg, var(--connect__neutrals-mid));
+  --connect__footer-breakout-bg: var(--theme__footer-breakout-bg, var(--connect__neutrals-mid));
 
-  --connect__footer-position: var(--theme__footer-position, absolute);
-  --connect__footer-position-b: var(--theme__footer-position, 0);
-  --connect__footer-h: var(--theme__footer-h, var(--connect__spacer-sm));
+  --connect__footer-position: var(--theme__footer-position, relative);
+  --connect__footer-position-t: var(--theme__footer-position, 0);
+  --connect__footer-h: var(--theme__footer-h, var(-connect__spacer-sm));
   --connect__footer-w: var(--theme__footer-w, 100vw);
 
-  --connect__transform-x-value-multiplier: var(--theme-connect__transform-x-value-multiplier, -1);
-  --connect__transform-x-value: 1rem;
-  --connect__transform-x: calc(
-    var(--theme__transform-x, var(--connect__transform-x-value, 0)) *
-      var(--connect__transform-x-value-multiplier)
+  --connect__footer-breakout-l: var(--theme__header-breakout-l, -1);
+  --connect__footer-breakout-w: var(--theme__header-breakout-w, 2);
+
+  // Padding variables
+  --connect__footer-padding-t: 0;
+  --connect__footer-padding-r: 0;
+  --connect__footer-padding-l: 0;
+  --connect__footer-padding-b: 1;
+  --connect__footer-multi: var(--base-lheight);
+
+  // margin variables
+  --connect__footer-margin-t: 0;
+
+  background-color: var(--connect__neutrals-white);
+  margin-top: calc(
+    var(--theme__footer-margin-t, var(--connect__footer-margin-t)) *
+      var(--theme__footer-margin-multi, var(--connect__footer-multi))
   );
-  background-color: var(--connect__footer-bg);
-  bottom: var(--connect__footer-position-b);
-  height: var(--connect__footer-h);
 
+  padding: calc(
+      var(--theme__footer-padding-t, var(--connect__footer-padding-t)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-r, var(--connect__footer-padding-r)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-b, var(--connect__footer-padding-b)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-l, var(--connect__footer-padding-l)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    );
   position: var(--connect__footer-position);
-  transform: translateX(var(--connect__transform-x));
-  width: var(--connect__footer-w);
-}
 
-@media (min-width: 40.625rem) {
-  .connect__footer {
-    --connect__transform-x-value: var(--gutter-width);
+  width: 100%;
+
+  &::after {
+    background-color: var(--connect__footer-breakout-bg);
+    height: var(--connect__footer-h);
+
+    content: '';
+    top: var(--connect__footer-position-t);
+    left: calc(var(--connect__footer-breakout-l) * var(--gutter-width));
+    width: calc(100% + var(--connect__footer-breakout-w) * var(--gutter-width));
+    position: absolute;
   }
 }
 
@@ -1553,15 +1609,16 @@ example:
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
 */
 
-section.connect__grid {
+.connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
+  --grid-cols: var(--theme-col-amount, 12);
   align-content: start;
   display: grid;
   gap: var(--default-grid-gap);
   grid-auto-rows: auto;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
-  width: auto;
+  width: 100%;
 
   &.connect__grid-gutter {
     padding: calc(var(--connect__spacer-xl) * 2) var(--gutter-width);
