@@ -1392,42 +1392,89 @@ Transition Styles:
 */
 
 .connect__header {
+  // Padding variables
   --connect__header-padding-t: 0;
   --connect__header-padding-r: 0;
   --connect__header-padding-l: 0;
   --connect__header-padding-b: 1;
-  --connect__header-padding-multi: var(--base-lheight);
+  --connect__header-multi: var(--base-lheight);
 
-  --connect__header-bg: var(--theme__header-bg, var(--connect__neutrals-null));
+  // margin variables
+  --connect__header-margin-t: 0;
 
+  // borders
+  --connect__header-border-w: var(--theme__connect-header-border-w, 0);
+  --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__neutrals-null));
+
+  // border radius
+  --connect__header-border-r: var(--theme__connect-header-border-r, 0);
+
+  // Main header background variables
+  --connect__header-bg: var(--theme__header-bg, var(--connect__neutrals-pale));
+  --connect__header-bg-image: var(--theme__header-bg-image, none);
+  --connect__header-gradient-type: var(--theme__header-gradient-type, none);
+  --connect__header-gradient-direction: var(--theme__header-gradient-direction, to right);
+  --connect__header-gradient-colors: var(--theme__header-gradient-colors, none);
+  --connect__header-bg-size: var(--theme__header-bg-size, cover);
+  --connect__header-bg-repeat: var(--theme__header-bg-repeat, no-repeat);
+
+  // Breakout section background variables
   --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__gray-c5));
+  --connect__header-breakout-bg-image: var(--theme__header-breakout-bg-image, none);
+  --connect__header-breakout-gradient-type: var(--theme__header-breakout-gradient-type, none);
+  --connect__header-breakout-gradient-direction: var(
+    --theme__header-breakout-gradient-direction,
+    to right
+  );
+  --connect__header-breakout-gradient-colors: var(--theme__header-breakout-gradient-colors, none);
+
+  // Breakout section dimension variables
   --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
   --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
   --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
-
-  padding: calc(
-      var(--theme__header-padding-t, var(--connect__header-padding-t)) *
-        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
-    )
-    calc(
-      var(--theme__header-padding-r, var(--connect__header-padding-r)) *
-        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
-    )
-    calc(
-      var(--theme__header-padding-b, var(--connect__header-padding-b)) *
-        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
-    )
-    calc(
-      var(--theme__header-padding-l, var(--connect__header-padding-l)) *
-        var(--theme__header-padding-multi, var(--connect__header-padding-multi))
-    );
   background-color: var(--connect__header-bg);
-  position: relative;
+
+  // Main header background
+
+  background-image: var(--connect__header-bg-image);
+  background-repeat: var(--connect__header-bg-repeat);
+  background-size: var(--connect__header-bg-size);
+
+  // borders
+  border: var(--connect__header-border-w) solid var(--connect__header-border-c);
+  border-radius: var(--connect__header-border-r);
 
   display: flex;
 
+  // margins
+  margin-top: calc(
+    var(--theme__header-margin-t, var(--connect__header-margin-t)) *
+      var(--theme__header-margin-multi, var(--connect__header-multi))
+  );
+
+  // Padding calculation
+  padding: calc(
+      var(--theme__header-padding-t, var(--connect__header-padding-t)) *
+        var(--theme__header-padding-multi, var(--connect__header-multi))
+    )
+    calc(
+      var(--theme__header-padding-r, var(--connect__header-padding-r)) *
+        var(--theme__header-padding-multi, var(--connect__header-multi))
+    )
+    calc(
+      var(--theme__header-padding-b, var(--connect__header-padding-b)) *
+        var(--theme__header-padding-multi, var(--connect__header-multi))
+    )
+    calc(
+      var(--theme__header-padding-l, var(--connect__header-padding-l)) *
+        var(--theme__header-padding-multi, var(--connect__header-multi))
+    );
+  position: relative;
+
+  // Breakout section (pseudo-element)
   &:before {
-    background: var(--connect__header-breakout-bg);
+    // Breakout section background
+    background-color: var(--connect__header-breakout-bg);
     content: '';
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
@@ -1455,13 +1502,13 @@ Transition Styles:
     var(--theme__transform-x, var(--connect__transform-x-value, 0)) *
       var(--connect__transform-x-value-multiplier)
   );
+  background-color: var(--connect__footer-bg);
+  bottom: var(--connect__footer-position-b);
+  height: var(--connect__footer-h);
 
   position: var(--connect__footer-position);
-  bottom: var(--connect__footer-position-b);
-  width: var(--connect__footer-w);
-  height: var(--connect__footer-h);
-  background-color: var(--connect__footer-bg);
   transform: translateX(var(--connect__transform-x));
+  width: var(--connect__footer-w);
 }
 
 @media (min-width: 40.625rem) {
