@@ -1396,7 +1396,7 @@ Transition Styles:
   --connect__header-padding-t: var(--theme__header-padding-t, 0);
   --connect__header-padding-r: var(--theme__header-padding-r, 0);
   --connect__header-padding-l: var(--theme__header-padding-l, 0);
-  --connect__header-padding-b: var(--theme__header-padding-l, var(--connect__spacer-sm));
+  --connect__header-padding-b: var(--theme__header-padding-b, var(--connect__spacer-sm));
 
   // margin variables
   --connect__header-margin-t: 0;
@@ -1436,9 +1436,14 @@ Transition Styles:
     var(--connect__header-padding-b) var(--connect__header-padding-l);
   position: relative;
 
+  > * {
+    z-index: 1;
+  }
+
   &::before,
   &::after {
     position: absolute;
+    z-index: -1;
   }
 
   // Breakout section (pseudo-element)
@@ -1455,10 +1460,8 @@ Transition Styles:
     content: '';
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
-    position: absolute;
     top: 0;
     width: calc(100% + var(--connect__header-breakout-w) * var(--gutter-width));
-    z-index: -1;
   }
 
   &::after {
@@ -1495,7 +1498,6 @@ Transition Styles:
         var(--radial-bg-size) var(--radial-bg-size),
         var(--radial-bg-size) var(--radial-bg-size),
         100% 100%;
-      z-index: -1;
     }
   }
 
@@ -1543,37 +1545,20 @@ Transition Styles:
   --connect__footer-breakout-w: var(--theme__header-breakout-w, 2);
 
   // Padding variables
-  --connect__footer-padding-t: 0;
-  --connect__footer-padding-r: 0;
-  --connect__footer-padding-l: 0;
-  --connect__footer-padding-b: 1;
-  --connect__footer-multi: var(--base-lheight);
+  --connect__footer-padding-t: var(--theme__footer-padding-t, 0);
+  --connect__footer-padding-r: var(--theme__footer-padding-r, 0);
+  --connect__footer-padding-l: var(--theme__footer-padding-l, 0);
+  --connect__footer-padding-b: var(--theme__footer-padding-b, var(--connect__spacer-sm));
 
-  // margin variables
-  --connect__footer-margin-t: 0;
+  --connect__footer-margin-t: var(--theme__footer-margin-t, 0);
 
   background-color: var(--connect__neutrals-white);
-  margin-top: calc(
-    var(--theme__footer-margin-t, var(--connect__footer-margin-t)) *
-      var(--theme__footer-margin-multi, var(--connect__footer-multi))
-  );
 
-  padding: calc(
-      var(--theme__footer-padding-t, var(--connect__footer-padding-t)) *
-        var(--theme__footer-padding-multi, var(--connect__footer-multi))
-    )
-    calc(
-      var(--theme__footer-padding-r, var(--connect__footer-padding-r)) *
-        var(--theme__footer-padding-multi, var(--connect__footer-multi))
-    )
-    calc(
-      var(--theme__footer-padding-b, var(--connect__footer-padding-b)) *
-        var(--theme__footer-padding-multi, var(--connect__footer-multi))
-    )
-    calc(
-      var(--theme__footer-padding-l, var(--connect__footer-padding-l)) *
-        var(--theme__footer-padding-multi, var(--connect__footer-multi))
-    );
+  margin-top: var(--connect__footer-margin-t);
+
+  padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
+    var(--connect__footer-padding-b) var(--connect__footer-padding-l);
+
   position: var(--connect__footer-position);
 
   width: 100%;
