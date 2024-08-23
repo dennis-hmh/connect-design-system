@@ -1288,7 +1288,7 @@ Tooltip Styles:
     - Aligns items along the cross axis.
   align-content: center;
     - Aligns content along the cross axis.
-  border-radius: var(--Text-Inner-Spacing, 0.25rem);
+  border-radius: var(--text-inner-spacing, 0.25rem);
     - Rounds the corners of the tooltip.
   background: var(--connect__tooltip-bg);
     - Sets the background color of the tooltip.
@@ -1357,7 +1357,7 @@ Transition Styles:
 
   align-items: center;
   background: var(--connect__tooltip-bg);
-  border-radius: var(--Text-Inner-Spacing, 0.25rem);
+  border-radius: var(--text-inner-spacing, 0.25rem);
   box-shadow:
     var(--shadow-level-1) var(--connect__shadow-10),
     var(--shadow-level-2) var(--connect__shadow-20),
@@ -1393,11 +1393,12 @@ Transition Styles:
 
 .connect__header {
   // Padding variables
-  --connect__header-padding-t: 0;
-  --connect__header-padding-r: 0;
-  --connect__header-padding-l: 0;
-  --connect__header-padding-b: 1;
-  --connect__header-multi: var(--base-lheight);
+  --connect__header-padding-t: var(--theme__header-padding-t, 0);
+  --connect__header-padding-r: var(--theme__header-padding-r, 0);
+  --connect__header-padding-l: var(--theme__header-padding-l, 0);
+  --connect__header-padding-b: var(--theme__header-padding-b, 0);
+  --theme__header-padding-multi: var(--base-lheight, 1);
+  --connect__header-multi: var(--base-lheight, 1);
 
   // margin variables
   --connect__header-margin-t: 0;
@@ -1453,22 +1454,24 @@ Transition Styles:
   );
 
   // Padding calculation
-  padding: calc(
-      var(--theme__header-padding-t, var(--connect__header-padding-t)) *
-        var(--theme__header-padding-multi, var(--connect__header-multi))
-    )
-    calc(
-      var(--theme__header-padding-r, var(--connect__header-padding-r)) *
-        var(--theme__header-padding-multi, var(--connect__header-multi))
-    )
-    calc(
-      var(--theme__header-padding-b, var(--connect__header-padding-b)) *
-        var(--theme__header-padding-multi, var(--connect__header-multi))
-    )
-    calc(
-      var(--theme__header-padding-l, var(--connect__header-padding-l)) *
-        var(--theme__header-padding-multi, var(--connect__header-multi))
-    );
+  // padding: calc(
+  //     var(--theme__header-padding-t, var(--connect__header-padding-t)) *
+  //       var(--theme__header-padding-multi, var(--connect__header-multi))
+  //   )
+  //   calc(
+  //     var(--theme__header-padding-r, var(--connect__header-padding-r)) *
+  //       var(--theme__header-padding-multi, var(--connect__header-multi))
+  //   )
+  //   calc(
+  //     var(--theme__header-padding-b, var(--connect__header-padding-b)) *
+  //       var(--theme__header-padding-multi, var(--connect__header-multi))
+  //   )
+  //   calc(
+  //     var(--theme__header-padding-l, var(--connect__header-padding-l)) *
+  //       var(--theme__header-padding-multi, var(--connect__header-multi))
+  //   );
+  padding: var(--connect__header-padding-t) var(--connect__header-padding-r)
+    var(--connect__header-padding-b) var(--connect__header-padding-l);
   position: relative;
 
   // Breakout section (pseudo-element)
@@ -1553,7 +1556,7 @@ example:
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
 */
 
-section.connect__grid {
+.connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
   align-content: start;
   display: grid;
