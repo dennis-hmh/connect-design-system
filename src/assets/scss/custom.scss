@@ -1386,6 +1386,10 @@ Transition Styles:
   --connect__header-padding-b: var(--theme__header-padding-b, var(--connect__spacer-sm));
   --theme__header-padding-multi: var(--base-lheight, 1);
   --connect__header-multi: var(--base-lheight, 1);
+  --connect__header-padding-t: var(--theme__header-padding-t, 0);
+  --connect__header-padding-r: var(--theme__header-padding-r, 0);
+  --connect__header-padding-l: var(--theme__header-padding-l, 0);
+  --connect__header-padding-b: var(--theme__header-padding-l, var(--connect__spacer-sm));
 
   // margin variables
   --connect__header-margin-t: 0;
@@ -1421,23 +1425,6 @@ Transition Styles:
       var(--theme__header-margin-multi, var(--connect__header-multi))
   );
 
-  // Padding calculation
-  // padding: calc(
-  //     var(--theme__header-padding-t, var(--connect__header-padding-t)) *
-  //       var(--theme__header-padding-multi, var(--connect__header-multi))
-  //   )
-  //   calc(
-  //     var(--theme__header-padding-r, var(--connect__header-padding-r)) *
-  //       var(--theme__header-padding-multi, var(--connect__header-multi))
-  //   )
-  //   calc(
-  //     var(--theme__header-padding-b, var(--connect__header-padding-b)) *
-  //       var(--theme__header-padding-multi, var(--connect__header-multi))
-  //   )
-  //   calc(
-  //     var(--theme__header-padding-l, var(--connect__header-padding-l)) *
-  //       var(--theme__header-padding-multi, var(--connect__header-multi))
-  //   );
   padding: var(--connect__header-padding-t) var(--connect__header-padding-r)
     var(--connect__header-padding-b) var(--connect__header-padding-l);
   position: relative;
@@ -1530,24 +1517,63 @@ Transition Styles:
   }
 
   &::after {
-    --connect__header-breakout-content-after: ;
-    --connect__header-breakout-z-after: ;
-    --connect__header-breakout-content-top-after: ;
-    --connect__header-breakout-content-right-after: ;
-    --connect__header-breakout-content-bottom-after: ;
-    --connect__header-breakout-content-left-after: ;
-    --connect__header-breakout-content-w-after: ;
+    --connect__header-breakout-z-after: var(--theme__header-breakout-z-after, 1);
+    --connect__header-breakout-t-after: var(--theme__header-breakout-l-after, 0);
+    --connect__header-breakout-r-after: var(--theme__header-breakout-l-after, 0);
+    --connect__header-breakout-b-after: var(--theme__header-breakout-l-after, 0);
+    --connect__header-breakout-l-after: var(--theme__header-breakout-l-after, -1);
+    --connect__header-breakout-w-after: var(--theme__header-breakout-w-after, 2);
+    --connect__header-breakout-h-after: var(--theme__header-breakout-h-after, 100%);
 
-    content: var(--connect__header-content);
-    top: calc(
-      var(--connect__header-breakout-content-top-after) *
-        var(--connect__header-breakout-content-mulit-after)
-    );
-    width: calc(
-      var(--connect__header-breakout-content-w-after) *
-        var(--connect__header-breakout-content-mulit-after)
-    );
-    z-index: var(--connect__header-z-after);
+    content: var(--connect__header-content, '');
+    height: var(--connect__header-breakout-h-after);
+
+    left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
+    top: 0;
+
+    width: calc(100% + var(--connect__header-breakout-w-after) * var(--gutter-width));
+  }
+
+  &.connect__halftone {
+    --radial-color: var(--theme__radial-color);
+    --radial-size: var(--theme__radial-size, 0.25rem);
+    --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
+
+    &::after {
+      background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
+        radial-gradient(var(--radial-color) 33%, transparent 33%);
+      background-position:
+        0 0,
+        var(--radial-size) var(--radial-size),
+        0 0;
+      background-size:
+        var(--radial-bg-size) var(--radial-bg-size),
+        var(--radial-bg-size) var(--radial-bg-size),
+        100% 100%;
+      z-index: -1;
+    }
+  }
+
+  &.connect__linear {
+    &::before {
+      --connect__header-breakout-gradient-direction: var(
+        --theme__header-breakout-gradient-direction,
+        to right
+      );
+      --connect__header-breakout-gradient-color-one: var(
+        --theme__header-breakout-gradient-color-one,
+        var(--connect__neutrals-null)
+      );
+      --connect__header-breakout-gradient-color-two: var(
+        --theme__header-breakout-gradient-color-two,
+        var(--connect__neutrals-null)
+      );
+      background-image: linear-gradient(
+        var(--connect__header-breakout-gradient-direction),
+        var(--connect__header-breakout-gradient-color-one),
+        var(--connect__header-breakout-gradient-color-two)
+      );
+    }
   }
 }
 
