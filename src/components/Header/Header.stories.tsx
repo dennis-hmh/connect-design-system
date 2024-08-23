@@ -4,6 +4,7 @@ import { Header, HeaderProps } from './Header';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
+import Stack from '../Stack/Stack';
 import { Typography } from '../Typography/Typography';
 
 const meta: Meta<typeof Header> = {
@@ -35,7 +36,17 @@ const Template: StoryFn<HeaderProps> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   children: <Typography children="Header" element="h1" />,
-  className: undefined,
-  dataTestId: undefined,
+  className: 'connect__grid',
   gradeBand: GradeBand.G4_5,
+};
+
+export const SubHeader: Story = Template.bind({});
+SubHeader.args = {
+  ...Default.args,
+  children: (
+    <Stack>
+      <Typography children="Header" element="h1" />
+      <Typography children="SubHeader" element="h2" />
+    </Stack>
+  ),
 };

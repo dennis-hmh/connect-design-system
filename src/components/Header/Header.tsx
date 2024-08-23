@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
   paddingTop = 'sm',
   paddingLeft = 'sm',
   paddingRight = 'sm',
-  className,
+  className = 'connect__grid',
   dataTestId,
 }) => {
   const headerProps: React.CSSProperties = {};
@@ -56,11 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
   });
 
   return (
-    <header
-      className={`connect__header connect__grid ${className}`}
-      data-testid={dataTestId}
-      style={headerProps}
-    >
+    <header className={`connect__header ${className}`} data-testid={dataTestId} style={headerProps}>
       {children}
     </header>
   );
