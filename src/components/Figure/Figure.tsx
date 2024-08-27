@@ -1,21 +1,37 @@
 import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
+import { FigCaption } from '../FigCaption/FigCaption';
 
 export type FigureProps = {
-  altText: string;
-  imageSrc: string;
+  imageSrc?: string;
+  altText?: string;
+  blockquote?: boolean;
+  blockquoteText?: string;
   imageCaption?: string;
+  cite?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
 const defaultImageSrc = '../../images/zelda.jpg';
 
-export function Figure({ altText, imageSrc, imageCaption, dataTestId }: FigureProps) {
+export function Figure({
+  imageSrc,
+  altText,
+  blockquote,
+  blockquoteText,
+  imageCaption,
+  cite,
+  dataTestId,
+}: FigureProps) {
   return (
     <figure className="connect__figure" data-testid={dataTestId}>
-      <img alt={altText} src={imageSrc || defaultImageSrc} />
-      {imageCaption && <figcaption> {imageCaption} </figcaption>}
+      {blockquote ? (
+        <blockquote>{blockquoteText}</blockquote>
+      ) : (
+        <img alt={altText} src={imageSrc || defaultImageSrc} />
+      )}
+      {imageCaption && <FigCaption caption={imageCaption} cite={cite} />}
     </figure>
   );
 }
