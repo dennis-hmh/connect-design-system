@@ -4,6 +4,7 @@ interface BreakpointValues {
   startCol?: number;
   spanCol?: number;
   rowSpan?: number;
+  rowStart?: number;
 }
 
 interface GridItemProps {
@@ -48,6 +49,7 @@ const GridItem: React.FC<GridItemProps> = ({
       const startCol = getInheritedValue(values, previousBreakpoint, 'startCol', 1);
       const spanCol = getInheritedValue(values, previousBreakpoint, 'spanCol', 12);
       const rowSpan = getInheritedValue(values, previousBreakpoint, 'rowSpan', null); // Default to null if not specified
+      const rowStart = getInheritedValue(values, previousBreakpoint, 'rowSpan', null); // Default to null if not specified
 
       // Set CSS variables for start column, span, and row span
       style[`--${breakpoint}-start-col`] = startCol;
@@ -55,8 +57,11 @@ const GridItem: React.FC<GridItemProps> = ({
       if (rowSpan) {
         style[`--${breakpoint}-row-span`] = rowSpan; // Apply row span if provided
       }
+       if (rowStart) {
+         style[`--${breakpoint}-row-start`] = rowStart; // Apply row span if provided
+       }
 
-      previousBreakpoint = { startCol, spanCol, rowSpan }; // Update previousBreakpoint for inheritance
+      previousBreakpoint = { startCol, spanCol, rowSpan, rowStart }; // Update previousBreakpoint for inheritance
     }
   });
 
