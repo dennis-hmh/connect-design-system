@@ -1528,6 +1528,27 @@ Transition Styles:
       );
     }
   }
+
+  &::after {
+    --connect__header-breakout-content-after: ;
+    --connect__header-breakout-z-after: ;
+    --connect__header-breakout-content-top-after: ;
+    --connect__header-breakout-content-right-after: ;
+    --connect__header-breakout-content-bottom-after: ;
+    --connect__header-breakout-content-left-after: ;
+    --connect__header-breakout-content-w-after: ;
+
+    content: var(--connect__header-content);
+    top: calc(
+      var(--connect__header-breakout-content-top-after) *
+        var(--connect__header-breakout-content-mulit-after)
+    );
+    width: calc(
+      var(--connect__header-breakout-content-w-after) *
+        var(--connect__header-breakout-content-mulit-after)
+    );
+    z-index: var(--connect__header-z-after);
+  }
 }
 
 /* Footer Styles
@@ -1565,6 +1586,22 @@ Transition Styles:
   padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
     var(--connect__footer-padding-b) var(--connect__footer-padding-l);
 
+  padding: calc(
+      var(--theme__footer-padding-t, var(--connect__footer-padding-t)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-r, var(--connect__footer-padding-r)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-b, var(--connect__footer-padding-b)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    )
+    calc(
+      var(--theme__footer-padding-l, var(--connect__footer-padding-l)) *
+        var(--theme__footer-padding-multi, var(--connect__footer-multi))
+    );
   position: var(--connect__footer-position);
 
   width: 100%;
