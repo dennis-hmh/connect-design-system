@@ -4,8 +4,11 @@ import { FigCaption } from '../FigCaption/FigCaption';
 
 export type FigureProps = {
   children?: React.ReactNode;
+  imageAlt?: string;
+  imageSrc?: string;
   imageCaption?: string;
   cite?: string;
+
   dataTestId?: string;
   gradeBand?: GradeBand;
 };

@@ -33,7 +33,7 @@ export function Card({
     <article className="connect__card" data-testid={dataTestId}>
       {image && (
         <Figure
-          altText={imageAlt || ''}
+          imageAlt={imageAlt || ''}
           imageSrc={imageSrc || ''}
           imageCaption={imageCaption || ''}
         />

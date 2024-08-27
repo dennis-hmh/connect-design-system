@@ -73,7 +73,7 @@ export function MultipleChoiceQuestion({
       >
         {image ? (
           <Figure
-            altText={imageAlt || `Image for ${name}`}
+            imageAlt={imageAlt || `Image for ${name}`}
             imageSrc={imageSrc || ''}
             imageCaption={imageCaption || ''}
             dataTestId={dataTestId}
