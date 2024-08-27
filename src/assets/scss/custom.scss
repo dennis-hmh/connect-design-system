@@ -1465,13 +1465,10 @@ Usage:
   --connect__header-padding-t: var(--theme__header-padding-t, 0);
   --connect__header-padding-r: var(--theme__header-padding-r, 0);
   --connect__header-padding-l: var(--theme__header-padding-l, 0);
-  --connect__header-padding-b: var(--theme__header-padding-b, var(--connect__spacer-sm));
-  --theme__header-padding-multi: var(--base-lheight, 1);
-  --connect__header-multi: var(--base-lheight, 1);
-  --connect__header-padding-t: var(--theme__header-padding-t, 0);
-  --connect__header-padding-r: var(--theme__header-padding-r, 0);
-  --connect__header-padding-l: var(--theme__header-padding-l, 0);
   --connect__header-padding-b: var(--theme__header-padding-l, var(--connect__spacer-sm));
+
+    --connect__header-margin-t: var(--theme__header-margin-top, 0);
+
 
   --connect__header-border-w: var(--theme__connect-header-border-w, 0);
   --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__neutrals-null));
