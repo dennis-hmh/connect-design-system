@@ -1360,6 +1360,7 @@ Transition Styles:
   transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
   transform-origin: bottom;
   transition-duration: var(--connect__transition-default);
+  transition-duration: var(--connect__transition-default);
 
   transition-property: visibility, opacity, transform;
   transition-timing-function: var(--connect__ease-in);
@@ -2484,7 +2485,9 @@ input[type='radio'].connect__input {
       border-radius: 1.5rem;
       content: '';
       height: var(--connect__menu-divider-line-h);
+      height: var(--connect__menu-divider-line-h);
       left: var(--connect__menu-divider-line-x-offset);
+      position: absolute;
       position: absolute;
       top: var(--connect__menu-divider-line-y-offset);
       width: var(--connect__menu-divider-line-w, 0.125rem);
