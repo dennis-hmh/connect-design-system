@@ -1789,12 +1789,14 @@ example:
 .connect__grid-item {
   grid-column: var(--start-col, 1) / span var(--span-col, 12);
   grid-row: var(--xs-row-span, auto);
+  grid-row-start: var(--xs-row-start, auto);
 }
 
 @media (min-width: 30rem) {
   .connect-sm {
     grid-column: var(--sm-start-col) / span var(--sm-span-col);
     grid-row: var(--sm-row-span, auto);
+    grid-row-start: var(--sm-row-start, auto);
   }
 }
 
@@ -1802,6 +1804,7 @@ example:
   .connect-md {
     grid-column: var(--md-start-col) / span var(--md-span-col);
     grid-row: var(--md-row-span, auto);
+    grid-row-start: var(--md-row-start, auto);
   }
 }
 
@@ -1809,6 +1812,7 @@ example:
   .connect-lg {
     grid-column: var(--lg-start-col) / span var(--lg-span-col);
     grid-row: var(--lg-row-span, auto);
+    grid-row-start: var(--lg-row-start, auto);
   }
 }
 
@@ -1816,6 +1820,7 @@ example:
   .connect-xl {
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
     grid-row: var(--xl-row-span, auto);
+    grid-row-start: var(--xl-row-start, auto);
   }
 }
 
