@@ -9,15 +9,12 @@ import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
 import { Chip } from './components/Chip/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
+import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-import { Figure } from './components/Figure/Figure';
-import { Image } from './components/Image/Image';
-import { Blockquote } from './components/Blockquote/Blockquote';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack/Stack';
 import './assets/scss/custom.scss';
-import { GradeBand } from './enum/gradeband';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
@@ -48,17 +45,6 @@ const App = () => {
               headerContent="This is the Card Header"
               mainContent="This is the main content of the card"
               footerContent="This is the footer content"
-            />
-            <Figure
-              children={
-                <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
-              }
-              imageCaption="This is the caption for Zelda"
-              cite="- This is the citation for Zelda"
-            />
-            <Figure
-              children={<Blockquote children="This is a sample blockquote for Zelda" />}
-              cite="This is the cite for the blockquote"
             />
             <Stack
               md={{
