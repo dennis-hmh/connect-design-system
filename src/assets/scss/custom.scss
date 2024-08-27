@@ -1241,8 +1241,6 @@ Styles:
   // }
 }
 
-
-
 .connect__figure {
   margin: 0;
   img {
@@ -1465,10 +1463,9 @@ Usage:
   --connect__header-padding-t: var(--theme__header-padding-t, 0);
   --connect__header-padding-r: var(--theme__header-padding-r, 0);
   --connect__header-padding-l: var(--theme__header-padding-l, 0);
-  --connect__header-padding-b: var(--theme__header-padding-l, var(--connect__spacer-sm));
+  --connect__header-padding-b: var(--theme__header-padding-b, var(--connect__spacer-sm));
 
-    --connect__header-margin-t: var(--theme__header-margin-top, 0);
-
+  --connect__header-margin-t: var(--theme__header-margin-top, 0);
 
   --connect__header-border-w: var(--theme__connect-header-border-w, 0);
   --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__neutrals-null));
@@ -1509,7 +1506,7 @@ Usage:
   // Breakout section (pseudo-element)
   &:before {
     // Breakout section background variables
-    --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__gray-c5));
+    --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__neutrals-null));
 
     // Breakout section dimension variables
     --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
@@ -1541,86 +1538,27 @@ Usage:
 
     width: calc(100% + var(--connect__header-breakout-w-after) * var(--gutter-width));
   }
+}
 
-  &.connect__linear {
-    &::before {
-      --connect__header-breakout-gradient-direction: var(
-        --theme__header-breakout-gradient-direction,
-        to right
-      );
-      --connect__header-breakout-gradient-color-one: var(
-        --theme__header-breakout-gradient-color-one,
-        var(--connect__neutrals-null)
-      );
-      --connect__header-breakout-gradient-color-two: var(
-        --theme__header-breakout-gradient-color-two,
-        var(--connect__neutrals-null)
-      );
-      background-image: linear-gradient(
-        var(--connect__header-breakout-gradient-direction),
-        var(--connect__header-breakout-gradient-color-one),
-        var(--connect__header-breakout-gradient-color-two)
-      );
-    }
-  }
-
-  &::after {
-    --connect__header-breakout-z-after: var(--theme__header-breakout-z-after, 1);
-    --connect__header-breakout-t-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-r-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-b-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-l-after: var(--theme__header-breakout-l-after, -1);
-    --connect__header-breakout-w-after: var(--theme__header-breakout-w-after, 2);
-    --connect__header-breakout-h-after: var(--theme__header-breakout-h-after, 100%);
-
-    content: var(--connect__header-content, '');
-    height: var(--connect__header-breakout-h-after);
-
-    left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
-    top: 0;
-
-    width: calc(100% + var(--connect__header-breakout-w-after) * var(--gutter-width));
-  }
-
-  &.connect__halftone {
-    --radial-color: var(--theme__radial-color);
-    --radial-size: var(--theme__radial-size, 0.25rem);
-    --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-
-    &::after {
-      background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
-        radial-gradient(var(--radial-color) 33%, transparent 33%);
-      background-position:
-        0 0,
-        var(--radial-size) var(--radial-size),
-        0 0;
-      background-size:
-        var(--radial-bg-size) var(--radial-bg-size),
-        var(--radial-bg-size) var(--radial-bg-size),
-        100% 100%;
-    }
-  }
-
-  &.connect__linear {
-    &::before {
-      --connect__header-breakout-gradient-direction: var(
-        --theme__header-breakout-gradient-direction,
-        to right
-      );
-      --connect__header-breakout-gradient-color-one: var(
-        --theme__header-breakout-gradient-color-one,
-        var(--connect__neutrals-null)
-      );
-      --connect__header-breakout-gradient-color-two: var(
-        --theme__header-breakout-gradient-color-two,
-        var(--connect__neutrals-null)
-      );
-      background-image: linear-gradient(
-        var(--connect__header-breakout-gradient-direction),
-        var(--connect__header-breakout-gradient-color-one),
-        var(--connect__header-breakout-gradient-color-two)
-      );
-    }
+.connect__linear {
+  &::before {
+    --connect__header-breakout-gradient-direction: var(
+      --theme__header-breakout-gradient-direction,
+      to right
+    );
+    --connect__header-breakout-gradient-color-one: var(
+      --theme__header-breakout-gradient-color-one,
+      var(--connect__neutrals-null)
+    );
+    --connect__header-breakout-gradient-color-two: var(
+      --theme__header-breakout-gradient-color-two,
+      var(--connect__neutrals-null)
+    );
+    background-image: linear-gradient(
+      var(--connect__header-breakout-gradient-direction),
+      var(--connect__header-breakout-gradient-color-one),
+      var(--connect__header-breakout-gradient-color-two)
+    );
   }
 }
 
