@@ -1434,6 +1434,23 @@ Usage:
   }
 }
 
+.connect__breakout {
+  --connect__breakout-bottom-offset: var(--theme__breakout-bottom-offset, 0);
+  --connect__breakout-l: var(--theme__breakout-l, -1);
+  --connect__breakout-r: var(--theme__breakout-r, -1);
+  --connect__breakout-t: var(--theme__breakout-r, 0);
+  --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
+
+  bottom: var(--connect__breakout-bottom-offset);
+  grid-column: unset;
+  left: calc(var(--connect__breakout-gutter-w)* var(--connect__breakout-l));
+  margin-top: 0;
+  position: absolute;
+  right: calc(var(--connect__breakout-gutter-w)* var(--connect__breakout-r));
+  top: var(--connect__breakout-t);
+  z-index: -2;
+}
+
 .connect__linear {
   --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
 
