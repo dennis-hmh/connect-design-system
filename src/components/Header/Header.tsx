@@ -40,13 +40,15 @@ export const Header: React.FC<HeaderProps> = ({
     '--theme__connect-header-border-c': borderColor && `var(--connect__${borderColor})`,
     '--theme__connect-header-border-w': borderWidth && `var(--connect__spacer-${borderWidth})`,
     '--theme__connect-header-border-r': borderRadius && `var(--connect__spacer-${borderRadius})`,
-    '--theme__header-bg': headerBackgroundColor && `var(--connect__${headerBackgroundColor})`,
-    '--theme__header-breakout-bg': headerBreakoutColor && `var(--connect__${headerBreakoutColor})`,
-    '--theme__header-bg-image': headerBackgroundImage && `url(${headerBackgroundImage})`,
-    '--theme__header-padding-b': paddingBottom && `var(--connect__spacer-${paddingBottom})`,
-    '--theme__header-padding-t': paddingTop && `var(--connect__spacer-${paddingTop})`,
-    '--theme__header-padding-l': paddingLeft && `var(--connect__spacer-${paddingLeft})`,
-    '--theme__header-padding-r': paddingRight && `var(--connect__spacer-${paddingRight})`,
+    '--theme__connect-header-bg-color':
+      headerBackgroundColor && `var(--connect__${headerBackgroundColor})`,
+    '--theme__connect-header-breakout-bg':
+      headerBreakoutColor && `var(--connect__${headerBreakoutColor})`,
+    '--theme__connect-header-bg-image': headerBackgroundImage && `url(${headerBackgroundImage})`,
+    '--theme__connect-header-padding-b': paddingBottom && `var(--connect__spacer-${paddingBottom})`,
+    '--theme__connect-header-padding-t': paddingTop && `var(--connect__spacer-${paddingTop})`,
+    '--theme__connect-header-padding-l': paddingLeft && `var(--connect__spacer-${paddingLeft})`,
+    '--theme__connect-header-padding-r': paddingRight && `var(--connect__spacer-${paddingRight})`,
   };
 
   Object.entries(headerStyleMappings).forEach(([key, value]) => {
