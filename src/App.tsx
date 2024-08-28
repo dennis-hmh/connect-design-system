@@ -13,6 +13,7 @@ import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
+import { SingleImage } from './components/SingleImage/SingleImage';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack/Stack';
@@ -29,6 +30,7 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
+            <SingleImage imageSrc='https://picsum.photos/600/400' altText='A random picture from Lorem Picsum' caption='A random picture chosen by Lorem Picsum' cite='https://picsum.photos/' />
             <br />
             <Chip children={'word'} num={10} />
             <br />
