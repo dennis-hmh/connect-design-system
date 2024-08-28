@@ -1444,11 +1444,19 @@ Usage:
   // Breakout section (pseudo-element)
   &:before {
     // Breakout section background variables
-    --connect__header-breakout-bg: var(--theme__connect-header-breakout-bg, var(--connect__neutrals-null));
+    --connect__header-breakout-bg: var(
+      --theme__connect-header-breakout-bg,
+      var(--connect__neutrals-null)
+    );
 
     // Breakout section dimension variables
     --connect__header-breakout-l: var(--theme__connect-header-breakout-l, -1);
     --connect__header-breakout-w: var(--theme__connect-header-breakout-w, 2);
+    --connect__header-breakout-w-multi: var(
+      --theme__connect-header-breakout-w-multi,
+      var(--gutter-width)
+    );
+
     --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
 
     // Single border radius for all corners
@@ -1485,7 +1493,7 @@ Usage:
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
     top: 0;
-    width: calc(100% + var(--connect__header-breakout-w) * var(--gutter-width));
+    width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
   }
 
   &::after {
@@ -1495,6 +1503,11 @@ Usage:
     --connect__header-breakout-b-after: var(--theme__connect-header-breakout-l-after, 0);
     --connect__header-breakout-l-after: var(--theme__connect-header-breakout-l-after, -1);
     --connect__header-breakout-w-after: var(--theme__connect-header-breakout-w-after, 2);
+    --connect__header-breakout-w-after-multi: var(
+      --theme__connect-header-breakout-w-after-multi,
+      var(--gutter-width)
+    );
+
     --connect__header-breakout-h-after: var(--theme__connect-header-breakout-h-after, 100%);
 
     content: var(--connect__header-content, '');
@@ -1503,7 +1516,9 @@ Usage:
     left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
     top: 0;
 
-    width: calc(100% + var(--connect__header-breakout-w-after) * var(--gutter-width));
+    width: calc(
+      100% + var(--connect__header-breakout-w-after) * var(--connect__header-breakout-w-after-multi)
+    );
   }
 
   &.connect__linear,
@@ -1715,7 +1730,7 @@ example:
   --grid-cols: var(--theme-col-amount, 12);
   align-content: start;
   display: grid;
-  gap: var(--default-grid-gap, var(--theme__content-gap));
+  gap: var(--theme__content-gap, var(--default-grid-gap));
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
