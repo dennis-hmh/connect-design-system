@@ -11,6 +11,7 @@ import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
+import { ButtonRive } from './components/ButtonRive/ButtonRive';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack/Stack';
@@ -26,6 +27,7 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
+            <ButtonRive buttonText='button text' animDesc='description of animation' animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button-test.riv' stateMachine='State Machine 3'></ButtonRive>
             <br />
             <Chip children={'word'} num={10} />
             <br />
