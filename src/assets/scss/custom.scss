@@ -1361,24 +1361,68 @@ Usage:
 
   --connect__header-margin-t: var(--theme__header-margin-top, 0);
 
+  // Single border width for all sides
   --connect__header-border-w: var(--theme__connect-header-border-w, 0);
+
+  // Individual border widths
+  --connect__header-border-w-t: var(
+    --theme__connect-header-border-w-t,
+    var(--connect__header-border-w)
+  );
+  --connect__header-border-w-r: var(
+    --theme__connect-header-border-w-r,
+    var(--connect__header-border-w)
+  );
+  --connect__header-border-w-b: var(
+    --theme__connect-header-border-w-b,
+    var(--connect__header-border-w)
+  );
+  --connect__header-border-w-l: var(
+    --theme__connect-header-border-w-l,
+    var(--connect__header-border-w)
+  );
+
   --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__neutrals-null));
 
+  // Single border radius for all corners
   --connect__header-border-r: var(--theme__connect-header-border-r, 0);
 
-  --connect__header-bg: var(--theme__header-bg, var(--connect__neutrals-pale));
+  // Individual corner border radii
+  --connect__header-border-r-tl: var(
+    --theme__connect-header-border-r-tl,
+    var(--connect__header-border-r)
+  );
+  --connect__header-border-r-tr: var(
+    --theme__connect-header-border-r-tr,
+    var(--connect__header-border-r)
+  );
+  --connect__header-border-r-br: var(
+    --theme__connect-header-border-r-br,
+    var(--connect__header-border-r)
+  );
+  --connect__header-border-r-bl: var(
+    --theme__connect-header-border-r-bl,
+    var(--connect__header-border-r)
+  );
+
+  --connect__header-bg-color: var(--theme__header-bg-color, var(--connect__neutrals-pale));
   --connect__header-bg-image: var(--theme__header-bg-image, none);
   --connect__header-bg-size: var(--theme__header-bg-size, cover);
   --connect__header-bg-repeat: var(--theme__header-bg-repeat, no-repeat);
 
-  background-color: var(--connect__header-bg);
+  background-color: var(--connect__header-bg-color);
   background-image: var(--connect__header-bg-image);
   background-repeat: var(--connect__header-bg-repeat);
   background-size: var(--connect__header-bg-size);
 
-  border: var(--connect__header-border-w) solid var(--connect__header-border-c);
-  border-radius: var(--connect__header-border-r);
+  border-width: var(--connect__header-border-w-t) var(--connect__header-border-w-r)
+    var(--connect__header-border-w-b) var(--connect__header-border-w-l);
+  border-style: solid;
+  border-color: var(--connect__header-border-c);
 
+  // Apply border radius
+  border-radius: var(--connect__header-border-r-tl) var(--connect__header-border-r-tr)
+    var(--connect__header-border-r-br) var(--connect__header-border-r-bl);
   display: flex;
 
   margin-top: var(--connect__header-margin-t);
@@ -1642,7 +1686,7 @@ example:
   --grid-cols: var(--theme-col-amount, 12);
   align-content: start;
   display: grid;
-  gap: var(--default-grid-gap);
+  gap: var(--default-grid-gap, var(--theme__content-gap));
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
