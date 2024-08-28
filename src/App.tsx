@@ -27,7 +27,7 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <ButtonRive buttonText='button text' animDesc='description of animation' animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button-test.riv' stateMachine='State Machine 3'></ButtonRive>
+            <ButtonRive buttonText='button text' animDesc='description of animation' animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_final.riv' stateMachine='State Machine 3'></ButtonRive>
             <br />
             <Chip children={'word'} num={10} />
             <br />

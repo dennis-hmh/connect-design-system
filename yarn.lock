@@ -1058,10 +1058,10 @@
     react "^18.2.0"
     react-dom "^18.2.0"
 
-"@connect/hmh-rive@^1.0.8":
-  version "1.0.8"
-  resolved "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/@connect/hmh-rive/-/@connect/hmh-rive-1.0.8.tgz"
-  integrity sha512-YzEHsV8cV6Tln6+BYRqD9X+MfCh/+A4lqZahX4Yf7XkvbKTzoYi01sobA9VzK7r8Wi0IQnxRB9B3kP5ZlU8SXg==
+"@connect/hmh-rive@^1.0.9":
+  version "1.0.9"
+  resolved "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/@connect/hmh-rive/-/@connect/hmh-rive-1.0.9.tgz"
+  integrity sha512-lH8ICHR+f42IRAgERmxNVFT4ZmomGqPa12bNF58xFGxy9JIHME2Tip2m7aoeaasuMwBfLJ4uYyODfRLoezhzfg==
   dependencies:
     "@connect/connect-design-system" "^1.9.0"
     "@rive-app/canvas" "^2.15.6"

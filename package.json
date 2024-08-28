@@ -23,7 +23,7 @@
     "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
   },
   "dependencies": {
-    "@connect/hmh-rive": "^1.0.8",
+    "@connect/hmh-rive": "^1.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
