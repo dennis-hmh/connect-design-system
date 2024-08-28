@@ -1451,6 +1451,35 @@ Usage:
     --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
     --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
 
+    // Single border radius for all corners
+    --connect__header-border-r-before: var(
+      --theme__connect-header-border-r-before,
+      var(--connect__header-border-r, 0)
+    );
+
+    // Individual corner border radii
+    --connect__header-border-r-tl-before: var(
+      --theme__connect-header-border-r-tl-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-tr-before: var(
+      --theme__connect-header-border-r-tr-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-br-before: var(
+      --theme__connect-header-border-r-br-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-bl-before: var(
+      --theme__connect-header-border-r-bl-before,
+      var(--connect__header-border-r-before)
+    );
+
+    // Apply border radius
+    border-radius: var(--connect__header-border-r-tl-before)
+      var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
+      var(--connect__header-border-r-bl-before);
+
     background-color: var(--connect__header-breakout-bg);
     content: '';
     height: var(--connect__header-breakout-h);
