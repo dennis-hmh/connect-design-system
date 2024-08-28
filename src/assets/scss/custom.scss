@@ -1354,12 +1354,12 @@ Usage:
 */
 
 .connect__header {
-  --connect__header-padding-t: var(--theme__header-padding-t, 0);
-  --connect__header-padding-r: var(--theme__header-padding-r, 0);
-  --connect__header-padding-l: var(--theme__header-padding-l, 0);
-  --connect__header-padding-b: var(--theme__header-padding-b, var(--connect__spacer-sm));
+  --connect__header-padding-t: var(--theme__connect-header-padding-t, 0);
+  --connect__header-padding-r: var(--theme__connect-header-padding-r, 0);
+  --connect__header-padding-l: var(--theme__connect-header-padding-l, 0);
+  --connect__header-padding-b: var(--theme__connect-header-padding-b, var(--connect__spacer-sm));
 
-  --connect__header-margin-t: var(--theme__header-margin-top, 0);
+  --connect__header-margin-t: var(--theme__connect-header-margin-t, 0);
 
   // Single border width for all sides
   --connect__header-border-w: var(--theme__connect-header-border-w, 0);
@@ -1405,10 +1405,10 @@ Usage:
     var(--connect__header-border-r)
   );
 
-  --connect__header-bg-color: var(--theme__header-bg-color, var(--connect__neutrals-pale));
-  --connect__header-bg-image: var(--theme__header-bg-image, none);
-  --connect__header-bg-size: var(--theme__header-bg-size, cover);
-  --connect__header-bg-repeat: var(--theme__header-bg-repeat, no-repeat);
+  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__neutrals-pale));
+  --connect__header-bg-image: var(--theme__connect-header-bg-image, none);
+  --connect__header-bg-size: var(--theme__connect-header-bg-size, cover);
+  --connect__header-bg-repeat: var(--theme__connect-header-bg-repeat, no-repeat);
 
   background-color: var(--connect__header-bg-color);
   background-image: var(--connect__header-bg-image);
@@ -1444,12 +1444,12 @@ Usage:
   // Breakout section (pseudo-element)
   &:before {
     // Breakout section background variables
-    --connect__header-breakout-bg: var(--theme__header-breakout-bg, var(--connect__neutrals-null));
+    --connect__header-breakout-bg: var(--theme__connect-header-breakout-bg, var(--connect__neutrals-null));
 
     // Breakout section dimension variables
-    --connect__header-breakout-l: var(--theme__header-breakout-l, -1);
-    --connect__header-breakout-w: var(--theme__header-breakout-w, 2);
-    --connect__header-breakout-h: var(--theme__header-breakout-h, 100%);
+    --connect__header-breakout-l: var(--theme__connect-header-breakout-l, -1);
+    --connect__header-breakout-w: var(--theme__connect-header-breakout-w, 2);
+    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
 
     // Single border radius for all corners
     --connect__header-border-r-before: var(
@@ -1489,13 +1489,13 @@ Usage:
   }
 
   &::after {
-    --connect__header-breakout-z-after: var(--theme__header-breakout-z-after, 1);
-    --connect__header-breakout-t-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-r-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-b-after: var(--theme__header-breakout-l-after, 0);
-    --connect__header-breakout-l-after: var(--theme__header-breakout-l-after, -1);
-    --connect__header-breakout-w-after: var(--theme__header-breakout-w-after, 2);
-    --connect__header-breakout-h-after: var(--theme__header-breakout-h-after, 100%);
+    --connect__header-breakout-z-after: var(--theme__connect-header-breakout-z-after, 1);
+    --connect__header-breakout-t-after: var(--theme__connect-header-breakout-l-after, 0);
+    --connect__header-breakout-r-after: var(--theme__connect-header-breakout-l-after, 0);
+    --connect__header-breakout-b-after: var(--theme__connect-header-breakout-l-after, 0);
+    --connect__header-breakout-l-after: var(--theme__connect-header-breakout-l-after, -1);
+    --connect__header-breakout-w-after: var(--theme__connect-header-breakout-w-after, 2);
+    --connect__header-breakout-h-after: var(--theme__connect-header-breakout-h-after, 100%);
 
     content: var(--connect__header-content, '');
     height: var(--connect__header-breakout-h-after);
