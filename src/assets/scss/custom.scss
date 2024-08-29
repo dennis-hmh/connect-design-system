@@ -1306,11 +1306,12 @@ Variables and Theme Options:
    --connect__header-padding-r: Right padding (theme: --theme__header-padding-r, default: 0)
    --connect__header-padding-l: Left padding (theme: --theme__header-padding-l, default: 0)
    --connect__header-padding-b: Bottom padding (theme: --theme__header-padding-b, default: var(--connect__spacer-sm))
-   --connect__header-multi: Header multiplier (default: var(--base-lheight, 1))
 
 2. Margin:
-   --connect__header-margin-t: Top margin (default: 0)
-   --connect__header-multi: Margin multiplier (default: var(--base-lheight))
+   --connect__header-margin-t: Top margin (theme: --theme__header-margin-t, default: 0)
+   --connect__header-margin-r: Right margin (theme: --theme__header-margin-r, default: 0)
+   --connect__header-margin-b: Bottom margin (theme: --theme__header-margin-b, default: 0)
+   --connect__header-margin-l: Left margin (theme: --theme__header-margin-l, default: 0)
 
 3. Borders:
    --connect__header-border-w: Border width (theme: --theme__connect-header-border-w, default: 0)
@@ -1318,22 +1319,22 @@ Variables and Theme Options:
    --connect__header-border-r: Border radius (theme: --theme__connect-header-border-r, default: 0)
 
 4. Background:
-   --connect__header-bg: Background color (theme: --theme__header-bg, default: var(--connect__neutrals-pale))
+   --connect__header-bg-color: Background color (theme: --theme__header-bg-color, default: var(--connect__neutrals-pale))
    --connect__header-bg-image: Background image (theme: --theme__header-bg-image, default: none)
    --connect__header-bg-size: Background size (theme: --theme__header-bg-size, default: cover)
    --connect__header-bg-repeat: Background repeat (theme: --theme__header-bg-repeat, default: no-repeat)
 
 5. Breakout Section (::before pseudo-element):
-   --connect__header-breakout-bg: Breakout background color (theme: --theme__header-breakout-bg, default: var(--connect__gray-c5))
+   --connect__header-breakout-bg: Breakout background color (theme: --theme__header-breakout-bg, default: var(--connect__neutrals-null))
    --connect__header-breakout-l: Left offset (theme: --theme__header-breakout-l, default: -1)
    --connect__header-breakout-w: Width (theme: --theme__header-breakout-w, default: 2)
    --connect__header-breakout-h: Height (theme: --theme__header-breakout-h, default: 100%)
 
 6. After Section (::after pseudo-element):
    --connect__header-breakout-z-after: Z-index (theme: --theme__header-breakout-z-after, default: 1)
-   --connect__header-breakout-t-after: Top offset (theme: --theme__header-breakout-l-after, default: 0)
-   --connect__header-breakout-r-after: Right offset (theme: --theme__header-breakout-l-after, default: 0)
-   --connect__header-breakout-b-after: Bottom offset (theme: --theme__header-breakout-l-after, default: 0)
+   --connect__header-breakout-t-after: Top offset (theme: --theme__header-breakout-t-after, default: 0)
+   --connect__header-breakout-r-after: Right offset (theme: --theme__header-breakout-r-after, default: 0)
+   --connect__header-breakout-b-after: Bottom offset (theme: --theme__header-breakout-b-after, default: 0)
    --connect__header-breakout-l-after: Left offset (theme: --theme__header-breakout-l-after, default: -1)
    --connect__header-breakout-w-after: Width (theme: --theme__header-breakout-w-after, default: 2)
    --connect__header-breakout-h-after: Height (theme: --theme__header-breakout-h-after, default: 100%)
@@ -1344,13 +1345,19 @@ Variables and Theme Options:
    --connect__header-breakout-gradient-color-one: First gradient color (theme: --theme__header-breakout-gradient-color-one, default: var(--connect__neutrals-null))
    --connect__header-breakout-gradient-color-two: Second gradient color (theme: --theme__header-breakout-gradient-color-two, default: var(--connect__neutrals-null))
 
+8. Halftone (when .connect__halftone class is applied):
+   --connect__header-halftone-bg: Halftone background color (theme: --theme__header-halftone-bg, default: var(--connect__neutrals-null))
+   --connect__header-halftone-dot-color: Halftone dot color (theme: --theme__header-halftone-dot-color, default: var(--connect__neutrals-white))
+   --connect__header-halftone-dot-size: Halftone dot size (theme: --theme__header-halftone-dot-size, default: 2px)
+   --connect__header-halftone-dot-space: Halftone dot spacing (theme: --theme__header-halftone-dot-space, default: 22px)
+
 Usage:
 - The header uses flexbox for layout unless the grid class is added in the HTML.
 - It has a relative positioning to allow for absolute positioning of pseudo-elements.
-- The ::before pseudo-element creates a breakout section that extends beyond the header's boundaries.
+- The ::before pseudo-element creates a breakout section that extends beyond the header's.
 - The ::after pseudo-element can be used for additional styling or content.
 - When the .connect__linear class is applied, a linear gradient background is added to the breakout section.
-- When the .connect__halftone class is applied, a radial gradial gradient will be applied to the breakout
+- When the .connect__halftone class is applied, a halftone pattern is applied to the breakout section.
 */
 
 .connect__header {
@@ -1527,6 +1534,24 @@ Usage:
   }
 }
 
+/*
+.connect__breakout Component
+
+This component is used to create a "breakout" effect, extending an element beyond its container.
+
+Variables:
+--connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
+--connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
+--connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
+--connect__breakout-t: Top position (theme: --theme__breakout-r, default: 0)
+--connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
+--connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
+
+Usage:
+- Apply this class to an element to make it break out of its container.
+- The element will be positioned absolutely and extend beyond its container's boundaries.
+- Use the custom properties to adjust the positioning and z-index as needed.
+*/
 .connect__breakout {
   --connect__breakout-b: var(--theme__breakout-b, 0);
   --connect__breakout-l: var(--theme__breakout-l, -1);
@@ -1545,6 +1570,22 @@ Usage:
   z-index: var(--connect__breakout-z);
 }
 
+/*
+.connect__linear Component
+
+This component applies a linear gradient background to an element.
+
+Variables:
+--connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
+--connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
+--connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
+--connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
+
+Usage:
+- Apply this class to an element to give it a linear gradient background.
+- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
+- Customize the gradient by adjusting the custom properties.
+*/
 .connect__linear {
   --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
   --connect__linear-direction: var(--theme__linear-direction, to right);
@@ -1569,6 +1610,23 @@ Usage:
   }
 }
 
+/*
+.connect__halftone Component
+
+This component applies a halftone pattern effect to an element using radial gradients.
+
+Variables:
+--connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
+--connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
+--radial-color: Color of the halftone dots (theme: --theme__radial-color)
+--radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
+--radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
+
+Usage:
+- Apply this class to an element to give it a halftone pattern effect.
+- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
+- Customize the halftone effect by adjusting the custom properties.
+*/
 .connect__halftone {
   --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
   --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
@@ -1602,6 +1660,9 @@ Usage:
 /*
 .connect__footer Component
 
+This component creates a footer with a breakout section that extends beyond its boundaries.
+
+Variables:
 1. Background:
    --connect__footer-breakout-bg: Breakout background color (theme: --theme__footer-breakout-bg, default: var(--connect__neutrals-mid))
 
@@ -1627,21 +1688,20 @@ Usage:
    --connect__footer-margin-t: Top margin (theme: --theme__footer-margin-t, default: 0)
 
 Usage:
-- The footer has a white background (var(--connect__neutrals-white)).
-- It uses the specified top margin (--connect__footer-margin-t).
-- Padding is applied using the individual padding variables.
+- Apply this class to create a footer element with a breakout section.
+- The footer has a white background and uses the specified top margin.
+- Padding is applied using individual padding variables.
 - The footer's position is controlled by --connect__footer-position.
 - Width is set to 100% of its container.
 
-Breakout Section (::after pseudo-element):
-- Creates a full-width section that extends beyond the footer's boundaries.
+Breakout Section:
+- Created using the ::after pseudo-element.
+- Extends beyond the footer's boundaries.
 - Uses the specified background color (--connect__footer-breakout-bg).
 - Height is determined by --connect__footer-h.
 - Positioned absolutely with top offset of --connect__footer-position-t.
-- Width extends beyond the footer's boundaries using the breakout variables.
-
+- Width extends beyond the footer using the breakout variables.
 */
-
 .connect__footer {
   --connect__footer-breakout-bg: var(--theme__footer-breakout-bg, var(--connect__neutrals-mid));
 
@@ -1696,6 +1756,7 @@ Variables related to theme/overrides:
   --default-grid-gap: Default gap between grid items.
   --connect__spacer-xl: Extra large spacer.
   --gutter-width: Width of the gutter.
+  --grid-rows: Number of rows in the grid (default: auto-fill).
 
 Grid Container Styles:
     align-content: start;
@@ -1710,21 +1771,25 @@ Grid Container Styles:
 Grid Item Styles:
     grid-column: var(--start-col, 1) / span var(--span-col, 12);
       - Defines the starting column and span for the grid item, if no custom value passed, starts 1 ends 12.
-    grid-row: var(--xs-row-span, auto);
-      - Defines the row span for the grid item.
+    grid-row: var(--start-row, auto) / span var(--span-row, 1);
+      - Defines the starting row and span for the grid item.
 
 Responsive Styles:
 Columns and row spanning can be changed at each BP;
 
 example: 
     grid-column: var(--sm-start-col) / span var(--sm-span-col);
-    grid-row: var(--sm-row-span, auto);
+    grid-row: var(--sm-start-row, auto) / span var(--sm-span-row, 1);
 
     grid-column: var(--md-start-col) / span var(--md-span-col);
-    grid-column: var(--lg-start-col) / span var(--lg-span-col);
-    grid-column: var(--xl-start-col) / span var(--xl-span-col);
-*/
+    grid-row: var(--md-start-row, auto) / span var(--md-span-row, 1);
 
+    grid-column: var(--lg-start-col) / span var(--lg-span-col);
+    grid-row: var(--lg-start-row, auto) / span var(--lg-span-row, 1);
+
+    grid-column: var(--xl-start-col) / span var(--xl-span-col);
+    grid-row: var(--xl-start-row, auto) / span var(--xl-span-row, 1);
+*/
 .connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
   --grid-cols: var(--theme-col-amount, 12);
