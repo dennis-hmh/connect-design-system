@@ -1297,6 +1297,144 @@ Transition Styles:
 }
 
 /*
+.connect__breakout Component
+
+This component is used to create a "breakout" effect, extending an element beyond its container.
+
+Variables:
+--connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
+--connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
+--connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
+--connect__breakout-t: Top position (theme: --theme__breakout-r, default: 0)
+--connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
+--connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
+
+Usage:
+- Apply this class to an element to make it break out of its container.
+- The element will be positioned absolutely and extend beyond its container's boundaries.
+- Use the custom properties to adjust the positioning and z-index as needed.
+*/
+.connect__breakout {
+  --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
+  --connect__breakout-b: var(--theme__breakout-b, 0);
+  --connect__breakout-l: var(--theme__breakout-l, -1);
+  --connect__breakout-r: var(--theme__breakout-r, -1);
+  --connect__breakout-t: var(--theme__breakout-r, 0);
+  --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
+  --connect__breakout-z: var(--theme__connect__breakout-z, 0);
+  --connect__breakout-bg-color-after: var(--theme__breakout-bg-color-after, initial);
+  background-color: var(--connect__breakout-bg-color);
+
+  &:not(.connect__figure) {
+    &::after {
+      --connect__breakout-z: var(--theme__connect__breakout-z, -1);
+      background-color: var(--connect__breakout-bg-color-after);
+      content: '';
+      position: absolute;
+      bottom: var(--connect__breakout-b);
+      left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
+      right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
+      top: var(--connect__breakout-t);
+      z-index: var(--connect__breakout-z);
+      pointer-events: none;
+    }
+  }
+
+  &.connect__figure {
+    bottom: var(--connect__breakout-b);
+    grid-column: unset;
+    left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
+    margin-top: 0;
+    position: absolute;
+    right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
+    top: var(--connect__breakout-t);
+    z-index: var(--connect__breakout-z);
+  }
+}
+
+/*
+.connect__linear Component
+
+This component applies a linear gradient background to an element.
+
+Variables:
+--connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
+--connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
+--connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
+--connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
+
+Usage:
+- Apply this class to an element to give it a linear gradient background.
+- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
+- Customize the gradient by adjusting the custom properties.
+*/
+.connect__linear {
+  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
+  --connect__linear-direction: var(--theme__linear-direction, to right);
+  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
+  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
+  position: absolute;
+
+  &::before {
+    background-image: linear-gradient(
+      var(--connect__linear-direction),
+      var(--connect__linear-color-one),
+      var(--connect__linear-color-two)
+    );
+    content: '';
+    mix-blend-mode: var(--connect__linear-blend-mode);
+    inset: 0;
+
+    position: absolute;
+  }
+}
+
+/*
+.connect__halftone Component
+
+This component applies a halftone pattern effect to an element using radial gradients.
+
+Variables:
+--connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
+--connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
+--radial-color: Color of the halftone dots (theme: --theme__radial-color)
+--radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
+--radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
+
+Usage:
+- Apply this class to an element to give it a halftone pattern effect.
+- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
+- Customize the halftone effect by adjusting the custom properties.
+*/
+.connect__halftone {
+  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
+  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
+  --radial-color: var(--theme__radial-color);
+  --radial-size: var(--theme__radial-size, 0.25rem);
+  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
+  position: absolute;
+
+  &::after {
+    background-color: var(--connect__halftone-solid-bg);
+
+    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
+      radial-gradient(var(--radial-color) 33%, transparent 33%);
+    background-position:
+      0 0,
+      var(--radial-size) var(--radial-size),
+      0 0;
+    background-size:
+      var(--radial-bg-size) var(--radial-bg-size),
+      var(--radial-bg-size) var(--radial-bg-size),
+      100% 100%;
+    content: '';
+    mix-blend-mode: var(--connect__halftone-blend-mode);
+    position: absolute;
+    inset: 0;
+  }
+}
+
+/*
 .connect__header Component
 
 Variables and Theme Options:
@@ -1319,7 +1457,7 @@ Variables and Theme Options:
    --connect__header-border-r: Border radius (theme: --theme__connect-header-border-r, default: 0)
 
 4. Background:
-   --connect__header-bg-color: Background color (theme: --theme__header-bg-color, default: var(--connect__neutrals-pale))
+   --connect__header-bg-color: Background color (theme: --theme__header-bg-color, default: var(--connect__connect-gray-c5))
    --connect__header-bg-image: Background image (theme: --theme__header-bg-image, default: none)
    --connect__header-bg-size: Background size (theme: --theme__header-bg-size, default: cover)
    --connect__header-bg-repeat: Background repeat (theme: --theme__header-bg-repeat, default: no-repeat)
@@ -1412,7 +1550,7 @@ Usage:
     var(--connect__header-border-r)
   );
 
-  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__neutrals-pale));
+  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__gray-c5));
   --connect__header-bg-image: var(--theme__connect-header-bg-image, none);
   --connect__header-bg-size: var(--theme__connect-header-bg-size, cover);
   --connect__header-bg-repeat: var(--theme__connect-header-bg-repeat, no-repeat);
@@ -1529,131 +1667,9 @@ Usage:
   }
 
   &.connect__linear,
-  &.connect__halftone {
+  &.connect__halftone,
+  &.connect__breakout {
     position: relative;
-  }
-}
-
-/*
-.connect__breakout Component
-
-This component is used to create a "breakout" effect, extending an element beyond its container.
-
-Variables:
---connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
---connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
---connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
---connect__breakout-t: Top position (theme: --theme__breakout-r, default: 0)
---connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
---connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
-
-Usage:
-- Apply this class to an element to make it break out of its container.
-- The element will be positioned absolutely and extend beyond its container's boundaries.
-- Use the custom properties to adjust the positioning and z-index as needed.
-*/
-.connect__breakout {
-  --connect__breakout-b: var(--theme__breakout-b, 0);
-  --connect__breakout-l: var(--theme__breakout-l, -1);
-  --connect__breakout-r: var(--theme__breakout-r, -1);
-  --connect__breakout-t: var(--theme__breakout-r, 0);
-  --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
-  --connect__breakout-z: var(--theme__connect__breakout-z, 0);
-
-  bottom: var(--connect__breakout-b);
-  grid-column: unset;
-  left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
-  margin-top: 0;
-  position: absolute;
-  right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
-  top: var(--connect__breakout-t);
-  z-index: var(--connect__breakout-z);
-}
-
-/*
-.connect__linear Component
-
-This component applies a linear gradient background to an element.
-
-Variables:
---connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
---connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
---connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
---connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
-
-Usage:
-- Apply this class to an element to give it a linear gradient background.
-- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
-- Customize the gradient by adjusting the custom properties.
-*/
-.connect__linear {
-  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
-  --connect__linear-direction: var(--theme__linear-direction, to right);
-  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
-  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
-  position: absolute;
-
-  &::before {
-    background-image: linear-gradient(
-      var(--connect__linear-direction),
-      var(--connect__linear-color-one),
-      var(--connect__linear-color-two)
-    );
-    content: '';
-    mix-blend-mode: var(--connect__linear-blend-mode);
-
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-
-/*
-.connect__halftone Component
-
-This component applies a halftone pattern effect to an element using radial gradients.
-
-Variables:
---connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
---connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
---radial-color: Color of the halftone dots (theme: --theme__radial-color)
---radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
---radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
-
-Usage:
-- Apply this class to an element to give it a halftone pattern effect.
-- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
-- Customize the halftone effect by adjusting the custom properties.
-*/
-.connect__halftone {
-  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
-  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
-  --radial-color: var(--theme__radial-color);
-  --radial-size: var(--theme__radial-size, 0.25rem);
-  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-  background-color: var(--connect__halftone-solid-bg);
-  position: absolute;
-
-  &::after {
-    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
-      radial-gradient(var(--radial-color) 33%, transparent 33%);
-    background-position:
-      0 0,
-      var(--radial-size) var(--radial-size),
-      0 0;
-    background-size:
-      var(--radial-bg-size) var(--radial-bg-size),
-      var(--radial-bg-size) var(--radial-bg-size),
-      100% 100%;
-    content: '';
-    mix-blend-mode: var(--connect__halftone-blend-mode);
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 }
 
@@ -1799,48 +1815,81 @@ example:
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
+  position: relative;
   width: 100%;
 
   &.connect__grid-gutter {
     padding: calc(var(--connect__spacer-xl) * 2) var(--gutter-width);
   }
+
+  // Apply margin to all direct children except .connect__grid and section
+  > *:not(.connect__grid):not(section) {
+    @media (min-width: 40.625rem) {
+      margin-left: var(--connect__spacer-md);
+      margin-right: var(--connect__spacer-md);
+    }
+  }
+
+  // Make nested .connect__grid elements use subgrid
+  .connect__grid {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
 }
 
 .connect__grid-item {
   grid-column: var(--start-col, 1) / span var(--span-col, 12);
-  grid-row: var(--xs-row-span, auto);
-  grid-row-end: span var(--xs-row-span, auto);
+  grid-row: var(--xs-row-start, auto) / span var(--xs-row-span, 1);
 }
 
 @media (min-width: 30rem) {
   .connect-sm {
-    grid-column: var(--sm-start-col) / span var(--sm-span-col);
-    grid-row: var(--sm-row-span, auto);
-    grid-row-end: span var(--sm-row-span, var(--md-row-span, auto));
+    grid-column: var(--sm-start-col, var(--start-col, 1)) / span
+      var(--sm-span-col, var(--span-col, 12));
+    grid-row: var(--sm-row-start, var(--xs-row-start, auto)) / span
+      var(--sm-row-span, var(--xs-row-span, 1));
   }
 }
 
 @media (min-width: 40.625rem) {
   .connect-md {
-    grid-column: var(--md-start-col) / span var(--md-span-col);
-    grid-row: var(--md-row-span, auto);
-    grid-row-end: span var(--md-row-span, var(--lg-row-span, auto));
+    grid-column: var(--md-start-col, var(--sm-start-col, var(--start-col, 1))) / span
+      var(--md-span-col, var(--sm-span-col, var(--span-col, 12)));
+    grid-row: var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto))) / span
+      var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1)));
   }
 }
 
 @media (min-width: 55rem) {
   .connect-lg {
-    grid-column: var(--lg-start-col) / span var(--lg-span-col);
-    grid-row: var(--lg-row-span, auto);
-    grid-row-end: span var(--lg-row-span, var(--md-row-span, auto));
+    grid-column: var(--lg-start-col, var(--md-start-col, var(--sm-start-col, var(--start-col, 1)))) /
+      span var(--lg-span-col, var(--md-span-col, var(--sm-span-col, var(--span-col, 12))));
+    grid-row: var(
+        --lg-row-start,
+        var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto)))
+      ) / span var(--lg-row-span, var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1))));
   }
 }
 
 @media (min-width: 80rem) {
   .connect-xl {
-    grid-column: var(--xl-start-col) / span var(--xl-span-col);
-    grid-row: var(--xl-row-span, auto);
-    grid-row-end: span var(--xl-row-span, var(--lg-row-span, auto));
+    grid-column: var(
+        --xl-start-col,
+        var(--lg-start-col, var(--md-start-col, var(--sm-start-col, var(--start-col, 1))))
+      ) / span
+      var(
+        --xl-span-col,
+        var(--lg-span-col, var(--md-span-col, var(--sm-span-col, var(--span-col, 12))))
+      );
+    grid-row: var(
+        --xl-row-start,
+        var(--lg-row-start, var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto))))
+      ) / span
+      var(
+        --xl-row-span,
+        var(--lg-row-span, var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1))))
+      );
   }
 }
 
