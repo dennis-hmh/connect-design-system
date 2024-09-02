@@ -1643,9 +1643,9 @@ Usage:
 
   &::after {
     --connect__header-breakout-z-after: var(--theme__connect-header-breakout-z-after, 1);
-    --connect__header-breakout-t-after: var(--theme__connect-header-breakout-l-after, 0);
-    --connect__header-breakout-r-after: var(--theme__connect-header-breakout-l-after, 0);
-    --connect__header-breakout-b-after: var(--theme__connect-header-breakout-l-after, 0);
+    --connect__header-breakout-t-after: var(--theme__connect-header-breakout-t-after, 0);
+    --connect__header-breakout-r-after: var(--theme__connect-header-breakout-r-after, 0);
+    --connect__header-breakout-b-after: var(--theme__connect-header-breakout-b-after, 0);
     --connect__header-breakout-l-after: var(--theme__connect-header-breakout-l-after, -1);
     --connect__header-breakout-w-after: var(--theme__connect-header-breakout-w-after, 2);
     --connect__header-breakout-w-after-multi: var(
