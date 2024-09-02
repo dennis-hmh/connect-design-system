@@ -1,17 +1,8 @@
 import React from 'react';
-import { Figure } from '../Figure/Figure';
-import { Image } from '../Image/Image';
-import { FigCaption } from '../FigCaption/FigCaption';
-import { GradeBand } from 'src/enum/gradeband';
+import { Figure, FigureProps } from '../Figure/Figure';
+import { Image, ImageProps } from '../Image/Image';
 
-export type SingleImageProps = {
-    children?: React.ReactNode;
-    imageSrc: string;
-    altText: string;
-    caption?: string;
-    cite?: string;
-    gradeBand?: GradeBand;
-}
+export type SingleImageProps = ImageProps & FigureProps;
 
 export const SingleImage: React.FC<SingleImageProps> = ({
     imageSrc,
@@ -20,9 +11,8 @@ export const SingleImage: React.FC<SingleImageProps> = ({
     cite
 }) => {
     return (
-        <Figure>
+        <Figure caption={caption} cite={cite}>
             <Image imageSrc={imageSrc} altText={altText} />
-            <FigCaption caption={caption} cite={cite} />
         </Figure>
     )
 }

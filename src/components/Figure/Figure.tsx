@@ -4,17 +4,17 @@ import { FigCaption } from '../FigCaption/FigCaption';
 
 export type FigureProps = {
   children?: React.ReactNode;
-  imageCaption?: string;
+  caption?: string;
   cite?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export const Figure: React.FC<FigureProps> = ({ children, imageCaption, cite, dataTestId }) => {
+export const Figure: React.FC<FigureProps> = ({ children, caption, cite, dataTestId }) => {
   return (
     <figure className="connect__figure" data-testid={dataTestId}>
       {children}
-      {(imageCaption || cite) && <FigCaption caption={imageCaption} cite={cite} />}
+      {(caption || cite) && <FigCaption caption={caption} cite={cite} />}
     </figure>
   );
 };
