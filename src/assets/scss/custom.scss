@@ -359,16 +359,20 @@ States:
   }
 
   &--rive {
-    background: red;
+    // background: red;
     display: grid;
     align-items: center;
     justify-content: center;
 
+    div {
+      grid-row: 1;
+      grid-column: 1;
+    }
     p {
       margin: 0;
       grid-row: 1;
       grid-column: 1;
-      color: blue;
+      // color: blue;
       position: relative;
       z-index: 2;
     }

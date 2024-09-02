@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
@@ -19,6 +19,7 @@ import './assets/scss/custom.scss';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
+  const [buttonText, setButtonText] = useState('Initial Text');
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -27,7 +28,10 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <ButtonRive buttonText='button text' animDesc='description of animation' animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_final.riv' stateMachine='State Machine 3'></ButtonRive>
+            <ButtonRive buttonText={buttonText} animDesc='description of animation' animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv' stateMachine='State Machine 1'></ButtonRive>
+            <button onClick={() => setButtonText('Updated Text')}>
+                Change Button Text
+            </button>
             <br />
             <Chip children={'word'} num={10} />
             <br />
