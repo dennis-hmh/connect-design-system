@@ -27,6 +27,7 @@ export interface TypographyProps {
   opacity?: React.CSSProperties['opacity'];
   className?: string;
   dataTestId?: string;
+  ariaLive?: 'polite' | 'assertive' | 'off';
   gradeBand?: GradeBand;
 }
 
@@ -44,6 +45,7 @@ export const Typography: React.FC<TypographyProps> = ({
   opacity,
   className,
   dataTestId,
+  ariaLive
 }) => {
   const typoProps: React.CSSProperties = {};
 
@@ -73,6 +75,7 @@ export const Typography: React.FC<TypographyProps> = ({
       {...(Object.keys(typoProps).length > 0 ? { style: typoProps } : {})}
       className={className}
       data-testid={dataTestId}
+      aria-live={ariaLive}
     >
       {children}
     </Component>

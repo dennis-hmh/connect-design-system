@@ -1,29 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button } from '../Button/Button';
-import { Typography } from '../Typography/Typography';
-import { GradeBand } from 'src/enum/gradeband';
+import { Button, ButtonProps } from '../Button/Button';
+import { Typography, TypographyProps } from '../Typography/Typography';
 import '@connect/hmh-rive';
 
-export type ButtonRiveProps = {
-    children?: React.ReactNode;
-    primary?: boolean;
-    clickHandler?: any;
-    ariaLabel?: string;
-    gradeBand?: GradeBand;
+export type ButtonRiveProps = ButtonProps & TypographyProps & {
     animSrc: string;
-    animDesc: string;
+    // animDesc: string;
     stateMachine?: string;
     buttonText: string;
     loadingText?: string;
 }
 
 export const ButtonRive: React.FC<ButtonRiveProps> = ({
-    primary = true,
     animSrc,
-    animDesc,
+    // animDesc,
     stateMachine = 'State Machine 1',
     buttonText,
-    loadingText = 'Loading'
+    loadingText = 'Loading',
+    ...buttonProps // Spread the rest of the ButtonProps
 }) => {
     const riveRef = useRef<HTMLElement | null>(null); // Properly type the ref to HTMLElement
     const [isTypographyHidden, setTypographyHidden] = useState(false); // State to control Typography opacity
@@ -68,19 +62,19 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
     }, [playState]);
 
     return (
-        <Button primary={primary} additionalClass='connect__button--rive' clickHandler={handleClick}>
+        <Button additionalClass='connect__button--rive' clickHandler={handleClick} {...buttonProps}>
             <div style={{ opacity: isTypographyHidden ? 0 : 1 }}>
-                <Typography element="p">{isLoading ? loadingText : buttonText}</Typography> {/* Change button text to 'Loading' */}
+                <Typography element="p" ariaLive='polite'>{isLoading ? loadingText : buttonText}</Typography>
             </div>
             <div style={{ opacity: isTypographyHidden ? 1 : 0 }}>
                 <hmh-rive
                     ref={riveRef}
                     src={animSrc}
-                    desc={animDesc}
                     autoplay={false}
                     hidePlayPause
                     stateMachine={stateMachine}
                     play-state={playState} // Set playState based on state
+                    aria-hidden="true"
                 ></hmh-rive>
             </div>
         </Button>
