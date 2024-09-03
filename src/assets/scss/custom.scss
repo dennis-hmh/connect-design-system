@@ -1305,7 +1305,7 @@ Variables:
 --connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
 --connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
 --connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
---connect__breakout-t: Top position (theme: --theme__breakout-r, default: 0)
+--connect__breakout-t: Top position (theme: --theme__breakout-t, default: 0)
 --connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
 --connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
 
@@ -1319,7 +1319,7 @@ Usage:
   --connect__breakout-b: var(--theme__breakout-b, 0);
   --connect__breakout-l: var(--theme__breakout-l, -1);
   --connect__breakout-r: var(--theme__breakout-r, -1);
-  --connect__breakout-t: var(--theme__breakout-r, 0);
+  --connect__breakout-t: var(--theme__breakout-t, 0);
   --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
   --connect__breakout-z: var(--theme__connect__breakout-z, 0);
   --connect__breakout-bg-color-after: var(--theme__breakout-bg-color-after, initial);
@@ -1328,6 +1328,7 @@ Usage:
   &:not(.connect__figure) {
     &::after {
       --connect__breakout-z: var(--theme__connect__breakout-z, -1);
+
       background-color: var(--connect__breakout-bg-color-after);
       content: '';
       position: absolute;
@@ -1373,7 +1374,6 @@ Usage:
   --connect__linear-direction: var(--theme__linear-direction, to right);
   --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
   --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
-  position: absolute;
 
   &::before {
     background-image: linear-gradient(
@@ -1412,7 +1412,6 @@ Usage:
   --radial-color: var(--theme__radial-color);
   --radial-size: var(--theme__radial-size, 0.25rem);
   --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-  position: absolute;
 
   &::after {
     background-color: var(--connect__halftone-solid-bg);
@@ -1817,17 +1816,20 @@ example:
   grid-template-rows: max-content;
   position: relative;
   width: 100%;
-
-  &.connect__grid-gutter {
-    padding: calc(var(--connect__spacer-xl) * 2) var(--gutter-width);
-  }
-
   // Apply margin to all direct children except .connect__grid and section
-  > *:not(.connect__grid):not(section) {
+  > *:not(.connect__grid):not(section):not(.connect__breakout) {
     @media (min-width: 40.625rem) {
       margin-left: var(--connect__spacer-md);
       margin-right: var(--connect__spacer-md);
     }
+  }
+  &.connect__grid-gutter {
+    --connect__gutter-padding-y: var(
+      --theme__connect-gutter-padding-y,
+      calc(var(--connect__spacer-xl) * 2)
+    );
+    --connect__gutter-padding-x: var(--theme__connect-gutter-padding-x, var(--gutter-width));
+    padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
   }
 
   // Make nested .connect__grid elements use subgrid
