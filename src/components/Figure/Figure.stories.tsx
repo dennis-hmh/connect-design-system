@@ -34,7 +34,7 @@ const Template: StoryFn<FigureProps> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   children: <Image imageSrc={'../../images/zelda.jpg'} altText={'This is Alt Text'} />,
-  imageCaption: 'This is a caption',
+  caption: 'This is a caption',
   cite: '',
   gradeBand: GradeBand.G4_5,
 };
@@ -48,7 +48,7 @@ WithCitation.args = {
 export const WithoutCaption: Story = Template.bind({});
 WithoutCaption.args = {
   ...Default.args,
-  imageCaption: '',
+  caption: '',
 };
 
 export const ShortBlockquote: Story = Template.bind({});
@@ -60,7 +60,7 @@ ShortBlockquote.args = {
 export const LongBlockquote: Story = Template.bind({});
 LongBlockquote.args = {
   ...Default.args,
-  imageCaption: '',
+  caption: '',
   children: (
     <Blockquote
       children={

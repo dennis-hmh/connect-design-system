@@ -30,7 +30,12 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <SingleImage imageSrc='https://picsum.photos/600/400' altText='A random picture from Lorem Picsum' caption='A random picture chosen by Lorem Picsum' cite='https://picsum.photos/' />
+            <SingleImage
+              imageSrc="https://picsum.photos/600/400"
+              altText="A random picture from Lorem Picsum"
+              caption="A random picture chosen by Lorem Picsum"
+              cite="https://picsum.photos/"
+            />
             <br />
             <Chip children={'word'} num={10} />
             <br />
@@ -55,7 +60,7 @@ const App = () => {
               children={
                 <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
               }
-              imageCaption="This is the caption for Zelda"
+              caption="This is the caption for Zelda"
               cite="- This is the citation for Zelda"
             />
             <Figure
