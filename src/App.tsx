@@ -28,7 +28,7 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <ButtonRive primary={true} buttonText={buttonText} animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv' stateMachine='State Machine 1'></ButtonRive>
+            <ButtonRive primary={true} buttonText={buttonText} animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv' stateMachine='State Machine 1'></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>
                 Change Button Text
             </button>
