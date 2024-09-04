@@ -28,10 +28,14 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <ButtonRive primary={true} buttonText={buttonText} animSrc='https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv' stateMachine='State Machine 1'></ButtonRive>
-            <button onClick={() => setButtonText('Updated Text')}>
-                Change Button Text
-            </button>
+            <ButtonRive
+              primary={true}
+              buttonText={buttonText}
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
+              stateMachine="State Machine 1"
+              children={undefined}
+            ></ButtonRive>
+            <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
             <br />
             <Chip children={'word'} num={10} />
             <br />
