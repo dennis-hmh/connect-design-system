@@ -1326,6 +1326,7 @@ Usage:
   background-color: var(--connect__breakout-bg-color);
 
   &:not(.connect__figure) {
+    &::before,
     &::after {
       --connect__breakout-z: var(--theme__connect__breakout-z, -1);
 
@@ -1334,10 +1335,18 @@ Usage:
       position: absolute;
       bottom: var(--connect__breakout-b);
       left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
+      max-width: 100vw;
       right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
       top: var(--connect__breakout-t);
       z-index: var(--connect__breakout-z);
       pointer-events: none;
+    }
+
+    &.connect__linear {
+      z-index: var(--connect__linear-z, var(--connect__breakout-z));
+    }
+    &.connect__halftone {
+      z-index: var(--connect__halftone-z, var(--connect__breakout-z));
     }
   }
 
@@ -1374,6 +1383,7 @@ Usage:
   --connect__linear-direction: var(--theme__linear-direction, to right);
   --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
   --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
+  --connect__linear-z: var(--theme--connect__linear-z, initial);
 
   &::before {
     background-image: linear-gradient(
@@ -1412,6 +1422,7 @@ Usage:
   --radial-color: var(--theme__radial-color);
   --radial-size: var(--theme__radial-size, 0.25rem);
   --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
+  --connect__halftone-z: var(--theme__connect-halftone-z, initial);
 
   &::after {
     background-color: var(--connect__halftone-solid-bg);
