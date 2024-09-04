@@ -1,26 +1,28 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, ButtonProps } from '../Button/Button';
-import { Typography, TypographyProps } from '../Typography/Typography';
+import { Button } from '../Button/Button';
+import { Typography } from '../Typography/Typography';
 import { GradeBand } from 'src/enum/gradeband';
 import '@connect/hmh-rive';
 
-export type ButtonRiveProps = ButtonProps &
-  TypographyProps & {
-    animSrc: string;
-    // animDesc: string;
-    stateMachine?: string;
-    buttonText: string;
-    loadingText?: string;
-    gradeBand?: GradeBand;
-  };
+export type ButtonRiveProps = {
+  primary?: boolean;
+  textTransform?: React.CSSProperties['textTransform'];
+  animSrc: string;
+  // animDesc: string;
+  stateMachine?: string;
+  buttonText: string;
+  loadingText?: string;
+  gradeBand?: GradeBand;
+};
 
 export const ButtonRive: React.FC<ButtonRiveProps> = ({
+  primary = true,
+  textTransform,
   animSrc,
   // animDesc,
   stateMachine = 'State Machine 1',
   buttonText,
   loadingText = 'Loading',
-  ...buttonProps // Spread the rest of the ButtonProps
 }) => {
   const riveRef = useRef<HTMLElement | null>(null); // Properly type the ref to HTMLElement
   const [isTypographyHidden, setTypographyHidden] = useState(false); // State to control Typography opacity
@@ -65,9 +67,9 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
   }, [playState]);
 
   return (
-    <Button additionalClass="connect__button--rive" clickHandler={handleClick} {...buttonProps}>
+    <Button additionalClass="connect__button--rive" clickHandler={handleClick} primary={primary}>
       <div style={{ opacity: isTypographyHidden ? 0 : 1 }}>
-        <Typography element="p" ariaLive="polite">
+        <Typography element="p" ariaLive="polite" textTransform={textTransform}>
           {isLoading ? loadingText : buttonText}
         </Typography>
       </div>

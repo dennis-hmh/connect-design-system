@@ -33,7 +33,6 @@ const App = () => {
               buttonText={buttonText}
               animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
               stateMachine="State Machine 1"
-              children={undefined}
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
             <br />

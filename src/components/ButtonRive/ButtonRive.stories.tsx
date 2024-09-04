@@ -31,9 +31,9 @@ const Template: StoryFn<ButtonRiveProps> = (args) => {
 export const Primary: Story = Template.bind({});
 Primary.args = {
   primary: true,
+  textTransform: 'none',
   buttonText: 'Button Text',
   animSrc: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
   stateMachine: 'State Machine 1',
-  children: undefined,
   gradeBand: GradeBand.G4_5,
 };
