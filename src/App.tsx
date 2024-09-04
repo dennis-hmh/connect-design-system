@@ -31,7 +31,7 @@ const App = () => {
             <ButtonRive
               primary={true}
               buttonText={buttonText}
-              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
               stateMachine="State Machine 1"
               children={undefined}
             ></ButtonRive>
