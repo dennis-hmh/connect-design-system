@@ -7,6 +7,7 @@ import '@connect/hmh-rive';
 export type ButtonRiveProps = {
   primary?: boolean;
   textTransform?: React.CSSProperties['textTransform'];
+  opacity?: React.CSSProperties['opacity'];
   animSrc: string;
   // animDesc: string;
   stateMachine?: string;
@@ -68,22 +69,24 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
 
   return (
     <Button additionalClass="connect__button--rive" clickHandler={handleClick} primary={primary}>
-      <div style={{ opacity: isTypographyHidden ? 0 : 1 }}>
-        <Typography element="p" ariaLive="polite" textTransform={textTransform}>
-          {isLoading ? loadingText : buttonText}
-        </Typography>
-      </div>
-      <div style={{ opacity: isTypographyHidden ? 1 : 0 }}>
-        <hmh-rive
-          ref={riveRef}
-          src={animSrc}
-          autoplay={false}
-          hidePlayPause
-          stateMachine={stateMachine}
-          play-state={!!playState} // Set playState based on state
-          aria-hidden="true"
-        ></hmh-rive>
-      </div>
+      <Typography
+        element="p"
+        ariaLive="polite"
+        textTransform={textTransform}
+        opacity={isTypographyHidden ? '0' : 1}
+      >
+        {isLoading ? loadingText : buttonText}
+      </Typography>
+      <hmh-rive
+        ref={riveRef}
+        src={animSrc}
+        autoplay={false}
+        hidePlayPause
+        stateMachine={stateMachine}
+        play-state={!!playState} // Set playState based on state
+        aria-hidden="true"
+        style={{ opacity: isTypographyHidden ? 1 : 0 }}
+      ></hmh-rive>
     </Button>
   );
 };
