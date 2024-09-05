@@ -13,6 +13,7 @@ import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
+import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
@@ -30,6 +31,12 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
+            <SingleImage
+              imageSrc="https://picsum.photos/600/400"
+              altText="A random picture from Lorem Picsum"
+              caption="A random picture chosen by Lorem Picsum"
+              cite="https://picsum.photos/"
+            />
             <SingleBlockquote caption="this is a caption" cite="this is a citation">
               <Typography element="p">The quick brown fox jumps over the laxy dog</Typography>
               <Typography element="h3">A heading in a blockquote</Typography>
@@ -59,7 +66,7 @@ const App = () => {
               children={
                 <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
               }
-              imageCaption="This is the caption for Zelda"
+              caption="This is the caption for Zelda"
               cite="- This is the citation for Zelda"
             />
             <Figure
