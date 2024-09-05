@@ -1,3 +1,23 @@
+### v1.10.0 Release Notice
+
+### Release date: August, 15, 2024
+
+#### Changelog:
+
+- New Component: NA
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Storybook UI Version updated to 8.2.8 - Only Storybook updated. Biggest change is Grand Band is now a Control is each components Story.
+
+#### For any code reviews:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/?path=/docs/accordion--docs
+
+&nbsp;
+
+---
+
 ### v1.9.1 Release Notice
 
 ### Release date: July, 18, 2024
