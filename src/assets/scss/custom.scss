@@ -357,6 +357,31 @@ States:
   &:has(svg) {
     align-items: center;
   }
+
+  &--rive {
+    // background: red;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      grid-row: 1;
+      grid-column: 1;
+    }
+    p {
+      margin: 0;
+      grid-row: 1;
+      grid-column: 1;
+      // color: blue;
+      position: relative;
+      z-index: 2;
+    }
+
+    hmh-rive {
+      grid-row: 1;
+      grid-column: 1;
+    }
+  }
 }
 
 /* 

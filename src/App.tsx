@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
@@ -10,6 +10,7 @@ import { Chip } from './components/Chip/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
+import { ButtonRive } from './components/ButtonRive/ButtonRive';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
@@ -23,6 +24,7 @@ import { GradeBand } from './enum/gradeband';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
+  const [buttonText, setButtonText] = useState('Initial Text');
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -31,6 +33,13 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
+            <ButtonRive
+              primary={true}
+              buttonText={buttonText}
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
+              stateMachine="State Machine 1"
+            ></ButtonRive>
+            <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
             <SingleImage
               imageSrc="https://picsum.photos/600/400"
               altText="A random picture from Lorem Picsum"
