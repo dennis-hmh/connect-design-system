@@ -1487,6 +1487,7 @@ __metadata:
     "@connect/hmh-rive": 1.0.9
     "@storybook/addon-a11y": 8.2.8
     "@storybook/addon-designs": ^8.0.3
+    "@storybook/addon-docs": ^8.2.9
     "@storybook/addon-essentials": 8.2.8
     "@storybook/addon-interactions": 8.2.8
     "@storybook/addon-links": 8.2.8
@@ -1510,6 +1511,7 @@ __metadata:
     eslint-plugin-react-refresh: ^0.4.3
     eslint-plugin-simple-import-sort: ^12.0.0
     eslint-plugin-storybook: ^0.8.0
+    markdown-to-jsx: ^7.5.0
     prettier: 3.2.5
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -1519,7 +1521,7 @@ __metadata:
     rollup-plugin-css-only: ^4.5.2
     sass: ^1.66.1
     storybook: 8.2.8
-    storybook-addon-pseudo-states: ^3.1.1
+    storybook-addon-changelog-viewer: ^0.0.12
     typescript: ^5.3.3
     vite: ^4.4.5
     vite-plugin-dts: ^3.7.2
@@ -2351,6 +2353,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-docs@npm:^8.2.9":
+  version: 8.2.9
+  resolution: "@storybook/addon-docs@npm:8.2.9"
+  dependencies:
+    "@babel/core": ^7.24.4
+    "@mdx-js/react": ^3.0.0
+    "@storybook/blocks": 8.2.9
+    "@storybook/csf-plugin": 8.2.9
+    "@storybook/global": ^5.0.0
+    "@storybook/react-dom-shim": 8.2.9
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
+    fs-extra: ^11.1.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    rehype-external-links: ^3.0.0
+    rehype-slug: ^6.0.0
+    ts-dedent: ^2.0.0
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 40eb37c287df1b89ced0bee511146bccaf4279001f4460947bd852d14f5e41d21b80ebd00881b571b2a7024b89bbfde002f099c47b5f41a8b7164b554830d3fb
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-essentials@npm:8.2.8":
   version: 8.2.8
   resolution: "@storybook/addon-essentials@npm:8.2.8"
@@ -2500,6 +2525,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/blocks@npm:8.2.9":
+  version: 8.2.9
+  resolution: "@storybook/blocks@npm:8.2.9"
+  dependencies:
+    "@storybook/csf": 0.1.11
+    "@storybook/global": ^5.0.0
+    "@storybook/icons": ^1.2.5
+    "@types/lodash": ^4.14.167
+    color-convert: ^2.0.1
+    dequal: ^2.0.2
+    lodash: ^4.17.21
+    markdown-to-jsx: ^7.4.5
+    memoizerific: ^1.11.3
+    polished: ^4.2.2
+    react-colorful: ^5.1.2
+    telejson: ^7.2.0
+    ts-dedent: ^2.0.0
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^8.2.9
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 6d55597046905aabd6af95180a66ccb3944f872d0d3f624e5e33f2f939dbf040b0ad2921d44d1612e31e24afaa4f1000a805573854916137d9212b35e7249f16
+  languageName: node
+  linkType: hard
+
 "@storybook/builder-vite@npm:8.2.8":
   version: 8.2.8
   resolution: "@storybook/builder-vite@npm:8.2.8"
@@ -2590,6 +2646,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf-plugin@npm:8.2.9":
+  version: 8.2.9
+  resolution: "@storybook/csf-plugin@npm:8.2.9"
+  dependencies:
+    unplugin: ^1.3.1
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 514171f66a4e71849ee7a4efacc3051de0714fda56dfdb7581f5d08a268d5a9d0bee6264404bd766f631f2ab8a0358b4c226ecfcee8965d8560d1afc5d17c1b9
+  languageName: node
+  linkType: hard
+
 "@storybook/csf@npm:0.1.11":
   version: 0.1.11
   resolution: "@storybook/csf@npm:0.1.11"
@@ -2673,6 +2740,17 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
     storybook: ^8.2.8
   checksum: cfc4fa7eb50efc7e1724f068c9f614c370d7a0422caa85f446c761e60911689c4ea4e462f3c4cb2926ada918d6d3b9a6f592e0b7819a1782d8730408a152a38a
+  languageName: node
+  linkType: hard
+
+"@storybook/react-dom-shim@npm:8.2.9":
+  version: 8.2.9
+  resolution: "@storybook/react-dom-shim@npm:8.2.9"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^8.2.9
+  checksum: 85ecef5aa9af253aae6edb78eaac0e9135f8aa7b58e8a00b7913c13f7a023d7fb8585c459b15900148671236a0d38872d3fee34a48e9c04674ff9adbdede3827
   languageName: node
   linkType: hard
 
@@ -7310,12 +7388,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-to-jsx@npm:^7.4.5":
+"markdown-to-jsx@npm:^7.4.5, markdown-to-jsx@npm:^7.5.0":
   version: 7.5.0
   resolution: "markdown-to-jsx@npm:7.5.0"
   peerDependencies:
     react: ">= 0.14.0"
   checksum: c9c6f1bfad5f2d9b1d3476eb0313ae3dffd0a9f14011c74efdd7c664fd32ee1842ef48abb16a496046f90361af49aa80a827e9d9c0bc04824a1986fdeb4d1852
+  languageName: node
+  linkType: hard
+
+"marked-gfm-heading-id@npm:^3.0.3":
+  version: 3.2.0
+  resolution: "marked-gfm-heading-id@npm:3.2.0"
+  dependencies:
+    github-slugger: ^2.0.0
+  peerDependencies:
+    marked: ">=4 <13"
+  checksum: b62bb265bbb0de266a1cf15ee9f110be7c8d12657298e1e0c33e554c2b0f5fc6e10c169179d9a1dfeed882d9bde9313f9b7b5dbb3b5e8f99f7442a141745b0ab
+  languageName: node
+  linkType: hard
+
+"marked-mangle@npm:^1.0.1":
+  version: 1.1.9
+  resolution: "marked-mangle@npm:1.1.9"
+  peerDependencies:
+    marked: ">=4 <15"
+  checksum: 745e44bea9b52bc9c52e41f5d2b146eb21072a92ddf85b4b2f210b091da93fcbf2f5447b02f849fd19e79224bdca385462a42b96882493778d1d0ff0a3da9a8c
+  languageName: node
+  linkType: hard
+
+"marked@npm:^5.0.1":
+  version: 5.1.2
+  resolution: "marked@npm:5.1.2"
+  bin:
+    marked: bin/marked.js
+  checksum: fff8741a1dc7313f32bea221079a3d6ff55cd485170fade8841b77b48c89ad5b96676e645636e73e50f4b5b6d65cf9d8821072afb16173822505949df2407ffe
   languageName: node
   linkType: hard
 
@@ -9174,10 +9281,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-pseudo-states@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "storybook-addon-pseudo-states@npm:3.1.1"
-  checksum: 70c32c3624b389e3d6bfdc8ee3bfe2e97a37798bd3a05d63eac2a3baaae3b0cb1f4cceedd8e39c194e88e5b3cf7647acf69ff4c05dd4e74ab07b101063edcc6c
+"storybook-addon-changelog-viewer@npm:^0.0.12":
+  version: 0.0.12
+  resolution: "storybook-addon-changelog-viewer@npm:0.0.12"
+  dependencies:
+    marked: ^5.0.1
+    marked-gfm-heading-id: ^3.0.3
+    marked-mangle: ^1.0.1
+  peerDependencies:
+    "@storybook/blocks": ^7.0.0
+    "@storybook/components": ^7.0.0
+    "@storybook/core-events": ^7.0.0
+    "@storybook/manager-api": ^7.0.0
+    "@storybook/preview-api": ^7.0.0
+    "@storybook/theming": ^7.0.0
+    "@storybook/types": ^7.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 02851eeadd52a93a6e872a7eda31400868282330ec6a27418a53bd86b3c1c3d8fb7498d63d3eb8450b08bf413616365e276e9f619a310c9965710f099f2d076c
   languageName: node
   linkType: hard
 
