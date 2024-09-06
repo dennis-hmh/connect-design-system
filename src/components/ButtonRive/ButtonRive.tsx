@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button } from '../Button/Button';
+import { Button, ButtonProps } from '../Button/Button';
 import { Typography } from '../Typography/Typography';
 import { GradeBand } from 'src/enum/gradeband';
 import '@connect/hmh-rive';
 
-export type ButtonRiveProps = {
-  primary?: boolean;
+export type ButtonRiveProps = ButtonProps & {
   textTransform?: React.CSSProperties['textTransform'];
   opacity?: React.CSSProperties['opacity'];
   animSrc: string;
@@ -17,13 +16,13 @@ export type ButtonRiveProps = {
 };
 
 export const ButtonRive: React.FC<ButtonRiveProps> = ({
-  primary = true,
   textTransform,
   animSrc,
   // animDesc,
   stateMachine = 'State Machine 1',
   buttonText,
   loadingText = 'Loading',
+  ...ButtonProps
 }) => {
   const riveRef = useRef<HTMLElement | null>(null); // Properly type the ref to HTMLElement
   const [isTypographyHidden, setTypographyHidden] = useState(false); // State to control Typography opacity
@@ -68,7 +67,7 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
   }, [playState]);
 
   return (
-    <Button additionalClass="connect__button--rive" clickHandler={handleClick} primary={primary}>
+    <Button additionalClass="connect__button--rive" clickHandler={handleClick} {...ButtonProps}>
       <Typography
         element="p"
         ariaLive="polite"
