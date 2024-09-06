@@ -1519,7 +1519,6 @@ __metadata:
     rollup-plugin-css-only: ^4.5.2
     sass: ^1.66.1
     storybook: 8.2.8
-    storybook-addon-pseudo-states: ^3.1.1
     typescript: ^5.3.3
     vite: ^4.4.5
     vite-plugin-dts: ^3.7.2
@@ -9171,13 +9170,6 @@ __metadata:
   dependencies:
     internal-slot: ^1.0.4
   checksum: d04173690b2efa40e24ab70e5e51a3ff31d56d699550cfad084104ab3381390daccb36652b25755e420245f3b0737de66c1879eaa2a8d4fc0a78f9bf892fcb42
-  languageName: node
-  linkType: hard
-
-"storybook-addon-pseudo-states@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "storybook-addon-pseudo-states@npm:3.1.1"
-  checksum: 70c32c3624b389e3d6bfdc8ee3bfe2e97a37798bd3a05d63eac2a3baaae3b0cb1f4cceedd8e39c194e88e5b3cf7647acf69ff4c05dd4e74ab07b101063edcc6c
   languageName: node
   linkType: hard
 
