@@ -9,7 +9,7 @@ import { Blockquote } from '../Blockquote/Blockquote';
 
 const meta: Meta<typeof Figure> = {
   component: Figure,
-  title: 'Figure',
+  title: 'Figure/Figure',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

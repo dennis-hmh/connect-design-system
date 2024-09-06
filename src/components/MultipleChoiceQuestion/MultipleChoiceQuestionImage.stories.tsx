@@ -9,7 +9,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   component: MultipleChoiceQuestionImage,
-  title: 'MultipleChoiceQuestionImage',
+  title: 'Input/Multiple Choice Question Image',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
