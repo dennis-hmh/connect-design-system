@@ -7,5 +7,5 @@ export type BlockquoteProps = {
 };
 
 export const Blockquote: React.FC<BlockquoteProps> = ({ children }) => {
-  return <blockquote>{children}</blockquote>;
+  return <blockquote className="connect__blockquote">{children}</blockquote>;
 };

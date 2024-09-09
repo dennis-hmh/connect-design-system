@@ -5,6 +5,9 @@ import { GradeBand } from '../../enum/gradeband';
 export type MultipleChoiceQuestionImageProp = {
   type: 'checkbox' | 'radio';
   image: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageCaption?: string;
   id: string;
   name: string;
   children: React.ReactNode;
@@ -13,8 +16,6 @@ export type MultipleChoiceQuestionImageProp = {
   answerShown?: boolean;
   correct?: boolean;
   incorrect?: boolean;
-  imageSrc?: string;
-  imageCaption?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -22,6 +23,9 @@ export type MultipleChoiceQuestionImageProp = {
 export function MultipleChoiceQuestionImage({
   type,
   image = true,
+  imageAlt,
+  imageSrc,
+  imageCaption,
   id,
   name,
   children,
@@ -30,8 +34,6 @@ export function MultipleChoiceQuestionImage({
   correct,
   incorrect,
   answerShown,
-  imageSrc,
-  imageCaption,
   dataTestId,
 }: MultipleChoiceQuestionImageProp) {
   const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
