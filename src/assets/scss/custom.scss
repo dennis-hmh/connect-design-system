@@ -1316,30 +1316,56 @@ Usage:
 */
 .connect__breakout {
   --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
-  --connect__breakout-b: var(--theme__breakout-b, 0);
-  --connect__breakout-l: var(--theme__breakout-l, -1);
-  --connect__breakout-r: var(--theme__breakout-r, -1);
-  --connect__breakout-t: var(--theme__breakout-t, 0);
   --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
-  --connect__breakout-z: var(--theme__connect__breakout-z, 0);
-  --connect__breakout-bg-color-after: var(--theme__breakout-bg-color-after, initial);
   background-color: var(--connect__breakout-bg-color);
+
+  &:not(.connect__linear):not(.connect__halftone) {
+    &::after {
+      content: unset;
+    }
+  }
 
   &:not(.connect__figure) {
     &::before,
     &::after {
-      --connect__breakout-z: var(--theme__connect__breakout-z, -1);
-
-      background-color: var(--connect__breakout-bg-color-after);
       content: '';
       position: absolute;
-      bottom: var(--connect__breakout-b);
-      left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
-      max-width: 100vw;
-      right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
-      top: var(--connect__breakout-t);
-      z-index: var(--connect__breakout-z);
       pointer-events: none;
+    }
+
+    &::before {
+      background-color: var(--theme__connect-breakout-bg-color-before, initial);
+      bottom: var(--theme__connect-breakout-b-before, 0);
+      left: calc(
+        var(--connect__breakout-gutter-w) *
+          var(--theme__connect-breakout-l-before, var(--connect__spacer-md))
+      );
+      max-width: 100vw;
+      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-before, 0));
+      top: var(--theme__connect-breakout-t-before, 0);
+      width: var(
+        --theme__connect-breakout-w-before,
+        calc(100% + 2 * var(--connect__breakout-gutter-w))
+      );
+      z-index: var(--theme__connect-breakout-z-before, 0);
+    }
+
+    &::after {
+      background-color: var(--theme__connect-breakout-bg-color-after, initial);
+      bottom: var(--theme__connect-breakout-b-after, 0);
+      left: calc(
+        var(--connect__breakout-gutter-w) *
+          var(--theme__connect-breakout-l-after, var(--connect__spacer__md))
+      );
+      max-width: 100vw;
+      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-after, 0));
+      top: var(--theme__connect-breakout-t-after, 0);
+      width: var(
+        --theme__connect-breakout-w-after,
+        calc(100% + 2 * var(--connect__breakout-gutter-w))
+      );
+
+      z-index: var(--theme__connect-breakout-z-after, 0);
     }
 
     &.connect__linear {
@@ -1351,14 +1377,14 @@ Usage:
   }
 
   &.connect__figure {
-    bottom: var(--connect__breakout-b);
+    bottom: var(--connect__breakout-b, 0);
     grid-column: unset;
-    left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l));
+    left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l, -1));
     margin-top: 0;
     position: absolute;
-    right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r));
+    right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r, -1));
     top: var(--connect__breakout-t);
-    z-index: var(--connect__breakout-z);
+    z-index: var(--connect__breakout-z, 1);
   }
 }
 
@@ -1396,6 +1422,13 @@ Usage:
     inset: 0;
 
     position: absolute;
+  }
+
+  &.connect__breakout {
+    &::after {
+      content: '';
+      position: absolute;
+    }
   }
 }
 
@@ -1651,29 +1684,108 @@ Usage:
     width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
   }
 
-  &::after {
-    --connect__header-breakout-z-after: var(--theme__connect-header-breakout-z-after, 1);
-    --connect__header-breakout-t-after: var(--theme__connect-header-breakout-t-after, 0);
-    --connect__header-breakout-r-after: var(--theme__connect-header-breakout-r-after, 0);
-    --connect__header-breakout-b-after: var(--theme__connect-header-breakout-b-after, 0);
-    --connect__header-breakout-l-after: var(--theme__connect-header-breakout-l-after, -1);
-    --connect__header-breakout-w-after: var(--theme__connect-header-breakout-w-after, 2);
-    --connect__header-breakout-w-after-multi: var(
-      --theme__connect-header-breakout-w-after-multi,
+  // &::after {
+  //   --connect__header-breakout-z-after: var(
+  //     --theme__connect-header-breakout-z-after,
+  //     1
+  //   );
+  //   --connect__header-breakout-t-after: var(
+  //     --theme__connect-header-breakout-t-after,
+  //     0
+  //   );
+  //   --connect__header-breakout-r-after: var(
+  //     --theme__connect-header-breakout-r-after,
+  //     0
+  //   );
+  //   --connect__header-breakout-b-after: var(
+  //     --theme__connect-header-breakout-b-after,
+  //     0
+  //   );
+  //   --connect__header-breakout-l-after: var(
+  //     --theme__connect-header-breakout-l-after,
+  //     -1
+  //   );
+  //   --connect__header-breakout-w-after: var(
+  //     --theme__connect-header-breakout-w-after,
+  //     2
+  //   );
+  //   --connect__header-breakout-w-after-multi: var(
+  //     --theme__connect-header-breakout-w-after-multi,
+  //     var(--gutter-width)
+  //   );
+
+  //   --connect__header-breakout-h-after: var(
+  //     --theme__connect-header-breakout-h-after,
+  //     100%
+  //   );
+
+  //   content: var(--connect__header-content, "");
+  //   height: var(--connect__header-breakout-h-after);
+
+  //   left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
+  //   top: 0;
+
+  //   width: calc(
+  //     100% + var(--connect__header-breakout-w-after) *
+  //       var(--connect__header-breakout-w-after-multi)
+  //   );
+  // }
+
+  &:not(.connect__breakout) {
+     &:before,
+     &::after  {
+    // Breakout section background variables
+    --connect__header-breakout-bg: var(
+      --theme__connect-header-breakout-bg,
+      var(--connect__neutrals-null)
+    );
+
+    // Breakout section dimension variables
+    --connect__header-breakout-l: var(--theme__connect-header-breakout-l, -1);
+    --connect__header-breakout-w: var(--theme__connect-header-breakout-w, 2);
+    --connect__header-breakout-w-multi: var(
+      --theme__connect-header-breakout-w-multi,
       var(--gutter-width)
     );
 
-    --connect__header-breakout-h-after: var(--theme__connect-header-breakout-h-after, 100%);
+    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
 
-    content: var(--connect__header-content, '');
-    height: var(--connect__header-breakout-h-after);
-
-    left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
-    top: 0;
-
-    width: calc(
-      100% + var(--connect__header-breakout-w-after) * var(--connect__header-breakout-w-after-multi)
+    // Single border radius for all corners
+    --connect__header-border-r-before: var(
+      --theme__connect-header-border-r-before,
+      var(--connect__header-border-r, 0)
     );
+
+    // Individual corner border radii
+    --connect__header-border-r-tl-before: var(
+      --theme__connect-header-border-r-tl-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-tr-before: var(
+      --theme__connect-header-border-r-tr-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-br-before: var(
+      --theme__connect-header-border-r-br-before,
+      var(--connect__header-border-r-before)
+    );
+    --connect__header-border-r-bl-before: var(
+      --theme__connect-header-border-r-bl-before,
+      var(--connect__header-border-r-before)
+    );
+
+    // Apply border radius
+    border-radius: var(--connect__header-border-r-tl-before)
+      var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
+      var(--connect__header-border-r-bl-before);
+
+    background-color: var(--connect__header-breakout-bg);
+    content: '';
+    height: var(--connect__header-breakout-h);
+    left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
+    top: 0;
+    width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
+  }
   }
 
   &.connect__linear,
