@@ -7,6 +7,8 @@ import {
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
+import { Image } from '../Image/Image';
+
 const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   component: MultipleChoiceQuestionImage,
   title: 'MultipleChoiceQuestionImage',
@@ -43,13 +45,13 @@ export const Disabled: Story = Template.bind({});
 Default.args = {
   type: 'checkbox',
   image: true,
+  children: <Image imageSrc="" altText="The mouse rides a bike" />,
   id: 'answer',
   name: 'mcq',
   checked: false,
   disabled: false,
   correct: false,
   incorrect: false,
-  children: 'The mouse rides a bike',
   gradeBand: GradeBand.G4_5,
 };
 

@@ -30,15 +30,15 @@ Here's a basic example of how to use the Figure component:
 
 ```tsx
 import React from 'react';
-import { Figure } from '@connect/connect-design-system@latest';
-import { Image } from '@connect/connect-design-system@latest';
+import { Figure } from '@connect/connect-design-system@1.9.0';
 
 function App() {
   return (
     <Figure
-      children={<Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />}
-      imageCaption="This is an image caption for Zelda"
-      cite="This is a Zelda citation"
+      altText="This is Alt Text"
+      imageSrc="path/to/image.jpg"
+      imageCaption="This is an image caption"
+      dataTestId="figure-1"
     />
   );
 }
@@ -49,8 +49,7 @@ export default App;
 
 The Figure component accepts the following props:
 
-- `children` (React.ReactNode, optional): The content to be displayed inside the figure, typically an image or other media.
-- `imageCaption` (string, optional): The caption text for the image.
-- `cite` (string, optional): The citation text for the figure.
-- `dataTestId` (string, optional): A test ID for the figure, useful for testing purposes.
-- `gradeBand` (GradeBand, optional): The grade band for the figure, used for theming purposes.
+- altText (string, **required**): The alternative text for the image.
+- imageSrc (string, **required**): The source URL of the image.
+- imageCaption (string, optional): The caption text for the image.
+- dataTestId (string, optio

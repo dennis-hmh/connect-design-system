@@ -24,7 +24,6 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
-    'storybook-addon-pseudo-states',
     '@chromatic-com/storybook',
   ],
 

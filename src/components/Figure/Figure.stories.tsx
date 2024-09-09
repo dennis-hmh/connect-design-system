@@ -6,6 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 import { Image } from '../Image/Image';
 import { Blockquote } from '../Blockquote/Blockquote';
+import { FigCaption } from '../FigCaption/FigCaption';
 
 const meta: Meta<typeof Figure> = {
   component: Figure,
@@ -34,21 +35,15 @@ const Template: StoryFn<FigureProps> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   children: <Image imageSrc={'../../images/zelda.jpg'} altText={'This is Alt Text'} />,
-  imageCaption: 'This is a caption',
+  caption: 'This is a caption',
   cite: '',
   gradeBand: GradeBand.G4_5,
-};
-
-export const WithCitation: Story = Template.bind({});
-WithCitation.args = {
-  ...Default.args,
-  cite: '- My citation',
 };
 
 export const WithoutCaption: Story = Template.bind({});
 WithoutCaption.args = {
   ...Default.args,
-  imageCaption: '',
+  caption: '',
 };
 
 export const ShortBlockquote: Story = Template.bind({});
@@ -60,7 +55,7 @@ ShortBlockquote.args = {
 export const LongBlockquote: Story = Template.bind({});
 LongBlockquote.args = {
   ...Default.args,
-  imageCaption: '',
+  caption: '',
   children: (
     <Blockquote
       children={

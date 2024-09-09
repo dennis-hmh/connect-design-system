@@ -19,6 +19,7 @@ export type ButtonProps = {
   ariaLabel?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
+  additionalClass?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -35,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
   iconPosition = 'before',
   ariaLabel,
   dataTestId,
+  additionalClass = ''
 }) => {
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
@@ -43,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={submit}
-      className={`connect__button ${isPrimary} ${isCorrect} ${isIncorrect}`}
+      className={`connect__button ${isPrimary} ${isCorrect} ${isIncorrect} ${additionalClass}`}
       onClick={clickHandler}
       disabled={disabled}
       data-testid={dataTestId}

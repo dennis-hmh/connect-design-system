@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
@@ -9,18 +9,22 @@ import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
 import { Chip } from './components/Chip/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
+import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
+import { ButtonRive } from './components/ButtonRive/ButtonRive';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
+import { SingleImage } from './components/SingleImage/SingleImage';
+import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import Stack from './components/Stack/Stack';
 import './assets/scss/custom.scss';
-import { GradeBand } from './enum/gradeband';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
+  const [buttonText, setButtonText] = useState('Initial Text');
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -29,6 +33,33 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
+            <ButtonRive
+              primary={true}
+              children={''}
+              buttonText={buttonText}
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
+              stateMachine="State Machine 1"
+            ></ButtonRive>
+            <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
+            <SingleImage
+              imageSrc="https://picsum.photos/600/400"
+              altText="A random picture from Lorem Picsum"
+              caption="A random picture chosen by Lorem Picsum"
+              cite="https://picsum.photos/"
+            />
+            <SingleBlockquote caption="this is a caption" cite="this is a citation">
+              <Typography element="p">The quick brown fox jumps over the laxy dog</Typography>
+              <Typography element="h3">A heading in a blockquote</Typography>
+              <Typography element="p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula erat vel
+                felis convallis facilisis. Integer laoreet maximus iaculis. Nam lacinia eros
+                suscipit, dignissim quam quis, laoreet tellus. Aliquam non eros lorem. Praesent
+                cursus hendrerit sapien ac bibendum. Sed vitae mi a ex aliquam pharetra. Mauris
+                molestie tincidunt ex a sagittis. Suspendisse eu tristique magna. Integer sagittis
+                tortor in dapibus luctus. Etiam pharetra, quam sit amet ultricies tincidunt, eros
+                est facilisis dui, quis accumsan nulla odio sit amet sapien.
+              </Typography>
+            </SingleBlockquote>
             <br />
             <Chip children={'word'} num={10} />
             <br />
@@ -53,7 +84,7 @@ const App = () => {
               children={
                 <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
               }
-              imageCaption="This is the caption for Zelda"
+              caption="This is the caption for Zelda"
               cite="- This is the citation for Zelda"
             />
             <Figure
@@ -158,13 +189,14 @@ const App = () => {
               correct={true}
               children={'The mouse rides a bike'}
             />
+            <br />
             <MultipleChoiceQuestion
               type={'checkbox'}
               image={true}
               id={'msq-id-3'}
               name={'mcq-name'}
               correct={true}
-              children={'The mouse rides a bike'}
+              children={<Image imageSrc="" altText="This is alt text" />}
             />
             <br />
             <br />

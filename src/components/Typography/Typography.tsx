@@ -24,8 +24,10 @@ export interface TypographyProps {
   letterSpacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   textAlign?: React.CSSProperties['textAlign'];
   textTransform?: React.CSSProperties['textTransform'];
+  opacity?: React.CSSProperties['opacity'];
   className?: string;
   dataTestId?: string;
+  ariaLive?: 'polite' | 'assertive' | 'off';
   gradeBand?: GradeBand;
 }
 
@@ -40,8 +42,10 @@ export const Typography: React.FC<TypographyProps> = ({
   letterSpacing,
   textAlign,
   textTransform,
+  opacity,
   className,
   dataTestId,
+  ariaLive
 }) => {
   const typoProps: React.CSSProperties = {};
 
@@ -60,6 +64,7 @@ export const Typography: React.FC<TypographyProps> = ({
   if (weight) typoProps.fontWeight = weight;
   if (textAlign) typoProps.textAlign = textAlign;
   if (textTransform) typoProps.textTransform = textTransform;
+  if (opacity) typoProps.opacity = opacity;
   if (size) {
     typoProps.fontSize = `var(--connect__${size})`;
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
@@ -70,6 +75,7 @@ export const Typography: React.FC<TypographyProps> = ({
       {...(Object.keys(typoProps).length > 0 ? { style: typoProps } : {})}
       className={className}
       data-testid={dataTestId}
+      aria-live={ariaLive}
     >
       {children}
     </Component>
