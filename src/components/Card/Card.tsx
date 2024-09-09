@@ -1,43 +1,33 @@
 import React from 'react';
-import { Figure } from '../Figure/Figure';
+import { Figure, FigureProps } from '../Figure/Figure';
 import { CardHeader } from './CardHeader';
 import { CardMain } from './CardMain';
 import { CardFooter } from './CardFooter';
 import { GradeBand } from 'src/enum/gradeband';
 
-export type CardProps = {
+export type CardProps = FigureProps & {
   image: boolean;
-  imageSrc?: string;
-  imageAlt?: string;
-  imageCaption?: string;
   headerElement?: keyof React.ReactHTML;
   headerContent?: React.ReactNode;
   mainContent: React.ReactNode;
   footerContent?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
+  children?: React.ReactNode;
 };
 
 export function Card({
   image,
-  imageSrc,
-  imageAlt,
-  imageCaption,
   headerElement,
   headerContent,
   mainContent,
   footerContent,
   dataTestId,
+  children,
 }: CardProps) {
   return (
     <article className="connect__card" data-testid={dataTestId}>
-      {image && (
-        <Figure
-          altText={imageAlt || ''}
-          imageSrc={imageSrc || ''}
-          imageCaption={imageCaption || ''}
-        />
-      )}
+      {image && <Figure children={children} dataTestId={dataTestId} />}
       <CardHeader headerElement={headerElement}>{headerContent}</CardHeader>
       <CardMain>{mainContent}</CardMain>
       <CardFooter>{footerContent}</CardFooter>

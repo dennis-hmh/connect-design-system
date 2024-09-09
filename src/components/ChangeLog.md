@@ -1,3 +1,20 @@
+### v1.11.0 Release Notice
+
+### Release date: September, 9, 2024
+
+#### Changelog:
+
+- New Component: `<Blockquote />`, `<ButtonRive />`, `<FigCaption />`, `<Image />`, `<SingleImage />`, `<SingleBlockquote />`
+- Updated Component: `<Figure />`, `<MultipleChoiceQueston />`, `<MultipleChoiceQuestonImage />`, `<Typography />`
+- Bug Fix: `aria-live` prop add to `<Typography />`
+
+#### For any code reviews:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/?path=/docs/button-rive--docs
+
+&nbsp;
+
 ### v1.10.0 Release Notice
 
 ### Release date: August, 15, 2024

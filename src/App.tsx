@@ -65,8 +65,6 @@ const App = () => {
             <br />
             <Card
               image={true}
-              imageAlt="Description of the image"
-              imageCaption="Caption for the image"
               headerElement="h3"
               headerContent="This is the Card Header"
               mainContent="This is the main content of the card"
@@ -74,8 +72,6 @@ const App = () => {
             />
             <Card
               image={false}
-              imageAlt="Description of the image"
-              imageCaption="Caption for the image"
               headerContent="This is the Card Header"
               mainContent="This is the main content of the card"
               footerContent="This is the footer content"

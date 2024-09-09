@@ -1,4 +1,4 @@
-import './assets/scss/custom.scss';
+import '../assets/scss/custom.scss';
 
 export * from './Blockquote/Blockquote';
 export * from './Button/Button';
@@ -23,4 +23,4 @@ export { ConnectTheme } from './ConnectTheme';
 export { default as Grid } from './Grid/Grid';
 export { default as GridItem } from './GridItem';
 export { default as Stack } from './Stack/Stack';
-export * from '../enum/gradeband';
+export { GradeBand } from '../enum/gradeband';
