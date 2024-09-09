@@ -35,6 +35,7 @@ const App = () => {
             <br />
             <ButtonRive
               primary={true}
+              children={''}
               buttonText={buttonText}
               animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
               stateMachine="State Machine 1"
@@ -49,7 +50,15 @@ const App = () => {
             <SingleBlockquote caption="this is a caption" cite="this is a citation">
               <Typography element="p">The quick brown fox jumps over the laxy dog</Typography>
               <Typography element="h3">A heading in a blockquote</Typography>
-              <Typography element="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula erat vel felis convallis facilisis. Integer laoreet maximus iaculis. Nam lacinia eros suscipit, dignissim quam quis, laoreet tellus. Aliquam non eros lorem. Praesent cursus hendrerit sapien ac bibendum. Sed vitae mi a ex aliquam pharetra. Mauris molestie tincidunt ex a sagittis. Suspendisse eu tristique magna. Integer sagittis tortor in dapibus luctus. Etiam pharetra, quam sit amet ultricies tincidunt, eros est facilisis dui, quis accumsan nulla odio sit amet sapien.</Typography>
+              <Typography element="p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula erat vel
+                felis convallis facilisis. Integer laoreet maximus iaculis. Nam lacinia eros
+                suscipit, dignissim quam quis, laoreet tellus. Aliquam non eros lorem. Praesent
+                cursus hendrerit sapien ac bibendum. Sed vitae mi a ex aliquam pharetra. Mauris
+                molestie tincidunt ex a sagittis. Suspendisse eu tristique magna. Integer sagittis
+                tortor in dapibus luctus. Etiam pharetra, quam sit amet ultricies tincidunt, eros
+                est facilisis dui, quis accumsan nulla odio sit amet sapien.
+              </Typography>
             </SingleBlockquote>
             <br />
             <Chip children={'word'} num={10} />
@@ -180,13 +189,14 @@ const App = () => {
               correct={true}
               children={'The mouse rides a bike'}
             />
+            <br />
             <MultipleChoiceQuestion
               type={'checkbox'}
               image={true}
               id={'msq-id-3'}
               name={'mcq-name'}
               correct={true}
-              children={'The mouse rides a bike'}
+              children={<Image imageSrc="" altText="This is alt text" />}
             />
             <br />
             <br />

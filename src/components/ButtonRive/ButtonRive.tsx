@@ -6,7 +6,6 @@ import '@connect/hmh-rive';
 
 export type ButtonRiveProps = ButtonProps & {
   textTransform?: React.CSSProperties['textTransform'];
-  opacity?: React.CSSProperties['opacity'];
   animSrc: string;
   // animDesc: string;
   stateMachine?: string;

@@ -69,16 +69,7 @@ export function MultipleChoiceQuestionImage({
         className={`connect__mcq-label ${image ? 'connect__mcq-card' : ''} ${inputStates}`}
         htmlFor={id}
       >
-        {image ? (
-          <Figure
-            altText={`Image for ${name}`}
-            imageSrc={imageSrc || ''}
-            imageCaption={imageCaption || ''}
-            dataTestId={dataTestId}
-          />
-        ) : (
-          children
-        )}
+        {image ? <Figure children={children} dataTestId={dataTestId} /> : children}
       </label>
     </div>
   );
