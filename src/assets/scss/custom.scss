@@ -1389,95 +1389,6 @@ Usage:
 }
 
 /*
-.connect__linear Component
-
-This component applies a linear gradient background to an element.
-
-Variables:
---connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
---connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
---connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
---connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
-
-Usage:
-- Apply this class to an element to give it a linear gradient background.
-- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
-- Customize the gradient by adjusting the custom properties.
-*/
-.connect__linear {
-  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
-  --connect__linear-direction: var(--theme__linear-direction, to right);
-  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
-  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
-  --connect__linear-z: var(--theme--connect__linear-z, initial);
-
-  &::before {
-    background-image: linear-gradient(
-      var(--connect__linear-direction),
-      var(--connect__linear-color-one),
-      var(--connect__linear-color-two)
-    );
-    content: '';
-    mix-blend-mode: var(--connect__linear-blend-mode);
-    inset: 0;
-
-    position: absolute;
-  }
-
-  &.connect__breakout {
-    &::after {
-      content: '';
-      position: absolute;
-    }
-  }
-}
-
-/*
-.connect__halftone Component
-
-This component applies a halftone pattern effect to an element using radial gradients.
-
-Variables:
---connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
---connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
---radial-color: Color of the halftone dots (theme: --theme__radial-color)
---radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
---radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
-
-Usage:
-- Apply this class to an element to give it a halftone pattern effect.
-- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
-- Customize the halftone effect by adjusting the custom properties.
-*/
-.connect__halftone {
-  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
-  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
-  --radial-color: var(--theme__radial-color);
-  --radial-size: var(--theme__radial-size, 0.25rem);
-  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-  --connect__halftone-z: var(--theme__connect-halftone-z, initial);
-
-  &::after {
-    background-color: var(--connect__halftone-solid-bg);
-
-    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
-      radial-gradient(var(--radial-color) 33%, transparent 33%);
-    background-position:
-      0 0,
-      var(--radial-size) var(--radial-size),
-      0 0;
-    background-size:
-      var(--radial-bg-size) var(--radial-bg-size),
-      var(--radial-bg-size) var(--radial-bg-size),
-      100% 100%;
-    content: '';
-    mix-blend-mode: var(--connect__halftone-blend-mode);
-    position: absolute;
-    inset: 0;
-  }
-}
-
-/*
 .connect__header Component
 
 Variables and Theme Options:
@@ -1684,114 +1595,164 @@ Usage:
     width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
   }
 
-  // &::after {
-  //   --connect__header-breakout-z-after: var(
-  //     --theme__connect-header-breakout-z-after,
-  //     1
-  //   );
-  //   --connect__header-breakout-t-after: var(
-  //     --theme__connect-header-breakout-t-after,
-  //     0
-  //   );
-  //   --connect__header-breakout-r-after: var(
-  //     --theme__connect-header-breakout-r-after,
-  //     0
-  //   );
-  //   --connect__header-breakout-b-after: var(
-  //     --theme__connect-header-breakout-b-after,
-  //     0
-  //   );
-  //   --connect__header-breakout-l-after: var(
-  //     --theme__connect-header-breakout-l-after,
-  //     -1
-  //   );
-  //   --connect__header-breakout-w-after: var(
-  //     --theme__connect-header-breakout-w-after,
-  //     2
-  //   );
-  //   --connect__header-breakout-w-after-multi: var(
-  //     --theme__connect-header-breakout-w-after-multi,
-  //     var(--gutter-width)
-  //   );
+  &:not(.connect__breakout):not(.connect__linear):not(.connect__halftone) {
+    &:before,
+    &::after {
+      // Breakout section background variables
+      --connect__header-breakout-bg: var(
+        --theme__connect-header-breakout-bg,
+        var(--connect__neutrals-null)
+      );
 
-  //   --connect__header-breakout-h-after: var(
-  //     --theme__connect-header-breakout-h-after,
-  //     100%
-  //   );
+      // Breakout section dimension variables
+      --connect__header-breakout-l: var(--theme__connect-header-breakout-l, -1);
+      --connect__header-breakout-w: var(--theme__connect-header-breakout-w, 2);
+      --connect__header-breakout-w-multi: var(
+        --theme__connect-header-breakout-w-multi,
+        var(--gutter-width)
+      );
 
-  //   content: var(--connect__header-content, "");
-  //   height: var(--connect__header-breakout-h-after);
+      --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
 
-  //   left: calc(var(--connect__header-breakout-l-after) * var(--gutter-width));
-  //   top: 0;
+      // Single border radius for all corners
+      --connect__header-border-r-before: var(
+        --theme__connect-header-border-r-before,
+        var(--connect__header-border-r, 0)
+      );
 
-  //   width: calc(
-  //     100% + var(--connect__header-breakout-w-after) *
-  //       var(--connect__header-breakout-w-after-multi)
-  //   );
-  // }
+      // Individual corner border radii
+      --connect__header-border-r-tl-before: var(
+        --theme__connect-header-border-r-tl-before,
+        var(--connect__header-border-r-before)
+      );
+      --connect__header-border-r-tr-before: var(
+        --theme__connect-header-border-r-tr-before,
+        var(--connect__header-border-r-before)
+      );
+      --connect__header-border-r-br-before: var(
+        --theme__connect-header-border-r-br-before,
+        var(--connect__header-border-r-before)
+      );
+      --connect__header-border-r-bl-before: var(
+        --theme__connect-header-border-r-bl-before,
+        var(--connect__header-border-r-before)
+      );
 
-  &:not(.connect__breakout) {
-     &:before,
-     &::after  {
-    // Breakout section background variables
-    --connect__header-breakout-bg: var(
-      --theme__connect-header-breakout-bg,
-      var(--connect__neutrals-null)
-    );
+      // Apply border radius
+      border-radius: var(--connect__header-border-r-tl-before)
+        var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
+        var(--connect__header-border-r-bl-before);
 
-    // Breakout section dimension variables
-    --connect__header-breakout-l: var(--theme__connect-header-breakout-l, -1);
-    --connect__header-breakout-w: var(--theme__connect-header-breakout-w, 2);
-    --connect__header-breakout-w-multi: var(
-      --theme__connect-header-breakout-w-multi,
-      var(--gutter-width)
-    );
-
-    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
-
-    // Single border radius for all corners
-    --connect__header-border-r-before: var(
-      --theme__connect-header-border-r-before,
-      var(--connect__header-border-r, 0)
-    );
-
-    // Individual corner border radii
-    --connect__header-border-r-tl-before: var(
-      --theme__connect-header-border-r-tl-before,
-      var(--connect__header-border-r-before)
-    );
-    --connect__header-border-r-tr-before: var(
-      --theme__connect-header-border-r-tr-before,
-      var(--connect__header-border-r-before)
-    );
-    --connect__header-border-r-br-before: var(
-      --theme__connect-header-border-r-br-before,
-      var(--connect__header-border-r-before)
-    );
-    --connect__header-border-r-bl-before: var(
-      --theme__connect-header-border-r-bl-before,
-      var(--connect__header-border-r-before)
-    );
-
-    // Apply border radius
-    border-radius: var(--connect__header-border-r-tl-before)
-      var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
-      var(--connect__header-border-r-bl-before);
-
-    background-color: var(--connect__header-breakout-bg);
-    content: '';
-    height: var(--connect__header-breakout-h);
-    left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
-    top: 0;
-    width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
+      background-color: var(--connect__header-breakout-bg);
+      content: '';
+      height: var(--connect__header-breakout-h);
+      left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
+      top: 0;
+      width: calc(
+        100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi)
+      );
+    }
   }
+
+  &:not(.connect__halftone) {
+    &::after {
+      content: unset;
+    }
   }
 
   &.connect__linear,
   &.connect__halftone,
   &.connect__breakout {
     position: relative;
+  }
+}
+
+/*
+.connect__linear Component
+
+This component applies a linear gradient background to an element.
+
+Variables:
+--connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
+--connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
+--connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
+--connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
+
+Usage:
+- Apply this class to an element to give it a linear gradient background.
+- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
+- Customize the gradient by adjusting the custom properties.
+*/
+.connect__linear {
+  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
+  --connect__linear-direction: var(--theme__linear-direction, to right);
+  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
+  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
+  --connect__linear-z: var(--theme--connect__linear-z, initial);
+
+  &::before {
+    background-image: linear-gradient(
+      var(--connect__linear-direction),
+      var(--connect__linear-color-one),
+      var(--connect__linear-color-two)
+    );
+    content: '';
+    mix-blend-mode: var(--connect__linear-blend-mode);
+    inset: 0;
+
+    position: absolute;
+  }
+
+  &.connect__breakout {
+    &::after {
+      content: '';
+      position: absolute;
+    }
+  }
+}
+
+/*
+.connect__halftone Component
+
+This component applies a halftone pattern effect to an element using radial gradients.
+
+Variables:
+--connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
+--connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
+--radial-color: Color of the halftone dots (theme: --theme__radial-color)
+--radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
+--radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
+
+Usage:
+- Apply this class to an element to give it a halftone pattern effect.
+- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
+- Customize the halftone effect by adjusting the custom properties.
+*/
+.connect__halftone {
+  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
+  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
+  --radial-color: var(--theme__radial-color);
+  --radial-size: var(--theme__radial-size, 0.25rem);
+  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
+  --connect__halftone-z: var(--theme__connect-halftone-z, initial);
+
+  &::after {
+    background-color: var(--connect__halftone-solid-bg);
+
+    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
+      radial-gradient(var(--radial-color) 33%, transparent 33%);
+    background-position:
+      0 0,
+      var(--radial-size) var(--radial-size),
+      0 0;
+    background-size:
+      var(--radial-bg-size) var(--radial-bg-size),
+      var(--radial-bg-size) var(--radial-bg-size),
+      100% 100%;
+    content: '';
+    mix-blend-mode: var(--connect__halftone-blend-mode);
+    position: absolute;
+    inset: 0;
   }
 }
 
