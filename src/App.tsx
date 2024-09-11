@@ -37,6 +37,8 @@ const App = () => {
             <br />
             <ButtonRive
               primary={true}
+              iconId="loader"
+              additionalClass="connect__button--rive connect__button-loading"
               children={''}
               buttonText={buttonText}
               animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
@@ -45,8 +47,14 @@ const App = () => {
               disabled={buttonDisabled}
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
-            <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>Toggle Play State</button>
-            <button onClick={() => setButtonDisabled(buttonDisabled === true ? false : true)}>Toggle Button State</button>
+            <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>
+              Toggle Play State
+            </button>
+            <button onClick={() => setButtonDisabled(buttonDisabled === true ? false : true)}>
+              Toggle Button State
+            </button>
+            <br />
+            <br />
             <SingleImage
               imageSrc="https://picsum.photos/600/400"
               altText="A random picture from Lorem Picsum"

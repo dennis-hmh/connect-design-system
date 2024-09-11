@@ -918,9 +918,9 @@
                 fill="var(--connect__button-bg)"></path>
             <circle cx="15" cy="15" r="10" stroke="var(--active-color)" stroke-width="2"
                 stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(0 15 15)">
-                <animateTransform attributeName="transform" type="rotate" from="0 15 15"
+                <!-- <animateTransform attributeName="transform" type="rotate" from="0 15 15"
                     to="360 15 15"
-                    dur="1s" repeatCount="indefinite"></animateTransform>
+                    dur="1s" repeatCount="indefinite"></animateTransform> -->
             </circle>
         </symbol>
      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="loader-2">

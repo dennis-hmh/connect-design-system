@@ -1,104 +1,104 @@
-export type IconId =
-  | 'add'
-  | 'align-center'
-  | 'align-left'
-  | 'align-right'
-  | 'arrow-down'
-  | 'arrow-up'
-  | 'arrow-left'
-  | 'arrow-left-dbl'
-  | 'arrow-right'
-  | 'arrow-right-dbl'
-  | 'audio-description'
-  | 'audio-next'
-  | 'audio-pause'
-  | 'audio-play'
-  | 'audio-previous'
-  | 'audio-replay'
-  | 'bold'
-  | 'change'
-  | 'circle-cross'
-  | 'circle-tick'
-  | 'closed-captioning'
-  | 'correct-six-twelve'
-  | 'cross-xs'
-  | 'delete'
-  | 'download'
-  | 'erase'
-  | 'flip'
-  | 'glyphs'
-  | 'help'
-  | 'incorrect-six-twelve'
-  | 'info'
-  | 'italic'
-  | 'light-bulb'
-  | 'list-bullet'
-  | 'list-number'
-  | 'maximize'
-  | 'menu-grid'
-  | 'mic'
-  | 'minimize'
-  | 'more-horiz'
-  | 'more-vert'
-  | 'move'
-  | 'open'
-  | 'pause'
-  | 'pdf'
-  | 'play'
-  | 'reload'
-  | 'save'
-  | 'save-as'
-  | 'settings'
-  | 'shown-correct-six-twelve'
-  | 'size'
-  | 'text-label'
-  | 'tick'
-  | 'tick-xs'
-  | 'transcript'
-  | 'underline'
-  | 'upload'
-  | 'video-clip'
-  | 'vocabulary'
-  | 'volume-high'
-  | 'volume-low'
-  | 'volume-mid'
-  | 'volume-mute'
-  | 'correct'
-  | 'incorrect'
-  | 'shown-correct'
-  | 'close'
-  | 'text'
-  | 'calendar'
-  | 'print'
-  | 'image'
-  | 'clock'
-  | 'color'
-  | 'counter-one'
-  | 'draw-outline'
-  | 'draw-size-one'
-  | 'draw-size-three'
-  | 'draw-size-two'
-  | 'line-arrow'
-  | 'line-dashed'
-  | 'line'
-  | 'lines-outline'
-  | 'placeholder'
-  | 'redo'
-  | 'undo'
-  | 'circle-outline'
-  | 'circle'
-  | 'shapes-outline'
-  | 'rectangle-outline'
-  | 'rectangle'
-  | 'triangle-outline'
-  | 'special-shapes-one'
-  | 'triangle'
-  | 'special-shapes-three'
-  | 'special-shapes-two'
-  | 'stamps-measure-outline'
-  | 'stamps-counter-outline'
-  | 'stamps-special-shapes-outline'
-  | 'loader'
-  | 'loader-2';
-
-// To generate lists run 'Node src/utils/sprite-ids.js'
+export type IconId = 
+  'add'|
+  'align-center'|
+  'align-left'|
+  'align-right'|
+  'arrow-down'|
+  'arrow-up'|
+  'arrow-left'|
+  'arrow-left-dbl'|
+  'arrow-right'|
+  'arrow-right-dbl'|
+  'audio-description'|
+  'audio-next'|
+  'audio-pause'|
+  'audio-play'|
+  'audio-previous'|
+  'audio-replay'|
+  'bold'|
+  'change'|
+  'circle-cross'|
+  'circle-tick'|
+  'closed-captioning'|
+  'correct-six-twelve'|
+  'cross-xs'|
+  'delete'|
+  'download'|
+  'erase'|
+  'flip'|
+  'glyphs'|
+  'help'|
+  'incorrect-six-twelve'|
+  'info'|
+  'italic'|
+  'light-bulb'|
+  'list-bullet'|
+  'list-number'|
+  'maximize'|
+  'menu-grid'|
+  'mic'|
+  'minimize'|
+  'more-horiz'|
+  'more-vert'|
+  'move'|
+  'open'|
+  'pause'|
+  'pdf'|
+  'play'|
+  'reload'|
+  'save'|
+  'save-as'|
+  'settings'|
+  'shown-correct-six-twelve'|
+  'size'|
+  'text-label'|
+  'tick'|
+  'tick-xs'|
+  'transcript'|
+  'underline'|
+  'upload'|
+  'video-clip'|
+  'vocabulary'|
+  'volume-high'|
+  'volume-low'|
+  'volume-mid'|
+  'volume-mute'|
+  'correct'|
+  'incorrect'|
+  'shown-correct'|
+  'close'|
+  'text'|
+  'calendar'|
+  'print'|
+  'image'|
+  'clock'|
+  'color'|
+  'counter-one'|
+  'draw-outline'|
+  'draw-size-one'|
+  'draw-size-three'|
+  'draw-size-two'|
+  'line-arrow'|
+  'line-dashed'|
+  'line'|
+  'lines-outline'|
+  'placeholder'|
+  'redo'|
+  'undo'|
+  'circle-outline'|
+  'circle'|
+  'shapes-outline'|
+  'rectangle-outline'|
+  'rectangle'|
+  'triangle-outline'|
+  'special-shapes-one'|
+  'triangle'|
+  'special-shapes-three'|
+  'special-shapes-two'|
+  'stamps-measure-outline'|
+  'stamps-counter-outline'|
+  'stamps-special-shapes-outline'|
+  'loader'|
+  'loader-2'
+;
+ // To generate lists run 'Node src/utils/sprite-ids.js'

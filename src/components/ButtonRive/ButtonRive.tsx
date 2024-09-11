@@ -48,8 +48,7 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
   const isTypographyHidden = playState === 'playing' && !prefersReducedMotion;
 
   return (
-    <Button additionalClass="connect__button--rive" {...ButtonProps} iconId="correct" iconOpacity={isTypographyHidden ? '0' : 1}
->
+    <Button {...ButtonProps} iconOpacity={isTypographyHidden ? '0' : 1}>
       <Typography
         element="p"
         ariaLive="polite"
@@ -65,7 +64,7 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
         hidePlayPause
         stateMachine={stateMachine}
         aria-hidden="true"
-        style={{ opacity: isTypographyHidden ? 1 : 0 }} // Control Rive opacity based on playState
+        style={{ opacity: isTypographyHidden ? 1 : 0 }}
       ></hmh-rive>
     </Button>
   );
