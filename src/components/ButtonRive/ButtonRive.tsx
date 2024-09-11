@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button, ButtonProps } from '../Button/Button';
 import { Typography } from '../Typography/Typography';
+import { GradeBand } from 'src/enum/gradeband';
 import '@connect/hmh-rive';
 
 export type ButtonRiveProps = ButtonProps & {
@@ -9,6 +10,7 @@ export type ButtonRiveProps = ButtonProps & {
   animSrc: string;
   stateMachine?: string;
   buttonText: string;
+  gradeBand?: GradeBand;
   playState?: string | null; // Control both play-state and opacity via this prop
 };
 
