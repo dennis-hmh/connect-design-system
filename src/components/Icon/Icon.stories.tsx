@@ -35,5 +35,6 @@ Default.args = {
   fill: undefined,
   stroke: undefined,
   focusable: false,
+  className: '',
   gradeBand: GradeBand.G4_5,
 };

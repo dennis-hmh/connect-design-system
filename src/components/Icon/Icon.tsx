@@ -9,6 +9,7 @@ export type IconProps = {
   fill?: Color | undefined;
   stroke?: Color | undefined;
   focusable?: boolean;
+  className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -19,6 +20,7 @@ export const Icon: React.FC<IconProps> = ({
   fill,
   stroke,
   focusable = false,
+  className,
   dataTestId,
 }) => {
   const fillColorVariable = fill ? `--connect__${fill}` : '';
@@ -26,7 +28,7 @@ export const Icon: React.FC<IconProps> = ({
 
   return (
     <svg
-      className={`connect__icon connect__icon-${size}`}
+      className={`connect__icon connect__icon-${size} ${className}`}
       style={
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,

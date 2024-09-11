@@ -923,5 +923,30 @@
                     dur="1s" repeatCount="indefinite"></animateTransform>
             </circle>
         </symbol>
+     <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="loader-2">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M27 15C27 8.37258 21.6274 3 15 3C8.37258 3 3 8.37258 3 15C3 21.6274 8.37258 27 15 27C21.6274 27 27 21.6274 27 15ZM6 15C6 10.0294 10.0294 6 15 6C19.9706 6 24 10.0294 24 15C24 19.9706 19.9706 24 15 24C10.0294 24 6 19.9706 6 15Z"
+            fill="var(--connect__button-bg)"></path>
+            <style type="text/css">
+                @keyframes spin {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+                .loader {
+                    animation: spin 1s infinite;
+                    transform: rotate(22deg);
+                }
+            </style>
+            <circle class="loader" cx="15" cy="15" r="10" stroke="var(--active-color)" stroke-width="2"
+                stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(0 15 15)">
+                <!-- <animateTransform attributeName="transform" type="rotate" from="0 15 15"
+                    to="360 15 15"
+                    dur="1s" repeatCount="indefinite"></animateTransform> -->
+            </circle>
+        </symbol>
     </defs>
 </svg>

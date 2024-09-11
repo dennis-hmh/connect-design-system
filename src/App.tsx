@@ -111,6 +111,13 @@ const App = () => {
               />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />
+              <Button
+                primary={true}
+                children={'Loading'}
+                iconId={'loader'}
+                iconPosition={'before'}
+                additionalClass="connect__button-loader"
+              />
             </Stack>
             <br />
             <InputBox

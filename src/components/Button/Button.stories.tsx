@@ -67,3 +67,14 @@ Icon.args = {
   iconId: 'arrow-right',
   ariaLabel: 'Icon Button',
 };
+
+export const Loading: Story = Template.bind({});
+Loading.args = {
+  ...Primary.args,
+  children: 'Loading Button',
+  iconId: 'loader',
+  iconSize: 'md',
+  iconPosition: 'before',
+  ariaLabel: 'Loading Button',
+  additionalClass: 'connect__button-loading',
+};
