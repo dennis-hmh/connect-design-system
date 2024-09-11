@@ -364,7 +364,7 @@ States:
     align-items: center;
     justify-content: center;
 
-    div {
+    div, svg {
       grid-row: 1;
       grid-column: 1;
     }

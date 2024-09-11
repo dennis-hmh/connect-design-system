@@ -8,6 +8,7 @@ export type IconProps = {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color | undefined;
   stroke?: Color | undefined;
+  opacity?: React.CSSProperties['opacity'];
   focusable?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -18,6 +19,7 @@ export const Icon: React.FC<IconProps> = ({
   size,
   fill,
   stroke,
+  opacity,
   focusable = false,
   dataTestId,
 }) => {
@@ -36,6 +38,7 @@ export const Icon: React.FC<IconProps> = ({
       aria-hidden="true"
       focusable={focusable}
       data-testid={dataTestId}
+      opacity={opacity}
     >
       <use
         // xlinkHref={`src/assets/icons/sprite.svg#${id}`}

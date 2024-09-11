@@ -25,6 +25,8 @@ import './assets/scss/custom.scss';
 const App = () => {
   const themeWrapperRef = useRef(null);
   const [buttonText, setButtonText] = useState('Initial Text');
+  const [playState, setPlayState] = useState('paused');
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -38,9 +40,13 @@ const App = () => {
               children={''}
               buttonText={buttonText}
               animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
+              playState={playState}
               stateMachine="State Machine 1"
+              disabled={buttonDisabled}
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
+            <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>Toggle Play State</button>
+            <button onClick={() => setButtonDisabled(buttonDisabled === true ? false : true)}>Toggle Button State</button>
             <SingleImage
               imageSrc="https://picsum.photos/600/400"
               altText="A random picture from Lorem Picsum"
