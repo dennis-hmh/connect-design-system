@@ -45,7 +45,7 @@ const App = () => {
               playState={playState}
               stateMachine="State Machine 1"
               disabled={buttonDisabled}
-              iconPosition="after"
+              iconPosition="before"
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
             <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>
