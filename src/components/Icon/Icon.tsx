@@ -2,6 +2,7 @@ import React from 'react';
 import { Color } from '../../utils/colors';
 import { IconId } from '../../utils/icon-list';
 import { GradeBand } from 'src/enum/gradeband';
+import sprite from '@connect/connect-design-system/dist/svg/sprite.svg';
 
 export type IconProps = {
   id: IconId;
@@ -46,8 +47,11 @@ export const Icon: React.FC<IconProps> = ({
         // xlinkHref={`src/assets/icons/sprite.svg#${id}`}
         // href={`src/assets/icons/sprite.svg#${id}`}
 
-        xlinkHref={`../svg/sprite.svg#${id}`}
-        href={`../svg/sprite.svg#${id}`}
+        // xlinkHref={`dist/svg/sprite.svg#${id}`}
+        // href={`dist/svg/sprite.svg#${id}`}
+
+        xlinkHref={`${sprite}#${id}`}
+        href={`${sprite}#${id}`}
       />
     </svg>
   );
