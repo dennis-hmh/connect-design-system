@@ -26,7 +26,7 @@ const App = () => {
   const themeWrapperRef = useRef(null);
   const [buttonText, setButtonText] = useState('Initial Text');
   const [playState, setPlayState] = useState('paused');
-  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -45,6 +45,7 @@ const App = () => {
               playState={playState}
               stateMachine="State Machine 1"
               disabled={buttonDisabled}
+              iconPosition="before"
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
             <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>
