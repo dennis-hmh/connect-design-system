@@ -12,7 +12,8 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "connect-design-system": ["src/component/index.ts"]
+      "connect-design-system": ["src/component/index.ts"],
+      "@connect/*": ["node_modules/@connect/*"]
     },
     "typeRoots": ["node_modules/@types", "src/types"],
 
@@ -20,6 +21,7 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "noEmit": true,
     // "jsx": "react-jsx",

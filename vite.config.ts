@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
-import css from 'rollup-plugin-css-only'; // Import the plugin
+import css from 'rollup-plugin-css-only';
 import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
 
 export default defineConfig({
@@ -16,10 +16,11 @@ export default defineConfig({
       fileName: 'connect-design-system',
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', '@connect/connect-design-system/dist/svg/sprite.svg'],
       output: {
         globals: {
           react: 'React',
+          '@connect/connect-design-system/dist/svg/sprite.svg': 'sprite',
         },
       },
     },
@@ -34,8 +35,13 @@ export default defineConfig({
     }),
     // css({ output: 'button.css' }),
     // ViteSvgSpriteWrapper({
-    // 	icons: './src/assets/icons/svg/*.svg',
-    // 	outputDir: './public/svg/'
+    //   icons: './src/assets/icons/svg/*.svg',
+    //   outputDir: './public/svg/',
     // }),
+    ViteSvgSpriteWrapper({
+      icons: './src/assets/icons/svg/*.svg',
+      //outputDir: 'dist/svg/',
+      outputDir: 'public/svg/',
+    }),
   ],
 });

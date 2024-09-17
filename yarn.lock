@@ -1479,11 +1479,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@connect/connect-design-system@^1.9.0, @connect/connect-design-system@workspace:.":
+"@connect/connect-design-system@npm:^1.11.2":
+  version: 1.11.2
+  resolution: "@connect/connect-design-system@npm:1.11.2::__archiveUrl=https%3A%2F%2Frepo.br.hmheng.io%2Fartifactory%2Fapi%2Fnpm%2Fcontent-engg-npm%2F%40connect%2Fconnect-design-system%2F-%2F%40connect%2Fconnect-design-system-1.11.2.tgz"
+  dependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 0f9e65bd9556a0e6af1571380894a880d82c82631ef9a6777f1c0074e9f9a48b7ad4324659ca3785e7ae2281e625cc2ba077718ee60be6058e978a6f01143aa3
+  languageName: node
+  linkType: hard
+
+"@connect/connect-design-system@npm:^1.9.0":
+  version: 1.11.1
+  resolution: "@connect/connect-design-system@npm:1.11.1::__archiveUrl=https%3A%2F%2Frepo.br.hmheng.io%2Fartifactory%2Fapi%2Fnpm%2Fcontent-engg-npm%2F%40connect%2Fconnect-design-system%2F-%2F%40connect%2Fconnect-design-system-1.11.1.tgz"
+  dependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 7be21b5773172605b3e7c0fe54d9bd6cca70d9eeac6fe68e2ec6e2c1f89fa5a810d341418cc4e55ea915868e8157591164478c35844cd95837e545fda60f5e65
+  languageName: node
+  linkType: hard
+
+"@connect/connect-design-system@workspace:.":
   version: 0.0.0-use.local
   resolution: "@connect/connect-design-system@workspace:."
   dependencies:
     "@chromatic-com/storybook": ^1
+    "@connect/connect-design-system": ^1.11.2
     "@connect/hmh-rive": ^1.0.9
     "@storybook/addon-a11y": 8.2.8
     "@storybook/addon-designs": ^8.0.3
