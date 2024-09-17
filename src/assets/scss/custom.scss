@@ -411,7 +411,6 @@ States:
 
     overflow: hidden;
     border: var(--connect__button-border-w) solid transparent;
-    cursor: pointer;
 
     background:
       linear-gradient(var(--connect__button-bg), var(--connect__button-bg)) padding-box,
@@ -426,6 +425,7 @@ States:
         border-box;
 
     display: grid;
+    align-content: center;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -441,7 +441,7 @@ States:
     &::after {
       width: 100%;
     }
-    &:is(:hover, :focus-visible) {
+    &:is(:hover, :focus-visible):not(:disabled) {
       --conic-gradient-color: var(--connect__button-bg);
 
       &,
@@ -467,25 +467,35 @@ States:
       }
     }
 
-    svg {
-      grid-row: 1;
-      grid-column: 2;
-    }
 
     p {
       margin: 0;
       grid-row: 1;
-      grid-column: 2;
+      grid-column: 1 / span 2;
       position: relative;
       z-index: 2;
       width: fit-content;
+      justify-self: center;
     }
 
-    svg, p {
-      &:first-child {
-        grid-column: 1;
-        justify-self: end;
+    &:has(svg) {
+      p {
+        grid-column: 2;
+        justify-self: start;
       }
+
+      svg {
+        grid-row: 1;
+        grid-column: 2;
+      }
+  
+      svg, p {
+        &:first-child {
+          grid-column: 1;
+          justify-self: end;
+        }
+
+      }  
     }
 
     hmh-rive {
