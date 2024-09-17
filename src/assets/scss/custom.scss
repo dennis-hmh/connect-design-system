@@ -411,7 +411,6 @@ States:
 
     overflow: hidden;
     border: var(--connect__button-border-w) solid transparent;
-    cursor: pointer;
 
     background:
       linear-gradient(var(--connect__button-bg), var(--connect__button-bg)) padding-box,
@@ -426,6 +425,7 @@ States:
         border-box;
 
     display: grid;
+    align-content: center;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -441,7 +441,7 @@ States:
     &::after {
       width: 100%;
     }
-    &:is(:hover, :focus-visible) {
+    &:is(:hover, :focus-visible):not(:disabled) {
       --conic-gradient-color: var(--connect__button-bg);
 
       &,
