@@ -2,7 +2,8 @@ import React from 'react';
 import { Color } from '../../utils/colors';
 import { IconId } from '../../utils/icon-list';
 import { GradeBand } from 'src/enum/gradeband';
-import sprite from '@connect/connect-design-system/dist/svg/sprite.svg';
+// import sprite from '/dist/svg/sprite.svg';
+import staticSprite from '/public/svg/sprite.svg';
 
 export type IconProps = {
   id: IconId;
@@ -29,6 +30,9 @@ export const Icon: React.FC<IconProps> = ({
   const fillColorVariable = fill ? `--connect__${fill}` : '';
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
+  // const spriteUrl =
+  //   process.env.NODE_ENV === 'prod' ? '@connect/connect-design-system/dist/svg/sprite.svg' : sprite;
+
   return (
     <svg
       className={`connect__icon connect__icon-${size} ${className}`}
@@ -44,14 +48,14 @@ export const Icon: React.FC<IconProps> = ({
       opacity={opacity}
     >
       <use
-        // xlinkHref={`src/assets/icons/sprite.svg#${id}`}
-        // href={`src/assets/icons/sprite.svg#${id}`}
-
         // xlinkHref={`dist/svg/sprite.svg#${id}`}
         // href={`dist/svg/sprite.svg#${id}`}
 
-        xlinkHref={`${sprite}#${id}`}
-        href={`${sprite}#${id}`}
+        // xlinkHref={`${spriteUrl}#${id}`}
+        // href={`${spriteUrl}#${id}`}
+
+        xlinkHref={`${staticSprite}#${id}`}
+        href={`${staticSprite}#${id}`}
       />
     </svg>
   );

@@ -16,11 +16,10 @@ export default defineConfig({
       fileName: 'connect-design-system',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@connect/connect-design-system/dist/svg/sprite.svg'],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
-          '@connect/connect-design-system/dist/svg/sprite.svg': 'sprite',
         },
       },
     },
@@ -44,4 +43,7 @@ export default defineConfig({
       outputDir: 'public/svg/',
     }),
   ],
+  define: {
+    'process.env': process.env,
+  },
 });

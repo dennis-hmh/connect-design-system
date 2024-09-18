@@ -1,6 +1,6 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.11.2",
+  "version": "1.11.3",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./dist/connect-design-system.umd.js",
@@ -23,12 +23,11 @@
     "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1",
-    "@connect/connect-design-system": "^1.11.2",
     "@connect/hmh-rive": "^1.0.9",
     "@storybook/addon-a11y": "8.2.8",
     "@storybook/addon-designs": "^8.0.3",
