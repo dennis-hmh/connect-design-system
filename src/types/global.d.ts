@@ -7,6 +7,7 @@ declare namespace JSX {
       autoplay?: boolean;
       stateMachine?: string;
       'play-state'?: boolean;
+      height?: boolean;
     };
   }
 }

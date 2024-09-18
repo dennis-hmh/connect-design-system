@@ -11,6 +11,7 @@ export type ButtonRiveProps = ButtonProps & {
   stateMachine?: string;
   buttonText: string;
   gradeBand?: GradeBand;
+  height?: boolean;
   playState?: string | null; // Control both play-state and opacity via this prop
 };
 
@@ -65,6 +66,7 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
         stateMachine={stateMachine}
         aria-hidden="true"
         style={{ opacity: isTypographyHidden ? 1 : 0 }}
+        height
       ></hmh-rive>
     </Button>
   );

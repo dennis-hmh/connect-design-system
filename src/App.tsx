@@ -41,7 +41,7 @@ const App = () => {
               additionalClass="connect__button--rive connect__button-loading"
               children={''}
               buttonText={buttonText}
-              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
               playState={playState}
               stateMachine="State Machine 1"
               disabled={buttonDisabled}
