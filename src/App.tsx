@@ -29,10 +29,11 @@ const App = () => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G9_12} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Grid gutter={true} gap="md">
           <GridItem>
+            <Image imageSrcG23="grade23" imageSrcG45="grade45" imageSrcG68="grade68" imageSrcG912="grade912" altText='test image' />
             <ProgressBar value={30} />
             <br />
             <ButtonRive
