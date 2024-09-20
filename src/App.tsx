@@ -1,3 +1,4 @@
+// @ts-ignore: React is used implicitly in JSX
 import React, { useRef, useState } from 'react';
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
@@ -92,9 +93,7 @@ const App = () => {
               footerContent="This is the footer content"
             />
             <Figure
-              children={
-                <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
-              }
+              children={<Image imageSrc="/images/zelda.jpg" altText="This is alt text for Zelda" />}
               caption="This is the caption for Zelda"
               cite="- This is the citation for Zelda"
             />
@@ -131,7 +130,7 @@ const App = () => {
                 children={'Loading'}
                 iconId={'loader'}
                 iconPosition={'before'}
-                additionalClass="connect__button-loader"
+                additionalClass="connect__button-loading"
               />
             </Stack>
             <br />
