@@ -15,19 +15,22 @@ export type ImageProps = {
   imageSrcG912?: string;
 };
 
-// const defaultImageSrc = '../../images/zelda.jpg';
+const defaultImageSrc =
+  import.meta.env.PROD === true
+    ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'
+    : '/images/zelda.jpg';
 
-export const Image: React.FC<ImageProps> = ({ 
-  imageSrc, 
-  altText, 
+export const Image: React.FC<ImageProps> = ({
+  imageSrc,
+  altText,
   dataTestId,
   imageSrcG23,
   imageSrcG35,
   imageSrcG45,
   imageSrcG68,
-  imageSrcG912
+  imageSrcG912,
 }) => {
-  const gradeBand = useGradeBand();  // Access the gradeBand via context
+  const gradeBand = useGradeBand(); // Access the gradeBand via context
 
   switch (gradeBand) {
     case GradeBand.G2_3:
@@ -46,9 +49,8 @@ export const Image: React.FC<ImageProps> = ({
       imageSrc = imageSrcG912 || 'Default G9-12';
       break;
     default:
-      imageSrc = '../../images/zelda.jpg';
+      imageSrc = '/images/zelda.jpg';
   }
-
 
   return <img src={imageSrc} alt={altText} data-testid={dataTestId} />;
 };
