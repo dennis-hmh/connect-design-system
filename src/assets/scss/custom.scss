@@ -1899,7 +1899,7 @@ example:
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
   position: relative;
-  width: 100%;
+  width: var(--theme__connect-grid-width, 100%);
   // Apply margin to all direct children except .connect__grid and section
   > *:not(.connect__grid):not(section):not(.connect__breakout) {
     @media (min-width: 40.625rem) {

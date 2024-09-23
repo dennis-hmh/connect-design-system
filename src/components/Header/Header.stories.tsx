@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Header, HeaderProps } from './Header';
+import GridItem from '../GridItem';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -12,7 +13,7 @@ const meta: Meta<typeof Header> = {
   title: 'Header',
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 };
 
@@ -26,7 +27,22 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div ref={themeWrapperRef}>
+      <div
+        ref={themeWrapperRef}
+        style={
+          {
+            '--theme__connect-grid-width': 'auto',
+            overflow: 'auto',
+            minHeight: 'calc(100vh -(var(--base-lheight)* 4))',
+            position: 'relative',
+            padding: '0 var(--gutter-width) calc(var(--base-lheight)* 4)',
+            color: '#2d2d2d',
+            WebkitFontSmoothing: 'antialiased',
+            counterReset: 'paras',
+            margin: '0',
+          } as React.CSSProperties
+        }
+      >
         <Header {...args} />
       </div>
     </ConnectTheme>
@@ -35,7 +51,11 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  children: <Typography children="Header" element="h1" />,
+  children: (
+    <GridItem>
+      <Typography children="Header" element="h1" />
+    </GridItem>
+  ),
   className: 'connect__grid',
   gradeBand: GradeBand.G4_5,
 };
@@ -44,9 +64,9 @@ export const SubHeader: Story = Template.bind({});
 SubHeader.args = {
   ...Default.args,
   children: (
-    <Stack>
+    <GridItem>
       <Typography children="Header" element="h1" />
       <Typography children="SubHeader" element="h2" />
-    </Stack>
+    </GridItem>
   ),
 };
