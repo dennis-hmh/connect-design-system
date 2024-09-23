@@ -12,7 +12,7 @@ import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import { ButtonRive } from './components/ButtonRive/ButtonRive';
-import { RiveGradeBanded } from './components/RiveGradebanded/RiveGradebanded';
+import { RiveGradebanded } from './components/RiveGradebanded/RiveGradebanded';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
@@ -34,7 +34,7 @@ const App = () => {
       <div ref={themeWrapperRef}>
         <Grid gutter={true} gap="md">
           <GridItem>
-            <RiveGradeBanded 
+            <RiveGradebanded 
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv" 
               descDefault="hi" 
               src23="https://chrisrooke-hmh.github.io/core-public/animations/dino.riv" 
@@ -50,7 +50,6 @@ const App = () => {
             />
           </GridItem>
           <GridItem>
-            <Image imageSrcG23="grade23" imageSrcG45="grade45" imageSrcG68="grade68" imageSrcG912="grade912" altText='test image' />
             <ProgressBar value={30} />
             <br />
             <ButtonRive

@@ -23,7 +23,7 @@ export type RiveGradebandedProps = {
     contain?: boolean;
 }
 
-export const RiveGradeBanded: React.FC<RiveGradebandedProps> = ({
+export const RiveGradebanded: React.FC<RiveGradebandedProps> = ({
     srcDefault,
     src23,
     src45,
