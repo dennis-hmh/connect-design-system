@@ -13,6 +13,7 @@ import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import { ButtonRive } from './components/ButtonRive/ButtonRive';
+import { RiveGradebanded } from './components/RiveGradebanded/RiveGradebanded';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
@@ -30,11 +31,26 @@ const App = () => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G9_12} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Grid gutter={true} gap="md">
           <GridItem>
-            <Image imageSrcG23="grade23" imageSrcG45="grade45" imageSrcG68="grade68" imageSrcG912="grade912" altText='test image' />
+            <RiveGradebanded 
+              srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv" 
+              descDefault="hi" 
+              src23="https://chrisrooke-hmh.github.io/core-public/animations/dino.riv" 
+              desc23="Grade 2-3" 
+              src45="https://chrisrooke-hmh.github.io/core-public/animations/cat.riv" 
+              desc45="Grade 4-5" 
+              src68="https://chrisrooke-hmh.github.io/core-public/animations/viking.riv" 
+              desc68="Grade 6-8" 
+              src912="https://chrisrooke-hmh.github.io/core-public/animations/watch.riv" 
+              desc912="Grade 9-12" 
+              hidePlayPause={true} 
+              autoplay={true}
+            />
+          </GridItem>
+          <GridItem>
             <ProgressBar value={30} />
             <br />
             <ButtonRive
