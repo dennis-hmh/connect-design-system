@@ -16,6 +16,7 @@ export type ButtonProps = {
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
   iconPosition?: 'before' | 'after';
+  iconOpacity?: React.CSSProperties['opacity'];
   ariaLabel?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -34,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   iconSize = 'md',
   fill = 'white',
   iconPosition = 'before',
+  iconOpacity,
   ariaLabel,
   dataTestId,
   additionalClass = ''
@@ -41,7 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
   const isIncorrect = incorrect ? 'connect__button-incorrect' : '';
-  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} /> : null;
+  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} /> : null;
   return (
     <button
       type={submit}

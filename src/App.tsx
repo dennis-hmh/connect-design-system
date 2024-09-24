@@ -1,3 +1,4 @@
+// @ts-ignore: React is used implicitly in JSX
 import React, { useRef, useState } from 'react';
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
@@ -26,6 +27,8 @@ import { Header } from './components/Header/Header';
 const App = () => {
   const themeWrapperRef = useRef(null);
   const [buttonText, setButtonText] = useState('Initial Text');
+  const [playState, setPlayState] = useState('paused');
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -40,12 +43,25 @@ const App = () => {
             <br />
             <ButtonRive
               primary={true}
+              iconId="loader"
+              additionalClass="connect__button--rive connect__button-loading"
               children={''}
               buttonText={buttonText}
-              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_no-pad_playstate.riv"
+              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
+              playState={playState}
               stateMachine="State Machine 1"
+              disabled={buttonDisabled}
+              iconPosition="after"
             ></ButtonRive>
             <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
+            <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>
+              Toggle Play State
+            </button>
+            <button onClick={() => setButtonDisabled(buttonDisabled === true ? false : true)}>
+              Toggle Button State
+            </button>
+            <br />
+            <br />
             <SingleImage
               imageSrc="https://picsum.photos/600/400"
               altText="A random picture from Lorem Picsum"
@@ -82,9 +98,7 @@ const App = () => {
               footerContent="This is the footer content"
             />
             <Figure
-              children={
-                <Image imageSrc="../../images/zelda.jpg" altText="This is alt text for Zelda" />
-              }
+              children={<Image imageSrc="/images/zelda.jpg" altText="This is alt text for Zelda" />}
               caption="This is the caption for Zelda"
               cite="- This is the citation for Zelda"
             />
@@ -116,6 +130,13 @@ const App = () => {
               />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />
+              <Button
+                primary={true}
+                children={'Loading'}
+                iconId={'loader'}
+                iconPosition={'before'}
+                additionalClass="connect__button-loading"
+              />
             </Stack>
             <br />
             <InputBox

@@ -31,6 +31,8 @@ const Template: StoryFn<ButtonRiveProps> = (args) => {
 export const Primary: Story = Template.bind({});
 Primary.args = {
   primary: true,
+  iconId: 'loader',
+  additionalClass: 'connect__button--rive connect__button-loading',
   textTransform: 'none',
   buttonText: 'Button Text',
   animSrc: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',

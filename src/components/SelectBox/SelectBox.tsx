@@ -1,3 +1,4 @@
+// @ts-ignore: React is used implicitly in JSX
 import React, { useState, useRef, ChangeEvent } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 

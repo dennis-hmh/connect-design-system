@@ -1,40 +1,39 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.11.0",
+  "version": "1.11.7",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./dist/connect-design-system.umd.js",
   "module": "./dist/connect-design-system.mjs",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
-    "format": "prettier --log-level warn --write \"src/**/*.{jsx,js,tsx,tx}\"",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_3466af048492acd"
-  },
   "files": [
     "dist"
   ],
   "publishConfig": {
     "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
   },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
+    "format": "prettier --log-level warn --write \"src/**/*.{jsx,js,tsx,tx}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_3466af048492acd"
+  },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1",
-    "@connect/hmh-rive": "1.0.9",
+    "@connect/hmh-rive": "^1.0.14",
     "@storybook/addon-a11y": "8.2.8",
     "@storybook/addon-designs": "^8.0.3",
     "@storybook/addon-essentials": "8.2.8",
     "@storybook/addon-interactions": "8.2.8",
     "@storybook/addon-links": "8.2.8",
-    "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/blocks": "8.2.8",
     "@storybook/builder-vite": "8.2.8",
     "@storybook/react": "8.2.8",

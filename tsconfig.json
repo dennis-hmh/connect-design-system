@@ -1,29 +1,30 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    //"target": "es5",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    //"module": "commonjs",
     "skipLibCheck": true,
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "connect-design-system": ["src/component/index.ts"]
+      "connect-design-system": ["src/component/index.ts"],
+      "@connect/*": ["node_modules/@connect/*"]
     },
+    "types": ["vite/client"],
     "typeRoots": ["node_modules/@types", "src/types"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "noEmit": true,
-    // "jsx": "react-jsx",
-    "jsx": "preserve",
+    "jsx": "preserve", //"react-jsx",
+    "jsxImportSource": "react",
 
     /* Linting */
     "strict": true,
@@ -31,7 +32,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*", "src/types/**/*"],
+  "include": ["src", "src/**/*", "src/types/*", "src/types/**/*"],
   "exclude": ["**/*.stories.tsx", "node_modules/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

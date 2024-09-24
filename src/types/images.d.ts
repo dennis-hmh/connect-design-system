@@ -17,3 +17,8 @@ declare module '*.jpeg' {
   const content: string;
   export default content;
 }
+
+declare module '@connect/connect-design-system/dist/svg/sprite.svg' {
+  const content: string;
+  export default content;
+}
