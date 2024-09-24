@@ -1,6 +1,7 @@
 import React, { useRef, CSSProperties } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Header, HeaderProps } from './Header';
+import GridItem from '../GridItem';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -24,23 +25,22 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
-  const bodyStyles: CSSProperties = {
-    color: '#2d2d2d',
-    counterReset: 'paras',
-    WebkitFontSmoothing: 'antialiased',
-    height: '100vh',
-    margin: 0,
+  const sourceStyles = {
+    '--theme__connect-grid-width': 'auto',
+    '--theme__connect-header-breakout-bg': 'var(--connect__gray-c5)',
     overflow: 'auto',
-    paddingTop: '0',
-    paddingBottom: '0',
-    paddingRight: 'var(--gutter-width)',
-    paddingLeft: 'var(--gutter-width)',
+    minHeight: 'calc(100vh -(var(--base-lheight)* 4))',
     position: 'relative',
+    padding: '0 var(--gutter-width) calc(var(--base-lheight)* 4)',
+    color: '#2d2d2d',
+    WebkitFontSmoothing: 'antialiased',
+    counterReset: 'paras',
+    margin: '0',
   };
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div ref={themeWrapperRef} style={bodyStyles}>
+      <div ref={themeWrapperRef} style={sourceStyles as React.CSSProperties}>
         <Header {...args} />
       </div>
     </ConnectTheme>
@@ -49,9 +49,13 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
+  children: (
+    <GridItem>
+      <Typography children="Header" element="h1" />
+    </GridItem>
+  ),
   className: 'connect__grid',
   gradeBand: GradeBand.G4_5,
-  children: 'New Header',
   element: 'h1',
   size: 'heading-xl',
   color: 'golden-m50',
@@ -61,9 +65,9 @@ export const SubHeader: Story = Template.bind({});
 SubHeader.args = {
   ...Default.args,
   children: (
-    <Stack>
+    <GridItem>
       <Typography children="Header" element="h1" />
       <Typography children="SubHeader" element="h2" />
-    </Stack>
+    </GridItem>
   ),
 };
