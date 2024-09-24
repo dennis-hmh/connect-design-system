@@ -1504,7 +1504,7 @@ Usage:
     var(--connect__header-border-r)
   );
 
-  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__gray-c5));
+  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__neutrals-pale));
   --connect__header-bg-image: var(--theme__connect-header-bg-image, none);
   --connect__header-bg-size: var(--theme__connect-header-bg-size, cover);
   --connect__header-bg-repeat: var(--theme__connect-header-bg-repeat, no-repeat);

@@ -25,24 +25,22 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
+  const sourceStyles = {
+    '--theme__connect-grid-width': 'auto',
+    '--theme__connect-header-breakout-bg': 'var(--connect__gray-c5)',
+    overflow: 'auto',
+    minHeight: 'calc(100vh -(var(--base-lheight)* 4))',
+    position: 'relative',
+    padding: '0 var(--gutter-width) calc(var(--base-lheight)* 4)',
+    color: '#2d2d2d',
+    WebkitFontSmoothing: 'antialiased',
+    counterReset: 'paras',
+    margin: '0',
+  };
+
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div
-        ref={themeWrapperRef}
-        style={
-          {
-            '--theme__connect-grid-width': 'auto',
-            overflow: 'auto',
-            minHeight: 'calc(100vh -(var(--base-lheight)* 4))',
-            position: 'relative',
-            padding: '0 var(--gutter-width) calc(var(--base-lheight)* 4)',
-            color: '#2d2d2d',
-            WebkitFontSmoothing: 'antialiased',
-            counterReset: 'paras',
-            margin: '0',
-          } as React.CSSProperties
-        }
-      >
+      <div ref={themeWrapperRef} style={sourceStyles as React.CSSProperties}>
         <Header {...args} />
       </div>
     </ConnectTheme>
