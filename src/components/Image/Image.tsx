@@ -8,7 +8,10 @@ export type ImageProps = {
   gradeBand?: GradeBand;
 };
 
-const defaultImageSrc = '../../images/zelda.jpg';
+const defaultImageSrc =
+  import.meta.env.PROD === true
+    ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'
+    : '/images/zelda.jpg';
 
 export const Image: React.FC<ImageProps> = ({ imageSrc, altText, dataTestId }) => {
   return <img src={imageSrc || defaultImageSrc} alt={altText} data-testid={dataTestId} />;
