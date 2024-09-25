@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+// @ts-ignore: React is used implicitly in JSX
+import React, { useState } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {

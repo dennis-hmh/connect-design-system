@@ -97,6 +97,8 @@ export type IconId =
   'special-shapes-two'|
   'stamps-measure-outline'|
   'stamps-counter-outline'|
-  'stamps-special-shapes-outline'
+  'stamps-special-shapes-outline'|
+  'loader'|
+  'loader-2'
 ;
  // To generate lists run 'Node src/utils/sprite-ids.js'

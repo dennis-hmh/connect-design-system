@@ -23,7 +23,7 @@ typings/
 .stylelintcache
 
 # env & config
-*.env*
+# *.env*
 config/local*
 */config/local*
 
