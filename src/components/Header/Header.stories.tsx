@@ -25,7 +25,7 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
-  const sourceStyles = {
+  const sourceBodyStyles = {
     '--theme__connect-grid-width': 'auto',
     '--theme__connect-header-breakout-bg': 'var(--connect__gray-c5)',
     overflow: 'auto',
@@ -40,7 +40,7 @@ const Template: StoryFn<HeaderProps> = (args) => {
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div ref={themeWrapperRef} style={sourceStyles as React.CSSProperties}>
+      <div ref={themeWrapperRef} style={sourceBodyStyles as React.CSSProperties}>
         <Header {...args} />
       </div>
     </ConnectTheme>
@@ -56,9 +56,6 @@ Default.args = {
   ),
   className: 'connect__grid',
   gradeBand: GradeBand.G4_5,
-  element: 'h1',
-  size: 'heading-xl',
-  color: 'golden-m50',
 };
 
 export const SubHeader: Story = Template.bind({});

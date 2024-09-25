@@ -403,7 +403,7 @@ States:
     --connect__button-border-w: 2px;
     --duration: 1.25s;
     --inner-shimmer: isolation: isolate;
-   
+
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     grid-template-rows: 1fr;
 
@@ -1760,9 +1760,8 @@ Usage:
     );
 
     // Apply border radius
-    border-radius: var(--connect__header-border-r-tl-before)
-      var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
-      var(--connect__header-border-r-bl-before);
+    // border-radius: var(--connect__header-border-r-tl-before)
+    //   var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before) var(--connect__header-border-r-bl-before);
 
     background-color: var(--connect__header-breakout-bg);
     content: '';
@@ -1816,9 +1815,8 @@ Usage:
       );
 
       // Apply border radius
-      border-radius: var(--connect__header-border-r-tl-before)
-        var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before)
-        var(--connect__header-border-r-bl-before);
+      // border-radius: var(--connect__header-border-r-tl-before)
+      //   var(--connect__header-border-r-tr-before) var(--connect__header-border-r-br-before) var(--connect__header-border-r-bl-before);
 
       background-color: var(--connect__header-breakout-bg);
       content: '';

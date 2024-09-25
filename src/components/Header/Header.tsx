@@ -1,9 +1,8 @@
 import React from 'react';
-import { Typography, TypographyProps } from '../Typography/Typography';
 import { Color } from 'src/utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
 
-export type HeaderProps = TypographyProps & {
+export type HeaderProps = {
   children: React.ReactNode;
   borderWidth?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   borderColor?: Color;
@@ -34,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({
   paddingRight = 'sm',
   className = 'connect__grid',
   dataTestId,
-  ...TypographyProps
 }) => {
   const headerProps: React.CSSProperties = {};
 
@@ -61,9 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className={`connect__header ${className}`} data-testid={dataTestId} style={headerProps}>
-      <Typography {...TypographyProps} className="connect__grid-item">
-        {children}
-      </Typography>
+      {children}
     </header>
   );
 };

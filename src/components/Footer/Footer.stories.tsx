@@ -9,7 +9,7 @@ const meta: Meta<typeof Footer> = {
   title: 'Footer',
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 };
 
@@ -21,9 +21,21 @@ const Template: StoryFn<FooterProps> = (args) => {
 
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
+  const sourceBodyStyles = {
+    '--theme__connect-grid-width': 'auto',
+    overflow: 'auto',
+    minHeight: 'calc(100vh -(var(--base-lheight)* 4))',
+    position: 'relative',
+    padding: '0 var(--gutter-width) calc(var(--base-lheight)* 4)',
+    color: '#2d2d2d',
+    WebkitFontSmoothing: 'antialiased',
+    counterReset: 'paras',
+    margin: '0',
+  };
+
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div ref={themeWrapperRef}>
+      <div ref={themeWrapperRef} style={sourceBodyStyles as React.CSSProperties}>
         <Footer {...args} />
       </div>
     </ConnectTheme>
@@ -32,6 +44,8 @@ const Template: StoryFn<FooterProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  children: 'Footer',
+  children: '',
+  footerBreakoutColor: 'green-s50',
+  footerPosition: 'relative',
   gradeBand: GradeBand.G4_5,
 };
