@@ -1,0 +1,46 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+    "custom-property-empty-line-before": null,
+    "custom-property-pattern": null,
+    "declaration-empty-line-before": null,
+    "declaration-block-no-duplicate-custom-properties": null,
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["gap", "inset", "place-content", "padding", "margin", "margin-inline"]
+      }
+    ],
+    "media-feature-range-notation": "prefix",
+    "no-descending-specificity": [
+      false,
+      {
+        "ignore": ["selectors-within-list"]
+      }
+    ],
+    "no-duplicate-selectors": null,
+    "property-no-vendor-prefix": [true, { "severity": "warning" }],
+    "rule-empty-line-before": null,
+    "selector-class-pattern": [
+      "^connect__[a-z0-9-]+$",
+      {
+        "resolveNestedSelectors": false
+      }
+    ],
+    "selector-not-notation": "simple",
+    "order/properties-alphabetical-order": [true, { "severity": "warning" }],
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested", "inside-block"],
+        "ignore": ["between-comments", "stylelint-commands", "inside-block"]
+      },
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}
