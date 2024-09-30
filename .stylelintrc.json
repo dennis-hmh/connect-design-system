@@ -16,7 +16,7 @@
     ],
     "media-feature-range-notation": "prefix",
     "no-descending-specificity": [
-      false,
+      null,
       {
         "ignore": ["selectors-within-list"]
       }
@@ -31,6 +31,10 @@
       }
     ],
     "selector-not-notation": "simple",
+    "selector-max-compound-selectors": [3, {
+      "severity": "warning",
+      "message": "Avoid using more than 3 compound selectors."
+    }],
     "order/properties-alphabetical-order": [true, { "severity": "warning" }],
     "scss/double-slash-comment-empty-line-before": [
       "always",

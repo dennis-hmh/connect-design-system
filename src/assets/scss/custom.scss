@@ -130,8 +130,8 @@ States:
 
   &-toolbar
     - Toolbar button state.
-    - &.selected: Selected state for toolbar buttons.
-    - &:not(.selected): Default state for toolbar buttons that are not selected.
+    - &.connect__selected: Selected state for toolbar buttons.
+    - &:not(.connect__selected): Default state for toolbar buttons that are not selected.
     - svg: Styles for SVG icons inside the toolbar button.
 
   &:disabled
@@ -144,27 +144,27 @@ States:
 */
 
 @property --gradient-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
   inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
 
 @property --gradient-angle-offset {
-  syntax: '<angle>';
-  initial-value: 0deg;
   inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
 
 @property --gradient-percent {
-  syntax: '<percentage>';
-  initial-value: 5%;
   inherits: false;
+  initial-value: 5%;
+  syntax: '<percentage>';
 }
 
 @property --gradient-shine {
-  syntax: '<color>';
-  initial-value: transparent;
   inherits: false;
+  initial-value: transparent;
+  syntax: '<color>';
 }
 
 .connect__button {
@@ -365,7 +365,7 @@ States:
     --connect__button-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-y));
     --connect__button-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-x));
 
-    &.media-active:not(:disabled) {
+    &.connect__media-active:not(:disabled) {
       --state-based-bg: var(--connect__red-s45);
     }
   }
@@ -1527,28 +1527,28 @@ section.connect__grid {
 }
 
 @media (min-width: 30rem) {
-  .connect-sm {
+  .connect__sm {
     grid-column: var(--sm-start-col) / span var(--sm-span-col);
     grid-row: var(--sm-row-span, auto);
   }
 }
 
 @media (min-width: 40.625rem) {
-  .connect-md {
+  .connect__md {
     grid-column: var(--md-start-col) / span var(--md-span-col);
     grid-row: var(--md-row-span, auto);
   }
 }
 
 @media (min-width: 55rem) {
-  .connect-lg {
+  .connect__lg {
     grid-column: var(--lg-start-col) / span var(--lg-span-col);
     grid-row: var(--lg-row-span, auto);
   }
 }
 
 @media (min-width: 80rem) {
-  .connect-xl {
+  .connect__xl {
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
     grid-row: var(--xl-row-span, auto);
   }
@@ -1618,13 +1618,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
   width: 100%;
 
-  &.stack-xs {
+  &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);
     --connect__paddingY: var(--xs-paddingY, 0);
   }
 
   @media (min-width: 30rem) {
-    &.stack-sm {
+    &.connect__stack-sm {
       --connect__stack-spacing: var(--sm-spacing);
       --connect__stack-direction: var(--sm-direction);
       --connect__stack-align: var(--sm-alignItems);
@@ -1636,7 +1636,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 40.625rem) {
-    &.stack-md {
+    &.connect__stack-md {
       --connect__stack-spacing: var(--md-spacing);
       --connect__stack-direction: var(--md-direction);
       --connect__stack-align: var(--md-alignItems);
@@ -1648,7 +1648,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 55rem) {
-    &.stack-lg {
+    &.connect__stack-lg {
       --connect__stack-spacing: var(--lg-spacing);
       --connect__stack-direction: var(--lg-direction);
       --connect__stack-align: var(--lg-alignItems);
@@ -1660,7 +1660,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 80rem) {
-    &.stack-xl {
+    &.connect__stack-xl {
       --connect__stack-spacing: var(--xl-spacing);
       --connect__stack-direction: var(--xl-direction);
       --connect__stack-align: var(--xl-alignItems);
@@ -2089,8 +2089,6 @@ input[type='radio'].connect__input {
 
   --border-radius: 2.5rem;
 
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: none;
   border-radius: var(--border-radius);
@@ -2181,7 +2179,7 @@ input[type='radio'].connect__input {
 .connect__toolbar-item {
   padding: 0.0625rem;
 
-  &.selected {
+  &.connect__selected {
     .connect__button-toolbar {
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
@@ -2216,7 +2214,7 @@ input[type='radio'].connect__input {
     }
   }
 
-  &:not(.selected) {
+  &:not(.connect__selected) {
     .connect__button-toolbar {
       &:active {
         --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -2505,7 +2503,7 @@ input[type='radio'].connect__input {
   padding: 0;
 
   .connect__toolbar-item {
-    &.selected {
+    &.connect__selected {
       .connect__button-toolbar {
         --connect__button-bg: var(--connect__neutrals-white);
 
