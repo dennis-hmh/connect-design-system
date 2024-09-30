@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Footer> = {
   component: Footer,
-  title: 'Footer',
+  title: 'Layout/Footer',
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
