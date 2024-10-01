@@ -47,6 +47,8 @@
     "@typescript-eslint/parser": "^6.20.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "autoprefixer": "^10.4.20",
+    "browserslist": "^4.24.0",
     "chromatic": "^11.5.3",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.32.2",
@@ -75,6 +77,11 @@
     "vite-svg-sprite-wrapper": "^1.3.2",
     "vite-tsconfig-paths": "^4.3.1"
   },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
+  ],
   "readme": "./README.md",
   "_id": "312-ui@0.0.0"
 }
