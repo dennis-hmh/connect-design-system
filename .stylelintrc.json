@@ -15,26 +15,45 @@
       }
     ],
     "media-feature-range-notation": "prefix",
-    "no-descending-specificity": [
-      null,
+    "max-nesting-depth": [
+      3,
       {
-        "ignore": ["selectors-within-list"]
+        "ignore": ["blockless-at-rules", "pseudo-classes"],
+        "ignoreAtRules": ["each", "media", "supports", "include"],
+        "severity": "warning",
+        "message": "Avoid using more than 3 nesting levels."
       }
     ],
+    "no-descending-specificity": null,
     "no-duplicate-selectors": null,
     "property-no-vendor-prefix": [true, { "severity": "warning" }],
-    "rule-empty-line-before": null,
+    "rule-empty-line-before": [
+      true,
+      {
+        "except": ["first-nested", "after-single-line-comment"],
+        "ignore": ["after-comment"]
+      }
+    ],
     "selector-class-pattern": [
       "^connect__[a-z0-9-]+$",
       {
         "resolveNestedSelectors": false
       }
     ],
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute"]
+      }
+    ],
     "selector-not-notation": "simple",
-    "selector-max-compound-selectors": [3, {
-      "severity": "warning",
-      "message": "Avoid using more than 3 compound selectors."
-    }],
+    "selector-max-compound-selectors": [
+      3,
+      {
+        "severity": "warning",
+        "message": "Avoid using more than 3 compound selectors."
+      }
+    ],
     "order/properties-alphabetical-order": [true, { "severity": "warning" }],
     "scss/double-slash-comment-empty-line-before": [
       "always",
