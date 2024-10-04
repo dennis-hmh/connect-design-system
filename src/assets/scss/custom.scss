@@ -19,24 +19,24 @@
 
 .connect__g23 {
   --connect__effects-inner-edge: 0.375rem;
-  --inner-status: 0.625rem;
+  --connect__inner-status: 0.625rem;
 }
 
 .connect__g45 {
   --connect__effects-inner-edge: 0.1875rem;
-  --inner-status: 0.375rem;
+  --connect__inner-status: 0.375rem;
   --inner-divider-width: 0.5rem;
 }
 
 .connect__g68 {
   --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__inner-status: 0.25rem;
   --inner-divider-width: 0.375rem;
 }
 
 .connect__g912 {
   --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__inner-status: 0.25rem;
   --inner-divider-width: 0.375rem;
   --color-incorrect-status: var(--connect__incorrect-mid);
   --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
@@ -83,9 +83,9 @@ Variables related to states (e.g., correct/incorrect):
   --connect__icon-fill-color: Fill color for icons inside the button.
   --connect__button-inner-divider: Inner divider size.
   --connect__button-inner-divider-color: Inner divider color.
-  --inner-status: Inner status size.
-  --inner-status-color: Inner status color.
-  --inner-status-color-state: State-based inner status color.
+  --connect__inner-status: Inner status size.
+  --connect__inner-status-color: Inner status color.
+  --connect__inner-status-color-state: State-based inner status color.
   --state-based-bg: State-based background color.
   --active-color: Active state color.
 
@@ -208,8 +208,8 @@ States:
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0)
-      var(--inner-status-color-state, var(--inner-status-color, transparent)) inset,
+    0rem 0rem 0rem var(--connect__inner-status, 0)
+      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent)) inset,
     0rem 0rem 0rem var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
@@ -272,30 +272,30 @@ States:
   &-secondary {
     --state-based-bg: var(--connect__neutrals-white);
     --active-color: var(--connect__selected-mid);
-    --inner-status-color: var(--connect__selected-mid);
+    --connect__inner-status-color: var(--connect__selected-mid);
     --connect__button-inner-divider: var(--connect__button-padding-y);
     --connect__button-inner-divider-color: var(--connect__neutrals-white);
 
     &[class*='connect_']:disabled {
       --state-based-bg: var(--connect__neutrals-white);
-      --inner-status-color: var(--connect__neutrals-pale);
+      --connect__inner-status-color: var(--connect__neutrals-pale);
     }
 
     &[class*='-correct']:disabled {
-      --inner-status-color: var(--connect__correct-light);
+      --connect__inner-status-color: var(--connect__correct-light);
     }
 
     &[class*='-incorrect']:disabled {
-      --inner-status-color: var(--connect__incorrect-light);
+      --connect__inner-status-color: var(--connect__incorrect-light);
     }
 
     &.connect__button-incorrect {
-      --inner-status-color: var(--connect__incorrect-mid);
+      --connect__inner-status-color: var(--connect__incorrect-mid);
     }
 
     &.connect__button-correct {
       --state-based-bg: var(--connect__neutrals-white);
-      --inner-status-color: var(--connect__correct-light);
+      --connect__inner-status-color: var(--connect__correct-light);
     }
   }
 
@@ -1835,7 +1835,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0rem 0rem 0rem var(--connect__inner-status, 0.375rem)
       var(--mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
     0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
@@ -1935,7 +1935,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0rem 0rem 0rem var(--connect__inner-status, 0.375rem)
       var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
     0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
@@ -2633,7 +2633,7 @@ Variables:
   --mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
   --state-icon: Icon used to represent the state.
   --state-based-bg: Background color based on the state.
-  --inner-status-color-state: State-based inner status color.
+  --connect__inner-status-color-state: State-based inner status color.
   --checkbox-state-based-bg: Background color for the state of checkboxes.
   --state-mcq-shadow: Shadow color for multiple-choice questions in the incorrect state.
   --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
@@ -2659,7 +2659,7 @@ Styles:
       - Sets the icon used to represent the state to the 'incorrect' icon.
     --state-based-bg: var(--color-incorrect-bg);
       - Sets the background color based on the state to the incorrect background color.
-    --inner-status-color-state: var(--color-incorrect-bg);
+    --connect__inner-status-color-state: var(--color-incorrect-bg);
       - Sets the state-based inner status color to the incorrect background color.
     --checkbox-state-based-bg: var(--checked-incorrect-bg);
       - Sets the background color for the state of checkboxes to the incorrect background color.
@@ -2681,7 +2681,7 @@ Styles:
   --mcq-starting-shadow-color: transparent;
   --state-icon: var(--icon-incorrect);
   --state-based-bg: var(--color-incorrect-bg);
-  --inner-status-color-state: var(--color-incorrect-bg);
+  --connect__inner-status-color-state: var(--color-incorrect-bg);
   --checkbox-state-based-bg: var(--checked-incorrect-bg);
   --state-mcq-shadow: var(--connect__incorrect-mid);
   --checkbox-checked-state-based-border-c: var(
