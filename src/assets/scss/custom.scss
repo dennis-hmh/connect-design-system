@@ -917,7 +917,7 @@ States:
       z-index: 1;
 
       li {
-        cursor: var(---connect__state-based-pointer, pointer);
+        cursor: var(--connect__state-based-pointer, pointer);
         padding: var(--connect__spacer-sm);
 
         &:first-of-type {
@@ -984,7 +984,7 @@ States:
   summary {
     align-items: center;
     border-radius: var(--border-radius);
-    cursor: var(---connect__state-based-pointer, pointer);
+    cursor: var(--connect__state-based-pointer, pointer);
     // position: relative;
     display: flex;
 
