@@ -209,7 +209,8 @@ States:
   box-shadow:
     var(--inner-shadow),
     0rem 0rem 0rem var(--connect__inner-status, 0)
-      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent)) inset,
+      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent))
+      inset,
     0rem 0rem 0rem var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
@@ -403,7 +404,7 @@ States:
     --connect__button-border-w: 2px;
     --duration: 1.25s;
     --inner-shimmer: isolation: isolate;
-   
+
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     grid-template-rows: 1fr;
 
@@ -796,7 +797,7 @@ States:
   background-position: calc(100% - var(--connect__select-padding-x));
   background-repeat: no-repeat;
 
-  background-size: var(--ui-icon) var(--ui-icon);
+  background-size: var(--connect__ui-icon) var(--connect__ui-icon);
 
   border: var(--connect__select-border-w) solid var(--connect__select-border-c);
   border-radius: var(--border-radius);
@@ -1010,7 +1011,7 @@ States:
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: var(--ui-icon) var(--ui-icon);
+      background-size: var(--connect__ui-icon) var(--connect__ui-icon);
       border: var(--border-width) solid var(--active-color);
       border-radius: 50%;
       content: '';
