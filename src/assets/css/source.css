@@ -1118,15 +1118,17 @@
   --connect__spacer-sm: calc(var(--base-lheight) * 0.25);
   --connect__spacer-xs: calc(var(--base-lheight) * 0.125);
 
-  --connect__transition-default: 100ms;
-  --connect__transition-medium: 200ms;
-  --connect__transition-slow: 300ms;
-
-  --connect__ease-in: cubic-bezier(0.42, 0, 1, 1);
-  --connect__ease-out: cubic-bezier(0, 0, 0.58, 1);
-  --connect__ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
   --connect__linear: cubic-bezier(0, 0, 1, 1);
-  --connect__bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --connect__ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --connect__ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --connect__in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+  --connect__transition-rapid: 150ms;
+  --connect__transition-fast: 300ms;
+  --connect__transition-medium: 500ms;
+  --connect__transition-slow: 700ms;
+
+  --connect__cc-purple: rgb(113, 47, 253);
 }
 @media (min-width: 40.625rem) {
   :root {
