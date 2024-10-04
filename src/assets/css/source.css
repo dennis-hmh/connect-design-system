@@ -1172,6 +1172,46 @@
   font-size-adjust: ex-height 0.486;
 }
 
+/* 
+:where(head-level):not([class]), 
+:where(head-level)[class=''] 
+ targets head-levels elements that either have no class or an empty class
+ This approach ensures that unstyled heading elements (those without specific classes) have consistent, 
+ predefined styles across the app, while still allowing for custom styling 
+ when classes are applied to heading elements
+
+ This is using :where because :where sets specificity to 0. 
+*/
+:where([class^='connect__']) :where(h1):not([class]),
+:where([class^='connect__']) :where(h1)[class=''] {
+  font-size: var(--connect__heading-xl);
+  line-height: var(--connect__heading-xl-lheight);
+}
+
+:where([class^='connect__']) :where(h2):not([class]),
+:where([class^='connect__']) :where(h2)[class=''] {
+  font-size: var(--connect__heading-lg);
+  line-height: var(--connect__heading-lg-lheight);
+}
+
+:where([class^='connect__']) :where(h3):not([class]),
+:where([class^='connect__']) :where(h3)[class=''] {
+  font-size: var(--connect__heading-md);
+  line-height: var(--connect__heading-md-lheight);
+}
+
+:where([class^='connect__']) :where(h4):not([class]),
+:where([class^='connect__']) :where(h4)[class=''] {
+  font-size: var(--connect__heading-sm);
+  line-height: var(--connect__heading-sm-lheight);
+}
+
+:where([class^='connect__']) :where(h5):not([class]),
+:where([class^='connect__']) :where(h5)[class=''] {
+  font-size: var(--connect__body-lg);
+  line-height: var(--connect__body-lg-head-lheight);
+}
+
 :where([class^='connect__']) :where(h1, h2, h3, h4, h5) {
   hyphens: auto;
   margin-block: 0;
