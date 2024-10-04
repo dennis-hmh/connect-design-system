@@ -19,24 +19,24 @@
 
 .connect__g23 {
   --connect__effects-inner-edge: 0.375rem;
-  --inner-status: 0.625rem;
+  --connect__inner-status: 0.625rem;
 }
 
 .connect__g45 {
   --connect__effects-inner-edge: 0.1875rem;
-  --inner-status: 0.375rem;
+  --connect__inner-status: 0.375rem;
   --inner-divider-width: 0.5rem;
 }
 
 .connect__g68 {
   --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__inner-status: 0.25rem;
   --inner-divider-width: 0.375rem;
 }
 
 .connect__g912 {
   --connect__effects-inner-edge: 0.125rem;
-  --inner-status: 0.25rem;
+  --connect__inner-status: 0.25rem;
   --inner-divider-width: 0.375rem;
   --color-incorrect-status: var(--connect__incorrect-mid);
   --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
@@ -83,9 +83,9 @@ Variables related to states (e.g., correct/incorrect):
   --connect__icon-fill-color: Fill color for icons inside the button.
   --connect__button-inner-divider: Inner divider size.
   --connect__button-inner-divider-color: Inner divider color.
-  --inner-status: Inner status size.
-  --inner-status-color: Inner status color.
-  --inner-status-color-state: State-based inner status color.
+  --connect__inner-status: Inner status size.
+  --connect__inner-status-color: Inner status color.
+  --connect__inner-status-color-state: State-based inner status color.
   --state-based-bg: State-based background color.
   --active-color: Active state color.
 
@@ -208,8 +208,9 @@ States:
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0)
-      var(--inner-status-color-state, var(--inner-status-color, transparent)) inset,
+    0rem 0rem 0rem var(--connect__inner-status, 0)
+      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent))
+      inset,
     0rem 0rem 0rem var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
@@ -272,30 +273,30 @@ States:
   &-secondary {
     --state-based-bg: var(--connect__neutrals-white);
     --active-color: var(--connect__selected-mid);
-    --inner-status-color: var(--connect__selected-mid);
+    --connect__inner-status-color: var(--connect__selected-mid);
     --connect__button-inner-divider: var(--connect__button-padding-y);
     --connect__button-inner-divider-color: var(--connect__neutrals-white);
 
     &[class*='connect_']:disabled {
       --state-based-bg: var(--connect__neutrals-white);
-      --inner-status-color: var(--connect__neutrals-pale);
+      --connect__inner-status-color: var(--connect__neutrals-pale);
     }
 
     &[class*='-correct']:disabled {
-      --inner-status-color: var(--connect__correct-light);
+      --connect__inner-status-color: var(--connect__correct-light);
     }
 
     &[class*='-incorrect']:disabled {
-      --inner-status-color: var(--connect__incorrect-light);
+      --connect__inner-status-color: var(--connect__incorrect-light);
     }
 
     &.connect__button-incorrect {
-      --inner-status-color: var(--connect__incorrect-mid);
+      --connect__inner-status-color: var(--connect__incorrect-mid);
     }
 
     &.connect__button-correct {
       --state-based-bg: var(--connect__neutrals-white);
-      --inner-status-color: var(--connect__correct-light);
+      --connect__inner-status-color: var(--connect__correct-light);
     }
   }
 
@@ -796,7 +797,7 @@ States:
   background-position: calc(100% - var(--connect__select-padding-x));
   background-repeat: no-repeat;
 
-  background-size: var(--ui-icon) var(--ui-icon);
+  background-size: var(--connect__ui-icon) var(--connect__ui-icon);
 
   border: var(--connect__select-border-w) solid var(--connect__select-border-c);
   border-radius: var(--border-radius);
@@ -1010,7 +1011,7 @@ States:
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: var(--ui-icon) var(--ui-icon);
+      background-size: var(--connect__ui-icon) var(--connect__ui-icon);
       border: var(--border-width) solid var(--active-color);
       border-radius: 50%;
       content: '';
@@ -1621,13 +1622,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
   width: 100%;
 
-  &.stack-xs {
+  &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);
     --connect__paddingY: var(--xs-paddingY, 0);
   }
 
   @media (min-width: 30rem) {
-    &.stack-sm {
+    &.connect__stack-sm {
       --connect__stack-spacing: var(--sm-spacing);
       --connect__stack-direction: var(--sm-direction);
       --connect__stack-align: var(--sm-alignItems);
@@ -1639,7 +1640,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 40.625rem) {
-    &.stack-md {
+    &.connect__stack-md {
       --connect__stack-spacing: var(--md-spacing);
       --connect__stack-direction: var(--md-direction);
       --connect__stack-align: var(--md-alignItems);
@@ -1651,7 +1652,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 55rem) {
-    &.stack-lg {
+    &.connect__stack-lg {
       --connect__stack-spacing: var(--lg-spacing);
       --connect__stack-direction: var(--lg-direction);
       --connect__stack-align: var(--lg-alignItems);
@@ -1663,7 +1664,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 80rem) {
-    &.stack-xl {
+    &.connect__stack-xl {
       --connect__stack-spacing: var(--xl-spacing);
       --connect__stack-direction: var(--xl-direction);
       --connect__stack-align: var(--xl-alignItems);
@@ -1835,7 +1836,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0rem 0rem 0rem var(--connect__inner-status, 0.375rem)
       var(--mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
     0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
@@ -1935,7 +1936,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0rem 0rem 0rem var(--connect__inner-status, 0.375rem)
       var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
     0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
@@ -2676,7 +2677,7 @@ Variables:
   --mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
   --state-icon: Icon used to represent the state.
   --state-based-bg: Background color based on the state.
-  --inner-status-color-state: State-based inner status color.
+  --connect__inner-status-color-state: State-based inner status color.
   --checkbox-state-based-bg: Background color for the state of checkboxes.
   --state-mcq-shadow: Shadow color for multiple-choice questions in the incorrect state.
   --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
@@ -2702,7 +2703,7 @@ Styles:
       - Sets the icon used to represent the state to the 'incorrect' icon.
     --state-based-bg: var(--color-incorrect-bg);
       - Sets the background color based on the state to the incorrect background color.
-    --inner-status-color-state: var(--color-incorrect-bg);
+    --connect__inner-status-color-state: var(--color-incorrect-bg);
       - Sets the state-based inner status color to the incorrect background color.
     --checkbox-state-based-bg: var(--checked-incorrect-bg);
       - Sets the background color for the state of checkboxes to the incorrect background color.
@@ -2724,7 +2725,7 @@ Styles:
   --mcq-starting-shadow-color: transparent;
   --state-icon: var(--icon-incorrect);
   --state-based-bg: var(--color-incorrect-bg);
-  --inner-status-color-state: var(--color-incorrect-bg);
+  --connect__inner-status-color-state: var(--color-incorrect-bg);
   --checkbox-state-based-bg: var(--checked-incorrect-bg);
   --state-mcq-shadow: var(--connect__incorrect-mid);
   --checkbox-checked-state-based-border-c: var(
