@@ -1213,10 +1213,14 @@
   }
 }
 
-:where([class^="connect__"]) :where(h1, h2, h3, h4, h5) {
+:where([class^='connect__']) :where(h1, h2, h3, h4, h5) {
   hyphens: auto;
   margin-block: 0;
   text-wrap: balance;
+}
+
+:where([class^='connect__']):focus-visible {
+  outline: 0;
 }
 
 .connect__h1 {
@@ -1255,5 +1259,3 @@
   font-size: var(--connect__body-md);
   line-height: var(--connect__body-md-lheight);
 }
-
-
