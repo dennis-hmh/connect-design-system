@@ -1753,8 +1753,8 @@ Variables related to border radius:
 
 Variables related to padding:
   --connect__pill-py: Vertical padding (top and bottom).
-  --connect__pill-p-l: Left padding.
-  --connect__pill-p-r: Right padding.
+  --connect__pill-pl: Left padding.
+  --connect__pill-pr: Right padding.
   --connect__spacer-xs: Used as a fallback for vertical padding.
   --connect__spacer-md: Used as a fallback for left padding.
   --connect__spacer-lg: Used as a fallback for right padding.
@@ -1776,7 +1776,7 @@ Usage:
 */
 .connect__pill {
   // palette
-  --connect__default-pill-bg: var(--connect__cc-purple);
+  --connect__default-pill-bg: var(--connect__cc-purple, var(--connect__purple-s50));
   --connect__default-pill-color: var(--connect__neutrals-white);
   --connect__pill-bg: var(--theme__pill-bg, var(--connect__default-pill-bg));
   --connect__pill-color: var(--theme__pill-color, var(--connect__default-pill-color));
@@ -1789,8 +1789,8 @@ Usage:
 
   // padding
   --connect__pill-py: var(--theme__pill-py, var(--connect__spacer-xs));
-  --connect__pill-p-l: var(--theme__pill-pl, var(--connect__spacer-md));
-  --connect__pill-p-r: var(--theme__pill-pr, var(--connect__spacer-lg));
+  --connect__pill-pl: var(--theme__pill-pl, var(--connect__spacer-md));
+  --connect__pill-pr: var(--theme__pill-pr, var(--connect__spacer-lg));
 
   // typography
   --connect__pill-fs: var(--theme__connect-pill-fs, var(--connect__body-sm));
