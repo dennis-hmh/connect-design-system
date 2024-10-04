@@ -1163,6 +1163,48 @@
   }
 }
 
+/* A connect reset starter kit
+An attempt to unify code, reduce need for extra css 
+A modern 2024 take on the reset
+*/
+
+*[class^='connect__'] *,
+*[class^='connect__'] *::before,
+*[class^='connect__'] *::after {
+  box-sizing: border-box;
+}
+
+:where([class^='connect__']) * {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+:where([class^='connect__']) > img,
+:where([class^='connect__']) > video,
+:where([class^='connect__']) > canvas,
+:where([class^='connect__']) > svg {
+  display: block;
+  max-inline-size: 100%;
+  max-width: 100%;
+}
+
+/* 
+    the isolation property allows us to create a new stacking context without needing to set a z-index.
+    to guarantee that modals, dropdowns, tooltips will always show up above the other elements in app
+    no z-index.
+    Not sure if env is next js or react hence both id's
+*/
+
+:where([class^='connect__']) #root,
+:where([class^='connect__']) [id='__next'] {
+  isolation: isolate;
+}
+
+:where([class^='connect__']),
+:where([class^='connect__']) {
+  list-style: none;
+}
+
 .connect__gk,
 .connect__g1,
 .connect__g23,
