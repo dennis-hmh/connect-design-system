@@ -1170,47 +1170,6 @@
 .connect__g68,
 .connect__g912 {
   font-size-adjust: ex-height 0.486;
-
-  :is(h1):not([class]),
-  :is(h1)[class=''] {
-    font-size: var(--connect__heading-xl);
-    line-height: var(--connect__heading-xl-lheight);
-  }
-
-  :is(h2):not([class]),
-  :is(h2)[class=''] {
-    font-size: var(--connect__heading-lg);
-    line-height: var(--connect__heading-lg-lheight);
-  }
-
-  :is(h3):not([class]),
-  :is(h3)[class=''] {
-    font-size: var(--connect__heading-md);
-    line-height: var(--connect__heading-md-lheight);
-  }
-
-  :is(h4):not([class]),
-  :is(h4)[class=''] {
-    font-size: var(--connect__heading-sm);
-    line-height: var(--connect__heading-sm-lheight);
-  }
-
-  :is(h5):not([class]),
-  :is(h5)[class=''] {
-    font-size: var(--connect__body-lg);
-    line-height: var(--connect__body-lg-head-lheight);
-  }
-
-  :is(h6):not([class]),
-  :is(h6)[class=''] {
-    font-size: var(--connect__body-md);
-    line-height: var(--connect__body-md-head-lheight);
-  }
-
-  :is(h1, h2, h3, h4, h5, h6):not([class]),
-  :is(h1, h2, h3, h4, h5, h6)[class=''] {
-    margin: 0;
-  }
 }
 
 :where([class^='connect__']) :where(h1, h2, h3, h4, h5) {
