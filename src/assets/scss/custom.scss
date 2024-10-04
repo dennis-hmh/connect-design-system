@@ -203,7 +203,7 @@ States:
 
   // margins
   --connect__button-margin: var(--theme-button-margin, 0);
-  
+
   align-items: var(--connect__button-align);
   background-color: var(--theme-button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
@@ -394,10 +394,6 @@ States:
     }
   }
 
-  &:has(svg) {
-    align-items: center;
-  }
-
   &--rive {
     $shimmer-color: var(--connect__button-bg);
     --shimmer-filter: brightness(120%);
@@ -406,7 +402,7 @@ States:
     --connect__button-justify-content: center;
     --duration: 1.25s;
     --inner-shimmer: isolation: isolate;
-   
+
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     grid-template-rows: 1fr;
 
