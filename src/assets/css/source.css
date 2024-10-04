@@ -1250,12 +1250,4 @@
   line-height: var(--connect__body-md-lheight);
 }
 
-.connect__h1,
-.connect__h2,
-.connect__h3,
-.connect__h4,
-.connect__h5,
-.connect__h6 {
-  hyphens: auto;
-  text-wrap: balance;
-}
+
