@@ -1213,6 +1213,12 @@
   }
 }
 
+:where([class^="connect__"]) :where(h1, h2, h3, h4, h5) {
+  hyphens: auto;
+  margin-block: 0;
+  text-wrap: balance;
+}
+
 .connect__h1 {
   font-size: var(--connect__heading-xl);
   line-height: var(--connect__heading-xl-lheight);
