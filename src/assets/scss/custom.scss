@@ -2534,21 +2534,12 @@ input[type='radio'].connect__input {
     }
   }
 
-  &.connect__list-roman {
+  &.connect__list-none {
     > .connect__list-item {
-      list-style-type: lower-roman;
-    }
-  }
-
-  &.connect__list-square {
-    > .connect__list-item {
-      list-style-type: square;
-    }
-  }
-
-  &.connect__list-alpha {
-    > .connect__list-item {
-      list-style-type: lower-alpha;
+      list-style-type: circle;
+      &::marker {
+        color: transparent;
+      }
     }
   }
 
@@ -2569,10 +2560,28 @@ input[type='radio'].connect__input {
       list-style-type: disc;
     }
   }
+
+  &.connect__list-roman {
+    > .connect__list-item {
+      list-style-type: lower-roman;
+    }
+  }
+
+  &.connect__list-square {
+    > .connect__list-item {
+      list-style-type: square;
+    }
+  }
+
+  &.connect__list-alpha {
+    > .connect__list-item {
+      list-style-type: lower-alpha;
+    }
+  }
 }
 
 ul.connect__list {
-  list-style-type: disc;
+  list-style-type: none;
 }
 
 ol.connect__list {
