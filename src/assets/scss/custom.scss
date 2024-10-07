@@ -403,7 +403,7 @@ States:
     --connect__button-border-w: 2px;
     --duration: 1.25s;
     --inner-shimmer: isolation: isolate;
-   
+
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     grid-template-rows: 1fr;
 
@@ -1184,6 +1184,13 @@ Styles:
   padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
+
+  &.connect__floating-card {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+  }
 
   .connect__figure,
   .connect__card-header,
