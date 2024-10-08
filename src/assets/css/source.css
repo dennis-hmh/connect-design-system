@@ -1268,3 +1268,21 @@
   hyphens: auto;
   text-wrap: balance;
 }
+
+@media (min-width: 40.625rem) {
+  .connect__dual-column {
+    columns: 2;
+  }
+}
+
+@media (min-width: 55rem) {
+  .connect__triple-column {
+    columns: 3;
+  }
+}
+
+.connect__dual-column,
+.connect__triple-column {
+  --connect__dual-column-gap: var(--theme__dual-column-gap, var(--connect__spacer-xl));
+  column-gap: var(--connect__dual-column-gap);
+}
