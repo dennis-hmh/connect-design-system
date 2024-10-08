@@ -28,7 +28,7 @@ export default mergeConfig(
         headless: true,
       },
       coverage: {
-        enabled: true,
+        enabled: false,
         reporter: ['html'],
       },
       isolate: false,
