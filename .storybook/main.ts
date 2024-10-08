@@ -37,9 +37,10 @@ const config: StorybookConfig = {
   managerHead: (head) => `
     ${head}
     <style>
-      button[id="drag-drop"] { display: none; }
-      button[id="flipcards"] { display: none; }
-      button[id="reveal"] {display: none; }
+      div[id="removed"] { display: none; }
+      button[id="removed-drag-drop"] { display: none; }
+      button[id="removed-flipcards"] { display: none; }
+      button[id="removed-reveal"] {display: none; }
     </style>
   `,
 
