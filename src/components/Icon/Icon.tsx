@@ -18,11 +18,11 @@ export type IconProps = {
 };
 
 export const Icon: React.FC<IconProps> = ({
-  id,
-  size,
+  id = 'add',
+  size = 'md',
   fill,
   stroke,
-  opacity,
+  opacity = 1,
   focusable = false,
   className,
   dataTestId,
