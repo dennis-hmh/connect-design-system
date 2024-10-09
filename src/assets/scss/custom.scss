@@ -403,7 +403,7 @@ States:
     --animation: gradient-angle linear infinite;
     --connect__button-border-w: 2px;
     --duration: 1.25s;
-    --inner-shimmer: isolation: isolate;
+    // --inner-shimmer: isolation: isolate;
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     --conic-gradient-color: var(--connect__neutrals-null);
 
@@ -424,6 +424,7 @@ States:
     display: grid;
     grid-template-rows: 1fr;
     justify-content: center;
+    isolation: isolate;
     overflow: hidden;
     position: relative;
     transition: var(--transition);
@@ -3106,6 +3107,86 @@ input[type='radio'].connect__input {
         }
       }
     }
+  }
+}
+
+.connect__list {
+  --connect__list-item-padding-left: var(--connect__spacer-sm);
+  --connect__list-item-margin-left: calc(4ch * 1);
+
+  margin-block: 0;
+  padding-inline: 0;
+
+  > .connect__list-item {
+    &::marker {
+      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
+      line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
+    }
+  }
+
+  &.connect__list-none {
+    > .connect__list-item {
+      list-style-type: circle;
+      &::marker {
+        color: transparent;
+      }
+    }
+  }
+
+  &.connect__list-circle {
+    > .connect__list-item {
+      list-style-type: circle;
+    }
+  }
+
+  &.connect__list-decimal {
+    > .connect__list-item {
+      list-style-type: decimal;
+    }
+  }
+
+  &.connect__list-disc {
+    > .connect__list-item {
+      list-style-type: disc;
+    }
+  }
+
+  &.connect__list-roman {
+    > .connect__list-item {
+      list-style-type: lower-roman;
+    }
+  }
+
+  &.connect__list-square {
+    > .connect__list-item {
+      list-style-type: square;
+    }
+  }
+
+  &.connect__list-alpha {
+    > .connect__list-item {
+      list-style-type: lower-alpha;
+    }
+  }
+}
+
+ul.connect__list {
+  list-style-type: none;
+}
+
+ol.connect__list {
+  counter-reset: orderedlist;
+  list-style-type: decimal;
+
+  &::marker {
+    font-weight: var(--theme__connect-marker-font-w, 700);
+  }
+}
+
+ol.connect__counters {
+  &::marker {
+    content: counters(list-item, '.') ':';
+    font-weight: var(--theme__connect-marker-font-w, 700);
   }
 }
 
