@@ -2,7 +2,7 @@ import { Flipcards } from './Flipcards';
 
 export default {
   component: Flipcards,
-  title: 'Flipcards',
+  title: 'Removed/Flipcards',
   tags: ['autodocs'],
   parameters: {
     chromatic: { disableSnapshot: true },
