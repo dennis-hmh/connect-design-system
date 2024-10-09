@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof SingleBlockquote> = {
   component: SingleBlockquote,
-  title: 'SingleBlockquote',
+  title: 'Figure/Single Blockquote',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
