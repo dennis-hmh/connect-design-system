@@ -1083,7 +1083,7 @@
   --col-width: calc((100vw - 2rem) / 12);
   --gutter-width: 1rem;
   --ui-button: 2rem;
-  --ui-icon: 1.25rem;
+  --connect__ui-icon: 1.25rem;
 
   --connect__icon-xs: 1rem;
   --connect__icon-sm: calc(var(--connect__icon-xs) * 1.5);
