@@ -2490,6 +2490,22 @@ Usage:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
 
+  // palette
+  --connect__label-color: var(--active-color, var(--connect__neutrals-dark));
+
+  // spacings
+  --connect__label-gap: var(--connect__spacer-md);
+  --connect__label-padding-y: calc(var(--connect__spacer-xs) - var(--connect__label-border-w));
+  --connect__label-padding-x: calc(var(--connect__spacer-md) - var(--connect__label-border-w));
+  --connect__label-justify-content: var(--connect__card-justify, start);
+  --connect__label-flow: var(--connect__card-flow, row wrap);
+
+  --connect__label-w: 100%;
+
+  //inputs
+  --connect__input-dimensions: calc(var(--connect__spacer-xl) - var(--border-width));
+  --connect__input-border-w: 0.125rem;
+
   align-items: center;
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
   border: var(--connect__label-border-w) solid var(--connect__label-border-c, transparent);
@@ -2523,22 +2539,7 @@ Usage:
   transition-timing-function: var(--connect__ease-in-out);
   width: var(--connect__label-w, fit-content);
 
-  // palette
-  --connect__label-color: var(--active-color, var(--connect__neutrals-dark));
-
-  // spacings
-  --connect__label-gap: var(--connect__spacer-md);
-  --connect__label-padding-y: calc(var(--connect__spacer-xs) - var(--connect__label-border-w));
-  --connect__label-padding-x: calc(var(--connect__spacer-md) - var(--connect__label-border-w));
-  --connect__label-justify-content: var(--connect__card-justify, start);
-  --connect__label-flow: var(--connect__card-flow, row wrap);
-  --connect__label-w: 100%;
-
-  // inputs
-  --connect__input-dimensions: calc(var(--connect__spacer-lg) - var(--border-width));
-
   &::before {
-    --connect__input-border-w: 0.125rem;
     border: var(--connect__input-border-w) solid
       var(--checkbox-checked-state-based-border-c, var(--connect__selected-mid));
     border-radius: calc(var(--border-radius) - var(--connect__spacer-sm));
