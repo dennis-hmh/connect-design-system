@@ -197,12 +197,14 @@ States:
   --connect__button-gap: var(--connect__spacer-sm);
   --connect__button-padding-y: calc(var(--connect__spacer-sm) - var(--connect__button-border-w));
   --connect__button-padding-x: calc(var(--connect__spacer-md) - var(--connect__button-border-w));
+  --connect__button-align: var(--theme__button-align, center);
   --connect__button-justify-content: var(--btn-justify, space-between);
   --connect__button-flow: var(--btn-flow, row wrap);
 
   // margins
   --connect__button-margin: var(--theme__button-margin, 0);
 
+  align-items: var(--connect__button-align);
   background-color: var(--theme__button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
   border-radius: var(--connect__button-radius, 0);
@@ -394,15 +396,12 @@ States:
     }
   }
 
-  &:has(svg) {
-    align-items: center;
-  }
-
   &--rive {
     $shimmer-color: var(--connect__button-bg);
     --shimmer-filter: brightness(120%);
     --animation: gradient-angle linear infinite;
     --connect__button-border-w: 2px;
+    --connect__button-justify-content: center;
     --duration: 1.25s;
     // --inner-shimmer: isolation: isolate;
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
@@ -423,6 +422,7 @@ States:
         border-box;
     border: var(--connect__button-border-w) solid transparent;
     display: grid;
+    align-content: center;
     grid-template-rows: 1fr;
     justify-content: center;
     isolation: isolate;
