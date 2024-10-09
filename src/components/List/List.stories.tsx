@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof List> = {
-  title: 'List',
+  title: 'Misc/List',
   component: List,
   tags: ['autodocs'],
   parameters: {
