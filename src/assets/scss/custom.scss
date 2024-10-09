@@ -2299,6 +2299,94 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   width: var(--connect__chip-w, fit-content);
 }
 
+/* Connect pill Component
+
+Variables related to theme/overrides:
+  --theme__pill-bg: Custom background color for the pill.
+  --theme__pill-color: Custom text color for the pill.
+  --theme__pill-py: Custom vertical padding for the pill.
+  --theme__pill-pl: Custom left padding for the pill.
+  --theme__pill-pr: Custom right padding for the pill.
+  --theme__connect-pill-fs: Custom font size for the pill text.
+  --theme__connect-pill-lh: Custom line height for the pill text.
+  --theme__connect-pill-fw: Custom font weight for the pill text.
+  --theme__connect-pill-ff: Custom font family for the pill text.
+
+Variables related to default styles:
+  --connect__default-pill-bg: Default background color for the pill.
+  --connect__default-pill-color: Default text color for the pill.
+  --connect__pill-bg: Final background color (theme override or default).
+  --connect__pill-color: Final text color (theme override or default).
+
+Variables related to border radius:
+  --connect__pill-br-tl: Top-left border radius.
+  --connect__pill-br-tr: Top-right border radius.
+  --connect__pill-br-br: Bottom-right border radius.
+  --connect__pill-br-bl: Bottom-left border radius.
+  --connect__heading-lg-lheight: Used as a fallback for border radius values.
+
+Variables related to padding:
+  --connect__pill-py: Vertical padding (top and bottom).
+  --connect__pill-pl: Left padding.
+  --connect__pill-pr: Right padding.
+  --connect__spacer-xs: Used as a fallback for vertical padding.
+  --connect__spacer-md: Used as a fallback for left padding.
+  --connect__spacer-lg: Used as a fallback for right padding.
+
+Variables related to typography:
+  --connect__pill-fs: Font size.
+  --connect__pill-lh: Line height.
+  --connect__pill-fw: Font weight.
+  --connect__pill-ff: Font family.
+  --connect__body-sm: Used as a fallback for font size.
+  --connect__body-sm-lheight: Used as a fallback for line height.
+  --connect__font-sans: Used as a fallback for font family.
+
+Usage:
+- The pill uses flexbox for layout with centered content.
+- It has customisable palette, spacing, and typography.
+- The border radius can be adjusted to create various shapes, from rectangular to fully rounded.
+- All style properties can be overridden using theme variables
+*/
+.connect__pill {
+  // palette
+  --connect__default-pill-bg: var(--connect__cc-purple, var(--connect__purple-s50));
+  --connect__default-pill-color: var(--connect__neutrals-white);
+  --connect__pill-bg: var(--theme__pill-bg, var(--connect__default-pill-bg));
+  --connect__pill-color: var(--theme__pill-color, var(--connect__default-pill-color));
+
+  // border radius
+  --connect__pill-br-tl: 0rem;
+  --connect__pill-br-tr: var(--connect__heading-lg-lheight, 5rem);
+  --connect__pill-br-br: var(--connect__heading-lg-lheight, 5rem);
+  --connect__pill-br-bl: 0rem;
+
+  // padding
+  --connect__pill-py: var(--theme__pill-py, var(--connect__spacer-xs));
+  --connect__pill-pl: var(--theme__pill-pl, var(--connect__spacer-md));
+  --connect__pill-pr: var(--theme__pill-pr, var(--connect__spacer-lg));
+
+  // typography
+  --connect__pill-fs: var(--theme__connect-pill-fs, var(--connect__body-sm));
+  --connect__pill-lh: var(--theme__connect-pill-lh, var(--connect__body-sm-lheight));
+  --connect__pill-fw: var(--theme__connect-pill-fw, 700);
+  --connect__pill-ff: var(--theme__connect-pill-ff, var(--connect__font-sans));
+
+  align-items: center;
+  background-color: var(--connect__pill-bg);
+  border-radius: var(--connect__pill-br-tl) var(--connect__pill-br-tr) var(--connect__pill-br-br)
+    var(--connect__pill-br-bl);
+  color: var(--connect__pill-color);
+  display: inline-flex;
+  font-family: var(--connect__pill-ff);
+  font-size: var(--connect__pill-fs);
+  font-weight: var(--connect__pill-fw);
+  justify-content: center;
+  line-height: var(--connect__pill-lh);
+  padding: var(--connect__pill-py) var(--connect__pill-pr) var(--connect__pill-py)
+    var(--connect__pill-pl);
+}
+
 .connect__icon-wrapper {
   --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
   --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
