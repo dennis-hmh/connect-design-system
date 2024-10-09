@@ -29,7 +29,7 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
   // Construct a list of classes based on the breakpoints provided
   const breakpointClasses = Object.keys(breakpoints)
     .filter((bp) => breakpoints[bp as keyof typeof breakpoints])
-    .map((bp) => `stack-${bp}`)
+    .map((bp) => `connect__stack-${bp}`)
     .join(' ');
 
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {

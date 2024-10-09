@@ -130,8 +130,8 @@ States:
 
   &-toolbar
     - Toolbar button state.
-    - &.selected: Selected state for toolbar buttons.
-    - &:not(.selected): Default state for toolbar buttons that are not selected.
+    - &.connect__selected: Selected state for toolbar buttons.
+    - &:not(.connect__selected): Default state for toolbar buttons that are not selected.
     - svg: Styles for SVG icons inside the toolbar button.
 
   &:disabled
@@ -144,44 +144,44 @@ States:
 */
 
 @property --gradient-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
   inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
 
 @property --gradient-angle-offset {
-  syntax: '<angle>';
-  initial-value: 0deg;
   inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
 
 @property --gradient-percent {
-  syntax: '<percentage>';
-  initial-value: 5%;
   inherits: false;
+  initial-value: 5%;
+  syntax: '<percentage>';
 }
 
 @property --gradient-shine {
-  syntax: '<color>';
-  initial-value: transparent;
   inherits: false;
+  initial-value: transparent;
+  syntax: '<color>';
 }
 
 .connect__button {
-  //typography
+  // typography
   --connect__button-fs: var(--theme-button-fs, var(--connect__body-sm));
   --connect__button-lh: var(--theme-button-lh, var(--connect__body-sm-lheight));
   --connect__button-font-w: var(--theme-button-fw, 400);
   --connect__button-text-transform: var(--theme-button-transform, capitalize);
 
   // borders / radius
-  --connect__button-border-w: var(--theme-button-border-w, 0rem);
+  --connect__button-border-w: var(--theme-button-border-w, 0);
   --connect__button-border-c: var(--connect__neutrals-white, transparent);
   --connect__button-radius: var(--theme-border-radius, var(--border-radius));
 
-  //shadows
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-    var(--inner-shadow-color, transparent) inset;
+  // shadows
+  --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
+    inset;
   --inner-shadow-color: var(--connect__neutrals-white);
 
   --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -208,9 +208,9 @@ States:
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0)
+    0 0 0 var(--inner-status, 0)
       var(--inner-status-color-state, var(--inner-status-color, transparent)) inset,
-    0rem 0rem 0rem var(--connect__button-inner-divider, 0)
+    0 0 0 var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -244,6 +244,7 @@ States:
       --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
     }
+
     &:active {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
@@ -308,7 +309,6 @@ States:
   &-toggle {
     &:not(:disabled) {
       --connect__icon-fill-color: var(--active-color);
-      --connect__icon-fill-color: var(--active-color);
       --state-based-bg: var(--connect__neutrals-white);
       --active-color: var(--connect__selected-mid);
     }
@@ -342,13 +342,14 @@ States:
 
   &-loading > svg,
   [classname*='loading'] > svg {
-    animation: connect__loading 0.85s linear infinite;
+    animation: connect-loading 0.85s linear infinite;
   }
 
-  @keyframes connect__loading {
+  @keyframes connect-loading {
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
@@ -364,7 +365,7 @@ States:
     --connect__button-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-y));
     --connect__button-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-x));
 
-    &.media-active:not(:disabled) {
+    &.connect__media-active:not(:disabled) {
       --state-based-bg: var(--connect__red-s45);
     }
   }
@@ -403,15 +404,11 @@ States:
     --connect__button-border-w: 2px;
     --duration: 1.25s;
     --inner-shimmer: isolation: isolate;
-
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
-    grid-template-rows: 1fr;
-
     --conic-gradient-color: var(--connect__neutrals-null);
 
-    overflow: hidden;
-    border: var(--connect__button-border-w) solid transparent;
-
+    align-content: center;
+    align-items: center;
     background:
       linear-gradient(var(--connect__button-bg), var(--connect__button-bg)) padding-box,
       conic-gradient(
@@ -423,24 +420,21 @@ States:
           transparent calc(var(--gradient-percent) * 4)
         )
         border-box;
-
+    border: var(--connect__button-border-w) solid transparent;
     display: grid;
-    align-content: center;
-    align-items: center;
+    grid-template-rows: 1fr;
     justify-content: center;
+    overflow: hidden;
     position: relative;
-
     transition: var(--transition);
     transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
 
     &::after {
       content: '';
       position: absolute;
-    }
-
-    &::after {
       width: 100%;
     }
+
     &:is(:hover, :focus-visible):not(:disabled) {
       --conic-gradient-color: var(--connect__button-bg);
 
@@ -468,13 +462,13 @@ States:
     }
 
     p {
-      margin: 0;
-      grid-row: 1;
       grid-column: 1 / span 2;
-      position: relative;
-      z-index: 2;
-      width: fit-content;
+      grid-row: 1;
       justify-self: center;
+      margin: 0;
+      position: relative;
+      width: fit-content;
+      z-index: 2;
     }
 
     &:has(svg) {
@@ -484,8 +478,8 @@ States:
       }
 
       svg {
-        grid-row: 1;
         grid-column: 2;
+        grid-row: 1;
       }
 
       svg,
@@ -498,9 +492,9 @@ States:
     }
 
     hmh-rive {
-      grid-row: 1;
-      grid-column: 1 / span 2;
       align-self: stretch;
+      grid-column: 1 / span 2;
+      grid-row: 1;
     }
   }
 }
@@ -600,7 +594,7 @@ States:
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white, transparent);
 
-  --connect__input-border-w: 0rem;
+  --connect__input-border-w: 0;
   --connect__input-border-c: var(--connect__neutrals-white, transparent);
 
   --caret-color: var(--connect__selected-mid);
@@ -766,7 +760,7 @@ States:
   // Palette
   --connect__select-bg: var(--state-based-bg, var(--connect__neutrals-white));
   --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --connect__select-border-w: 0rem;
+  --connect__select-border-w: 0;
   --connect__select-border-c: var(--connect__select-border-c, transparent);
 
   // typography
@@ -1152,7 +1146,7 @@ Styles:
 */
 
 .connect__card {
-  --connect__card-border-w: var(--theme-chip-border-w, 0rem);
+  --connect__card-border-w: var(--theme-chip-border-w, 0);
   --connect__card-border-c: var(--connect__neutrals-white, transparent);
   --connect__card-radius: var(--theme-border-radius, var(--border-radius));
 
@@ -1210,117 +1204,119 @@ Styles:
   }
 
   // Comment out container query, until needed
-  // &:has(menu) {
-  //   container-name: cpl-card;
-  //   container-type: inline-size;
 
-  //   @container cpl-card (max-width: 40.625rem) {
-  //     .connect__card-content {
-  //       --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
-  //       display: grid;
-  //       grid-template-columns: var(--connect__toolbar-width) 1fr;
-  //     }
+  /* &:has(menu) {
+    container-name: cpl-card;
+    container-type: inline-size;
 
-  //     .connect__toolbar {
-  //       --connect__toolbar-direction: column wrap;
-  //       --connect__toolbar-padding-x: 0;
-  //       align-content: start;
-  //       grid-column: 1;
+    @container cpl-card (max-width: 40.625rem) {
+      .connect__card-content {
+        --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
+        display: grid;
+        grid-template-columns: var(--connect__toolbar-width) 1fr;
+      }
 
-  //       .connect__tooltip {
-  //         --connect__tooltip-vertical-left: unset;
-  //         --connect__tooltip-vertical-right: 100%;
-  //         --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
-  //         --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
-  //       }
+      .connect__toolbar {
+        --connect__toolbar-direction: column wrap;
+        --connect__toolbar-padding-x: 0;
+        align-content: start;
+        grid-column: 1;
 
-  //       .connect__toolbar-menu {
-  //         --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
+        .connect__tooltip {
+          --connect__tooltip-vertical-left: unset;
+          --connect__tooltip-vertical-right: 100%;
+          --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
+          --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
+        }
 
-  //         --connect__menu-divider-line-w: calc(
-  //           100% - var(--connect__menu-divider-line-x-offset) * 2
-  //         );
-  //         --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
-  //         --connect__menu-divider-line-y-offset: calc(
-  //           -1 * var(--connect__menu-divider-line-x-offset)
-  //         );
-  //       }
+        .connect__toolbar-menu {
+          --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
 
-  //       .connect__toolbar-item-menu {
-  //         --connect__toolbar-item-menu-y-offset: 0;
-  //         --connect__toolbar-item-menu-x-offset: calc(
-  //           var(--connect__toolbar-width) + var(--connect__spacer-sm)
-  //         );
+          --connect__menu-divider-line-w: calc(
+            100% - var(--connect__menu-divider-line-x-offset) * 2
+          );
+          --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
+          --connect__menu-divider-line-y-offset: calc(
+            -1 * var(--connect__menu-divider-line-x-offset)
+          );
+        }
 
-  //         --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
-  //         --connect__toolbar-sub-menu-flow: row;
-  //         --connect__toolbar-sub-menu-cols: 2;
-  //       }
+        .connect__toolbar-item-menu {
+          --connect__toolbar-item-menu-y-offset: 0;
+          --connect__toolbar-item-menu-x-offset: calc(
+            var(--connect__toolbar-width) + var(--connect__spacer-sm)
+          );
 
-  //       .connect__toolbar-item-menu-item {
-  //         --connect__toolbar-sub-menu-padding-y: 0;
+          --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
+          --connect__toolbar-sub-menu-flow: row;
+          --connect__toolbar-sub-menu-cols: 2;
+        }
 
-  //         &:nth-of-type(1) {
-  //           --menu-col-start: 1;
-  //           --connect__toolbar-sub-menu-vertical-divider-left: var(
-  //             --connect__toolbar-sub-menu-padding-x
-  //           );
-  //           --connect__toolbar-sub-menu-vertical-divider-top: unset;
-  //           --connect__toolbar-sub-menu-vertical-divider-bottom: calc(
-  //             -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
-  //           );
-  //           --connect__toolbar-sub-menu-vertical-divider-h: calc(
-  //             100% + calc(var(--connect__spacer-xs) * 2)
-  //           );
-  //           --connect__toolbar-sub-menu-vertical-divider-top: calc(-1 * var(--connect__spacer-xs));
-  //           --connect__toolbar-sub-menu-vertical-divider-left: unset;
-  //           --connect__toolbar-sub-menu-vertical-divider-right: calc(
-  //             -1 * var(--connect__spacer-xs)
-  //           );
+        .connect__toolbar-item-menu-item {
+          --connect__toolbar-sub-menu-padding-y: 0;
 
-  //           &:has(:nth-child(6)) {
-  //             --connect__toolbar-sub-menu-vertical-divider-w: var(--connect__effects-inner-edge);
-  //           }
+          &:nth-of-type(1) {
+            --menu-col-start: 1;
+            --connect__toolbar-sub-menu-vertical-divider-left: var(
+              --connect__toolbar-sub-menu-padding-x
+            );
+            --connect__toolbar-sub-menu-vertical-divider-top: unset;
+            --connect__toolbar-sub-menu-vertical-divider-bottom: calc(
+              -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
+            );
+            --connect__toolbar-sub-menu-vertical-divider-h: calc(
+              100% + calc(var(--connect__spacer-xs) * 2)
+            );
+            --connect__toolbar-sub-menu-vertical-divider-top: calc(-1 * var(--connect__spacer-xs));
+            --connect__toolbar-sub-menu-vertical-divider-left: unset;
+            --connect__toolbar-sub-menu-vertical-divider-right: calc(
+              -1 * var(--connect__spacer-xs)
+            );
 
-  //           .connect__toolbar-item-menu-item-sub-menu {
-  //             margin-right: var(--connect__toolbar-sub-menu-padding-x);
-  //           }
-  //         }
+            &:has(:nth-child(6)) {
+              --connect__toolbar-sub-menu-vertical-divider-w: var(--connect__effects-inner-edge);
+            }
 
-  //         &:nth-of-type(2) {
-  //           --menu-col-start: 2;
-  //           .connect__toolbar-item-menu-item-sub-menu {
-  //             margin-left: var(--connect__toolbar-sub-menu-padding-x);
-  //           }
-  //         }
+            .connect__toolbar-item-menu-item-sub-menu {
+              margin-right: var(--connect__toolbar-sub-menu-padding-x);
+            }
+          }
 
-  //         &:nth-of-type(1),
-  //         &:nth-of-type(2) {
-  //           ul {
-  //             padding-left: 0;
-  //           }
-  //         }
+          &:nth-of-type(2) {
+            --menu-col-start: 2;
+            .connect__toolbar-item-menu-item-sub-menu {
+              margin-left: var(--connect__toolbar-sub-menu-padding-x);
+            }
+          }
 
-  //         ul {
-  //           flex-flow: column wrap;
-  //         }
-  //       }
+          &:nth-of-type(1),
+          &:nth-of-type(2) {
+            ul {
+              padding-left: 0;
+            }
+          }
 
-  //       .connect__toolbar-item-menu-item-sub-menu {
-  //         height: 100%;
-  //       }
-  //     }
+          ul {
+            flex-flow: column wrap;
+          }
+        }
 
-  //     .connect__button {
-  //       --connect__button-justify-content: center;
-  //       --connect__button-w: 100%;
-  //     }
-  //   }
-  // }
+        .connect__toolbar-item-menu-item-sub-menu {
+          height: 100%;
+        }
+      }
+
+      .connect__button {
+        --connect__button-justify-content: center;
+        --connect__button-w: 100%;
+      }
+    }
+  } */
 }
 
 .connect__figure {
   margin: 0;
+
   img {
     height: 100;
     object-fit: cover;
@@ -2064,6 +2060,8 @@ example:
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
     grid-row: var(--xl-start-row, auto) / span var(--xl-span-row, 1);
 */
+
+
 .connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
   --grid-cols: var(--theme-col-amount, 12);
@@ -2105,52 +2103,30 @@ example:
 }
 
 @media (min-width: 30rem) {
-  .connect-sm {
-    grid-column: var(--sm-start-col, var(--start-col, 1)) / span
-      var(--sm-span-col, var(--span-col, 12));
-    grid-row: var(--sm-row-start, var(--xs-row-start, auto)) / span
-      var(--sm-row-span, var(--xs-row-span, 1));
+  .connect__sm {
+    grid-column: var(--sm-start-col) / span var(--sm-span-col);
+    grid-row: var(--sm-row-span, auto);
   }
 }
 
 @media (min-width: 40.625rem) {
-  .connect-md {
-    grid-column: var(--md-start-col, var(--sm-start-col, var(--start-col, 1))) / span
-      var(--md-span-col, var(--sm-span-col, var(--span-col, 12)));
-    grid-row: var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto))) / span
-      var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1)));
+  .connect__md {
+    grid-column: var(--md-start-col) / span var(--md-span-col);
+    grid-row: var(--md-row-span, auto);
   }
 }
 
 @media (min-width: 55rem) {
-  .connect-lg {
-    grid-column: var(--lg-start-col, var(--md-start-col, var(--sm-start-col, var(--start-col, 1)))) /
-      span var(--lg-span-col, var(--md-span-col, var(--sm-span-col, var(--span-col, 12))));
-    grid-row: var(
-        --lg-row-start,
-        var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto)))
-      ) / span var(--lg-row-span, var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1))));
+  .connect__lg {
+    grid-column: var(--lg-start-col) / span var(--lg-span-col);
+    grid-row: var(--lg-row-span, auto);
   }
 }
 
 @media (min-width: 80rem) {
-  .connect-xl {
-    grid-column: var(
-        --xl-start-col,
-        var(--lg-start-col, var(--md-start-col, var(--sm-start-col, var(--start-col, 1))))
-      ) / span
-      var(
-        --xl-span-col,
-        var(--lg-span-col, var(--md-span-col, var(--sm-span-col, var(--span-col, 12))))
-      );
-    grid-row: var(
-        --xl-row-start,
-        var(--lg-row-start, var(--md-row-start, var(--sm-row-start, var(--xs-row-start, auto))))
-      ) / span
-      var(
-        --xl-row-span,
-        var(--lg-row-span, var(--md-row-span, var(--sm-row-span, var(--xs-row-span, 1))))
-      );
+  .connect__xl {
+    grid-column: var(--xl-start-col) / span var(--xl-span-col);
+    grid-row: var(--xl-row-span, auto);
   }
 }
 
@@ -2218,13 +2194,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
   width: 100%;
 
-  &.stack-xs {
+  &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);
     --connect__paddingY: var(--xs-paddingY, 0);
   }
 
   @media (min-width: 30rem) {
-    &.stack-sm {
+    &.connect__stack-sm {
       --connect__stack-spacing: var(--sm-spacing);
       --connect__stack-direction: var(--sm-direction);
       --connect__stack-align: var(--sm-alignItems);
@@ -2236,7 +2212,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 40.625rem) {
-    &.stack-md {
+    &.connect__stack-md {
       --connect__stack-spacing: var(--md-spacing);
       --connect__stack-direction: var(--md-direction);
       --connect__stack-align: var(--md-alignItems);
@@ -2248,7 +2224,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 55rem) {
-    &.stack-lg {
+    &.connect__stack-lg {
       --connect__stack-spacing: var(--lg-spacing);
       --connect__stack-direction: var(--lg-direction);
       --connect__stack-align: var(--lg-alignItems);
@@ -2260,7 +2236,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 
   @media (min-width: 80rem) {
-    &.stack-xl {
+    &.connect__stack-xl {
       --connect__stack-spacing: var(--xl-spacing);
       --connect__stack-direction: var(--xl-direction);
       --connect__stack-align: var(--xl-alignItems);
@@ -2287,7 +2263,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   --connect__chip-fs: var(--theme-chip-fs, var(--connect__caption));
   --connect__chip-lh: var(--theme-chip-lh, var(--connect__caption-lheight));
 
-  --connect__chip-border-w: var(--theme-chip-border-w, 0rem);
+  --connect__chip-border-w: var(--theme-chip-border-w, 0);
   --connect__chip-border-c: var(--connect__neutrals-white, transparent);
   --connect__chip-radius: var(--theme-border-radius, var(--border-radius));
 
@@ -2342,21 +2318,27 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
     transform: translate(var(--translateY), var(--translateX));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
+
   &.connect__input-correct {
     --state-icon: var(--icon-correct);
   }
+
   &.connect__input-incorrect {
     --state-icon: var(--icon-incorrect);
   }
+
   &.connect__input-shown {
     --state-icon: var(--icon-shown);
   }
+
   > .connect__select-correct {
     --state-icon: var(--icon-correct);
   }
+
   > .connect__select-incorrect {
     --state-icon: var(--icon-incorrect);
   }
+
   > .connect__select-shown {
     --state-icon: var(--icon-shown);
   }
@@ -2377,18 +2359,23 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   &-xs {
     --connect__icon-size: var(--connect__icon-xs);
   }
+
   &-sm {
     --connect__icon-size: var(--connect__icon-sm);
   }
+
   &-md {
     --connect__icon-size: var(--connect__icon-md);
   }
+
   &-lg {
     --connect__icon-size: var(--connect__icon-lg);
   }
+
   &-xl {
     --connect__icon-size: var(--connect__icon-xl);
   }
+
   &-xxl {
     --connect__icon-size: var(--connect__icon-xxl);
   }
@@ -2410,13 +2397,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   --connect__label-text-transform: capitalize;
 
   // borders / radius
-  --connect__label-border-w: 0rem;
+  --connect__label-border-w: 0;
   --connect__label-border-c: var(--connect__neutrals-white, transparent);
   --connect__label-radius: var(--border-radius);
 
-  //shadows
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-    var(--inner-shadow-color, transparent) inset;
+  // shadows
+  --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
+    inset;
   --inner-shadow-color: var(--connect__neutrals-white);
   --starting-shadow-color: var(--connect__neutrals-white);
 
@@ -2432,9 +2419,9 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
+    0 0 0 var(--inner-status, 0.375rem)
       var(--mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
-    0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
+    0 0 0 var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -2451,7 +2438,6 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   justify-content: var(--connect__label-justify-content);
   line-height: var(--connect__label-lh);
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
-
   position: relative;
   text-transform: var(--connect__label-text-transform, initial);
   transition-duration: var(--connect__transition-default);
@@ -2468,10 +2454,9 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   --connect__label-padding-x: calc(var(--connect__spacer-md) - var(--connect__label-border-w));
   --connect__label-justify-content: var(--connect__card-justify, start);
   --connect__label-flow: var(--connect__card-flow, row wrap);
-
   --connect__label-w: 100%;
 
-  //inputs
+  // inputs
   --connect__input-dimensions: calc(var(--connect__spacer-lg) - var(--border-width));
 
   &::before {
@@ -2516,12 +2501,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
     --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
   }
 }
+
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__spacer-xs);
   --connect__label-padding-x: var(--connect__spacer-xs);
-  --inner-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-    var(--inner-shadow-color, transparent) inset;
+  --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
+    inset;
   --inner-shadow-color: var(--connect__neutrals-white);
   --starting-shadow-color: transparent;
   --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
@@ -2532,9 +2518,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--inner-status, 0.375rem)
-      var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
-    0rem 0rem 0rem var(--connect__effects-inner-edge, 0.5rem)
+    0 0 0 var(--inner-status, 0.375rem) var(--state-mcq-shadow, var(--starting-shadow-color)) inset,
+    0 0 0 var(--connect__effects-inner-edge, 0.5rem)
       var(--state-based-bg, var(--connect__neutrals-white)) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -2582,6 +2567,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   &.connect__mcq-card-selected {
     --starting-shadow-color: var(--connect__selected-mid);
+
     &:not(:hover):not(:active):not(:focus-visible) {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
@@ -2591,11 +2577,12 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 }
 
 .connect__mcq-text {
-  &:before {
+  &::before {
     content: unset;
   }
 }
 
+/* stylelint-disable */
 input[type='checkbox'].connect__input,
 input[type='radio'].connect__input {
   opacity: 0;
@@ -2606,7 +2593,7 @@ input[type='radio'].connect__input {
       --active-color: var(--connect__neutrals-mid);
       --checkbox-checked-state-based-border-c: var(--connect__gray-c45);
       --checkbox-state-based-bg: var(--checked-incorrect-bg);
-      --checkbox-state-based-bg: var(--connect__neutrals-pale); //add this back, MWA 6/3
+      --checkbox-state-based-bg: var(--connect__neutrals-pale); // add this back, MWA 6/3
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
@@ -2628,7 +2615,7 @@ input[type='radio'].connect__input {
         background-color: var(--checkbox-state-based-bg, var(--connect__selected-mid));
         background-image: var(--checked-state-icon, transparent);
         background-size: contain;
-        box-shadow: 0rem 0 0 var(--connect__input-border-w)
+        box-shadow: 0 0 0 var(--connect__input-border-w)
           var(--checkbox-state-based-bg, var(--connect__neutrals-white)) inset;
       }
     }
@@ -2659,10 +2646,12 @@ input[type='radio'].connect__input {
     }
   }
 }
+/* stylelint-enable */
 
 .connect__progress-wrapper {
   width: 100%;
 }
+
 .connect__progress[value] {
   --progressbar-color: var(--progress-color, var(--connect__selected-mid));
 
@@ -2677,12 +2666,11 @@ input[type='radio'].connect__input {
   --connect__progress-transition-ease: var(--connect__ease-out);
 
   --border-radius: 2.5rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+
   appearance: none;
   border: none;
   border-radius: var(--border-radius);
-  transition-duration: var (--connect__progress-transition);
+  transition-duration: var(--connect__progress-transition);
   transition-property: width, background-color;
   transition-timing-function: var(--connect__progress-transition-ease);
   width: 100%;
@@ -2695,21 +2683,23 @@ input[type='radio'].connect__input {
       var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
       var(--input-outer-shadow) var(--outer-shadow-color, var(--connect__neutrals-white));
   }
+
   &::-webkit-progress-value {
     --connect__progress-transition: var(--connect__transition-default);
     --connect__progress-transition-ease: var(--connect__ease-out);
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
-    transition-duration: var (--connect__progress-transition);
+    transition-duration: var(--connect__progress-transition);
     transition-property: width, background-color;
     transition-timing-function: var(--connect__progress-transition-ease);
   }
+
   &::-moz-progress-bar {
     --connect__progress-transition: var(--connect__transition-default);
     --connect__progress-transition-ease: var(--connect__ease-out);
     background: var(--progressbar-color);
     border-radius: var(--border-radius);
-    transition-duration: var (--connect__progress-transition);
+    transition-duration: var(--connect__progress-transition);
     transition-property: width, background-color;
     transition-timing-function: var(--connect__progress-transition-ease);
   }
@@ -2767,7 +2757,7 @@ input[type='radio'].connect__input {
 .connect__toolbar-item {
   padding: 0.0625rem;
 
-  &.selected {
+  &.connect__selected {
     .connect__button-toolbar {
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
@@ -2802,7 +2792,7 @@ input[type='radio'].connect__input {
     }
   }
 
-  &:not(.selected) {
+  &:not(.connect__selected) {
     .connect__button-toolbar {
       &:active {
         --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -2876,6 +2866,7 @@ input[type='radio'].connect__input {
 
   &:nth-of-type(2) {
     --connect__icon-fill-color: var(--connect__gray-c35);
+
     &::after {
       background-color: var(--connect__gray-c35);
       border-radius: var(--border-radius);
@@ -2939,6 +2930,7 @@ input[type='radio'].connect__input {
     var(--connect__toolbar-item-menu-x-offset),
     var(--connect__toolbar-item-menu-y-offset)
   );
+
   &:has(li:nth-child(6)) {
     --connect__toolbar-row-gap: calc(
       var(--connect__spacer-xs) + var(--connect__effects-inner-edge)
@@ -3089,7 +3081,7 @@ input[type='radio'].connect__input {
   padding: 0;
 
   .connect__toolbar-item {
-    &.selected {
+    &.connect__selected {
       .connect__button-toolbar {
         --connect__button-bg: var(--connect__neutrals-white);
 
@@ -3102,7 +3094,7 @@ input[type='radio'].connect__input {
         }
 
         svg {
-          --connect__icon-fill-color: currentColor;
+          --connect__icon-fill-color: currentcolor;
         }
 
         &:disabled {

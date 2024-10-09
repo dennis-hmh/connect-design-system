@@ -46,6 +46,7 @@ Default.args = {
   number: false,
   disabled: false,
   answerShown: false,
+  gradeBand: GradeBand.G4_5,
 };
 
 Correct.args = {
