@@ -175,7 +175,7 @@ States:
   --connect__button-text-transform: var(--theme-button-transform, capitalize);
 
   // borders / radius
-  --connect__button-border-w: var(--theme-button-border-w, 0);
+  --connect__button-border-w: var(--theme-button-border-w, 0rem);
   --connect__button-border-c: var(--connect__neutrals-white, transparent);
   --connect__button-radius: var(--theme-border-radius, var(--border-radius));
 
@@ -595,7 +595,7 @@ States:
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white, transparent);
 
-  --connect__input-border-w: 0;
+  --connect__input-border-w: 0rem;
   --connect__input-border-c: var(--connect__neutrals-white, transparent);
 
   --caret-color: var(--connect__selected-mid);
@@ -2061,7 +2061,6 @@ example:
     grid-column: var(--xl-start-col) / span var(--xl-span-col);
     grid-row: var(--xl-start-row, auto) / span var(--xl-span-row, 1);
 */
-
 
 .connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
