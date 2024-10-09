@@ -389,7 +389,7 @@ States:
     --state-based-bg: var(--connect__gray-c20);
     --connect__button-bg: var(--state-based-bg);
 
-    svg {
+    .connect__icon {
       --connect__icon-fill-color: var(--connect__neutrals-dark);
     }
   }
