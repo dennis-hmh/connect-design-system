@@ -79,7 +79,7 @@ Variables related to states (e.g., correct/incorrect):
   --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
   --connect__button-color: Text color of the button.
   --connect__button-bg: Background color of the button.
-  --connect__disabled-cursor: Cursor style when the button is disabled.
+  --connect__state-based-pointer: Cursor style when the button is disabled.
   --connect__icon-fill-color: Fill color for icons inside the button.
   --connect__button-inner-divider: Inner divider size.
   --connect__button-inner-divider-color: Inner divider color.
@@ -221,7 +221,7 @@ States:
     var(--connect__shadow-level-4) var(--connect__shadow-12);
 
   color: var(--theme__button-color, var(--connect__button-color));
-  cursor: var(--connect__disabled-cursor, pointer);
+  cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   flex-flow: var(--connect__button-flow);
   font-family: var(--connect__font-sans);
@@ -387,7 +387,6 @@ States:
   }
 
   &:disabled {
-    --connect__disabled-cursor: not-allowed;
     --state-based-bg: var(--connect__gray-c20);
     --connect__button-bg: var(--state-based-bg);
 
@@ -615,7 +614,7 @@ States:
   caret-color: var(--caret-color);
 
   color: var(--connect__input-text-color);
-  cursor: var(--connect__disabled-cursor, text);
+  cursor: var(--connect__state-based-pointer, text);
 
   display: inline-flex;
   flex: 1;
@@ -733,7 +732,7 @@ Variables related to states (e.g., focus, active):
   --connect__focus-mid: color for the focus state.
   --connect__neutrals-white: Neutral white color.
   --connect__neutrals-dark: Neutral dark color.
-  --connect__cursor: Cursor style for the select dropdown.
+  --connect__state-based-pointer: Cursor style for the select dropdown.
 
 States:
   &:not(:disabled)
@@ -805,7 +804,7 @@ States:
     var(--connect__shadow-level-5, initial) var(--connect__input-focus-shadow, rgba(0, 0, 0, 0)),
     var(--connect__input-outer-shadow) var(--outer-shadow-color, #fff);
   color: var(--active-color, var(--connect__neutrals-dark));
-
+  cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   flex: 1;
   font-size: var(--connect__select-fs);
@@ -817,8 +816,6 @@ States:
   width: 100%;
 
   &:not(:disabled) {
-    cursor: var(--connect__cursor);
-
     &:hover,
     &:active {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
@@ -860,7 +857,6 @@ States:
 }
 
 .connect__button-split {
-  cursor: unset;
   display: inline-flex;
   flex-flow: var(--connect__button-flow);
 
@@ -876,10 +872,8 @@ States:
     background-color: var(--theme__button-bg, var(--connect__button-bg));
     border: unset;
     color: var(--theme__button-color, var(--connect__button-color));
-    cursor: var(--connect__disabled-cursor, pointer);
-
+    cursor: var(--connect__state-based-pointer, pointer);
     display: inline-flex;
-
     font-size: var(--connect__button-fs);
     line-height: var(--connect__button-lh);
 
@@ -917,7 +911,7 @@ States:
       z-index: 1;
 
       li {
-        cursor: var(--connect__disabled-cursor, pointer);
+        cursor: var(--connect__state-based-pointer, pointer);
         padding: var(--connect__spacer-sm);
 
         &:first-of-type {
@@ -984,7 +978,7 @@ States:
   summary {
     align-items: center;
     border-radius: var(--border-radius);
-    cursor: pointer;
+    cursor: var(--connect__state-based-pointer, pointer);
     // position: relative;
     display: flex;
 
@@ -2523,7 +2517,7 @@ Usage:
     var(--connect__shadow-level-4) var(--connect__shadow-12);
 
   color: var(--connect__label-color);
-  cursor: pointer;
+  cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   flex-flow: var(--connect__label-flow);
   font-family: var(--connect__font-sans);
@@ -2552,10 +2546,6 @@ Usage:
     width: calc(
       var(--connect__input-dimensions) - var(--connect__spacer-sm) - var(--connect__input-border-w)
     );
-  }
-
-  &:not(:disabled) {
-    cursor: pointer;
   }
 
   &:hover {
@@ -2677,7 +2667,7 @@ input[type='radio'].connect__input {
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      cursor: not-allowed;
+      --connect__state-based-pointer: not-allowed;
     }
 
     + .connect__mcq-card {
@@ -3365,7 +3355,7 @@ ol.connect__counters {
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
 
-  --connect__disabled-cursor: not-allowed;
+  --connect__state-based-pointer: not-allowed;
 }
 
 /* 
@@ -3578,7 +3568,7 @@ Variables:
   --connect__shadow-level-3: Third level of box shadow.
   --connect__shadow-level-4: Fourth level of box shadow.
   --connect__shadow-spread-level-0: Zero spread level for box shadow.
-  --connect__disabled-cursor: Cursor style when the element is disabled.
+  --connect__state-based-pointer: Cursor style when the element is disabled.
   --connect__card-inner-state-divider: Divider color for inner state of the card.
   --connect__neutrals-null: Null neutral color.
 
@@ -3598,7 +3588,7 @@ Styles:
       - Sets the fourth level of box shadow to zero spread.
     --active-color: var(--connect__neutrals-mid);
       - Sets the active color to a neutral mid color.
-    --connect__disabled-cursor: not-allowed;
+    --connect__state-based-pointer: not-allowed;
       - Sets the cursor style to 'not-allowed' when the element is disabled.
     --connect__card-inner-state-divider: var(--connect__neutrals-null);
       - Sets the inner state divider color to a null neutral color.
@@ -3623,7 +3613,7 @@ Styles:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --active-color: var(--connect__neutrals-mid);
-  --connect__disabled-cursor: not-allowed;
+  --connect__state-based-pointer: not-allowed;
   --connect__card-inner-state-divider: var(--connect__neutrals-null);
 
   &:disabled {
