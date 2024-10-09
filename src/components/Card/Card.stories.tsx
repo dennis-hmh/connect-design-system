@@ -7,7 +7,7 @@ import { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 const meta: Meta<typeof Card> = {
   component: Card,
-  title: 'Card',
+  title: 'Layout/Card',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

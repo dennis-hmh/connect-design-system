@@ -26,6 +26,7 @@ const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestI
 
   const styles = {
     gap: gridGap,
+    width: 'var(--theme__connect-grid-width, 100%)',
   };
 
   const additionalClassName = gutter === true ? 'connect__grid-gutter' : '';
