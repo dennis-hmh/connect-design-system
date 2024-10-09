@@ -345,7 +345,7 @@ States:
 
   &-loading > svg,
   [class*='loading'] > svg {
-    animation: connect__loading 0.85s linear infinite;
+    animation: connect-loading 0.85s linear infinite;
   }
 
   @keyframes connect-loading {
@@ -1186,8 +1186,6 @@ Styles:
   footer {
     display: flex;
   }
-
- 
 
   // Comment out container query, until needed
 
