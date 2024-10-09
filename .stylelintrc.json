@@ -1,0 +1,69 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+    "custom-property-empty-line-before": null,
+    "custom-property-pattern": null,
+    "declaration-empty-line-before": null,
+    "declaration-block-no-duplicate-custom-properties": null,
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["gap", "inset", "place-content", "padding", "margin", "margin-inline"]
+      }
+    ],
+    "media-feature-range-notation": "prefix",
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": ["blockless-at-rules", "pseudo-classes"],
+        "ignoreAtRules": ["each", "media", "supports", "include"],
+        "severity": "warning",
+        "message": "Avoid using more than 3 nesting levels."
+      }
+    ],
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "property-no-vendor-prefix": [true, { "severity": "warning" }],
+    "rule-empty-line-before": [
+      true,
+      {
+        "except": ["first-nested", "after-single-line-comment"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^connect__[a-z0-9-]+$",
+      {
+        "resolveNestedSelectors": false
+      }
+    ],
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute"]
+      }
+    ],
+    "selector-not-notation": "simple",
+    "selector-max-compound-selectors": [
+      3,
+      {
+        "severity": "warning",
+        "message": "Avoid using more than 3 compound selectors."
+      }
+    ],
+    "order/properties-alphabetical-order": [true, { "severity": "warning" }],
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested", "inside-block"],
+        "ignore": ["between-comments", "stylelint-commands", "inside-block"]
+      },
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}
