@@ -168,16 +168,16 @@ States:
 }
 
 .connect__button {
-  // typography
-  --connect__button-fs: var(--theme-button-fs, var(--connect__body-sm));
-  --connect__button-lh: var(--theme-button-lh, var(--connect__body-sm-lheight));
-  --connect__button-font-w: var(--theme-button-fw, 400);
-  --connect__button-text-transform: var(--theme-button-transform, capitalize);
+  //typography
+  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
+  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
+  --connect__button-font-w: var(--theme__button-fw, 400);
+  --connect__button-text-transform: var(--theme__button-transform, capitalize);
 
   // borders / radius
-  --connect__button-border-w: var(--theme-button-border-w, 0rem);
+  --connect__button-border-w: var(--theme__button-border-w, 0rem);
   --connect__button-border-c: var(--connect__neutrals-white, transparent);
-  --connect__button-radius: var(--theme-border-radius, var(--border-radius));
+  --connect__button-radius: var(--theme__border-radius, var(--border-radius));
 
   // shadows
   --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
@@ -201,9 +201,9 @@ States:
   --connect__button-flow: var(--btn-flow, row wrap);
 
   // margins
-  --connect__button-margin: var(--theme-button-margin, 0);
+  --connect__button-margin: var(--theme__button-margin, 0);
 
-  background-color: var(--theme-button-bg, var(--connect__button-bg));
+  background-color: var(--theme__button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
@@ -218,7 +218,7 @@ States:
     var(--connect__shadow-level-3) var(--connect__shadow-14),
     var(--connect__shadow-level-4) var(--connect__shadow-12);
 
-  color: var(--theme-button-color, var(--connect__button-color));
+  color: var(--theme__button-color, var(--connect__button-color));
   cursor: var(--connect__disabled-cursor, pointer);
   display: inline-flex;
   flex-flow: var(--connect__button-flow);
@@ -868,14 +868,14 @@ States:
   width: fit-content;
 
   button {
-    --connect__button-fs: var(--theme-button-fs, var(--connect__body-sm));
-    --connect__button-lh: var(--theme-button-lh, var(--connect__body-sm-lheight));
+    --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
+    --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
     --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
     --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
 
-    background-color: var(--theme-button-bg, var(--connect__button-bg));
+    background-color: var(--theme__button-bg, var(--connect__button-bg));
     border: unset;
-    color: var(--theme-button-color, var(--connect__button-color));
+    color: var(--theme__button-color, var(--connect__button-color));
     cursor: var(--connect__disabled-cursor, pointer);
 
     display: inline-flex;
@@ -1148,9 +1148,9 @@ Styles:
 */
 
 .connect__card {
-  --connect__card-border-w: var(--theme-chip-border-w, 0);
+  --connect__card-border-w: var(--theme__chip-border-w, 0rem);
   --connect__card-border-c: var(--connect__neutrals-white, transparent);
-  --connect__card-radius: var(--theme-border-radius, var(--border-radius));
+  --connect__card-radius: var(--theme__border-radius, var(--border-radius));
 
   --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
@@ -1160,9 +1160,9 @@ Styles:
   --connect__card-padding-y: var(--connect__spacer-sm);
   --connect__card-padding-x: var(--connect__spacer-md);
 
-  --connect__card-flow: var(--theme-card-flow, column wrap);
+  --connect__card-flow: var(--theme__card-flow, column wrap);
 
-  --connect__card-gap: var(--theme-card-gap, var(--connect__spacer-sm));
+  --connect__card-gap: var(--theme__card-gap, var(--connect__spacer-sm));
 
   background-color: var(--connect__neutrals-white);
   border: var(--connect__card-border-w) solid var(--connect__card-border-c, transparent);
@@ -1424,10 +1424,10 @@ Transition Styles:
   --connect__tooltip-padding-y: var(--theme__tooltip-padding-y, var(--connect__spacer-xs));
   --connect__tooltip-padding-x: var(--theme__tooltip-padding-y, var(--connect__spacer-sm));
 
-  --shadow-level-1: var(--theme-tooltip-shadow-1, var(--connect__shadow-spread-level-1));
-  --shadow-level-2: var(--theme-tooltip-shadow-2, var(--connect__shadow-spread-level-7));
-  --shadow-level-3: var(--theme-tooltip-shadow-3, var(--connect__shadow-spread-level-8));
-  --shadow-level-4: var(--theme-tooltip-shadow-4, var(--connect__shadow-spread-level-9));
+  --shadow-level-1: var(--theme__tooltip-shadow-1, var(--connect__shadow-spread-level-1));
+  --shadow-level-2: var(--theme__tooltip-shadow-2, var(--connect__shadow-spread-level-7));
+  --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
+  --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
 
   --connect__tooltip-opacity: 0;
   --connect__tooltip-visibility: hidden;
@@ -2261,15 +2261,14 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 }
 
 .connect__chip {
-  --connect__chip-fs: var(--theme-chip-fs, var(--connect__caption));
-  --connect__chip-lh: var(--theme-chip-lh, var(--connect__caption-lheight));
-
-  --connect__chip-border-w: var(--theme-chip-border-w, 0);
+  --connect__chip-fs: var(--theme__chip-fs, var(--connect__caption));
+  --connect__chip-lh: var(--theme__chip-lh, var(--connect__caption-lheight));
+  --connect__chip-border-w: var(--theme__chip-border-w, 0rem);
   --connect__chip-border-c: var(--connect__neutrals-white, transparent);
-  --connect__chip-radius: var(--theme-border-radius, var(--border-radius));
+  --connect__chip-radius: var(--theme__border-radius, var(--border-radius));
 
   --connect__chip-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__chip-bg: var(--theme-chip-bg, var(--connect__neutrals-white));
+  --connect__chip-bg: var(--theme__chip-bg, var(--connect__neutrals-white));
 
   --connect__chip-padding-y: var(--connect__spacer-xs);
   --connect__chip-padding-x: var(--connect__spacer-md);
@@ -2288,7 +2287,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
     var(--connect__shadow-level-2) var(--connect__shadow-20),
     var(--connect__shadow-level-3) var(--connect__shadow-14),
     var(--connect__shadow-level-4) var(--connect__shadow-12);
-  color: var(--theme-button-color, var(--connect__chip-color));
+  color: var(--theme__button-color, var(--connect__chip-color));
   font-family: var(--connect__font-sans);
   font-size: var(--connect__chip-fs);
 
@@ -2857,7 +2856,7 @@ Transitions:
   --connect__toolbar-padding-y: var(--connect__spacer-xs);
   --connect__toolbar-padding-x: var(--connect__spacer-sm);
   --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
-  --connect__toolbar-bg: var(--theme-connect_toolbar-bg, var(--connect__neutrals-pale));
+  --connect__toolbar-bg: var(--theme__connect_toolbar-bg, var(--connect__neutrals-pale));
   align-items: var(--connect__toolbar-align, baseline);
 
   background-color: var(--connect__toolbar-bg);
