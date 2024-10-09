@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Pill> = {
   component: Pill,
-  title: 'Pill',
+  title: 'Misc/Pill',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
