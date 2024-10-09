@@ -25,7 +25,12 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     '@chromatic-com/storybook',
+    '@storybook/experimental-addon-test',
   ],
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 
   docs: {},
 
@@ -43,10 +48,6 @@ const config: StorybookConfig = {
       ...config,
       plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
     };
-  },
-
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
   },
 };
 
