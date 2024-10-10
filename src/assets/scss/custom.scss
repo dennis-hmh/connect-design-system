@@ -2901,6 +2901,7 @@ Usage:
   --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__neutrals-white));
 
   --connect__aside-w: var(--theme__aside-w, 3.625rem);
+  --connect__aside-h: var(--theme__aside-h, 100vh);
 
   align-items: var(--connect__aside-align, center);
   background-color: var(--connect__aside-bg);
@@ -2911,10 +2912,15 @@ Usage:
     var(--connect__shadow-level-4) var(--connect__shadow-12);
   display: flex;
   flex-flow: var(--connect__aside-direction, column wrap);
+  height: calc(var(--connect__aside-h) - (var(--connect__aside-padding-y) * 2));
   justify-content: space-between;
   margin: 0;
   padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
   width: var(--connect__aside-w);
+
+  &:has(:only-child) {
+    justify-content: end;
+  }
 
   .connect__selected {
     .connect__button-menu {
@@ -3322,13 +3328,17 @@ Usage:
 .connect__list {
   --connect__list-item-padding-left: var(--connect__spacer-sm);
   --connect__list-item-margin-left: calc(4ch * 1);
+  --connect__list-fs: var(--connect__body-sm);
+  --connect__list-lh: var(--connect__body-sm-lheight);
 
+  font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
+  line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
   margin-block: 0;
   padding-inline: 0;
 
   > .connect__list-item {
     &::marker {
-      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
+      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__list-fs));
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
   }
@@ -3380,12 +3390,8 @@ Usage:
 }
 
 .connect__list {
-  list-style-type: none;
-}
-
-.connect__list {
   counter-reset: orderedlist;
-  list-style-type: decimal;
+  list-style-type: none;
 
   &::marker {
     font-weight: var(--theme__connect-marker-font-w, 700);
