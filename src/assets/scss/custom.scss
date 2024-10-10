@@ -1173,6 +1173,13 @@ Styles:
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
 
+  &.connect__floating-card {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+  }
+
   .connect__figure,
   .connect__card-header,
   .connect__card-content,
