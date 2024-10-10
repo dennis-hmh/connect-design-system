@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof InputText> = {
   component: InputText,
-  title: 'Input Text',
+  title: 'Input/Input Text',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -46,6 +46,7 @@ Default.args = {
   number: false,
   disabled: false,
   answerShown: false,
+  gradeBand: GradeBand.G4_5,
 };
 
 Correct.args = {

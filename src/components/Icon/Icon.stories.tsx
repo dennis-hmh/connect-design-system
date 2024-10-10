@@ -5,8 +5,8 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Icon> = {
+  title: 'Icons-Typo/Icon',
   component: Icon,
-  title: 'Icon',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
