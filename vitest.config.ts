@@ -1,0 +1,38 @@
+import { defineConfig, mergeConfig } from 'vitest/config';
+import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin';
+import viteConfig from './vite.config';
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    plugins: [
+      storybookTest({
+        storybookScript: 'npm run storybook --ci',
+      }),
+    ],
+    test: {
+      globals: true,
+      include: [
+        'src/components/**/*.stories.@(js|jsx|ts|tsx)',
+        'src/components/**/*.test.@(js|jsx|ts|tsx)',
+      ],
+      exclude: [
+        'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
+        'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
+        'src/components/Reveal/Reveal.stories.@(jsx|tsx)',
+      ],
+      browser: {
+        enabled: true,
+        name: 'chromium',
+        provider: 'playwright',
+        headless: true,
+      },
+      coverage: {
+        enabled: false,
+        reporter: ['html'],
+      },
+      isolate: false,
+      setupFiles: ['./.storybook/vitest.setup.ts'],
+    },
+  }),
+);
