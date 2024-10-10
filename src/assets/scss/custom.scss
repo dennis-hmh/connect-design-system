@@ -128,12 +128,6 @@ States:
     - Media button state.
     - &.media-active:not(:disabled): Active state for media buttons that are not disabled.
 
-  &-toolbar
-    - Toolbar button state.
-    - &.connect__selected: Selected state for toolbar buttons.
-    - &:not(.connect__selected): Default state for toolbar buttons that are not selected.
-    - svg: Styles for SVG icons inside the toolbar button.
-
   &:disabled
     - Disabled state for the button.
     - svg: Styles for SVG icons inside the disabled button.
@@ -239,7 +233,7 @@ States:
   transition-timing-function: var(--connect__ease-in-out);
   width: var(--connect__button-w, fit-content);
 
-  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
+  &:not(:disabled):not(.connect__button-menu):not([class*='-correct']):not(
       [class*='-incorrect']
     ):not([class*='-shown']) {
     &:hover {
@@ -338,8 +332,33 @@ States:
     }
 
     svg {
-      height: var(--connect__icon-md);
-      width: var(--connect__icon-md);
+      height: var(--connect__icon-size, var(--connect__icon-md));
+      width: var(--connect__icon-size, var(--connect__icon-md));
+    }
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
     }
   }
 
@@ -373,17 +392,44 @@ States:
     }
   }
 
-  &-toolbar {
+  &-menu {
     --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+
+    --connect__effects-inner-edge: 0.0625rem;
 
     --connect__button-bg: var(--connect__neutrals-null);
     --inner-shadow-color: var(--connect__neutrals-null);
 
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
   }
 
   &:disabled {
