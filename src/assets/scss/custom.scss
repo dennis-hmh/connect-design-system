@@ -338,8 +338,8 @@ States:
     }
 
     svg {
-      height: var(--connect__icon-md);
-      width: var(--connect__icon-md);
+      height: var(--connect__icon-size, var(--connect__icon-md));
+      width: var(--connect__icon-size, var(--connect__icon-md));
     }
   }
 
@@ -402,7 +402,6 @@ States:
     --connect__button-border-w: 2px;
     --connect__button-justify-content: center;
     --duration: 1.25s;
-    // --inner-shimmer: isolation: isolate;
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     --conic-gradient-color: var(--connect__neutrals-null);
 
