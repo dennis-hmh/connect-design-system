@@ -45,12 +45,12 @@ export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSpli
       ref={drop}
       data-testid={dataTestId}
     >
-      <button type="button" className={``} disabled={disabled}>
+      <button type="button" className={`connect__button-split-button`} disabled={disabled}>
         {children}
       </button>
       <button
         type="button"
-        className={``}
+        className={`connect__button-split-button connect__button-split-button-actions`}
         disabled={disabled}
         aria-haspopup="true"
         aria-expanded={open}
@@ -72,9 +72,11 @@ function ButtonSplitMenu<T extends React.ReactNode>({
 }) {
   return (
     <>
-      <ul role="menu">
+      <ul role="menu" className="connect__list">
         {data.map((option) => (
-          <li role="menuitem">{option.value}</li>
+          <li role="menuitem" className="connect__list-item">
+            {option.value}
+          </li>
         ))}
       </ul>
     </>

@@ -856,86 +856,87 @@ States:
 }
 
 .connect__button-split {
-  display: inline-flex;
-  flex-flow: var(--connect__button-flow);
-
   position: relative;
-  width: fit-content;
 
-  button {
-    --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
-    --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-    --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
-    --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
+  .connect__list {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
 
-    background-color: var(--theme__button-bg, var(--connect__button-bg));
-    border: unset;
-    color: var(--theme__button-color, var(--connect__button-color));
+    --connect__list-bg: var(--theme__list-bg, var(--connect__neutrals-white));
+    --connect__list-radius: var(--theme__list-radius, var(--border-radius));
+
+    --connect__list-flow: var(--theme__list-flow, column);
+    --connect__list-wrap: var(--theme__list-wrap, wrap);
+
+    background-color: var(--connect__list-bg);
+    border-radius: var(--connect__list-radius);
+    box-shadow:
+      var(--connect__shadow-level-1) var(--connect__shadow-10),
+      var(--connect__shadow-level-2) var(--connect__shadow-20),
+      var(--connect__shadow-level-3) var(--connect__shadow-14),
+      var(--connect__shadow-level-4) var(--connect__shadow-12);
+    color: var(--connect__neutrals-dark);
+    display: flex;
+    flex-flow: var(--connect__list-flow) var(--connect__list-wrap);
+    left: 0;
+    margin-top: calc(var(--border-width) * 2);
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .connect__list-item {
     cursor: var(--connect__state-based-pointer, pointer);
-    display: inline-flex;
-    font-size: var(--connect__button-fs);
-    line-height: var(--connect__button-lh);
+    font-family: var(--connect__font-sans);
+    font-size: var(--connect__caption);
+    line-height: var(--connect__caption-lheight);
+    padding: var(--connect__spacer-sm) var(--connect__spacer-md);
 
-    &:nth-child(2) {
-      border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__neutrals-white);
-      padding-left: var(--connect__button-gap);
+    &:first-of-type {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 
-    + ul {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
-      background-color: var(--connect__neutrals-white);
-
-      border-radius: var(--border-radius);
-      box-shadow:
-        var(--connect__shadow-level-1) var(--connect__shadow-10),
-        var(--connect__shadow-level-2) var(--connect__shadow-20),
-        var(--connect__shadow-level-3) var(--connect__shadow-14),
-        var(--connect__shadow-level-4) var(--connect__shadow-12);
-      color: var(--connect__neutrals-dark);
-      display: flex;
-      flex-flow: column wrap;
-      font-family: var(--connect__font-sans);
-      font-size: var(--connect__caption);
-      line-height: var(--connect__caption-lheight);
-      list-style-type: none;
-      margin-top: calc(var(--border-width) * 2);
-      padding: 0;
-      position: absolute;
-      top: 100%;
-      width: calc(100% - var(--connect__spacer-md) + var(--border-width));
-      z-index: 1;
-
-      li {
-        cursor: var(--connect__state-based-pointer, pointer);
-        padding: var(--connect__spacer-sm);
-
-        &:first-of-type {
-          border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        &:last-of-type {
-          border-radius: 0 0 var(--border-radius) var(--border-radius);
-        }
-
-        &:hover {
-          background-color: var(--connect__neutrals-pale);
-        }
-      }
+    &:last-of-type {
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
 
-    &:disabled {
-      --active-color: var(--color-action-disabled);
-      color: var(--connect__neutrals-mid);
-    }
-
-    &:focus-visible {
-      outline: unset;
+    &:hover {
+      background-color: var(--connect__neutrals-pale);
     }
   }
+}
+
+.connect__button-split-button {
+  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
+  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
+  --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
+  --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
+
+  background-color: var(--theme__button-bg, var(--connect__button-bg));
+  border: unset;
+  color: var(--theme__button-color, var(--connect__button-color));
+  cursor: var(--connect__state-based-pointer, pointer);
+  display: inline-flex;
+  font-size: var(--connect__button-fs);
+  line-height: var(--connect__button-lh);
+
+  &:disabled {
+    --active-color: var(--color-action-disabled);
+    color: var(--connect__neutrals-mid);
+  }
+
+  &:focus-visible {
+    outline: unset;
+  }
+}
+
+.connect__button-split-button-actions {
+  border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__neutrals-white);
+  padding-left: var(--connect__button-gap);
 }
 
 .connect__accordion {
