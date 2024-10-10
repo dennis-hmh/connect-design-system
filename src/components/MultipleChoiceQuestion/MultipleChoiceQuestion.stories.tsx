@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof MultipleChoiceQuestion> = {
   component: MultipleChoiceQuestion,
-  title: 'MultipleChoiceQuestion',
+  title: 'Input/Multiple Choice Question',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

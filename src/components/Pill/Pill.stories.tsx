@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { Blockquote, BlockquoteProps } from './Blockquote';
+import { Pill, PillProps } from './Pill';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
-const meta: Meta<typeof Blockquote> = {
-  title: 'Figure/Blockquote',
-  component: Blockquote,
+const meta: Meta<typeof Pill> = {
+  component: Pill,
+  title: 'Misc/Pill',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -14,15 +14,16 @@ const meta: Meta<typeof Blockquote> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Blockquote>;
 
-const Template: StoryFn<BlockquoteProps> = (args) => {
+type Story = StoryObj<typeof Pill>;
+
+const Template: StoryFn<PillProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
 
   return (
-    <ConnectTheme gradeBand={args.gradeBand as GradeBand} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Blockquote {...args} />
+        <Pill {...args} />
       </div>
     </ConnectTheme>
   );
@@ -30,6 +31,7 @@ const Template: StoryFn<BlockquoteProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  children: 'This is a blockquote',
+  children: 'Pill Text',
+  backgroundColor: '',
   gradeBand: GradeBand.G4_5,
 };

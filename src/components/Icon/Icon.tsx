@@ -18,11 +18,11 @@ export type IconProps = {
 };
 
 export const Icon: React.FC<IconProps> = ({
-  id,
-  size,
+  id = 'add',
+  size = 'md',
   fill,
   stroke,
-  opacity,
+  opacity = 1,
   focusable = false,
   className,
   dataTestId,
@@ -31,11 +31,15 @@ export const Icon: React.FC<IconProps> = ({
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   const spriteUrl =
-    import.meta.env.PROD === true
+    import.meta.env.PROD === true && import.meta.env.VITE_ENV === 'build'
       ? '/node_modules/@connect/connect-design-system/dist/svg/sprite.svg'
       : '/svg/sprite.svg';
 
   // const spriteUrl = `/node_modules/@connect/connect-design-system/dist/svg/sprite.svg`;
+
+  // console.log('VITE_ENV: "build"', import.meta.env.VITE_ENV === 'build');
+  // console.log('VITE_ENV: "chromatic"', import.meta.env.VITE_ENV === 'chromatic');
+  // console.log('PROD:', import.meta.env.PROD);
 
   return (
     <svg
@@ -44,14 +48,13 @@ export const Icon: React.FC<IconProps> = ({
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,
           '--connect__icon-stroke-color': `var(${strokeColorVariable})`,
-        } as React.CSSProperties & { [key: string]: string | undefined }
+        } as React.CSSProperties
       }
       aria-hidden="true"
       focusable={focusable}
       data-testid={dataTestId}
       opacity={opacity}
     >
-      {'env.NODE_ENV: ' + import.meta.env.PROD}
       <use
         // xlinkHref={`dist/svg/sprite.svg#${id}`}
         // href={`dist/svg/sprite.svg#${id}`}

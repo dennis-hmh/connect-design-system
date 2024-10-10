@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
-  title: 'Progress Bar',
+  title: 'Misc/Progress Bar',
   tags: ['autodocs'],
   parameters: {
     // layout: 'centered',
