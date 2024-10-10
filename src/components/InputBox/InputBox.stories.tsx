@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof InputBox> = {
   component: InputBox,
-  title: 'Input Box',
+  title: 'Input/Input Box',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

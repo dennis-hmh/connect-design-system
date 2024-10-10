@@ -236,8 +236,8 @@ export const Icons: React.FC = () => {
 };
 
 export default {
+  title: 'Icons-Typo/Icons',
   component: Icons,
-  title: 'Icons',
   tags: ['autodocs'],
 };
 
