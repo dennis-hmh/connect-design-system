@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Accordion',
+  title: 'Misc/Accordion',
   component: Accordion,
   tags: ['autodocs'],
 };

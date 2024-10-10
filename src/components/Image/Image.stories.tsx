@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Image> = {
-  title: 'Image',
+  title: 'Figure/Image',
   component: Image,
   tags: ['autodocs'],
   parameters: {

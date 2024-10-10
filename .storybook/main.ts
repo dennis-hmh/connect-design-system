@@ -25,16 +25,22 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     '@chromatic-com/storybook',
+    '@storybook/experimental-addon-test',
   ],
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 
   docs: {},
 
   managerHead: (head) => `
     ${head}
     <style>
-      button[id="drag-drop"] { display: none; }
-      button[id="flipcards"] { display: none; }
-      button[id="reveal"] {display: none; }
+      div[id="removed"] { display: none; }
+      button[id="removed-drag-drop"] { display: none; }
+      button[id="removed-flipcards"] { display: none; }
+      button[id="removed-reveal"] {display: none; }
     </style>
   `,
 
@@ -43,10 +49,6 @@ const config: StorybookConfig = {
       ...config,
       plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
     };
-  },
-
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
   },
 };
 

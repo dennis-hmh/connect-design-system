@@ -2,7 +2,7 @@ import { DragDrop } from './DragDrop';
 
 export default {
   component: DragDrop,
-  title: 'Drag Drop',
+  title: 'Removed/Drag Drop',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
