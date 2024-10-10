@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof FigCaption> = {
-  title: 'FigCaption',
+  title: 'Figure/Fig Caption',
   component: FigCaption,
   tags: ['autodocs'],
   parameters: {
