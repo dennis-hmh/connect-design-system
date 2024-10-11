@@ -940,74 +940,108 @@ States:
 }
 
 .connect__accordion {
-  list-style: none;
-  padding-left: 0;
-
-  > li {
+  .connect__list-item {
     margin-left: 0;
     margin-top: var(--border-width);
     padding-left: 0;
-
-    &::before {
-      content: none;
-    }
   }
 
-  details {
-    margin-top: 0;
+  .connect__details {
+    // paddings for details itself
+    --connect__details-padding-t: var(
+      --theme__details-padding-t,
+      var(--variant__details-padding-t, 0)
+    );
+    --connect__details-padding-r: var(
+      --theme__details-padding-r,
+      var(--variant__details-padding-r, 0)
+    );
+    --connect__details-padding-b: var(
+      --theme__details-padding-b,
+      var(--variant__details-padding-b, 0)
+    );
+    --connect__details-padding-l: var(
+      --theme__details-padding-l,
+      var(--variant__details-padding-l, 0)
+    );
+
+    // border radius for details based on open closed
+    --connect__details-closed-radius: var(--border-radius);
+    --connect__details-open-radius: var(--border-radius) var(--border-radius) 0 0;
+
+    // Icon for accordion. Changes when open. in the [open]
+    --connect__icon-rotate: rotate(0deg);
+
+    padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
+      var(--connect__details-padding-b) var(--connect__details-padding-l);
     position: relative;
 
-    & > * {
-      padding-left: var(--connect__spacer-md);
-      padding-right: var(--connect__spacer-md);
+    > *:not(summary) {
+      padding: var(--connect__details-items-state-padding-t, 0)
+        var(--connect__details-items-state-padding-r, 0)
+        var(--connect__details-items-state-padding-b, 0)
+        var(--connect__details-items-state-padding-l, 0);
     }
 
     &[open] {
-      padding-bottom: var(--connect__spacer-sm);
+      --connect__icon-rotate: rotate(180deg);
+      --variant__details-padding-b: var(--connect__spacer-sm);
 
-      summary {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
-
-        &::after {
-          transform: rotate(180deg);
-        }
+      *:not(summary) {
+        --connect__details-items-state-padding-t: var(--connect__spacer-sm);
+        --connect__details-items-state-padding-r: var(--connect__spacer-sm);
+        --connect__details-items-state-padding-l: var(--connect__spacer-sm);
       }
     }
   }
 
-  summary {
-    align-items: center;
-    border-radius: var(--border-radius);
+  .connect__summary {
+    --connect__summary-bg: var(
+      --theme__summary-bg,
+      var(--variant__summary-bg, var(--active-color))
+    );
+
+    --connect__summary-icon-active-ring: var(
+      --theme__summary-icon-active-ring,
+      var(--variant__summary-icon-active-ring, var(--connect__selected-mid))
+    );
+
+    --connect__summary-padding-y: var(
+      --theme__summary-padding-y,
+      var(--variant__summary-padding-y, var(--connect__spacer-sm))
+    );
+    --connect__summary-padding-x: var(
+      --theme__summary-padding-x,
+      var(--variant__summary-padding-x, var(--connect__spacer-sm))
+    );
+
+    // alignment of summary items
+    --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
+    --connect__justify-content: var(
+      --theme__justify-content,
+      var(--variant__justify-content, space-between)
+    );
+
+    align-items: var(--connect__align-items);
+    background-color: var(--connect__summary-bg);
+    border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
     cursor: var(--connect__state-based-pointer, pointer);
-    // position: relative;
     display: flex;
-
-    font-size: var(--connect__body-lg);
-    justify-content: space-between;
-    list-style: none;
-    min-height: calc(var(--ui-button) + var(--connect__spacer-md));
-    padding-bottom: var(--connect__spacer-sm);
-    padding-top: var(--connect__spacer-sm);
-
-    *,
-    & + * {
-      margin-bottom: 0;
-      margin-top: 0;
-    }
+    justify-content: var(--connect__justify-content);
+    padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
 
     &::after {
-      --active-color: var(--connect__selected-mid);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: var(--connect__ui-icon) var(--connect__ui-icon);
-      border: var(--border-width) solid var(--active-color);
+      border: var(--border-width) solid var(--connect__summary-icon-active-ring);
       border-radius: 50%;
       content: '';
       flex-shrink: 0;
       height: var(--ui-button);
       margin-left: var(--connect__spacer-md);
-
+      transform: var(--connect__icon-rotate);
       width: var(--ui-button);
     }
 
@@ -1017,7 +1051,7 @@ States:
       --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
 
-      background: white;
+      background: var(--tconnect__neutrals-white);
       border-radius: var(--border-radius);
       box-shadow:
         var(--connect__shadow-level-1) var(--connect__shadow-10),
@@ -1042,10 +1076,6 @@ States:
         --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
         --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
         --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
       }
     }
 
@@ -1064,41 +1094,31 @@ States:
       --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
     }
   }
+}
+.connect__accordion--divider {
+  summary {
+    & + * {
+      position: relative;
 
-  &.connect__accordion--divider {
-    summary {
-      & + * {
-        padding-top: var(--connect__spacer-md);
-        position: relative;
+      &::before {
+        --active-color: var(--connect__selected-mid);
+        background: var(--active-color);
+        content: '';
+        height: var(--border-width);
+        left: var(--connect__spacer-md);
 
-        &::before {
-          --active-color: var(--connect__selected-mid);
-          background: var(--active-color);
-          content: '';
-          height: var(--border-width);
-          left: var(--connect__spacer-md);
-
-          position: absolute;
-          top: 0;
-          width: calc(100% - var(--connect__spacer-xl));
-        }
+        position: absolute;
+        top: 0;
+        width: calc(100% - var(--connect__spacer-xl));
       }
     }
   }
+}
 
-  &.connect__accordion--color {
-    details {
-      &[open] {
-        summary {
-          --active-color: var(--connect__selected-mid);
-
-          background: var(--active-color);
-
-          & + * {
-            padding-top: var(--connect__spacer-sm);
-          }
-        }
-      }
+.connect__accordion--color {
+  [open] {
+    .connect__summary {
+      --active-color: var(--connect__selected-mid);
     }
   }
 }
