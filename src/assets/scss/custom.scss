@@ -3061,7 +3061,6 @@ Transitions:
     --connect__toolbar-row-gap: calc(
       var(--connect__spacer-xs) + var(--connect__effects-inner-edge)
     );
-
     --connect__toolbar-sub-menu-flow: row;
   }
 }
@@ -3239,6 +3238,7 @@ Transitions:
   --connect__list-item-padding-left: var(--connect__spacer-sm);
   --connect__list-item-margin-left: calc(4ch * 1);
 
+  margin-inline: 0;
   margin-block: 0;
   padding-inline: 0;
 
@@ -3348,16 +3348,10 @@ Transitions:
     text-align: var(--connect__fig-text-align, left);
     text-wrap: var(--connect__fig-text-wrap, initial);
   }
-
-  ul {
-    margin-inline-end: 0;
-    margin-inline-start: 0;
-  }
 }
 
 [class*='connect_']:disabled {
   --active-color: var(--connect__neutrals-mid);
-  // --state-based-bg: var(--connect__neutrals-white);
   --connect__icon-fill-color: var(--connect__neutrals-light);
   --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
   --checkbox-state-based-bg: var(--connect__neutrals-pale);
