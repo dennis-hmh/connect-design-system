@@ -26,7 +26,7 @@ export const List: React.FC<ListProps> = ({
     <ol className={`connect__list ${variantClass} ${className}`} data-testid={dataTestId}>
       {data.map((item, index) => (
         <li key={index} className="connect__list-item">
-          <div className="connect__list-content">{item.content}</div>
+          {item.content}
         </li>
       ))}
     </ol>
@@ -34,7 +34,7 @@ export const List: React.FC<ListProps> = ({
     <ul className={`connect__list  ${variantClass} ${className}`} data-testid={dataTestId}>
       {data.map((item, index) => (
         <li key={index} className="connect__list-item">
-          <div className="connect__list-content">{item.content}</div>
+          {item.content}
         </li>
       ))}
     </ul>
