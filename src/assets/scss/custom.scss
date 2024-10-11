@@ -3059,9 +3059,7 @@ Example:
   --connect__list-item-divider-h: var(--theme__list-item-divider-h, 0.1875rem);
   --connect__list-item-divider-w: var(--theme__list-item-divider-w, 100%);
   --connect__list-item-divider-br: var(--theme__list-item-divider-br, var(--border-radius));
-
   --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
-
   --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
 
   background-color: var(--connect__list-item-divider-bg);
