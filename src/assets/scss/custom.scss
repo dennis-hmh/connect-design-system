@@ -406,6 +406,8 @@ States:
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
 
+    --connect__icon-fill-color: rgba(204, 0, 192, 1);
+
     &:active {
       --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
@@ -2964,7 +2966,7 @@ Usage:
   padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
   width: var(--connect__aside-w);
 
-  &:has(:only-child) {
+  &:has(ul:only-child) {
     justify-content: end;
   }
 

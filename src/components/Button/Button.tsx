@@ -33,17 +33,19 @@ export const Button: React.FC<ButtonProps> = ({
   clickHandler,
   iconId,
   iconSize = 'md',
-  fill = 'white',
+  fill,
   iconPosition = 'before',
   iconOpacity,
   ariaLabel,
   dataTestId,
-  additionalClass = ''
+  additionalClass = '',
 }) => {
   const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
   const isCorrect = correct ? 'connect__button-correct' : '';
   const isIncorrect = incorrect ? 'connect__button-incorrect' : '';
-  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} /> : null;
+  const iconElement = iconId ? (
+    <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
+  ) : null;
   return (
     <button
       type={submit}
