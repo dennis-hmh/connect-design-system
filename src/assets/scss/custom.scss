@@ -169,7 +169,7 @@ States:
 }
 
 .connect__button {
-  //typography
+  // typography
   --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
   --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
   --connect__button-font-w: var(--theme__button-fw, 400);
@@ -211,10 +211,10 @@ States:
   border-radius: var(--connect__button-radius, 0);
   box-shadow:
     var(--inner-shadow),
-    0rem 0rem 0rem var(--connect__inner-status, 0)
+    0 0 0 var(--connect__inner-status, 0)
       var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent))
       inset,
-    0rem 0rem 0rem var(--connect__button-inner-divider, 0)
+    0 0 0 var(--connect__button-inner-divider, 0)
       var(--connect__button-inner-divider-color, transparent) inset,
     var(--connect__shadow-level-1) var(--connect__shadow-10),
     var(--connect__shadow-level-2) var(--connect__shadow-20),
@@ -235,9 +235,10 @@ States:
   padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
     calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
   text-transform: var(--connect__button-text-transform, initial);
-  transition-duration: var(--connect__transition-default);
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: var(--connect__ease-in-out);
+  transition-duration: var(--connect__transition-rapid);
+  transition-property: color, background-color, border-color, box-shadow, fill, stroke;
+  transition-timing-function: var(--connect__ease-out);
+
   width: var(--connect__button-w, fit-content);
 
   &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
@@ -339,8 +340,8 @@ States:
     }
 
     svg {
-      height: var(--connect__icon-md);
-      width: var(--connect__icon-md);
+      height: var(--connect__icon-size, var(--connect__icon-md));
+      width: var(--connect__icon-size, var(--connect__icon-md));
     }
   }
 
@@ -403,7 +404,6 @@ States:
     --connect__button-border-w: 2px;
     --connect__button-justify-content: center;
     --duration: 1.25s;
-    // --inner-shimmer: isolation: isolate;
     --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
     --conic-gradient-color: var(--connect__neutrals-null);
 
@@ -422,10 +422,9 @@ States:
         border-box;
     border: var(--connect__button-border-w) solid transparent;
     display: grid;
-    align-content: center;
     grid-template-rows: 1fr;
-    justify-content: center;
     isolation: isolate;
+    justify-content: center;
     overflow: hidden;
     position: relative;
     transition: var(--transition);
@@ -626,8 +625,8 @@ States:
   padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
   position: relative;
   resize: var(--resize);
-  transition-duration: var(--connect__transition-default);
-  transition-property: color, background-color, border-color;
+  transition-duration: var(--connect__transition-rapid);
+  transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
   width: var(--connect__input-width, 100%);
 
@@ -1030,9 +1029,9 @@ States:
       left: 0;
       position: absolute;
       top: 0;
-      transition-duration: 150ms;
-      transition-property: color, background-color, border-color;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: var(--connect__transition-medium);
+      transition-property: visibility, opacity, transform, max-height;
+      transition-timing-function: var(--connect__ease-out);
       width: 100%;
       z-index: -1;
     }
@@ -1175,6 +1174,13 @@ Styles:
   padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
+
+  &.connect__floating-card {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+  }
 
   .connect__figure,
   .connect__card-header,
@@ -1328,7 +1334,9 @@ Styles:
       --connect__tooltip-opacity: 1;
       --connect__tooltip-visibility: visible;
       --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY-hover, -110%);
-      --connect__tooltip-transition: var(--connect__ease-in);
+      transition-duration: var(--connect__transition-fast);
+      transition-property: visibility, opacity, transform;
+      transition-timing-function: var(--connect__ease-out);
     }
   }
 }
@@ -1446,10 +1454,9 @@ Transition Styles:
   top: 0;
   transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
   transform-origin: bottom;
-  transition-duration: var(--connect__transition-default);
-
+  transition-duration: var(--connect__transition-fast);
   transition-property: visibility, opacity, transform;
-  transition-timing-function: var(--connect__ease-in);
+  transition-timing-function: var(--connect__ease-out);
   visibility: var(--connect__tooltip-visibility);
   white-space: nowrap;
 }
@@ -1487,8 +1494,8 @@ Usage:
     &::before,
     &::after {
       content: '';
-      position: absolute;
       pointer-events: none;
+      position: absolute;
     }
 
     &::before {
@@ -1671,15 +1678,12 @@ Usage:
   background-image: var(--connect__header-bg-image);
   background-repeat: var(--connect__header-bg-repeat);
   background-size: var(--connect__header-bg-size);
-
-  border-width: var(--connect__header-border-w-t) var(--connect__header-border-w-r)
-    var(--connect__header-border-w-b) var(--connect__header-border-w-l);
-  border-style: solid;
   border-color: var(--connect__header-border-c);
-
-  // Apply border radius
   border-radius: var(--connect__header-border-r-tl) var(--connect__header-border-r-tr)
     var(--connect__header-border-r-br) var(--connect__header-border-r-bl);
+  border-style: solid;
+  border-width: var(--connect__header-border-w-t) var(--connect__header-border-w-r)
+    var(--connect__header-border-w-b) var(--connect__header-border-w-l);
   display: flex;
 
   margin-top: var(--connect__header-margin-t);
@@ -1699,7 +1703,7 @@ Usage:
   }
 
   // Breakout section (pseudo-element)
-  &:before {
+  &::before {
     // Breakout section background variables
     --connect__header-breakout-bg: var(
       --theme__connect-header-breakout-bg,
@@ -1753,7 +1757,7 @@ Usage:
   }
 
   &:not(.connect__breakout):not(.connect__linear):not(.connect__halftone) {
-    &:before,
+    &::before,
     &::after {
       // Breakout section background variables
       --connect__header-breakout-bg: var(
@@ -1853,9 +1857,8 @@ Usage:
       var(--connect__linear-color-two)
     );
     content: '';
-    mix-blend-mode: var(--connect__linear-blend-mode);
     inset: 0;
-
+    mix-blend-mode: var(--connect__linear-blend-mode);
     position: absolute;
   }
 
@@ -1906,9 +1909,9 @@ Usage:
       var(--radial-bg-size) var(--radial-bg-size),
       100% 100%;
     content: '';
+    inset: 0;
     mix-blend-mode: var(--connect__halftone-blend-mode);
     position: absolute;
-    inset: 0;
   }
 }
 
@@ -1973,23 +1976,13 @@ Breakout Section:
   --connect__footer-padding-r: var(--theme__footer-padding-r, 0);
   --connect__footer-padding-l: var(--theme__footer-padding-l, 0);
   --connect__footer-padding-b: var(--theme__footer-padding-b, var(--connect__spacer-sm));
-
   --connect__footer-margin-t: var(--theme__footer-margin-t, 0);
 
   background-color: var(--connect__neutrals-white);
-
   margin-top: var(--connect__footer-margin-t);
-
   padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
     var(--connect__footer-padding-b) var(--connect__footer-padding-l);
-
-  margin-top: var(--connect__footer-margin-t);
-
-  padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
-    var(--connect__footer-padding-b) var(--connect__footer-padding-l);
-
   position: var(--connect__footer-position);
-
   width: 100%;
 
   &::after {
@@ -2716,7 +2709,6 @@ Usage:
 .connect__progress-wrapper {
   width: 100%;
 }
-
 /* 
 .connect__progress Component
 
@@ -2776,7 +2768,6 @@ Transitions:
   --connect__progress-bar-radius: var(--theme__progress-bar-radius, 1rem);
 
   // This is here because FF needs it here, will ignore in chrome
-
   appearance: none;
   background: var(--connect__progress-bg);
 
@@ -3279,11 +3270,11 @@ Transitions:
   }
 }
 
-ul.connect__list {
+.connect__list {
   list-style-type: none;
 }
 
-ol.connect__list {
+.connect__list {
   counter-reset: orderedlist;
   list-style-type: decimal;
 
@@ -3292,7 +3283,7 @@ ol.connect__list {
   }
 }
 
-ol.connect__counters {
+.connect__counters {
   &::marker {
     content: counters(list-item, '.') ':';
     font-weight: var(--theme__connect-marker-font-w, 700);
@@ -3310,10 +3301,10 @@ ol.connect__counters {
     font-size: var(--connect__blockquote-fs, var(--connect__body-md));
     font-style: var(--connect__blockquote-font-style, normal);
     margin: var(--connect__blockquote-margin, 0);
-    padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
     padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
-    padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
     padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
+    padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
+    padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
   }
 
   figure {
@@ -3325,10 +3316,10 @@ ol.connect__counters {
     --connect__fig-px: var(--connect__spacer-md);
     font-size: var(--connect__fig-fs, var(--connect__caption));
     margin-top: var(--connect__fig-mt, 0);
-    padding-top: var(--connect__fig-pt, var(--connect__fig-py));
-    padding-right: var(--connect__fig-pr, var(--connect__fig-px));
     padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
     padding-left: var(--connect__fig-pl, var(--connect__fig-px));
+    padding-right: var(--connect__fig-pr, var(--connect__fig-px));
+    padding-top: var(--connect__fig-pt, var(--connect__fig-py));
     text-align: var(--connect__fig-text-align, left);
     text-wrap: var(--connect__fig-text-wrap, initial);
   }
