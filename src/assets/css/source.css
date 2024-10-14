@@ -1181,6 +1181,7 @@ An attempt to unify code, reduce need for extra css
 A modern 2024 take on the reset
 */
 
+*[class^='connect__'],
 *[class^='connect__'] *,
 *[class^='connect__'] *::before,
 *[class^='connect__'] *::after {
@@ -1188,8 +1189,8 @@ A modern 2024 take on the reset
 }
 
 :where([class^='connect__']) * {
-  -webkit-font-smoothing: antialiased;
   font-family: var(--connect__font-sans);
+  -webkit-font-smoothing: antialiased;
   margin: 0;
 }
 
@@ -1216,6 +1217,9 @@ A modern 2024 take on the reset
 
 :where([class^='connect__']) ul,
 :where([class^='connect__']) ol {
+  --connect__list-style-type: var(--variant__list-style-type, none);
+
+  list-style-type: var(--connect__list-style-type);
   margin-block: 0;
   margin-inline: 0;
   padding-inline: 0;

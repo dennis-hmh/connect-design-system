@@ -128,12 +128,6 @@ States:
     - Media button state.
     - &.media-active:not(:disabled): Active state for media buttons that are not disabled.
 
-  &-toolbar
-    - Toolbar button state.
-    - &.connect__selected: Selected state for toolbar buttons.
-    - &:not(.connect__selected): Default state for toolbar buttons that are not selected.
-    - svg: Styles for SVG icons inside the toolbar button.
-
   &:disabled
     - Disabled state for the button.
     - svg: Styles for SVG icons inside the disabled button.
@@ -240,7 +234,7 @@ States:
 
   width: var(--connect__button-w, fit-content);
 
-  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
+  &:not(:disabled):not(.connect__button-menu):not([class*='-correct']):not(
       [class*='-incorrect']
     ):not([class*='-shown']) {
     &:hover {
@@ -342,6 +336,31 @@ States:
       height: var(--connect__icon-size, var(--connect__icon-md));
       width: var(--connect__icon-size, var(--connect__icon-md));
     }
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
   }
 
   &-loading > svg,
@@ -374,22 +393,54 @@ States:
     }
   }
 
-  &-toolbar {
+  &-menu {
     --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+
+    --connect__effects-inner-edge: 0.0625rem;
 
     --connect__button-bg: var(--connect__neutrals-null);
     --inner-shadow-color: var(--connect__neutrals-null);
 
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
+
+    --connect__icon-fill-color: var(--variant__icon-fill-color, var(--connect__neutrals-dark));
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
   }
 
   &:disabled {
-    --state-based-bg: var(--connect__gray-c20);
     --connect__button-bg: var(--state-based-bg);
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
+    }
 
     .connect__icon {
       --connect__icon-fill-color: var(--connect__neutrals-dark);
@@ -2849,8 +2900,8 @@ Transitions:
   --connect__toolbar-padding-x: var(--connect__spacer-sm);
   --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
   --connect__toolbar-bg: var(--theme__connect_toolbar-bg, var(--connect__neutrals-pale));
-  align-items: var(--connect__toolbar-align, baseline);
 
+  align-items: var(--connect__toolbar-align, baseline);
   background-color: var(--connect__toolbar-bg);
   container-name: toolbar;
   container-type: inline-size;
@@ -2926,6 +2977,9 @@ Usage:
   --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__neutrals-white));
 
   --connect__aside-w: var(--theme__aside-w, 3.625rem);
+  --connect__aside-h: var(--theme__aside-h, 100vh);
+
+  --variant__marker-color: var(--connect__neutrals-null);
 
   align-items: var(--connect__aside-align, center);
   background-color: var(--connect__aside-bg);
@@ -2936,6 +2990,7 @@ Usage:
     var(--connect__shadow-level-4) var(--connect__shadow-12);
   display: flex;
   flex-flow: var(--connect__aside-direction, column wrap);
+  height: calc(var(--connect__aside-h) - (var(--connect__aside-padding-y) * 2));
   justify-content: space-between;
   margin: 0;
   padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
@@ -2948,32 +3003,16 @@ Usage:
         --inner-shadow-color: var(--connect__brand-pale-magenta);
         --connect__icon-fill-color: var(--connect__brand-deep-magenta);
 
-        &:hover {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
         &:active {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
           --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
-        &:focus-visible:not(:active) {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --inner-shadow-color: var(--connect__neutrals-white);
+          outline: 1px solid lime;
         }
       }
 
       &:disabled {
         --state-based-bg: var(--connect__brand-pale-magenta);
 
-        svg {
+        .connect__icon {
           --connect__icon-fill-color: var(--connect__brand-deep-magenta);
         }
       }
@@ -2993,63 +3032,13 @@ Usage:
   padding: 0.0625rem;
 
   &.connect__selected {
-    .connect__button-toolbar {
+    > .connect__button-menu {
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
         --inner-shadow-color: var(--connect__selected-mid);
         --connect__icon-fill-color: var(--connect__neutrals-white);
 
-        svg {
-          fill: var(--connect__icon-fill-color);
-        }
-
-        &:hover {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
         &:active {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
-        &:focus-visible:not(:active) {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-      }
-    }
-  }
-
-  &:not(.connect__selected) {
-    .connect__button-toolbar {
-      &:active {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      }
-
-      &:focus-visible:not(:active) {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-        --inner-shadow-color: var(--connect__neutrals-white);
-        --connect__button-bg: var(--connect__neutrals-white);
-      }
-
-      &:not(:disabled) {
-        &:hover {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
-          --connect__button-bg: var(--connect__neutrals-white);
           --inner-shadow-color: var(--connect__neutrals-white);
         }
       }
@@ -3315,29 +3304,26 @@ Usage:
   padding: 0;
 
   .connect__toolbar-item {
+    outline: 1px solid red;
     &.connect__selected {
-      .connect__button-toolbar {
+      > .connect__button-menu {
         --connect__button-bg: var(--connect__neutrals-white);
-
-        &:hover {
-          --inner-shadow-color: var(--connect__selected-mid);
-        }
 
         &:active {
           --inner-shadow-color: var(--connect__selected-mid);
         }
 
-        svg {
-          --connect__icon-fill-color: currentcolor;
-        }
-
         &:disabled {
           --state-based-bg: var(--connect__neutrals-null);
 
-          svg {
+          .connect__icon {
             --connect__icon-fill-color: var(--connect__neutrals-mid);
           }
         }
+      }
+
+      .connect__icon {
+        --connect__icon-fill-color: currentcolor;
       }
     }
   }
@@ -3346,14 +3332,18 @@ Usage:
 .connect__list {
   --connect__list-item-padding-left: var(--connect__spacer-sm);
   --connect__list-item-margin-left: calc(4ch * 1);
-  --connect__list-style-type: var(--variant__list-style-type, initial);
   --connect__list-marker-color: var(
     --theme__list-marker-color,
     var(--variant__marker-color, inherit)
   );
-  list-style-type: var(--connect__list-style-type);
 
   > .connect__list-item {
+    --connect__list-fs: var(--connect__body-sm);
+    --connect__list-lh: var(--connect__body-sm-lheight);
+
+    font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
+    line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
+
     &::marker {
       color: var(--connect__list-marker-color);
       font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
@@ -3362,7 +3352,6 @@ Usage:
   }
 
   &.connect__list-none {
-    --variant__list-style-type: none;
     --variant__marker-color: var(--connect__neutrals-null);
   }
 

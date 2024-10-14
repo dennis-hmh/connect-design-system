@@ -31,10 +31,14 @@ const Template: StoryFn<ListProps & { gradeBand: GradeBand }> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  data: [{ content: 'List item 1' }, { content: 'List item 2' }, { content: 'List item 3' }],
+  data: [
+    { content: 'List item this' },
+    { content: 'List item that' },
+    { content: 'List item other' },
+  ],
   listType: 'unordered',
-  variants: 'none',
-  dataTestId: 'list-id',
+  variants: undefined,
+  dataTestId: '',
   gradeBand: GradeBand.G4_5,
 };
 
