@@ -1134,6 +1134,10 @@
   --connect__transition-slow: 700ms;
 
   --connect__cc-purple: rgb(113, 47, 253);
+
+  --connect__brand-magenta: rgb(255, 0, 179);
+  --connect__brand-deep-magenta: rgb(204, 0, 192);
+  --connect__brand-pale-magenta: rgb(255, 238, 254);
 }
 
 @media (min-width: 40.625rem) {

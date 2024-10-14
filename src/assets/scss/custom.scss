@@ -2944,9 +2944,9 @@ Usage:
   .connect__selected {
     .connect__button-menu {
       &:not(:disabled) {
-        --connect__button-bg: rgba(255, 238, 254, 1);
-        --inner-shadow-color: rgba(255, 238, 254, 1);
-        --connect__icon-fill-color: rgba(204, 0, 192, 1);
+        --connect__button-bg: var(--connect__brand-pale-magenta);
+        --inner-shadow-color: var(--connect__brand-pale-magenta);
+        --connect__icon-fill-color: var(--connect__brand-deep-magenta);
 
         &:hover {
           --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -2971,10 +2971,10 @@ Usage:
       }
 
       &:disabled {
-        --state-based-bg: rgba(255, 238, 254, 1);
+        --state-based-bg: var(--connect__brand-pale-magenta);
 
         svg {
-          --connect__icon-fill-color: rgba(204, 0, 192, 1);
+          --connect__icon-fill-color: var(--connect__brand-deep-magenta);
         }
       }
     }
