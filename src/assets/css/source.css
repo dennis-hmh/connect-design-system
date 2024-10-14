@@ -1066,8 +1066,6 @@
   --connect__hint-mid: var(--connect__purple-c50);
   --connect__hint-light: var(--connect__purple-c25);
   --connect__hint-pale: var(--connect__purple-c10);
-
-  font-family: var(--connect__font-sans);
 }
 
 :root {
@@ -1187,6 +1185,7 @@ A modern 2024 take on the reset
 
 :where([class^='connect__']) * {
   -webkit-font-smoothing: antialiased;
+  font-family: var(--connect__font-sans);
   margin: 0;
 }
 
@@ -1211,9 +1210,11 @@ A modern 2024 take on the reset
   isolation: isolate;
 }
 
-:where([class^='connect__']),
-:where([class^='connect__']) {
-  list-style: none;
+:where([class^='connect__']) ul,
+:where([class^='connect__']) ol {
+  margin-block: 0;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 .connect__gk,

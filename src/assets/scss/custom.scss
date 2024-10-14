@@ -2860,10 +2860,6 @@ Transitions:
   margin: 0;
   padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
 
-  ul {
-    list-style-type: none;
-  }
-
   .connect__button {
     svg {
       height: var(--connect__icon-sm);
@@ -3350,78 +3346,54 @@ Usage:
 .connect__list {
   --connect__list-item-padding-left: var(--connect__spacer-sm);
   --connect__list-item-margin-left: calc(4ch * 1);
-
-  margin-inline: 0;
-  margin-block: 0;
-  padding-inline: 0;
+  --connect__list-style-type: var(--variant__list-style-type, initial);
+  --connect__list-marker-color: var(
+    --theme__list-marker-color,
+    var(--variant__marker-color, inherit)
+  );
+  list-style-type: var(--connect__list-style-type);
 
   > .connect__list-item {
     &::marker {
+      color: var(--connect__list-marker-color);
       font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
   }
 
   &.connect__list-none {
-    > .connect__list-item {
-      list-style-type: circle;
-      &::marker {
-        color: transparent;
-      }
-    }
+    --variant__list-style-type: none;
+    --variant__marker-color: var(--connect__neutrals-null);
   }
 
   &.connect__list-circle {
-    > .connect__list-item {
-      list-style-type: circle;
-    }
+    --variant__list-style-type: circle;
   }
 
   &.connect__list-decimal {
-    > .connect__list-item {
-      list-style-type: decimal;
-    }
+    --variant__list-style-type: decimal;
   }
 
   &.connect__list-disc {
-    > .connect__list-item {
-      list-style-type: disc;
-    }
+    --variant__list-style-type: disc;
   }
 
   &.connect__list-roman {
-    > .connect__list-item {
-      list-style-type: lower-roman;
-    }
+    --variant__list-style-type: lower-roman;
   }
 
   &.connect__list-square {
-    > .connect__list-item {
-      list-style-type: square;
-    }
+    --variant__list-style-type: square;
   }
 
   &.connect__list-alpha {
-    > .connect__list-item {
-      list-style-type: lower-alpha;
-    }
-  }
-}
-
-.connect__list {
-  list-style-type: none;
-}
-
-.connect__list {
-  counter-reset: orderedlist;
-  list-style-type: decimal;
-
-  &::marker {
-    font-weight: var(--theme__connect-marker-font-w, 700);
+    --variant__list-style-type: lower-alpha;
   }
 }
 
 .connect__counters {
+  counter-reset: orderedlist;
+
   &::marker {
     content: counters(list-item, '.') ':';
     font-weight: var(--theme__connect-marker-font-w, 700);
