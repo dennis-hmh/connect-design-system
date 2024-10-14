@@ -322,20 +322,24 @@ States:
   }
 
   &-icon {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
     --border-radius: 0.875rem;
-    --connect__button-padding-y: calc(var(--connect__spacer-xs) + var(--connect__spacer-xs));
-    --connect__button-padding-x: calc(var(--connect__spacer-xs) + var(--connect__spacer-xs));
-    background: var(--connect__button-bg);
+
     border-radius: var(--border-radius);
 
     svg {
       height: var(--connect__icon-size, var(--connect__icon-md));
       width: var(--connect__icon-size, var(--connect__icon-md));
     }
+  }
+
+  &-icon,
+  &-menu {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    --connect__button-padding-y: var(--connect__spacer-sm);
+    --connect__button-padding-x: var(--connect__spacer-sm);
 
     &:active {
       --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -394,45 +398,10 @@ States:
   }
 
   &-menu {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-
     --connect__effects-inner-edge: 0.0625rem;
-
     --connect__button-bg: var(--connect__neutrals-null);
     --inner-shadow-color: var(--connect__neutrals-null);
-
-    --connect__button-padding-y: var(--connect__spacer-sm);
-    --connect__button-padding-x: var(--connect__spacer-sm);
-
-    --connect__icon-fill-color: var(--variant__icon-fill-color, var(--connect__neutrals-dark));
-
-    &:active {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-    }
-
-    &:focus-visible:not(:active) {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --inner-shadow-color: var(--connect__neutrals-white);
-      --connect__button-bg: var(--connect__neutrals-white);
-    }
-
-    &:not(:disabled) {
-      &:hover {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
-        --connect__button-bg: var(--connect__neutrals-white);
-        --inner-shadow-color: var(--connect__neutrals-white);
-      }
-    }
+    --active-color: var(--variant__icon-fill-color, var(--connect__neutrals-dark));
   }
 
   &:disabled {
