@@ -198,6 +198,12 @@ States:
   // margins
   --connect__button-margin: var(--theme__button-margin, 0);
 
+  // icons
+  --icon-fill-color: var(
+    --theme__icon-fill,
+    var(--state-based-icon-fill, var(--connect__icon-fill))
+  );
+
   align-items: var(--connect__button-align);
   background-color: var(--theme__button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
@@ -259,10 +265,17 @@ States:
     outline: unset;
   }
 
+  /* 
+    Each button type has an active color
+    set icon fill to that, change on case by case
+  */
+  .connect__icon {
+    --connect__icon-fill-color: var(--icon-fill-color);
+  }
+
   &-primary {
     --active-color: var(--connect__neutrals-white);
-    --icon-fill: var(--connect__icon-fill-color);
-
+    --connect__icon-fill: var(--active-color);
     &:disabled {
       --state-based-bg: var(--connect__neutrals-pale);
     }
@@ -271,6 +284,7 @@ States:
   &-secondary {
     --state-based-bg: var(--connect__neutrals-white);
     --active-color: var(--connect__selected-mid);
+    --connect__icon-fill: var(--active-color);
     --connect__inner-status-color: var(--connect__selected-mid);
     --connect__button-inner-divider: var(--connect__button-padding-y);
     --connect__button-inner-divider-color: var(--connect__neutrals-white);
@@ -327,10 +341,6 @@ States:
     --connect__button-padding-x: calc(var(--connect__spacer-xs) + var(--connect__spacer-xs));
     background: var(--connect__button-bg);
     border-radius: var(--border-radius);
-
-    &:not([class*='-primary']):not([class*='-secondary']) {
-      --connect__button-bg: var(--connect__neutrals-white);
-    }
 
     svg {
       height: var(--connect__icon-size, var(--connect__icon-md));
@@ -3024,6 +3034,56 @@ Usage:
   display: flex;
   flex-flow: column wrap;
   gap: var(--connect__spacer-xs);
+}
+
+/* 
+.connect__divider Component
+Variables related to theme/overrides:
+  --connect__list-item-divider-bg: Background color of the divider.
+  --connect__list-item-divider-h: Height of the divider.
+  --connect__list-item-divider-w: Width of the divider.
+  --connect__list-item-divider-br: Border radius of the divider.
+  --connect__divider-margin-y: Vertical margin of the divider.
+  --connect__divider-margin-x: Horizontal margin of the divider.
+Default values and fallbacks:
+  --connect__gray-c10: Default background color if not overridden.
+  --border-radius: Default border radius if not overridden.
+  --connect__spacer-xs: Default vertical margin and bottom padding.
+  --connect__spacer-sm: Default horizontal margin.
+Styles:
+  background-color: Sets the background color of the divider.
+  border: Removes any border.
+  border-radius: Applies border radius to the divider.
+  height: Sets the height of the divider.
+  margin: Applies vertical and horizontal margins.
+  padding-bottom: Adds bottom padding to the divider.
+  position: Sets the positioning context for the divider.
+Usage:
+  The .connect__divider class can be applied to an <hr> element or any other
+  element that needs to act as a visual separator. The appearance and spacing
+  can be customised using the provided CSS variables.
+Example:
+  <hr class="connect__divider">
+  To override styles:
+  <hr class="connect__divider" style="--connect__list-item-divider-bg: blue;">
+*/
+.connect__divider {
+  --connect__list-item-divider-bg: var(--theme__list-item-divider-bg, var(--connect__gray-c10));
+  --connect__list-item-divider-h: var(--theme__list-item-divider-h, 0.1875rem);
+  --connect__list-item-divider-w: var(--theme__list-item-divider-w, 100%);
+  --connect__list-item-divider-br: var(--theme__list-item-divider-br, var(--border-radius));
+
+  --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
+
+  --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
+
+  background-color: var(--connect__list-item-divider-bg);
+  border: 0;
+  border-radius: var(--connect__list-item-divider-br);
+  height: var(--connect__list-item-divider-h, initial);
+  margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
+  padding-bottom: var(--connect__spacer-xs);
+  position: relative;
 }
 
 // Moved toolbar button styles to here to support JS
