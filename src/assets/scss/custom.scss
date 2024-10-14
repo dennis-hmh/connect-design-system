@@ -2970,20 +2970,16 @@ Usage:
       &:not(:disabled) {
         --connect__button-bg: var(--connect__brand-pale-magenta);
         --inner-shadow-color: var(--connect__brand-pale-magenta);
-        --connect__icon-fill-color: var(--connect__brand-deep-magenta);
+        --connect__icon-fill: var(--connect__brand-deep-magenta);
 
         &:active {
           --inner-shadow-color: var(--connect__neutrals-white);
-          outline: 1px solid lime;
         }
       }
 
       &:disabled {
         --state-based-bg: var(--connect__brand-pale-magenta);
-
-        .connect__icon {
-          --connect__icon-fill-color: var(--connect__brand-deep-magenta);
-        }
+        --connect__icon-fill: var(--connect__brand-deep-magenta);
       }
     }
   }
@@ -3055,12 +3051,18 @@ Example:
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
         --inner-shadow-color: var(--connect__selected-mid);
-        --connect__icon-fill-color: var(--connect__neutrals-white);
+        --connect__icon-fill: var(--connect__neutrals-white);
 
         &:active {
           --inner-shadow-color: var(--connect__neutrals-white);
         }
       }
+    }
+  }
+
+  .connect__button {
+    &:disabled {
+      --connect__icon-fill: var(--connect__gray-c45);
     }
   }
 }
@@ -3323,10 +3325,10 @@ Example:
   padding: 0;
 
   .connect__toolbar-item {
-    outline: 1px solid red;
     &.connect__selected {
       > .connect__button-menu {
         --connect__button-bg: var(--connect__neutrals-white);
+        --connect__icon-fill: currentcolor;
 
         &:active {
           --inner-shadow-color: var(--connect__selected-mid);
@@ -3334,15 +3336,8 @@ Example:
 
         &:disabled {
           --state-based-bg: var(--connect__neutrals-null);
-
-          .connect__icon {
-            --connect__icon-fill-color: var(--connect__neutrals-mid);
-          }
+          --connect__icon-fill: var(--connect__neutrals-mid);
         }
-      }
-
-      .connect__icon {
-        --connect__icon-fill-color: currentcolor;
       }
     }
   }
