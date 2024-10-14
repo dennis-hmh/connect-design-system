@@ -2518,7 +2518,7 @@ Usage:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
 
-  //radius
+  // radius
   --connect__mcq-radius: var(
     --them__mcq-radius,
     var(--variant__mcq-radius, var(--connect__inner-radius))
@@ -2591,8 +2591,8 @@ Usage:
       var(--checkbox-checked-state-based-border-c, var(--connect__selected-mid));
     border-radius: var(--connect__mcq-radius);
     content: '';
-    height: var(--connect__input-dimensions);
     flex-shrink: 0;
+    height: var(--connect__input-dimensions);
     padding: var(--connect__spacer-xs);
     width: var(--connect__input-dimensions);
   }
@@ -2619,6 +2619,7 @@ Usage:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
   }
 }
+
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__spacer-xs);
@@ -2643,7 +2644,7 @@ Usage:
 
   &::after {
     background-color: var(--theme__mcq-bg, var(--connect__mcq-bg));
-    border-radius: var(--theme__inner-radius, var(--connect__inner-radius)) 0rem;
+    border-radius: var(--theme__inner-radius, var(--connect__inner-radius)) 0;
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
@@ -2681,6 +2682,7 @@ Usage:
     }
   }
 }
+
 .connect__mcq-text {
   &::before {
     content: unset;
@@ -2693,9 +2695,9 @@ Usage:
 */
 :where([class^='connect__']) input[type='checkbox'],
 :where([class^='connect__']) input[type='radio'] {
+  inset: 0;
   opacity: 0;
   position: absolute;
-  inset: 0;
 
   &:disabled {
     + .connect__mcq-label {
