@@ -279,6 +279,7 @@ States:
   &-primary {
     --active-color: var(--connect__neutrals-white);
     --connect__icon-fill: var(--active-color);
+
     &:disabled {
       --state-based-bg: var(--connect__neutrals-pale);
     }
@@ -1115,6 +1116,7 @@ States:
     }
   }
 }
+
 .connect__accordion--divider {
   summary {
     & + * {
@@ -1576,6 +1578,7 @@ Usage:
     &.connect__linear {
       z-index: var(--connect__linear-z, var(--connect__breakout-z));
     }
+
     &.connect__halftone {
       z-index: var(--connect__halftone-z, var(--connect__breakout-z));
     }
@@ -2097,6 +2100,7 @@ example:
       margin-right: var(--connect__spacer-md);
     }
   }
+
   &.connect__grid-gutter {
     --connect__gutter-padding-y: var(
       --theme__connect-gutter-padding-y,
@@ -2493,6 +2497,7 @@ Usage:
     --connect__icon-size: var(--connect__icon-xl);
   }
 }
+
 .connect__mcq-label {
   // typography
   --connect__label-fs: var(--connect__body-sm, 1.25rem);

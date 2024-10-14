@@ -89,6 +89,7 @@
     --connect__spacer-xs: 0.5rem;
   }
 }
+
 .connect__g1 {
   --border-radius: 1rem;
   --border-width: 0.25rem;
@@ -179,6 +180,7 @@
     --connect__spacer-xs: 0.4375rem;
   }
 }
+
 .connect__g23 {
   --border-radius: 1.5rem;
   --border-width: 0.25rem;
@@ -276,6 +278,7 @@
     --connect__spacer-xs: 0.3125rem;
   }
 }
+
 .connect__g45 {
   --border-radius: 1rem;
   --border-width: 0.1875rem;
@@ -376,6 +379,7 @@
     --connect__spacer-xs: 0.3125rem;
   }
 }
+
 .connect__g68 {
   --border-radius: 0.875rem;
 
@@ -474,6 +478,7 @@
     --connect__spacer-xs: 0.25rem;
   }
 }
+
 .connect__g912 {
   --border-radius: 0.75rem;
   --border-width: 0.125rem;
@@ -570,6 +575,7 @@
     --connect__spacer-xs: 0.25rem;
   }
 }
+
 :root {
   --connect__bp-xs: 20rem;
   --connect__bp-sm: 30rem;
