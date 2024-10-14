@@ -25,18 +25,21 @@
 .connect__g45 {
   --connect__effects-inner-edge: 0.1875rem;
   --connect__inner-status: 0.375rem;
+  --connect__inner-radius: 0.5625rem;
   --inner-divider-width: 0.5rem;
 }
 
 .connect__g68 {
   --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
+  --connect__inner-radius: 0.5rem;
   --inner-divider-width: 0.375rem;
 }
 
 .connect__g912 {
   --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
+  --connect__inner-radius: 0.375rem;
   --inner-divider-width: 0.375rem;
   --color-incorrect-status: var(--connect__incorrect-mid);
   --grade-checkbox-checked-state-based-border-c: var(--connect__incorrect-mid);
@@ -315,19 +318,6 @@ States:
   &-incorrect {
     &:disabled {
       --state-based-bg: var(--color-incorrect-bg);
-    }
-  }
-
-  &-toggle {
-    &:not(:disabled) {
-      --connect__icon-fill-color: var(--active-color);
-      --state-based-bg: var(--connect__neutrals-white);
-      --active-color: var(--connect__selected-mid);
-    }
-
-    &.connect__toggle-on:not(:disabled) {
-      --state-based-bg: var(--connect__selected-mid);
-      --active-color: var(--connect__neutrals-white);
     }
   }
 
