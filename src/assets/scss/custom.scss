@@ -1334,10 +1334,7 @@ Styles:
 }
 
 .connect__figure {
-  margin: 0;
-
   img {
-    height: 100%;
     object-fit: cover;
     width: 100%;
   }
@@ -2609,8 +2606,8 @@ Usage:
 
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
-  --connect__label-padding-y: var(--connect__spacer-xs);
-  --connect__label-padding-x: var(--connect__spacer-xs);
+  --connect__label-padding-y: var(--connect__inner-divider-width);
+  --connect__label-padding-x: var(--connect__inner-divider-width);
   --starting-shadow-color: transparent;
   --connect__mcq-bg: var(--connect__neutrals-white);
   --connect__mcq-input-margin: var(--connect__spacer-xs);
@@ -2623,9 +2620,9 @@ Usage:
   &::before {
     grid-column: 1;
     grid-row: 1;
-    left: var(--connect__inner-divider-width);
+    left: calc(var(--connect__inner-divider-width) / 2);
     position: absolute;
-    top: var(--connect__inner-divider-width);
+    top: calc(var(--connect__inner-divider-width) / 2);
     z-index: 2;
   }
 
@@ -2647,13 +2644,11 @@ Usage:
   }
 
   .connect__figure {
-    --connect__fig-margin: var(--connect__spacer-xs);
     grid-column: 1 / -1;
     grid-row: 1 / -1;
 
     figcaption {
-      padding: var(--connect__spacer-xs) var(--connect__spacer-sm) var(--connect__spacer-md)
-        var(--connect__spacer-sm);
+      padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
     }
   }
 
