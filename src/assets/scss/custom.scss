@@ -2880,13 +2880,6 @@ Transitions:
   margin: 0;
   padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
 
-  .connect__button {
-    svg {
-      height: var(--connect__icon-sm);
-      width: var(--connect__icon-sm);
-    }
-  }
-
   li {
     &:focus-visible {
       outline: 0;
