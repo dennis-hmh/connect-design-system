@@ -4,6 +4,7 @@ import { Sidebar, SidebarProps } from './Sidebar';
 import { List } from '../List/List';
 import { Button } from '../Button/Button';
 import { Divider } from '../Divider/Divider';
+import { Stack } from '../Stack/Stack';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -76,46 +77,51 @@ WithMenu.args = {
   ...Default.args,
   children: (
     <>
-      <List
-        data={[
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-        ]}
-      />
+      <Stack>
+        <List
+          data={[
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+          ]}
+        />
+      </Stack>
       <List
         data={[
           {
@@ -132,49 +138,56 @@ WithDivider.args = {
   ...Default.args,
   children: (
     <>
-      <List
-        data={[
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-          {
-            content: <Divider orientation="horizontal" dataTestId="" />,
-          },
-          {
-            content: (
-              <Button
-                primary={true}
-                iconId="add"
-                iconSize="md"
-                additionalClass="connect__button-menu"
-                ariaLabel="Add"
-                children=""
-              ></Button>
-            ),
-          },
-        ]}
-      />
+      <Stack>
+        <List
+          data={[
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+          ]}
+        />
+        <Divider />
+        <List
+          data={[
+            {
+              content: (
+                <Button
+                  primary={true}
+                  iconId="add"
+                  iconSize="md"
+                  additionalClass="connect__button-menu"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></Button>
+              ),
+            },
+          ]}
+        />
+      </Stack>
       <List
         data={[
           {
