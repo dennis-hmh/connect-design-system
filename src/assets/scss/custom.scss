@@ -2439,8 +2439,8 @@ Usage:
   --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
   --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
   color: var(--icon-fill);
-  opacity: var(--icon__fill-opacity, 1);
   height: var(--connect__icon-size);
+  opacity: var(--icon__fill-opacity, 1);
   width: var(--connect__icon-size);
 
   svg {
@@ -3017,6 +3017,7 @@ Example:
   &.connect__selected {
     > .connect__button-menu {
       --state-based-bg: var(--connect__selected-light);
+
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
         --inner-shadow-color: var(--connect__selected-mid);
