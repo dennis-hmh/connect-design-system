@@ -89,5 +89,6 @@ MenuButton.args = {
   iconId: 'add',
   iconSize: 'md',
   additionalClass: 'connect__button-menu',
+  clickedClass: 'connect__selected',
   ariaLabel: '',
 };

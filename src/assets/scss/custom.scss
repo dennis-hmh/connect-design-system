@@ -2969,42 +2969,42 @@ Usage:
   &:has(ul:only-child) {
     justify-content: end;
   }
+}
 
-  .connect__selected {
-    .connect__button-menu {
-      &:not(:disabled) {
-        --connect__button-bg: rgba(255, 238, 254, 1);
-        --inner-shadow-color: rgba(255, 238, 254, 1);
-        --connect__icon-fill-color: rgba(204, 0, 192, 1);
+.connect__button-menu {
+  &.connect__selected {
+    &:not(:disabled) {
+      --connect__button-bg: rgba(255, 238, 254, 1);
+      --inner-shadow-color: rgba(255, 238, 254, 1);
+      --connect__icon-fill-color: rgba(204, 0, 192, 1);
 
-        &:hover {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
-        &:active {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-          --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
-
-        &:focus-visible:not(:active) {
-          --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-          --inner-shadow-color: var(--connect__neutrals-white);
-        }
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+        --inner-shadow-color: var(--connect__neutrals-white);
       }
 
-      &:disabled {
-        --state-based-bg: rgba(255, 238, 254, 1);
+      &:active {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
 
-        svg {
-          --connect__icon-fill-color: rgba(204, 0, 192, 1);
-        }
+      &:focus-visible:not(:active) {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
+
+    &:disabled {
+      --state-based-bg: rgba(255, 238, 254, 1);
+
+      svg {
+        --connect__icon-fill-color: rgba(204, 0, 192, 1);
       }
     }
   }
@@ -3020,10 +3020,10 @@ Usage:
 .connect__divider Component
 
 Variables related to theme/overrides:
-  --connect__list-item-divider-bg: Background color of the divider.
-  --connect__list-item-divider-h: Height of the divider.
-  --connect__list-item-divider-w: Width of the divider.
-  --connect__list-item-divider-br: Border radius of the divider.
+  --connect__divider-bg: Background color of the divider.
+  --connect__divider-h: Height of the divider.
+  --connect__divider-w: Width of the divider.
+  --connect__divider-br: Border radius of the divider.
   --connect__divider-margin-y: Vertical margin of the divider.
   --connect__divider-margin-x: Horizontal margin of the divider.
 
@@ -3051,24 +3051,26 @@ Example:
   <hr class="connect__divider">
 
   To override styles:
-  <hr class="connect__divider" style="--connect__list-item-divider-bg: blue;">
+  <hr class="connect__divider" style="--connect__divider-bg: blue;">
 */
 
 .connect__divider {
-  --connect__list-item-divider-bg: var(--theme__list-item-divider-bg, var(--connect__gray-c10));
-  --connect__list-item-divider-h: var(--theme__list-item-divider-h, 0.1875rem);
-  --connect__list-item-divider-w: var(--theme__list-item-divider-w, 100%);
-  --connect__list-item-divider-br: var(--theme__list-item-divider-br, var(--border-radius));
+  --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
+  --connect__divider-h: var(--theme__divider-h, 0.1875rem);
+  --connect__divider-w: var(--theme__divider-w, 100%);
+  --connect__divider-br: var(--theme__divider-br, var(--border-radius));
   --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
   --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
 
-  background-color: var(--connect__list-item-divider-bg);
+  background-color: var(--connect__divider-bg);
   border: 0;
-  border-radius: var(--connect__list-item-divider-br);
-  height: var(--connect__list-item-divider-h, initial);
-  margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
+  border-radius: var(--connect__divider-br);
+  box-sizing: border-box;
+  height: var(--connect__divider-h, initial);
+  margin: 0 var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
   position: relative;
+  width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
 }
 
 // Moved toolbar button styles to here to support JS
