@@ -2532,7 +2532,6 @@ Usage:
       )
   );
   --connect__label-justify-content: var(--connect__card-justify, start);
-  --connect__label-flow: var(--connect__card-flow, row);
   --connect__label-w: 100%;
 
   // inputs
@@ -2559,7 +2558,6 @@ Usage:
   color: var(--connect__label-color);
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  flex-flow: var(--connect__label-flow);
   font-family: var(--connect__font-sans);
   font-size: var(--connect__label-fs);
   font-weight: var(--connect__label-font-w, initial);
