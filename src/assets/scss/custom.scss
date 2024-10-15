@@ -2879,12 +2879,6 @@ Transitions:
   justify-content: space-between;
   margin: 0;
   padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
-
-  li {
-    &:focus-visible {
-      outline: 0;
-    }
-  }
 }
 
 /* 
