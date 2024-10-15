@@ -1072,6 +1072,8 @@
   --connect__hint-mid: var(--connect__purple-c50);
   --connect__hint-light: var(--connect__purple-c25);
   --connect__hint-pale: var(--connect__purple-c10);
+
+  --connect__state-opacity: 0.6;
 }
 
 :root {

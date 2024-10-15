@@ -263,7 +263,6 @@ States:
     --connect__shadow-level-2: var(--connect__shadow-spread-level-19);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-    outline: unset;
   }
 
   /* 
@@ -321,14 +320,7 @@ States:
   }
 
   &-icon {
-    --border-radius: 0.875rem;
-
     border-radius: var(--border-radius);
-
-    svg {
-      height: var(--connect__icon-size, var(--connect__icon-md));
-      width: var(--connect__icon-size, var(--connect__icon-md));
-    }
   }
 
   &-icon,
@@ -364,6 +356,10 @@ States:
         --inner-shadow-color: var(--connect__neutrals-white);
       }
     }
+
+    &:disabled {
+      --icon__fill-opacity: var(--connect__state-opacity);
+    }
   }
 
   &-loading > svg,
@@ -397,7 +393,7 @@ States:
   }
 
   &-menu {
-    --connect__effects-inner-edge: 0.0625rem;
+    // --connect__effects-inner-edge: 0.0625rem;
     --connect__button-bg: var(--connect__neutrals-null);
     --inner-shadow-color: var(--connect__neutrals-null);
     --active-color: var(--variant__icon-fill-color, var(--connect__neutrals-dark));
@@ -405,14 +401,6 @@ States:
 
   &:disabled {
     --connect__button-bg: var(--state-based-bg);
-
-    &:active {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    }
-
-    .connect__icon {
-      --connect__icon-fill-color: var(--connect__neutrals-dark);
-    }
   }
 
   &--rive {
@@ -560,7 +548,7 @@ Variables related to states (e.g., focus, active):
   --connect__focus-mid: color for the focus state.
   --connect__neutrals-white: Neutral white color.
   --connect__neutrals-dark: Neutral dark color.
-  --connect__gray-c45: Gray color.
+  --connect__neutrals-light: Gray color.
 
 States:
   &:not(:disabled)
@@ -2454,6 +2442,7 @@ Usage:
   --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
   --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
   color: var(--icon-fill);
+  opacity: var(--icon__fill-opacity, 1);
   height: var(--connect__icon-size);
   width: var(--connect__icon-size);
 
@@ -3035,6 +3024,7 @@ Example:
 
   &.connect__selected {
     > .connect__button-menu {
+      --state-based-bg: var(--connect__selected-light);
       &:not(:disabled) {
         --connect__button-bg: var(--connect__selected-mid);
         --inner-shadow-color: var(--connect__selected-mid);
@@ -3044,12 +3034,6 @@ Example:
           --inner-shadow-color: var(--connect__neutrals-white);
         }
       }
-    }
-  }
-
-  .connect__button {
-    &:disabled {
-      --connect__icon-fill: var(--connect__gray-c45);
     }
   }
 }
@@ -3323,6 +3307,7 @@ Example:
 
         &:disabled {
           --state-based-bg: var(--connect__neutrals-null);
+          --inner-shadow-color: var(--connect__neutrals-pale);
           --connect__icon-fill: var(--connect__neutrals-mid);
         }
       }
