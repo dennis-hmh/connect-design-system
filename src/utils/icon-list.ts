@@ -1,77 +1,21 @@
 export type IconId = 
   'add'|
-  'align-center'|
-  'align-left'|
-  'align-right'|
   'arrow-down'|
   'arrow-up'|
-  'arrow-left'|
-  'arrow-left-dbl'|
-  'arrow-right'|
-  'arrow-right-dbl'|
-  'audio-description'|
-  'audio-next'|
-  'audio-pause'|
-  'audio-play'|
-  'audio-previous'|
-  'audio-replay'|
-  'bold'|
-  'change'|
   'circle-cross'|
   'circle-tick'|
-  'closed-captioning'|
   'correct-six-twelve'|
   'cross-xs'|
-  'delete'|
-  'download'|
-  'erase'|
-  'flip'|
-  'glyphs'|
-  'help'|
   'incorrect-six-twelve'|
-  'info'|
-  'italic'|
-  'light-bulb'|
-  'list-bullet'|
-  'list-number'|
-  'maximize'|
-  'menu-grid'|
   'mic'|
-  'minimize'|
-  'more-horiz'|
-  'more-vert'|
-  'move'|
-  'open'|
   'pause'|
-  'pdf'|
   'play'|
-  'reload'|
-  'save'|
-  'save-as'|
-  'settings'|
   'shown-correct-six-twelve'|
-  'size'|
-  'text-label'|
   'tick'|
   'tick-xs'|
-  'transcript'|
-  'underline'|
-  'upload'|
-  'video-clip'|
-  'vocabulary'|
-  'volume-high'|
-  'volume-low'|
-  'volume-mid'|
-  'volume-mute'|
   'correct'|
   'incorrect'|
   'shown-correct'|
-  'close'|
-  'text'|
-  'calendar'|
-  'print'|
-  'image'|
-  'clock'|
   'color'|
   'counter-one'|
   'draw-outline'|
@@ -82,7 +26,6 @@ export type IconId =
   'line-dashed'|
   'line'|
   'lines-outline'|
-  'placeholder'|
   'redo'|
   'undo'|
   'circle-outline'|

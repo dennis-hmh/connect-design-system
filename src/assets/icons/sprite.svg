@@ -6,32 +6,6 @@
                 d="M32 18H22V8C22 6.8 21.2 6 20 6C18.8 6 18 6.8 18 8V18H8C6.8 18 6 18.8 6 20C6 21.2 6.8 22 8 22H18V32C18 33.2 18.8 34 20 34C21.2 34 22 33.2 22 32V22H32C33.2 22 34 21.2 34 20C34 18.8 33.2 18 32 18Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="align-center">
-            <rect x="4" y="6" width="32" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="10" y="14" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="4" y="22" width="32" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="10" y="30" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="align-left">
-            <rect width="32" height="4" transform="matrix(-1 0 0 1 36 6)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect width="20" height="4" transform="matrix(-1 0 0 1 24 14)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect width="32" height="4" transform="matrix(-1 0 0 1 36 22)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect width="20" height="4" transform="matrix(-1 0 0 1 24 30)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="align-right">
-            <rect x="4" y="6" width="32" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="16" y="14" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="4" y="22" width="32" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="16" y="30" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="arrow-down">
             <path
                 d="M9.41421 14.5858C8.63317 13.8047 7.36684 13.8047 6.58579 14.5858C5.80474 15.3668 5.80474 16.6332 6.58579 17.4142L18.5858 29.4142C19.3668 30.1953 20.6332 30.1953 21.4142 29.4142L33.4142 17.4142C34.1953 16.6332 34.1953 15.3668 33.4142 14.5858C32.6332 13.8047 31.3668 13.8047 30.5858 14.5858L20 25.1716L9.41421 14.5858Z"
@@ -42,94 +16,8 @@
                 d="M9.41421 25.4142C8.63317 26.1953 7.36684 26.1953 6.58579 25.4142C5.80474 24.6332 5.80474 23.3668 6.58579 22.5858L18.5858 10.5858C19.3668 9.80474 20.6332 9.80474 21.4142 10.5858L33.4142 22.5858C34.1953 23.3668 34.1953 24.6332 33.4142 25.4142C32.6332 26.1953 31.3668 26.1953 30.5858 25.4142L20 14.8284L9.41421 25.4142Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="arrow-left">
-            <path
-                d="M25.4142 9.41421C26.1953 8.63317 26.1953 7.36684 25.4142 6.58579C24.6332 5.80474 23.3668 5.80474 22.5858 6.58579L10.5858 18.5858C9.80474 19.3668 9.80474 20.6332 10.5858 21.4142L22.5858 33.4142C23.3668 34.1953 24.6332 34.1953 25.4142 33.4142C26.1953 32.6332 26.1953 31.3668 25.4142 30.5858L14.8284 20L25.4142 9.41421Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"
-            id="arrow-left-dbl">
-            <path
-                d="M30.0004 35.9995C29.4365 35.9995 28.8765 35.7635 28.4805 35.2996L16.481 21.3001C15.839 20.5522 15.839 19.4462 16.481 18.6982L28.4805 4.69881C29.2005 3.85885 30.4644 3.76285 31.3004 4.48282C32.1384 5.20079 32.2363 6.46274 31.5164 7.30071L20.6348 20.0002L31.5184 32.6997C32.2363 33.5376 32.1404 34.7996 31.3024 35.5176C30.9244 35.8415 30.4624 35.9995 30.0004 35.9995Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M18.0009 36C17.437 36 16.877 35.764 16.481 35.3L4.48148 21.3006C3.83951 20.5526 3.83951 19.4467 4.48148 18.6987L16.481 4.69928C17.201 3.86131 18.4649 3.76532 19.3029 4.48329C20.1408 5.20326 20.2388 6.46321 19.5189 7.30117L8.63531 20.0007L19.5189 32.7001C20.2368 33.5381 20.1408 34.8001 19.3029 35.518C18.9249 35.842 18.4629 36 18.0009 36Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="arrow-right">
-            <path
-                d="M14.5858 30.5858C13.8047 31.3668 13.8047 32.6332 14.5858 33.4142C15.3668 34.1953 16.6332 34.1953 17.4142 33.4142L29.4142 21.4142C30.1953 20.6332 30.1953 19.3668 29.4142 18.5858L17.4142 6.58579C16.6332 5.80474 15.3668 5.80474 14.5858 6.58579C13.8047 7.36683 13.8047 8.63317 14.5858 9.41421L25.1716 20L14.5858 30.5858Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
+       
 
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"
-            id="arrow-right-dbl">
-            <path
-                d="M10.0001 36C9.54013 36 9.07614 35.842 8.70015 35.518C7.86218 34.8 7.76418 33.5381 8.48416 32.7001L19.3659 20.0004L8.48216 7.30075C7.76218 6.46278 7.86018 5.20281 8.69815 4.48283C9.53613 3.76285 10.7981 3.85884 11.5181 4.69882L23.5178 18.6985C24.1597 19.4464 24.1597 20.5524 23.5178 21.3004L11.5181 35.3C11.1241 35.764 10.5621 36 10.0001 36Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M21.9998 35.9998C21.5398 35.9998 21.0758 35.8418 20.6998 35.5178C19.8618 34.7999 19.7638 33.5379 20.4838 32.6999L31.3655 20.0002L20.4818 7.30057C19.7618 6.46259 19.8598 5.20263 20.6978 4.48265C21.5358 3.76267 22.7997 3.85866 23.5177 4.70064L35.5174 18.7003C36.1594 19.4483 36.1594 20.5542 35.5174 21.3022L23.5177 35.3018C23.1237 35.7638 22.5617 35.9998 21.9998 35.9998Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"
-            id="audio-description">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M34 8H6C4.89543 8 4 8.89543 4 10V30C4 31.1046 4.89543 32 6 32H24L31.952 38V32H34C35.1046 32 36 31.1046 36 30V10C36 8.89543 35.1046 8 34 8ZM16.828 26L16.24 23.762H12.356L11.752 26H8.19995L12.102 14H16.412L20.36 26H16.828ZM14.2779 15.9697C14.3319 16.2697 14.4459 16.7657 14.6159 17.4577C14.7879 18.1511 14.9339 18.7144 15.0539 19.1477L15.5679 21.1097H13.0259C13.5245 19.2351 13.8452 17.9791 13.9879 17.3417C14.1305 16.7044 14.2272 16.2471 14.2779 15.9697ZM30.148 24.38C28.886 25.5219 27.2166 26.1061 25.518 26H21.652V14.048H25.788C27.4039 13.9436 28.997 14.4722 30.23 15.522C31.3343 16.6507 31.9053 18.1965 31.8 19.772C31.9095 21.4703 31.3115 23.1382 30.148 24.38ZM24.8799 16.6561H25.8199C26.5674 16.5963 27.2999 16.8893 27.7999 17.4481C28.2865 18.1635 28.5144 19.0236 28.4459 19.8861C28.5153 20.8089 28.2738 21.7285 27.7599 22.4981C27.213 23.1048 26.4138 23.4208 25.5999 23.3521H24.8799V16.6561Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="audio-next">
-            <path
-                d="M24 19.9992C24 19.5102 23.788 19.0512 23.4307 18.7707L10.0973 8.27011C9.692 7.9491 9.15867 7.91309 8.71733 8.16811C8.276 8.42762 8 8.93915 8 9.49868V30.5013C8 31.0609 8.276 31.5739 8.71733 31.8319C9.15867 32.0869 9.69067 32.0509 10.0973 31.7299L23.4307 21.2293C23.788 20.9503 24 20.4913 24 20.0022C24 20.0007 24 20.0007 24 19.9992C24 20.0007 24 20.0007 24 19.9992Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M30 32.0001C28.896 32.0001 28 31.3296 28 30.5001V9.50012C28 8.67062 28.896 8.00012 30 8.00012C31.104 8.00012 32 8.67062 32 9.50012V30.5001C32 31.3296 31.104 32.0001 30 32.0001Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="audio-pause">
-            <rect x="32" y="12" width="4" height="16" rx="1"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="24" y="12" width="4" height="16" rx="1"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <path
-                d="M9.17569 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.17569Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="audio-play">
-            <path
-                d="M35.5547 20.868C36.1484 20.4551 36.1484 19.5449 35.5547 19.132L25.5547 12.177C24.8901 11.7148 24 12.2118 24 13.045V26.955C24 27.7882 24.8901 28.2852 25.5547 27.823L35.5547 20.868Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M9.17569 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.17569Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"
-            id="audio-previous">
-            <path
-                d="M16 19.9992C16 19.5102 16.212 19.0512 16.5693 18.7707L29.9027 8.27011C30.308 7.9491 30.8413 7.91309 31.2827 8.16811C31.724 8.42762 32 8.93915 32 9.49868V30.5013C32 31.0609 31.724 31.5739 31.2827 31.8319C30.8413 32.0869 30.3093 32.0509 29.9027 31.7299L16.5693 21.2293C16.212 20.9503 16 20.4913 16 20.0022C16 20.0007 16 20.0007 16 19.9992C16 20.0007 16 20.0007 16 19.9992Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M10 32.0001C11.104 32.0001 12 31.3296 12 30.5001V9.50012C12 8.67062 11.104 8.00012 10 8.00012C8.896 8.00012 8 8.67062 8 9.50012V30.5001C8 31.3296 8.896 32.0001 10 32.0001Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="audio-replay">
-            <path
-                d="M9.17569 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.17569Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M31.5467 16.3469C33.4944 18.3194 33.4944 21.5175 31.5467 23.49C29.599 25.4625 26.441 25.4625 24.4933 23.49C23.909 22.8983 22.9616 22.8983 22.3773 23.49C21.793 24.0818 21.793 25.0412 22.3773 25.633C25.4937 28.789 30.5463 28.789 33.6627 25.633C36.7791 22.4769 36.7791 17.36 33.6627 14.2039C31.1516 11.6609 27.3834 11.1669 24.384 12.7221L21.6919 8L20 17.1546L28.6744 20.248L25.8837 15.3528C27.7351 14.4644 30.015 14.7957 31.5467 16.3469Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="bold">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M27.1217 18.6328C29.0518 17.2176 30.2461 14.8567 29.957 12.2176C29.5619 8.61096 26.2865 5.99998 22.6583 6H8V8L10.8944 9.44722C11.572 9.786 12 10.4785 12 11.2361V28.7639C12 29.5215 11.572 30.214 10.8944 30.5528L8 32V34H23.6453C27.853 34 31.6061 30.9051 31.9691 26.7131C32.2818 23.1015 30.1927 19.9358 27.1217 18.6328ZM18 10H20C22.2091 10 24 11.7908 24 14C24 16.2091 22.2091 18 20 18H18V10ZM18 22V30H22C24.2091 30 26 28.2091 26 26C26 23.7908 24.2091 22 22 22H18Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="change">
-            <path d="M26 30L16 22V28H8V8H4V32H16V38L26 30Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M24 8V2L14 10L24 18V12H32V32H36V8H24Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="circle-cross">
             <circle cx="20" cy="20" r="16" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
             <path
@@ -142,14 +30,10 @@
                 d="M25.8284 12L28 14.1938C25.7166 16.5005 22.7845 20.4477 19.2354 26.012L17.9674 28L16.6675 26.0331C15.3026 23.9678 13.7472 22.535 12 21.7022L13.3105 18.8963C14.993 19.6982 16.5069 20.8967 17.8517 22.4786C20.982 17.7047 23.6335 14.2173 25.8284 12Z"
                 fill="white"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"
-            id="closed-captioning">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M34 8H6C4.89543 8 4 8.89543 4 10V30C4 31.1046 4.89543 32 6 32H34C35.1046 32 36 31.1046 36 30V10C36 8.89543 35.1046 8 34 8ZM15.962 23.514C16.4846 23.516 17.0047 23.4419 17.506 23.294C18.0128 23.1416 18.5114 22.9634 19 22.76V25.5C17.9263 25.9591 16.7676 26.1861 15.6 26.166C14.055 26.2668 12.5417 25.696 11.448 24.6C10.4019 23.3193 9.88403 21.6876 10 20.038C9.97563 18.9069 10.216 17.7857 10.702 16.764C11.1404 15.8559 11.8432 15.1016 12.718 14.6C13.6649 14.0762 14.7342 13.8139 15.816 13.84C17.1025 13.8389 18.3727 14.1281 19.532 14.686L18.532 17.238C18.1004 17.0343 17.6562 16.8586 17.202 16.712C16.7404 16.5685 16.2594 16.4969 15.776 16.5C15.0518 16.4786 14.3691 16.8374 13.976 17.446C13.5033 18.2329 13.2775 19.1435 13.328 20.06C13.3293 22.364 14.2073 23.5154 15.962 23.514ZM28.4079 23.294C27.9073 23.4417 27.3879 23.5158 26.8659 23.514C25.11 23.5153 24.2313 22.364 24.2299 20.06C24.1795 19.1435 24.4052 18.2328 24.878 17.446C25.271 16.8374 25.9537 16.4786 26.6779 16.5C27.1614 16.4969 27.6423 16.5684 28.104 16.712C28.5581 16.8586 29.0024 17.0343 29.434 17.238L30.434 14.686C29.2747 14.1281 28.0045 13.8389 26.718 13.84C25.6368 13.8141 24.5682 14.0764 23.622 14.6C22.7458 15.1018 22.0412 15.8559 21.6 16.764C21.1138 17.7891 20.8748 18.9138 20.902 20.048C20.7886 21.6942 21.3063 23.3218 22.35 24.6C23.4456 25.6979 24.9623 26.2688 26.51 26.166C27.6775 26.1856 28.8361 25.9586 29.91 25.5V22.76C29.4187 22.9636 28.9174 23.1418 28.4079 23.294Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33"
-            id="correct-six-twelve">
+
+
+       
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" id="correct-six-twelve">
             <g id="Feedback / Correct">
                 <g id="5-8 Correct (Stroke)" filter="url(#filter0_ddd_2025_6409)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -198,45 +82,10 @@
                 d="M18.1134 25.0254C18.1134 25.0254 17.2078 25.7996 15.3965 27.3481C14.2045 25.9724 12.4913 24.3208 11.4557 22.6119L6.05176 28L4 25.2579L9.97156 19.8638C8.30444 17.2487 7.74136 15.7667 6.67078 13.6255L9.74536 12C10.3012 13.7546 11.3036 16.3916 12.0427 17.7927L17.3979 12L20 14.3705L13.5437 20.2859C14.7244 22.2407 18.1134 25.0254 18.1134 25.0254Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="delete">
-            <path d="M8 16V32C8 34.2 9.8 36 12 36H28C30.2 36 32 34.2 32 32V16H8Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M26 4C27.2 4 28 4.8 28 6V10H36V14H4V10H12V6C12 4.8 12.8 4 14 4H26ZM16 10H24V8H16V10Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="download">
-            <path
-                d="M20 28C20.6 28 21 27.8 21.4 27.4L32.8 16L30 13.2L22 21.2V4H18V21.2L9.99995 13.2L7.19995 16L18.6 27.4C19 27.8 19.4 28 20 28Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M32 32H8V26H4V34C4 35.2 4.8 36 6 36H34C35.2 36 36 35.2 36 34V26H32V32Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="erase">
-            <path
-                d="M32.727 12.0649L26.1951 5.39969C24.3288 3.53344 21.3961 3.53344 19.6632 5.39969L5.39969 19.6632C3.53344 21.5294 3.53344 24.4621 5.39969 26.1951L11.9316 32.727C12.8647 33.6601 13.9311 34.06 15.2642 34.06C16.5972 34.06 17.6636 33.5268 18.5968 32.727L32.727 18.5968C33.6601 17.6636 34.06 16.5972 34.06 15.2642C34.06 14.0644 33.5268 12.998 32.727 12.0649ZM15.6641 29.9276C15.5308 30.0609 15.2642 30.0609 15.1309 30.0609C14.9976 30.0609 14.8643 30.0609 14.5977 29.9276L8.19907 23.3957C7.93246 23.1291 7.93246 22.7292 8.19907 22.4626L14.0644 16.5972L21.6628 24.0622L15.6641 29.9276Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M31.5273 32.327H16.1974L12.1982 32.9935L15.6641 36.3261H31.5273C32.5937 36.3261 33.5268 35.393 33.5268 34.3266C33.5268 33.2602 32.727 32.327 31.5273 32.327Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="flip">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M17.9158 10C16.8109 10 15.9153 10.8957 15.9153 12.0005C15.9153 13.1054 16.8109 14.0011 17.9158 14.0011C21.4992 14.0011 24.6449 14.8353 26.8254 16.0812C29.0624 17.3595 29.919 18.8207 29.919 20.0027C29.919 21.1847 29.0624 22.6458 26.8254 23.9241C24.6449 25.17 21.4992 26.0042 17.9158 26.0042C17.3769 26.0042 16.8467 25.9853 16.3273 25.9488L18.0199 19.6862L6 24.7268L13.8443 35.1361L15.2666 29.8733C16.1292 29.9602 17.0143 30.0053 17.9158 30.0053C22.0665 30.0053 25.9225 29.0482 28.8105 27.398C31.6418 25.7801 33.92 23.2401 33.92 20.0027C33.92 16.7652 31.6418 14.2252 28.8105 12.6074C25.9225 10.9571 22.0665 10 17.9158 10Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="glyphs">
-            <path
-                d="M36.368 20.327C36.368 11.3238 28.8903 4 19.684 4C10.4735 4 3 11.3153 3 20.327C3 24.1529 4.07115 27.4002 6.17878 30H3.67389V34H11.6635C13.7155 34 14.4366 31.2788 12.654 30.2625C8.84093 28.0888 7 24.8639 7 20.327C7 13.5438 12.6637 8 19.684 8C26.6996 8 32.368 13.5518 32.368 20.327C32.368 24.8573 30.5315 28.0838 26.7286 30.2652C24.9511 31.2848 25.6746 34 27.7238 34H35.6739V30H33.1924C35.298 27.3977 36.368 24.1505 36.368 20.327Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="help">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M20 4C11.2 4 4 11.2 4 20C4 28.8 11.2 36 20 36C28.8 36 36 28.8 36 20C36 11.2 28.8 4 20 4ZM20 30C18.8 30 18 29.2 18 28C18 26.8 18.8 26 20 26C21.2 26 22 26.8 22 28C22 29.2 21.2 30 20 30ZM22 22C22 21.6 22 21.4 23 20.8C24.2 20 26 18.8 26 16C26 12.6 23.4 10 20 10C17.8 10 15.8 11.2 14.8 13L13.8 14.8L17.2 16.8L18.2 15C18.6 14.4 19.2 14 20 14C21.2 14 22 14.8 22 16C22 16.6 21.8 16.8 20.8 17.4C19.6 18.2 18 19.4 18 22V24H22V22Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33"
-            id="incorrect-six-twelve">
+       
+        
+       
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" id="incorrect-six-twelve">
             <g id="Feedback / Incorrect">
                 <g id="5-8 Incorrect (Stroke)" filter="url(#filter0_ddd_2025_6408)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -280,65 +129,6 @@
                 </filter>
             </defs>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="info">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M22.711 16.8002C22.711 15.5202 21.8399 14.6669 20.5333 14.6669H14V18.9335H18.3555V31.7334H14V36H27.0665V31.7334H22.711V16.8002Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <ellipse cx="19.4444" cy="7.19997" rx="3.26663" ry="3.19997"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></ellipse>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="italic">
-            <path
-                d="M28 10V6H16V10H18.5413C19.1499 10 19.6173 10.539 19.5313 11.1414L16.5111 28.2828C16.3703 29.2681 15.5265 30 14.5312 30H12V34H24V30H21.4587C20.8501 30 20.3827 29.461 20.4687 28.8586L23.4889 11.7172C23.6297 10.7319 24.4735 10 25.4688 10H28Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="light-bulb">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M21.7282 5.1332C16.3848 4.28312 11.2168 7.44533 9.54143 12.59C7.86609 17.7346 10.1811 23.3337 15.0004 25.793V34.0024H24.9997V25.803C28.6823 23.9238 31 20.1381 30.9993 16.0037C31.0032 10.5932 27.0716 5.98329 21.7282 5.1332Z"
-                fill="var(--connect__icon-stroke-color, #2d2d2d)" stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            <path d="M15.0002 28.0027H24.9995" fill="var(--connect__icon-stroke-color, #2d2d2d)"
-                stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="list-bullet">
-            <circle cx="8" cy="8" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="8" cy="20" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="8" cy="32" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <rect x="16" y="6" width="20" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="16" y="18" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="16" y="30" width="20" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="list-number">
-            <rect x="14" y="6" width="22" height="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="14" y="18" width="22" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <rect x="14" y="30" width="22" height="4"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <path
-                d="M4.73645 12V10.9024L5.93117 10.8053C6.12553 10.7917 6.15339 10.736 6.15339 10.528V5.6806C6.15339 5.51412 6.11195 5.4305 5.97259 5.38908L4.76433 5.13898L4.91725 4H8.25059V10.5281C8.25059 10.7503 8.26415 10.7917 8.47281 10.8053L9.61179 10.9025V12H4.73645Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M4.0947 24V22.7409L5.90878 20.968C7.27576 19.6414 7.85794 19.1003 7.85794 18.3287C7.85794 17.8273 7.6142 17.4624 6.89694 17.4624C6.15178 17.4624 5.8405 17.7062 5.8405 18.6672L4 18.5042C4.01322 16.3524 5.6511 16 7.0724 16C9.1706 16 9.91502 16.8935 9.91502 18.1657C9.91502 19.4388 9.03552 20.2779 8.04734 21.2249L6.5174 22.6873H8.50768C8.64276 22.6873 8.69708 22.6602 8.72426 22.5244L8.91366 21.4554H10.3482V24H4.0947Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M8.68894 31.3645C9.8218 31.5379 10.4475 32.217 10.4475 33.4156C10.4475 35.1742 9.12894 36 7.22374 36C5.87846 36 4.67986 35.521 4 34.7746L5.06566 33.6027C5.57212 34.0955 6.13132 34.4813 7.06406 34.4813C7.81038 34.4813 8.44978 34.2154 8.44978 33.2827C8.44978 32.4699 7.94332 32.1368 7.11752 32.1368C6.78446 32.1368 6.53158 32.1636 6.13132 32.23V30.8985L6.78444 30.8183C7.74318 30.6983 8.26264 30.2323 8.26264 29.3798C8.26264 28.8733 8.0365 28.4608 7.29018 28.4608C6.5713 28.4608 6.22524 28.7007 6.22524 29.6464L4.40024 29.486C4.40024 27.3814 5.98538 27.0216 7.3841 27.0216C9.43524 27.0216 10.2213 27.8077 10.2213 29.2331C10.2213 30.3523 9.52844 31.0581 8.6889 31.311V31.3645H8.68894Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="maximize">
-            <path d="M22 8H29.2L21.2 16L24 18.8L32 10.8V18H36V4H22V8Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M16 21.2L8 29.2V22H4V36H18V32H10.8L18.8 24L16 21.2Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="menu-grid">
-            <path d="M18 6H6V18H18V6Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M34 6H22V18H34V6Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M18 22H6V34H18V22Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M34 22H22V34H34V22Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="mic">
             <g clip-path="url(#clip0_717_2569)">
                 <path
@@ -358,38 +148,6 @@
                 </clipPath>
             </defs>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="minimize">
-            <path d="M4.00001 26H11.2L3.20001 34L6.00001 36.8L14 28.8V36H18V22H4.00001V26Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M34 3.20001L26.0001 11.2V4.00001H22.0001V18H36V14H28.8001L36.8 6.00001L34 3.20001Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="more-horiz">
-            <circle cx="20" cy="20" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="8" cy="20" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="32" cy="20" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="more-vert">
-            <circle cx="20" cy="20" r="4" transform="rotate(90 20 20)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="20" cy="8" r="4" transform="rotate(90 20 8)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-            <circle cx="20" cy="32" r="4" transform="rotate(90 20 32)"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="move">
-            <path
-                d="M30 18H22V10H26L20 4L14 10H18V18H10V14L4 20L10 26V22H18V30H14L20 36L26 30H22V22H30V26L36 20L30 14V18Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="open">
-            <path
-                d="M32 36H8C6.8 36 6 35.2 6 34V6C6 4.8 6.8 4 8 4H16V8H10V32H30V22H34V34C34 35.2 33.2 36 32 36Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M20.8 20L30 10.8V18H34V6C34 4.8 33.2 4 32 4H20V8H27.2L18 17.2"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="pause">
             <path
                 d="M16.4 8H11.6C10.64 8 10 8.68571 10 9.71429V30.2857C10 31.3143 10.64 32 11.6 32H16.4C17.36 32 18 31.3143 18 30.2857V9.71429C18 8.68571 17.36 8 16.4 8Z"
@@ -398,56 +156,13 @@
                 d="M28.4 8H23.6C22.64 8 22 8.68571 22 9.71429V30.2857C22 31.3143 22.64 32 23.6 32H28.4C29.36 32 30 31.3143 30 30.2857V9.71429C30 8.68571 29.36 8 28.4 8Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="pdf">
-            <path
-                d="M17.0462 22.3385C17.0462 23.8154 16.1846 24.6769 14.4615 24.6769H13.4769V26.8923H12V20H14.4615C16.1846 20 17.0462 20.8615 17.0462 22.3385ZM15.3231 22.3385C15.3231 21.6 15.0769 21.2308 14.3385 21.2308H13.4769V23.3231H14.2154C15.0769 23.4462 15.3231 23.0769 15.3231 22.3385Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M23.2 23.4462C23.2 25.6615 21.9692 26.8923 20 26.8923H17.5385V20H20C21.9692 20 23.2 21.2308 23.2 23.4462ZM21.4769 23.4462C21.4769 21.9692 20.9846 21.2308 19.8769 21.2308H19.0154V25.5385H19.8769C20.9846 25.6615 21.4769 24.9231 21.4769 23.4462Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M25.2923 21.3538V22.8308H27.7538V24.0615H25.2923V26.8923H23.6923V20H28V21.2308H25.2923V21.3538Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M33.3333 10.4L27.3333 4.53333C26.9333 4.13333 26.4 4 26 4H8C6.93333 4 6 4.93333 6 6V34C6 35.0667 6.93333 36 8 36H32C33.0667 36 34 35.0667 34 34V11.8667C34 11.3333 33.7333 10.8 33.3333 10.4ZM10 32V8H23.3333V12.6667C23.3333 13.7333 24.2667 14.6667 25.3333 14.6667H30V32H10Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="play">
             <path
                 d="M32 19.9991C32 19.4286 31.735 18.8931 31.2883 18.5658L14.6217 6.31513C14.115 5.94061 13.4483 5.89861 12.8967 6.19613C12.345 6.49889 12 7.09567 12 7.74846V32.2515C12 32.9043 12.345 33.5029 12.8967 33.8039C13.4483 34.1014 14.1133 34.0594 14.6217 33.6849L31.2883 21.4342C31.735 21.1087 32 20.5732 32 20.0026C32 20.0009 32 20.0009 32 19.9991C32 20.0009 32 20.0009 32 19.9991Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="reload">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M13 12.5C16.8 8.69999 23.2 8.69999 27 12.5C28.4 13.9 29.4 15.9 29.8 17.9L33.8 17.3C33.4 14.3 32 11.7 30 9.69999C24.6 4.29999 15.8 4.29999 10.2 9.69999L5.80003 5.29999L4.40002 18.1L17.2 16.7L13 12.5Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M35.6 21.9L22.8 23.3L27 27.5C23.2 31.3 16.8 31.3 13 27.5C11.6 26.1 10.6 24.1 10.2 22.1L6.20001 22.7C6.60001 25.7 8.00001 28.3 10 30.3C12.8 33.1 16.2 34.3 19.8 34.3C23.4 34.3 27 32.9 29.6 30.3L34 34.7L35.6 21.9Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="save">
-            <path d="M22 4H14V8H22V4Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M30 4H26V10C26 11.0667 25.0667 12 24 12H12C10.9333 12 10 11.0667 10 10V4H8C5.73333 4 4 5.73333 4 8V32C4 34.1333 5.73333 36 8 36H32C34.1333 36 36 34.1333 36 32V10L30 4ZM30 28C30 29.0667 28.9333 30 28 30H12C10.9333 30 10 28.9333 10 28V20C10 18.9333 11.0667 18 12 18H28C29.0667 18 30 19.0667 30 20V28Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="save-as">
-            <path d="M21.9967 4H13.9967V8H21.9967V4Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M29.9967 4H25.9967V10C25.9967 11.0667 25.0633 12 23.9967 12H11.9967C10.93 12 9.99667 11.0667 9.99667 10V4H7.99667C5.73001 4 3.99667 5.73333 3.99667 8V18H22.6633H27.9967C29.0633 18 29.9967 18.9333 29.9967 20V28C29.9967 29.0667 29.0633 30 27.9967 30H21.9967V36H31.9967C34.13 36 35.9967 34.1333 35.9967 32V10L29.9967 4Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M5.99667 36.8L13.8633 28.8V36H17.8633V24C17.8633 22.8 17.0633 22 15.8633 22H3.99667V26H11.1967L3.33 34"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="settings">
-            <path
-                d="M30.6 14.4L32.8 10.2L30 7.4L25.8 9.6C25.2 9.2 24.4 9 23.6 8.8L22 4H18L16.4 8.6C15.8 8.8 15 9 14.4 9.4L10.2 7.2L7.2 10.2L9.4 14.4C9 15 8.8 15.8 8.6 16.4L4 18V22L8.6 23.6C8.8 24.4 9.2 25 9.4 25.8L7.2 30L10 32.8L14.2 30.6C14.8 31 15.6 31.2 16.4 31.4L18 36H22L23.6 31.4C24.4 31.2 25 30.8 25.8 30.6L30 32.8L32.8 30L30.6 25.8C31 25.2 31.2 24.4 31.4 23.6L36 22V18L31.4 16.4C31.2 15.8 31 15 30.6 14.4ZM20 26C16.6 26 14 23.4 14 20C14 16.6 16.6 14 20 14C23.4 14 26 16.6 26 20C26 23.4 23.4 26 20 26Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33"
-            id="shown-correct-six-twelve">
+        
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" id="shown-correct-six-twelve">
             <g id="Feedback / Shown Correct">
                 <g id="5-8 Correct (Stroke)" filter="url(#filter0_ddd_2035_13467)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -491,25 +206,6 @@
                 </filter>
             </defs>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="size">
-            <path d="M16 6H4V12H6L8 10H14V30L10 32V34H16H22V32L18 30V10H24L26 12H28V6H16Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M20 16V22H22L24 20H26V30L24 32V34H32V32L30 30V20H32L34 22H36V16H20Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="text-label">
-            <rect x="4" y="8" width="32" height="24" rx="1"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></rect>
-            <path
-                d="M14.9048 16.1502H11.6942V25.6889H8.74485V16.1502H5.53418V13.8356H14.9048V16.1502Z"
-                fill="white"></path>
-            <path
-                d="M25.3324 25.6887H21.7496L19.9479 22.7207L18.1463 25.6887H14.6658L18.0439 21.19L14.8705 16.822H18.3715L20.0503 19.678L21.7291 16.822H25.1277L21.9543 21.19L25.3324 25.6887Z"
-                fill="white"></path>
-            <path
-                d="M32.6845 23.5234L32.9458 25.5394C32.4605 25.7074 31.5272 25.8754 30.7432 25.8754C29.9032 25.8754 29.1752 25.7634 28.5965 25.2034C28.0178 24.662 27.8685 23.9714 27.8685 22.982V18.894H26.6738V16.822H27.8498L28.0178 14.6007H30.7245V16.822H32.8898V18.894H30.7245V22.3474C30.7245 22.7954 30.7432 23.15 30.9112 23.3554C31.0792 23.5607 31.3592 23.654 31.7325 23.654C32.1058 23.654 32.5352 23.5794 32.6845 23.5234Z"
-                fill="white"></path>
-        </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="tick">
             <path
                 d="M31.6567 4L36 8.38766C31.4333 13.0011 25.5691 20.8954 18.4709 32.024L15.9348 36L13.335 32.0662C10.6052 27.9357 7.49433 25.07 4 23.4044L6.62095 17.7926C9.98593 19.3965 13.0137 21.7933 15.7033 24.9572C21.964 15.4095 27.2669 8.43468 31.6567 4Z"
@@ -520,74 +216,8 @@
                 d="M16.9885 12L20 14.785C17.7166 17.0917 14.7096 19.8123 11.2354 25.8242L9.95129 28L8.6675 25.8454C7.30261 23.7801 5.74716 22.3472 4 21.5145L5.89014 17.5391C7.57262 18.341 9.28019 19.8546 10.4644 21.5145C13.4566 16.0944 14.7936 14.2173 16.9885 12Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="transcript">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M8 4H32C33.2 4 34 4.8 34 6V34C34 35.2 33.2 36 32 36H8C6.8 36 6 35.2 6 34V6C6 4.8 6.8 4 8 4ZM12 30H20V26H12V30ZM28 22H12V18H28V22ZM12 14H28V10H12V14Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="underline">
-            <path d="M6 34H34V38H6V34Z" fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M34 6H22V8L24.8944 9.44722C25.572 9.786 26 10.4785 26 11.2361V19.7632C26 22.6649 24.0444 25.3304 21.1959 25.8837C17.3654 26.6277 14 23.6997 14 20V11.2361C14 10.4785 14.428 9.786 15.1056 9.44722L18 8V6H6V8L8.89442 9.44722C9.572 9.786 10 10.4785 10 11.2361V19.554C10 24.7736 13.8055 29.4439 19.0004 29.9511C24.9609 30.533 30 25.8435 30 20V11.2361C30 10.4785 30.428 9.78598 31.1056 9.4472L34 8V6Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="upload">
-            <path
-                d="M18 10.8V28H22V10.8L30 18.8L32.8 16L21.4 4.6C20.6 3.8 19.4 3.8 18.6 4.6L7.19995 16L9.99995 18.8L18 10.8Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path d="M32 32H8V26H4V34C4 35.2 4.8 36 6 36H34C35.2 36 36 35.2 36 34V26H32V32Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="video-clip">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M4 9C4 8.44772 4.44772 8 5 8H35C35.5523 8 36 8.44772 36 9V31C36 31.5523 35.5523 32 35 32H5C4.44772 32 4 31.5523 4 31V9ZM6 10H10V14H6V10ZM18 10H14V14H18V10ZM22 10H26V14H22V10ZM34 10H30V14H34V10ZM6 26H10V30H6V26ZM18 26H14V30H18V26ZM22 26H26V30H22V26ZM34 26H30V30H34V26Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 41" id="vocabulary">
-            <circle cx="33" cy="16.5" r="2.5" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <circle cx="13" cy="16.5" r="2.5" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <circle cx="23" cy="16.5" r="2.5" fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M3 6.5L3 26.5C3 28.5711 4.58017 30.25 6.52941 30.25H17.1176L23 37.75L28.8824 30.25H39.4706C41.4198 30.25 43 28.5711 43 26.5V6.5C43 4.42893 41.4198 2.75 39.4706 2.75H6.52941C4.58017 2.75 3 4.42893 3 6.5Z"
-                stroke="var(--connect__icon-stroke-color, #2d2d2d)" stroke-width="5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="volume-high">
-            <path
-                d="M31.373 31.4068C34.3153 28.3907 36 24.3082 36 19.9575C36 15.6545 34.3522 11.613 31.4669 8.60529C30.702 7.80795 29.4511 7.79693 28.673 8.58067C27.8948 9.36441 27.8841 10.6461 28.6489 11.4435C30.815 13.7015 32.0486 16.7271 32.0486 19.9575C32.0486 23.2237 30.7873 26.2801 28.5784 28.5445C27.807 29.3352 27.8072 30.617 28.579 31.4074C29.3507 32.1978 30.6016 32.1975 31.373 31.4068Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M25.5635 25.4337C27.1124 23.999 28 22.0567 28 19.9894C28 17.936 27.1243 16.0056 25.5937 14.5733C24.7842 13.8158 23.4633 13.8079 22.6433 14.5558C21.8233 15.3036 21.8148 16.5239 22.6243 17.2815C23.3915 17.9994 23.8274 18.9602 23.8274 19.9894C23.8274 21.0256 23.3856 21.9924 22.6091 22.7115C21.7954 23.4652 21.7972 24.6856 22.613 25.4373C23.4288 26.189 24.7498 26.1874 25.5635 25.4337Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M9.1757 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.1757Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="volume-low">
-            <path
-                d="M25.5604 25.4309C27.1091 23.9964 27.9965 22.0544 27.9965 19.9874C27.9965 17.9343 27.121 16.0041 25.5906 14.5721C24.7812 13.8147 23.4605 13.8068 22.6406 14.5545C21.8207 15.3023 21.8122 16.5224 22.6216 17.2798C23.3887 17.9977 23.8245 18.9583 23.8245 19.9874C23.8245 21.0235 23.3828 21.99 22.6064 22.7091C21.7929 23.4627 21.7946 24.6829 22.6103 25.4345C23.426 26.1861 24.7468 26.1845 25.5604 25.4309Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M9.17495 25.9971L16.2634 33.6763C16.8808 34.3451 17.998 33.9083 17.998 32.9981V7.00187C17.998 6.09169 16.8808 5.65488 16.2634 6.32369L9.17867 13.9988H4.98187C4.4557 13.9988 4 14.4384 4 14.9807V25.0153C4 25.5414 4.4396 25.9971 4.98187 25.9971H9.17495Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="volume-mid">
-            <path
-                d="M28.4786 28.492C30.7173 26.2568 32 23.2275 32 20C32 16.7908 30.7318 13.7771 28.5154 11.545C27.7371 10.7612 26.4708 10.7567 25.687 11.535C24.9032 12.3132 24.8987 13.5796 25.677 14.3634C27.1567 15.8535 28 17.8575 28 20C28 22.1546 27.147 24.169 25.6524 25.6613C24.8707 26.4417 24.8697 27.7081 25.6502 28.4897C26.4306 29.2714 27.6969 29.2724 28.4786 28.492Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M9.1757 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.1757Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="volume-mute">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M30 22.8284L27.4142 25.4142C26.6332 26.1953 25.3668 26.1953 24.5858 25.4142C23.8047 24.6332 23.8047 23.3668 24.5858 22.5858L27.1716 20L24.5858 17.4142C23.8047 16.6332 23.8047 15.3668 24.5858 14.5858C25.3668 13.8047 26.6332 13.8047 27.4142 14.5858L30 17.1716L32.5858 14.5858C33.3668 13.8047 34.6332 13.8047 35.4142 14.5858C36.1953 15.3668 36.1953 16.6332 35.4142 17.4142L32.8284 20L35.4142 22.5858C36.1953 23.3668 36.1953 24.6332 35.4142 25.4142C34.6332 26.1953 33.3668 26.1953 32.5858 25.4142L30 22.8284Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            <path
-                d="M9.17569 26L16.2652 33.6803C16.8826 34.3492 18 33.9123 18 33.002V7.00201C18 6.0917 16.8826 5.65483 16.2652 6.32373L9.17941 14H4.98201C4.45576 14 4 14.4397 4 14.982V25.018C4 25.5442 4.43966 26 4.98201 26H9.17569Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
+
+
         <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" id="correct">
             <g filter="url(#filter0_ddd_2035_8322)">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -672,8 +302,7 @@
                 </filter>
             </defs>
         </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28"
-            id="shown-correct">
+        <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28" id="shown-correct">
             <g filter="url(#filter0_ddd_2035_8459)">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M15.6886 4.05813C17.704 1.98062 21.0103 1.98062 23.0257 4.05813C24.9914 6.08454 24.9914 9.33335 23.0257 11.3598C21.545 12.8861 19.415 15.9797 16.6902 20.8567C14.8135 24.2157 10.0864 24.4222 7.94611 21.1971C7.0557 19.8554 6.21697 18.9367 5.46895 18.3425C3.24468 16.5756 2.86147 13.3483 4.54275 11.0992C6.13708 8.96643 9.0627 8.41234 11.2971 9.78112C12.8425 7.41101 14.3022 5.48734 15.6886 4.05813ZM13.5921 11.7564C15.157 9.32564 16.5689 7.45927 17.8419 6.14699C18.6788 5.28434 20.0355 5.28434 20.8724 6.14699C21.7092 7.00963 21.7092 8.40826 20.8724 9.27091C19.1003 11.0976 16.8125 14.4871 14.0712 19.3935C13.2834 20.8036 11.3371 20.8813 10.4458 19.5383C9.43359 18.0131 8.39322 16.8341 7.33496 15.9935C6.39754 15.2488 6.22321 13.8618 6.94559 12.8954C7.60717 12.0104 8.79145 11.7852 9.70621 12.3256C9.79025 12.3753 9.87202 12.4314 9.9509 12.494C10.6427 13.0436 11.3119 13.6802 11.9595 14.403C12.5214 13.4566 13.0654 12.5745 13.5921 11.7564Z"
@@ -715,55 +344,9 @@
                 </filter>
             </defs>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="close">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M17.1392 15L23.5569 21.4177C24.1477 22.0084 24.1477 22.9662 23.5569 23.5569C22.9662 24.1477 22.0084 24.1477 21.4177 23.5569L15 17.1392L8.58229 23.5569C7.99155 24.1477 7.03378 24.1477 6.44305 23.5569C5.85232 22.9662 5.85232 22.0084 6.44305 21.4177L12.8608 15L6.44305 8.58229C5.85232 7.99155 5.85232 7.03378 6.44305 6.44305C7.03378 5.85232 7.99155 5.85232 8.58229 6.44305L15 12.8608L21.4177 6.44305C22.0084 5.85232 22.9662 5.85232 23.5569 6.44305C24.1477 7.03378 24.1477 7.99155 23.5569 8.58229L17.1392 15Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 22" id="text">
-            <g id="Frame 55">
-                <path id="Path"
-                    d="M9 0.5H0V5H1.5L3 3.5H7.5V18.5L4.5 20V21.5H9H13.5V20L10.5 18.5V3.5H15L16.5 5H18V0.5H9Z"
-                    fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-                <path id="Path_2"
-                    d="M12 8V12.5H13.5L15 11H16.5V18.5L15 20V21.5H21V20L19.5 18.5V11H21L22.5 12.5H24V8H12Z"
-                    fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-            </g>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="calendar">
-            <g clip-path="url(#clip0_788_4254)">
-                <path
-                    d="M36 5H32.5V2.5C32.5 1.16667 31.3333 0 30 0C28.6667 0 27.5 1.16667 27.5 2.5V5H12.5V2.5C12.5 1.16667 11.3333 0 10 0C8.66667 0 7.5 1.16667 7.5 2.5V5H4C1.83333 5 0 6.66667 0 8.66667V36.3333C0 38.3333 1.83333 40 4 40H36C38.1667 40 40 38.3333 40 36.3333V8.66667C40 6.66667 38.1667 5 36 5ZM35 35H5V15H35V35Z"
-                    fill="var(--connect__icon-fill-color, #2d2d2d)" />
-                <path
-                    d="M11.3333 25C13.3583 25 15 23.3583 15 21.3333C15 19.3082 13.3583 17.6666 11.3333 17.6666C9.30825 17.6666 7.66663 19.3082 7.66663 21.3333C7.66663 23.3583 9.30825 25 11.3333 25Z"
-                    fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            </g>
-            <defs>
-                <clipPath id="clip0_788_4254">
-                    <rect width="40" height="40" fill="white" />
-                </clipPath>
-            </defs>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30" id="print">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M31.6667 0H8.33333C3.66667 0 0 3.66667 0 8.33333V20C0 21 0.666667 21.6667 1.66667 21.6667H7.5V28.3333C7.5 29.3333 8.16667 30 9.16667 30H30.8333C31.8333 30 32.5 29.3333 32.5 28.3333V21.6667H38.3333C39.3333 21.6667 40 21 40 20V8.33333C40 3.66667 36.3333 0 31.6667 0ZM27.5 25H12.5V15H27.5V25ZM27.5 8.33333C27.5 9.66667 28.6667 10.8333 30 10.8333C31.3333 10.8333 32.5 9.66667 32.5 8.33333C32.5 7 31.3333 5.83333 30 5.83333C28.6667 5.83333 27.5 7 27.5 8.33333Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="image">
-            <path
-                d="M18.9337 14.6667L24.0003 21.3334H8.00033L12.0003 16.1334L14.8003 19.7334L18.667 14.6667H18.9337ZM11.3337 14.6667C12.4003 14.6667 13.3337 13.7334 13.3337 12.6667C13.3337 11.6 12.4003 10.6667 11.3337 10.6667C10.267 10.6667 9.33366 11.6 9.33366 12.6667C9.33366 13.7334 10.267 14.6667 11.3337 14.6667ZM29.3337 8.00004V24C29.3337 25.4667 28.1337 26.6667 26.667 26.6667H5.33366C3.86699 26.6667 2.66699 25.4667 2.66699 24V8.00004C2.66699 6.53337 3.86699 5.33337 5.33366 5.33337H26.667C28.1337 5.33337 29.3337 6.53337 29.3337 8.00004ZM26.667 11.7334V8.00004H5.33366V24H26.667V11.7334Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" id="clock">
-            <path
-                d="M18 36C8 36 0 28 0 18C0 8 8 0 18 0C28 0 36 8 36 18C36 28 28 36 18 36ZM18 4C10.2 4 4 10.2 4 18C4 25.8 10.2 32 18 32C25.8 32 32 25.8 32 18C32 10.2 25.8 4 18 4Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
-            <path
-                d="M26 20H18C16.8 20 16 19.2 16 18V10C16 8.8 16.8 8 18 8C19.2 8 20 8.8 20 10V16H26C27.2 16 28 16.8 28 18C28 19.2 27.2 20 26 20Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)" />
 
-        </symbol>
+
+    
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="color">
             <path
                 d="M15.3077 27C10.7212 27 7 22.9688 7 18C7 13.725 12.6337 5.70469 14.2087 3.54844C14.4683 3.19688 14.8534 3 15.2687 3H15.3466C15.762 3 16.1471 3.19688 16.4067 3.54844C17.9817 5.70469 23.6154 13.725 23.6154 18C23.6154 22.9688 19.8942 27 15.3077 27ZM11.1538 18.75C11.1538 18.3375 10.8423 18 10.4615 18C10.0808 18 9.76923 18.3375 9.76923 18.75C9.76923 21.6516 11.937 24 14.6154 24C14.9962 24 15.3077 23.6625 15.3077 23.25C15.3077 22.8375 14.9962 22.5 14.6154 22.5C12.7029 22.5 11.1538 20.8219 11.1538 18.75Z"
@@ -782,16 +365,13 @@
                 d="M6.57303 20.5146L8.11493 20.7111L19.4969 11.9004L18.1638 10.1695L6.76721 18.9916L6.57303 20.5146ZM5.04121 22.8112C4.6973 22.7674 4.42209 22.6121 4.21557 22.3453C4.00924 22.0784 3.92801 21.7729 3.97187 21.4289L4.3232 18.6734C4.36477 18.3473 4.46591 18.0436 4.62663 17.7621C4.78715 17.4808 4.99577 17.2409 5.2525 17.0423L20.4719 5.27941C20.7229 5.09745 20.9922 4.96784 21.2798 4.89059C21.5672 4.81332 21.8611 4.79383 22.1614 4.83211C22.4573 4.86985 22.7393 4.96276 23.0073 5.11085C23.2751 5.25891 23.5021 5.45874 23.6883 5.71031L25.2216 7.70111C25.4188 7.94022 25.552 8.20876 25.6209 8.50673C25.6899 8.80452 25.7061 9.09677 25.6696 9.38348C25.6313 9.68384 25.5419 9.965 25.4016 10.227C25.2612 10.4891 25.0647 10.718 24.812 10.9136L9.62031 22.6735C9.36374 22.8722 9.07912 23.014 8.76644 23.0989C8.45393 23.1839 8.1347 23.2056 7.80875 23.1641L5.04121 22.8112ZM18.8192 11.0406L18.1638 10.1695L19.4969 11.9004L18.8192 11.0406Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-            id="draw-size-one">
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="draw-size-one">
             <circle cx="15" cy="15" r="2" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-            id="draw-size-three">
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="draw-size-three">
             <circle cx="15" cy="15" r="6" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-            id="draw-size-two">
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="draw-size-two">
             <circle cx="15" cy="15" r="4" fill="var(--connect__icon-fill-color, #2d2d2d)"></circle>
         </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="line-arrow">
@@ -816,15 +396,9 @@
                 d="M6.97526 5.9046C7.58024 5.33865 8.52946 5.37029 9.0954 5.97527L23.5954 21.4753C24.1614 22.0802 24.1297 23.0295 23.5247 23.5954C22.9198 24.1614 21.9705 24.1297 21.4046 23.5247L6.90459 8.02474C6.33864 7.41976 6.37029 6.47054 6.97526 5.9046Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-            id="lines-outline">
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="lines-outline">
             <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M6.47527 6.4046C7.08025 5.83865 8.02947 5.87029 8.59541 6.47527L23.0954 21.9753C23.6614 22.5802 23.6297 23.5295 23.0247 24.0954C22.4198 24.6614 21.4705 24.6297 20.9046 24.0247L6.4046 8.52474C5.83865 7.91976 5.87029 6.97054 6.47527 6.4046Z"
-                fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
-        </symbol>
-        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="placeholder">
-            <path
-                d="M7.69823 24.1272H22.2692L19.531 21.389C18.9008 21.8454 18.2 22.1985 17.4285 22.4485C16.657 22.6984 15.8475 22.8233 15 22.8233C14.1525 22.8233 13.343 22.6929 12.5715 22.4322C11.8 22.1714 11.0992 21.8128 10.469 21.3565L7.69823 24.1272ZM5.96634 22.1756L8.61095 19.531C8.15459 18.9008 7.80146 18.2 7.55154 17.4285C7.30163 16.657 7.17668 15.8475 7.17668 15C7.17668 14.1525 7.30707 13.343 7.56784 12.5715C7.82862 11.8 8.18719 11.0992 8.64355 10.469L5.96634 7.79179V22.1756ZM10.5016 17.6404L13.1746 15L10.5016 12.3596C10.2625 12.7508 10.0833 13.1637 9.96374 13.5983C9.84421 14.033 9.78445 14.5002 9.78445 15C9.78445 15.4998 9.84421 15.967 9.96374 16.4017C10.0833 16.8363 10.2625 17.2492 10.5016 17.6404ZM15 20.2155C15.4998 20.2155 15.967 20.1558 16.4017 20.0363C16.8363 19.9167 17.2492 19.7375 17.6404 19.4984L15 16.8254L12.327 19.4984C12.7182 19.7375 13.1365 19.9167 13.582 20.0363C14.0275 20.1558 14.5002 20.2155 15 20.2155ZM15 13.142L17.6404 10.5016C17.2492 10.2625 16.8363 10.0833 16.4017 9.96374C15.967 9.84421 15.4998 9.78445 15 9.78445C14.5002 9.78445 14.033 9.84421 13.5983 9.96374C13.1637 10.0833 12.7508 10.2625 12.3596 10.5016L15 13.142ZM19.4984 17.6404C19.7375 17.2492 19.9167 16.8363 20.0363 16.4017C20.1558 15.967 20.2155 15.4998 20.2155 15C20.2155 14.5002 20.1558 14.0275 20.0363 13.582C19.9167 13.1365 19.7375 12.7182 19.4984 12.327L16.858 14.9674L19.4984 17.6404ZM24.0337 22.1756V7.79179L21.3565 10.469C21.8128 11.0992 22.1714 11.8 22.4322 12.5715C22.6929 13.343 22.8233 14.1525 22.8233 15C22.8233 15.8475 22.6984 16.657 22.4485 17.4285C22.1985 18.2 21.8454 18.9008 21.389 19.531L24.0337 22.1756ZM19.531 8.64355L22.3018 5.87279H7.73083L10.469 8.61095C11.0992 8.15459 11.8 7.80146 12.5715 7.55154C13.343 7.30163 14.1525 7.17668 15 7.17668C15.8475 7.17668 16.657 7.30707 17.4285 7.56784C18.2 7.82862 18.9008 8.18719 19.531 8.64355ZM5.96634 27C5.14533 27 4.44568 26.7109 3.86741 26.1326C3.28914 25.5543 3 24.8547 3 24.0337V5.96634C3 5.14533 3.28914 4.44568 3.86741 3.86741C4.44568 3.28914 5.14533 3 5.96634 3H24.0337C24.8547 3 25.5543 3.28914 26.1326 3.86741C26.7109 4.44568 27 5.14533 27 5.96634V24.0337C27 24.8547 26.7109 25.5543 26.1326 26.1326C25.5543 26.7109 24.8547 27 24.0337 27H5.96634Z"
                 fill="var(--connect__icon-fill-color, #2d2d2d)"></path>
         </symbol>
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="redo">
