@@ -2,11 +2,12 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Sidebar, SidebarProps } from './Sidebar';
 import { List } from '../List/List';
-import { Button } from '../Button/Button';
+import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { Divider } from '../Divider/Divider';
 import { Stack } from '../Stack/Stack';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
+import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Layout/Sidebar',
@@ -76,47 +77,47 @@ export const WithMenu: Story = Template.bind({});
 WithMenu.args = {
   ...Default.args,
   children: (
-    <>
+    <ButtonMenuProvider>
       <Stack>
         <List
           data={[
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-1"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-2"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-3"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
           ]}
@@ -129,7 +130,7 @@ WithMenu.args = {
           },
         ]}
       />
-    </>
+    </ButtonMenuProvider>
   ),
 };
 
@@ -137,34 +138,34 @@ export const WithDivider: Story = Template.bind({});
 WithDivider.args = {
   ...Default.args,
   children: (
-    <>
+    <ButtonMenuProvider>
       <Stack>
         <List
           data={[
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-1"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-2"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
           ]}
@@ -174,15 +175,15 @@ WithDivider.args = {
           data={[
             {
               content: (
-                <Button
-                  primary={true}
+                <ButtonMenu
+                  id="add-3"
                   iconId="add"
                   iconSize="md"
                   additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
-                ></Button>
+                ></ButtonMenu>
               ),
             },
           ]}
@@ -195,6 +196,6 @@ WithDivider.args = {
           },
         ]}
       />
-    </>
+    </ButtonMenuProvider>
   ),
 };
