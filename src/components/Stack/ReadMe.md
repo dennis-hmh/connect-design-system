@@ -49,7 +49,7 @@ Here's an example of how to use the Stack component with various props for respo
 
 ```tsx
 import React from 'react';
-import Stack from './components/Stack/Stack';
+import { Stack } from './components/Stack/Stack';
 
 function Example() {
   return (
