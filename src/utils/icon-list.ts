@@ -1,47 +1,34 @@
 export type IconId = 
   'loader'|
-  'add'|
-  'arrow-down'|
-  'arrow-up'|
-  'circle-cross'|
-  'circle-tick'|
-  'correct-six-twelve'|
-  'cross-xs'|
-  'incorrect-six-twelve'|
+  'arrowDown'|
+  'arrowUp'|
   'mic'|
   'pause'|
   'play'|
-  'shown-correct-six-twelve'|
-  'tick'|
-  'tick-xs'|
-  'correct'|
-  'incorrect'|
-  'shown-correct'|
   'color'|
-  'counter-one'|
-  'draw-outline'|
-  'draw-size-one'|
-  'draw-size-three'|
-  'draw-size-two'|
-  'line-arrow'|
-  'line-dashed'|
-  'line'|
-  'lines-outline'|
+  'counter'|
+  'drawToolOutline'|
+  'drawSizeXs'|
+  'drawSizeLg'|
+  'drawSizeMd'|
+  'lineArrow'|
+  'lineDashed'|
+  'lineSolid'|
   'redo'|
   'undo'|
-  'circle-outline'|
-  'circle'|
-  'shapes-outline'|
-  'rectangle-outline'|
-  'rectangle'|
-  'triangle-outline'|
-  'special-shapes-one'|
-  'triangle'|
-  'special-shapes-three'|
-  'special-shapes-two'|
-  'stamps-measure-outline'|
-  'stamps-counter-outline'|
-  'stamps-special-shapes-outline'|
+  'shapesCircleOutline'|
+  'shapesCircleSolid'|
+  'shapes'|
+  'shapesRectangleOutline'|
+  'shapesRectangleSolid'|
+  'shapesTriangleSolid'|
+  'shapesTriangleOutline'|
+  'specialShapesDiamond'|
+  'specialShapesPentagon'|
+  'stampsCounterOutline'|
+  'stampsMeasureOutline'|
+  'stampsCounterOutline'|
+  'stampsSpecialShapesOutline'|
   'add'|
   'check'|
   'close'|

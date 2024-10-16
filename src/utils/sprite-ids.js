@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs'
 
 const svgContent = fs.readFileSync('./public/svg/sprite.svg', 'utf8');
 
