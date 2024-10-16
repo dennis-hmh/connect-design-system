@@ -3,7 +3,6 @@
   "version": "1.12.0",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
-  "type": "module",
   "main": "./dist/connect-design-system.umd.js",
   "module": "./dist/connect-design-system.mjs",
   "files": [
