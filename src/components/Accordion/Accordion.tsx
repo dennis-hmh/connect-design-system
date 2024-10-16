@@ -10,19 +10,23 @@ export type AccordionProps = {
 
 export function Accordion({ data, variants = 'default', dataTestId }: AccordionProps) {
   return (
-    <ul className={`connect__accordion connect__accordion--${variants}`} data-testid={dataTestId}>
+    <ul
+      className={`connect__accordion connect__accordion--${variants} connect__list`}
+      data-testid={dataTestId}
+    >
       <ListItem data={data} />
     </ul>
   );
 }
 
+// can we add Typography rather than h5? 
 function ListItem<T extends React.ReactNode>({ data }: { data: { title: string; content: T }[] }) {
   return (
     <>
       {data.map((item, index) => (
-        <li key={index}>
-          <details>
-            <summary>
+        <li className="connect__list-item" key={index}>
+          <details className="connect__details">
+            <summary className="connect__summary">
               <h5>{item.title}</h5>
             </summary>
             <p>{item.content}</p>

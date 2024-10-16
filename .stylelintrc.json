@@ -34,7 +34,7 @@
     "no-duplicate-selectors": null,
     "property-no-vendor-prefix": [true, { "severity": "warning" }],
     "rule-empty-line-before": [
-      true,
+      "always",
       {
         "except": ["first-nested", "after-single-line-comment"],
         "ignore": ["after-comment"]

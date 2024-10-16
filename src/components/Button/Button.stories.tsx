@@ -65,6 +65,7 @@ Icon.args = {
   ...Primary.args,
   children: '',
   iconId: 'arrow-right',
+  iconSize: 'md',
   ariaLabel: 'Icon Button',
 };
 
@@ -72,9 +73,20 @@ export const Loading: Story = Template.bind({});
 Loading.args = {
   ...Primary.args,
   children: 'Loading Button',
+  fill: 'white',
   iconId: 'loader',
   iconSize: 'md',
   iconPosition: 'before',
   ariaLabel: 'Loading Button',
   additionalClass: 'connect__button-loading',
+};
+
+export const MenuButton: Story = Template.bind({});
+MenuButton.args = {
+  ...Primary.args,
+  children: '',
+  iconId: 'add',
+  iconSize: 'md',
+  additionalClass: 'connect__button-menu',
+  ariaLabel: '',
 };
