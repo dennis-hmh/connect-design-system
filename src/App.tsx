@@ -118,15 +118,11 @@ const App = () => {
                 primary={true}
                 children={'submitted'}
                 correct={true}
-                iconId={'correct'}
-                iconPosition={'after'}
               />
               <Button
                 primary={true}
                 children={'submitted'}
                 incorrect={true}
-                iconId={'incorrect'}
-                iconPosition={'after'}
               />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />
