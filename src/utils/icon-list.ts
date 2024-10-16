@@ -41,7 +41,6 @@ export type IconId =
   'stamps-measure-outline'|
   'stamps-counter-outline'|
   'stamps-special-shapes-outline'|
-  'loader'|
-  'loader-2'
+  'loader'
 ;
  // To generate lists run 'Node src/utils/sprite-ids.js'
