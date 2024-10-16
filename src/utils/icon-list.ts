@@ -1,4 +1,5 @@
 export type IconId = 
+  'loader'|
   'add'|
   'arrow-down'|
   'arrow-up'|
@@ -41,6 +42,24 @@ export type IconId =
   'stamps-measure-outline'|
   'stamps-counter-outline'|
   'stamps-special-shapes-outline'|
-  'loader'
+  'add'|
+  'check'|
+  'close'|
+  'collapse'|
+  'desmos'|
+  'expand'|
+  'flag'|
+  'groupActivity'|
+  'groupActivityVariant'|
+  'info'|
+  'pause'|
+  'play'|
+  'reduce'|
+  'renew'|
+  'soundMeter'|
+  'stop'|
+  'stopwatch'|
+  'studentPicker'|
+  'timer'
 ;
  // To generate lists run 'Node src/utils/sprite-ids.js'
