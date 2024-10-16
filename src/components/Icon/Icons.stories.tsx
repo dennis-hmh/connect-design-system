@@ -1,41 +1,20 @@
-import React from 'react';
-import { Typography } from '../Typography/Typography';
-import { Icon } from './Icon';
+import React, { useRef } from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import { Icon, IconProps } from './Icon';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 import { IconId } from '../../utils/icon-list';
-import { Color } from '../../utils/colors';
-import { List } from '../List/List'; // Import the List component
 
-export const Icons: React.FC = () => {
-  const iconSize = 'lg'; // Set a default size for all icons
-  const fillColor: Color | undefined = undefined; // Set default fill color
-  const strokeColor: Color | undefined = undefined; // Set default stroke color
-
-  // Create data for the List component
-  const iconData = iconIds.map((id) => ({
-    content: (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Icon
-          id={id as IconId}
-          size={iconSize}
-          fill={fillColor}
-          stroke={strokeColor}
-          aria-hidden="true"
-          focusable={false}
-        />
-        <Typography element="p" size="caption" style={{ marginLeft: '8px' }}>
-          {id}
-        </Typography>
-      </div>
-    ),
-  }));
-
-  return <List data={iconData} listType="unordered" />;
-};
-
-export default {
+const meta: Meta<typeof Icon> = {
   title: 'Icons-Typo/Icons',
-  component: Icons,
+  component: Icon,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
+
+export default meta;
 
 const iconIds = [
   'loader',
@@ -66,7 +45,6 @@ const iconIds = [
   'specialShapesPentagon',
   'stampsCounterOutline',
   'stampsMeasureOutline',
-  'stampsCounterOutline',
   'stampsSpecialShapesOutline',
   'add',
   'check',
@@ -78,8 +56,6 @@ const iconIds = [
   'groupActivity',
   'groupActivityVariant',
   'info',
-  'pause',
-  'play',
   'reduce',
   'renew',
   'soundMeter',
@@ -88,3 +64,29 @@ const iconIds = [
   'studentPicker',
   'timer',
 ];
+
+const Template: StoryFn<IconProps> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef} style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+        {iconIds.map((id) => (
+          <div key={id} style={{ textAlign: 'center' }}>
+            <Icon {...args} id={id as IconId} aria-hidden="true" focusable={false} />
+          </div>
+        ))}
+      </div>
+    </ConnectTheme>
+  );
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  size: 'md',
+  fill: undefined,
+  stroke: undefined,
+  focusable: false,
+  className: '',
+  gradeBand: GradeBand.G4_5,
+};
