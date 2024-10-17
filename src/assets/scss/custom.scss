@@ -2619,7 +2619,6 @@ Usage:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
   }
 }
-
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__inner-divider-width);
@@ -2680,7 +2679,6 @@ Usage:
     }
   }
 }
-
 .connect__mcq-text {
   &::before {
     content: unset;
@@ -2696,6 +2694,7 @@ Usage:
   inset: 0;
   opacity: 0;
   position: absolute;
+  inset: 0;
 
   &:disabled {
     + .connect__mcq-label {
@@ -2706,6 +2705,7 @@ Usage:
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
       --connect__state-based-pointer: not-allowed;
+      --state-mcq-shadow: var(--connect__neutrals-light);
     }
 
     + .connect__mcq-card {
@@ -2750,7 +2750,6 @@ Usage:
 .connect__progress-wrapper {
   width: 100%;
 }
-
 /* 
 .connect__progress Component
 
