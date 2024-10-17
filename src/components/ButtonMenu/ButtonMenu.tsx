@@ -3,69 +3,61 @@ import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
+import { useButtonMenuContext } from '../../context/ButtonMenuContext';
 
-export type ButtonProps = {
+export type ButtonMenuProps = {
+  id: string;
   children: React.ReactNode;
-  primary: boolean;
   title?: string;
-  disabled?: boolean;
-  correct?: boolean;
-  incorrect?: boolean;
-  submit?: 'button' | 'submit';
   clickHandler?: () => void;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
   iconPosition?: 'before' | 'after';
-  iconOpacity?: React.CSSProperties['opacity'];
   ariaLabel?: string;
   dataTestId?: string;
   additionalClass?: string;
+  clickedClass?: string;
   gradeBand?: GradeBand;
 };
 
-export const Button: React.FC<ButtonProps> = ({
+export const ButtonMenu: React.FC<ButtonMenuProps> = ({
+  id,
   children,
-  primary = true,
   title,
-  disabled = false,
-  correct,
-  incorrect,
-  submit = 'button',
   clickHandler,
   iconId,
   iconSize = 'md',
   fill,
   iconPosition = 'before',
-  iconOpacity,
   ariaLabel,
-  dataTestId,
   additionalClass = '',
+  clickedClass,
+  dataTestId,
 }) => {
-  const classNames = [
-    'connect__button',
-    primary && 'connect__button-primary',
-    !primary && 'connect__button-secondary',
-    correct && 'connect__button-correct',
-    incorrect && 'connect__button-incorrect',
-    additionalClass,
-  ]
+  const { clickedButtonId, setClickedButtonId } = useButtonMenuContext();
+
+  const handleClick = () => {
+    setClickedButtonId(clickedButtonId === id ? null : id);
+    if (clickHandler) clickHandler();
+  };
+
+  const isClicked = clickedButtonId === id;
+
+  const classNames = ['connect__button', additionalClass, isClicked && clickedClass]
     .filter(Boolean)
     .join(' ');
 
-  const iconElement = iconId ? (
-    <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
-  ) : null;
+  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} /> : null;
 
   return (
     <button
-      type={submit}
+      id={id}
       className={classNames}
-      onClick={clickHandler}
-      disabled={disabled}
+      onClick={handleClick}
       data-testid={dataTestId}
       aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
-      title={title ? title : ariaLabel}
+      title={title ? title : iconId}
     >
       {iconPosition === 'before' && iconElement}
       {children}

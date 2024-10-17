@@ -29,7 +29,6 @@ export default mergeConfig(
       },
       coverage: {
         enabled: false,
-        reporter: ['html'],
       },
       isolate: false,
       setupFiles: ['./.storybook/vitest.setup.ts'],

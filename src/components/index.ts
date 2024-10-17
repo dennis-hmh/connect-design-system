@@ -22,5 +22,5 @@ export * from './Typography/Typography';
 export { ConnectTheme } from './ConnectTheme';
 export { default as Grid } from './Grid/Grid';
 export { default as GridItem } from './GridItem';
-export { default as Stack } from './Stack/Stack';
+export { Stack } from './Stack/Stack';
 export { GradeBand } from '../enum/gradeband';
