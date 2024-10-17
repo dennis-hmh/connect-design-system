@@ -89,6 +89,7 @@
     --connect__spacer-xs: 0.5rem;
   }
 }
+
 .connect__g1 {
   --border-radius: 1rem;
   --border-width: 0.25rem;
@@ -179,6 +180,7 @@
     --connect__spacer-xs: 0.4375rem;
   }
 }
+
 .connect__g23 {
   --border-radius: 1.5rem;
   --border-width: 0.25rem;
@@ -276,6 +278,7 @@
     --connect__spacer-xs: 0.3125rem;
   }
 }
+
 .connect__g45 {
   --border-radius: 1rem;
   --border-width: 0.1875rem;
@@ -376,6 +379,7 @@
     --connect__spacer-xs: 0.3125rem;
   }
 }
+
 .connect__g68 {
   --border-radius: 0.875rem;
 
@@ -474,6 +478,7 @@
     --connect__spacer-xs: 0.25rem;
   }
 }
+
 .connect__g912 {
   --border-radius: 0.75rem;
   --border-width: 0.125rem;
@@ -570,6 +575,7 @@
     --connect__spacer-xs: 0.25rem;
   }
 }
+
 :root {
   --connect__bp-xs: 20rem;
   --connect__bp-sm: 30rem;
@@ -1067,7 +1073,7 @@
   --connect__hint-light: var(--connect__purple-c25);
   --connect__hint-pale: var(--connect__purple-c10);
 
-  font-family: var(--connect__font-sans);
+  --connect__state-opacity: 0.6;
 }
 
 :root {
@@ -1136,6 +1142,10 @@
   --connect__transition-slow: 700ms;
 
   --connect__cc-purple: rgb(113, 47, 253);
+
+  --connect__brand-magenta: rgb(255, 0, 179);
+  --connect__brand-deep-magenta: rgb(204, 0, 192);
+  --connect__brand-pale-magenta: rgb(255, 238, 254);
 }
 
 @media (min-width: 40.625rem) {
@@ -1179,6 +1189,7 @@ An attempt to unify code, reduce need for extra css
 A modern 2024 take on the reset
 */
 
+*[class^='connect__'],
 *[class^='connect__'] *,
 *[class^='connect__'] *::before,
 *[class^='connect__'] *::after {
@@ -1186,6 +1197,7 @@ A modern 2024 take on the reset
 }
 
 :where([class^='connect__']) * {
+  font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
   margin: 0;
 }
@@ -1211,9 +1223,14 @@ A modern 2024 take on the reset
   isolation: isolate;
 }
 
-:where([class^='connect__']),
-:where([class^='connect__']) {
-  list-style: none;
+:where([class^='connect__']) ul,
+:where([class^='connect__']) ol {
+  --connect__list-style-type: var(--variant__list-style-type, none);
+
+  list-style-type: var(--connect__list-style-type);
+  margin-block: 0;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 .connect__gk,
