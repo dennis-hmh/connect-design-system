@@ -3308,20 +3308,18 @@ Example:
   padding: 0;
 
   .connect__toolbar-item {
-    &.connect__selected {
-      > .connect__button-menu {
-        --connect__button-bg: var(--connect__neutrals-white);
-        --connect__icon-fill: currentcolor;
+    > .connect__selected {
+      --connect__button-bg: var(--connect__neutrals-white);
+      --connect__icon-fill: currentcolor;
 
-        &:active {
-          --inner-shadow-color: var(--connect__selected-mid);
-        }
+      &:active {
+        --inner-shadow-color: var(--connect__selected-mid);
+      }
 
-        &:disabled {
-          --state-based-bg: var(--connect__neutrals-null);
-          --inner-shadow-color: var(--connect__neutrals-pale);
-          --connect__icon-fill: var(--connect__neutrals-mid);
-        }
+      &:disabled {
+        --state-based-bg: var(--connect__neutrals-null);
+        --inner-shadow-color: var(--connect__neutrals-pale);
+        --connect__icon-fill: var(--connect__neutrals-mid);
       }
     }
   }
