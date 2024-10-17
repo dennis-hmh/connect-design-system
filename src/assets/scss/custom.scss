@@ -322,6 +322,10 @@ States:
     border-radius: var(--border-radius);
   }
 
+  &-menu {
+    --icon-fill-color: var(--variant__icon-fill-color, var(--connect__brand-deep-magenta));
+  }
+
   &-icon,
   &-menu {
     --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
@@ -2941,7 +2945,7 @@ Usage:
     var(--connect__shadow-level-4) var(--connect__shadow-12);
   display: flex;
   flex-flow: var(--connect__aside-direction, column wrap);
-  height: calc(var(--connect__aside-h) - (var(--connect__aside-padding-y) * 2));
+  height: var(--connect__aside-h);
   justify-content: space-between;
   margin: 0;
   padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
