@@ -57,7 +57,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
       onClick={handleClick}
       data-testid={dataTestId}
       aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
-      title={title ? title : iconId}
+      title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
       {children}
