@@ -20,7 +20,7 @@ import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
-import Stack from './components/Stack/Stack';
+import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
 

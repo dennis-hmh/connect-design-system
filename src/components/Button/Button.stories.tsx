@@ -63,7 +63,7 @@ Icon.args = {
   children: '',
   iconId: 'arrowUp',
   iconSize: 'md',
-  ariaLabel: 'Icon Button',
+  ariaLabel: 'Icon Button Right Arrow',
 };
 
 export const Loading: Story = Template.bind({});
@@ -76,14 +76,4 @@ Loading.args = {
   iconPosition: 'before',
   ariaLabel: 'Loading Button',
   additionalClass: 'connect__button-loading',
-};
-
-export const MenuButton: Story = Template.bind({});
-MenuButton.args = {
-  ...Primary.args,
-  children: '',
-  iconId: 'add',
-  iconSize: 'md',
-  additionalClass: 'connect__button-menu',
-  ariaLabel: '',
 };
