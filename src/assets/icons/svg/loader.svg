@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="loader" fill="none" viewBox="0 0 40 40">
-  <path fill-rule="evenodd" d="M27 15c0-6.627-5.373-12-12-12S3 8.373 3 15s5.373 12 12 12 12-5.373 12-12ZM6 15a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z" clip-rule="evenodd"/>
-  <circle cx="15" cy="15" r="10" stroke="var(--active-color)" stroke-dasharray="31.4 31.4" stroke-linecap="round" stroke-width="2" class="loader"/>
+<svg xmlns="http://www.w3.org/2000/svg" id="loader" fill="none" viewBox="0 0 30 30">
+  <path fill="var(--connect__button-bg)" fill-rule="evenodd" d="M27 15c0-6.627-5.373-12-12-12S3 8.373 3 15s5.373 12 12 12 12-5.373 12-12ZM6 15a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z" clip-rule="evenodd"/>
+  <circle cx="15" cy="15" r="10" stroke="var(--active-color)"  stroke-dasharray="31.4 31.4" stroke-linecap="round" stroke-width="2">
+    <animateTransform attributeName="transform" dur="1s" from="0 15 15" repeatCount="indefinite" to="360 15 15" type="rotate"/>
+  </circle>
 </svg>

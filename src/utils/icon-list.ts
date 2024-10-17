@@ -14,7 +14,6 @@ export type IconId =
   'drawToolOutline'|
   'expand'|
   'flag'|
-  'gotIt'|
   'groupActivity'|
   'groupActivityVariant'|
   'info'|
