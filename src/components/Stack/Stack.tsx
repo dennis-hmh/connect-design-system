@@ -21,7 +21,16 @@ interface StackProps {
   dataTestId?: string;
 }
 
-const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, dataTestId }) => {
+export const Stack: React.FC<StackProps> = ({
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  className,
+  dataTestId,
+}) => {
   const style: React.CSSProperties = {};
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
@@ -63,5 +72,3 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
     </div>
   );
 };
-
-export default Stack;

@@ -3,8 +3,8 @@ import { Typography } from '../Typography/Typography';
 import { Icon } from './Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color, ColorBase, ColorShade } from '../../utils/colors';
-import Grid from '../Grid/Grid';
 import Stack from '../Stack';
+import Grid from '../Grid/Grid';
 import GridItem from '../GridItem';
 
 type ColorOption = {

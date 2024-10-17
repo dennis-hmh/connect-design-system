@@ -64,14 +64,17 @@ export const Icon: Story = Template.bind({});
 Icon.args = {
   ...Primary.args,
   children: '',
+  fill: 'white',
   iconId: 'arrow-right',
-  ariaLabel: 'Icon Button',
+  iconSize: 'md',
+  ariaLabel: 'Icon Button Right Arrow',
 };
 
 export const Loading: Story = Template.bind({});
 Loading.args = {
   ...Primary.args,
   children: 'Loading Button',
+  fill: 'white',
   iconId: 'loader',
   iconSize: 'md',
   iconPosition: 'before',

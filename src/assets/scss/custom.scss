@@ -128,12 +128,6 @@ States:
     - Media button state.
     - &.media-active:not(:disabled): Active state for media buttons that are not disabled.
 
-  &-toolbar
-    - Toolbar button state.
-    - &.connect__selected: Selected state for toolbar buttons.
-    - &:not(.connect__selected): Default state for toolbar buttons that are not selected.
-    - svg: Styles for SVG icons inside the toolbar button.
-
   &:disabled
     - Disabled state for the button.
     - svg: Styles for SVG icons inside the disabled button.
@@ -240,7 +234,7 @@ States:
 
   width: var(--connect__button-w, fit-content);
 
-  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not(
+  &:not(:disabled):not(.connect__button-menu):not([class*='-correct']):not(
       [class*='-incorrect']
     ):not([class*='-shown']) {
     &:hover {
@@ -342,6 +336,31 @@ States:
       height: var(--connect__icon-size, var(--connect__icon-md));
       width: var(--connect__icon-size, var(--connect__icon-md));
     }
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
   }
 
   &-loading > svg,
@@ -374,17 +393,46 @@ States:
     }
   }
 
-  &-toolbar {
+  &-menu {
     --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+
+    --connect__effects-inner-edge: 0.0625rem;
 
     --connect__button-bg: var(--connect__neutrals-null);
     --inner-shadow-color: var(--connect__neutrals-null);
 
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
+
+    --connect__icon-fill-color: rgba(204, 0, 192, 1);
+
+    &:active {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    }
+
+    &:focus-visible:not(:active) {
+      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+      --inner-shadow-color: var(--connect__neutrals-white);
+      --connect__button-bg: var(--connect__neutrals-white);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+
+        --connect__button-bg: var(--connect__neutrals-white);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
   }
 
   &:disabled {
@@ -2856,6 +2904,182 @@ Transitions:
   }
 }
 
+/* 
+.connect__aside Component
+
+Variables related to theme/overrides:
+  --connect__aside-padding-y: Vertical padding of the aside.
+  --connect__aside-padding-x: Horizontal padding of the aside.
+  --connect__aside-bg: Background color of the aside.
+  --connect__aside-w: Width of the aside.
+  --connect__aside-align: Alignment of items within the aside.
+  --connect__aside-direction: Flex direction of the aside content.
+
+Shadow-related variables:
+  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
+  --connect__shadow-10, 
+  --connect__shadow-20, 
+  --connect__shadow-14, 
+  --connect__shadow-12: Shadow color variables.
+
+Other variables:
+  --connect__aside-sub-menu-divider-w: Width of the sub-menu divider.
+  --connect__neutrals-white: Default background color if not overridden.
+
+Styles:
+  align-items: Aligns items within the aside.
+  background-color: Sets the background color of the aside.
+  box-shadow: Applies multiple levels of box shadow for depth effect.
+  display: Sets the display property to flex.
+  flex-flow: Determines the flex direction and wrapping behavior.
+  justify-content: Distributes space between and around content items.
+  margin: Removes default margin.
+  padding: Applies vertical and horizontal padding.
+  width: Sets the width of the aside.
+
+Usage:
+  The .connect__aside class can be applied to a container element to create 
+  a sidebar or navigation panel. The appearance and layout can be customised 
+  using the provided CSS variables.
+
+*/
+.connect__aside {
+  --connect__aside-padding-y: var(--connect__spacer-md);
+  --connect__aside-padding-x: var(--connect__spacer-xs);
+
+  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+  --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+  --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+  --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+
+  --connect__aside-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
+  --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__neutrals-white));
+
+  --connect__aside-w: var(--theme__aside-w, 3.625rem);
+  --connect__aside-h: var(--theme__aside-h, 100vh);
+
+  align-items: var(--connect__aside-align, center);
+  background-color: var(--connect__aside-bg);
+  box-shadow:
+    var(--connect__shadow-level-1) var(--connect__shadow-10),
+    var(--connect__shadow-level-2) var(--connect__shadow-20),
+    var(--connect__shadow-level-3) var(--connect__shadow-14),
+    var(--connect__shadow-level-4) var(--connect__shadow-12);
+  display: flex;
+  flex-flow: var(--connect__aside-direction, column wrap);
+  height: calc(var(--connect__aside-h) - (var(--connect__aside-padding-y) * 2));
+  justify-content: space-between;
+  margin: 0;
+  padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
+  width: var(--connect__aside-w);
+
+  &:has(ul:only-child) {
+    justify-content: end;
+  }
+}
+
+.connect__button-menu {
+  &.connect__selected {
+    &:not(:disabled) {
+      --connect__button-bg: rgba(255, 238, 254, 1);
+      --inner-shadow-color: rgba(255, 238, 254, 1);
+      --connect__icon-fill-color: rgba(204, 0, 192, 1);
+
+      &:hover {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+
+      &:active {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+        --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+        --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+
+      &:focus-visible:not(:active) {
+        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+        --inner-shadow-color: var(--connect__neutrals-white);
+      }
+    }
+
+    &:disabled {
+      --state-based-bg: rgba(255, 238, 254, 1);
+
+      svg {
+        --connect__icon-fill-color: rgba(204, 0, 192, 1);
+      }
+    }
+  }
+}
+
+.connect__aside-menu {
+  display: flex;
+  flex-flow: column wrap;
+  gap: var(--connect__spacer-xs);
+}
+
+/* 
+.connect__divider Component
+
+Variables related to theme/overrides:
+  --connect__divider-bg: Background color of the divider.
+  --connect__divider-h: Height of the divider.
+  --connect__divider-w: Width of the divider.
+  --connect__divider-br: Border radius of the divider.
+  --connect__divider-margin-y: Vertical margin of the divider.
+  --connect__divider-margin-x: Horizontal margin of the divider.
+
+Default values and fallbacks:
+  --connect__gray-c10: Default background color if not overridden.
+  --border-radius: Default border radius if not overridden.
+  --connect__spacer-xs: Default vertical margin and bottom padding.
+  --connect__spacer-sm: Default horizontal margin.
+
+Styles:
+  background-color: Sets the background color of the divider.
+  border: Removes any border.
+  border-radius: Applies border radius to the divider.
+  height: Sets the height of the divider.
+  margin: Applies vertical and horizontal margins.
+  padding-bottom: Adds bottom padding to the divider.
+  position: Sets the positioning context for the divider.
+
+Usage:
+  The .connect__divider class can be applied to an <hr> element or any other
+  element that needs to act as a visual separator. The appearance and spacing
+  can be customised using the provided CSS variables.
+
+Example:
+  <hr class="connect__divider">
+
+  To override styles:
+  <hr class="connect__divider" style="--connect__divider-bg: blue;">
+*/
+
+.connect__divider {
+  --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
+  --connect__divider-h: var(--theme__divider-h, 0.1875rem);
+  --connect__divider-w: var(--theme__divider-w, 100%);
+  --connect__divider-br: var(--theme__divider-br, var(--border-radius));
+  --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
+  --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
+
+  background-color: var(--connect__divider-bg);
+  border: 0;
+  border-radius: var(--connect__divider-br);
+  box-sizing: border-box;
+  height: var(--connect__divider-h, initial);
+  margin: 0 var(--connect__divider-margin-x);
+  padding-bottom: var(--connect__spacer-xs);
+  position: relative;
+  width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
+}
+
 // Moved toolbar button styles to here to support JS
 // these are the top level styles only
 .connect__toolbar-item {
@@ -3216,13 +3440,17 @@ Transitions:
 .connect__list {
   --connect__list-item-padding-left: var(--connect__spacer-sm);
   --connect__list-item-margin-left: calc(4ch * 1);
+  --connect__list-fs: var(--connect__body-sm);
+  --connect__list-lh: var(--connect__body-sm-lheight);
 
+  font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
+  line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
   margin-block: 0;
   padding-inline: 0;
 
   > .connect__list-item {
     &::marker {
-      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
+      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__list-fs));
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
   }
@@ -3274,12 +3502,8 @@ Transitions:
 }
 
 .connect__list {
-  list-style-type: none;
-}
-
-.connect__list {
   counter-reset: orderedlist;
-  list-style-type: decimal;
+  list-style-type: none;
 
   &::marker {
     font-weight: var(--theme__connect-marker-font-w, 700);

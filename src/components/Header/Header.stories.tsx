@@ -5,7 +5,7 @@ import GridItem from '../GridItem';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
-import Stack from '../Stack/Stack';
+import { Stack } from '../Stack/Stack';
 import { Typography } from '../Typography/Typography';
 
 const meta: Meta<typeof Header> = {
