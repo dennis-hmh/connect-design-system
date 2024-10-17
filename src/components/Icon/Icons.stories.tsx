@@ -18,6 +18,7 @@ export default meta;
 
 const iconIds = [
   'loader',
+  'gotIt',
   'arrowDown',
   'arrowUp',
   'mic',
@@ -41,7 +42,7 @@ const iconIds = [
   'shapesRectangleSolid',
   'shapesTriangleSolid',
   'shapesTriangleOutline',
-  'specialShapesDiamond',
+  'specialShapesHexagon',
   'specialShapesPentagon',
   'stampsCounterOutline',
   'stampsMeasureOutline',

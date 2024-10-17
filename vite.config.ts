@@ -44,7 +44,30 @@ export default defineConfig({
     // css({ output: 'button.css' }),
     ViteSvgSpriteWrapper({
       icons: './src/assets/icons/svg/*.svg',
-      outputDir: './public/svg/',
+      outputDir: './public/svg/', 
+      sprite: {
+        shape: {
+          transform: [
+            {
+              svgo: {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeUselessStrokeAndFill: false,
+                        removeAttrs: {
+                          attrs: '(fill)',
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
     }),
   ],
   define: {
