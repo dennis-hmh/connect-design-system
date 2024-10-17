@@ -7,7 +7,7 @@ import { GradeBand } from 'src/enum/gradeband';
 export type ButtonProps = {
   children: React.ReactNode;
   primary: boolean;
-  title?: string;
+  title: string;
   disabled?: boolean;
   correct?: boolean;
   incorrect?: boolean;
