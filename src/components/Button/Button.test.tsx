@@ -61,7 +61,7 @@ describe('Button Component', () => {
   });
 
   it('renders the icon when iconId is provided', () => {
-    render(<Button {...defaultProps} iconId="arrow-right" />);
+    render(<Button {...defaultProps} iconId="arrowUp" />);
     const iconElement = screen.getByTestId('test-button');
     expect(iconElement).toBeInTheDocument();
   });

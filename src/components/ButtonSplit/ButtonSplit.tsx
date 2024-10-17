@@ -58,7 +58,7 @@ export function ButtonSplit({ children, disabled, data, dataTestId }: ButtonSpli
         onKeyDown={handleKeyDown}
         aria-label="Toggle extra options"
       >
-        <Icon id={open ? 'arrow-up' : 'arrow-down'} size="sm" fill="white" />
+        <Icon id={open ? 'arrowUp' : 'arrowDown'} size="sm" fill="white" />
       </button>
       {open && <ButtonSplitMenu data={data} />}
     </div>

@@ -54,9 +54,6 @@ Correct.args = {
   ...Primary.args,
   children: 'Correct Button',
   correct: true,
-  iconId: 'correct',
-  iconSize: 'md',
-  iconPosition: 'after',
   ariaLabel: 'Correct Button',
 };
 
@@ -64,7 +61,7 @@ export const Icon: Story = Template.bind({});
 Icon.args = {
   ...Primary.args,
   children: '',
-  iconId: 'arrow-right',
+  iconId: 'arrowUp',
   iconSize: 'md',
   ariaLabel: 'Icon Button Right Arrow',
 };
