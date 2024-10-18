@@ -84,12 +84,11 @@ WithMenu.args = {
             {
               content: (
                 <ButtonMenu
-                  id="add-1"
-                  iconId="add"
+                  id="info"
+                  iconId="info"
                   iconSize="md"
-                  additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
-                  ariaLabel="Add"
+                  ariaLabel="Info"
                   children=""
                 ></ButtonMenu>
               ),
@@ -97,12 +96,11 @@ WithMenu.args = {
             {
               content: (
                 <ButtonMenu
-                  id="add-2"
-                  iconId="add"
+                  id="desmos"
+                  iconId="desmos"
                   iconSize="md"
-                  additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
-                  ariaLabel="Add"
+                  ariaLabel="Desnos Calculator"
                   children=""
                 ></ButtonMenu>
               ),
@@ -110,10 +108,21 @@ WithMenu.args = {
             {
               content: (
                 <ButtonMenu
-                  id="add-3"
+                  id="group-activity"
+                  iconId="groupActivity"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Group Activity"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+            {
+              content: (
+                <ButtonMenu
+                  id="add"
                   iconId="add"
                   iconSize="md"
-                  additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
@@ -145,25 +154,11 @@ WithDivider.args = {
             {
               content: (
                 <ButtonMenu
-                  id="add-1"
-                  iconId="add"
+                  id="info"
+                  iconId="info"
                   iconSize="md"
-                  additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
-                  ariaLabel="Add"
-                  children=""
-                ></ButtonMenu>
-              ),
-            },
-            {
-              content: (
-                <ButtonMenu
-                  id="add-2"
-                  iconId="add"
-                  iconSize="md"
-                  additionalClass="connect__button-menu"
-                  clickedClass="connect__selected"
-                  ariaLabel="Add"
+                  ariaLabel="Info"
                   children=""
                 ></ButtonMenu>
               ),
@@ -176,10 +171,33 @@ WithDivider.args = {
             {
               content: (
                 <ButtonMenu
-                  id="add-3"
+                  id="desmos"
+                  iconId="desmos"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Desnos Calculator"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+            {
+              content: (
+                <ButtonMenu
+                  id="group-activity"
+                  iconId="groupActivity"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Group Activity"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+            {
+              content: (
+                <ButtonMenu
+                  id="add"
                   iconId="add"
                   iconSize="md"
-                  additionalClass="connect__button-menu"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""

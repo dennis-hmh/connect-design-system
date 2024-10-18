@@ -43,7 +43,7 @@ Default.args = {
   children: '',
   iconId: 'add',
   iconSize: 'md',
-  additionalClass: 'connect__button-menu',
+  additionalClass: '',
   clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
   gradeBand: GradeBand.G4_5,
