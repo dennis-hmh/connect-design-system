@@ -2406,7 +2406,7 @@ Usage:
   --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
   color: var(--icon-fill);
   height: var(--connect__icon-size);
-  opacity: var(--icon__fill-opacity, 1);
+  opacity: var(--connect__icon-opacity, 1);
   width: var(--connect__icon-size);
 
   svg {
@@ -2559,6 +2559,7 @@ Usage:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
   }
 }
+
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__total-border);
@@ -2619,6 +2620,7 @@ Usage:
     }
   }
 }
+
 .connect__mcq-text {
   &::before {
     content: unset;
@@ -2634,7 +2636,6 @@ Usage:
   inset: 0;
   opacity: 0;
   position: absolute;
-  inset: 0;
 
   &:disabled {
     + .connect__mcq-label {
@@ -2690,6 +2691,7 @@ Usage:
 .connect__progress-wrapper {
   width: 100%;
 }
+
 /* 
 .connect__progress Component
 

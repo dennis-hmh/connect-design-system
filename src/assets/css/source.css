@@ -633,7 +633,7 @@
   }
 }
 
-.teach {
+.connect__teach {
   --connect__heading-xl: 1.875rem;
   --connect__heading-xl-lheight: 2.375rem;
   --connect__heading-lg: 1.625rem;
@@ -671,7 +671,7 @@
 }
 
 @media (min-width: 40.625rem) {
-  .teach {
+  .connect__teach {
     --connect__heading-xl: 2.25rem;
     --connect__heading-xl-lheight: 2.875rem;
     --connect__heading-lg: 1.875rem;
@@ -706,7 +706,7 @@
 }
 
 @media (min-width: 80rem) {
-  .teach {
+  .connect__teach {
     --connect__heading-xl: 2.75rem;
     --connect__heading-xl-lheight: 3.5rem;
     --connect__heading-lg: 2.25rem;
