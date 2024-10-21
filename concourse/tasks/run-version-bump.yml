@@ -1,0 +1,27 @@
+platform: linux
+
+inputs:
+  - name: source-repo
+
+outputs:
+  - name: source-repo
+
+caches:
+  - path: source-repo/node_modules
+  - path: source-repo/.pnpm-store
+
+run:
+  path: /bin/sh
+  args:
+    - -euxc
+    - |
+      cd source-repo
+
+      pnpm config set store-dir .pnpm-store
+      pnpm install --config.confirmModulesPurge=false
+      pnpm change:bump
+
+      git config --global user.email "bot-coredigital@hmhco.com"
+      git config --global user.name "bot-coredigital"
+      git add .
+      git diff --quiet && git diff --staged --quiet || git commit -am 'Bump packages versions [skip deploy]'

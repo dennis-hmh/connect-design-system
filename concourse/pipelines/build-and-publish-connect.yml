@@ -1,0 +1,167 @@
+# To push updates to Concourse:
+#   fly -t classcraft-ui-nonprod login --team-name classcraft-ui-nonprod --concourse-url https://concourse.tsg.hmhco.com
+#   fly -t classcraft-ui-nonprod set-pipeline -p build-and-publish-connect -c concourse/pipelines/build-and-publish-connect.yml -v "namespace=classcraft-ui-nonprod" --load-vars-from=concourse/vars/build-and-publish-connect-vars.yml
+
+#################
+# VAR SOURCES
+#################
+var_sources:
+  - name: vault
+    type: vault
+    config:
+      url: https://vault.br.internal
+      namespace: ((namespace))
+      path_prefix: secrets/
+      auth_backend: approle
+      auth_params:
+        role_id: ((namespace-approle-secret.role_id))
+        secret_id: ((namespace-approle-secret.secret_id))
+      ca_cert: ((root_ca))
+
+#################
+# RESOURCE TYPES
+#################
+resource_types:
+  - name: teams-notifications
+    type: docker-image
+    source:
+      repository: docker-edlearning-ga.br.hmheng.io/teams-notifications
+      tag: v1.0.4
+      username: ((docker-auth-edlearning.user_name))
+      password: ((docker-auth-edlearning.access_token))
+
+#################
+# RESOURCES
+#################
+x-source-template: &source-template
+  branch: ((app_base_branch))
+  uri: git@scm.eng.hmhco.com:Core-Digital-Production/((repo_name)).git
+  private_key: ((vault:common/connect-gh.private-key))
+  private_key_passphrase: ((vault:common/connect-gh.private-key-passphrase))
+  skip_ssl_verification: true
+
+resources:
+  - name: source-repo
+    type: git
+    icon: github
+    source:
+      <<: *source-template
+      commit_filter:
+        exclude: ["\\[skip deploy\\]"]
+      ignore_paths:
+        - CHANGELOG.md
+
+  - name: source-repo-put
+    type: git
+    icon: github
+    source:
+      <<: *source-template
+
+  - name: source-repo-image
+    type: docker-image
+    icon: docker
+    source:
+      repository: docker-edlearning-ga.br.hmheng.io/((repo_name))
+      username: ((docker-auth-edlearning.user_name))
+      password: ((docker-auth-edlearning.access_token))
+
+  - name: teams-alert
+    icon: microsoft-teams
+    type: teams-notifications
+    source:
+      url: ((vault:common/connect-gh.teams-webhook-url))
+
+#################
+# JOB TEMPLATES
+#################
+x-teams-failure-notification: &teams-failure-notification
+  put: teams-alert
+  params:
+    style: attention
+    title: 🔴 Deploy Failed - **[$BUILD_JOB_NAME]**
+    text: The deploy for build **[$BUILD_NAME]** of the **[$BUILD_JOB_NAME]** job in the **[$BUILD_PIPELINE_NAME]** pipeline failed.
+    actionName: View Details
+    actionTarget: $ATC_EXTERNAL_URL/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+
+x-teams-success-notification: &teams-success-notification
+  put: teams-alert
+  params:
+    style: good
+    title: 🟢 Deploy succeeded - **[$BUILD_JOB_NAME]**
+    text: The deploy for build **[$BUILD_NAME]** of the **[$BUILD_JOB_NAME]** job in the **[$BUILD_PIPELINE_NAME]** pipeline succeeded.
+    actionName: View Details
+    actionTarget: $ATC_EXTERNAL_URL/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+
+x-get-source-repo: &get-source-repo
+  get: source-repo
+  trigger: true
+
+x-get-source-repo-image: &get-source-repo-image
+  get: source-repo-image
+  trigger: false
+
+x-put-source-repo: &put-source-repo
+  put: source-repo-put
+  params:
+    repository: source-repo
+
+x-task-run-pnpm-command: &task-run-pnpm-command
+  task: run-pnpm-command
+  image: source-repo-image
+  file: source-repo/concourse/tasks/run-pnpm-command.yml
+
+x-task-run-version-bump: &task-run-version-bump
+  task: run-version-bump
+  image: source-repo-image
+  file: source-repo/concourse/tasks/run-version-bump.yml
+
+#################
+# JOBS
+#################
+jobs:
+  - name: type-check
+    plan:
+      - <<: *get-source-repo
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: type:check
+    on_failure: *teams-failure-notification
+
+  - name: lint
+    plan:
+      - <<: *get-source-repo
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: lint
+    on_failure: *teams-failure-notification
+
+  - name: test
+    plan:
+      - <<: *get-source-repo
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: test
+    on_failure: *teams-failure-notification
+
+  - name: build-and-publish
+    plan:
+      - <<: *get-source-repo
+        passed: [type-check, lint, test]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-version-bump
+      - <<: *put-source-repo
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: build-and-publish
+        params:
+          ARTIFACTORY_TOKEN: ((vault:common/artifactory.access-token))
+    on_failure: *teams-failure-notification
+    on_success: *teams-success-notification
