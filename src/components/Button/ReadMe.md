@@ -35,7 +35,6 @@ import { Button } from '@connect/connect-design-system@latest';
 function App() {
   return (
     <Button
-      children={'Example Button'}
       primary={true}
       title={'Example Button'}
       disabled={false}
@@ -45,7 +44,7 @@ function App() {
       clickHandler={() => console.log('Button clicked')}
       ariaLabel={'Example Button'}
       dataTestId={'example-button'}
-    />
+    />Example Button</Button>
   );
 }
 ```
@@ -70,7 +69,7 @@ The Button component accepts the following props:
 - `ariaLabel`: string - Optional. Provides an accessible label for the button.
 - `dataTestId`: string - Optional. Provides a test ID for the button.
 - `additionalClass`: string - Optional. Additional class names to apply to the button.
-- `gradeBand`: GradeBand - Optional. Specifies the grade band for the button - only used in story.
+- `gradeBand`: GradeBand - Optional. Specifies the grade band for the button ~ only used in story.
 
 ## Contributing
 
