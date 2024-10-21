@@ -6,7 +6,7 @@ import '@connect/hmh-rive';
 
 export type ButtonRiveProps = ButtonProps & {
   textTransform?: React.CSSProperties['textTransform'];
-  opacity?: React.CSSProperties['opacity'];
+  opacity?: any | undefined;
   animSrc: string;
   stateMachine?: string;
   buttonText: string;
@@ -49,12 +49,12 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
   const isTypographyHidden = playState === 'playing' && !prefersReducedMotion;
 
   return (
-    <Button {...ButtonProps} iconOpacity={isTypographyHidden ? '0' : 1}>
+    <Button {...ButtonProps} iconOpacity={isTypographyHidden ? 0 : 1}>
       <Typography
         element="p"
         ariaLive="polite"
         textTransform={textTransform}
-        opacity={isTypographyHidden ? '0' : 1}
+        opacity={isTypographyHidden ? 0 : 1}
       >
         {buttonText}
       </Typography>

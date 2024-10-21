@@ -17,7 +17,7 @@ export type ButtonProps = {
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
   iconPosition?: 'before' | 'after';
-  iconOpacity?: React.CSSProperties['opacity'];
+  iconOpacity?: number | undefined;
   ariaLabel?: string;
   dataTestId?: string;
   additionalClass?: string;
