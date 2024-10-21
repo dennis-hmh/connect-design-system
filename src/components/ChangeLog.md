@@ -1,3 +1,22 @@
+### v1.12.0 Release Notice
+
+### Release date: October, 21, 2024
+
+#### Changelog:
+
+- New Component: `<ButtonMenu>`, `<Divider>`, `<Footer>`, `<Header>`, `<List>`, `<Pill>`, `<Sidebar>`
+- Updated Component: `<ConnectTheme />`
+- Bug Fix: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.11.7 Release Notice
 
 ### Release date: September, 25, 2024
