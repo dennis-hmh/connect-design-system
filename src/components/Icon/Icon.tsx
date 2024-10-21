@@ -7,10 +7,10 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type IconProps = {
   id: IconId;
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
   fill?: Color | undefined;
   stroke?: Color | undefined;
-  opacity?: React.CSSProperties['opacity'];
+  opacity?: number | undefined;
   focusable?: boolean;
   className?: string;
   dataTestId?: string;
@@ -18,11 +18,11 @@ export type IconProps = {
 };
 
 export const Icon: React.FC<IconProps> = ({
-  id,
-  size,
+  id = 'add',
+  size = 'md',
   fill,
   stroke,
-  opacity,
+  opacity = 1,
   focusable = false,
   className,
   dataTestId,
@@ -31,11 +31,9 @@ export const Icon: React.FC<IconProps> = ({
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   const spriteUrl =
-    import.meta.env.PROD === true
+    import.meta.env.PROD === true && import.meta.env.VITE_ENV !== 'chromatic'
       ? '/node_modules/@connect/connect-design-system/dist/svg/sprite.svg'
       : '/svg/sprite.svg';
-
-  // const spriteUrl = `/node_modules/@connect/connect-design-system/dist/svg/sprite.svg`;
 
   return (
     <svg
@@ -44,24 +42,14 @@ export const Icon: React.FC<IconProps> = ({
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,
           '--connect__icon-stroke-color': `var(${strokeColorVariable})`,
-        } as React.CSSProperties & { [key: string]: string | undefined }
+          '--connect__icon-opacity': `${opacity}`,
+        } as React.CSSProperties
       }
       aria-hidden="true"
       focusable={focusable}
       data-testid={dataTestId}
-      opacity={opacity}
     >
-      {'env.NODE_ENV: ' + import.meta.env.PROD}
-      <use
-        // xlinkHref={`dist/svg/sprite.svg#${id}`}
-        // href={`dist/svg/sprite.svg#${id}`}
-
-        xlinkHref={`${spriteUrl}#${id}`}
-        href={`${spriteUrl}#${id}`}
-
-        // xlinkHref={`${staticSprite}#${id}`}
-        // href={`${staticSprite}#${id}`}
-      />
+      <use xlinkHref={`${spriteUrl}#${id}`} href={`${spriteUrl}#${id}`} />
     </svg>
   );
 };

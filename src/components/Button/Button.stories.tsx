@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Buttons/Button',
   component: Button,
   tags: ['autodocs'],
   parameters: {
@@ -54,9 +54,6 @@ Correct.args = {
   ...Primary.args,
   children: 'Correct Button',
   correct: true,
-  iconId: 'correct',
-  iconSize: 'md',
-  iconPosition: 'after',
   ariaLabel: 'Correct Button',
 };
 
@@ -64,14 +61,16 @@ export const Icon: Story = Template.bind({});
 Icon.args = {
   ...Primary.args,
   children: '',
-  iconId: 'arrow-right',
-  ariaLabel: 'Icon Button',
+  iconId: 'arrowUp',
+  iconSize: 'md',
+  ariaLabel: 'Icon Button Right Arrow',
 };
 
 export const Loading: Story = Template.bind({});
 Loading.args = {
   ...Primary.args,
   children: 'Loading Button',
+  fill: 'white',
   iconId: 'loader',
   iconSize: 'md',
   iconPosition: 'before',

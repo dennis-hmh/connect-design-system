@@ -9,7 +9,7 @@ export type ImageProps = {
 };
 
 const defaultImageSrc =
-  import.meta.env.PROD === true
+  import.meta.env.PROD === true && import.meta.env.VITE_ENV !== 'chromatic'
     ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'
     : '/images/zelda.jpg';
 

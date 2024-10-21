@@ -4,10 +4,16 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
+import autoprefixer from 'autoprefixer';
 import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
 // import css from 'rollup-plugin-css-only';
 
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [autoprefixer],
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -38,7 +44,34 @@ export default defineConfig({
     // css({ output: 'button.css' }),
     ViteSvgSpriteWrapper({
       icons: './src/assets/icons/svg/*.svg',
-      outputDir: './public/svg/',
+      outputDir: './public/svg/', 
+      sprite: {
+        shape: {
+          transform: [
+            {
+              svgo: {
+                plugins: [
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeUselessStrokeAndFill: false,
+                        removeAttrs: {
+                          attrs: '(fill)',
+                        },
+                      },
+                    },
+                  },
+                  {
+                    name: 'removeDimensions',
+                    active: true,
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
     }),
   ],
   define: {

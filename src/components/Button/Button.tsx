@@ -7,25 +7,27 @@ import { GradeBand } from 'src/enum/gradeband';
 export type ButtonProps = {
   children: React.ReactNode;
   primary: boolean;
+  title?: string;
   disabled?: boolean;
   correct?: boolean;
   incorrect?: boolean;
   submit?: 'button' | 'submit';
-  clickHandler?: any;
+  clickHandler?: () => void;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
   iconPosition?: 'before' | 'after';
-  iconOpacity?: React.CSSProperties['opacity'];
+  iconOpacity?: number | undefined;
   ariaLabel?: string;
   dataTestId?: string;
-  gradeBand?: GradeBand;
   additionalClass?: string;
+  gradeBand?: GradeBand;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   primary = true,
+  title,
   disabled = false,
   correct,
   incorrect,
@@ -33,25 +35,37 @@ export const Button: React.FC<ButtonProps> = ({
   clickHandler,
   iconId,
   iconSize = 'md',
-  fill = 'white',
+  fill,
   iconPosition = 'before',
   iconOpacity,
   ariaLabel,
   dataTestId,
-  additionalClass = ''
+  additionalClass = '',
 }) => {
-  const isPrimary = primary ? 'connect__button-primary' : 'connect__button-secondary';
-  const isCorrect = correct ? 'connect__button-correct' : '';
-  const isIncorrect = incorrect ? 'connect__button-incorrect' : '';
-  const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} /> : null;
+  const classNames = [
+    'connect__button',
+    primary && 'connect__button-primary',
+    !primary && 'connect__button-secondary',
+    correct && 'connect__button-correct',
+    incorrect && 'connect__button-incorrect',
+    additionalClass,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const iconElement = iconId ? (
+    <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
+  ) : null;
+
   return (
     <button
       type={submit}
-      className={`connect__button ${isPrimary} ${isCorrect} ${isIncorrect} ${additionalClass}`}
+      className={classNames}
       onClick={clickHandler}
       disabled={disabled}
       data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? 'Icon button' : undefined)}
+      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
       {children}

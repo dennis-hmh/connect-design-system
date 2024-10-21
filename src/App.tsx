@@ -20,8 +20,9 @@ import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import Grid from './components/Grid/Grid';
 import GridItem from './components/GridItem';
-import Stack from './components/Stack/Stack';
+import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
+import { Header } from './components/Header/Header';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
@@ -32,6 +33,10 @@ const App = () => {
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
+        <Header>
+          <h1>Welcome to My App</h1>
+        </Header>
+
         <Grid gutter={true} gap="md">
           <GridItem>
             <ProgressBar value={30} />
@@ -113,15 +118,11 @@ const App = () => {
                 primary={true}
                 children={'submitted'}
                 correct={true}
-                iconId={'correct'}
-                iconPosition={'after'}
               />
               <Button
                 primary={true}
                 children={'submitted'}
                 incorrect={true}
-                iconId={'incorrect'}
-                iconPosition={'after'}
               />
               <Button primary={false} children={'submitted'} correct={true} />
               <Button primary={false} children={'submitted'} incorrect={true} />

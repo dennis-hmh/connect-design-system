@@ -2,7 +2,7 @@ import { Reveal } from './Reveal';
 
 export default {
   component: Reveal,
-  title: 'Reveal',
+  title: 'Removed/Reveal',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
