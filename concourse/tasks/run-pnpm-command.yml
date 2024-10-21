@@ -1,0 +1,26 @@
+platform: linux
+
+inputs:
+  - name: source-repo
+
+outputs:
+  - name: source-repo
+
+caches:
+  - path: source-repo/node_modules
+  - path: source-repo/.pnpm-store
+
+params:
+  ARTIFACTORY_TOKEN:
+
+run:
+  path: /bin/sh
+  args:
+    - -euxc
+    - |
+      cd source-repo
+      [ -n "${ARTIFACTORY_TOKEN}" ] && echo "//repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/:_authToken=${ARTIFACTORY_TOKEN}" >> .npmrc
+
+      pnpm config set store-dir .pnpm-store
+      pnpm install --config.confirmModulesPurge=false
+      pnpm ((pnpm-command))
