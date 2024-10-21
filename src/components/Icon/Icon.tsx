@@ -7,7 +7,7 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type IconProps = {
   id: IconId;
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
   fill?: Color | undefined;
   stroke?: Color | undefined;
   opacity?: React.CSSProperties['opacity'];
@@ -31,15 +31,9 @@ export const Icon: React.FC<IconProps> = ({
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';
 
   const spriteUrl =
-    import.meta.env.PROD === true && import.meta.env.VITE_ENV === 'build'
+    import.meta.env.PROD === true && import.meta.env.VITE_ENV !== 'chromatic'
       ? '/node_modules/@connect/connect-design-system/dist/svg/sprite.svg'
       : '/svg/sprite.svg';
-
-  // const spriteUrl = `/node_modules/@connect/connect-design-system/dist/svg/sprite.svg`;
-
-  // console.log('VITE_ENV: "build"', import.meta.env.VITE_ENV === 'build');
-  // console.log('VITE_ENV: "chromatic"', import.meta.env.VITE_ENV === 'chromatic');
-  // console.log('PROD:', import.meta.env.PROD);
 
   return (
     <svg
@@ -55,16 +49,7 @@ export const Icon: React.FC<IconProps> = ({
       data-testid={dataTestId}
       opacity={opacity}
     >
-      <use
-        // xlinkHref={`dist/svg/sprite.svg#${id}`}
-        // href={`dist/svg/sprite.svg#${id}`}
-
-        xlinkHref={`${spriteUrl}#${id}`}
-        href={`${spriteUrl}#${id}`}
-
-        // xlinkHref={`${staticSprite}#${id}`}
-        // href={`${staticSprite}#${id}`}
-      />
+      <use xlinkHref={`${spriteUrl}#${id}`} href={`${spriteUrl}#${id}`} />
     </svg>
   );
 };
