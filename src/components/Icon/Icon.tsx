@@ -10,7 +10,7 @@ export type IconProps = {
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
   fill?: Color | undefined;
   stroke?: Color | undefined;
-  opacity?: React.CSSProperties['opacity'];
+  opacity?: number | undefined;
   focusable?: boolean;
   className?: string;
   dataTestId?: string;
@@ -42,12 +42,12 @@ export const Icon: React.FC<IconProps> = ({
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,
           '--connect__icon-stroke-color': `var(${strokeColorVariable})`,
+          '--connect__icon-opacity': `${opacity}`,
         } as React.CSSProperties
       }
       aria-hidden="true"
       focusable={focusable}
       data-testid={dataTestId}
-      opacity={opacity}
     >
       <use xlinkHref={`${spriteUrl}#${id}`} href={`${spriteUrl}#${id}`} />
     </svg>
