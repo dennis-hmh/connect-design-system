@@ -5,7 +5,7 @@
 #### Changelog:
 
 - New Component: `<ButtonMenu>`, `<Divider>`, `<Footer>`, `<Header>`, `<List>`, `<Pill>`, `<Sidebar>`
-- Updated Component: `<ConnectTheme />`
+- Updated Component: `<ConnectTheme />`, `<Icon>`, `<Button>`
 - Bug Fix: N/A
 
 #### Repo:
@@ -52,6 +52,8 @@
 - Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/?path=/docs/button-rive--docs
 
 &nbsp;
+
+---
 
 ### v1.10.0 Release Notice
 
