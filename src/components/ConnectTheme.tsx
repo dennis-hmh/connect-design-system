@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
 import { GradeBand } from '../enum/gradeband';
-import { GradeBandContext } from './GradeBandContext';
 
 const themeClassName = {
   // [GradeBand.K_2]: 'connect__k2',
@@ -27,9 +26,5 @@ export function ConnectTheme({
     themeWrapperRef?.current?.classList.add(themeClassName[gradeBand]);
   }, [gradeBand, themeWrapperRef]);
 
-  return (
-    <GradeBandContext.Provider value={gradeBand}>
-      {children}
-    </GradeBandContext.Provider>
-  );
+  return <>{children}</>;
 }
