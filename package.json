@@ -19,7 +19,7 @@
     "build": "VITE_ENV=build tsc && vite build",
     "build-and-publish": "pnpm build && pnpm publish --no-git-checks",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest --run",
     "test:ui": "vitest --ui",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
