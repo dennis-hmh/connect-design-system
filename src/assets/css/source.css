@@ -440,8 +440,8 @@
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
 
   --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.625rem;
-  --connect__effects-inner-edge: 0.25rem;
+  --connect__border-radius: 0.5rem;
+  --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
   --connect__inner-radius: 0.125rem;
   --connect__inner-divider-width: 0.375rem;
