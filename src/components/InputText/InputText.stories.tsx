@@ -33,50 +33,83 @@ const Template: StoryFn<InputTextProps> = (args) => {
 };
 
 export const Default: Story = Template.bind({});
+export const Placeholder: Strory = Template.bind({});
+export const DefaultText: Story = Template.bind({});
+export const CharacterCounter: Story = Template.bind({});
+export const CharacterLimit: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
-export const InCorrect: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 export const Number: Story = Template.bind({});
 
 Default.args = {
+  defaultText: '',
+  placeholderText: '',
+  characterCount: false,
+  characterLimit: undefined,
   correct: false,
   incorrect: false,
-  defaultText: '',
-  number: false,
-  disabled: false,
   answerShown: false,
+  disabled: false,
   gradeBand: GradeBand.G4_5,
+};
+
+Placeholder.args = {
+  ...Default.args,
+  placeholderText: 'Type here...',
+};
+
+DefaultText.args = {
+  ...Default.args,
+  defaultText: 'This is default text',
+};
+
+CharacterCounter.args = {
+  ...Default.args,
+  defaultText: 'This is some default text',
+  characterCount: true,
+};
+
+CharacterLimit.args = {
+  ...Default.args,
+  characterCount: true,
+  characterLimit: 50,
 };
 
 Correct.args = {
   ...Default.args,
   correct: true,
   defaultText: 'Answer correct',
-  disabled: true,
+  characterCount: true,
+  characterLimit: 50,
 };
 
-InCorrect.args = {
+Incorrect.args = {
   ...Default.args,
   incorrect: true,
   defaultText: 'Answer incorrect',
-  disabled: true,
+  characterCount: true,
+  characterLimit: 50,
 };
 
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
   defaultText: 'Answer shown',
+  characterCount: true,
+  characterLimit: 50,
 };
 
 Disabled.args = {
   ...Default.args,
   defaultText: 'Disabled',
-  disabled: true,
+  characterCount: true,
+  characterLimit: 50,
 };
 
 Number.args = {
   ...Default.args,
-  defaultText: 100,
+  defaultText: 50,
   number: true,
 };

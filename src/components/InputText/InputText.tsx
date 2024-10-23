@@ -8,6 +8,9 @@ export type InputTextProps = {
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
+  defaultText?: string | undefined;
+  characterCount?: boolean;
+  placeholderText?: string | undefined;
   defaultText?: string | number;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -19,6 +22,9 @@ export function InputText({
   answerShown,
   number,
   disabled,
+  characterCount,
+  placeholderText,
+  characterLimit,
   defaultText,
   dataTestId,
 }: InputTextProps) {
@@ -27,6 +33,7 @@ export function InputText({
   const isNumber = number ? 'number' : 'text';
 
   const [text, setText] = useState(defaultText);
+  const [charCount, setCharCount] = useState(defaultText?.length || 0);
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -39,6 +46,14 @@ export function InputText({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newText = e.target.value;
+    if (!characterLimit || newText.length <= characterLimit) {
+      setText(newText);
+      setCharCount(newText.length);
+    }
+  };
+
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
@@ -46,10 +61,23 @@ export function InputText({
         className={`connect__input ${inputStates}`}
         disabled={shouldBeDisabled}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        placeholder={placeholderText ? placeholderText : ''}
+        onChange={handleTextChange}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
+      {characterCount && (
+        <div
+          className={`connect__character-counter ${
+            characterLimit && charCount >= characterLimit
+              ? 'connect__character-counter-limit-reached'
+              : ''
+          }`}
+        >
+          {charCount}
+          {characterLimit ? ` / ${characterLimit}` : ''} characters
+        </div>
+      )}
     </label>
   );
 }
