@@ -2790,6 +2790,58 @@ Transitions:
 }
 
 /* 
+.connect__character-counter Component
+
+Variables:
+  --connect__character-count-ff: Font family for the character counter.
+  --connect__character-count-fs: Font size of the character counter.
+  --connect__character-count-fw: Font weight of the character counter.
+  --connect__character-count-lh: Line height of the character counter.
+  --connect__character-count-style: Font style of the character counter.
+  --connect__character-count-color: Text color of the character counter.
+
+Default values and fallbacks:
+  --theme__character-count-ff: Theme-specific font family, falls back to --connect__font-sans.
+  --theme__character-count-fs: Theme-specific font size, falls back to --connect__caption.
+  --theme__character-count-fw: Theme-specific font weight, defaults to 400.
+  --theme__character-count-lh: Theme-specific line height, falls back to --connect__caption-lheight.
+  --theme__connect__character-count-style: Theme-specific font style, defaults to normal.
+  --theme__character-count-color: Theme-specific color, defaults to rgb(102, 102, 102).
+
+Styles:
+  color: Sets the text color of the character counter.
+  font-family: Applies the font family to the character counter.
+  font-size: Sets the font size of the character counter.
+  font-style: Applies the font style to the character counter.
+  font-weight: Sets the font weight of the character counter.
+  line-height: Defines the line height of the character counter.
+
+Usage:
+  The .connect__character-counter class can be applied to an element that displays
+  the character count for an input field.
+*/
+
+.connect__character-counter {
+  --connect__character-count-ff: var(--theme__character-count-ff, var(--connect__font-sans));
+  --connect__character-count-fs: var(--theme__character-count-fs, var(--connect__caption));
+  --connect__character-count-fw: var(--theme__character-count-fw, 400);
+
+  --connect__character-count-lh: var(--theme__character-count-lh, var(--connect__caption-lheight));
+  --connect__character-count-style: var(--theme__connect__character-count-style, normal);
+  --connect__character-count-color: var(
+    --theme__character-count-color,
+    var(--connect__neutrals-mid)
+  );
+
+  color: var(--connect__character-count-color);
+  font-family: var(--connect__character-count-ff);
+  font-size: var(--connect__character-count-lh);
+  font-style: var(--connect__character-count-style);
+  font-weight: var(--connect__character-count-fw);
+  line-height: var(--connect__character-count-lh);
+}
+
+/* 
   Toolbar Component
 
   Variables:
