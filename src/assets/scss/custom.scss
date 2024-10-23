@@ -671,8 +671,8 @@ States:
   // min 2 lines
   // max 4 lines
 
-  & textarea {
-    field-sizing: content;
+  &-textarea {
+    field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
   }
