@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
   correct: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
-  defaultText?: string;
-  maxLength?: number;
+  defaultText?: string | undefined;
+  characterCount?: boolean;
+  placeholderText?: string | undefined;
+  characterLimit?: number;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -17,7 +20,9 @@ export const Textarea: React.FC<TextareaProps> = ({
   answerShown,
   disabled,
   defaultText,
-  maxLength,
+  characterCount,
+  placeholderText,
+  characterLimit,
   dataTestId,
 }) => {
   const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
@@ -38,8 +43,10 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
-    setText(newText);
-    setCharCount(newText.length);
+    if (!characterLimit || newText.length <= characterLimit) {
+      setText(newText);
+      setCharCount(newText.length);
+    }
   };
 
   return (
@@ -48,15 +55,23 @@ export const Textarea: React.FC<TextareaProps> = ({
         className={`connect__input connect__input-textarea ${inputStates}`}
         disabled={shouldBeDisabled}
         value={text}
+        placeholder={placeholderText ? placeholderText : ''}
         onChange={handleTextChange}
         aria-label={inputAriaLabel}
-        maxLength={maxLength}
         data-testid={dataTestId}
       />
-      <div className="char-counter">
-        {charCount}
-        {maxLength ? ` / ${maxLength}` : ''} characters
-      </div>
+      {characterCount && (
+        <div
+          className={`connect__character-counter ${
+            characterLimit && charCount >= characterLimit
+              ? 'connect__character-counter-limit-reached'
+              : ''
+          }`}
+        >
+          {charCount}
+          {characterLimit ? ` / ${characterLimit}` : ''} characters
+        </div>
+      )}
     </label>
   );
 };

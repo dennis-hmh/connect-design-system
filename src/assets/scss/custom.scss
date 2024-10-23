@@ -672,6 +672,9 @@ States:
   // max 4 lines
 
   &-textarea {
+    --connect__display-align-items: end;
+    --connect__display-flex: flex;
+    --connect__display-flex-direction: column;
     field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
@@ -2356,10 +2359,15 @@ Usage:
 }
 
 .connect__icon-wrapper {
+  --display-align-items: var(--connect__display-align-items, end);
+  --display-flex: var(--connect__display-flex, inline-flex);
+  --display-flex-direction: var(--connect__display-flex-direction, column);
   --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
   --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
-  display: inline-flex;
+  align-items: var(--display-align-items);
+  display: var(--display-flex);
   flex: 1;
+  flex-direction: var(--display-flex-direction);
   position: relative;
   width: 100%;
 
@@ -2398,6 +2406,12 @@ Usage:
 
   > .connect__select-shown {
     --state-icon: var(--icon-shown);
+  }
+
+  .connect__input {
+    --connect__display-align-items: end;
+    --connect__display-flex: flex;
+    --connect__display-flex-direction: column;
   }
 }
 
@@ -2835,10 +2849,33 @@ Usage:
 
   color: var(--connect__character-count-color);
   font-family: var(--connect__character-count-ff);
-  font-size: var(--connect__character-count-lh);
+  font-size: var(--connect__character-count-fs);
   font-style: var(--connect__character-count-style);
   font-weight: var(--connect__character-count-fw);
   line-height: var(--connect__character-count-lh);
+
+  &-limit-reached {
+    font-weight: 400;
+    animation: shake 0.25s;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0eg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 /* 

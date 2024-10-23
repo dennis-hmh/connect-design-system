@@ -33,19 +33,78 @@ const Template: StoryFn<TextareaProps> = (args) => {
 };
 
 export const Default: Story = Template.bind({});
-export const MaxLength: Story = Template.bind({});
+export const Placeholder: Strory = Template.bind({});
+export const DefaultText: Story = Template.bind({});
+export const CharacterCounter: Story = Template.bind({});
+export const CharacterLimit: Story = Template.bind({});
+export const Correct: Story = Template.bind({});
+export const Incorrect: Story = Template.bind({});
+export const AnswerShown: Story = Template.bind({});
+export const Disabled: Story = Template.bind({});
 
 Default.args = {
+  defaultText: undefined,
+  placeholder: undefined,
+  characterCount: false,
+  characterLimit: undefined,
   correct: false,
   incorrect: false,
-  defaultText: 'Default Text!!',
-  disabled: false,
   answerShown: false,
-  maxLength: undefined,
+  disabled: false,
   gradeBand: GradeBand.G4_5,
 };
 
-MaxLength.args = {
+Placeholder.args = {
   ...Default.args,
-  maxLength: 100,
+  placeholderText: 'Type here...',
+};
+
+DefaultText.args = {
+  ...Default.args,
+  defaultText: 'This is default text',
+};
+
+CharacterCounter.args = {
+  ...Default.args,
+  defaultText: 'This is some default text',
+  characterCount: true,
+};
+
+CharacterLimit.args = {
+  ...Default.args,
+  characterCount: true,
+  characterLimit: 100,
+};
+
+Correct.args = {
+  ...Default.args,
+  correct: true,
+  defaultText: 'Answer correct',
+  characterCount: true,
+  characterLimit: 100,
+};
+
+Incorrect.args = {
+  ...Default.args,
+  correct: false,
+  incorrect: true,
+  defaultText: 'Answer incorrect',
+  characterCount: true,
+  characterLimit: 100,
+};
+
+AnswerShown.args = {
+  ...Default.args,
+  answerShown: true,
+  defaultText: 'Answer shown',
+  characterCount: true,
+  characterLimit: 100,
+};
+
+Disabled.args = {
+  ...Default.args,
+  defaultText: 'Disabled',
+  characterCount: true,
+  characterLimit: 100,
+  disabled: true,
 };
