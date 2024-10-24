@@ -1,3 +1,23 @@
+### v1.12.1 Release Notice
+
+### Release date: October, 24, 2024
+
+#### Changelog:
+
+- New Component: `<RiveGradeBanded />`
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Some updates to styles.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.12.0 Release Notice
 
 ### Release date: October, 21, 2024
