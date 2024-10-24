@@ -1433,6 +1433,7 @@ A modern 2024 take on the reset
 }
 
 :where([class^='connect__']) :where(h1, h2, h3, h4, h5) {
+  font-weight: var(--connect__font-weight, var(--variant__font-weight, initial));
   hyphens: auto;
   margin-block: 0;
   text-wrap: balance;
