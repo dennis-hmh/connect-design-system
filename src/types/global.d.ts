@@ -6,8 +6,10 @@ declare namespace JSX {
       hidePlayPause?: boolean;
       autoplay?: boolean;
       stateMachine?: string;
-      'play-state'?: boolean;
+      artboard?: string;
+      'play-state'?: string;
       height?: boolean;
+      contain?: boolean;
     };
   }
 }

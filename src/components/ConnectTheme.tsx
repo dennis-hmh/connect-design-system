@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { GradeBand } from '../enum/gradeband';
 
 const themeClassName = {
@@ -26,5 +26,5 @@ export function ConnectTheme({
     themeWrapperRef?.current?.classList.add(themeClassName[gradeBand]);
   }, [gradeBand, themeWrapperRef]);
 
-  return children;
+  return <>{children}</>;
 }
