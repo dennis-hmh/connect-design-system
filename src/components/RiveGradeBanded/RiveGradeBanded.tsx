@@ -1,5 +1,5 @@
 import React from 'react';
-import { GradeBandContext, useGradeBand } from '../../context/GradeBandContext';
+import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 import '@connect/hmh-rive';
 
@@ -21,6 +21,7 @@ export type RiveGradeBandedProps = {
   hidePlayPause?: boolean;
   playState?: string;
   contain?: boolean;
+  height?: boolean;
 };
 
 export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
@@ -41,6 +42,7 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
   hidePlayPause,
   playState = 'playing',
   contain = false,
+  height,
 }) => {
   const getValuesForGradeBand = () => {
     switch (gradeBand) {
@@ -79,9 +81,13 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
       <hmh-rive
         src={finalRiveSrc}
         desc={finalAltText}
+        autoplay={autoplay}
+        play-state={playState}
         hidePlayPause={hidePlayPause}
         stateMachine={stateMachine}
         artboard={artboard}
+        contain={contain}
+        height={height}
       ></hmh-rive>
     </GradeBandContext.Provider>
   );

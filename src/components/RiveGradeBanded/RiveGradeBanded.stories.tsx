@@ -46,4 +46,8 @@ Default.args = {
   desc912: 'Grade 9-12',
   hidePlayPause: true,
   autoplay: true,
+  'play-state': 'playing',
+  stateMachine: 'StateMachine1',
+  contain: true,
+  height: true,
 };
