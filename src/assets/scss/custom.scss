@@ -562,8 +562,8 @@ States:
 
   --connect__input-padding-y: var(--connect__spacer-sm);
   --connect__input-padding-x: var(--connect__spacer-md);
-  --connect__input-fs: var(--connect__body-sm, 1.25rem);
-  --connect__input-lh: var(--connect__body-sm-lheight, 1.5);
+  --connect__input-fs: var(--connect__body-sm);
+  --connect__input-lh: var(--connect__body-sm-lheight);
 
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white, transparent);
@@ -582,8 +582,8 @@ States:
     var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
     var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
     var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial) var(--connect__input-focus-shadow, rgba(0, 0, 0, 0)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color, #fff);
+    var(--connect__shadow-level-5) var(--connect__input-focus-shadow),
+    var(--connect__input-outer-shadow) var(--outer-shadow-color);
   caret-color: var(--caret-color);
 
   color: var(--connect__input-text-color);
@@ -641,6 +641,12 @@ States:
     &:disabled {
       resize: none;
     }
+  }
+
+  &::placeholder {
+    --connect__input-text-color: var(--connect__neutrals-mid);
+    color: var(--connect__input-text-color);
+    font-style: italic;
   }
 
   &.connect__input-selected,
