@@ -6,7 +6,7 @@ import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof RiveGradeBanded> = {
-  title: 'Rive Grade Banded',
+  title: 'Animation/Rive Grade Banded',
   component: RiveGradeBanded,
   tags: ['autodocs'],
   parameters: {
@@ -31,8 +31,8 @@ const Template: StoryFn<RiveGradeBandedProps> = (args) => {
   );
 };
 
-export const Primary: Story = Template.bind({});
-Primary.args = {
+export const Default: Story = Template.bind({});
+Default.args = {
   gradeBand: GradeBand.G4_5,
   srcDefault: 'https://chrisrooke-hmh.github.io/core-public/animations/boy.riv',
   descDefault: 'hi',

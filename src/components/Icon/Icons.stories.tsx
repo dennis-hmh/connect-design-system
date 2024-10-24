@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { IconId } from '../../utils/icon-list';
 
 const meta: Meta<typeof Icon> = {
-  title: 'Icons-Typo/Icons',
+  title: 'Content/Icons',
   component: Icon,
   tags: ['autodocs'],
   parameters: {

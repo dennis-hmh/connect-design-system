@@ -41,6 +41,8 @@ const config: StorybookConfig = {
       button[id="removed-drag-drop"] { display: none; }
       button[id="removed-flipcards"] { display: none; }
       button[id="removed-reveal"] {display: none; }
+      .sidebar-item:has(button[id="buttons-button-rive"]) { display: none; }
+      .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
     </style>
   `,
 
