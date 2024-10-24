@@ -45,7 +45,7 @@ export const Typography: React.FC<TypographyProps> = ({
   opacity,
   className,
   dataTestId,
-  ariaLive
+  ariaLive,
 }) => {
   const typoProps: React.CSSProperties = {};
 
@@ -61,7 +61,10 @@ export const Typography: React.FC<TypographyProps> = ({
     typoProps.letterSpacing = `var(--connect__spacer-${letterSpacing})`;
   }
   if (style) typoProps.fontStyle = style;
-  if (weight) typoProps.fontWeight = weight;
+  if (weight) {
+    const weightVariable = `--connect__font-weight`;
+    typoProps.fontWeight = `var(${weightVariable}, ${weight})`;
+  }
   if (textAlign) typoProps.textAlign = textAlign;
   if (textTransform) typoProps.textTransform = textTransform;
   if (opacity) typoProps.opacity = opacity;
