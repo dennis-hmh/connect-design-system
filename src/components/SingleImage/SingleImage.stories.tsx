@@ -28,8 +28,8 @@ const Template: StoryFn<SingleImageProps & { gradeBand: GradeBand }> = (args) =>
   );
 };
 
-export const Primary: Story = Template.bind({});
-Primary.args = {
+export const Default: Story = Template.bind({});
+Default.args = {
   imageSrc: 'https://picsum.photos/600/400',
   altText: 'A random picture from Lorem Picsum',
   caption: 'A random picture chosen by Lorem Picsum',

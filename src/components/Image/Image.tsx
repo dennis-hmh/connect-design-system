@@ -8,6 +8,8 @@ export type ImageProps = {
   gradeBand?: GradeBand;
 };
 
+// const defaultImageSrc = '../../images/zelda.jpg';
+
 const defaultImageSrc =
   import.meta.env.PROD === true && import.meta.env.VITE_ENV !== 'chromatic'
     ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'

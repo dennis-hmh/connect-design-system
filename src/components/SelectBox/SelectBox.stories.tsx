@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof SelectBox> = {
   component: SelectBox,
-  title: 'Misc/Select Box',
+  title: 'Input/Select Box',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
