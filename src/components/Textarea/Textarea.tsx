@@ -25,7 +25,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   characterLimit,
   dataTestId,
 }) => {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   const [text, setText] = useState(defaultText || '');
   const [charCount, setCharCount] = useState(defaultText?.length || 0);
@@ -43,10 +43,8 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
-    if (!characterLimit || newText.length <= characterLimit) {
-      setText(newText);
-      setCharCount(newText.length);
-    }
+    setText(newText);
+    setCharCount(newText.length);
   };
 
   return (
@@ -68,8 +66,8 @@ export const Textarea: React.FC<TextareaProps> = ({
               : ''
           }`}
         >
-          {charCount}
-          {characterLimit ? ` / ${characterLimit}` : ''} characters
+          <em>{charCount}</em>
+          {characterLimit ? ` / ${characterLimit}` : ''}
         </div>
       )}
     </label>

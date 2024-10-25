@@ -678,9 +678,6 @@ States:
   // max 4 lines
 
   &-textarea {
-    --connect__display-align-items: end;
-    --connect__display-flex: flex;
-    --connect__display-flex-direction: column;
     field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
@@ -2365,9 +2362,9 @@ Usage:
 }
 
 .connect__icon-wrapper {
-  --display-align-items: var(--connect__display-align-items, end);
+  --display-align-items: var(--connect__display-align-items, start);
   --display-flex: var(--connect__display-flex, inline-flex);
-  --display-flex-direction: var(--connect__display-flex-direction, column);
+  --display-flex-direction: var(--connect__display-flex-direction, row);
   --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
   --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
   align-items: var(--display-align-items);
@@ -2402,6 +2399,12 @@ Usage:
     --state-icon: var(--icon-shown);
   }
 
+  &.connect__input-character-count {
+    --connect__display-align-items: end;
+    --connect__display-flex: flex;
+    --connect__display-flex-direction: column;
+  }
+
   > .connect__select-correct {
     --state-icon: var(--icon-correct);
   }
@@ -2412,12 +2415,6 @@ Usage:
 
   > .connect__select-shown {
     --state-icon: var(--icon-shown);
-  }
-
-  .connect__input {
-    --connect__display-align-items: end;
-    --connect__display-flex: flex;
-    --connect__display-flex-direction: column;
   }
 }
 
@@ -2852,6 +2849,11 @@ Usage:
     --theme__character-count-color,
     var(--connect__neutrals-mid)
   );
+  --connect__character-count-reached: var(--theme__character-count-reached, 400);
+
+  --connect__display-align-items: end;
+  --connect__display-flex: flex;
+  --connect__display-flex-direction: column;
 
   color: var(--connect__character-count-color);
   font-family: var(--connect__character-count-ff);
@@ -2860,9 +2862,13 @@ Usage:
   font-weight: var(--connect__character-count-fw);
   line-height: var(--connect__character-count-lh);
 
+  > em {
+    font-style: normal;
+    font-weight: var(--connect__character-count-reached);
+  }
+
   &-limit-reached {
-    font-weight: 400;
-    animation: shake 0.25s;
+    --connect__character-count-reached: 700;
   }
 
   @keyframes shake {

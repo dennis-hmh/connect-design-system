@@ -28,7 +28,7 @@ export function InputText({
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
 
@@ -48,10 +48,8 @@ export function InputText({
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
-    if (!characterLimit || newText.length <= characterLimit) {
-      setText(newText);
-      setCharCount(newText.length);
-    }
+    setText(newText);
+    setCharCount(newText.length);
   };
 
   return (
@@ -74,8 +72,8 @@ export function InputText({
               : ''
           }`}
         >
-          {charCount}
-          {characterLimit ? ` / ${characterLimit}` : ''} characters
+          <em>{charCount}</em>
+          {characterLimit ? ` / ${characterLimit}` : ''}
         </div>
       )}
     </label>
