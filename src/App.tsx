@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'; // eslint-disable-line @typescr
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
+import { MultipleChoiceQuestionImage } from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 import { InputText } from './components/InputText/InputText';
 import { SelectBox } from './components/SelectBox/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
@@ -162,17 +163,11 @@ const App = () => {
             <br />
             <br />
             <br /> */}
-            <MultipleChoiceQuestion
-              type={'checkbox'}
-              image={false}
-              id={'msq-id-1'}
-              name={'mcq-name'}
-            >
+            <MultipleChoiceQuestion type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
               The mouse rides a bike
             </MultipleChoiceQuestion>
             <MultipleChoiceQuestion
               type={'checkbox'}
-              image={false}
               id={'msq-id-2'}
               name={'mcq-name'}
               correct={true}
@@ -180,15 +175,14 @@ const App = () => {
               The mouse rides a bike
             </MultipleChoiceQuestion>
             <br />
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestionImage
               type={'checkbox'}
-              image={true}
               id={'msq-id-3'}
               name={'mcq-name'}
               correct={true}
             >
               <Image imageSrc="" altText="This is alt text" />
-            </MultipleChoiceQuestion>
+            </MultipleChoiceQuestionImage>
             <br />
             <br />
             <Stack
