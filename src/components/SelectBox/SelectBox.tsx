@@ -1,5 +1,5 @@
 // @ts-ignore: React is used implicitly in JSX
-import React, { useState, useRef, ChangeEvent } from 'react';
+import React, { useState, useRef, ChangeEvent } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { GradeBand } from 'src/enum/gradeband';
 
 export type SelectBoxProps = {
@@ -48,9 +48,7 @@ export function SelectBox({
         ref={selectRef}
         className={selectClasses}
         value={select}
-        aria-label={`Select Item${correct ? ', marked as correct' : ''}
-        ${incorrect ? ', marked as incorrect' : ''}
-        ${answerShown ? ', answer shown' : ''}`}
+        aria-label={inputAriaLabel}
         onChange={handleChange}
         disabled={shouldBeDisabled}
         data-testid={dataTestId}

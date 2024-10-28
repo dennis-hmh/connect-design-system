@@ -1,10 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Figure } from '../Figure/Figure';
 import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionProp = {
   type: 'checkbox' | 'radio';
-  image: boolean;
   id: string;
   name: string;
   children: React.ReactNode;
@@ -19,7 +17,6 @@ export type MultipleChoiceQuestionProp = {
 
 export function MultipleChoiceQuestion({
   type,
-  image = false,
   id,
   name,
   children,
@@ -61,11 +58,8 @@ export function MultipleChoiceQuestion({
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      <label
-        className={`connect__mcq-label ${image ? 'connect__mcq-card' : ''} ${inputStates}`}
-        htmlFor={id}
-      >
-        {image ? <Figure children={children} dataTestId={dataTestId} /> : children}
+      <label className={`connect__mcq-label ${inputStates}`} htmlFor={id}>
+        {children}
       </label>
     </div>
   );
