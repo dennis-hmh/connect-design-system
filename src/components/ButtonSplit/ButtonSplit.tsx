@@ -73,8 +73,8 @@ function ButtonSplitMenu<T extends React.ReactNode>({
   return (
     <>
       <ul role="menu" className="connect__list">
-        {data.map((option) => (
-          <li role="menuitem" className="connect__list-item">
+        {data.map((option, i) => (
+          <li key={`${option.label}-${i}`} role="menuitem" className="connect__list-item">
             {option.value}
           </li>
         ))}
