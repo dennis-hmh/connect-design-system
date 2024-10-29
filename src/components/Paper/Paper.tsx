@@ -3,11 +3,10 @@ import { GradeBand } from '../../enum/gradeband';
 
 export type PaperProps = {
   children: React.ReactNode;
-  element?: section | article | main | aside | div;
+  element?: 'section' | 'article' | 'main' | 'aside' | 'div';
+  elevation?: 0 | 1 | 2;
   roundedCorner?: boolean;
-  outlined?: boolean;
   className?: string;
-  elevation?: number;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -15,17 +14,22 @@ export type PaperProps = {
 export const Paper: React.FC<PaperProps> = ({
   children,
   element: Component = 'div',
-  roundedCorner,
-  outlined,
-  className,
   elevation,
+  roundedCorner = true,
+  className,
   dataTestId,
 }) => {
+  const paperClassName = [
+    'connect__paper',
+    elevation !== undefined ? `connect__elevation-${elevation}` : '',
+    roundedCorner ? '' : 'connect__rounded-off',
+    className ? className : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <Component
-      className={`connect__paper ${roundedCorner ? 'connect__paper-rounded' : ''} ${outlined ? 'connect__paper-outlined' : ''} ${className ? className : ''}`}
-      data-testid={dataTestId}
-    >
+    <Component className={paperClassName} data-testid={dataTestId}>
       {children}
     </Component>
   );

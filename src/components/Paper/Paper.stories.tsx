@@ -33,10 +33,9 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: 'Paper',
   element: 'div',
-  roundedCorner: false,
-  outlined: false,
-  className: '',
   elevation: 0,
+  roundedCorner: true,
+  className: '',
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
 };
