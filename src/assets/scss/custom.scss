@@ -1177,7 +1177,6 @@ Styles:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
   }
 
-  .connect__figure,
   .connect__card-header,
   .connect__card-content,
   .connect__card-footer {
@@ -1298,18 +1297,6 @@ Styles:
       }
     }
   } */
-}
-
-.connect__figure {
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
-}
-
-.connect__figcaption {
-  font-size: var(--connect__caption);
-  margin-top: var(--connect__spacer-sm);
 }
 
 .connect__blockquote {
@@ -2600,16 +2587,14 @@ Usage:
   }
 
   .connect__figure {
+    --connect__figure-radius: var(--connect__inner-radius);
     grid-column: 1 / -1;
     grid-row: 1 / -1;
 
     figcaption {
-      padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+      --connect__fig-py: var(--connect__spacer-xs);
+      --connect__fig-px: var(--connect__spacer-sm);
     }
-  }
-
-  img {
-    border-radius: var(--theme__inner-radius, var(--connect__inner-radius));
   }
 
   &.connect__mcq-card-selected {
@@ -3326,13 +3311,7 @@ Example:
   }
 }
 
-[class*='connect_'] {
-  img {
-    display: block;
-    max-inline-size: 100%;
-    max-width: 100%;
-  }
-
+[class*='connect__'] {
   blockquote {
     font-size: var(--connect__blockquote-fs, var(--connect__body-md));
     font-style: var(--connect__blockquote-font-style, normal);
@@ -3344,7 +3323,16 @@ Example:
   }
 
   figure {
+    --connect__figure-radius: var(--connect__border-radius, 0);
+    border-radius: var(--theme__border-radius, var(--connect__figure-radius));
     margin: var(--connect__fig-margin, 0);
+    overflow: hidden;
+
+    &:has(img) {
+      img {
+        --connect__img-br: 0;
+      }
+    }
   }
 
   figcaption {
@@ -3352,6 +3340,7 @@ Example:
     --connect__fig-px: var(--connect__spacer-md);
     font-size: var(--connect__fig-fs, var(--connect__caption));
     margin-top: var(--connect__fig-mt, 0);
+    line-height: var(--connect__fig-lh, var(--connect__caption-lheight));
     padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
     padding-left: var(--connect__fig-pl, var(--connect__fig-px));
     padding-right: var(--connect__fig-pr, var(--connect__fig-px));
