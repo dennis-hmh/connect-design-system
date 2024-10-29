@@ -1170,13 +1170,6 @@ Styles:
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
 
-  &.connect__floating-card {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-  }
-
   .connect__figure,
   .connect__card-header,
   .connect__card-content,
@@ -3323,6 +3316,45 @@ Example:
   &::marker {
     content: counters(list-item, '.') ':';
     font-weight: var(--theme__connect-marker-font-w, 700);
+  }
+}
+
+.connect__paper {
+  --connect__paper-radius: var(
+    --theme__paper-radius,
+    var(--variant__paper-radius, var(--connect__border-radius))
+  );
+  border-radius: var(--connect__paper-radius);
+
+  box-shadow:
+    var(--connect__shadow-level-1) var(--connect__shadow-10),
+    var(--connect__shadow-level-2) var(--connect__shadow-20),
+    var(--connect__shadow-level-3) var(--connect__shadow-14),
+    var(--connect__shadow-level-4) var(--connect__shadow-12);
+
+  &.connect__elevation-0 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+  }
+
+  &.connect__elevation-1 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
+  }
+
+  &.connect__elevation-2 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+  }
+
+  &.connect__no-radius {
+    --connect__border-radius: 0rem;
   }
 }
 
