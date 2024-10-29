@@ -3354,8 +3354,8 @@ Example:
     --connect__fig-py: var(--connect__spacer-sm);
     --connect__fig-px: var(--connect__spacer-md);
     font-size: var(--connect__fig-fs, var(--connect__caption));
-    margin-top: var(--connect__fig-mt, 0);
     line-height: var(--connect__fig-lh, var(--connect__caption-lheight));
+    margin-top: var(--connect__fig-mt, 0);
     padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
     padding-left: var(--connect__fig-pl, var(--connect__fig-px));
     padding-right: var(--connect__fig-pr, var(--connect__fig-px));
