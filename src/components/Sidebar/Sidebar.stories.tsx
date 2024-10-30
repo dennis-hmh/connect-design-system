@@ -5,6 +5,7 @@ import { List } from '../List/List';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { Divider } from '../Divider/Divider';
 import { Stack } from '../Stack/Stack';
+import { Paper } from '../Paper/Paper';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
