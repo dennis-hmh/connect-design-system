@@ -15,7 +15,7 @@ export const Paper: React.FC<PaperProps> = ({
   children,
   element: Component = 'div',
   elevation,
-  roundedCorner = true,
+  roundedCorner = false,
   className,
   dataTestId,
 }) => {

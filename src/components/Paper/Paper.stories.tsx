@@ -34,7 +34,7 @@ Default.args = {
   children: 'Paper',
   element: 'div',
   elevation: 0,
-  roundedCorner: true,
+  roundedCorner: false,
   className: '',
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
