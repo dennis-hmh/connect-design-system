@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputBoxProps = {
@@ -11,6 +11,7 @@ export type InputBoxProps = {
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
+  noShadow?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -25,15 +26,20 @@ export function InputBox({
   correct,
   incorrect,
   answerShown,
+  noShadow = false,
   dataTestId,
 }: InputBoxProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
   const handleChange = () => {
     setIsChecked(checkRef.current?.checked ?? false);
   };
+
+  useEffect(() => {
+    setIsChecked(checked || false);
+  }, [checked]);
 
   return (
     <div className="connect__mcq-label-wrapper">
@@ -48,7 +54,7 @@ export function InputBox({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label className={`connect__mcq-label ${inputStates}`} htmlFor={id}>
+      <label htmlFor={id} className={`connect__mcq-label ${inputStates}`}>
         {children}
       </label>
     </div>
