@@ -6,7 +6,7 @@
 Variables related to theme/overrides:
   --connect__button-fs: Font size of the button text.
   --connect__button-lh: Line height of the button text.
-  --connect__button-font-w: Font weight of the button text.
+  --connect__button-fw: Font weight of the button text.
   --connect__button-text-transform: Text transformation.
   --connect__button-border-w: Border width of the button.
   --connect__button-border-c: Border color of the button.
@@ -112,7 +112,7 @@ States:
   // typography
   --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
   --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-  --connect__button-font-w: var(--theme__button-fw, 400);
+  --connect__button-fw: var(--theme__button-fw, var(--connect__fw-regular));
   --connect__button-text-transform: var(--theme__button-transform, capitalize);
 
   // borders / radius
@@ -173,7 +173,7 @@ States:
   flex-flow: var(--connect__button-flow);
   font-family: var(--connect__font-sans);
   font-size: var(--connect__button-fs);
-  font-weight: var(--connect__button-font-w, initial);
+  font-weight: var(--connect__button-fw, initial);
   gap: var(--connect__button-gap, 0);
   justify-content: var(--connect__button-justify-content);
   line-height: var(--connect__button-lh);
@@ -688,7 +688,7 @@ Variables related to theme/overrides:
   --connect__select-border-c: Border color of the select dropdown.
   --connect__select-fs: Font size of the select text.
   --connect__select-lh: Line height of the select text.
-  --connect__select-font-w: Font weight of the select text.
+  --connect__select-fw: Font weight of the select text.
   --connect__select-text-transform: Text transformation (e.g., capitalise, uppercase).
   --connect__select-padding-y: Vertical padding of the select dropdown.
   --connect__select-padding-x: Horizontal padding of the select dropdown.
@@ -740,7 +740,7 @@ States:
   // typography
   --connect__select-fs: var(--connect__body-sm, 1.25rem);
   --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
-  --connect__select-font-w: 400;
+  --connect__select-fw: var(--connect__fw-regular);
   --connect__select-text-transform: capitalize;
 
   // shadows
@@ -781,7 +781,7 @@ States:
   display: inline-flex;
   flex: 1;
   font-size: var(--connect__select-fs);
-  font-weight: var(--connect__select-font-w);
+  font-weight: var(--connect__select-fw);
   line-height: var(--connect__select-lh);
   padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
   position: relative;
@@ -2337,7 +2337,7 @@ Usage:
   // typography
   --connect__pill-fs: var(--theme__connect-pill-fs, var(--connect__body-sm));
   --connect__pill-lh: var(--theme__connect-pill-lh, var(--connect__body-sm-lheight));
-  --connect__pill-fw: var(--theme__connect-pill-fw, 700);
+  --connect__pill-fw: var(--theme__connect-pill-fw, var(--connect__fw-bold));
   --connect__pill-ff: var(--theme__connect-pill-ff, var(--connect__font-sans));
 
   align-items: center;
@@ -2451,7 +2451,7 @@ Usage:
   // typography
   --connect__label-fs: var(--connect__body-sm, 1.25rem);
   --connect__label-lh: var(--connect__body-sm-lheight, 1.5);
-  --connect__label-font-w: 400;
+  --connect__label-fw: var(--connect__fw-regular);
   --connect__label-text-transform: capitalize;
 
   // borders / radius
@@ -2513,7 +2513,7 @@ Usage:
   display: inline-flex;
   font-family: var(--connect__font-sans);
   font-size: var(--connect__label-fs);
-  font-weight: var(--connect__label-font-w, initial);
+  font-weight: var(--connect__label-fw, initial);
   gap: var(--connect__label-gap);
   justify-content: var(--connect__label-justify-content);
   line-height: var(--connect__label-lh);
@@ -3322,7 +3322,7 @@ Example:
 
   &::marker {
     content: counters(list-item, '.') ':';
-    font-weight: var(--theme__connect-marker-font-w, 700);
+    font-weight: var(--theme__connect-marker-fw, var(--connect__fw-bold));
   }
 }
 
