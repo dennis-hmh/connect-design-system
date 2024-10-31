@@ -35,5 +35,13 @@ Default.args = {
   size: '',
   className: '',
   ariaLive: 'polite',
+  progressBar: false,
   gradeBand: GradeBand.G4_5,
+};
+
+export const WithProgressBar: Story = Template.bind({});
+WithProgressBar.args = {
+  ...Default.args,
+  time: 60000,
+  progressBar: true,
 };

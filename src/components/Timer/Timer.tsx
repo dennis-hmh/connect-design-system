@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { GradeBand } from 'src/enum/gradeband';
 
 type Size =
@@ -15,9 +16,10 @@ type Size =
 export type TimerProps = {
   time: number;
   onTimeUp?: () => void;
-  size: Size;
+  size?: Size;
   className?: string;
   ariaLive?: 'polite' | 'assertive' | 'off';
+  progressBar?: boolean | undefined;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -28,6 +30,7 @@ export const Timer: React.FC<TimerProps> = ({
   size,
   className,
   ariaLive,
+  progressBar = false,
   dataTestId,
 }) => {
   const [remainingTime, setRemainingTime] = useState(time);
@@ -73,14 +76,20 @@ export const Timer: React.FC<TimerProps> = ({
     };
   }
 
+  const percentage = ((remainingTime / time) * 100).toFixed(1);
+
   return (
-    <time
-      className={`connect__timer ${className ? className : ''}`}
-      aria-live={ariaLive}
-      data-testid={dataTestId}
-      style={typoProps}
-    >
-      {formattedTime}
-    </time>
+    <div className="connect__timer-wrapper">
+      <time
+        className={`connect__timer ${className ? className : ''}`}
+        aria-live={ariaLive}
+        data-percentage={percentage}
+        data-testid={dataTestId}
+        style={typoProps}
+      >
+        {formattedTime}
+      </time>
+      {progressBar && <ProgressBar value={Number(percentage)} max={100} />}
+    </div>
   );
 };
