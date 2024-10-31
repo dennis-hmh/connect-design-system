@@ -3327,12 +3327,6 @@ Example:
 }
 
 [class*='connect_'] {
-  img {
-    display: var(--connect__display-block);
-    max-inline-size: 100%;
-    max-width: 100%;
-  }
-
   blockquote {
     font-size: var(--connect__blockquote-fs, var(--connect__body-md));
     font-style: var(--connect__blockquote-font-style, normal);
