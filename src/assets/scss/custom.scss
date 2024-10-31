@@ -728,7 +728,7 @@ States:
 
   &::-ms-expand
     - State for the select dropdown in Internet Explorer.
-    - display: none; Hides the default dropdown arrow in Internet Explorer.
+    - display: var(--connect__display-none); Hides the default dropdown arrow in Internet Explorer.
 */
 .connect__select {
   // Palette
@@ -825,7 +825,7 @@ States:
   }
 
   &::-ms-expand {
-    display: none;
+    display: var(--connect__display-none);
   }
 }
 
@@ -3328,7 +3328,7 @@ Example:
 
 [class*='connect_'] {
   img {
-    display: block;
+    display: var(--connect__display-block);
     max-inline-size: 100%;
     max-width: 100%;
   }
