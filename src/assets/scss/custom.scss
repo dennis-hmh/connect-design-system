@@ -1359,7 +1359,7 @@ Tooltip Styles:
     - Aligns items along the cross axis.
   align-content: center;
     - Aligns content along the cross axis.
-  border-radius: var(--Text-Inner-Spacing, 0.25rem);
+  border-radius: var(connect__inner-radius, 0.25rem);
     - Rounds the corners of the tooltip.
   background: var(--connect__tooltip-bg);
     - Sets the background color of the tooltip.
@@ -1428,7 +1428,7 @@ Transition Styles:
 
   align-items: center;
   background: var(--connect__tooltip-bg);
-  border-radius: var(--Text-Inner-Spacing, 0.25rem);
+  border-radius: var(--connect__inner-radius, 0.25rem);
   box-shadow:
     var(--shadow-level-1) var(--connect__shadow-10),
     var(--shadow-level-2) var(--connect__shadow-20),
