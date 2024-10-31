@@ -582,6 +582,8 @@ States:
 
   --connect__caret-color: var(--connect__selected-mid);
 
+  --connect__input-h: 100%;
+
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
   border: var(--connect__input-border-w) solid var(--connect__input-border-c);
   border-radius: var(--connect__border-radius);
@@ -624,9 +626,6 @@ States:
     --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
     --starting-shadow-color: var(--connect__focus-mid);
     --connect__input-focus-shadow: var(--connect__focus-mid);
-
-    background: var(--neutrals-white);
-    border-radius: var(--connect__border-radius);
   }
 
   &:active:not(:disabled) {
