@@ -758,7 +758,7 @@ States:
   appearance: none;
   background-color: var(--connect__select-bg);
 
-  background-image: var(--state__connect__dropdown-icon, var(--connect__dropdown-icon));
+  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon));
   background-position: calc(100% - var(--connect__select-padding-x));
   background-repeat: no-repeat;
 
@@ -2347,6 +2347,9 @@ Usage:
 }
 
 .connect__icon-wrapper {
+  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
+  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
+
   display: inline-flex;
   flex: 1;
   position: relative;
@@ -3359,7 +3362,8 @@ Example:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --connect__state-based-pointer: not-allowed;
-  --state__connect__dropdown-icon: var(--state__variant-connect__dropdown-icon);
+
+  --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
 /* 
@@ -3604,7 +3608,7 @@ Styles:
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --active-color: var(--connect__neutrals-mid);
   --connect__state-based-pointer: not-allowed;
-  --state__connect__dropdown-icon: var(--state__variant-connect-dropdown-icon);
+  --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 
   &:disabled {
     --active-color: var(--connect__neutrals-mid);
