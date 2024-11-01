@@ -2424,6 +2424,7 @@ Usage:
   }
 }
 
+.connect__checkbox-label,
 .connect__mcq-label {
   // typography
   --connect__label-fs: var(--connect__body-sm, 1.25rem);
@@ -2537,6 +2538,14 @@ Usage:
   }
 }
 
+.connect__input-no-shadow,
+.connect__checkbox-label {
+  --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
+  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+}
+
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__total-border);
@@ -2624,6 +2633,14 @@ Usage:
       --state-mcq-shadow: var(--connect__neutrals-light);
     }
 
+    + .connect__checkbox-label {
+      --active-color: var(--connect__neutrals-mid);
+      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
+      --checkbox-state-based-bg: var(--connect__neutrals-white);
+      --connect__state-based-pointer: not-allowed;
+      --state-mcq-shadow: var(--connect__neutrals-light);
+    }
+
     + .connect__mcq-card {
       --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
       --connect__shadow-level-2: var(--connect__shadow-spread-level-6);
@@ -2631,6 +2648,7 @@ Usage:
   }
 
   &:checked {
+    + .connect__checkbox-label,
     + .connect__mcq-label {
       &::before {
         background-color: var(--checkbox-state-based-bg, var(--connect__selected-mid));
@@ -2643,6 +2661,7 @@ Usage:
   }
 
   &:checked:disabled {
+    + .connect__checkbox-label,
     + .connect__mcq-label {
       --checkbox-state-based-bg: var(--connect__neutrals-light);
       --checkbox-state-based-inner-shadow: var(--connect__neutrals-white);

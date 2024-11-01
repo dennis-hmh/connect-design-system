@@ -33,6 +33,7 @@ export const Checked: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
+export const NoShadow: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
@@ -42,6 +43,8 @@ Default.args = {
   checked: false,
   correct: false,
   incorrect: false,
+  answerShown: false,
+  noShadow: false,
   disabled: false,
   children: 'The mouse rides a bike',
   gradeBand: GradeBand.G4_5,
@@ -68,6 +71,12 @@ AnswerShown.args = {
   ...Default.args,
   checked: true,
   answerShown: true,
+};
+
+NoShadow.args = {
+  ...Default.args,
+  checkbox: true,
+  noShadow: true,
 };
 
 Disabled.args = {
