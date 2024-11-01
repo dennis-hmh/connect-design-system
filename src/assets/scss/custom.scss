@@ -3606,7 +3606,7 @@ Styles:
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --active-color: var(--connect__neutrals-mid);
   --connect__state-based-pointer: not-allowed;
-  --state__connect__dropdown-icon: var(--state__variant-connect__dropdown-icon);
+  --state__connect__dropdown-icon: var(--state__variant-connect-dropdown-icon);
 
   &:disabled {
     --active-color: var(--connect__neutrals-mid);
