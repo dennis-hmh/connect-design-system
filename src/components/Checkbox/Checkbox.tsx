@@ -23,7 +23,7 @@ export function Checkbox({ id, name, children, checked, disabled, dataTestId }: 
   }, [checked]);
 
   return (
-    <div className="connect__label-wrapper">
+    <div className="connect__checkbox-label-wrapper">
       <input
         ref={checkRef}
         type="checkbox"
@@ -35,7 +35,7 @@ export function Checkbox({ id, name, children, checked, disabled, dataTestId }: 
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__checkbox-label `}>
+      <label htmlFor={id} className={`connect__checkbox-label connect__input-no-shadow`}>
         {children}
       </label>
     </div>

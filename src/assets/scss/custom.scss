@@ -2416,6 +2416,8 @@ Usage:
   }
 }
 
+.connect__checkbox-label-wrapper,
+.connect__input-label-wrapper,
 .connect__mcq-label-wrapper {
   position: relative;
 
@@ -2538,8 +2540,7 @@ Usage:
   }
 }
 
-.connect__input-no-shadow,
-.connect__checkbox-label {
+.connect__input-no-shadow {
   --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);

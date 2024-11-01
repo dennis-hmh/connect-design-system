@@ -42,7 +42,7 @@ export function InputBox({
   }, [checked]);
 
   return (
-    <div className="connect__mcq-label-wrapper">
+    <div className="connect__input-label-wrapper">
       <input
         ref={checkRef}
         type={type}
@@ -54,7 +54,7 @@ export function InputBox({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__mcq-label ${inputStates}`}>
+      <label htmlFor={id} className={`connect__checkbox-label ${inputStates}`}>
         {children}
       </label>
     </div>
