@@ -24,6 +24,11 @@ export type TimerProps = {
   gradeBand?: GradeBand;
 };
 
+interface CustomCSSProperties extends React.CSSProperties {
+  '--connect__timer-fs'?: string;
+  '--connect__timer-lh'?: string;
+}
+
 export const Timer: React.FC<TimerProps> = ({
   time,
   onTimeUp,
@@ -41,7 +46,9 @@ export const Timer: React.FC<TimerProps> = ({
       setRemainingTime((prevTime) => {
         if (prevTime <= 1000) {
           clearInterval(intervalRef.current!);
-          onTimeUp();
+          if (onTimeUp) {
+            onTimeUp();
+          }
           return 0;
         }
         return prevTime - 1000;
@@ -67,7 +74,7 @@ export const Timer: React.FC<TimerProps> = ({
     ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
     : `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-  let typoProps: React.CSSProperties = {};
+  let typoProps: CustomCSSProperties = {};
 
   if (size) {
     typoProps = {
