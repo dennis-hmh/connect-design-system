@@ -1356,9 +1356,14 @@ A modern 2024 take on the reset
 :where([class^='connect__']) > video,
 :where([class^='connect__']) > canvas,
 :where([class^='connect__']) > svg {
-  display: block;
-  max-inline-size: 100%;
-  max-width: 100%;
+  display: var(--connect__media-display, block);
+  max-inline-size: var(--connect__media-max-inline-size, 100%);
+  max-width: var(--connect__media-max-width, 100%);
+}
+
+:where([class^='connect__']) > img {
+  border-radius: var(--connect__img-br, var(--connect__border-radius, 0));
+  width: 100%;
 }
 
 /* 
