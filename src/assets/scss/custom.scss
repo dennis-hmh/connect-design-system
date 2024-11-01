@@ -2367,7 +2367,7 @@ Usage:
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(var(--translateY), var(--translateX));
+    transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
 

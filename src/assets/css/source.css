@@ -1314,8 +1314,8 @@
   --connect__disabled-color: var(--connect__neutrals-mid);
   --connect__disabled-icon-fill: var(--connect__neutrals-light);
 
-  --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
-  --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
+  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
+  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
 }
 
 @media (min-width: 40.625rem) {
