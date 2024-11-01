@@ -3359,14 +3359,14 @@ Example:
 }
 
 [class*='connect_']:disabled {
-  --active-color: var(--connect__neutrals-mid);
-  --connect__icon-fill-color: var(--connect__neutrals-light);
+  --active-color: var(--connect__disabled-color);
+  --connect__icon-fill-color: var(--connect__disabled-icon-fill);
   --checkbox-state-based-bg: var(--connect__neutrals-white);
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --connect__state-based-pointer: not-allowed;
+  --connect__state-based-pointer: var(--connect__disabled-cursor);
 }
 
 /* 
@@ -3609,11 +3609,11 @@ Styles:
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --active-color: var(--connect__neutrals-mid);
-  --connect__state-based-pointer: not-allowed;
+  --active-color: var(--connect__disabled-color);
+  --connect__state-based-pointer: var(--connect__disabled-cursor);
 
   &:disabled {
-    --active-color: var(--connect__neutrals-mid);
+    --active-color: var(--connect__disabled-color);
   }
 
   &:hover,

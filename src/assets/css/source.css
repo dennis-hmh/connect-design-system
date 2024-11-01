@@ -1309,6 +1309,10 @@
   --connect__brand-magenta: rgb(255, 0, 179);
   --connect__brand-deep-magenta: rgb(204, 0, 192);
   --connect__brand-pale-magenta: rgb(255, 238, 254);
+
+  --connect__disabled-cursor: not-allowed;
+  --connect__disabled-color: var(--connect__neutrals-mid);
+  --connect__disabled-icon-fill: var(--connect__neutrals-light);
 }
 
 @media (min-width: 40.625rem) {
