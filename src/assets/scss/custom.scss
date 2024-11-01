@@ -1166,8 +1166,6 @@ Styles:
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
 
-
-
   .connect__figure,
   .connect__card-header,
   .connect__card-content,
@@ -3318,7 +3316,7 @@ Example:
   }
 
   &.connect__rounded-off {
-    --variant__paper-radius: var(--connect__spacer-zero);
+    --variant__paper-radius: var(--connect__spacer-zero, 0);
   }
 }
 
