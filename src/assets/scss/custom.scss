@@ -269,10 +269,6 @@ States:
     border-radius: var(--connect__border-radius);
   }
 
-  &-menu {
-    --icon-fill-color: var(--variant__icon-fill-color, var(--connect__brand-deep-magenta));
-  }
-
   &-icon,
   &-menu {
     --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
@@ -1169,13 +1165,6 @@ Styles:
   padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
   width: 100%;
-
-  &.connect__floating-card {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-  }
 
   .connect__figure,
   .connect__card-header,
@@ -2830,13 +2819,6 @@ Variables related to theme/overrides:
   --connect__aside-align: Alignment of items within the aside.
   --connect__aside-direction: Flex direction of the aside content.
 
-Shadow-related variables:
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-  --connect__shadow-10, 
-  --connect__shadow-20, 
-  --connect__shadow-14, 
-  --connect__shadow-12: Shadow color variables.
-
 Other variables:
   --connect__aside-sub-menu-divider-w: Width of the sub-menu divider.
   --connect__neutrals-white: Default background color if not overridden.
@@ -2844,7 +2826,6 @@ Other variables:
 Styles:
   align-items: Aligns items within the aside.
   background-color: Sets the background color of the aside.
-  box-shadow: Applies multiple levels of box shadow for depth effect.
   display: Sets the display property to flex.
   flex-flow: Determines the flex direction and wrapping behavior.
   justify-content: Distributes space between and around content items.
@@ -2861,27 +2842,14 @@ Usage:
 .connect__aside {
   --connect__aside-padding-y: var(--connect__spacer-md);
   --connect__aside-padding-x: var(--connect__spacer-xs);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-
   --connect__aside-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
   --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__neutrals-white));
-
   --connect__aside-w: var(--theme__aside-w, 3.625rem);
   --connect__aside-h: var(--theme__aside-h, 100vh);
-
   --variant__marker-color: var(--connect__neutrals-null);
 
   align-items: var(--connect__aside-align, center);
   background-color: var(--connect__aside-bg);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
   display: flex;
   flex-flow: var(--connect__aside-direction, column wrap);
   height: var(--connect__aside-h);
@@ -2910,12 +2878,12 @@ Usage:
       --connect__icon-fill: var(--connect__brand-deep-magenta);
     }
   }
-}
 
-.connect__aside-menu {
-  display: flex;
-  flex-flow: column wrap;
-  gap: var(--connect__spacer-xs);
+  .connect__list {
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--connect__spacer-xs);
+  }
 }
 
 /* 
@@ -3323,6 +3291,46 @@ Example:
   &::marker {
     content: counters(list-item, '.') ':';
     font-weight: var(--theme__connect-marker-font-w, 700);
+  }
+}
+
+.connect__paper {
+  --connect__paper-radius: var(
+    --theme__paper-radius,
+    var(--variant__paper-radius, var(--connect__border-radius))
+  );
+
+  border-radius: var(--connect__paper-radius);
+
+  box-shadow:
+    var(--connect__shadow-level-1) var(--connect__shadow-10),
+    var(--connect__shadow-level-2) var(--connect__shadow-20),
+    var(--connect__shadow-level-3) var(--connect__shadow-14),
+    var(--connect__shadow-level-4) var(--connect__shadow-12);
+
+  &.connect__elevation-0 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+  }
+
+  &.connect__elevation-1 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
+  }
+
+  &.connect__elevation-2 {
+    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
+    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
+    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
+    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+  }
+
+  &.connect__rounded-off {
+    --variant__paper-radius: 0rem;
   }
 }
 
