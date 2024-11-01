@@ -1,36 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
-export type InputBoxProps = {
-  type: 'checkbox' | 'radio';
+export type CheckboxProps = {
   id: string;
   name: string;
   children: React.ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  correct?: boolean;
-  incorrect?: boolean;
-  answerShown?: boolean;
-  noShadow?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export function InputBox({
-  type,
-  id,
-  name,
-  children,
-  checked,
-  disabled,
-  correct,
-  incorrect,
-  answerShown,
-  noShadow = false,
-  dataTestId,
-}: InputBoxProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
-
+export function Checkbox({ id, name, children, checked, disabled, dataTestId }: CheckboxProps) {
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
   const handleChange = () => {
@@ -42,19 +23,19 @@ export function InputBox({
   }, [checked]);
 
   return (
-    <div className="connect__mcq-label-wrapper">
+    <div className="connect__label-wrapper">
       <input
         ref={checkRef}
-        type={type}
+        type="checkbox"
         id={id}
-        className={`connect__input ${inputStates}`}
+        className={`connect__input }`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__mcq-label ${inputStates}`}>
+      <label htmlFor={id} className={`connect__checkbox-label `}>
         {children}
       </label>
     </div>
