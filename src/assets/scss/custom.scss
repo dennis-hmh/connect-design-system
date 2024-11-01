@@ -2347,8 +2347,6 @@ Usage:
 }
 
 .connect__icon-wrapper {
-  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
-  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
   display: inline-flex;
   flex: 1;
   position: relative;
