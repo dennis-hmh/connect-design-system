@@ -632,6 +632,12 @@ States:
     --starting-shadow-color: var(--connect__selected-mid);
   }
 
+  &::placeholder {
+    --connect__input-text-color: var(--connect__neutrals-mid);
+    color: var(--connect__input-text-color);
+    font-style: italic;
+  }
+
   &-resize {
     --resize: vertical;
 
