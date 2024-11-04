@@ -2469,7 +2469,7 @@ Usage:
 
   // inputs
   --connect__input-dimensions: var(--connect__caption-lheight);
-  --connect__input-border-w: 0.125rem;
+  --connect__input-border-w: var(--connect__mcq-border-w, 0.125rem);
 
   align-items: center;
   background-color: var(--theme__mcq-bg, var(--connect__neutrals-white));
