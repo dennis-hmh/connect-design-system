@@ -116,7 +116,7 @@ States:
   --connect__button-text-transform: var(--theme__button-transform, capitalize);
 
   // borders / radius
-  --connect__button-border-w: var(--theme__button-border-w, 0rem);
+  --connect__button-border-w: var(--theme__button-border-w, var(--connect__spacer-zero));
   --connect__button-border-c: var(--connect__neutrals-white, transparent);
   --connect__button-radius: var(--theme__border-radius, var(--connect__border-radius));
 
@@ -564,7 +564,7 @@ States:
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white, transparent);
 
-  --connect__input-border-w: 0rem;
+  --connect__input-border-w: var(--connect__spacer-zero);
   --connect__input-border-c: var(--connect__neutrals-white, transparent);
 
   --caret-color: var(--connect__selected-mid);
@@ -730,7 +730,7 @@ States:
   // Palette
   --connect__select-bg: var(--state-based-bg, var(--connect__neutrals-white));
   --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --connect__select-border-w: 0rem;
+  --connect__select-border-w: var(--connect__spacer-zero);
   --connect__select-border-c: var(--connect__select-border-c, transparent);
 
   // typography
@@ -1133,7 +1133,7 @@ Styles:
 */
 
 .connect__card {
-  --connect__card-border-w: var(--theme__chip-border-w, 0rem);
+  --connect__card-border-w: var(--theme__chip-border-w, var(--connect__spacer-zero));
   --connect__card-border-c: var(--connect__neutrals-white, transparent);
   --connect__card-radius: var(--theme__border-radius, var(--connect__border-radius));
 
@@ -1596,7 +1596,7 @@ Usage:
   --connect__header-margin-t: var(--theme__connect-header-margin-t, 0);
 
   // Single border width for all sides
-  --connect__header-border-w: var(--theme__connect-header-border-w, 0rem);
+  --connect__header-border-w: var(--theme__connect-header-border-w, var(--connect__spacer-zero));
 
   // Individual border widths
   --connect__header-border-w-t: var(
@@ -2209,7 +2209,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 .connect__chip {
   --connect__chip-fs: var(--theme__chip-fs, var(--connect__caption));
   --connect__chip-lh: var(--theme__chip-lh, var(--connect__caption-lheight));
-  --connect__chip-border-w: var(--theme__chip-border-w, 0rem);
+  --connect__chip-border-w: var(--theme__chip-border-w, var(--connect__spacer-zero));
   --connect__chip-border-c: var(--connect__neutrals-white, transparent);
   --connect__chip-radius: var(--theme__border-radius, var(--connect__border-radius));
 
@@ -2301,10 +2301,10 @@ Usage:
   --connect__pill-color: var(--theme__pill-color, var(--connect__default-pill-color));
 
   // border radius
-  --connect__pill-br-tl: 0rem;
+  --connect__pill-br-tl: var(--connect__spacer-zero);
   --connect__pill-br-tr: var(--connect__heading-lg-lheight, 5rem);
   --connect__pill-br-br: var(--connect__heading-lg-lheight, 5rem);
-  --connect__pill-br-bl: 0rem;
+  --connect__pill-br-bl: var(--connect__spacer-zero);
 
   // padding
   --connect__pill-py: var(--theme__pill-py, var(--connect__spacer-xs));
@@ -2435,12 +2435,13 @@ Usage:
   --connect__label-text-transform: capitalize;
 
   // borders / radius
-  --connect__label-border-w: 0rem;
+  --connect__label-border-w: var(--connect__spacer-zero);
   --connect__label-border-c: var(--connect__neutrals-white, transparent);
   --connect__label-radius: var(--connect__border-radius);
 
   // shadows
-  --connect__shadow_inner-null: 0rem 0rem 0rem;
+  --connect__shadow_inner-null: var(--connect__spacer-zero) var(--connect__spacer-zero)
+    var(--connect__spacer-zero);
   --inner-shadow: var(--connect__shadow_inner-null) var(--connect__effects-inner-edge)
     var(--inner-shadow-color, transparent) inset;
   --inner-shadow-color: var(--connect__neutrals-white);

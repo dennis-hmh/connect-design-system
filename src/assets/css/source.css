@@ -1335,6 +1335,8 @@
   --connect__transition-medium: 500ms;
   --connect__transition-slow: 700ms;
 
+  --connect__spacer-zero: 0rem;
+
   --connect__cc-purple: rgb(113, 47, 253);
 
   --connect__brand-magenta: rgb(255, 0, 179);
