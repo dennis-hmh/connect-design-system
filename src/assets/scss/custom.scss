@@ -1383,7 +1383,7 @@ Transition Styles:
   --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
   --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
 
-  --connect__tooltip-opacity: 0;
+  --connect__tooltip-opacity: var(--connect__opacity-zero);
   --connect__tooltip-visibility: hidden;
 
   --connect__tooltip-transition: var(--connect__ease-in-out);
@@ -2450,6 +2450,16 @@ Usage:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
 
+  --connect__mcq-base-shadow: var(--inner-shadow),
+    var(--connect__shadow_inner-null) var(--connect__inner-status)
+      var(--connect__mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
+    var(--connect__shadow_inner-null) var(--connect__effects-inner-edge)
+      var(--state-based-bg, var(--connect__neutrals-white)) inset,
+    var(--connect__shadow-level-1) var(--connect__shadow-10),
+    var(--connect__shadow-level-2) var(--connect__shadow-20),
+    var(--connect__shadow-level-3) var(--connect__shadow-14),
+    var(--connect__shadow-level-4) var(--connect__shadow-12);
+
   // radius
   --connect__mcq-radius: var(
     --theme__mcq-radius,
@@ -2469,7 +2479,7 @@ Usage:
 
   // inputs
   --connect__input-dimensions: var(--connect__caption-lheight);
-  --connect__input-border-w: var(--connect__mcq-border-w, 0.125rem);
+  --connect__input-border-w: var(--connect__mcq-border-w);
 
   align-items: center;
   background-color: var(--theme__mcq-bg, var(--connect__neutrals-white));
@@ -2551,7 +2561,7 @@ Usage:
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__total-border);
   --connect__label-padding-x: var(--connect__total-border);
-  --starting-shadow-color: transparent;
+  --starting-shadow-color: var(--connect__neutrals-null);
   --connect__mcq-bg: var(--connect__neutrals-white);
   --connect__mcq-input-margin: var(--connect__spacer-xs);
 
@@ -2619,7 +2629,7 @@ Usage:
 :where([class^='connect__']) input[type='checkbox'],
 :where([class^='connect__']) input[type='radio'] {
   inset: 0;
-  opacity: 0;
+  opacity: var(--connect__opacity-zero);
   position: absolute;
 
   &:disabled {
@@ -2630,7 +2640,7 @@ Usage:
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      --connect__state-based-pointer: not-allowed;
+      --connect__state-based-pointer: var(--connect__disabled-cursor);
       --state-mcq-shadow: var(--connect__neutrals-light);
     }
 
@@ -2638,7 +2648,7 @@ Usage:
       --active-color: var(--connect__neutrals-mid);
       --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
       --checkbox-state-based-bg: var(--connect__neutrals-white);
-      --connect__state-based-pointer: not-allowed;
+      --connect__state-based-pointer: var(--connect__disabled-cursor);
       --state-mcq-shadow: var(--connect__neutrals-light);
     }
 
@@ -2653,7 +2663,7 @@ Usage:
     + .connect__mcq-label {
       &::before {
         background-color: var(--checkbox-state-based-bg, var(--connect__selected-mid));
-        background-image: var(--checked-state-icon, transparent);
+        background-image: var(--checked-state-icon, var(--connect__neutrals-null));
         background-size: contain;
         box-shadow: var(--connect__shadow_inner-null) var(--connect__input-border-w)
           var(--checkbox-state-based-inner-shadow, var(--connect__neutrals-white)) inset;
