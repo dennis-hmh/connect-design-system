@@ -2333,8 +2333,8 @@ Usage:
 }
 
 .connect__icon-wrapper {
-  --translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3);
-  --translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / 3);
+  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
+  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
   display: inline-flex;
   flex: 1;
   position: relative;
@@ -2349,7 +2349,7 @@ Usage:
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(var(--translateY), var(--translateX));
+    transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
 
