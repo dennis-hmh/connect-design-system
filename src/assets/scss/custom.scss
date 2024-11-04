@@ -546,7 +546,7 @@ States:
   --resize: none;
 
   --starting-shadow-color: var(--connect__shadow-10);
-  --connect__input-focus-shadow: transparent;
+  --connect__input-focus-shadow: var(--connect__neutrals-null);
   --outer-shadow-color: var(--connect__neutrals-white);
 
   --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
@@ -556,41 +556,43 @@ States:
   --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
   --connect__input-outer-shadow: var(--connect__shadow-spread-level-2);
 
+  --connect__input-shadow: var(--connect__shadow-level-1)
+      var(--starting-shadow-color, var(--connect__shadow-10)) inset,
+    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
+    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
+    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
+    var(--connect__shadow-level-5, initial)
+      var(--connect__input-focus-shadow, var(--connect__neutrals-null)),
+    var(--connect__input-outer-shadow) var(--outer-shadow-color);
+
   --connect__input-padding-y: var(--connect__spacer-sm);
   --connect__input-padding-x: var(--connect__spacer-md);
-  --connect__input-fs: var(--connect__body-sm, 1.25rem);
-  --connect__input-lh: var(--connect__body-sm-lheight, 1.5);
+  --connect__input-fs: var(--connect__body-sm);
+  --connect__input-lh: var(--connect__body-sm-lheight);
 
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__input-bg: var(--connect__neutrals-white, transparent);
+  --connect__input-bg: var(--connect__neutrals-white);
 
+
+  --connect__input-border-c: var(--connect__neutrals-white, var(--connect__neutrals-null));
+
+  --connect__caret-color: var(--connect__selected-mid);
   --connect__input-border-w: var(--connect__spacer-zero);
-  --connect__input-border-c: var(--connect__neutrals-white, transparent);
-
-  --caret-color: var(--connect__selected-mid);
+ 
+  --connect__input-h: 100%;
 
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
   border: var(--connect__input-border-w) solid var(--connect__input-border-c);
   border-radius: var(--connect__border-radius);
 
-  box-shadow:
-    var(--connect__shadow-level-1) var(--starting-shadow-color, var(--connect__shadow-10)) inset,
-    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
-    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial) var(--connect__input-focus-shadow, rgba(0, 0, 0, 0)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color, #fff);
-  caret-color: var(--caret-color);
+  box-shadow: var(--connect__input-shadow);
+  caret-color: var(--connect__caret-color);
 
   color: var(--connect__input-text-color);
   cursor: var(--connect__state-based-pointer, text);
-
-  display: inline-flex;
-  flex: 1;
   font-family: var(--connect__font-sans);
   font-size: var(--connect__input-fs);
   line-height: var(--connect__input-lh);
-
   padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
   position: relative;
   resize: var(--resize);
@@ -619,16 +621,18 @@ States:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
     --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
     --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-
     --starting-shadow-color: var(--connect__focus-mid);
     --connect__input-focus-shadow: var(--connect__focus-mid);
-    background: var(--neutrals-white, #fff);
-
-    border-radius: var(--radius-border-radius, 0.875rem);
   }
 
   &:active:not(:disabled) {
     --starting-shadow-color: var(--connect__selected-mid);
+  }
+
+  &::placeholder {
+    --connect__input-text-color: var(--connect__neutrals-mid);
+    color: var(--connect__input-text-color);
+    font-style: italic;
   }
 
   &-resize {
@@ -641,7 +645,7 @@ States:
 
   &.connect__input-selected,
   &.connect__input-selected:disabled {
-    --caret-color: var(--connect__selected-mid);
+    --connect__caret-color: var(--connect__selected-mid);
     --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
     --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
     --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
@@ -2328,6 +2332,7 @@ Usage:
 .connect__icon-wrapper {
   --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
   --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
+
   display: inline-flex;
   flex: 1;
   position: relative;
@@ -3408,15 +3413,14 @@ Example:
 }
 
 [class*='connect_']:disabled {
-  --active-color: var(--connect__neutrals-mid);
-  --connect__icon-fill-color: var(--connect__neutrals-light);
+  --active-color: var(--connect__disabled-color);
+  --connect__icon-fill-color: var(--connect__disabled-icon-fill);
   --checkbox-state-based-bg: var(--connect__neutrals-white);
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --connect__state-based-pointer: not-allowed;
-
+  --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
@@ -3660,12 +3664,12 @@ Styles:
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --active-color: var(--connect__neutrals-mid);
-  --connect__state-based-pointer: not-allowed;
+  --active-color: var(--connect__disabled-color);
+  --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 
   &:disabled {
-    --active-color: var(--connect__neutrals-mid);
+    --active-color: var(--connect__disabled-color);
   }
 
   &:hover,
