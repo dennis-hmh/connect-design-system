@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = import('fs');
 
 const svgContent = fs.readFileSync('./public/svg/sprite.svg', 'utf8');
 
@@ -9,8 +9,6 @@ let ids = [];
 while ((match = regex.exec(svgContent)) !== null) {
   ids.push(match[1]);
 }
-
-console.log(ids, 'Done!');
 
 fs.writeFileSync(
   './src/utils/icon-list.ts',

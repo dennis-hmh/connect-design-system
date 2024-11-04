@@ -3,7 +3,7 @@ import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
-import { useButtonMenuContext } from '../../context/ButtonMenuContext';
+import { useButtonMenuContext } from '../../context/ButtonMenuHooks';
 
 export type ButtonMenuProps = {
   id: string;

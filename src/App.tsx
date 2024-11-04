@@ -1,10 +1,10 @@
 // @ts-ignore: React is used implicitly in JSX
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
+import { MultipleChoiceQuestionImage } from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 import { InputText } from './components/InputText/InputText';
-import { Card } from './components/Card/Card';
 import { SelectBox } from './components/SelectBox/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
 import { Chip } from './components/Chip/Chip';
@@ -12,7 +12,6 @@ import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-import { ButtonRive } from './components/ButtonRive/ButtonRive';
 import { RiveGradeBanded } from './components/RiveGradeBanded/RiveGradeBanded';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
@@ -27,9 +26,6 @@ import { Header } from './components/Header/Header';
 
 const App = () => {
   const themeWrapperRef = useRef(null);
-  const [buttonText, setButtonText] = useState('Initial Text');
-  const [playState, setPlayState] = useState('paused');
-  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   return (
     <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
@@ -58,26 +54,6 @@ const App = () => {
           <GridItem>
             <ProgressBar value={30} />
             <br />
-            <ButtonRive
-              primary={true}
-              iconId="loader"
-              additionalClass="connect__button--rive connect__button-loading"
-              children={''}
-              buttonText={buttonText}
-              animSrc="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
-              playState={playState}
-              stateMachine="State Machine 1"
-              disabled={buttonDisabled}
-              iconPosition="after"
-            ></ButtonRive>
-            <button onClick={() => setButtonText('Updated Text')}>Change Button Text</button>
-            <button onClick={() => setPlayState(playState === 'paused' ? 'playing' : 'paused')}>
-              Toggle Play State
-            </button>
-            <button onClick={() => setButtonDisabled(buttonDisabled === true ? false : true)}>
-              Toggle Button State
-            </button>
-            <br />
             <br />
             <SingleImage
               imageSrc="https://picsum.photos/600/400"
@@ -99,49 +75,46 @@ const App = () => {
               </Typography>
             </SingleBlockquote>
             <br />
-            <Chip children={'word'} num={10} />
+            <Chip num={10}>Word</Chip>
             <br />
-            <Card
-              image={true}
-              headerElement="h3"
-              headerContent="This is the Card Header"
-              mainContent="This is the main content of the card"
-              footerContent="This is the footer content"
-            />
-            <Card
-              image={false}
-              headerContent="This is the Card Header"
-              mainContent="This is the main content of the card"
-              footerContent="This is the footer content"
-            />
-            <Figure
-              children={<Image imageSrc="/images/zelda.jpg" altText="This is alt text for Zelda" />}
-              caption="This is the caption for Zelda"
-              cite="- This is the citation for Zelda"
-            />
-            <Figure
-              children={<Blockquote children="This is a sample blockquote for Zelda" />}
-              cite="This is the cite for the blockquote"
-            />
+            <Figure caption="This is the caption for Zelda" cite="- This is the citation for Zelda">
+              <Image imageSrc="/images/zelda.jpg" altText="This is alt text for Zelda" />
+            </Figure>
+            <Figure cite="This is the cite for the blockquote">
+              <Blockquote>This is a sample blockquote for Zelda</Blockquote>
+            </Figure>
             <Stack
               md={{
                 direction: 'row',
                 spacing: 'md',
               }}
             >
-              <Button children={'Click'} primary={true} disabled={false} />
-              <Button children={'Click'} primary={false} disabled={false} />
-              <Button primary={true} children={'submitted'} correct={true} />
-              <Button primary={true} children={'submitted'} incorrect={true} />
-              <Button primary={false} children={'submitted'} correct={true} />
-              <Button primary={false} children={'submitted'} incorrect={true} />
+              <Button primary={true} disabled={false}>
+                Click
+              </Button>
+              <Button primary={false} disabled={false}>
+                Click
+              </Button>
+              <Button primary={true} correct={true}>
+                Submitted
+              </Button>
+              <Button primary={true} incorrect={true}>
+                Submitted
+              </Button>
+              <Button primary={false} correct={true}>
+                Submitted
+              </Button>
+              <Button primary={false} incorrect={true}>
+                Submitted
+              </Button>
               <Button
                 primary={true}
-                children={'Loading'}
                 iconId={'loader'}
                 iconPosition={'before'}
                 additionalClass="connect__button-loading"
-              />
+              >
+                Loading
+              </Button>
             </Stack>
             <br />
             <InputBox
@@ -151,38 +124,27 @@ const App = () => {
               disabled={false}
               correct={false}
               incorrect={false}
-              children={'The mouse rides a bike'}
-            />
+            >
+              The mouse rides a bike'
+            </InputBox>
             <br />
             <br />
             <br />
-            <InputBox
-              type={'radio'}
-              id={'text-id-2'}
-              name={'radio-name'}
-              children={'The mouse rides a bike 1'}
-            />
+            <InputBox type={'radio'} id={'text-id-2'} name={'radio-name'}>
+              The mouse rides a bike 1
+            </InputBox>
             <br />
-            <InputBox
-              type={'radio'}
-              id={'text-id-3'}
-              name={'radio-name'}
-              children={'The mouse rides a bike 2'}
-            />
+            <InputBox type={'radio'} id={'text-id-3'} name={'radio-name'}>
+              The mouse rides a bike 2
+            </InputBox>
             <br />
-            <InputBox
-              type={'radio'}
-              id={'text-id-4'}
-              name={'radio-name'}
-              children={'The mouse rides a bike 3'}
-            />
+            <InputBox type={'radio'} id={'text-id-4'} name={'radio-name'}>
+              The mouse rides a bike 3
+            </InputBox>
             <br />
-            <InputBox
-              type={'radio'}
-              id={'text-id-5'}
-              name={'radio-name'}
-              children={'The mouse rides a bike 4'}
-            />
+            <InputBox type={'radio'} id={'text-id-5'} name={'radio-name'}>
+              The mouse rides a bike 4
+            </InputBox>
             <br />
             <br />
             <br />
@@ -201,30 +163,26 @@ const App = () => {
             <br />
             <br />
             <br /> */}
+            <MultipleChoiceQuestion type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
+              The mouse rides a bike
+            </MultipleChoiceQuestion>
             <MultipleChoiceQuestion
               type={'checkbox'}
-              image={false}
-              id={'msq-id-1'}
-              name={'mcq-name'}
-              children={'The mouse rides a bike'}
-            />
-            <MultipleChoiceQuestion
-              type={'checkbox'}
-              image={false}
               id={'msq-id-2'}
               name={'mcq-name'}
               correct={true}
-              children={'The mouse rides a bike'}
-            />
+            >
+              The mouse rides a bike
+            </MultipleChoiceQuestion>
             <br />
-            <MultipleChoiceQuestion
+            <MultipleChoiceQuestionImage
               type={'checkbox'}
-              image={true}
               id={'msq-id-3'}
               name={'mcq-name'}
               correct={true}
-              children={<Image imageSrc="" altText="This is alt text" />}
-            />
+            >
+              <Image imageSrc="" altText="This is alt text" />
+            </MultipleChoiceQuestionImage>
             <br />
             <br />
             <Stack
@@ -246,13 +204,14 @@ const App = () => {
               }}
             >
               <ButtonSplit
-                children={'My Split Button'}
                 data={[
                   { label: 'My First Label', value: 'my-first-value' },
                   { label: 'My Second Label', value: 'my-second-value' },
                   { label: 'My Third Label', value: 'my-third-value' },
                 ]}
-              />
+              >
+                My Split Button
+              </ButtonSplit>
               <SelectBox
                 defaultValue={'my-third-value'}
                 data={[
@@ -287,8 +246,8 @@ const App = () => {
                   justifyContent: 'start',
                 }}
               >
-                <Button primary={true} children={'Button'} />
-                <Button primary={false} children={'Button'} />
+                <Button primary={true}>Button</Button>
+                <Button primary={false}>Button</Button>
               </Stack>
             </Stack>
           </GridItem>
