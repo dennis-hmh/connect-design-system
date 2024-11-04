@@ -1372,6 +1372,7 @@
   --connect__full-h: 100%;
 
   --connect__opacity-zero: 0;
+  --connect__opacity-one: 1;
 }
 
 @media (min-width: 40.625rem) {
