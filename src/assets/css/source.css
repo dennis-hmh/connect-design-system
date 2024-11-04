@@ -1356,6 +1356,8 @@
   --connect__display-block: block;
   --connect__display-none: none;
 
+  --connect__text-capitalize: capitalize;
+
   --connect__full-w: 100%;
   --connect__full-h: 100%;
 }

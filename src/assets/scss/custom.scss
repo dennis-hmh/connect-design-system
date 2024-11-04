@@ -113,7 +113,7 @@ States:
   --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
   --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
   --connect__button-fw: var(--theme__button-fw, var(--connect__fw-regular));
-  --connect__button-text-transform: var(--theme__button-transform, capitalize);
+  --connect__button-text-transform: var(--theme__button-transform, var(--connect__text-capitalize));
 
   // borders / radius
   --connect__button-border-w: var(--theme__button-border-w, var(--connect__spacer-zero));
@@ -143,7 +143,7 @@ States:
   --connect__button-flow: var(--btn-flow, row wrap);
 
   // margins
-  --connect__button-margin: var(--theme__button-margin, 0);
+  --connect__button-margin: var(--theme__button-margin, var(--connect__spacer-zero));
 
   // icons
   --icon-fill-color: var(
@@ -573,12 +573,11 @@ States:
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white);
 
-
   --connect__input-border-c: var(--connect__neutrals-white, var(--connect__neutrals-null));
 
   --connect__caret-color: var(--connect__selected-mid);
   --connect__input-border-w: var(--connect__spacer-zero);
- 
+
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
   border: var(--connect__input-border-w) solid var(--connect__input-border-c);
   border-radius: var(--connect__border-radius);
@@ -739,7 +738,7 @@ States:
   --connect__select-fs: var(--connect__body-sm, 1.25rem);
   --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
   --connect__select-fw: var(--connect__fw-regular);
-  --connect__select-text-transform: capitalize;
+  --connect__select-text-transform: var(--connect__text-capitalize);
 
   // shadows
   --outer-shadow-color: var(--connect__neutrals-white);
@@ -783,7 +782,7 @@ States:
   line-height: var(--connect__select-lh);
   padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
   position: relative;
-  text-transform: capitalize;
+  text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
 
   &:not(:disabled) {
@@ -1718,7 +1717,10 @@ Usage:
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
     top: 0;
-    width: calc(var(--connect__full-w) + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
+    width: calc(
+      var(--connect__full-w) + var(--connect__header-breakout-w) *
+        var(--connect__header-breakout-w-multi)
+    );
   }
 
   &:not(.connect__breakout):not(.connect__linear):not(.connect__halftone) {
@@ -1774,7 +1776,8 @@ Usage:
       left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
       top: 0;
       width: calc(
-        var(--connect__full-w) + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi)
+        var(--connect__full-w) + var(--connect__header-breakout-w) *
+          var(--connect__header-breakout-w-multi)
       );
     }
   }
@@ -2425,10 +2428,10 @@ Usage:
 .connect__checkbox-label,
 .connect__mcq-label {
   // typography
-  --connect__label-fs: var(--connect__body-sm, 1.25rem);
-  --connect__label-lh: var(--connect__body-sm-lheight, 1.5);
+  --connect__label-fs: var(--connect__body-sm);
+  --connect__label-lh: var(--connect__body-sm-lheight);
   --connect__label-fw: var(--connect__fw-regular);
-  --connect__label-text-transform: capitalize;
+  --connect__label-text-transform: var(--connect__text-capitalize);
 
   // borders / radius
   --connect__label-border-w: var(--connect__spacer-zero);
