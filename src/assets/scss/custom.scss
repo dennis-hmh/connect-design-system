@@ -679,7 +679,6 @@ States:
 
 Variables related to theme/overrides:
   --connect__select-bg: Background color of the select dropdown.
-  --connect__select-icon: Icon used in the select dropdown.
   --connect__select-border-w: Border width of the select dropdown.
   --connect__select-border-c: Border color of the select dropdown.
   --connect__select-fs: Font size of the select text.
@@ -729,6 +728,7 @@ States:
 .connect__select {
   // Palette
   --connect__select-bg: var(--state-based-bg, var(--connect__neutrals-white));
+
   --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --connect__select-border-w: var(--connect__spacer-zero);
   --connect__select-border-c: var(--connect__select-border-c, transparent);
@@ -756,7 +756,7 @@ States:
   appearance: none;
   background-color: var(--connect__select-bg);
 
-  background-image: var(--connect__select-icon);
+  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon));
   background-position: calc(100% - var(--connect__select-padding-x));
   background-repeat: no-repeat;
 
@@ -811,13 +811,6 @@ States:
 
   &:active:not(:disabled) {
     --starting-shadow-color: var(--connect__selected-mid);
-  }
-
-  &-correct,
-  &-incorrect,
-  &-shown,
-  &:disabled {
-    --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%235D5F5F'/%3E%3C/svg%3E");
   }
 
   &::-ms-expand {
@@ -3423,6 +3416,8 @@ Example:
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --connect__state-based-pointer: not-allowed;
+
+  --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
 /* 
@@ -3667,6 +3662,7 @@ Styles:
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --active-color: var(--connect__neutrals-mid);
   --connect__state-based-pointer: not-allowed;
+  --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 
   &:disabled {
     --active-color: var(--connect__neutrals-mid);
