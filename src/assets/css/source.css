@@ -320,7 +320,11 @@
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
   --icon-width: 1.5rem;
-
+  --connect__icon-xs: 1.875rem;
+  --connect__icon-sm: 1.875rem;
+  --connect__icon-md: 1.875rem;
+  --connect__icon-lg: 2.5rem;
+  --connect__icon-xl: 3.125rem;
   --connect__total-border: 0.5rem;
   --connect__border-radius: 0.75rem;
   --connect__effects-inner-edge: 0.1875rem;
@@ -357,6 +361,7 @@
     --connect__spacer-md: 1.0625rem;
     --connect__spacer-sm: 0.5625rem;
     --connect__spacer-xs: 0.25rem;
+    --connect__icon-xl: 3.75rem;
     --connect__border-radius: 0.875rem;
     --connect__inner-radius: 0.375rem;
   }
@@ -390,6 +395,7 @@
     --connect__spacer-md: 1.125rem;
     --connect__spacer-sm: 0.5625rem;
     --connect__spacer-xs: 0.3125rem;
+    --connect__icon-lg: 3.125rem;
 
     --connect__border-radius: 1rem;
     --connect__inner-radius: 0.5rem;
@@ -438,6 +444,11 @@
 
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
+  --connect__icon-xs: 1.25rem;
+  --connect__icon-sm: 1.25rem;
+  --connect__icon-md: 1.875rem;
+  --connect__icon-lg: 1.875rem;
+  --connect__icon-xl: 2.5rem;
 
   --connect__total-border: 0.375rem;
   --connect__border-radius: 0.625rem;
@@ -475,7 +486,8 @@
     --connect__spacer-md: 1rem;
     --connect__spacer-sm: 0.5rem;
     --connect__spacer-xs: 0.25rem;
-
+    --connect__icon-lg: 2.5rem;
+    --connect__icon-xl: 3.75rem;
     --connect__border-radius: 0.75rem;
     --connect__inner-radius: 0.375rem;
   }
@@ -509,7 +521,7 @@
     --connect__spacer-md: 1.0625rem;
     --connect__spacer-sm: 0.5625rem;
     --connect__spacer-xs: 0.25rem;
-
+    --connect__icon-lg: 3.125rem;
     --connect__border-radius: 0.875rem;
     --connect__inner-radius: 0.5rem;
   }
@@ -543,6 +555,11 @@
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
   --icon-width: 1.5rem;
+  --connect__icon-xs: 1.25rem;
+  --connect__icon-sm: 1.25rem;
+  --connect__icon-md: 1.875rem;
+  --connect__icon-lg: 1.875rem;
+  --connect__icon-xl: 2.5rem;
 
   --connect__total-border: 0.375rem;
   --connect__border-radius: 0.5rem;
@@ -593,6 +610,8 @@
     --connect__spacer-md: 0.9375rem;
     --connect__spacer-sm: 0.5rem;
     --connect__spacer-xs: 0.25rem;
+    --connect__icon-lg: 2.5rem;
+    --connect__icon-xl: 3.125rem;
 
     --connect__border-radius: 0.625rem;
     --connect__inner-radius: 0.25rem;
@@ -627,6 +646,9 @@
     --connect__spacer-md: 0.9375rem;
     --connect__spacer-sm: 0.5rem;
     --connect__spacer-xs: 0.25rem;
+    --connect__icon-xs: 1.25rem;
+    --connect__icon-lg: 3.75rem;
+    --connect__icon-xl: 3.125rem;
 
     --connect__border-radius: 0.75rem;
     --connect__inner-radius: 0.375rem;
@@ -661,6 +683,12 @@
   --connect__spacer-md: 0.8125rem;
   --connect__spacer-sm: 0.4063rem;
   --connect__spacer-xs: 0.2031rem;
+
+  --connect__icon-xs: 1.25rem;
+  --connect__icon-sm: 1.25rem;
+  --connect__icon-md: 1.875rem;
+  --connect__icon-lg: 1.875rem;
+  --connect__icon-xl: 1.875rem;
 
   --connect__total-border: 0.375rem;
   --connect__border-radius: 0.5rem;
@@ -747,6 +775,7 @@
     --connect__spacer-md: 0.875rem;
     --connect__spacer-sm: 0.4375rem;
     --connect__spacer-xs: 0.2188rem;
+    --connect__icon-xl: 2.5rem;
 
     --connect__border-radius: 0.625rem;
     --connect__inner-radius: 0.25rem;
@@ -1261,17 +1290,19 @@
   --ui-button: 2rem;
   --connect__ui-icon: 1.25rem;
 
-  --connect__icon-xs: 1rem;
-  --connect__icon-sm: calc(var(--connect__icon-xs) * 1.5);
-  --connect__icon-md: calc(var(--connect__icon-xs) * 2);
-  --connect__icon-lg: calc(var(--connect__icon-xs) * 2.5);
-  --connect__icon-xl: calc(var(--connect__icon-xs) * 3);
-  --connect__icon-xxl: calc(var(--connect__icon-xs) * 3.5);
-
   --connect__shadow-10: rgba(0, 0, 0, 0.1);
   --connect__shadow-12: rgba(0, 0, 0, 0.12);
   --connect__shadow-14: rgba(0, 0, 0, 0.14);
   --connect__shadow-20: rgba(0, 0, 0, 0.2);
+
+  --connect__fw-extra-light: 200; /* Extra Light */
+  --connect__fw-light: 300; /* Light */
+  --connect__fw-regular: 400; /* Regular / Normal */
+  --connect__fw-medium: 500; /* Medium */
+  --connect__fw-semi-bold: 600; /* Semi-Bold */
+  --connect__fw-bold: 700; /* Bold */
+  --connect__fw-extra-bold: 800; /* Extra Bold */
+  --connect__fw-black: 900; /* Black */
 
   --connect__shadow-spread-level-0: 0rem 0rem 0rem 0rem;
   --connect__shadow-spread-level-1: 0rem 0rem 0rem 0.0625rem;
@@ -1304,6 +1335,8 @@
   --connect__transition-medium: 500ms;
   --connect__transition-slow: 700ms;
 
+  --connect__spacer-zero: 0rem;
+
   --connect__cc-purple: rgb(113, 47, 253);
 
   --connect__brand-magenta: rgb(255, 0, 179);
@@ -1316,6 +1349,13 @@
 
   --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
   --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
+
+
+  --connect__dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
+  --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%235D5F5F'/%3E%3C/svg%3E");
+
+  --connect__display-block: block;
+  --connect__display-none: none;
 }
 
 @media (min-width: 40.625rem) {
@@ -1363,10 +1403,15 @@ A modern 2024 take on the reset
 :where([class^='connect__']) > video,
 :where([class^='connect__']) > canvas,
 :where([class^='connect__']) > svg {
-  display: block;
-  max-inline-size: 100%;
-  max-width: 100%;
+  display: var(--connect__media-display, var(--connect__display-block));
+  max-inline-size: var(--connect__media-max-inline-size, 100%);
+  max-width: var(--connect__media-max-width, 100%);
 }
+:where([class^='connect__']) > img {
+  border-radius: var(--connect__img-br, var(--connect__border-radius, 0));
+  width: 100%;
+}
+
 
 /* 
     the isolation property allows us to create a new stacking context without needing to set a z-index.
@@ -1440,7 +1485,7 @@ A modern 2024 take on the reset
 }
 
 :where([class^='connect__']) :where(h1, h2, h3, h4, h5) {
-  font-weight: var(--connect__font-weight, var(--variant__font-weight, initial));
+  font-weight: var(--connect__fw, var(--variant__fw, initial));
   hyphens: auto;
   margin-block: 0;
   text-wrap: balance;

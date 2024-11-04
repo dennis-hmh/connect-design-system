@@ -27,7 +27,7 @@ export function Card({
 }: CardProps) {
   return (
     <article className="connect__card" data-testid={dataTestId}>
-      {image && <Figure children={children} dataTestId={dataTestId} />}
+      {image && <Figure>{children}</Figure>}
       <CardHeader headerElement={headerElement}>{headerContent}</CardHeader>
       <CardMain>{mainContent}</CardMain>
       <CardFooter>{footerContent}</CardFooter>
