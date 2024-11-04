@@ -1342,6 +1342,9 @@
   --connect__brand-magenta: rgb(255, 0, 179);
   --connect__brand-deep-magenta: rgb(204, 0, 192);
   --connect__brand-pale-magenta: rgb(255, 238, 254);
+
+  --connect__display-block: block;
+  --connect__display-none: none;
 }
 
 @media (min-width: 40.625rem) {
@@ -1389,15 +1392,15 @@ A modern 2024 take on the reset
 :where([class^='connect__']) > video,
 :where([class^='connect__']) > canvas,
 :where([class^='connect__']) > svg {
-  display: var(--connect__media-display, block);
+  display: var(--connect__media-display, var(--connect__display-block));
   max-inline-size: var(--connect__media-max-inline-size, 100%);
   max-width: var(--connect__media-max-width, 100%);
 }
-
 :where([class^='connect__']) > img {
   border-radius: var(--connect__img-br, var(--connect__border-radius, 0));
   width: 100%;
 }
+
 
 /* 
     the isolation property allows us to create a new stacking context without needing to set a z-index.
