@@ -22,7 +22,7 @@ export const Paper: React.FC<PaperProps> = ({
   const paperClassName = [
     'connect__paper',
     elevation !== undefined ? `connect__elevation-${elevation}` : '',
-    roundedCorner ? '' : 'connect__rounded-off',
+    roundedCorner ? 'connect__rounded-corners' : '',
     className ? className : '',
   ]
     .filter(Boolean)

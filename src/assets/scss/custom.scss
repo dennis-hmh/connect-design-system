@@ -573,12 +573,11 @@ States:
   --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
   --connect__input-bg: var(--connect__neutrals-white);
 
-
   --connect__input-border-c: var(--connect__neutrals-white, var(--connect__neutrals-null));
 
   --connect__caret-color: var(--connect__selected-mid);
   --connect__input-border-w: var(--connect__spacer-zero);
- 
+
   --connect__input-h: 100%;
 
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
@@ -3321,7 +3320,7 @@ Example:
 .connect__paper {
   --connect__paper-radius: var(
     --theme__paper-radius,
-    var(--variant__paper-radius, var(--connect__border-radius))
+    var(--variant__paper-radius, var(--connect__spacer-zero, 0))
   );
 
   border-radius: var(--connect__paper-radius);
@@ -3353,8 +3352,8 @@ Example:
     --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
   }
 
-  &.connect__rounded-off {
-    --variant__paper-radius: var(--connect__spacer-zero, 0);
+  &.connect__rounded-corners {
+    --variant__paper-radius: var(--connect__border-radius);
   }
 }
 
