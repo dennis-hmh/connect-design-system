@@ -62,7 +62,7 @@ export const Typography: React.FC<TypographyProps> = ({
   }
   if (style) typoProps.fontStyle = style;
   if (weight) {
-    const weightVariable = `--connect__font-weight`;
+    const weightVariable = `--connect__fw`;
     typoProps.fontWeight = `var(${weightVariable}, ${weight})`;
   }
   if (textAlign) typoProps.textAlign = textAlign;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
+import { Paper } from '../Paper/Paper';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 export type SidebarProps = {
@@ -8,12 +9,12 @@ export type SidebarProps = {
   gradeBand?: GradeBand;
 };
 
-export const Sidebar: React.FC<SidebarProps> = ({ children, dataTestId }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   return (
     <ButtonMenuProvider>
-      <aside className="connect__aside" data-testid={dataTestId}>
+      <Paper element="aside" elevation={2} className="connect__aside">
         {children}
-      </aside>
+      </Paper>
     </ButtonMenuProvider>
   );
 };

@@ -39,7 +39,6 @@ export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
-  image: false,
   id: 'answer',
   name: 'mcq',
   checked: false,

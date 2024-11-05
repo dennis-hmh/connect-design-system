@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Figure } from '../Figure/Figure';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -35,6 +35,10 @@ export function MultipleChoiceQuestionImage({
   const handleChange = () => {
     setIsChecked(checkRef.current?.checked ?? false);
   };
+
+  useEffect(() => {
+    setIsChecked(checked || false);
+  }, [checked]);
 
   let inputAriaLabel = 'Multiple Choice Question';
   if (correct) {

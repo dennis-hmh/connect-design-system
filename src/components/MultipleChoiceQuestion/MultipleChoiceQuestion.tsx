@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionProp = {
@@ -34,6 +34,10 @@ export function MultipleChoiceQuestion({
   const handleChange = () => {
     setIsChecked(checkRef.current?.checked ?? false);
   };
+
+  useEffect(() => {
+    setIsChecked(checked || false);
+  }, [checked]);
 
   let inputAriaLabel = 'Multiple Choice Question';
   if (correct) {

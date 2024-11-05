@@ -44,7 +44,6 @@ export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
-  image: true,
   children: <Image imageSrc="" altText="The mouse rides a bike" />,
   id: 'answer',
   name: 'mcq',
