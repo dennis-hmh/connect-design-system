@@ -1,28 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 import '@connect/hmh-rive';
 
-export type RiveGradeBandedProps = {
-  gradeBand?: GradeBand;
-  srcDefault?: string;
-  src23?: string;
-  src45?: string;
-  src68?: string;
-  src912?: string;
-  descDefault?: string;
-  desc23?: string;
-  desc45?: string;
-  desc68?: string;
-  desc912?: string;
-  stateMachine?: string;
-  artboard?: string;
-  autoplay?: boolean;
-  hidePlayPause?: boolean;
-  playState?: string;
-  contain?: boolean;
-  height?: boolean;
-};
+// Define the type for the custom <hmh-rive> element
+interface HmhRiveElement extends HTMLElement {
+  inputs?: { [key: string]: { value: any } };
+  setAttribute(key: string, value: any): void;
+}
 
 export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
   gradeBand,
@@ -43,7 +28,11 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
   playState = 'playing',
   contain = false,
   height,
+  inputs = {},
 }) => {
+  // Use the custom type for the ref
+  const hmhRiveRef = useRef<HmhRiveElement>(null);
+
   const getValuesForGradeBand = () => {
     switch (gradeBand) {
       case GradeBand.G2_3:
@@ -76,9 +65,23 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
 
   const { riveSrc: finalRiveSrc, altText: finalAltText } = getValuesForGradeBand();
 
+  // Update inputs on the <hmh-rive> element whenever they change
+  useEffect(() => {
+    if (hmhRiveRef.current) {
+      console.log('Updating inputs on hmhRiveRef:', inputs);
+      Object.entries(inputs).forEach(([key, value]) => {
+        hmhRiveRef.current?.setAttribute(key, value);
+        if (hmhRiveRef.current?.inputs?.[key]) {
+          hmhRiveRef.current.inputs[key].value = value;
+        }
+      });
+    }
+  }, [inputs]);
+  
   return (
     <GradeBandContext.Provider value={gradeBand}>
       <hmh-rive
+        ref={hmhRiveRef}
         src={finalRiveSrc}
         desc={finalAltText}
         autoplay={autoplay}
@@ -88,6 +91,7 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
         artboard={artboard}
         contain={contain}
         height={height}
+        inputs
       ></hmh-rive>
     </GradeBandContext.Provider>
   );

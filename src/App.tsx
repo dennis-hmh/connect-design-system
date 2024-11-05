@@ -24,8 +24,11 @@ import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
 
-const App = () => {
+const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
+
+  // State to manage the `animState` input for RiveGradeBanded
+  const [animationState, setAnimationState] = useState(0);
 
   return (
     <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
@@ -36,7 +39,7 @@ const App = () => {
 
         <Grid gutter={true} gap="md">
           <GridItem>
-            <RiveGradeBanded
+            {/* <RiveGradeBanded
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
               src23="https://chrisrooke-hmh.github.io/core-public/animations/dino.riv"
@@ -49,7 +52,19 @@ const App = () => {
               desc912="Grade 9-12"
               hidePlayPause={true}
               autoplay={true}
+            /> */}
+            <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
+            <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
+            <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
+
+            <RiveGradeBanded
+              srcDefault="/rive/timer.riv"
+              descDefault="hi"
+              hidePlayPause={true}
+              autoplay={true}
+              inputs={{ animationState }} 
             />
+
           </GridItem>
           <GridItem>
             <ProgressBar value={30} />
