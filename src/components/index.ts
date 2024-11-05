@@ -18,6 +18,7 @@ export * from './InputBox/InputBox';
 export * from './InputText/InputText';
 export * from './List/List';
 export * from './MultipleChoiceQuestion/MultipleChoiceQuestion';
+export * from './Paper/Paper';
 export * from './ProgressBar/ProgressBar';
 export * from './RiveGradeBanded/RiveGradeBanded';
 export * from './SelectBox/SelectBox';

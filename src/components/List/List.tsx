@@ -20,8 +20,6 @@ export const List: React.FC<ListProps> = ({
   const variantClass = variants !== 'none' ? `connect__list-${variants}` : '';
   data = data || [];
 
-  console.log('variants', variants);
-
   return listType === 'ordered' ? (
     <ol className={`connect__list ${variantClass} ${className}`} data-testid={dataTestId}>
       {data.map((item, index) => (

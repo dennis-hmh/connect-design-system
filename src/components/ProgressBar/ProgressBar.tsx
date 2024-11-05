@@ -11,13 +11,13 @@ export type ProgressBarProps = {
   gradeBand?: GradeBand;
 };
 
-export function ProgressBar({
+export const ProgressBar: React.FC<ProgressBarProps> = ({
   value,
   max = 100,
   barColor,
   backgroundColor,
   dataTestId,
-}: ProgressBarProps) {
+}) => {
   const customStyles: React.CSSProperties & {
     '--theme__progress-bg'?: string;
     '--theme__progress-color'?: string;
@@ -39,4 +39,4 @@ export function ProgressBar({
       </progress>
     </div>
   );
-}
+};
