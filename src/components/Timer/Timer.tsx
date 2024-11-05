@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect, useRef } from 'react';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { GradeBand } from 'src/enum/gradeband';
@@ -38,6 +39,11 @@ export const Timer: React.FC<TimerProps> = ({
   progressBar = false,
   dataTestId,
 }) => {
+  // Validate the time prop
+  // if (isNaN(time)) {
+  //   throw new Error('Invalid time prop');
+  // }
+
   const [remainingTime, setRemainingTime] = useState(time);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -66,9 +72,15 @@ export const Timer: React.FC<TimerProps> = ({
     setRemainingTime(time);
   }, [time]);
 
+  // Debugging: Log remainingTime
+  console.log('remainingTime:', remainingTime);
+
   const hours = Math.floor(remainingTime / 3600000);
-  const minutes = Math.floor(remainingTime / 60000) % 60;
+  const minutes = Math.floor((remainingTime % 3600000) / 60000);
   const seconds = Math.floor((remainingTime % 60000) / 1000);
+
+  // Debugging: Log calculated time values
+  //console.log('hours:', hours, 'minutes:', minutes, 'seconds:', seconds);
 
   const formattedTime = hours
     ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
@@ -83,20 +95,16 @@ export const Timer: React.FC<TimerProps> = ({
     };
   }
 
-  const percentage = ((remainingTime / time) * 100).toFixed(1);
-
   return (
-    <div className="connect__timer-wrapper">
-      <time
-        className={`connect__timer ${className ? className : ''}`}
-        aria-live={ariaLive}
-        data-percentage={percentage}
-        data-testid={dataTestId}
-        style={typoProps}
-      >
+    <div
+      className={`connect__timer-wrapper ${className ? className : ''}`}
+      style={typoProps}
+      data-testid={dataTestId}
+    >
+      <time className="connect__timer" aria-live={ariaLive}>
         {formattedTime}
       </time>
-      {progressBar && <ProgressBar value={Number(percentage)} max={100} />}
+      {progressBar && <ProgressBar value={(remainingTime / time) * 100} max={100} />}
     </div>
   );
 };
