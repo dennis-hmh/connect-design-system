@@ -32,7 +32,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*", "src/**/**/*", "src/types/*", "src/types/**/*"],
+  "include": [
+    "src",
+    "src/**/*",
+    "src/**/**/*",
+    "src/types/*",
+    "src/types/**/*",
+    "vitest.config.ts"
+  ],
   "exclude": ["src/**/**/*.stories.tsx", "src/components/**/*.stories.tsx", "node_modules/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
