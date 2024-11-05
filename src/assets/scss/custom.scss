@@ -738,7 +738,6 @@ States:
   --connect__select-fs: var(--connect__body-sm, 1.25rem);
   --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
   --connect__select-fw: var(--connect__fw-regular);
-  --connect__select-text-transform: var(--connect__text-capitalize);
 
   // shadows
   --outer-shadow-color: var(--connect__neutrals-white);
@@ -782,7 +781,6 @@ States:
   line-height: var(--connect__select-lh);
   padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
   position: relative;
-  text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
 
   &:not(:disabled) {
@@ -2689,7 +2687,7 @@ Usage:
 
 :where([class^='connect__']) input[type='radio'] {
   + label {
-    --variant__mcq-radius: 50%;
+    --variant__mcq-radius: var(--connect__half-radius);
   }
 }
 

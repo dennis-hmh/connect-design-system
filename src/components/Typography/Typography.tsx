@@ -71,6 +71,7 @@ export const Typography: React.FC<TypographyProps> = ({
   if (size) {
     typoProps.fontSize = `var(--connect__${size})`;
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
+    typoProps.marginBottom = `var(--connect__${size}-type-spacer)`;
   }
 
   return (

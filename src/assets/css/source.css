@@ -1371,8 +1371,15 @@
   --connect__full-w: 100%;
   --connect__full-h: 100%;
 
+  --connect__half-radius: 50%;
+
   --connect__opacity-zero: 0;
   --connect__opacity-one: 1;
+
+  --connect__absolute: absolute;
+  --connect__relative: relative;
+
+  --connect__animation-reset: none;
 }
 
 @media (min-width: 40.625rem) {
