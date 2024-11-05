@@ -1365,6 +1365,7 @@
 
   --connect__display-block: block;
   --connect__display-none: none;
+  --connect__display-grid: grid;
 
   --connect__text-capitalize: capitalize;
 

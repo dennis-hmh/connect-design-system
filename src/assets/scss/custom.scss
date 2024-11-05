@@ -390,7 +390,7 @@ States:
         )
         border-box;
     border: var(--connect__button-border-w) solid transparent;
-    display: grid;
+    display: var(--connect__display-grid);
     grid-template-rows: 1fr;
     isolation: isolate;
     justify-content: center;
@@ -738,6 +738,7 @@ States:
   --connect__select-fs: var(--connect__body-sm, 1.25rem);
   --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
   --connect__select-fw: var(--connect__fw-regular);
+  --connect__select-text-transform: var(--connect__text-capitalize);
 
   // shadows
   --outer-shadow-color: var(--connect__neutrals-white);
@@ -781,6 +782,7 @@ States:
   line-height: var(--connect__select-lh);
   padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
   position: relative;
+  text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
 
   &:not(:disabled) {
@@ -2008,7 +2010,7 @@ example:
   --default-grid-gap: var(--connect__spacer-xl);
   --grid-cols: var(--theme-col-amount, 12);
   align-content: start;
-  display: grid;
+  display: var(--connect__display-grid);
   gap: var(--theme__content-gap, var(--default-grid-gap));
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -2034,7 +2036,7 @@ example:
 
   // Make nested .connect__grid elements use subgrid
   .connect__grid {
-    display: grid;
+    display: var(--connect__display-grid);
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
@@ -2429,7 +2431,6 @@ Usage:
   --connect__label-fs: var(--connect__body-sm);
   --connect__label-lh: var(--connect__body-sm-lheight);
   --connect__label-fw: var(--connect__fw-regular);
-  --connect__label-text-transform: var(--connect__text-capitalize);
 
   // borders / radius
   --connect__label-border-w: var(--connect__spacer-zero);
@@ -2508,7 +2509,6 @@ Usage:
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
 
   position: relative;
-  text-transform: var(--connect__label-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
@@ -2564,7 +2564,7 @@ Usage:
   --connect__mcq-input-margin: var(--connect__spacer-xs);
 
   align-items: flex-start;
-  display: grid;
+  display: var(--connect__display-grid);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
@@ -3089,7 +3089,7 @@ Example:
     var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
     var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
   column-gap: var(--connect__toolbar-col-gap);
-  display: grid;
+  display: var(--connect__display-grid);
   grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
   grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
   padding: var(--connect__spacer-xs);
