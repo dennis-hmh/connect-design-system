@@ -821,7 +821,7 @@
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
-  
+
   /* 2.2: Font Weights */
   --connect__fw-extra-light: 200;
   --connect__fw-light: 300;
@@ -1364,7 +1364,7 @@
   --connect__shadow-12: rgba(0, 0, 0, 0.12);
   --connect__shadow-14: rgba(0, 0, 0, 0.14);
   --connect__shadow-20: rgba(0, 0, 0, 0.2);
-  
+
   /*
     4.2: Shadow Spread Levels
   */
@@ -1423,9 +1423,20 @@
   /* 6.1: Displays */
   --connect__display-block: block;
   --connect__display-none: none;
+  --connect__display-grid: grid;
 
   /* 6.2: Resets */
   --connect__spacer-zero: 0rem;
+  --connect__opacity-zero: 0;
+  --connect__opacity-one: 1;
+  --connect__absolute: absolute;
+  --connect__relative: relative;
+  --connect__animation-reset: none;
+  --connect__z-1: var(--variant__z, 1);
+  --connect__scale-full: 1;
+  --connect__full-w: 100%;
+  --connect__full-h: 100%;
+  --connect__text-capitalize: capitalize;
 
   /* 6.3: Feedback Iconography */
   --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
