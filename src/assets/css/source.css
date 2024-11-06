@@ -821,6 +821,7 @@
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
+  
   /* 2.2: Font Weights */
   --connect__fw-extra-light: 200;
   --connect__fw-light: 300;
@@ -1363,9 +1364,11 @@
   --connect__shadow-12: rgba(0, 0, 0, 0.12);
   --connect__shadow-14: rgba(0, 0, 0, 0.14);
   --connect__shadow-20: rgba(0, 0, 0, 0.2);
+  
   /*
     4.2: Shadow Spread Levels
   */
+
   --connect__shadow-spread-level-0: 0rem 0rem 0rem 0rem;
   --connect__shadow-spread-level-1: 0rem 0rem 0rem 0.0625rem;
   --connect__shadow-spread-level-2: 0rem 0rem 0rem 0.125rem;
