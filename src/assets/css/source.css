@@ -1380,6 +1380,8 @@
   --connect__absolute: absolute;
   --connect__relative: relative;
 
+  --connect__z-1: var(--variant__z, 1);
+  --connect__scale-full: 1;
   --connect__animation-reset: none;
 }
 

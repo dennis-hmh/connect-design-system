@@ -850,7 +850,7 @@ States:
     position: absolute;
     top: 100%;
     width: var(--connect__full-w);
-    z-index: 1;
+    z-index: var(--connect__z-1);
   }
 
   .connect__list-item {
@@ -1513,7 +1513,7 @@ Usage:
     position: absolute;
     right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r, -1));
     top: var(--connect__breakout-t);
-    z-index: var(--connect__breakout-z, 1);
+    z-index: var(--connect__breakout-z, var(--connect__z-1));
   }
 }
 
@@ -1657,7 +1657,7 @@ Usage:
   position: relative;
 
   > * {
-    z-index: 1;
+    z-index: var(--connect__z-1);
   }
 
   &::before,
@@ -2572,14 +2572,15 @@ Usage:
     grid-column: 1;
     grid-row: 1;
     left: calc(var(--connect__label-padding-x) / 2);
-    position: absolute;
+    position: var(--connect__absolute);
     top: calc(var(--connect__label-padding-y) / 2);
-    z-index: 2;
+    z-index: var(--connect__z-1);
   }
 
   &::after {
     background-color: var(--theme__mcq-bg, var(--connect__mcq-bg));
-    border-radius: var(--theme__inner-radius, var(--connect__inner-radius)) 0;
+    border-radius: var(--theme__inner-radius, var(--connect__inner-radius))
+      var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
