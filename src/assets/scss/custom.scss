@@ -402,7 +402,7 @@ States:
     &::after {
       content: '';
       position: absolute;
-      width: 100%;
+      width: var(--connect__full-w);
     }
 
     &:is(:hover, :focus-visible):not(:disabled) {
@@ -577,9 +577,7 @@ States:
 
   --connect__caret-color: var(--connect__selected-mid);
   --connect__input-border-w: var(--connect__spacer-zero);
-
-  --connect__input-h: 100%;
-
+ 
   background-color: var(--state-based-bg, var(--connect__neutrals-white));
   border: var(--connect__input-border-w) solid var(--connect__input-border-c);
   border-radius: var(--connect__border-radius);
@@ -598,7 +596,7 @@ States:
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
-  width: var(--connect__input-width, 100%);
+  width: var(--connect__input-width, var(--connect__full-w));
 
   &:not(:disabled) {
     &:hover,
@@ -760,7 +758,7 @@ States:
   background-color: var(--connect__select-bg);
 
   background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon));
-  background-position: calc(100% - var(--connect__select-padding-x));
+  background-position: calc(var(--connect__full-w) - var(--connect__select-padding-x));
   background-repeat: no-repeat;
 
   background-size: var(--connect__ui-icon) var(--connect__ui-icon);
@@ -785,7 +783,7 @@ States:
   padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
   position: relative;
   text-transform: capitalize;
-  width: 100%;
+  width: var(--connect__full-w);
 
   &:not(:disabled) {
     &:hover,
@@ -851,7 +849,7 @@ States:
     padding: 0;
     position: absolute;
     top: 100%;
-    width: 100%;
+    width: var(--connect__full-w);
     z-index: 1;
   }
 
@@ -1025,14 +1023,14 @@ States:
         var(--connect__shadow-level-3) var(--connect__shadow-14),
         var(--connect__shadow-level-4) var(--connect__shadow-12);
       content: '';
-      height: 100%;
+      height: var(--connect__full-h);
       left: 0;
       position: absolute;
       top: 0;
       transition-duration: var(--connect__transition-medium);
       transition-property: visibility, opacity, transform, max-height;
       transition-timing-function: var(--connect__ease-out);
-      width: 100%;
+      width: var(--connect__full-w);
       z-index: -1;
     }
 
@@ -1076,7 +1074,7 @@ States:
 
         position: absolute;
         top: 0;
-        width: calc(100% - var(--connect__spacer-xl));
+        width: calc(var(--connect__full-w) - var(--connect__spacer-xl));
       }
     }
   }
@@ -1160,13 +1158,13 @@ Styles:
   gap: var(--connect__card-gap);
   padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
-  width: 100%;
+  width: var(--connect__full-w);
 
   .connect__figure,
   .connect__card-header,
   .connect__card-content,
   .connect__card-footer {
-    width: 100%;
+    width: var(--connect__full-w);
   }
 
   header,
@@ -1273,7 +1271,7 @@ Styles:
         }
 
         .connect__toolbar-item-menu-item-sub-menu {
-          height: 100%;
+          height: var(--connect__full-h);
         }
       }
 
@@ -1475,7 +1473,7 @@ Usage:
       top: var(--theme__connect-breakout-t-before, 0);
       width: var(
         --theme__connect-breakout-w-before,
-        calc(100% + 2 * var(--connect__breakout-gutter-w))
+        calc(var(--connect__full-w) + 2 * var(--connect__breakout-gutter-w))
       );
       z-index: var(--theme__connect-breakout-z-before, 0);
     }
@@ -1492,7 +1490,7 @@ Usage:
       top: var(--theme__connect-breakout-t-after, 0);
       width: var(
         --theme__connect-breakout-w-after,
-        calc(100% + 2 * var(--connect__breakout-gutter-w))
+        calc(var(--connect__full-w) + 2 * var(--connect__breakout-gutter-w))
       );
 
       z-index: var(--theme__connect-breakout-z-after, 0);
@@ -1684,7 +1682,7 @@ Usage:
       var(--gutter-width)
     );
 
-    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
+    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, var(--connect__full-w));
 
     // Single border radius for all corners
     --connect__header-border-r-before: var(
@@ -1719,7 +1717,7 @@ Usage:
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
     top: 0;
-    width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
+    width: calc(var(--connect__full-w) + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
   }
 
   &:not(.connect__breakout):not(.connect__linear):not(.connect__halftone) {
@@ -1739,7 +1737,7 @@ Usage:
         var(--gutter-width)
       );
 
-      --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
+      --connect__header-breakout-h: var(--theme__connect-header-breakout-h, var(--connect__full-h));
 
       // Single border radius for all corners
       --connect__header-border-r-before: var(
@@ -1775,7 +1773,7 @@ Usage:
       left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
       top: 0;
       width: calc(
-        100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi)
+        var(--connect__full-w) + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi)
       );
     }
   }
@@ -1949,7 +1947,7 @@ Breakout Section:
   padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
     var(--connect__footer-padding-b) var(--connect__footer-padding-l);
   position: var(--connect__footer-position);
-  width: 100%;
+  width: var(--connect__full-w);
 
   &::after {
     background-color: var(--connect__footer-breakout-bg);
@@ -1959,7 +1957,7 @@ Breakout Section:
     left: calc(var(--connect__footer-breakout-l) * var(--gutter-width));
     position: absolute;
     top: var(--connect__footer-position-t);
-    width: calc(100% + var(--connect__footer-breakout-w) * var(--gutter-width));
+    width: calc(var(--connect__full-w) + var(--connect__footer-breakout-w) * var(--gutter-width));
   }
 }
 
@@ -2014,7 +2012,7 @@ example:
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
   position: relative;
-  width: var(--theme__connect-grid-width, 100%);
+  width: var(--theme__connect-grid-width, var(--connect__full-w));
   // Apply margin to all direct children except .connect__grid and section
   > *:not(.connect__grid):not(section):not(.connect__breakout) {
     @media (min-width: 40.625rem) {
@@ -2135,7 +2133,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
   justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
-  width: 100%;
+  width: var(--connect__full-w);
 
   &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);
@@ -2335,7 +2333,7 @@ Usage:
   display: inline-flex;
   flex: 1;
   position: relative;
-  width: 100%;
+  width: var(--connect__full-w);
 
   &::after {
     background-image: var(--state-icon);
@@ -2463,7 +2461,7 @@ Usage:
   --connect__label-padding-y: calc(var(--connect__total-border) + var(--connect__spacer-xs));
   --connect__label-padding-x: calc(var(--connect__total-border) + var(--connect__spacer-sm));
   --connect__label-justify-content: var(--connect__card-justify, start);
-  --connect__label-w: 100%;
+  --connect__label-w: var(--connect__full-w);
 
   // inputs
   --connect__input-dimensions: var(--connect__caption-lheight);
@@ -2682,7 +2680,7 @@ Usage:
 }
 
 .connect__progress-wrapper {
-  width: 100%;
+  width: var(--connect__full-w);
 }
 
 /* 
@@ -2753,7 +2751,7 @@ Transitions:
     var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
     var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
   overflow: hidden;
-  width: 100%;
+  width: var(--connect__full-w);
 
   // Outer bars
   &::-webkit-progress-bar {
@@ -2943,7 +2941,7 @@ Example:
 .connect__divider {
   --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
   --connect__divider-h: var(--theme__divider-h, 0.1875rem);
-  --connect__divider-w: var(--theme__divider-w, 100%);
+  --connect__divider-w: var(--theme__divider-w, var(--connect__full-w));
   --connect__divider-br: var(--theme__divider-br, var(--connect__border-radius));
   --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
 
