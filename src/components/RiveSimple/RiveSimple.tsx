@@ -9,7 +9,7 @@ interface HmhRiveElement extends HTMLElement {
   setAttribute(key: string, value: any): void;
 }
 
-export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
+export const RiveSimple: React.FC<RiveSimpleProps> = ({
   gradeBand,
   srcDefault,
   src23,
@@ -89,8 +89,8 @@ export const RiveGradeBanded: React.FC<RiveGradeBandedProps> = ({
         hidePlayPause={hidePlayPause}
         stateMachine={stateMachine}
         artboard={artboard}
-        contain={contain}
-        height={height}
+        {...(contain && { contain })}
+        {...(height && { height })}
         inputs
       ></hmh-rive>
     </GradeBandContext.Provider>

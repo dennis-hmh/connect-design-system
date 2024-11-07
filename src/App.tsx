@@ -12,7 +12,7 @@ import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-import { RiveGradeBanded } from './components/RiveGradeBanded/RiveGradeBanded';
+import { RiveSimple } from './components/RiveSimple/RiveSimple';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
@@ -27,7 +27,7 @@ import { Header } from './components/Header/Header';
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
 
-  // State to manage the `animState` input for RiveGradeBanded
+  // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState(0);
 
   return (
@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
         <Grid gutter={true} gap="md">
           <GridItem>
-            {/* <RiveGradeBanded
+            {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
               src23="https://chrisrooke-hmh.github.io/core-public/animations/dino.riv"
@@ -53,11 +53,7 @@ const App: React.FC = () => {
               hidePlayPause={true}
               autoplay={true}
             /> */}
-            <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
-            <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
-            <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
-
-            <RiveGradeBanded
+            <RiveSimple
               srcDefault="/rive/timer.riv"
               descDefault="hi"
               hidePlayPause={true}
@@ -65,6 +61,11 @@ const App: React.FC = () => {
               inputs={{ animationState }} 
             />
 
+          </GridItem>
+          <GridItem>
+            <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
+            <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
+            <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
           </GridItem>
           <GridItem>
             <ProgressBar value={30} />

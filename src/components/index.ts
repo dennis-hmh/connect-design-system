@@ -20,7 +20,7 @@ export * from './List/List';
 export * from './MultipleChoiceQuestion/MultipleChoiceQuestion';
 export * from './Paper/Paper';
 export * from './ProgressBar/ProgressBar';
-export * from './RiveGradeBanded/RiveGradeBanded';
+export * from './RiveSimple/RiveSimple';
 export * from './SelectBox/SelectBox';
 export * from './SelectBox/SelectBox';
 export * from './Sidebar/Sidebar';

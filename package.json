@@ -39,7 +39,7 @@
   "devDependencies": {
     "@changesets/cli": "2.27.9",
     "@chromatic-com/storybook": "^2.0.2",
-    "@connect/hmh-rive": "^2.0.1",
+    "@connect/hmh-rive": "^2.0.4",
     "@eslint/compat": "^1.2.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
