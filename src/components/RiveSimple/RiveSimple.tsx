@@ -3,6 +3,28 @@ import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 import '@connect/hmh-rive';
 
+export type RiveSimpleProps = {
+  gradeBand?: GradeBand;
+  srcDefault?: string;
+  src23?: string;
+  src45?: string;
+  src68?: string;
+  src912?: string;
+  descDefault?: string;
+  desc23?: string;
+  desc45?: string;
+  desc68?: string;
+  desc912?: string;
+  stateMachine?: string;
+  artboard?: string;
+  autoplay?: boolean;
+  hidePlayPause?: boolean;
+  playState?: string;
+  contain?: boolean;
+  height?: boolean;
+  inputs?: any;
+};
+
 // Define the type for the custom <hmh-rive> element
 interface HmhRiveElement extends HTMLElement {
   inputs?: { [key: string]: { value: any } };
