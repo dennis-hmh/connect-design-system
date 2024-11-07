@@ -1,205 +1,36 @@
 /*! 1.4 */
-.connect__gk {
-  --connect__border-radius: 1rem;
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-lg: 2.625rem;
-  --connect__heading-lg-lheight: 3rem;
-  --connect__heading-md: 2.625rem;
-  --connect__heading-md-lheight: 3rem;
-  --connect__heading-sm: 2.375rem;
-  --connect__heading-sm-lheight: 3rem;
-  --connect__body-lg: 2.375rem;
-  --connect__body-lg-lheight: 3rem;
-  --connect__body-lg-head-lheight: 3rem;
-  --connect__body-md: 1.875rem;
-  --connect__body-md-lheight: 2.875rem;
-  --connect__body-md-head-lheight: 2.375rem;
-  --connect__body-sm: 1.625rem;
-  --connect__body-sm-lheight: 2.5rem;
-  --connect__caption: 1.5rem;
-  --connect__caption-lheight: 2.25rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__spacer-xl: 2.875rem;
-  --connect__spacer-lg: 2.1875rem;
-  --connect__spacer-md: 1.4375rem;
-  --connect__spacer-sm: 0.75rem;
-  --connect__spacer-xs: 0.375rem;
-  --icon-width: 2rem;
-}
-
-@media (min-width: 40.625rem) {
-  .connect__gk {
-    --connect__heading-xl: 3.75rem;
-    --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-lg: 3.375rem;
-    --connect__heading-lg-lheight: 3.875rem;
-    --connect__heading-md: 3.375rem;
-    --connect__heading-md-lheight: 3.875rem;
-    --connect__heading-sm: 3rem;
-    --connect__heading-sm-lheight: 3.75rem;
-    --connect__body-lg: 3rem;
-    --connect__body-lg-lheight: 3.75rem;
-    --connect__body-lg-head-lheight: 3.75rem;
-    --connect__body-md: 2.25rem;
-    --connect__body-md-lheight: 3.375rem;
-    --connect__body-md-head-lheight: 2.875rem;
-    --connect__body-sm: 1.875rem;
-    --connect__body-sm-lheight: 2.875rem;
-    --connect__caption: 1.625rem;
-    --connect__caption-lheight: 2.5rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__spacer-xl: 3.375rem;
-    --connect__spacer-lg: 2.5625rem;
-    --connect__spacer-md: 1.6875rem;
-    --connect__spacer-sm: 0.875rem;
-    --connect__spacer-xs: 0.4375rem;
-  }
-}
-
-@media (min-width: 80rem) {
-  .connect__gk {
-    --connect__heading-xl: 5.75rem;
-    --connect__heading-xl-lheight: 6.5rem;
-    --connect__heading-lg: 4.75rem;
-    --connect__heading-lg-lheight: 5.375rem;
-    --connect__heading-md: 4.75rem;
-    --connect__heading-md-lheight: 5.375rem;
-    --connect__heading-sm: 4rem;
-    --connect__heading-sm-lheight: 5rem;
-    --connect__body-lg: 4rem;
-    --connect__body-lg-lheight: 5rem;
-    --connect__body-lg-head-lheight: 5rem;
-    --connect__body-md: 2.75rem;
-    --connect__body-md-lheight: 4.125rem;
-    --connect__body-md-head-lheight: 3.5rem;
-    --connect__body-sm: 2.25rem;
-    --connect__body-sm-lheight: 3.375rem;
-    --connect__caption: 1.875rem;
-    --connect__caption-lheight: 2.875rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__spacer-xl: 4.125rem;
-    --connect__spacer-lg: 3.125rem;
-    --connect__spacer-md: 2.0625rem;
-    --connect__spacer-sm: 1.0625rem;
-    --connect__spacer-xs: 0.5rem;
-  }
-}
-
-.connect__g1 {
-  --connect__border-radius: 1rem;
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-lg: 2.375rem;
-  --connect__heading-lg-lheight: 3rem;
-  --connect__heading-md: 2.125rem;
-  --connect__heading-md-lheight: 2.625rem;
-  --connect__heading-sm: 1.875rem;
-  --connect__heading-sm-lheight: 2.375rem;
-  --connect__body-lg: 1.875rem;
-  --connect__body-lg-lheight: 2.875rem;
-  --connect__body-lg-head-lheight: 2.375rem;
-  --connect__body-md: 1.625rem;
-  --connect__body-md-lheight: 2.5rem;
-  --connect__body-md-head-lheight: 2.125rem;
-  --connect__body-sm: 1.5rem;
-  --connect__body-sm-lheight: 2.25rem;
-  --connect__caption: 1.375rem;
-  --connect__caption-lheight: 2.125rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__spacer-xl: 2.5rem;
-  --connect__spacer-lg: 1.875rem;
-  --connect__spacer-md: 1.25rem;
-  --connect__spacer-sm: 0.625rem;
-  --connect__spacer-xs: 0.3125rem;
-  --icon-width: 2rem;
-}
-
-@media (min-width: 40.625rem) {
-  .connect__g1 {
-    --connect__heading-xl: 3.75rem;
-    --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-lg: 3rem;
-    --connect__heading-lg-lheight: 3.75rem;
-    --connect__heading-md: 2.625rem;
-    --connect__heading-md-lheight: 3.25rem;
-    --connect__heading-sm: 2.25rem;
-    --connect__heading-sm-lheight: 2.875rem;
-    --connect__body-lg: 2.25rem;
-    --connect__body-lg-lheight: 3.375rem;
-    --connect__body-lg-head-lheight: 2.875rem;
-    --connect__body-md: 1.875rem;
-    --connect__body-md-lheight: 2.875rem;
-    --connect__body-md-head-lheight: 2.375rem;
-    --connect__body-sm: 1.625rem;
-    --connect__body-sm-lheight: 2.5rem;
-    --connect__caption: 1.5rem;
-    --connect__caption-lheight: 2.25rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__spacer-xl: 2.875rem;
-    --connect__spacer-lg: 2.1875rem;
-    --connect__spacer-md: 1.4375rem;
-    --connect__spacer-sm: 0.75rem;
-    --connect__spacer-xs: 0.375rem;
-  }
-}
-
-@media (min-width: 80rem) {
-  .connect__g1 {
-    --connect__heading-xl: 5.75rem;
-    --connect__heading-xl-lheight: 6.5rem;
-    --connect__heading-lg: 4rem;
-    --connect__heading-lg-lheight: 5rem;
-    --connect__heading-md: 3.25rem;
-    --connect__heading-md-lheight: 4.125rem;
-    --connect__heading-sm: 2.75rem;
-    --connect__heading-sm-lheight: 3.5rem;
-    --connect__body-lg: 2.75rem;
-    --connect__body-lg-lheight: 4.125rem;
-    --connect__body-lg-head-lheight: 3.5rem;
-    --connect__body-md: 2.25rem;
-    --connect__body-md-lheight: 3.375rem;
-    --connect__body-md-head-lheight: 2.875rem;
-    --connect__body-sm: 1.875rem;
-    --connect__body-sm-lheight: 2.875rem;
-    --connect__caption: 1.6875rem;
-    --connect__caption-lheight: 2.625rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__spacer-xl: 3.375rem;
-    --connect__spacer-lg: 2.5625rem;
-    --connect__spacer-md: 1.6875rem;
-    --connect__spacer-sm: 0.875rem;
-    --connect__spacer-xs: 0.4375rem;
-  }
-}
-
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
+  --connect__heading-xl-spacer: 6.75rem;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
+  --connect__heading-lg-spacer: 5.625rem;
   --connect__heading-md: 1.875rem;
   --connect__heading-md-lheight: 2.375rem;
+  --connect__heading-md-spacer: ;
   --connect__heading-sm: 1.875rem;
   --connect__heading-sm-lheight: 2.375rem;
+  --connect__heading-sm-spacer: 3.375rem;
   --connect__body-lg: 1.5rem;
   --connect__body-lg-lheight: 2.25rem;
+  --connect__body-lg-spacer: 2.25rem;
   --connect__body-lg-head-lheight: 1.875rem;
   --connect__body-md: 1.375rem;
   --connect__body-md-lheight: 2.125rem;
+  --connect__body-md-spacer: 1.125rem;
   --connect__body-md-head-lheight: 1.75rem;
   --connect__body-sm: 1.3125rem;
   --connect__body-sm-lheight: 2rem;
+  --connect__body-sm-spacer: 2.25rem;
   --connect__caption: 1.25rem;
   --connect__caption-lheight: 1.875rem;
+  --connect__caption-spacer: 2.25rem;
   --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: 1.125rem;
+
+  --connect__spacer-xxl: 4.25rem;
   --connect__spacer-xl: 2.125rem;
   --connect__spacer-lg: 1.625rem;
   --connect__spacer-md: 1.0625rem;
@@ -213,41 +44,65 @@
   --icon-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 28 28'%3E%3Cg filter='url(%23a)'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M15.6886 4.05813c2.0154-2.07751 5.3217-2.07751 7.3371 0 1.9657 2.02641 1.9657 5.27522 0 7.30167-1.4807 1.5263-3.6107 4.6199-6.3355 9.4969-1.8767 3.359-6.6038 3.5655-8.74409.3404-.89041-1.3417-1.72914-2.2604-2.47716-2.8546-2.22427-1.7669-2.60748-4.9942-.9262-7.2433C6.13708 8.96643 9.0627 8.41234 11.2971 9.78112c1.5454-2.37011 3.0051-4.29378 4.3915-5.72299Zm-2.0965 7.69827c1.5649-2.43076 2.9768-4.29713 4.2498-5.60941.8369-.86265 2.1936-.86265 3.0305 0 .8368.86264.8368 2.26127 0 3.12392-1.7721 1.82669-4.0599 5.21619-6.8012 10.12259-.7878 1.4101-2.7341 1.4878-3.6254.1448-1.01221-1.5252-2.05258-2.7042-3.11084-3.5448-.93742-.7447-1.11175-2.1317-.38937-3.0981.66158-.885 1.84586-1.1102 2.76062-.5698.08404.0497.16581.1058.24469.1684.6918.5496 1.361 1.1862 2.0086 1.909.5619-.9464 1.1059-1.8285 1.6326-2.6466Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='%2300AD00' d='M17.8419 6.14699c.8369-.86265 2.1936-.86265 3.0305 0 .8368.86264.8368 2.26127 0 3.12392-1.772 1.82669-4.0599 5.21619-6.8012 10.12259-.7878 1.4101-2.7341 1.4878-3.6254.1448-1.01219-1.5252-2.05256-2.7042-3.11082-3.5449-.93742-.7446-1.11175-2.1316-.38938-3.098.72237-.9663 2.0679-1.146 3.00532-.4014.69188.5496 1.36098 1.1862 2.00858 1.909 2.2313-3.7582 4.1809-6.50204 5.8824-8.25601Z'/%3E%3Cdefs%3E%3Cfilter id='a' width='26.9998' height='27.0002' x='.500244' y='.5' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0'/%3E%3CfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_240_1614'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0'/%3E%3CfeBlend in2='effect1_dropShadow_240_1614' result='effect2_dropShadow_240_1614'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/%3E%3CfeBlend in2='effect2_dropShadow_240_1614' result='effect3_dropShadow_240_1614'/%3E%3CfeBlend in='SourceGraphic' in2='effect3_dropShadow_240_1614' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
   --icon-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 28 28'%3E%3Cg filter='url(%23a)'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M20.2632 14.1807c.2104.3146.376.5415.4985.6904 1.8068 2.1951 1.4196 5.4045-.8013 7.1313-2.1427 1.6661-5.2507 1.3726-7.0277-.697l-.7723.7507c-1.9809 1.9252-5.15804 1.9252-7.13889 0-2.02868-1.9718-2.02868-5.2049 0-7.1767l2.5453-2.4738c-.42887-.8117-.8788-1.6755-1.35014-2.59167-1.30938-2.54526-.21046-5.5813 2.29154-6.79718 2.37939-1.15632 5.30919-.31698 6.65749 2.00318l.6739-.65496 2.0909 2.1513-3.5534 3.45365c-.4551-.85129-.9404-1.77476-1.4549-2.76944-.0981-.18962-.1972-.38183-.2974-.57662-.5165-1.00389-1.7724-1.4108-2.80533-.90886-1.03288.50195-1.45154 1.72267-.9351 2.72657.87583 1.70253 1.67303 3.21443 2.39453 4.53963l-4.16648 4.0495c-.81656.7937-.81656 2.0804 0 2.8741.81657.7936 2.14049.7936 2.95708 0l3.3184-3.2253c.6698 1.1022 1.2359 1.9426 1.7034 2.5279.03.0375.0595.0739.0887.1093.7213.8764 2.0372 1.0185 2.9389.3174.9018-.7012 1.048-1.98.3266-2.8565-.47-.571-1.1395-1.6001-1.9971-3.0727l4.4392-4.31458c.8165-.79365.8165-2.08041 0-2.87405-.8166-.79365-2.1405-.79365-2.9571 0l-2.0909-2.1513c1.9809-1.92525 5.158-1.92525 7.1389 0 2.0287 1.97174 2.0287 5.2049 0 7.17663l-2.7153 2.6391Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='%2373828F' d='M16.4484 13.7048c.8576 1.4727 1.5271 2.5018 1.9971 3.0728.7214.8765.5752 2.1553-.3266 2.8565-.9017.7011-2.2176.559-2.9389-.3174-.4841-.5881-1.0793-1.4644-1.7921-2.6372l-3.3184 3.2253c-.81659.7936-2.14051.7936-2.95708 0-.81656-.7937-.81656-2.0804 0-2.8741l4.16648-4.0495c-.7215-1.3253-1.5187-2.8372-2.39453-4.53964-.51644-1.00389-.09778-2.22462.9351-2.72656 1.03293-.50195 2.28883-.09504 2.80533.90885.6258 1.21658 1.2104 2.33249 1.7523 3.34606l3.5534-3.45365c.8166-.79365 2.1405-.79365 2.9571 0 .8165.79364.8165 2.0804 0 2.87405l-4.4392 4.31449Z'/%3E%3Cdefs%3E%3Cfilter id='a' width='27' height='26.999' x='.5' y='.500977' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0'/%3E%3CfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_240_1642'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0'/%3E%3CfeBlend in2='effect1_dropShadow_240_1642' result='effect2_dropShadow_240_1642'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/%3E%3CfeBlend in2='effect2_dropShadow_240_1642' result='effect3_dropShadow_240_1642'/%3E%3CfeBlend in='SourceGraphic' in2='effect3_dropShadow_240_1642' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
   --icon-shown: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 28 28'%3E%3Cg filter='url(%23a)'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M15.6886 4.05813c2.0154-2.07751 5.3217-2.07751 7.3371 0 1.9657 2.02641 1.9657 5.27522 0 7.30167-1.4807 1.5263-3.6107 4.6199-6.3355 9.4969-1.8767 3.359-6.6038 3.5655-8.74409.3404-.89041-1.3417-1.72914-2.2604-2.47716-2.8546-2.22427-1.7669-2.60748-4.9942-.9262-7.2433C6.13708 8.96643 9.0627 8.41234 11.2971 9.78112c1.5454-2.37011 3.0051-4.29378 4.3915-5.72299Zm-2.0965 7.69827c1.5649-2.43076 2.9768-4.29713 4.2498-5.60941.8369-.86265 2.1936-.86265 3.0305 0 .8368.86264.8368 2.26127 0 3.12392-1.7721 1.82669-4.0599 5.21619-6.8012 10.12259-.7878 1.4101-2.7341 1.4878-3.6254.1448-1.01221-1.5252-2.05258-2.7042-3.11084-3.5448-.93742-.7447-1.11175-2.1317-.38937-3.0981.66158-.885 1.84586-1.1102 2.76062-.5698.08404.0497.16581.1058.24469.1684.6918.5496 1.361 1.1862 2.0086 1.909.5619-.9464 1.1059-1.8285 1.6326-2.6466Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='%235D5F5F' d='M17.8419 6.14699c.8369-.86265 2.1936-.86265 3.0305 0 .8368.86264.8368 2.26127 0 3.12392-1.772 1.82669-4.0599 5.21619-6.8012 10.12259-.7878 1.4101-2.7341 1.4878-3.6254.1448-1.01219-1.5252-2.05256-2.7042-3.11082-3.5449-.93742-.7446-1.11175-2.1316-.38938-3.098.72237-.9663 2.0679-1.146 3.00532-.4014.69188.5496 1.36098 1.1862 2.00858 1.909 2.2313-3.7582 4.1809-6.50204 5.8824-8.25601Z'/%3E%3Cdefs%3E%3Cfilter id='a' width='26.9998' height='27.0001' x='.500244' y='.5' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0'/%3E%3CfeBlend in2='BackgroundImageFix' result='effect1_dropShadow_240_1653'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0'/%3E%3CfeBlend in2='effect1_dropShadow_240_1653' result='effect2_dropShadow_240_1653'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/%3E%3CfeBlend in2='effect2_dropShadow_240_1653' result='effect3_dropShadow_240_1653'/%3E%3CfeBlend in='SourceGraphic' in2='effect3_dropShadow_240_1653' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
-  --icon-width: 2rem;
 
-  --connect__border-radius: 1.5rem;
-  --connect__total-border: 0.5rem;
-  --connect__effects-inner-edge: 0.375rem;
-  --connect__inner-status: 0.625rem;
+  --connect__icon-xs: 1.875rem;
+  --connect__icon-sm: 1.875rem;
+  --connect__icon-md: 2.5rem;
+  --connect__icon-lg: 2.5rem;
+  --connect__icon-xl: 2.5rem;
+
+  --connect__total-border: 0.625rem;
+  --connect__border-radius: 0.875rem;
+  --connect__effects-inner-edge: 0.1875rem;
+  --connect__inner-radius: 0.375rem;
+  --connect__inner-status: 0.5rem;
+  --connect__inner-divider-width: 0.625rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__g23 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
+    --connect__heading-xl-spacer: 7.5rem;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
+    --connect__heading-lg-spacer: 6.25rem;
     --connect__heading-md: 2.25rem;
     --connect__heading-md-lheight: 2.875rem;
+    --connect__heading-md-spacer: ;
     --connect__heading-sm: 2.25rem;
     --connect__heading-sm-lheight: 2.875rem;
+    --connect__heading-sm-spacer: 3.75rem;
     --connect__body-lg: 1.625rem;
     --connect__body-lg-lheight: 2.5rem;
+    --connect__body-lg-spacer: 2.5rem;
     --connect__body-lg-head-lheight: 2.125rem;
     --connect__body-md: 1.5rem;
     --connect__body-md-lheight: 2.25rem;
+    --connect__body-md-spacer: 1.25rem;
     --connect__body-md-head-lheight: 1.875rem;
     --connect__body-sm: 1.375rem;
     --connect__body-sm-lheight: 2.125rem;
+    --connect__body-sm-spacer: 2.5rem;
     --connect__caption: 1.3125rem;
     --connect__caption-lheight: 2rem;
+    --connect__caption-spacer: 2.5rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1.25rem;
+
+    --connect__spacer-xxl: 4.5rem;
     --connect__spacer-xl: 2.25rem;
     --connect__spacer-lg: 1.6875rem;
     --connect__spacer-md: 1.125rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.3125rem;
+
+    --connect__icon-sm: 2.5rem;
+    --connect__icon-md: 3.125rem;
+    --connect__icon-lg: 3.125rem;
+    --connect__icon-xl: 3.75rem;
+
+    --connect__border-radius: 1rem;
+    --connect__inner-radius: 0.5rem;
   }
 }
 
@@ -255,53 +110,80 @@
   .connect__g23 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
+    --connect__heading-xl-spacer: 8.625rem;
     --connect__heading-lg: 4rem;
     --connect__heading-lg-lheight: 5rem;
+    --connect__heading-lg-spacer: 7.1875rem;
     --connect__heading-md: 2.75rem;
     --connect__heading-md-lheight: 3.5rem;
+    --connect__heading-md-spacer: ;
     --connect__heading-sm: 2.75rem;
     --connect__heading-sm-lheight: 3.5rem;
+    --connect__heading-sm-spacer: 4.3125rem;
     --connect__body-lg: 1.875rem;
     --connect__body-lg-lheight: 2.875rem;
+    --connect__body-lg-spacer: 2.875rem;
     --connect__body-lg-head-lheight: 2.375rem;
     --connect__body-md: 1.6875rem;
     --connect__body-md-lheight: 2.625rem;
+    --connect__body-md-spacer: 1.4375rem;
     --connect__body-md-head-lheight: 2.125rem;
     --connect__body-sm: 1.5rem;
     --connect__body-sm-lheight: 2.25rem;
+    --connect__body-sm-spacer: 2.875rem;
     --connect__caption: 1.375rem;
     --connect__caption-lheight: 2.125rem;
+    --connect__caption-spacer: 2.875rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1.4375rem;
+
+    --connect__spacer-xxl: 5.25rem;
     --connect__spacer-xl: 2.625rem;
     --connect__spacer-lg: 2rem;
     --connect__spacer-md: 1.3125rem;
     --connect__spacer-sm: 0.6875rem;
     --connect__spacer-xs: 0.3125rem;
+
+    --connect__icon-lg: 3.75rem;
+    --connect__icon-xl: 4.375rem;
+
+    --connect__border-radius: 1.125rem;
+    --connect__inner-radius: 0.625rem;
   }
 }
 
 .connect__g45 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
+  --connect__heading-xl-spacer: 6rem;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
+  --connect__heading-lg-spacer: 5rem;
   --connect__heading-md: 2.125rem;
   --connect__heading-md-lheight: 2.625rem;
+  --connect__heading-md-spacer: 4rem;
   --connect__heading-sm: 1.625rem;
   --connect__heading-sm-lheight: 2.125rem;
+  --connect__heading-sm-spacer: 3rem;
   --connect__body-lg: 1.375rem;
   --connect__body-lg-lheight: 2.125rem;
+  --connect__body-lg-spacer: 2rem;
   --connect__body-lg-head-lheight: 1.75rem;
   --connect__body-md: 1.3125rem;
   --connect__body-md-lheight: 2rem;
+  --connect__body-md-spacer: 1rem;
   --connect__body-md-head-lheight: 2rem;
   --connect__body-sm: 1.25rem;
   --connect__body-sm-lheight: 1.875rem;
+  --connect__body-sm-spacer: 2rem;
   --connect__caption: 1.1875rem;
   --connect__caption-lheight: 1.875rem;
+  --connect__caption-spacer: 2rem;
   --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: 2rem;
+
   --connect__spacer-xxl: 4rem;
   --connect__spacer-xl: 2rem;
   --connect__spacer-lg: 1.5rem;
@@ -319,12 +201,13 @@
 
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
-  --icon-width: 1.5rem;
+
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
   --connect__icon-md: 1.875rem;
   --connect__icon-lg: 2.5rem;
   --connect__icon-xl: 3.125rem;
+
   --connect__total-border: 0.5rem;
   --connect__border-radius: 0.75rem;
   --connect__effects-inner-edge: 0.1875rem;
@@ -337,31 +220,43 @@
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
+    --connect__heading-xl-spacer: 6.375rem;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
+    --connect__heading-lg-spacer: 5.3125rem;
     --connect__heading-md: 2.625rem;
     --connect__heading-md-lheight: 3.25rem;
+    --connect__heading-md-spacer: 4.25rem;
     --connect__heading-sm: 1.875rem;
     --connect__heading-sm-lheight: 2.375rem;
+    --connect__heading-sm-spacer: 3.1875rem;
     --connect__body-lg: 1.5rem;
     --connect__body-lg-lheight: 2.25rem;
+    --connect__body-lg-spacer: 2.125rem;
     --connect__body-lg-head-lheight: 1.875rem;
     --connect__body-md: 1.375rem;
     --connect__body-md-lheight: 2.125rem;
+    --connect__body-md-spacer: 1.0625rem;
     --connect__body-md-head-lheight: 2.125rem;
     --connect__body-sm: 1.3125rem;
     --connect__body-sm-lheight: 2rem;
+    --connect__body-sm-spacer: 2.125rem;
     --connect__caption: 1.25rem;
     --connect__caption-lheight: 1.875rem;
+    --connect__caption-spacer: 2.125rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1.0625rem;
+
     --connect__spacer-xxl: 4.25rem;
     --connect__spacer-xl: 2.125rem;
     --connect__spacer-lg: 1.625rem;
     --connect__spacer-md: 1.0625rem;
     --connect__spacer-sm: 0.5625rem;
     --connect__spacer-xs: 0.25rem;
+
     --connect__icon-xl: 3.75rem;
+
     --connect__border-radius: 0.875rem;
     --connect__inner-radius: 0.375rem;
   }
@@ -371,24 +266,34 @@
   .connect__g45 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
+    --connect__heading-xl-spacer: 6.75rem;
     --connect__heading-lg: 4rem;
     --connect__heading-lg-lheight: 5rem;
+    --connect__heading-lg-spacer: 5.625rem;
     --connect__heading-md: 3.25rem;
     --connect__heading-md-lheight: 4.125rem;
+    --connect__heading-md-spacer: 4.5rem;
     --connect__heading-sm: 2.25rem;
     --connect__heading-sm-lheight: 2.875rem;
+    --connect__heading-sm-spacer: 3.375rem;
     --connect__body-lg: 1.6875rem;
     --connect__body-lg-lheight: 2.625rem;
+    --connect__body-lg-spacer: 2.25rem;
     --connect__body-lg-head-lheight: 2.125rem;
     --connect__body-md: 1.5rem;
     --connect__body-md-lheight: 2.25rem;
+    --connect__body-md-spacer: 1.125rem;
     --connect__body-md-head-lheight: 2.25rem;
     --connect__body-sm: 1.375rem;
     --connect__body-sm-lheight: 2.125rem;
+    --connect__body-sm-spacer: 2.25rem;
     --connect__caption: 1.25rem;
     --connect__caption-lheight: 1.875rem;
+    --connect__caption-spacer: 2.25rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1.125rem;
+
     --connect__spacer-xxl: 4.5rem;
     --connect__spacer-xl: 2.25rem;
     --connect__spacer-lg: 1.6875rem;
@@ -405,31 +310,40 @@
 .connect__g68 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
+  --connect__heading-xl-spacer: 5.625rem;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
+  --connect__heading-lg-spacer: 4.6875rem;
   --connect__heading-md: 1.875rem;
   --connect__heading-md-lheight: 2.375rem;
+  --connect__heading-md-spacer: 3.75rem;
   --connect__heading-sm: 1.5rem;
   --connect__heading-sm-lheight: 1.875rem;
+  --connect__heading-sm-spacer: 2.8125rem;
   --connect__body-lg: 1.3125rem;
   --connect__body-lg-lheight: 2rem;
+  --connect__body-lg-spacer: 1.875rem;
   --connect__body-lg-head-lheight: 2rem;
   --connect__body-md: 1.25rem;
   --connect__body-md-lheight: 1.875rem;
+  --connect__body-md-spacer: 0.9375rem;
   --connect__body-md-head-lheight: 1.875rem;
   --connect__body-sm: 1.1875rem;
   --connect__body-sm-lheight: 1.875rem;
+  --connect__body-sm-spacer: 1.875rem;
   --connect__caption: 1.0625rem;
   --connect__caption-lheight: 1.625rem;
+  --connect__caption-spacer: 1.875rem;
   --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: 0.9375rem;
+
   --connect__spacer-xxl: 3.75rem;
   --connect__spacer-xl: 1.875rem;
   --connect__spacer-lg: 1.4375rem;
   --connect__spacer-md: 0.9375rem;
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
-  --icon-width: 1.5rem;
 
   --connect__incorrect-dark: var(--connect__red-c55);
   --connect__incorrect-mid: var(--connect__red-s45);
@@ -444,6 +358,7 @@
 
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
+
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
   --connect__icon-md: 1.875rem;
@@ -462,32 +377,44 @@
   .connect__g68 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
+    --connect__heading-xl-spacer: 6rem;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
+    --connect__heading-lg-spacer: 5rem;
     --connect__heading-md: 2.25rem;
     --connect__heading-md-lheight: 2.875rem;
+    --connect__heading-md-spacer: 4rem;
     --connect__heading-sm: 1.625rem;
     --connect__heading-sm-lheight: 2.125rem;
+    --connect__heading-sm-spacer: 3rem;
     --connect__body-lg: 1.375rem;
     --connect__body-lg-lheight: 2.125rem;
+    --connect__body-lg-spacer: 2rem;
     --connect__body-lg-head-lheight: 2.125rem;
     --connect__body-md: 1.3125rem;
     --connect__body-md-lheight: 2rem;
+    --connect__body-md-spacer: 1rem;
     --connect__body-md-head-lheight: 2rem;
     --connect__body-sm: 1.25rem;
     --connect__body-sm-lheight: 1.875rem;
+    --connect__body-sm-spacer: 2rem;
     --connect__caption: 1.125rem;
     --connect__caption-lheight: 1.75rem;
+    --connect__caption-spacer: 2rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1rem;
+
     --connect__spacer-xxl: 4rem;
     --connect__spacer-xl: 2rem;
     --connect__spacer-lg: 1.5rem;
     --connect__spacer-md: 1rem;
     --connect__spacer-sm: 0.5rem;
     --connect__spacer-xs: 0.25rem;
+
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.75rem;
+
     --connect__border-radius: 0.75rem;
     --connect__inner-radius: 0.375rem;
   }
@@ -497,31 +424,43 @@
   .connect__g68 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
+    --connect__heading-xl-spacer: 6.375rem;
     --connect__heading-lg: 4rem;
     --connect__heading-lg-lheight: 5rem;
+    --connect__heading-lg-spacer: 5.3125rem;
     --connect__heading-md: 2.75rem;
     --connect__heading-md-lheight: 3.5rem;
+    --connect__heading-md-spacer: 4.25rem;
     --connect__heading-sm: 1.875rem;
     --connect__heading-sm-lheight: 2.375rem;
+    --connect__heading-sm-spacer: 3.1875rem;
     --connect__body-lg: 1.5rem;
     --connect__body-lg-lheight: 2.25rem;
+    --connect__body-lg-spacer: 2.125rem;
     --connect__body-lg-head-lheight: 2.25rem;
     --connect__body-md: 1.375rem;
     --connect__body-md-lheight: 2.125rem;
+    --connect__body-md-spacer: 1.0625rem;
     --connect__body-md-head-lheight: 2.125rem;
     --connect__body-sm: 1.25rem;
     --connect__body-sm-lheight: 1.875rem;
+    --connect__body-sm-spacer: 2.125rem;
     --connect__caption: 1.125rem;
     --connect__caption-lheight: 1.75rem;
+    --connect__caption-spacer: 2.125rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: 1.0625rem;
+
     --connect__spacer-xxl: 4.25rem;
     --connect__spacer-xl: 2.125rem;
     --connect__spacer-lg: 1.625rem;
     --connect__spacer-md: 1.0625rem;
     --connect__spacer-sm: 0.5625rem;
     --connect__spacer-xs: 0.25rem;
+
     --connect__icon-lg: 3.125rem;
+
     --connect__border-radius: 0.875rem;
     --connect__inner-radius: 0.5rem;
   }
@@ -530,31 +469,41 @@
 .connect__g912 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
+  --connect__heading-xl-spacer: 5.625rem;
   --connect__heading-lg: 2.125rem;
   --connect__heading-lg-lheight: 2.625rem;
+  --connect__heading-lg-spacer: 4.6875rem;
   --connect__heading-md: 1.875rem;
   --connect__heading-md-lheight: 2.375rem;
+  --connect__heading-md-spacer: 3.75rem;
   --connect__heading-sm: 1.5rem;
   --connect__heading-sm-lheight: 1.875rem;
+  --connect__heading-sm-spacer: 2.8125rem;
   --connect__body-lg: 1.3125rem;
   --connect__body-lg-lheight: 2rem;
+  --connect__body-lg-spacer: 1.875rem;
   --connect__body-lg-head-lheight: 2rem;
   --connect__body-md: 1.1875rem;
   --connect__body-md-lheight: 1.875rem;
+  --connect__body-md-spacer: 0.9375rem;
   --connect__body-md-head-lheight: 1.875rem;
   --connect__body-sm: 1.0625rem;
   --connect__body-sm-lheight: 1.625rem;
+  --connect__body-sm-spacer: 1.875rem;
   --connect__caption: 1rem;
   --connect__caption-lheight: 1.5rem;
+  --connect__caption-spacer: 1.875rem;
   --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: 0.9375rem;
+
   --connect__spacer-xxl: 3.75rem;
   --connect__spacer-xl: 1.875rem;
   --connect__spacer-lg: 1.4375rem;
   --connect__spacer-md: 0.9375rem;
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
-  --icon-width: 1.5rem;
+
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
   --connect__icon-md: 1.875rem;
@@ -604,6 +553,7 @@
     --connect__caption-lheight: 1.5rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+
     --connect__spacer-xxl: 3.75rem;
     --connect__spacer-xl: 1.875rem;
     --connect__spacer-lg: 1.4375rem;
@@ -640,12 +590,14 @@
     --connect__caption-lheight: 1.5rem;
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
+
     --connect__spacer-xxl: 3.75rem;
     --connect__spacer-xl: 1.875rem;
     --connect__spacer-lg: 1.4375rem;
     --connect__spacer-md: 0.9375rem;
     --connect__spacer-sm: 0.5rem;
     --connect__spacer-xs: 0.25rem;
+
     --connect__icon-xs: 1.25rem;
     --connect__icon-lg: 3.75rem;
     --connect__icon-xl: 3.125rem;
