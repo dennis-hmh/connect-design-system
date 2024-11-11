@@ -1,5 +1,29 @@
 @import '../css/source.css';
 
+/*
+
+Loose guide / cheat sheet for fallback values,
+when to use inherit vs initial
+
+inherit ensures that children respect the parent's styling.
+initial ensures that properties are reset to their default values 
+  .ideal for resetting styles to avoid unintended inherited styles
+
+
+| Property Type                                | Fallback (initial or inherit) |
+|----------------------------------------------|-------------------------------|
+| Color, font size/ family, line height        | inherit                       |
+| Fixed component backgrounds                  | initial                       |
+| Reset borders/shadows/z-index                | initial                       |
+| Opacity, visibility                          | inherit                       |
+| Flexible layout alignment (Flex / Grid)      | inherit                       |
+| Positioning layout alignment (Absolute)      | initial                      |
+| Font family and weight (nested text)         | inherit                       |
+| Background color (for reset purposes)        | initial                       |
+| Border styling (reset)                       | initial                       |
+| Font style / weight / variant / wrap / align | initial                       |
+*/
+
 /* 
 .connect__button Component
 
