@@ -2918,6 +2918,10 @@ Usage:
     flex-flow: column wrap;
     gap: var(--connect__spacer-xs);
   }
+
+  hr {
+    --variant__divider-margin-x: var(--connect__spacer-sm);
+  }
 }
 
 /* 
@@ -2953,22 +2957,35 @@ Example:
 */
 .connect__divider {
   --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
-  --connect__divider-h: var(--theme__divider-h, 0.1875rem);
+  --connect__divider-h: var(--theme__divider-h, var(--connect__effects-inner-edge));
   --connect__divider-w: var(--theme__divider-w, var(--connect__full-w));
   --connect__divider-br: var(--theme__divider-br, var(--connect__border-radius));
-  --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
-
-  --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
+  --connect__divider-margin-y: var(
+    --theme__divider-margin-y,
+    var(--variant__divider-margin-y, var(--connect__spacer-zero))
+  );
+  --connect__divider-margin-x: var(
+    --theme__divider-margin-x,
+    var(--variant__divider-margin-x, var(--connect__spacer-zero))
+  );
 
   background-color: var(--connect__divider-bg);
   border: 0;
   border-radius: var(--connect__divider-br);
-  box-sizing: border-box;
-  height: var(--connect__divider-h, initial);
-  margin: 0 var(--connect__divider-margin-x);
+  height: var(--variant__divider-h, var(--connect__divider-h));
+  margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
   position: relative;
-  width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
+  width: var(--variant__divider-w, var(--connect__divider-w));
+  width: calc(
+    var(--variant__divider-w, var(--connect__divider-w)) - (var(--connect__divider-margin-x) * 2)
+  );
+
+  &[aria-orientation='vertical'] {
+    --variant__divider-margin-x: var(--connect__spacer-zero);
+    --variant__divider-h: var(--connect__full-h);
+    --variant__divider-w: var(--connect__effects-inner-edge);
+  }
 }
 
 // Moved toolbar button styles to here to support JS
