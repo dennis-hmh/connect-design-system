@@ -28,7 +28,7 @@ export function MultipleChoiceQuestionImage({
   answerShown,
   dataTestId,
 }: MultipleChoiceQuestionImageProp) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -50,7 +50,7 @@ export function MultipleChoiceQuestionImage({
   }
 
   return (
-    <div className="connect__mcq-label-wrapper">
+    <div className="connect__choice-label-wrapper">
       <input
         ref={checkRef}
         type={type}
@@ -63,7 +63,7 @@ export function MultipleChoiceQuestionImage({
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      <label className={`connect__mcq-label connect__mcq-card ${inputStates}`} htmlFor={id}>
+      <label className={`connect__choice-label connect__mcq-card ${inputStates}`} htmlFor={id}>
         <Figure>{children}</Figure>
       </label>
     </div>

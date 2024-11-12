@@ -1290,10 +1290,10 @@
   --connect__incorrect-light: rgb(200, 221, 237);
   --connect__incorrect-pale: rgb(215, 231, 241);
 
-  --connect__selected-dark: var(--connect__blue-c60);
-  --connect__selected-mid: var(--connect__blue-s50);
-  --connect__selected-light: var(--connect__blue-s15);
-  --connect__selected-pale: var(--connect__aqua-s15);
+  --connect__primary-dark: var(--connect__blue-c60);
+  --connect__primary-mid: var(--connect__blue-s50);
+  --connect__primary-light: var(--connect__blue-s15);
+  --connect__primary-pale: var(--connect__aqua-s15);
 
   --connect__focus-dark: var(--connect__cerise-s50);
   --connect__focus-mid: var(--connect__cerise-s40);
@@ -1310,6 +1310,11 @@
   --connect__disabled-cursor: not-allowed;
   --connect__disabled-color: var(--connect__neutrals-mid);
   --connect__disabled-icon-fill: var(--connect__neutrals-light);
+  
+  --connect__disabled-dark: var(--connect__gray-c70);
+  --connect__disabled-mid: var(--connect__gray-c55);
+  --connect__disabled-light: var(--connect__gray-c40-c25);
+  --connect__disabled-pale: var(--connect__gray-c10);
 
   /*
     4: Shadows
@@ -1457,17 +1462,6 @@ A modern 2024 take on the reset
   width: 100%;
 }
 
-/* 
-    the isolation property allows us to create a new stacking context without needing to set a z-index.
-    to guarantee that modals, dropdowns, tooltips will always show up above the other elements in app
-    no z-index.
-    Not sure if env is next js or react hence both id's
-*/
-
-:where([class^='connect__']) #root {
-  isolation: isolate;
-}
-
 :where([class^='connect__']) ul,
 :where([class^='connect__']) ol {
   --connect__list-style-type: var(--variant__list-style-type, none);
@@ -1483,7 +1477,8 @@ A modern 2024 take on the reset
 .connect__g23,
 .connect__g45,
 .connect__g68,
-.connect__g912 {
+.connect__g912,
+.connect__teach {
   font-size-adjust: ex-height 0.486;
 }
 
