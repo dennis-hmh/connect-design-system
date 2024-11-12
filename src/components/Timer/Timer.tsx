@@ -95,11 +95,18 @@ export const Timer: React.FC<TimerProps> = ({
         className="connect__timer"
         role="timer"
         aria-live={ariaLive}
+        aria-label={`Time remaining: ${formattedTime}`}
         data-percentage={percentage}
       >
         {formattedTime}
       </div>
-      {progressBar && <ProgressBar value={parseFloat(percentage)} max={100} />}
+      {progressBar && (
+        <ProgressBar
+          value={parseFloat(percentage)}
+          max={100}
+          ariaLabel={`Progress: ${percentage}%`}
+        />
+      )}
     </div>
   );
 };
