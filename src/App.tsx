@@ -28,7 +28,7 @@ const App = () => {
   const themeWrapperRef = useRef(null);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
