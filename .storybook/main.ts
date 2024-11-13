@@ -12,10 +12,6 @@ const config: StorybookConfig = {
     '../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
 
-  core: {
-    builder: '@storybook/builder-vite',
-  },
-
   features: {},
 
   addons: [
@@ -51,7 +47,7 @@ const config: StorybookConfig = {
       ...config,
       plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
     };
-  },
+  }
 };
 
 export default config;
