@@ -1,3 +1,23 @@
+### v1.13.1 Release Notice
+
+### Release date: Novenber, 13, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Timer />`, `<Typography />`
+- Bug Fix: N/A
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.13.0 Release Notice
 
 ### Release date: Novenber, 5, 2024
