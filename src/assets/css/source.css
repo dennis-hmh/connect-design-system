@@ -1,4 +1,3 @@
-/*! 1.4 */
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -1269,7 +1268,7 @@
   */
   --connect__neutrals-dark: var(--connect__gray-c70);
   --connect__neutrals-mid: var(--connect__gray-c55);
-  --connect__neutrals-light: var(--connect__gray-c45);
+  --connect__neutrals-light: var(--connect__gray-c40);
   --connect__neutrals-pale: var(--connect__gray-c10);
   --connect__neutrals-white: var(--connect__white);
   --connect__neutrals-null: rgba(255, 255, 255, 0);
@@ -1310,10 +1309,10 @@
   --connect__disabled-cursor: not-allowed;
   --connect__disabled-color: var(--connect__neutrals-mid);
   --connect__disabled-icon-fill: var(--connect__neutrals-light);
-  
+
   --connect__disabled-dark: var(--connect__gray-c70);
   --connect__disabled-mid: var(--connect__gray-c55);
-  --connect__disabled-light: var(--connect__gray-c40-c25);
+  --connect__disabled-light: var(--connect__gray-c40);
   --connect__disabled-pale: var(--connect__gray-c10);
 
   /*

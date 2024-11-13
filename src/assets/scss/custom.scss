@@ -244,7 +244,7 @@ States:
     --connect__icon-fill: var(--active-color);
 
     &:disabled {
-      --state-based-bg: var(--connect__neutrals-pale);
+      --state-based-bg: var(--connect__disabled-pale);
     }
   }
 
@@ -514,7 +514,7 @@ Variables related to states (e.g., focus, active):
   --connect__focus-mid: Color for the focus state.
   --connect__neutrals-white: Neutral white color.
   --connect__neutrals-dark: Neutral dark color.
-  --connect__neutrals-light: Gray color.
+  --connect__disabled-light: Gray color.
 
 States:
   &:not(:disabled)
@@ -2616,8 +2616,6 @@ Child Element State Styles:
   }
 }
 
-
-
 /*
 .connect__icon Component
 
@@ -3121,13 +3119,13 @@ Disabled State:
       - Styles for labels when the input is disabled.
       --active-color: var(--connect__neutrals-mid);
         - Sets the active color to a neutral mid tone.
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
+      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
         - Sets the border color for checked state to a light neutral.
       --checkbox-state-based-bg: var(--connect__neutrals-white);
         - Sets the background color to white.
       --connect__state-based-pointer: var(--connect__disabled-cursor);
         - Sets the cursor to a disabled style.
-      --state-mcq-shadow: var(--connect__neutrals-light);
+      --state-mcq-shadow: var(--connect__disabled-light);
         - Sets the shadow color to a light neutral.
 
   &:disabled
@@ -3155,9 +3153,9 @@ Checked and Disabled State:
   &:checked:disabled
     + .connect__choice-label
       - Styles for labels when the input is both checked and disabled.
-      --checkbox-state-based-bg: var(--connect__neutrals-light);
+      --checkbox-state-based-bg: var(--connect__disabled-light);
       --checkbox-state-based-inner-shadow: var(--connect__neutrals-white);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
+      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
 
 Active State:
   &:active
@@ -3182,13 +3180,13 @@ Radio Input Styles:
   &:disabled {
     + .connect__choice-label {
       --active-color: var(--connect__neutrals-mid);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
+      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
       --checkbox-state-based-bg: var(--connect__neutrals-white);
       --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
       --connect__state-based-pointer: var(--connect__disabled-cursor);
-      --state-mcq-shadow: var(--connect__neutrals-light);
+      --state-mcq-shadow: var(--connect__disabled-light);
     }
 
     + .connect__mcq-card {
@@ -3211,9 +3209,9 @@ Radio Input Styles:
 
   &:checked:disabled {
     + .connect__choice-label {
-      --checkbox-state-based-bg: var(--connect__neutrals-light);
+      --checkbox-state-based-bg: var(--connect__disabled-light);
       --checkbox-state-based-inner-shadow: var(--connect__neutrals-white);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
+      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
     }
   }
 
@@ -3281,9 +3279,6 @@ Transitions:
     --theme__progress-outer-shadow-c,
     var(--connect__neutrals-white)
   );
-
-  // palette
-  --connect__cc-purple: rgb(113, 47, 253);
 
   --connect__progress-bg: var(--theme__progress-bg, var(--connect__neutrals-white));
   --connect__progress-color: var(--theme__progress-color, var(--connect__cc-purple));
@@ -3932,34 +3927,34 @@ List style type modifiers:
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
   }
+}
 
-  &.connect__list-none {
-    --variant__marker-color: var(--connect__neutrals-null);
-  }
+.connect__list-none {
+  --variant__marker-color: var(--connect__neutrals-null);
+}
 
-  &.connect__list-circle {
-    --variant__list-style-type: circle;
-  }
+.connect__list-circle {
+  --variant__list-style-type: circle;
+}
 
-  &.connect__list-decimal {
-    --variant__list-style-type: decimal;
-  }
+.connect__list-decimal {
+  --variant__list-style-type: decimal;
+}
 
-  &.connect__list-disc {
-    --variant__list-style-type: disc;
-  }
+.connect__list-disc {
+  --variant__list-style-type: disc;
+}
 
-  &.connect__list-roman {
-    --variant__list-style-type: lower-roman;
-  }
+.connect__list-roman {
+  --variant__list-style-type: lower-roman;
+}
 
-  &.connect__list-square {
-    --variant__list-style-type: square;
-  }
+.connect__list-square {
+  --variant__list-style-type: square;
+}
 
-  &.connect__list-alpha {
-    --variant__list-style-type: lower-alpha;
-  }
+.connect__list-alpha {
+  --variant__list-style-type: lower-alpha;
 }
 
 .connect__counters {
@@ -4040,6 +4035,7 @@ Rounded corners modifier:
     --variant__paper-radius: var(--connect__border-radius);
   }
 }
+
 /*
 :where([class^='connect__']) Component
 
@@ -4176,8 +4172,8 @@ Styles:
 */
 
 [class*='connect_']:disabled {
-  --active-color: var(--connect__disabled-color);
-  --connect__icon-fill-color: var(--connect__disabled-icon-fill);
+  --active-color: var(--connect__disabled-mid);
+  --connect__icon-fill-color: var(---connect__disabled-light);
   --checkbox-state-based-bg: var(--connect__neutrals-white);
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
@@ -4427,13 +4423,8 @@ Styles:
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --active-color: var(--connect__disabled-color);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
-
-  &:disabled {
-    --active-color: var(--connect__disabled-color);
-  }
 
   &:hover,
   &:active {
