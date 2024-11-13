@@ -1,13 +1,13 @@
 ### v1.13.1 Release Notice
 
-### Release date: Novenber, 13, 2024
+### Release date: November, 13, 2024
 
 #### Changelog:
 
 - New Component: N/A
 - Updated Component: `<Timer />`, `<Typography />`
 - Bug Fix: N/A
-- Other Updated: N/A
+- Other Updated: Update Storybook to version 8.4.3
 
 #### Repo:
 
@@ -20,7 +20,7 @@
 
 ### v1.13.0 Release Notice
 
-### Release date: Novenber, 5, 2024
+### Release date: November, 5, 2024
 
 #### Changelog:
 
