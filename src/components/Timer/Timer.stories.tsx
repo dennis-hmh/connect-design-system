@@ -32,9 +32,9 @@ export const Default: Story = Template.bind({});
 Default.args = {
   time: 300000,
   onTimeUp: () => console.log('Times up!'),
-  size: '',
+  size: undefined,
   className: '',
-  ariaLive: 'polite',
+  ariaLive: 'off',
   progressBar: false,
   gradeBand: GradeBand.G4_5,
 };
