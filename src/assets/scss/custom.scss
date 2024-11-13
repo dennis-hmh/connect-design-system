@@ -2801,6 +2801,27 @@ Transitions:
   line-height: var(--connect__timer-lh);
 }
 
+/* Table
+  Table Component
+*/
+
+.connect__table {
+  border: 0.0625rem solid var(--connect__neutrals-dark);
+  border-collapse: collapse;
+
+  th {
+    background-color: var(--connect__neutrals-light);
+    border-bottom: 0.0625rem solid var(--connect__neutrals-dark);
+    padding: var(--connect__spacer-sm);
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 0.0625rem solid var(--connect__neutrals-dark);
+    padding: var(--connect__spacer-sm);
+  }
+}
+
 /* 
   Toolbar Component
 
