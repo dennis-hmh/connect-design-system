@@ -19,6 +19,8 @@ export interface TypographyProps {
   color?: Color;
   family?: 'sans' | 'serif' | 'mono';
   size?: Size;
+  spacer?: boolean;
+  spacerSize?: Size | undefined;
   style?: 'normal' | 'italic' | 'oblique';
   weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   letterSpacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -37,6 +39,8 @@ export const Typography: React.FC<TypographyProps> = ({
   color,
   family = 'sans',
   size,
+  spacer,
+  spacerSize,
   style = 'normal',
   weight,
   letterSpacing,
@@ -71,6 +75,14 @@ export const Typography: React.FC<TypographyProps> = ({
   if (size) {
     typoProps.fontSize = `var(--connect__${size})`;
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
+    if (spacer && !spacerSize) {
+      typoProps.marginBottom = `var(--connect__${size}-spacer)`;
+      // typoProps.marginTop = `var(--connect__${size}-spacer)`;
+    }
+  }
+  if (spacer && spacerSize) {
+    typoProps.marginBottom = `var(--connect__${spacerSize}-spacer)`;
+    // typoProps.marginTop = `var(--connect__${spacerSize}-spacer)`;
   }
 
   return (
