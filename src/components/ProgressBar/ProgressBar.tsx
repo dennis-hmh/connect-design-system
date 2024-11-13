@@ -7,6 +7,7 @@ export type ProgressBarProps = {
   max?: number;
   backgroundColor?: Color;
   barColor?: Color;
+  ariaLabel?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -16,6 +17,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   max = 100,
   barColor,
   backgroundColor,
+  ariaLabel,
   dataTestId,
 }) => {
   const customStyles: React.CSSProperties & {
@@ -30,9 +32,14 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     <div className="connect__progress-wrapper">
       <progress
         className="connect__progress"
+        role="progressbar"
         value={value}
         max={max}
+        aria-label={ariaLabel}
         style={customStyles}
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={max}
         data-testid={dataTestId}
       >
         {value + '%'}
