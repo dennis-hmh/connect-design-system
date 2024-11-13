@@ -39,7 +39,7 @@ function App() {
       onTimeUp={() => console.log('Time is up!')}
       size="large"
       className="custom-timer"
-      ariaLive="polite"
+      ariaLive="assertive"
       dataTestId="timer-1"
     />
   );
@@ -75,7 +75,7 @@ function App() {
       onTimeUp={() => console.log('Time is up!')}
       size="medium"
       className="custom-timer"
-      ariaLive="polite"
+      ariaLive="off"
       progressBar={true}
       dataTestId="timer-2"
     />
