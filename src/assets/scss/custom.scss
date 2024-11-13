@@ -3125,8 +3125,6 @@ Disabled State:
         - Sets the background color to white.
       --connect__state-based-pointer: var(--connect__disabled-cursor);
         - Sets the cursor to a disabled style.
-      --state-mcq-shadow: var(--connect__disabled-light);
-        - Sets the shadow color to a light neutral.
 
   &:disabled
     + .connect__mcq-card
@@ -3186,7 +3184,6 @@ Radio Input Styles:
       --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
       --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
       --connect__state-based-pointer: var(--connect__disabled-cursor);
-      --state-mcq-shadow: var(--connect__disabled-light);
     }
 
     + .connect__mcq-card {
@@ -4175,6 +4172,8 @@ Styles:
   --active-color: var(--connect__disabled-mid);
   --connect__icon-fill-color: var(---connect__disabled-light);
   --checkbox-state-based-bg: var(--connect__neutrals-white);
+  --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
+
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
@@ -4420,6 +4419,7 @@ Styles:
 [class*='-correct'],
 [class*='-incorrect'],
 [class*='-shown'] {
+  --active-color: var(--connect__disabled-mid);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
   --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
