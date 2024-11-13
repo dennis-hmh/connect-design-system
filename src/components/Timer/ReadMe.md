@@ -75,7 +75,7 @@ function App() {
       onTimeUp={() => console.log('Time is up!')}
       size="medium"
       className="custom-timer"
-      ariaLive="assertive"
+      ariaLive="off"
       progressBar={true}
       dataTestId="timer-2"
     />
