@@ -17,7 +17,6 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     '@chromatic-com/storybook',
@@ -47,7 +46,7 @@ const config: StorybookConfig = {
       ...config,
       plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
     };
-  }
+  },
 };
 
 export default config;
