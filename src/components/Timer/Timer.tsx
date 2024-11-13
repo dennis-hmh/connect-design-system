@@ -34,7 +34,7 @@ export const Timer: React.FC<TimerProps> = ({
   onTimeUp,
   size,
   className,
-  ariaLive = 'assertive',
+  ariaLive = 'off',
   progressBar = false,
   dataTestId,
 }) => {

@@ -34,7 +34,7 @@ Default.args = {
   onTimeUp: () => console.log('Times up!'),
   size: undefined,
   className: '',
-  ariaLive: 'assertive',
+  ariaLive: 'off',
   progressBar: false,
   gradeBand: GradeBand.G4_5,
 };
