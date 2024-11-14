@@ -818,11 +818,6 @@ Styles:
   position: relative;
 
   .connect__list {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
     --connect__list-bg: var(--theme__list-bg, var(--connect__neutrals-white));
     --connect__list-radius: var(--theme__list-radius, var(--connect__border-radius));
 
@@ -831,11 +826,7 @@ Styles:
 
     background-color: var(--connect__list-bg);
     border-radius: var(--connect__list-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-10),
-      var(--connect__shadow-level-2) var(--connect__shadow-20),
-      var(--connect__shadow-level-3) var(--connect__shadow-14),
-      var(--connect__shadow-level-4) var(--connect__shadow-12);
+    box-shadow: var(--connect__elevation-2);
     color: var(--connect__neutrals-dark);
     display: flex;
     flex-flow: var(--connect__list-flow) var(--connect__list-wrap);
@@ -1061,18 +1052,9 @@ Styles:
     }
 
     &::before {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
       background: var(--connect__neutrals-white);
       border-radius: var(--connect__border-radius);
-      box-shadow:
-        var(--connect__shadow-level-1) var(--connect__shadow-10),
-        var(--connect__shadow-level-2) var(--connect__shadow-20),
-        var(--connect__shadow-level-3) var(--connect__shadow-14),
-        var(--connect__shadow-level-4) var(--connect__shadow-12);
+      box-shadow: var(--connect__elevation-1);
       content: '';
       height: var(--connect__full-h);
       left: 0;
@@ -1179,8 +1161,6 @@ Styles:
     - Sets the border width and color of the card.
   border-radius:
     - Sets the border radius of the card.
-  box-shadow:
-    - Applies multiple box shadows to the card.
   box-sizing: border-box;
     - Ensures padding and border are included in the element's total width and height.
   display: inline-flex;
@@ -1206,11 +1186,6 @@ Child Elements:
   --connect__card-border-c: var(--connect__neutrals-white, transparent);
   --connect__card-radius: var(--theme__border-radius, var(--connect__border-radius));
 
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
   --connect__card-padding-y: var(--connect__spacer-sm);
   --connect__card-padding-x: var(--connect__spacer-md);
 
@@ -1221,11 +1196,7 @@ Child Elements:
   background-color: var(--connect__neutrals-white);
   border: var(--connect__card-border-w) solid var(--connect__card-border-c, transparent);
   border-radius: var(--connect__border-radius);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
+  box-shadow: var(--connect__elevation-1);
   display: inline-flex;
   flex-flow: var(--connect__card-flow);
   gap: var(--connect__card-gap);
@@ -1423,10 +1394,6 @@ Variables related to theme/overrides:
   --connect__tooltip-color: Text color of the tooltip.
   --connect__tooltip-padding-y: Vertical padding inside the tooltip.
   --connect__tooltip-padding-x: Horizontal padding inside the tooltip.
-  --shadow-level-1: Shadow level 1 for the tooltip.
-  --shadow-level-2: Shadow level 2 for the tooltip.
-  --shadow-level-3: Shadow level 3 for the tooltip.
-  --shadow-level-4: Shadow level 4 for the tooltip.
   --connect__tooltip-opacity: Opacity of the tooltip.
   --connect__tooltip-visibility: Visibility of the tooltip.
   --connect__tooltip-transition: Transition effect for the tooltip.
@@ -1445,12 +1412,6 @@ Tooltip Styles:
     - Rounds the corners of the tooltip.
   background: var(--connect__tooltip-bg);
     - Sets the background color of the tooltip.
-  box-shadow:
-    var(--shadow-level-1) var(--connect__shadow-10),
-    var(--shadow-level-2) var(--connect__shadow-20),
-    var(--shadow-level-3) var(--connect__shadow-14),
-    var(--shadow-level-4) var(--connect__shadow-12);
-    - Applies multiple box shadows to the tooltip.
   color: var(--connect__tooltip-color);
     - Sets the text color of the tooltip.
   display: inline-block;
@@ -1489,11 +1450,6 @@ Transition Styles:
   --connect__tooltip-padding-y: var(--theme__tooltip-padding-y, var(--connect__spacer-xs));
   --connect__tooltip-padding-x: var(--theme__tooltip-padding-y, var(--connect__spacer-sm));
 
-  --shadow-level-1: var(--theme__tooltip-shadow-1, var(--connect__shadow-spread-level-1));
-  --shadow-level-2: var(--theme__tooltip-shadow-2, var(--connect__shadow-spread-level-7));
-  --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
-  --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
-
   --connect__tooltip-opacity: var(--connect__opacity-zero);
   --connect__tooltip-visibility: hidden;
 
@@ -1511,11 +1467,7 @@ Transition Styles:
   align-items: center;
   background: var(--connect__tooltip-bg);
   border-radius: var(--connect__inner-radius, 0.25rem);
-  box-shadow:
-    var(--shadow-level-1) var(--connect__shadow-10),
-    var(--shadow-level-2) var(--connect__shadow-20),
-    var(--shadow-level-3) var(--connect__shadow-14),
-    var(--shadow-level-4) var(--connect__shadow-12);
+  box-shadow: var(--connect__elevation-2);
   color: var(--connect__tooltip-color);
   display: inline-block;
   font-size: var(--connect__caption);
@@ -2362,8 +2314,6 @@ Styles:
     - Sets the border width and color of the chip.
   border-radius:
     - Sets the border radius of the chip.
-  box-shadow:
-    - Applies multiple box shadows to the chip.
   color:
     - Sets the text color of the chip.
   font-family: var(--connect__font-sans);
@@ -2390,19 +2340,10 @@ Styles:
   --connect__chip-padding-y: var(--connect__spacer-xs);
   --connect__chip-padding-x: var(--connect__spacer-md);
 
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
   background-color: var(--connect__chip-bg);
   border: var(--connect__chip-border-w) solid var(--connect__chip-border-c, transparent);
   border-radius: var(--connect__chip-radius, 0);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
+  box-shadow: var(--connect__elevation-1);
   color: var(--theme__button-color, var(--connect__chip-color));
   font-family: var(--connect__font-sans);
   font-size: var(--connect__chip-fs);
@@ -2850,12 +2791,15 @@ Focus-visible State:
   --connect__label-border-c: var(--connect__neutrals-white);
   --connect__label-radius: var(--connect__border-radius);
 
+  // CHANGE ON FEEDBACK
   --connect__shadow-inner-null: var(--connect__spacer-zero) var(--connect__spacer-zero)
     var(--connect__spacer-zero);
   --inner-shadow: var(--connect__shadow-inner-null) var(--connect__effects-inner-edge)
     var(--inner-shadow-color, transparent) inset;
   --inner-shadow-color: var(--connect__neutrals-white);
   --starting-shadow-color: var(--connect__neutrals-white);
+
+  // THESE CHANGE ON HOVER ACTIVE ONLY
   --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
   --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
   --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
@@ -3662,11 +3606,7 @@ Example:
 
   background: var(--connect__neutrals-white);
   border-radius: var(--connect__border-radius);
-  box-shadow:
-    var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-4) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
+  box-shadow: var(--connect__elevation-1);
   column-gap: var(--connect__toolbar-col-gap);
   display: var(--connect__display-grid);
   grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
@@ -4001,31 +3941,16 @@ Rounded corners modifier:
 
   border-radius: var(--connect__paper-radius);
 
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
   &.connect__elevation-0 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    box-shadow: var(--connect__elevation-0);
   }
 
   &.connect__elevation-1 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
+    box-shadow: var(--connect__elevation-1);
   }
 
   &.connect__elevation-2 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
+    box-shadow: var(--connect__elevation-2);
   }
 
   &.connect__rounded-corners {
@@ -4064,8 +3989,6 @@ Styles for figure:
 
   &:not(.connect__paper)
     - Applies styles to figures not within a .connect__paper class.
-    --connect__shadow-level-1 to --connect__shadow-level-4: Sets shadow levels to zero.
-    box-shadow: Applies multiple levels of box shadows.
 
   &:has(img)
     img
@@ -4118,16 +4041,7 @@ Styles for figcaption:
       Figures not in paper do this for now
     */
     &:not(.connect__paper) {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-
-      box-shadow:
-        var(--connect__shadow-level-1) var(--connect__shadow-10),
-        var(--connect__shadow-level-2) var(--connect__shadow-20),
-        var(--connect__shadow-level-3) var(--connect__shadow-14),
-        var(--connect__shadow-level-4) var(--connect__shadow-12);
+      box-shadow: var(--connect__elevation-0);
     }
 
     &:has(img) {
