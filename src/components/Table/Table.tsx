@@ -1,25 +1,47 @@
 import React from 'react';
+import { GradeBand } from '../../enum/gradeband';
 
 export type TableProps = {
   headers?: string[];
-  columns?: string[];
-  rows?: string[];
-  cells?: string[];
+  cells: string[][];
+  caption?: string;
+  scrolling?: boolean;
+  stickyHeader?: boolean;
   className?: string;
   dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export const Table: React.FC<TableProps> = ({
-  headers,
-  columns,
-  rows,
-  cells,
+  headers = [],
+  cells = [],
+  caption,
+  scrolling,
+  stickyHeader,
   className,
   dataTestId,
 }) => {
+  const classNames = [
+    'connect__table',
+    scrolling && 'connect__table-scrolling',
+    stickyHeader && 'connect__table-sticky-header',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <table className={`connect__table ${className}`} data-testid={dataTestId}>
-      {headers && (
+    <div
+      className="connect__table-wrapper"
+      role="region"
+      aria-labelledby={caption ? 'caption' : undefined}
+    >
+      <table className={classNames} data-testid={dataTestId}>
+        {caption && (
+          <caption id="caption" className="connect__table-caption">
+            {caption}
+          </caption>
+        )}
         <thead>
           <tr>
             {headers.map((header, headerIndex) => (
@@ -27,16 +49,18 @@ export const Table: React.FC<TableProps> = ({
             ))}
           </tr>
         </thead>
-      )}
-      <tbody>
-        {rows.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {columns.map((column, columnIndex) => (
-              <td key={columnIndex}>{[`Col ${columnIndex} - ` + `Row ${rowIndex}`]}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+        <tbody>
+          {cells.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td data-heading={headers[cellIndex]} key={cellIndex}>
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
