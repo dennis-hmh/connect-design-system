@@ -150,15 +150,6 @@ States:
   --connect__button-border-c: var(--connect__surface-white, transparent);
   --connect__button-radius: var(--theme__border-radius, var(--connect__border-radius));
 
-  --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
-    inset;
-  --inner-shadow-color: var(--connect__surface-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
   --connect__button-color: var(--active-color, var(--connect__surface-dark));
   --connect__button-bg: var(--state-based-bg, var(--connect__primary-mid));
 
@@ -180,18 +171,7 @@ States:
   background-color: var(--theme__button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
   border-radius: var(--connect__button-radius, 0);
-  box-shadow:
-    var(--inner-shadow),
-    0 0 0 var(--connect__inner-status, 0)
-      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent))
-      inset,
-    0 0 0 var(--connect__button-inner-divider, 0)
-      var(--connect__button-inner-divider-color, transparent) inset,
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
+  box-shadow: var(--connect__shadow-lvl-2);
   color: var(--theme__button-color, var(--connect__button-color));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
@@ -212,23 +192,15 @@ States:
   width: var(--connect__button-w, fit-content);
 
   &:hover {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+    box-shadow: var(--connect__shadow-lvl-4);
   }
 
   &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    box-shadow: var(--connect__shadow-lvl-0);
   }
 
   &:focus-visible:not(:active) {
-    --connect__shadow-10: var(--connect__focus-mid);
-    --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-19);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    box-shadow: var(--connect__shadow-lvl-focus);
   }
 
   /* 
@@ -245,6 +217,10 @@ States:
 
     &:disabled {
       --state-based-bg: var(--connect__disabled-pale);
+    }
+
+    &.connect__button-correct {
+      --connect__inner-status-color: var(--connect__surface-null);
     }
   }
 
@@ -276,32 +252,18 @@ States:
   }
 
   &-menu {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
 
     &:active {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    }
-
-    &:focus-visible:not(:active) {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --inner-shadow-color: var(--connect__surface-white);
-      --connect__button-bg: var(--connect__surface-white);
+      box-shadow: var(--connect__shadow-lvl-0);
     }
 
     &:not(:disabled) {
       &:hover {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
         --connect__button-bg: var(--connect__surface-white);
-        --inner-shadow-color: var(--connect__surface-white);
+        --connect__inner-status-color: var(--connect__surface-white);
+        box-shadow: var(--connect__shadow-lvl-2);
       }
     }
 
@@ -313,11 +275,11 @@ States:
   &-selected {
     &:not(:disabled) {
       --connect__button-bg: var(--connect__brand-pale-magenta);
-      --inner-shadow-color: var(--connect__brand-pale-magenta);
+      --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
 
       &:active {
-        --inner-shadow-color: var(--connect__surface-white);
+        --connect__inner-status-color: var(--connect__surface-white);
       }
     }
 
@@ -349,7 +311,7 @@ States:
 
   &-menu {
     --connect__button-bg: var(--connect__surface-null);
-    --inner-shadow-color: var(--connect__surface-null);
+    --connect__inner-status-color: var(--connect__surface-null);
     --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
   }
 
@@ -3394,11 +3356,11 @@ Usage:
   .connect__selected {
     &:not(:disabled) {
       --connect__button-bg: var(--connect__brand-pale-magenta);
-      --inner-shadow-color: var(--connect__brand-pale-magenta);
+      --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
 
       &:active {
-        --inner-shadow-color: var(--connect__surface-white);
+        --connect__inner-status-color: var(--connect__surface-white);
       }
     }
 
@@ -3939,6 +3901,10 @@ Rounded corners modifier:
 
   border-radius: var(--connect__paper-radius);
 
+  &.connect__elevation--1 {
+    box-shadow: var(--connect__elevation--1);
+  }
+
   &.connect__elevation-0 {
     box-shadow: var(--connect__elevation-0);
   }
@@ -3949,6 +3915,10 @@ Rounded corners modifier:
 
   &.connect__elevation-2 {
     box-shadow: var(--connect__elevation-2);
+  }
+
+  &.connect__elevation-3 {
+    box-shadow: var(--connect__elevation-3);
   }
 
   &.connect__rounded-corners {
@@ -4141,6 +4111,7 @@ Styles:
 [class*='-correct'],
 [class*='-correct']:disabled {
   --connect__mcq-starting-shadow-color: var(--connect__correct-mid);
+  --connect__inner-status-color: var(--connect__correct-mid);
   --state-icon: var(--icon-correct);
   --state-based-bg: var(--connect__correct-pale);
   --checkbox-state-based-bg: var(--connect__correct-mid);
@@ -4202,6 +4173,7 @@ Styles:
 [class*='-incorrect'],
 [class*='-incorrect']:disabled {
   --connect__mcq-starting-shadow-color: var(--connect__incorrect-mid);
+  --connect__inner-status-color: var(--connect__incorrect-mid);
   --state-icon: var(--icon-incorrect);
   --state-based-bg: var(--color-incorrect-bg);
   --connect__inner-status-color-state: var(--color-incorrect-bg);
@@ -4261,6 +4233,7 @@ Styles:
 [class*='-shown'],
 [class*='-shown']:disabled {
   --connect__mcq-starting-shadow-color: var(--connect__surface-mid);
+  --connect__inner-status-color: var(--connect__surface-mid);
   --starting-shadow-color: var(--connect__surface-dark);
   --state-based-bg: var(--connect__surface-white);
   --state-icon: var(--icon-shown);

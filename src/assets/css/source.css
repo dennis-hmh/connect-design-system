@@ -1398,21 +1398,31 @@
   --connect__long-shadow-spread-level-6: 0px 5px 5px -3px;
   --connect__long-shadow-spread-level-f: 0px 1px 0px 2px;
 
-  --connect__elevation-0: var(--connect__shadow-spread-level-0) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-12);
+  --connect__elevation--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
 
-  --connect__elevation-1: var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-4) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
+  --connect__elevation-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-0) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-0) var(--connect__shadow-long);
 
-  --connect__elevation-2: var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-10) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-11) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-13) var(--connect__shadow-12);
+  --connect__elevation-1: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long);
 
+  --connect__elevation-2: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long);
+
+  --connect__elevation-3: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
+    
   --connect__flat-shadow: var(--connect__shadow-spread-level-0) var(--connect__shadow-10),
     var(--connect__shadow-spread-level-0) var(--connect__shadow-20),
     var(--connect__shadow-spread-level-0) var(--connect__shadow-14),
