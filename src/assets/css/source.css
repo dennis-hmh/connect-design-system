@@ -1321,16 +1321,12 @@
   /*
     4: Shadows
     4.1: Shadow Opacity Levels
-    4.2: Shadow Spread Levels
+    4.2: Shadow Elevations
   */
 
   /*
     4.1: Shadow Opacity Levels
   */
-  --connect__shadow-10: rgba(0, 0, 0, 0.1);
-  --connect__shadow-12: rgba(0, 0, 0, 0.12);
-  --connect__shadow-14: rgba(0, 0, 0, 0.14);
-  --connect__shadow-20: rgba(0, 0, 0, 0.2);
 
   --connect__shadow-definer: rgba(0, 0, 0, 0.1);
   --connect__shadow-short: rgba(0, 0, 0, 0.12);
@@ -1338,39 +1334,16 @@
   --connect__shadow-long: rgba(0, 0, 0, 0.2);
 
   /*
-    4.2: Shadow Spread Levels
-  */
-
-  --connect__shadow-spread-level-0: 0px 0px 0px 0px;
-  --connect__shadow-spread-level-1: 0px 0px 0px 1px;
-  --connect__shadow-spread-level-2: 0px 0px 0px 2px;
-  --connect__shadow-spread-level-3: 0px 1px 0px 1px;
-  --connect__shadow-spread-level-4: 0px 2px 1px -1px;
-  --connect__shadow-spread-level-5: 0px 1px 3px 1px;
-  --connect__shadow-spread-level-6: 0px 3px 0px -2px;
-  --connect__shadow-spread-level-7: 0px 3px 3px -2px;
-  --connect__shadow-spread-level-8: 0px 3px 4px 0px;
-  --connect__shadow-spread-level-9: 0px 1px 8px 0px;
-  --connect__shadow-spread-level-10: 0px 5px 5px -3px;
-  --connect__shadow-spread-level-11: 0px 8px 10px 1px;
-  --connect__shadow-spread-level-12: 0px 3px 14px 2px;
-  --connect__shadow-spread-level-13: 0px 3px 14px 12px;
-  --connect__shadow-spread-level-14: 0px 4px 3px 0px;
-  --connect__shadow-spread-level-15: 0px 1px 0px 3px;
-  --connect__shadow-spread-level-16: 0px 3px 0px 1px;
-  --connect__shadow-spread-level-17: 0px 2px 0px 0px;
-  --connect__shadow-spread-level-18: 0px 1px 1px 0px;
-  --connect__shadow-spread-level-19: 0px 2px 0px 1px;
-
-  /*
-    4.3: Shadow Elevations
+    4.2: Shadow Elevations
 
     These are the paper, Design currently working on the 
     interactive shadows
 
   */
+  --connect__shadow-reset: 0px 0px 0px;
   --connect__definer-level-1: 0px 0px 0px 1px;
   --connect__definer-level-0: 0px 0px 0px 0px;
+
   --connect__short-shadow-spread-level-0: 0px 0px 0px 0px;
   --connect__short-shadow-spread-level-1: 0px 1px 3px 0px;
   --connect__short-shadow-spread-level-2: 0px 1px 5px 0px;
@@ -1398,51 +1371,6 @@
   --connect__long-shadow-spread-level-6: 0px 5px 5px -3px;
   --connect__long-shadow-spread-level-f: 0px 1px 0px 2px;
 
-  --connect__elevation--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
-
-  --connect__elevation-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-0) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-0) var(--connect__shadow-long);
-
-  --connect__elevation-1: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long);
-
-  --connect__elevation-2: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long);
-
-  --connect__elevation-3: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
-    
-  --connect__flat-shadow: var(--connect__shadow-spread-level-0) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-12);
-
-  --connect__flat-hovered-shadow: var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-7) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-8) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-9) var(--connect__shadow-12);
-
-  --connect__flat-pressed-shadow: var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-0) var(--connect__shadow-12);
-
-  --connect__flat-focused-shadow: var(--connect__shadow-spread-level-1) var(--connect__focus-mid),
-    var(--connect__shadow-spread-level-17) var(--connect__focus-mid),
-    var(--connect__shadow-spread-level-0) var(--connect__surface-white),
-    var(--connect__shadow-spread-level-15) var(--connect__surface-white);
-
   /*
     5: Motion
     5.1: Easing
@@ -1467,9 +1395,6 @@
     6.3: Feedback Iconography 
   */
 
-  --ui-button: 32px;
-  --connect__ui-icon: 20px;
-
   /* 6.1: Displays */
   --connect__display-block: block;
   --connect__display-none: none;
@@ -1493,10 +1418,6 @@
   --connect__half-radius: 50%;
 
   /* 6.3: Feedback Iconography */
-  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
-  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
-  --connect__dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%235D5F5F'/%3E%3C/svg%3E");
 }
 
 @media (min-width: 650px) {
@@ -1517,13 +1438,12 @@
   }
 }
 
-/* A connect reset starter kit
-An attempt to unify code, reduce need for extra css 
-A modern 2024 take on the reset
+/* Shadows that require gradebanded values need the connect
+class for scope, this ensures the values can be accessed
 */
 
 :where([class^='connect__']) {
-  --connect__filled-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
+  --connect__effects-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
       var(--connect__surface-white) inset,
     0px 0px 0px var(--connect__inner-status)
       var(
@@ -1533,66 +1453,78 @@ A modern 2024 take on the reset
       inset,
     0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__shadow-lvl--1: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
+  --connect__inner-shadow: var(--connect__definer-level-1)
+      var(--connect__active-state, var(--connect__surface-null)),
+    0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-status) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__shadow-lvl--2: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long) inset;
+  --connect__shadow-null: var(--connect__definer-level-0) var(--connect__surface-null),
+    var(--connect__definer-level-0) var(--connect__shadow-short),
+    var(--connect__definer-level-0) var(--connect__shadow-mid),
+    var(--connect__definer-level-0) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-focus: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__focus-mid),
+  --connect__shadow-lvl-focus: var(--connect__definer-level-1) var(--connect__focus-mid),
     var(--connect__short-shadow-spread-level-f) var(--connect__focus-mid),
     var(--connect__mid-shadow-spread-level-f) var(--connect__surface-white),
     var(--connect__long-shadow-spread-level-f) var(--connect__surface-white);
 
-  --connect__shadow-lvl-0: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl--2: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-0) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-0) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-1: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl-1: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-1) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-1) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-2: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl-2: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-3: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl-3: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-3) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-3) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-3) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-4: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl-4: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-5: var(--connect__filled-shadow),
-    var(--connect__short-shadow-spread-level-5) var(--connect__shadow-short),
+  --connect__shadow-lvl-5: var(--connect__short-shadow-spread-level-5) var(--connect__shadow-short),
     var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__mid-shadow-spread-level-5) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-5) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-6: var(--connect__filled-shadow),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
+  --connect__shadow-lvl-6: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short),
     var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid),
     var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
+
+  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
+  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
+  --connect__dropdown-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5083 14.8709 11.4 14.8 11.3 14.7L6.69999 10.1C6.51665 9.91672 6.42499 9.68338 6.42499 9.40005C6.42499 9.11672 6.51665 8.88338 6.69999 8.70005C6.88332 8.51672 7.11665 8.42505 7.39999 8.42505C7.68332 8.42505 7.91665 8.51672 8.09999 8.70005L12 12.6L15.9 8.70005C16.0833 8.51672 16.3167 8.42505 16.6 8.42505C16.8833 8.42505 17.1167 8.51672 17.3 8.70005C17.4833 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4833 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2583 14.9542 12.1333 14.975 12 14.975Z' fill='%23006AFF'/%3E%3C/svg%3E");
+  --connect__dropdown-icon-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 10.8L8.09999 14.7C7.91665 14.8834 7.68332 14.975 7.39999 14.975C7.11665 14.975 6.88332 14.8834 6.69999 14.7C6.51665 14.5167 6.42499 14.2834 6.42499 14C6.42499 13.7167 6.51665 13.4834 6.69999 13.3L11.3 8.70002C11.5 8.50002 11.7333 8.40002 12 8.40002C12.2667 8.40002 12.5 8.50002 12.7 8.70002L17.3 13.3C17.4833 13.4834 17.575 13.7167 17.575 14C17.575 14.2834 17.4833 14.5167 17.3 14.7C17.1167 14.8834 16.8833 14.975 16.6 14.975C16.3167 14.975 16.0833 14.8834 15.9 14.7L12 10.8Z' fill='%23006AFF'/%3E%3C/svg%3E");
+  --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
 }
+
+/* A connect reset starter kit
+An attempt to unify code, reduce need for extra css 
+A modern 2024 take on the reset
+*/
 
 *[class^='connect__'],
 *[class^='connect__'] *,
@@ -1607,10 +1539,10 @@ A modern 2024 take on the reset
   margin: 0;
 }
 
-:where([class^='connect__']) > img,
-:where([class^='connect__']) > video,
-:where([class^='connect__']) > canvas,
-:where([class^='connect__']) > svg {
+:where([class^='connect__']) img,
+:where([class^='connect__']) video,
+:where([class^='connect__']) canvas,
+:where([class^='connect__']) svg {
   display: var(--connect__media-display, var(--connect__display-block));
   max-inline-size: var(--connect__media-max-inline-size, 100%);
   max-width: var(--connect__media-max-width, 100%);

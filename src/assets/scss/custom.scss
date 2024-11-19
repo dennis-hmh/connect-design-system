@@ -1,27 +1,64 @@
 @import '../css/source.css';
 
 /*
-
-Loose guide / cheat sheet for fallback values,
-when to use inherit vs initial
+FALLBACK VALUE GUIDE: when to use inherit vs initial
 
 inherit ensures that children respect the parent's styling.
 initial ensures that properties are reset to their default values 
   .ideal for resetting styles to avoid unintended inherited styles
 
 
-| Property Type                                | Fallback (initial or inherit) |
-|----------------------------------------------|-------------------------------|
-| Color, font size/ family, line height        | inherit                       |
-| Fixed component backgrounds                  | initial                       |
-| Reset borders/shadows/z-index                | initial                       |
-| Opacity, visibility                          | inherit                       |
-| Flexible layout alignment (Flex / Grid)      | inherit                       |
-| Positioning layout alignment (Absolute)      | initial                       |
-| Font family and weight (nested text)         | inherit                       |
-| Background color (for reset purposes)        | initial                       |
-| Border styling (reset)                       | initial                       |
-| Font style / weight / variant / wrap / align | initial                       |
+| Property Type                                | Fallback |
+|----------------------------------------------|----------|
+| Color, font size/ family, line height        | inherit  |
+| Fixed component backgrounds                  | initial  |
+| Reset borders/shadows/z-index                | initial  |
+| Opacity, visibility                          | inherit  |
+| Flexible layout alignment (Flex / Grid)      | inherit  |
+| Positioning layout alignment (Absolute)      | initial  |
+| Font family and weight (nested text)         | inherit  |
+| Background color (for reset purposes)        | initial  |
+| Border styling (reset)                       | initial  |
+| Font style / weight / variant / wrap / align | initial  |
+
+*/
+
+/* 
+  SHADOW SELECTION GUIDE:when to use a shadow
+
+  There are three main shadow types in the system
+
+  1: --connect__effects-shadow
+  2: --connect__inner-shadow
+  3: --connect__shadow-null
+  4: --connect__shadow-lvl-focus
+
+  There are 9 shadow elevations ranging from minus 2 to 6
+  minus elevations have --1/--2 and positive elevations have -1/-2/-3 etc
+
+  Shadow types and shadow elevations work together. 
+  A shadow elevation does not require a shadow type
+
+|---------------------------------------------------------------------------|
+| Component                                   | Shadow Type                 |
+|---------------------------------------------------------------------------|
+| Interactive components:                     | --connect__effects-shadow   |
+|   elements that takes visual status line 
+|   when correct / incorrect/ shown             
+|---------------------------------------------------------------------------|
+| Inner Shadow components:                    | --connect__inner-shadow     |
+|   elements that takes inner shadows
+|   these components can take a 
+|   solid bg for state but no line
+|---------------------------------------------------------------------------|
+| Components with no definer line:             | --connect__shadow-null      |
+|   elements that takes no definer line
+|---------------------------------------------------------------------------|
+| Focus Shadow components:                    | --connect__shadow-lvl-focus |
+|   elements that takes focus shadows
+|---------------------------------------------------------------------------|
+
+
 */
 
 /* 
@@ -40,14 +77,10 @@ Variables related to theme/overrides:
   --connect__button-padding-x: Horizontal padding of the button.
   --connect__button-justify-content: Justification of content inside the button.
   --connect__button-flow: Flex flow direction of the button content.
-  --connect__button-margin: Margin around the button.
   --connect__button-w: Width of the button.
   --connect__button-h: Height of the button.
 
 Variables related to states (e.g., correct/incorrect):
-  --inner-shadow: Inner shadow of the button.
-  --inner-shadow-color: Color of the inner shadow.
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
   --connect__button-color: Text color of the button.
   --connect__button-bg: Background color of the button.
   --connect__state-based-pointer: Cursor style when the button is disabled.
@@ -60,14 +93,6 @@ Variables related to states (e.g., correct/incorrect):
   --state-based-bg: State-based background color.
   --active-color: Active state color.
 
-Variables related to gradients and animations:
-  --gradient-angle: Angle of the gradient.
-  --gradient-angle-offset: Offset angle for the gradient.
-  --gradient-percent: Percentage for gradient stops.
-  --gradient-shine: Shine color for gradients.
-  --shimmer-filter: Filter for shimmer effect.
-  --animation: Animation type for gradients.
-  --duration: Duration of the animation.
 
 States:
   &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not([class*='-incorrect']):not([class*='-shown'])
@@ -116,6 +141,7 @@ States:
     - State for buttons that contain SVG icons.
     - align-items: Centre alignment for content inside the button.
 */
+
 @property --gradient-angle {
   inherits: false;
   initial-value: 0deg;
@@ -160,8 +186,6 @@ States:
   --connect__button-justify-content: var(--btn-justify, space-between);
   --connect__button-flow: var(--btn-flow, row wrap);
 
-  --connect__button-margin: var(--theme__button-margin, var(--connect__spacer-zero));
-
   --icon-fill-color: var(
     --theme__icon-fill,
     var(--state-based-icon-fill, var(--connect__icon-fill))
@@ -171,7 +195,7 @@ States:
   background-color: var(--theme__button-bg, var(--connect__button-bg));
   border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
   border-radius: var(--connect__button-radius, 0);
-  box-shadow: var(--connect__shadow-lvl-2);
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--theme__button-color, var(--connect__button-color));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
@@ -182,7 +206,6 @@ States:
   gap: var(--connect__button-gap, 0);
   justify-content: var(--connect__button-justify-content);
   line-height: var(--connect__button-lh);
-  margin: var(--connect__button-margin);
   padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
     calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
   text-transform: var(--connect__button-text-transform, initial);
@@ -192,21 +215,22 @@ States:
   width: var(--connect__button-w, fit-content);
 
   &:hover {
-    box-shadow: var(--connect__shadow-lvl-4);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
   }
 
   &:active {
-    box-shadow: var(--connect__shadow-lvl-0);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   &:focus-visible:not(:active) {
-    box-shadow: var(--connect__shadow-lvl-focus);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
 
   /* 
     Each button type has an active color
     set icon fill to that, change on case by case
   */
+
   .connect__icon {
     --connect__icon-fill-color: var(--icon-fill-color);
   }
@@ -220,7 +244,11 @@ States:
     }
 
     &.connect__button-correct {
-      --connect__inner-status-color: var(--connect__surface-null);
+      --connect__inner-status-color-state: var(--connect__surface-null);
+    }
+
+    &.connect__button-incorrect {
+      --connect__inner-status-color-state: var(--connect__surface-null);
     }
   }
 
@@ -232,7 +260,7 @@ States:
 
     &:disabled {
       --state-based-bg: var(--connect__surface-white);
-      --connect__inner-status-color: var(--connect__surface-pale);
+      --connect__inner-status-color-state: var(--connect__surface-pale);
     }
 
     &.connect__button-incorrect {
@@ -254,6 +282,11 @@ States:
   &-menu {
     --connect__button-padding-y: var(--connect__spacer-sm);
     --connect__button-padding-x: var(--connect__spacer-sm);
+    --connect__button-bg: var(--connect__surface-null);
+    --connect__inner-status-color: var(--connect__surface-null);
+    --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+
+    box-shadow: var(--connect__shadow-null);
 
     &:active {
       box-shadow: var(--connect__shadow-lvl-0);
@@ -307,12 +340,6 @@ States:
     &.connect__media-active:not(:disabled) {
       --state-based-bg: var(--connect__red-s45);
     }
-  }
-
-  &-menu {
-    --connect__button-bg: var(--connect__surface-null);
-    --connect__inner-status-color: var(--connect__surface-null);
-    --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
   }
 
   &:disabled {
@@ -460,13 +487,6 @@ Variables related to theme/overrides:
   --caret-color: Color of the caret (text cursor).
   --connect__input-width: Width of the input field.
 
-Variables related to shadows:
-  --starting-shadow-color: Initial shadow color.
-  --connect__input-focus-shadow: Shadow color when the input is focused.
-  --outer-shadow-color: Outer shadow color.
-  --connect__shadow-level-1 to --connect__shadow-level-5: Different levels of box shadows.
-  --connect__input-outer-shadow: Outer shadow for the input field.
-
 Variables related to states (e.g., focus, active):
   --state-based-bg: State-based background color.
   --active-color: Active state color.
@@ -507,27 +527,6 @@ States:
 
 .connect__input {
   --resize: none;
-
-  --starting-shadow-color: var(--connect__shadow-10);
-  --connect__input-focus-shadow: var(--connect__surface-null);
-  --outer-shadow-color: var(--connect__surface-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-  --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
-  --connect__input-outer-shadow: var(--connect__shadow-spread-level-2);
-
-  --connect__input-shadow: var(--connect__shadow-level-1)
-      var(--starting-shadow-color, var(--connect__shadow-10)) inset,
-    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
-    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial)
-      var(--connect__input-focus-shadow, var(--connect__surface-null)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color);
-
   --connect__input-padding-y: var(--connect__spacer-sm);
   --connect__input-padding-x: var(--connect__spacer-md);
   --connect__input-fs: var(--connect__body-sm);
@@ -544,8 +543,7 @@ States:
   background-color: var(--state-based-bg, var(--connect__surface-white));
   border: var(--connect__input-border-w) solid var(--connect__input-border-c);
   border-radius: var(--connect__border-radius);
-
-  box-shadow: var(--connect__input-shadow);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   caret-color: var(--connect__caret-color);
   color: var(--connect__input-text-color);
   cursor: var(--connect__state-based-pointer, text);
@@ -563,24 +561,16 @@ States:
   &:not(:disabled) {
     &:hover,
     &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
     }
   }
 
   &:focus-visible:not(:active) {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-    --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
-    --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-    --starting-shadow-color: var(--connect__focus-mid);
-    --connect__input-focus-shadow: var(--connect__focus-mid);
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
   }
 
   &:active:not(:disabled) {
-    --starting-shadow-color: var(--connect__primary-mid);
+    --connect__active-state: var(--connect__primary-mid);
   }
 
   &::placeholder {
@@ -606,11 +596,8 @@ States:
 
 .connect__input-selected,
 .connect__input-selected:disabled {
-  --connect__caret-color: var(--connect__primary-mid);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-  --starting-shadow-color: var(--connect__primary-mid);
+  --connect__inner-status-color-state: var(--connect__primary-mid);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
 }
 
 /* 
@@ -626,11 +613,6 @@ Variables related to theme/overrides:
   --connect__select-text-transform: Text transformation (e.g., capitalize, uppercase).
   --connect__select-padding-y: Vertical padding of the select dropdown.
   --connect__select-padding-x: Horizontal padding of the select dropdown.
-
-Variables related to shadows:
-  --outer-shadow-color: Outer shadow color.
-  --connect__shadow-level-1 to --connect__shadow-level-5: Different levels of box shadows.
-  --connect__input-outer-shadow: Outer shadow for the select dropdown.
 
 Variables related to states (e.g., focus, active):
   --state-based-bg: State-based background color.
@@ -667,48 +649,20 @@ States:
 
 .connect__select {
   --connect__select-bg: var(--state-based-bg, var(--connect__surface-white));
-
-  --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --connect__select-border-w: var(--connect__spacer-zero);
-  --connect__select-border-c: var(--connect__select-border-c, transparent);
-
   --connect__select-fs: var(--connect__body-sm);
   --connect__select-lh: var(--connect__body-sm-lheight);
   --connect__select-fw: var(--connect__fw-regular);
   --connect__select-text-transform: var(--connect__text-capitalize);
 
-  --starting-shadow-color: var(--connect__shadow-10);
-  --connect__input-focus-shadow: var(--connect__surface-null);
-  --outer-shadow-color: var(--connect__surface-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-  --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
-  --connect__input-outer-shadow: var(--connect__shadow-spread-level-2);
-
-  --connect__input-shadow: var(--connect__shadow-level-1)
-      var(--starting-shadow-color, var(--connect__shadow-10)) inset,
-    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
-    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial)
-      var(--connect__input-focus-shadow, var(--connect__surface-null)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color);
-
-  --connect__select-padding-y: var(--connect__spacer-sm);
-  --connect__select-padding-x: var(--connect__spacer-md);
-
   appearance: none;
   background-color: var(--connect__select-bg);
-  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon));
-  background-position: calc(var(--connect__full-w) - var(--connect__select-padding-x));
+  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon-closed));
+  background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
-  background-size: var(--connect__ui-icon) var(--connect__ui-icon);
-  border: var(--connect__select-border-w) solid var(--connect__select-border-c);
+  background-size: var(--connect__icon-md);
+  border: var(--connect__spacer-zero) solid var(--connect__surface-null);
   border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__input-shadow);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
@@ -716,7 +670,7 @@ States:
   font-size: var(--connect__select-fs);
   font-weight: var(--connect__select-fw);
   line-height: var(--connect__select-lh);
-  padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
+  padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   position: relative;
   text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
@@ -724,21 +678,12 @@ States:
   &:not(:disabled) {
     &:hover,
     &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
     }
   }
 
   &:focus-visible:not(:active) {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-    --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
-    --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-
-    --starting-shadow-color: var(--connect__focus-mid);
-    --connect__input-focus-shadow: var(--connect__focus-mid);
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
   }
 
   &:active:not(:disabled) {
@@ -754,7 +699,6 @@ States:
 .connect__button-split Component
 
 Variables related to theme/overrides:
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
   --connect__list-bg: Background color of the list.
   --connect__list-radius: Border radius of the list.
   --connect__list-flow: Flex flow direction of the list.
@@ -763,15 +707,6 @@ Variables related to theme/overrides:
   --connect__effects-inner-edge: Inner edge effect size.
   --connect__full-w: Full width of the component.
   --connect__z-1: Z-index for stacking context.
-
-Styles:
-  .connect__list
-    - Styles for the list within the button split.
-    - Uses flexbox for layout and applies shadows and background color.
-
-  .connect__list-item
-    - Styles for individual list items.
-    - Includes hover effects and border radius adjustments for first and last items.
 */
 
 .connect__button-split {
@@ -786,7 +721,7 @@ Styles:
 
     background-color: var(--connect__list-bg);
     border-radius: var(--connect__list-radius);
-    box-shadow: var(--connect__elevation-2);
+    box-shadow: var(--connect__shadow-lvl-4);
     color: var(--connect__surface-dark);
     display: flex;
     flex-flow: var(--connect__list-flow) var(--connect__list-wrap);
@@ -834,12 +769,6 @@ Variables related to theme/overrides:
   --connect__primary-mid: Mid color for selected state.
   --color-action-disabled: Color for disabled actions.
   --connect__surface-mid: Mid neutral color.
-
-Styles:
-  .connect__button-split-button
-    - Styles for the split button.
-    - Includes color, background, and cursor styles.
-    - Adjusts styles for disabled and focus-visible states.
 */
 
 .connect__button-split-button {
@@ -864,11 +793,6 @@ Styles:
 
 /* 
 .connect__button-split-button-actions Component
-
-Styles:
-  .connect__button-split-button-actions
-    - Styles for the actions section of the split button.
-    - Includes border and padding adjustments.
 */
 
 .connect__button-split-button-actions {
@@ -880,7 +804,7 @@ Styles:
 .connect__accordion Component
 
 Variables related to theme/overrides:
-  --connect__effects-inner-edge: Inner edge effect size.
+  --connect__effects-inner-edge: Inner edge effect size grade banded value used to margin top.
   --connect__details-padding-t/r/b/l: Padding for the details section.
   --connect__details-closed-radius: Border radius when details are closed.
   --connect__details-open-radius: Border radius when details are open.
@@ -890,19 +814,6 @@ Variables related to theme/overrides:
   --connect__summary-padding-y/x: Padding for the summary.
   --connect__align-items: Alignment of summary items.
   --connect__justify-content: Justification of summary items.
-
-Styles:
-  .connect__list-item
-    - Adjusts margin and padding for list items.
-
-  .connect__details
-    - Styles for the details section, including padding and border radius.
-    - Adjusts icon rotation when open.
-
-  .connect__summary
-    - Styles for the summary section, including background, alignment, and icon.
-    - Includes hover, active, and focus-visible states.
-
 */
 
 .connect__accordion {
@@ -913,7 +824,6 @@ Styles:
   }
 
   .connect__details {
-    // paddings for details itself
     --connect__details-padding-t: var(
       --theme__details-padding-t,
       var(--variant__details-padding-t, 0)
@@ -997,24 +907,24 @@ Styles:
     padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
 
     &::after {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
+      background-image: var(--connect__dropdown-icon-closed);
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: var(--connect__ui-icon) var(--connect__ui-icon);
+      background-size: var(--connect__icon-sm) var(--connect__icon-sm);
       border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
       border-radius: 50%;
       content: '';
       flex-shrink: 0;
-      height: var(--ui-button);
+      height: var(--connect__icon-md);
       margin-left: var(--connect__spacer-md);
       transform: var(--connect__icon-rotate);
-      width: var(--ui-button);
+      width: var(--connect__icon-md);
     }
 
     &::before {
       background: var(--connect__surface-white);
       border-radius: var(--connect__border-radius);
-      box-shadow: var(--connect__elevation-1);
+      box-shadow: var(--connect__shadow-lvl-2);
       content: '';
       height: var(--connect__full-h);
       left: 0;
@@ -1027,28 +937,21 @@ Styles:
       z-index: -1;
     }
 
-    &:hover {
+    &:hover,
+    &:active {
       &::before {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+        box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-4);
       }
     }
 
-    &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    &:active:not(:disabled) {
+      --connect__inner-status-color-state: var(--connect__primary-mid);
     }
 
     &:focus-visible:not(:active) {
-      --connect__shadow-10: var(--connect__focus-mid);
-      --connect__shadow-20: var(--connect__focus-mid);
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-2);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
+      &::before {
+        box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
+      }
     }
   }
 }
@@ -1107,39 +1010,7 @@ Variables related to theme/overrides:
   --connect__card-padding-x: Horizontal padding of the card.
   --connect__card-flow: Flex flow direction of the card content.
   --connect__card-gap: Gap between elements inside the card.
-
-Variables related to shadows:
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-
-Variables related to colors:
-  --connect__surface-white: Neutral white color.
-
-Styles:
-  background-color:
-    - Sets the background color of the card.
-  border:
-    - Sets the border width and color of the card.
-  border-radius:
-    - Sets the border radius of the card.
-  box-sizing: border-box;
-    - Ensures padding and border are included in the element's total width and height.
-  display: inline-flex;
-    - Sets the display property to inline-flex for flexible layout.
-  flex-flow: var(--connect__card-flow);
-    - Sets the flex direction and wrapping of the card content.
-  gap: var(--connect__card-gap);
-    - Sets the gap between elements inside the card.
-  padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w)) calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
-    - Sets the padding of the card, adjusted for the border width.
-  width: var(--connect__full-w);
-    - Sets the width of the card to full width.
-
-Child Elements:
-  .connect__figure, .connect__card-header, .connect__card-content, .connect__card-footer:
-    - Sets the width of these elements to full width.
-  header, footer:
-    - Uses flex display for layout.
-*/
+  */
 
 .connect__card {
   --connect__card-border-w: var(--theme__card-border-w, var(--connect__spacer-zero));
@@ -1156,7 +1027,7 @@ Child Elements:
   background-color: var(--connect__surface-white);
   border: var(--connect__card-border-w) solid var(--connect__card-border-c, transparent);
   border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__elevation-1);
+  box-shadow: var(--connect__shadow-lvl-2);
   display: inline-flex;
   flex-flow: var(--connect__card-flow);
   gap: var(--connect__card-gap);
@@ -1295,12 +1166,6 @@ Variables related to typography:
 
 Variables related to spacing:
   --connect__spacer-md: Medium spacer for margin.
-
-Styles:
-  font-size:
-    - Sets the font size of the blockquote to medium body text size.
-  margin:
-    - Applies vertical margin using the medium spacer.
 */
 .connect__blockquote {
   font-size: var(--connect__body-md);
@@ -1317,17 +1182,6 @@ Variables related to transitions:
   --connect__tooltip-vertical-translateY-hover: Vertical translation on hover.
   --connect__transition-fast: Duration of the fast transition.
   --connect__ease-out: Timing function for easing out.
-
-Styles:
-  display: inline-block;
-    - Sets the display to inline-block for layout.
-  position: relative;
-    - Positions the wrapper relative to its normal position.
-
-Hover State:
-  &:hover .connect__tooltip
-    - Adjusts tooltip visibility, opacity, and position on hover.
-    - Applies transition effects for smooth appearance.
 */
 
 .connect__tooltip-wrapper {
@@ -1362,45 +1216,6 @@ Variables related to theme/overrides:
   --connect__tooltip-left: Left position of the tooltip.
   --connect__tooltip-translateX: Horizontal translation of the tooltip.
   --connect__tooltip-translateY: Vertical translation of the tooltip.
-
-Tooltip Styles:
-  align-items: center;
-    - Aligns items along the cross axis.
-  align-content: center;
-    - Aligns content along the cross axis.
-  border-radius: var(connect__inner-radius, 0.25rem);
-    - Rounds the corners of the tooltip.
-  background: var(--connect__tooltip-bg);
-    - Sets the background color of the tooltip.
-  color: var(--connect__tooltip-color);
-    - Sets the text color of the tooltip.
-  display: inline-block;
-    - Displays the tooltip as an inline-block element.
-  justify-content: center;
-    - Centers the content along the main axis.
-  padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
-    - Applies padding inside the tooltip.
-  position: absolute;
-    - Positions the tooltip absolutely.
-  top: 0;
-    - Sets the top position of the tooltip.
-  left: var(--connect__tooltip-left);
-    - Sets the left position of the tooltip.
-  transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
-    - Translates the tooltip based on the specified values.
-
-Transition Styles:
-  transition:
-    opacity,
-    visibility,
-    transform var(--connect__transition-default) var(--connect__tooltip-transition) allow-discrete;
-    - Applies transitions to opacity, visibility, and transform properties.
-  white-space: nowrap;
-    - Prevents the tooltip text from wrapping.
-  opacity: var(--connect__tooltip-opacity);
-    - Sets the opacity of the tooltip.
-  visibility: var(--connect__tooltip-visibility);
-    - Sets the visibility of the tooltip.
 */
 
 .connect__tooltip {
@@ -2263,30 +2078,8 @@ Variables related to theme/overrides:
   --connect__chip-bg: Background color of the chip.
   --connect__chip-padding-y: Vertical padding of the chip.
   --connect__chip-padding-x: Horizontal padding of the chip.
-
-Variables related to shadows:
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-
-Styles:
-  background-color:
-    - Sets the background color of the chip.
-  border:
-    - Sets the border width and color of the chip.
-  border-radius:
-    - Sets the border radius of the chip.
-  color:
-    - Sets the text color of the chip.
-  font-family: var(--connect__font-sans);
-    - Sets the font family for the chip text.
-  font-size:
-    - Sets the font size of the chip text.
-  line-height:
-    - Sets the line height of the chip text.
-  padding:
-    - Sets the padding of the chip, adjusted for the border width.
-  width:
-    - Sets the width of the chip, defaulting to fit-content.
 */
+
 .connect__chip {
   --connect__chip-fs: var(--theme__chip-fs, var(--connect__caption));
   --connect__chip-lh: var(--theme__chip-lh, var(--connect__caption-lheight));
@@ -2303,7 +2096,7 @@ Styles:
   background-color: var(--connect__chip-bg);
   border: var(--connect__chip-border-w) solid var(--connect__chip-border-c, transparent);
   border-radius: var(--connect__chip-radius, 0);
-  box-shadow: var(--connect__elevation-1);
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--theme__button-color, var(--connect__chip-color));
   font-family: var(--connect__font-sans);
   font-size: var(--connect__chip-fs);
@@ -2311,6 +2104,10 @@ Styles:
   padding: calc(var(--connect__chip-padding-y) - var(--connect__chip-border-w))
     calc(var(--connect__chip-padding-x) - var(--connect__chip-border-w));
   width: var(--connect__chip-w, fit-content);
+
+  &:focus-visible:not(:active) {
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
+  }
 }
 
 /* Connect pill Component
@@ -2325,42 +2122,6 @@ Variables related to theme/overrides:
   --theme__connect-pill-lh: Custom line height for the pill text.
   --theme__connect-pill-fw: Custom font weight for the pill text.
   --theme__connect-pill-ff: Custom font family for the pill text.
-
-Variables related to default styles:
-  --connect__default-pill-bg: Default background color for the pill.
-  --connect__default-pill-color: Default text color for the pill.
-  --connect__pill-bg: Final background color (theme override or default).
-  --connect__pill-color: Final text color (theme override or default).
-
-Variables related to border radius:
-  --connect__pill-br-tl: Top-left border radius.
-  --connect__pill-br-tr: Top-right border radius.
-  --connect__pill-br-br: Bottom-right border radius.
-  --connect__pill-br-bl: Bottom-left border radius.
-  --connect__heading-lg-lheight: Used as a fallback for border radius values.
-
-Variables related to padding:
-  --connect__pill-py: Vertical padding (top and bottom).
-  --connect__pill-pl: Left padding.
-  --connect__pill-pr: Right padding.
-  --connect__spacer-xs: Used as a fallback for vertical padding.
-  --connect__spacer-md: Used as a fallback for left padding.
-  --connect__spacer-lg: Used as a fallback for right padding.
-
-Variables related to typography:
-  --connect__pill-fs: Font size.
-  --connect__pill-lh: Line height.
-  --connect__pill-fw: Font weight.
-  --connect__pill-ff: Font family.
-  --connect__body-sm: Used as a fallback for font size.
-  --connect__body-sm-lheight: Used as a fallback for line height.
-  --connect__font-sans: Used as a fallback for font family.
-
-Usage:
-- The pill uses flexbox for layout with centered content.
-- It has customisable palette, spacing, and typography.
-- The border radius can be adjusted to create various shapes, from rectangular to fully rounded.
-- All style properties can be overridden using theme variables
 */
 
 .connect__pill {
@@ -2410,38 +2171,10 @@ Variables related to positioning:
   --connect__feedback-translateX: Horizontal translation for feedback icon.
   --connect__icon-size: Size of the icon, defaults to medium if not specified.
 
-Styles:
-  display: inline-flex;
-    - Sets the display to inline-flex for flexible layout.
-  flex: 1;
-    - Allows the component to grow and shrink as needed.
-  position: relative;
-    - Positions the wrapper relative to its normal position.
-  width: var(--connect__full-w);
-    - Sets the width to full width.
 
 Pseudo-element Styles:
   &::after
     background-image: var(--state-icon);
-      - Sets the background image based on the state.
-    background-repeat: repeat;
-      - Repeats the background image.
-    background-size: contain;
-      - Scales the background image to fit the container.
-    content: '';
-      - Inserts an empty content string.
-    height: var(--connect__icon-size, var(--connect__icon-md));
-      - Sets the height of the pseudo-element.
-    position: absolute;
-      - Positions the pseudo-element absolutely.
-    right: 0;
-      - Aligns the pseudo-element to the right.
-    top: 0;
-      - Aligns the pseudo-element to the top.
-    transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
-      - Translates the pseudo-element based on specified values.
-    width: var(--connect__icon-size, var(--connect__icon-md));
-      - Sets the width of the pseudo-element.
 
 State Styles:
   &.connect__input-correct
@@ -2471,9 +2204,6 @@ Child Element State Styles:
 */
 
 .connect__icon-wrapper {
-  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
-  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
-
   display: inline-flex;
   flex: 1;
   position: relative;
@@ -2624,83 +2354,13 @@ Variables related to icon size:
 
 /*
 .connect__choice-label Components
-
-Variables related to typography:
-  --connect__label-fs: Font size of the label.
-  --connect__label-lh: Line height of the label.
-  --connect__label-fw: Font weight of the label.
-
-Variables related to borders and radius:
-  --connect__label-border-w: Border width of the label.
-  --connect__label-border-c: Border color of the label.
+  
+  Variables related to radius:
   --connect__label-radius: Border radius of the label.
-
-Variables related to shadows:
-  --connect__shadow-inner-null: Null shadow for inner elements.
-  --inner-shadow: Inner shadow style.
-  --inner-shadow-color: Color of the inner shadow.
-  --starting-shadow-color: Initial shadow color.
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-  --connect__mcq-base-shadow: Base shadow style for MCQ elements.
-
-Variables related to radius:
   --connect__mcq-radius: Radius for MCQ elements.
-
-Variables related to palette:
-  --connect__label-color: Text color of the label.
-
-Variables related to spacings:
-  --connect__label-gap: Gap between label elements.
-  --connect__label-padding-y: Vertical padding of the label.
-  --connect__label-padding-x: Horizontal padding of the label.
-  --connect__label-justify-content: Justification of label content.
-  --connect__label-w: Width of the label.
-
-Variables related to inputs:
   --connect__input-dimensions: Dimensions of the input.
   --connect__input-border-w: Border width of the input.
 
-Styles:
-  align-items: center;
-    - Aligns items along the cross axis.
-  background-color: var(--theme__mcq-bg, var(--connect__surface-white));
-    - Sets the background color of the label.
-  border: var(--connect__label-border-w) solid var(--connect__label-border-c, transparent);
-    - Sets the border width and color of the label.
-  border-radius: var(--connect__label-radius, 0);
-    - Sets the border radius of the label.
-  box-shadow: var(--connect__mcq-base-shadow);
-    - Applies multiple box shadows to the label.
-  color: var(--connect__label-color);
-    - Sets the text color of the label.
-  cursor: var(--connect__state-based-pointer, pointer);
-    - Sets the cursor style.
-  display: inline-flex;
-    - Sets the display to inline-flex for flexible layout.
-  font-family: var(--connect__font-sans);
-    - Sets the font family for the label text.
-  font-size: var(--connect__label-fs);
-    - Sets the font size of the label text.
-  font-weight: var(--connect__label-fw, initial);
-    - Sets the font weight of the label text.
-  gap: var(--connect__label-gap);
-    - Sets the gap between label elements.
-  justify-content: var(--connect__label-justify-content);
-    - Justifies the content of the label.
-  line-height: var(--connect__label-lh);
-    - Sets the line height of the label text.
-  padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
-    - Sets the padding of the label.
-  position: relative;
-    - Positions the label relative to its normal position.
-  transition-duration: var(--connect__transition-rapid);
-    - Sets the duration of the transition.
-  transition-property: color, background-color, border-color, box-shadow;
-    - Specifies the properties to transition.
-  transition-timing-function: var(--connect__ease-in-out);
-    - Sets the timing function for the transition.
-  width: var(--connect__label-w, fit-content);
-    - Sets the width of the label.
 
 Pseudo-element Styles:
   &::before
@@ -2708,38 +2368,6 @@ Pseudo-element Styles:
       - Sets the border for the pseudo-element.
     border-radius: var(--connect__mcq-radius);
       - Sets the border radius for the pseudo-element.
-    content: '';
-      - Inserts an empty content string.
-    flex-shrink: 0;
-      - Prevents the pseudo-element from shrinking.
-    height: var(--connect__input-dimensions);
-      - Sets the height of the pseudo-element.
-    padding: var(--connect__spacer-xs);
-      - Sets the padding of the pseudo-element.
-    width: var(--connect__input-dimensions);
-      - Sets the width of the pseudo-element.
-
-Hover State:
-  &:hover
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
-
-Active State:
-  &:active
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-
-Focus-visible State:
-  &:focus-visible:not(:active)
-    --connect__shadow-10: var(--connect__focus-mid);
-    --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
 */
 
 .connect__choice-label {
@@ -2747,33 +2375,7 @@ Focus-visible State:
   --connect__label-lh: var(--connect__body-sm-lheight);
   --connect__label-fw: var(--connect__fw-regular);
 
-  --connect__label-border-w: var(--connect__spacer-zero);
-  --connect__label-border-c: var(--connect__surface-white);
   --connect__label-radius: var(--connect__border-radius);
-
-  // CHANGE ON FEEDBACK
-  --connect__shadow-inner-null: var(--connect__spacer-zero) var(--connect__spacer-zero)
-    var(--connect__spacer-zero);
-  --inner-shadow: var(--connect__shadow-inner-null) var(--connect__effects-inner-edge)
-    var(--inner-shadow-color, transparent) inset;
-  --inner-shadow-color: var(--connect__surface-white);
-  --starting-shadow-color: var(--connect__surface-white);
-
-  // THESE CHANGE ON HOVER ACTIVE ONLY
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
-  --connect__mcq-base-shadow: var(--inner-shadow),
-    var(--connect__shadow-inner-null) var(--connect__inner-status)
-      var(--connect__mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
-    var(--connect__shadow-inner-null) var(--connect__effects-inner-edge)
-      var(--state-based-bg, var(--connect__surface-white)) inset,
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
 
   --connect__mcq-radius: var(
     --theme__mcq-radius,
@@ -2795,20 +2397,8 @@ Focus-visible State:
 
   align-items: center;
   background-color: var(--theme__mcq-bg, var(--connect__surface-white));
-  border: var(--connect__label-border-w) solid var(--connect__label-border-c, transparent);
   border-radius: var(--connect__label-radius, 0);
-
-  box-shadow:
-    var(--inner-shadow),
-    var(--connect__shadow-inner-null) var(--connect__inner-status)
-      var(--connect__mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
-    var(--connect__shadow-inner-null) var(--connect__effects-inner-edge)
-      var(--state-based-bg, var(--connect__surface-white)) inset,
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--connect__label-color);
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
@@ -2819,7 +2409,6 @@ Focus-visible State:
   justify-content: var(--connect__label-justify-content);
   line-height: var(--connect__label-lh);
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
-
   position: relative;
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
@@ -2838,33 +2427,20 @@ Focus-visible State:
   }
 
   &:hover {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
   }
 
   &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   &:focus-visible:not(:active) {
-    --connect__shadow-10: var(--connect__focus-mid);
-    --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
 }
 
 .connect__input-no-shadow {
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+  box-shadow: var(--connect__shadow-null);
 }
 
 /*
@@ -2880,15 +2456,6 @@ Variables related to colors and backgrounds:
   --starting-shadow-color: Initial shadow color.
   --connect__mcq-bg: Background color for MCQ card.
 
-Grid and layout styles:
-  align-items: flex-start;
-    - Aligns items to the start of the flex container.
-  display: var(--connect__display-grid);
-    - Sets the display to grid.
-  grid-template-columns: 1fr;
-    - Defines a single column grid.
-  grid-template-rows: 1fr;
-    - Defines a single row grid.
 
 Pseudo-element Styles:
   &::before
@@ -2910,16 +2477,8 @@ Pseudo-element Styles:
       - Sets the background color.
     border-radius: var(--theme__inner-radius, var(--connect__inner-radius)) var(--connect__spacer-zero);
       - Sets the border radius.
-    content: '';
-      - Inserts an empty content string.
     height: calc(var(--connect__input-dimensions) + var(--connect__mcq-input-margin) + var(--connect__inner-status));
       - Sets the height.
-    left: var(--theme__inner-divider-width, var(--connect__inner-divider-width));
-      - Sets the left position.
-    position: absolute;
-      - Sets the position to absolute.
-    top: var(--theme__inner-divider-width, var(--connect__inner-divider-width));
-      - Sets the top position.
     width: calc(var(--connect__input-dimensions) + var(--connect__mcq-input-margin) + var(--connect__inner-status));
       - Sets the width.
 
@@ -2937,21 +2496,12 @@ Nested .connect__figure Styles:
       - Sets vertical padding for figcaption.
     --connect__fig-px: var(--connect__spacer-sm);
       - Sets horizontal padding for figcaption.
-
-State Styles:
-  &.connect__mcq-card-selected
-    &:not(:hover):not(:active):not(:focus-visible)
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-      - Sets shadow levels when the card is selected but not hovered, active, or focused.
 */
 
 .connect__mcq-card {
   --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__total-border);
   --connect__label-padding-x: var(--connect__total-border);
-  --starting-shadow-color: var(--connect__surface-null);
   --connect__mcq-bg: var(--connect__surface-white);
   --connect__mcq-input-margin: var(--connect__spacer-xs);
 
@@ -3014,8 +2564,6 @@ Styles for input elements:
     - Sets the inset to zero, positioning the element at the edges of its container.
   opacity: var(--connect__opacity-zero);
     - Sets the opacity to zero, making the input invisible.
-  position: absolute;
-    - Positions the input absolutely within its container.
 
 Disabled State:
   &:disabled
@@ -3030,11 +2578,6 @@ Disabled State:
       --connect__state-based-pointer: var(--connect__disabled-cursor);
         - Sets the cursor to a disabled style.
 
-  &:disabled
-    + .connect__mcq-card
-      - Styles for MCQ card when the input is disabled.
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-6);
 
 Checked State:
   &:checked
@@ -3059,13 +2602,6 @@ Checked and Disabled State:
       --checkbox-state-based-inner-shadow: var(--connect__surface-white);
       --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
 
-Active State:
-  &:active
-    - Styles for inputs when active.
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-
 Radio Input Styles:
   :where([class^='connect__']) input[type='radio']
     + label
@@ -3084,15 +2620,8 @@ Radio Input Styles:
       --active-color: var(--connect__surface-mid);
       --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
       --checkbox-state-based-bg: var(--connect__surface-white);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
       --connect__state-based-pointer: var(--connect__disabled-cursor);
-    }
-
-    + .connect__mcq-card {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-6);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
     }
   }
 
@@ -3102,7 +2631,7 @@ Radio Input Styles:
         background-color: var(--checkbox-state-based-bg, var(--connect__primary-mid));
         background-image: var(--checked-state-icon, var(--connect__surface-null));
         background-size: contain;
-        box-shadow: var(--connect__shadow-inner-null) var(--connect__input-border-w)
+        box-shadow: var(--connect__shadow-reset) var(--connect__input-border-w)
           var(--checkbox-state-based-inner-shadow, var(--connect__surface-white)) inset;
       }
     }
@@ -3114,12 +2643,6 @@ Radio Input Styles:
       --checkbox-state-based-inner-shadow: var(--connect__surface-white);
       --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
     }
-  }
-
-  &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   }
 }
 
@@ -3137,9 +2660,6 @@ Radio Input Styles:
 .connect__progress Component
 
 Variables related to theme/overrides:
-  --connect__shadow-level-1: First level of box shadow spread.
-  --connect__shadow-level-2: Second level of box shadow spread.
-  --connect__progress-outer-shadow-c: Color of the outer shadow for the progress bar.
   --connect__progress-bg: Background color of the progress bar container.
   --connect__progress-color: Color of the progress bar itself.
   --connect__inner-bar-radius: Border radius of the inner progress bar.
@@ -3148,14 +2668,8 @@ Variables related to theme/overrides:
 Styles:
   appearance: none;
     - Removes default browser styling.
-  border: none;
-    - Removes default border.
   border-radius: var(--connect__border-radius);
     - Applies border radius to the overall progress bar.
-  overflow: hidden;
-    - Hides overflow to maintain rounded corners.
-  width: 100%;
-    - Sets the width to full container width.
 
 Browser-specific styles:
   &::-webkit-progress-bar
@@ -3169,13 +2683,10 @@ Transitions:
   transition:
     inline-size var(--connect__transition-medium) var(--connect__in-out-quad),
     width var(--connect__transition-medium) var(--connect__in-out-quad);
-    - Applies smooth transitions to the progress bar width changes.
-
+    - transitions to the progress bar width changes.
 */
 
 .connect__progress[value] {
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-2);
   --connect__progress-outer-shadow-c: var(
     --theme__progress-outer-shadow-c,
     var(--connect__surface-white)
@@ -3194,9 +2705,7 @@ Transitions:
 
   border: none;
   border-radius: var(--connect__progress-bar-radius);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
+  box-shadow: var(--connect__shadow-lvl-0);
   overflow: hidden;
   width: var(--connect__full-w);
 
@@ -3204,9 +2713,6 @@ Transitions:
   &::-webkit-progress-bar {
     background: var(--connect__progress-bg);
     border-radius: var(--connect__progress-bar-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-      var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
   }
 
   &::-webkit-progress-value {
@@ -3221,9 +2727,6 @@ Transitions:
     background: var(--connect__progress-color);
 
     border-radius: var(--connect__progress-bar-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-      var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
   }
 }
 
@@ -3236,20 +2739,8 @@ Variables related to typography:
   --connect__timer-fw: Font weight of the timer.
   --connect__timer-style: Font style of the timer.
   --connect__timer-color: Text color of the timer.
-
-Styles:
-  color: var(--connect__timer-color);
-    - Sets the text color of the timer.
-  font-size: var(--connect__timer-fs);
-    - Sets the font size of the timer.
-  font-style: var(--connect__timer-style);
-    - Sets the font style of the timer.
   font-variant-numeric: tabular-nums;
     - Uses tabular numbers for consistent alignment.
-  font-weight: var(--connect__timer-fw);
-    - Sets the font weight of the timer.
-  line-height: var(--connect__timer-lh);
-    - Sets the line height of the timer.
 */
 
 .connect__timer {
@@ -3308,26 +2799,6 @@ Variables related to theme/overrides:
   --connect__aside-w: Width of the aside.
   --connect__aside-align: Alignment of items within the aside.
   --connect__aside-direction: Flex direction of the aside content.
-
-Other variables:
-  --connect__aside-sub-menu-divider-w: Width of the sub-menu divider.
-  --connect__surface-white: Default background color if not overridden.
-
-Styles:
-  align-items: Aligns items within the aside.
-  background-color: Sets the background color of the aside.
-  display: Sets the display property to flex.
-  flex-flow: Determines the flex direction and wrapping behavior.
-  justify-content: Distributes space between and around content items.
-  margin: Removes default margin.
-  padding: Applies vertical and horizontal padding.
-  width: Sets the width of the aside.
-
-Usage:
-  The .connect__aside class can be applied to a container element to create 
-  a sidebar or navigation panel. The appearance and layout can be customised 
-  using the provided CSS variables.
-
 */
 
 .connect__aside {
@@ -3358,10 +2829,6 @@ Usage:
       --connect__button-bg: var(--connect__brand-pale-magenta);
       --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
-
-      &:active {
-        --connect__inner-status-color: var(--connect__surface-white);
-      }
     }
 
     &:disabled {
@@ -3371,9 +2838,11 @@ Usage:
   }
 
   .connect__list {
+    align-items: center;
     display: flex;
     flex-flow: column wrap;
     gap: var(--connect__spacer-xs);
+    width: 100%;
   }
 
   hr {
@@ -3392,30 +2861,18 @@ Variables related to theme/overrides:
   --connect__divider-margin-y: Vertical margin of the divider.
   --connect__divider-margin-x: Horizontal margin of the divider.
 
-Default values and fallbacks:
-  --connect__gray-c10: Default background color if not overridden.
-  --connect__border-radius: Default border radius if not overridden.
-  --connect__spacer-xs: Default vertical margin and bottom padding.
-  --connect__spacer-sm: Default horizontal margin.
-
 Styles:
-  background-color: Sets the background color of the divider.
-  border: Removes any border.
-  border-radius: Applies border radius to the divider.
-  height: Sets the height of the divider.
-  margin: Applies vertical and horizontal margins.
-  padding-bottom: Adds bottom padding to the divider.
-  position: Sets the positioning context for the divider.
 
 Usage:
   The .connect__divider class can be applied to an <hr> element or any other
   element that needs to act as a visual separator. The appearance and spacing
   can be customised using the provided CSS variables.
 
+  Divider can be vertical or horizontal
+  [aria-orientation='vertical']
+
 Example:
   <hr class="connect__divider">
-  To override styles:
-  <hr class="connect__divider" style="--connect__divider-bg: blue;">
 */
 
 .connect__divider {
@@ -3451,8 +2908,6 @@ Example:
   }
 }
 
-// Moved toolbar button styles to here to support JS
-// these are the top level styles only
 .connect__toolbar-item {
   padding: 0.0625rem;
 
@@ -3566,7 +3021,7 @@ Example:
 
   background: var(--connect__surface-white);
   border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__elevation-1);
+  box-shadow: var(--connect__shadow-lvl-2);
   column-gap: var(--connect__toolbar-col-gap);
   display: var(--connect__display-grid);
   grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
@@ -3751,27 +3206,6 @@ Example:
 .connect__list Component
 
 Variables related to list styling:
-  --connect__list-item-padding-left: Padding on the left of list items.
-  --connect__list-item-margin-left: Margin on the left of list items.
-  --connect__list-marker-color: Color of the list marker.
-
-Styles for list items:
-  > .connect__list-item
-    --connect__list-fs: Font size of the list item.
-    --connect__list-lh: Line height of the list item.
-    font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
-      - Sets the font size of the list item.
-    line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
-      - Sets the line height of the list item.
-
-Marker styles:
-  &::marker
-    color: var(--connect__list-marker-color);
-      - Sets the color of the list marker.
-    font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
-      - Sets the font size of the list marker.
-    line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
-      - Sets the line height of the list marker.
 
 List style type modifiers:
   &.connect__list-none
@@ -3866,9 +3300,6 @@ List style type modifiers:
 /*
 .connect__paper Component
 
-Variables related to border radius:
-  --connect__paper-radius: Border radius of the paper component.
-
 Styles:
   border-radius: var(--connect__paper-radius);
     - Sets the border radius of the paper component.
@@ -3877,15 +3308,7 @@ Box shadow styles:
   box-shadow:
     - Applies multiple levels of box shadows to the paper component.
 
-Elevation modifiers:
-  &.connect__elevation-0
-    - Sets all shadow levels to zero, removing elevation.
-
-  &.connect__elevation-1
-    - Sets shadow levels to create a low elevation effect.
-
-  &.connect__elevation-2
-    - Sets shadow levels to create a medium elevation effect.
+Elevation modifiers are the elevation shadow level:
 
 Rounded corners modifier:
   &.connect__rounded-corners
@@ -3902,23 +3325,23 @@ Rounded corners modifier:
   border-radius: var(--connect__paper-radius);
 
   &.connect__elevation--1 {
-    box-shadow: var(--connect__elevation--1);
+    box-shadow: var(--connect__shadow-lvl--1);
   }
 
   &.connect__elevation-0 {
-    box-shadow: var(--connect__elevation-0);
+    box-shadow: var(--connect__shadow-lvl-0);
   }
 
   &.connect__elevation-1 {
-    box-shadow: var(--connect__elevation-1);
+    box-shadow: var(--connect__shadow-lvl-2);
   }
 
   &.connect__elevation-2 {
-    box-shadow: var(--connect__elevation-2);
+    box-shadow: var(--connect__shadow-lvl-4);
   }
 
   &.connect__elevation-3 {
-    box-shadow: var(--connect__elevation-3);
+    box-shadow: var(--connect__shadow-lvl-6);
   }
 
   &.connect__rounded-corners {
@@ -3929,32 +3352,6 @@ Rounded corners modifier:
 /*
 :where([class^='connect__']) Component
 
-Styles for blockquote:
-  blockquote
-    font-size: var(--connect__blockquote-fs, var(--connect__body-md));
-      - Sets the font size of the blockquote.
-    font-style: var(--connect__blockquote-font-style, normal);
-      - Sets the font style of the blockquote.
-    margin: var(--connect__blockquote-margin, 0);
-      - Sets the margin of the blockquote.
-    padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
-      - Sets the bottom padding of the blockquote.
-    padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
-      - Sets the left padding of the blockquote.
-    padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
-      - Sets the right padding of the blockquote.
-    padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
-      - Sets the top padding of the blockquote.
-
-Styles for figure:
-  figure
-    border-radius: var(--theme__border-radius, var(--connect__border-radius));
-      - Sets the border radius of the figure.
-    margin: var(--connect__fig-margin, 0);
-      - Sets the margin of the figure.
-    overflow: hidden;
-      - Hides overflow content.
-
   &:not(.connect__paper)
     - Applies styles to figures not within a .connect__paper class.
 
@@ -3963,30 +3360,6 @@ Styles for figure:
       --connect__img-br: 0;
         - Sets the border radius of images within the figure to zero.
 
-Styles for figcaption:
-  figcaption
-    --connect__fig-py: var(--connect__spacer-sm);
-      - Sets vertical padding for figcaption.
-    --connect__fig-px: var(--connect__spacer-md);
-      - Sets horizontal padding for figcaption.
-    font-size: var(--connect__fig-fs, var(--connect__caption));
-      - Sets the font size of the figcaption.
-    line-height: var(--connect__fig-lh, var(--connect__caption-lheight));
-      - Sets the line height of the figcaption.
-    margin-top: var(--connect__fig-mt, 0);
-      - Sets the top margin of the figcaption.
-    padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
-      - Sets the bottom padding of the figcaption.
-    padding-left: var(--connect__fig-pl, var(--connect__fig-px));
-      - Sets the left padding of the figcaption.
-    padding-right: var(--connect__fig-pr, var(--connect__fig-px));
-      - Sets the right padding of the figcaption.
-    padding-top: var(--connect__fig-pt, var(--connect__fig-py));
-      - Sets the top padding of the figcaption.
-    text-align: var(--connect__fig-text-align, left);
-      - Sets the text alignment of the figcaption.
-    text-wrap: var(--connect__fig-text-wrap, initial);
-      - Sets the text wrap of the figcaption.
 */
 
 :where([class^='connect__']) {
@@ -4004,13 +3377,6 @@ Styles for figcaption:
     border-radius: var(--theme__border-radius, var(--connect__border-radius));
     margin: var(--connect__fig-margin, 0);
     overflow: hidden;
-
-    /*
-      Figures not in paper do this for now
-    */
-    &:not(.connect__paper) {
-      box-shadow: var(--connect__elevation-0);
-    }
 
     &:has(img) {
       img {
@@ -4042,7 +3408,6 @@ Variables related to disabled state:
   --connect__icon-fill-color: Fill color for icons, set to disabled icon fill.
   --checkbox-state-based-bg: Background color for checkbox state, set to neutrals white.
   --checkbox-state-based-inner-shadow: Inner shadow for checkbox state, set to state-based background.
-  --connect__shadow-level-2 to --connect__shadow-level-4: Shadow levels set to zero for disabled state.
   --connect__state-based-pointer: Cursor style for state-based interactions, set to disabled cursor.
   --state__connect-dropdown-icon: Icon state for dropdowns, set to variant-specific dropdown icon.
 
@@ -4055,11 +3420,7 @@ Styles:
   --connect__icon-fill-color: var(--connect__disabled-light);
   --checkbox-state-based-bg: var(--connect__surface-white);
   --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
-
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
@@ -4077,14 +3438,6 @@ Variables:
   --connect__surface-white: Neutral white color.
   --checked-state-icon: Icon used for the checked state.
 
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
 
 Styles:
   [class*='-correct'],
@@ -4110,12 +3463,11 @@ Styles:
 
 [class*='-correct'],
 [class*='-correct']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__correct-mid);
   --connect__inner-status-color: var(--connect__correct-mid);
   --state-icon: var(--icon-correct);
   --state-based-bg: var(--connect__correct-pale);
   --checkbox-state-based-bg: var(--connect__correct-mid);
-  --checkbox-checked-state-based-border-c: var(--connect__correct-mid);
+  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
   --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
   --checked-state-icon: var(--checked-correct);
 }
@@ -4136,15 +3488,6 @@ Variables:
   --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
   --connect__surface-white: Neutral white color.
   --checked-state-icon: Icon used for the checked state.
-
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
 
 Styles:
   [class*='-incorrect'],
@@ -4172,13 +3515,11 @@ Styles:
 
 [class*='-incorrect'],
 [class*='-incorrect']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__incorrect-mid);
-  --connect__inner-status-color: var(--connect__incorrect-mid);
+  --connect__inner-status-color-state: var(--connect__incorrect-mid);
   --state-icon: var(--icon-incorrect);
   --state-based-bg: var(--color-incorrect-bg);
-  --connect__inner-status-color-state: var(--color-incorrect-bg);
   --checkbox-state-based-bg: var(--checked-incorrect-bg);
-  --checkbox-checked-state-based-border-c: var(--checked-incorrect-bg);
+  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
   --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
   --checked-state-icon: var(--checked-incorrect);
 }
@@ -4196,15 +3537,6 @@ Variables:
   --checkbox-state-based-bg: Background color for the state of checkboxes.
   --connect__surface-dark: Neutral dark color.
   --checked-state-icon: Icon used for the checked state.
-
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
 
 Styles:
   [class*='-shown'],
@@ -4232,7 +3564,6 @@ Styles:
 */
 [class*='-shown'],
 [class*='-shown']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__surface-mid);
   --connect__inner-status-color: var(--connect__surface-mid);
   --starting-shadow-color: var(--connect__surface-dark);
   --state-based-bg: var(--connect__surface-white);
@@ -4244,59 +3575,27 @@ Styles:
 }
 
 [class*='-selected'] {
-  --connect__mcq-starting-shadow-color: var(--connect__primary-mid);
+  --connect__inner-status-color-state: var(--connect__primary-mid);
 }
 
 /* 
 These styles apply to elements with classes that include '-correct', '-incorrect', or '-shown'.
 
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
-
 Variables:
   --active-color: color used for active state.
   --connect__surface-mid: Neutral mid color.
-  --connect__shadow-level-2: Second level of box shadow.
-  --connect__shadow-level-3: Third level of box shadow.
-  --connect__shadow-level-4: Fourth level of box shadow.
-  --connect__shadow-spread-level-0: Zero spread level for box shadow.
   --connect__state-based-pointer: Cursor style when the element is disabled.
   --connect__surface-null: Null neutral color.
 
 Styles:
-  [class*='-correct'],
-  [class*='-incorrect'],
-  [class*='-shown'] {
     &:disabled {
       --active-color: var(--connect__surface-mid);
         - Sets the active color to a neutral mid color when the element is disabled.
     }
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      - Sets the second level of box shadow to zero spread.
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      - Sets the third level of box shadow to zero spread.
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      - Sets the fourth level of box shadow to zero spread.
     --active-color: var(--connect__surface-mid);
       - Sets the active color to a neutral mid color.
     --connect__state-based-pointer: not-allowed;
       - Sets the cursor style to 'not-allowed' when the element is disabled.
-
-    &:hover,
-    &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-        - Sets the second level of box shadow to zero spread on hover and active states.
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-        - Sets the third level of box shadow to zero spread on hover and active states.
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-        - Sets the fourth level of box shadow to zero spread on hover and active states.
-    }
   }
 }
 */
@@ -4305,16 +3604,6 @@ Styles:
 [class*='-incorrect'],
 [class*='-shown'] {
   --active-color: var(--connect__disabled-mid);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
-
-  &:hover,
-  &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  }
 }
