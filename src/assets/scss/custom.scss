@@ -24,7 +24,7 @@ initial ensures that properties are reset to their default values
 */
 
 /* 
-  SHADOW SELECTION GUIDE:when to use a shadow
+  SHADOW SELECTION GUIDE: when to use a shadow
 
   There are three main shadow types in the system
 
@@ -69,10 +69,13 @@ Variables related to theme/overrides:
   --connect__button-lh: Line height of the button text.
   --connect__button-fw: Font weight of the button text.
   --connect__button-text-transform: Text transformation.
+  --connect__button-color: Text color of the button.
+  --connect__button-bg: Background color of the button.
   --connect__button-border-w: Border width of the button.
   --connect__button-border-c: Border color of the button.
   --connect__button-radius: Border radius of the button.
   --connect__button-gap: Gap between elements inside the button.
+  --connect__icon-fill-color: Fill color for icons inside the button.
   --connect__button-padding-y: Vertical padding of the button.
   --connect__button-padding-x: Horizontal padding of the button.
   --connect__button-justify-content: Justification of content inside the button.
@@ -80,91 +83,26 @@ Variables related to theme/overrides:
   --connect__button-w: Width of the button.
   --connect__button-h: Height of the button.
 
-Variables related to states (e.g., correct/incorrect):
-  --connect__button-color: Text color of the button.
-  --connect__button-bg: Background color of the button.
-  --connect__state-based-pointer: Cursor style when the button is disabled.
-  --connect__icon-fill-color: Fill color for icons inside the button.
-  --connect__button-inner-divider: Inner divider size.
-  --connect__button-inner-divider-color: Inner divider color.
-  --connect__inner-status: Inner status size.
-  --connect__inner-status-color: Inner status color.
-  --connect__inner-status-color-state: State-based inner status color.
+Variables related to states:
   --state-based-bg: State-based background color.
   --active-color: Active state color.
 
+Student / System States
+  -correct / -incorrect: Affects Primary and Secondary buttons only
 
-States:
-  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not([class*='-incorrect']):not([class*='-shown'])
-    - Default state for buttons that are not disabled, not in the toolbar, and not in specific states like correct, incorrect, or shown.
-    - &:hover: Hover state.
-    - &:active: Active state.
+  All Buttons: 
+  --connect__state-based-pointer: Cursor style when the button answered.
 
-  &:focus-visible:not(:active)
-    - Focus state when the button is visible and not active.
+  Primary Buttons: Variables related to states
+   --state-based-bg: State-based background color.
 
-  &-primary
-    - Primary button state.
-    - &:disabled: Disabled state for primary buttons.
+  Secondary Buttons: Variables related to states
+  --connect__inner-status-color: Inner status color.
+  --connect__inner-status-color-state: State-based inner status color.
+  --active-color: Active state color.
 
-  &-secondary
-    - Secondary button state.
-    - &[class*='connect_']:disabled: Disabled state for secondary buttons with specific classes.
-    - &[class*='-correct']:disabled: Disabled state for secondary buttons in the correct state.
-    - &[class*='-incorrect']:disabled: Disabled state for secondary buttons in the incorrect state.
-    - &.connect__button-incorrect: Incorrect state for secondary buttons.
-    - &.connect__button-correct: Correct state for secondary buttons.
 
-  &-incorrect
-    - Incorrect button state.
-    - &:disabled: Disabled state for incorrect buttons.
-
-  &-toggle
-    - Toggle button state.
-    - &:not(:disabled): Default state for toggle buttons that are not disabled.
-    - &.connect__toggle-on:not(:disabled): Active state for toggle buttons that are not disabled.
-
-  &-icon
-    - Icon button state.
-    - &:not([class*='-primary']):not([class*='-secondary']): Default state for icon buttons that are not primary or secondary.
-    - svg: Styles for SVG icons inside the button.
-
-  &-media
-    - Media button state.
-    - &.media-active:not(:disabled): Active state for media buttons that are not disabled.
-
-  &:disabled
-    - Disabled state for the button.
-    - svg: Styles for SVG icons inside the disabled button.
-
-  &:has(svg)
-    - State for buttons that contain SVG icons.
-    - align-items: Centre alignment for content inside the button.
 */
-
-@property --gradient-angle {
-  inherits: false;
-  initial-value: 0deg;
-  syntax: '<angle>';
-}
-
-@property --gradient-angle-offset {
-  inherits: false;
-  initial-value: 0deg;
-  syntax: '<angle>';
-}
-
-@property --gradient-percent {
-  inherits: false;
-  initial-value: 5%;
-  syntax: '<percentage>';
-}
-
-@property --gradient-shine {
-  inherits: false;
-  initial-value: transparent;
-  syntax: '<color>';
-}
 
 .connect__button {
   --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
@@ -203,6 +141,7 @@ States:
   font-family: var(--connect__font-sans);
   font-size: var(--connect__button-fs);
   font-weight: var(--connect__button-fw, initial);
+  height: var(--connect__button-h, auto);
   gap: var(--connect__button-gap, 0);
   justify-content: var(--connect__button-justify-content);
   line-height: var(--connect__button-lh);
@@ -345,108 +284,6 @@ States:
   &:disabled {
     --connect__button-bg: var(--state-based-bg);
   }
-
-  &--rive {
-    $shimmer-color: var(--connect__button-bg);
-    --shimmer-filter: brightness(120%);
-    --animation: gradient-angle linear infinite;
-    --connect__button-border-w: 2px;
-    --connect__button-justify-content: center;
-    --duration: 1.25s;
-    --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
-    --conic-gradient-color: var(--connect__surface-null);
-
-    align-content: center;
-    align-items: center;
-    background:
-      linear-gradient(var(--connect__button-bg), var(--connect__button-bg)) padding-box,
-      conic-gradient(
-          from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
-          transparent,
-          var(--conic-gradient-color) var(--gradient-percent),
-          var(--conic-gradient-color) calc(var(--gradient-percent) * 2),
-          var(--conic-gradient-color) calc(var(--gradient-percent) * 3),
-          transparent calc(var(--gradient-percent) * 4)
-        )
-        border-box;
-    border: var(--connect__button-border-w) solid transparent;
-    display: var(--connect__display-grid);
-    grid-template-rows: 1fr;
-    isolation: isolate;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    transition: var(--transition);
-    transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: var(--connect__full-w);
-    }
-
-    &:is(:hover, :focus-visible):not(:disabled) {
-      --conic-gradient-color: var(--connect__button-bg);
-
-      &,
-      &::after {
-        animation:
-          var(--animation) var(--duration),
-          var(--animation) calc(var(--duration) / 0.4) reverse paused;
-        animation-composition: add;
-      }
-
-      &::after {
-        --animation: shimmer linear infinite;
-        aspect-ratio: 1;
-        background: linear-gradient(-50deg, transparent, var(--shimmer-filter), transparent);
-        mask-image: radial-gradient(circle at bottom, transparent 40%, var(--connect__button-bg));
-        opacity: 0.6;
-      }
-
-      &,
-      &::before,
-      &::after {
-        animation-play-state: running;
-      }
-    }
-
-    p {
-      grid-column: 1 / span 2;
-      grid-row: 1;
-      justify-self: center;
-      margin: 0;
-      position: relative;
-      width: fit-content;
-      z-index: 2;
-    }
-
-    &:has(svg) {
-      p {
-        grid-column: 2;
-        justify-self: start;
-      }
-
-      svg {
-        grid-column: 2;
-        grid-row: 1;
-      }
-
-      svg,
-      p {
-        &:first-child {
-          grid-column: 1;
-          justify-self: end;
-        }
-      }
-    }
-
-    hmh-rive {
-      align-self: stretch;
-      grid-column: 1 / span 2;
-      grid-row: 1;
-    }
-  }
 }
 
 @keyframes connect-loading {
@@ -459,17 +296,6 @@ States:
   }
 }
 
-@keyframes gradient-angle {
-  to {
-    --gradient-angle: 360deg;
-  }
-}
-
-@keyframes shimmer {
-  to {
-    rotate: 360deg;
-  }
-}
 
 /* 
 .connect__input Component
@@ -817,141 +643,143 @@ Variables related to theme/overrides:
 */
 
 .connect__accordion {
+  
   .connect__list-item {
     margin-left: 0;
     margin-top: var(--connect__effects-inner-edge);
     padding-left: 0;
   }
 
-  .connect__details {
-    --connect__details-padding-t: var(
-      --theme__details-padding-t,
-      var(--variant__details-padding-t, 0)
-    );
-    --connect__details-padding-r: var(
-      --theme__details-padding-r,
-      var(--variant__details-padding-r, 0)
-    );
-    --connect__details-padding-b: var(
-      --theme__details-padding-b,
-      var(--variant__details-padding-b, 0)
-    );
-    --connect__details-padding-l: var(
-      --theme__details-padding-l,
-      var(--variant__details-padding-l, 0)
-    );
+}
 
-    // border radius for details based on open closed
-    --connect__details-closed-radius: var(--connect__border-radius);
-    --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+.connect__details {
+  --connect__details-padding-t: var(
+    --theme__details-padding-t,
+    var(--variant__details-padding-t, 0)
+  );
+  --connect__details-padding-r: var(
+    --theme__details-padding-r,
+    var(--variant__details-padding-r, 0)
+  );
+  --connect__details-padding-b: var(
+    --theme__details-padding-b,
+    var(--variant__details-padding-b, 0)
+  );
+  --connect__details-padding-l: var(
+    --theme__details-padding-l,
+    var(--variant__details-padding-l, 0)
+  );
 
-    // Icon for accordion. Changes when open. in the [open]
-    --connect__icon-rotate: rotate(0deg);
+  // border radius for details based on open closed
+  --connect__details-closed-radius: var(--connect__border-radius);
+  --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
 
-    padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
-      var(--connect__details-padding-b) var(--connect__details-padding-l);
-    position: relative;
+  // Icon for accordion. Changes when open. in the [open]
+  --connect__icon-rotate: rotate(0deg);
 
-    > *:not(summary) {
-      padding: var(--connect__details-items-state-padding-t, 0)
-        var(--connect__details-items-state-padding-r, 0)
-        var(--connect__details-items-state-padding-b, 0)
-        var(--connect__details-items-state-padding-l, 0);
+  padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
+    var(--connect__details-padding-b) var(--connect__details-padding-l);
+  position: relative;
+
+  > *:not(summary) {
+    padding: var(--connect__details-items-state-padding-t, 0)
+      var(--connect__details-items-state-padding-r, 0)
+      var(--connect__details-items-state-padding-b, 0)
+      var(--connect__details-items-state-padding-l, 0);
+  }
+
+  &[open] {
+    --connect__icon-rotate: rotate(180deg);
+    --variant__details-padding-b: var(--connect__spacer-sm);
+
+    *:not(summary) {
+      --connect__details-items-state-padding-t: var(--connect__spacer-sm);
+      --connect__details-items-state-padding-r: var(--connect__spacer-sm);
+      --connect__details-items-state-padding-l: var(--connect__spacer-sm);
     }
+  }
+}
 
-    &[open] {
-      --connect__icon-rotate: rotate(180deg);
-      --variant__details-padding-b: var(--connect__spacer-sm);
+.connect__summary {
+  --connect__summary-bg: var(
+    --theme__summary-bg,
+    var(--variant__summary-bg, var(--active-color))
+  );
 
-      *:not(summary) {
-        --connect__details-items-state-padding-t: var(--connect__spacer-sm);
-        --connect__details-items-state-padding-r: var(--connect__spacer-sm);
-        --connect__details-items-state-padding-l: var(--connect__spacer-sm);
-      }
+  --connect__summary-icon-active-ring: var(
+    --theme__summary-icon-active-ring,
+    var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
+  );
+
+  --connect__summary-padding-y: var(
+    --theme__summary-padding-y,
+    var(--variant__summary-padding-y, var(--connect__spacer-sm))
+  );
+  --connect__summary-padding-x: var(
+    --theme__summary-padding-x,
+    var(--variant__summary-padding-x, var(--connect__spacer-sm))
+  );
+
+  // alignment of summary items
+  --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
+  --connect__justify-content: var(
+    --theme__justify-content,
+    var(--variant__justify-content, space-between)
+  );
+
+  align-items: var(--connect__align-items);
+  background-color: var(--connect__summary-bg);
+  border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
+  cursor: var(--connect__state-based-pointer, pointer);
+  display: flex;
+  justify-content: var(--connect__justify-content);
+  padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
+
+  &::after {
+    background-image: var(--connect__dropdown-icon-closed);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: var(--connect__icon-sm) var(--connect__icon-sm);
+    border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
+    border-radius: 50%;
+    content: '';
+    flex-shrink: 0;
+    height: var(--connect__icon-md);
+    margin-left: var(--connect__spacer-md);
+    transform: var(--connect__icon-rotate);
+    width: var(--connect__icon-md);
+  }
+
+  &::before {
+    background: var(--connect__surface-white);
+    border-radius: var(--connect__border-radius);
+    box-shadow: var(--connect__shadow-lvl-2);
+    content: '';
+    height: var(--connect__full-h);
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition-duration: var(--connect__transition-medium);
+    transition-property: visibility, opacity, transform, max-height;
+    transition-timing-function: var(--connect__ease-out);
+    width: var(--connect__full-w);
+    z-index: -1;
+  }
+
+  &:hover,
+  &:active {
+    &::before {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-4);
     }
   }
 
-  .connect__summary {
-    --connect__summary-bg: var(
-      --theme__summary-bg,
-      var(--variant__summary-bg, var(--active-color))
-    );
+  &:active:not(:disabled) {
+    --connect__inner-status-color-state: var(--connect__primary-mid);
+  }
 
-    --connect__summary-icon-active-ring: var(
-      --theme__summary-icon-active-ring,
-      var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
-    );
-
-    --connect__summary-padding-y: var(
-      --theme__summary-padding-y,
-      var(--variant__summary-padding-y, var(--connect__spacer-sm))
-    );
-    --connect__summary-padding-x: var(
-      --theme__summary-padding-x,
-      var(--variant__summary-padding-x, var(--connect__spacer-sm))
-    );
-
-    // alignment of summary items
-    --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
-    --connect__justify-content: var(
-      --theme__justify-content,
-      var(--variant__justify-content, space-between)
-    );
-
-    align-items: var(--connect__align-items);
-    background-color: var(--connect__summary-bg);
-    border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
-    cursor: var(--connect__state-based-pointer, pointer);
-    display: flex;
-    justify-content: var(--connect__justify-content);
-    padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
-
-    &::after {
-      background-image: var(--connect__dropdown-icon-closed);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: var(--connect__icon-sm) var(--connect__icon-sm);
-      border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
-      border-radius: 50%;
-      content: '';
-      flex-shrink: 0;
-      height: var(--connect__icon-md);
-      margin-left: var(--connect__spacer-md);
-      transform: var(--connect__icon-rotate);
-      width: var(--connect__icon-md);
-    }
-
+  &:focus-visible:not(:active) {
     &::before {
-      background: var(--connect__surface-white);
-      border-radius: var(--connect__border-radius);
-      box-shadow: var(--connect__shadow-lvl-2);
-      content: '';
-      height: var(--connect__full-h);
-      left: 0;
-      position: absolute;
-      top: 0;
-      transition-duration: var(--connect__transition-medium);
-      transition-property: visibility, opacity, transform, max-height;
-      transition-timing-function: var(--connect__ease-out);
-      width: var(--connect__full-w);
-      z-index: -1;
-    }
-
-    &:hover,
-    &:active {
-      &::before {
-        box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-4);
-      }
-    }
-
-    &:active:not(:disabled) {
-      --connect__inner-status-color-state: var(--connect__primary-mid);
-    }
-
-    &:focus-visible:not(:active) {
-      &::before {
-        box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
-      }
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
     }
   }
 }
@@ -1046,116 +874,6 @@ Variables related to theme/overrides:
   footer {
     display: flex;
   }
-
-  // Comment out container query, until needed
-
-  /* &:has(menu) {
-    container-name: cpl-card;
-    container-type: inline-size;
-
-    @container cpl-card (max-width: 40.625rem) {
-      .connect__card-content {
-        --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
-        display: grid;
-        grid-template-columns: var(--connect__toolbar-width) 1fr;
-      }
-
-      .connect__toolbar {
-        --connect__toolbar-direction: column wrap;
-        --connect__toolbar-padding-x: 0;
-        align-content: start;
-        grid-column: 1;
-
-        .connect__tooltip {
-          --connect__tooltip-vertical-left: unset;
-          --connect__tooltip-vertical-right: 100%;
-          --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
-          --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
-        }
-
-        .connect__toolbar-menu {
-          --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
-
-          --connect__menu-divider-line-w: calc(
-            100% - var(--connect__menu-divider-line-x-offset) * 2
-          );
-          --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
-          --connect__menu-divider-line-y-offset: calc(
-            -1 * var(--connect__menu-divider-line-x-offset)
-          );
-        }
-
-        .connect__toolbar-item-menu {
-          --connect__toolbar-item-menu-y-offset: 0;
-          --connect__toolbar-item-menu-x-offset: calc(
-            var(--connect__toolbar-width) + var(--connect__spacer-sm)
-          );
-
-          --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
-          --connect__toolbar-sub-menu-flow: row;
-          --connect__toolbar-sub-menu-cols: 2;
-        }
-
-        .connect__toolbar-item-menu-item {
-          --connect__toolbar-sub-menu-padding-y: 0;
-
-          &:nth-of-type(1) {
-            --menu-col-start: 1;
-            --connect__toolbar-sub-menu-vertical-divider-left: var(
-              --connect__toolbar-sub-menu-padding-x
-            );
-            --connect__toolbar-sub-menu-vertical-divider-top: unset;
-            --connect__toolbar-sub-menu-vertical-divider-bottom: calc(
-              -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
-            );
-            --connect__toolbar-sub-menu-vertical-divider-h: calc(
-              100% + calc(var(--connect__spacer-xs) * 2)
-            );
-            --connect__toolbar-sub-menu-vertical-divider-top: calc(-1 * var(--connect__spacer-xs));
-            --connect__toolbar-sub-menu-vertical-divider-left: unset;
-            --connect__toolbar-sub-menu-vertical-divider-right: calc(
-              -1 * var(--connect__spacer-xs)
-            );
-
-            &:has(:nth-child(6)) {
-              --connect__toolbar-sub-menu-vertical-divider-w: var(--connect__effects-inner-edge);
-            }
-
-            .connect__toolbar-item-menu-item-sub-menu {
-              margin-right: var(--connect__toolbar-sub-menu-padding-x);
-            }
-          }
-
-          &:nth-of-type(2) {
-            --menu-col-start: 2;
-            .connect__toolbar-item-menu-item-sub-menu {
-              margin-left: var(--connect__toolbar-sub-menu-padding-x);
-            }
-          }
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            ul {
-              padding-left: 0;
-            }
-          }
-
-          ul {
-            flex-flow: column wrap;
-          }
-        }
-
-        .connect__toolbar-item-menu-item-sub-menu {
-          height: var(--connect__full-h);
-        }
-      }
-
-      .connect__button {
-        --connect__button-justify-content: center;
-        --connect__button-w: 100%;
-      }
-    }
-  } */
 }
 
 /* 
@@ -2759,37 +2477,6 @@ Variables related to typography:
 }
 
 /* 
-  Toolbar Component
-
-  Variables:
-    --connect__toolbar-direction: Direction and wrapping of toolbar items.
-    --connect__toolbar-align: Alignment of toolbar items.
-    --connect__toolbar-padding-y: Vertical padding of the toolbar.
-    --connect__toolbar-padding-x: Horizontal padding of the toolbar.
-    --connect__toolbar-sub-menu-divider-w: Width of the sub-menu divider.
-    --connect__toolbar-bg: Background color of the toolbar.
-  */
-
-.connect__toolbar {
-  --connect__toolbar-direction: row wrap;
-  --connect__toolbar-align: center;
-  --connect__toolbar-padding-y: var(--connect__spacer-xs);
-  --connect__toolbar-padding-x: var(--connect__spacer-sm);
-  --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
-  --connect__toolbar-bg: var(--theme__connect_toolbar-bg, var(--connect__surface-pale));
-
-  align-items: var(--connect__toolbar-align, baseline);
-  background-color: var(--connect__toolbar-bg);
-  container-name: toolbar;
-  container-type: inline-size;
-  display: flex;
-  flex-flow: var(--connect__toolbar-direction, column wrap);
-  justify-content: space-between;
-  margin: 0;
-  padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
-}
-
-/* 
 .connect__aside Component
 
 Variables related to theme/overrides:
@@ -2925,280 +2612,6 @@ Example:
     }
     // > .connect__button-menu {
     // }
-  }
-}
-
-/* 
-  Toolbar Menu Component
-
-  Variables:
-    --connect__toolbar-direction: Direction and wrapping of toolbar menu items.
-    --connect__toolbar-align: Alignment of toolbar menu items.
-    --connect__toolbar-justify: Justification of toolbar menu items.
-    --connect__toolbar-gap: Gap between toolbar menu items.
-    --connect__toolbar-menu-padding-x: Horizontal padding of the toolbar menu.
-    --connect__toolbar-menu-margin: Margin of the toolbar menu.
-    --connect__menu-divider-line-y-offset: Vertical offset of the menu divider line.
-    --connect__menu-divider-line-x-offset: Horizontal offset of the menu divider line.
-    --connect__menu-divider-line-h: Height of the menu divider line.
-
-  Styles:
-    - Add a divider line after the second toolbar menu.
-  */
-
-.connect__toolbar-menu {
-  --connect__toolbar-direction: row wrap;
-  --connect__toolbar-align: center;
-  --connect__toolbar-justify: center;
-  --connect__toolbar-gap: var(--connect__spacer-xs);
-
-  --connect__toolbar-menu-padding-x: 0;
-  --connect__toolbar-menu-margin: 0;
-
-  --connect__menu-divider-line-y-offset: var(--connect__spacer-xs);
-  --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-sm) * -1);
-
-  --connect__menu-divider-line-h: calc(100% - calc(var(--connect__menu-divider-line-y-offset) * 2));
-
-  --connect__menu-divider-line-w: var(--connect__effects-inner-edge);
-
-  align-items: var(--connect__toolbar-align, baseline);
-  display: flex;
-  flex-flow: var(--connect__toolbar-direction, column wrap);
-  gap: var(--connect__toolbar-gap);
-  justify-content: var(--connect__toolbar-justify, baseline);
-  margin: var(--connect__toolbar-menu-margin);
-  padding: var(--connect__toolbar-menu-padding-x);
-  position: relative;
-
-  &:nth-of-type(2) {
-    --connect__icon-fill-color: var(--connect__gray-c35);
-
-    &::after {
-      background-color: var(--connect__gray-c35);
-      border-radius: var(--connect__border-radius);
-      content: '';
-      height: var(--connect__menu-divider-line-h);
-      left: var(--connect__menu-divider-line-x-offset);
-      position: absolute;
-      top: var(--connect__menu-divider-line-y-offset);
-      width: var(--connect__menu-divider-line-w);
-    }
-  }
-}
-
-/* 
-  Toolbar Sub-Menu Component
-
-  Button styles in here are sub menu only, only difference the shadow on hover and active
-
-  Variables:
-    --connect__toolbar-sub-menu-divider-c: Color of the sub-menu divider.
-    --connect__toolbar-row-gap: Row gap in the sub-menu.
-    --connect__toolbar-col-gap: Column gap in the sub-menu.
-    --connect__toolbar-item-menu-y-offset: Vertical offset of the sub-menu.
-    --connect__toolbar-sub-menu-flow: Flow direction of the sub-menu.
-    --connect__toolbar-sub-menu-cols: Number of columns in the sub-menu.
-    --starting-speed: Transition speed.
-    --transition-origin-start: Transition origin.
-    --starting-bezier: Transition timing function.
-
-  Styles:
-    - Set the background color and border radius of the sub-menu.
-    - Apply box shadows to the sub-menu.
-    - Define the grid layout for the sub-menu.
-    - Set the initial opacity and position of the sub-menu.
-    - Apply transitions to the sub-menu.
-  */
-
-.connect__toolbar-item-menu {
-  --connect__toolbar-sub-menu-divider-c: var(--connect__gray-c10);
-  --connect__toolbar-row-gap: var(--connect__spacer-xs);
-  --connect__toolbar-col-gap: var(--connect__spacer-xs);
-  --connect__toolbar-item-menu-y-offset: calc(100% + var(--connect__spacer-md, 0));
-  --connect__toolbar-sub-menu-flow: column;
-  --connect__toolbar-sub-menu-cols: var(--demo-cols, 1);
-
-  background: var(--connect__surface-white);
-  border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__shadow-lvl-2);
-  column-gap: var(--connect__toolbar-col-gap);
-  display: var(--connect__display-grid);
-  grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
-  grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
-  padding: var(--connect__spacer-xs);
-  position: absolute;
-  row-gap: var(--connect__toolbar-row-gap);
-  top: var(--connect__toolbar-item-menu-y-offset);
-  transform: translate(
-    var(--connect__toolbar-item-menu-x-offset),
-    var(--connect__toolbar-item-menu-y-offset)
-  );
-
-  &:has(li:nth-child(6)) {
-    --connect__toolbar-row-gap: calc(
-      var(--connect__spacer-xs) + var(--connect__effects-inner-edge)
-    );
-    --connect__toolbar-sub-menu-flow: row;
-  }
-}
-
-/* 
-  Toolbar Sub-Menu Item Component
-
-  Variables:
-    --row-start: Starting row of the sub-menu item.
-    --row-span: Row span of the sub-menu item.
-    --col-start: Starting column of the sub-menu item.
-    --connect__toolbar-sub-menu-padding-x: Horizontal padding of the sub-menu item.
-    --connect__toolbar-sub-menu-padding-y: Vertical padding of the sub-menu item.
-    --connect__toolbar-sub-menu-divider-h: Height of the sub-menu divider.
-    --connect__toolbar-sub-menu-divider-w: Width of the sub-menu divider.
-
-  Styles:
-    - Define the grid layout for the sub-menu items.
-    - Add a divider line after the sub-menu items.
-  */
-
-.connect__toolbar-item-menu-item {
-  --row-start: var(--menu-row-start, auto);
-  --row-span: var(--menu-row-span, auto);
-  --col-start: var(--menu-col-start, auto);
-
-  --connect__toolbar-sub-menu-padding-x: var(--connect__spacer-xs);
-  --connect__toolbar-sub-menu-padding-y: var(--connect__spacer-xs);
-  --connect__toolbar-sub-menu-divider-h: var(--connect__effects-inner-edge);
-  --connect__toolbar-sub-menu-divider-w: var(--connect__effects-inner-edge);
-
-  grid-column: var(--menu-col-start) / span var(--menu-col-span);
-  grid-row: var(--row-start) / span var(--row-span);
-  position: relative;
-
-  &:nth-of-type(1),
-  &:nth-of-type(2) {
-    --menu-col-span: 1;
-  }
-
-  &:nth-of-type(1) {
-    --connect__toolbar-sub-menu-divider-h: calc(100% - calc(var(--connect__spacer-xs) * 2));
-    --connect__toolbar-sub-menu-divider-right: calc(
-      var(--connect__toolbar-sub-menu-divider-w) * -1
-    );
-    --connect__toolbar-sub-menu-divider-top: var(--connect__spacer-xs);
-
-    &:not(:only-of-type) {
-      .connect__toolbar-item-menu-item-sub-menu {
-        &::after {
-          background-color: var(--connect__toolbar-sub-menu-divider-c);
-          bottom: var(
-            --connect__toolbar-sub-menu-vertical-divider-bottom,
-            var(--connect__toolbar-sub-menu-divider-bottom, initial)
-          );
-          content: '';
-          height: var(
-            --connect__toolbar-sub-menu-vertical-divider-h,
-            var(--connect__toolbar-sub-menu-divider-h, initial)
-          );
-          left: var(
-            --connect__toolbar-sub-menu-vertical-divider-left,
-            var(--connect__toolbar-sub-menu-divider-left, initial)
-          );
-          position: absolute;
-          right: var(
-            --connect__toolbar-sub-menu-vertical-divider-right,
-            var(--connect__toolbar-sub-menu-divider-right, initial)
-          );
-          top: var(
-            --connect__toolbar-sub-menu-vertical-divider-top,
-            var(--connect__toolbar-sub-menu-divider-top, initial)
-          );
-          width: var(
-            --connect__toolbar-sub-menu-vertical-divider-w,
-            var(--connect__toolbar-sub-menu-divider-w, initial)
-          );
-        }
-      }
-    }
-
-    .connect__toolbar-item-menu-item-sub-menu {
-      margin-right: var(--connect__toolbar-sub-menu-padding-x);
-    }
-
-    // if the menu on the left has 6 items then do this
-    &:has(:nth-child(6)) {
-      --connect__toolbar-sub-menu-vertical-divider-right: unset; // Unsets the right position of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-left: calc(
-        -1 * var(--connect__spacer-xs)
-      ); // Adjusts the left position of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-w: calc(
-        100% + calc(var(--connect__spacer-xs) * 2)
-      ); // Adjusts the width of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-h: var(
-        --connect__effects-inner-edge
-      ); // Sets the height of the sub-menu divider to the inner edge value
-      --connect__toolbar-sub-menu-vertical-divider-top: calc(
-        100% + calc(var(--connect__spacer-xs) / 2)
-      ); // Adjusts the top position of the sub-menu divider
-
-      .connect__toolbar-item-menu-item-sub-menu {
-        margin-right: 0;
-
-        &:nth-of-type(1) {
-          padding-bottom: var(--connect__toolbar-sub-menu-padding-y);
-        }
-
-        &:nth-of-type(2) {
-          padding-top: var(--connect__toolbar-sub-menu-padding-y);
-        }
-      }
-
-      ~ li {
-        --menu-row-start: 2;
-        --menu-col-start: 1;
-
-        ul {
-          margin: 0;
-        }
-      }
-    }
-  }
-
-  &:nth-of-type(2) {
-    --menu-col-start: 2;
-
-    .connect__toolbar-item-menu-item-sub-menu {
-      margin-left: var(--connect__toolbar-sub-menu-padding-x);
-    }
-  }
-}
-
-/* 
-  Toolbar Sub-Menu Item Sub-Menu Component
-
-  Styles:
-    - Define the styles for the sub-menu items.
-    - Add a divider line after the sub-menu items.
-  */
-
-.connect__toolbar-item-menu-item-sub-menu {
-  display: flex;
-  padding: 0;
-
-  .connect__toolbar-item {
-    > .connect__selected {
-      --connect__button-bg: var(--connect__surface-white);
-      --connect__icon-fill: currentcolor;
-
-      &:active {
-        --inner-shadow-color: var(--connect__primary-mid);
-      }
-
-      &:disabled {
-        --state-based-bg: var(--connect__surface-null);
-        --inner-shadow-color: var(--connect__surface-pale);
-        --connect__icon-fill: var(--connect__surface-mid);
-      }
-    }
   }
 }
 
