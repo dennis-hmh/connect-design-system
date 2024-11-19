@@ -1,4 +1,3 @@
-// vite.config.ts
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
@@ -44,7 +43,7 @@ export default defineConfig({
     // css({ output: 'button.css' }),
     ViteSvgSpriteWrapper({
       icons: './src/assets/icons/svg/*.svg',
-      outputDir: './public/svg/', 
+      outputDir: './public/svg/',
       sprite: {
         shape: {
           transform: [
@@ -74,6 +73,14 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
+  server: {
+    port: 3000,
+  },
   define: {
     'process.env': process.env,
   },

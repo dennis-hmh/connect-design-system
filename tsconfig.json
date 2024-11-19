@@ -17,13 +17,13 @@
     "typeRoots": ["node_modules/@types", "src/types"],
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve", //"react-jsx",
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
 
     /* Linting */
@@ -32,15 +32,24 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*", "src/**/**/*", "src/types/*", "src/types/**/*"],
-  "exclude": [
+  "include": [
+    "src",
+    "src/**/*",
+    "src/**/**/*",
+    "src/types/*",
+    "src/types/**/*",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    ".storybook/*",
+    ".storybook/*"
+  ],
+  "exclude": [
+    "dist",
     "node_modules",
     "node_modules/**/*",
+    "eslint.config.mjs",
     "vite.config.ts",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "vitest.workspace.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

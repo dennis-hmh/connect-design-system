@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import { withoutVitePlugins } from '@storybook/builder-vite';
 
 const config: StorybookConfig = {
   framework: {
@@ -17,7 +16,6 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
     '@chromatic-com/storybook',
@@ -41,13 +39,6 @@ const config: StorybookConfig = {
       .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
     </style>
   `,
-
-  async viteFinal(config) {
-    return {
-      ...config,
-      plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
-    };
-  }
 };
 
 export default config;

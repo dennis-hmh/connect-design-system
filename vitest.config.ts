@@ -1,4 +1,5 @@
 import { defineConfig, mergeConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
 import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin';
 import viteConfig from './vite.config';
 
@@ -6,12 +7,12 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     plugins: [
+      react(),
       storybookTest({
-        storybookScript: 'npm run storybook --ci',
+        storybookScript: 'pnpm storybook --ci',
       }),
     ],
     test: {
-      globals: true,
       include: [
         'src/components/**/*.stories.@(js|jsx|ts|tsx)',
         'src/components/**/*.test.@(js|jsx|ts|tsx)',
