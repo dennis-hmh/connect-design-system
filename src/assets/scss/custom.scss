@@ -20,7 +20,6 @@ initial ensures that properties are reset to their default values
 | Background color (for reset purposes)        | initial  |
 | Border styling (reset)                       | initial  |
 | Font style / weight / variant / wrap / align | initial  |
-
 */
 
 /* 
@@ -57,101 +56,91 @@ initial ensures that properties are reset to their default values
 | Focus Shadow components:                    | --connect__shadow-lvl-focus |
 |   elements that takes focus shadows
 |---------------------------------------------------------------------------|
-
-
 */
 
 /* 
 .connect__button Component
 
-Variables related to theme/overrides:
-  --connect__button-fs: Font size of the button text.
-  --connect__button-lh: Line height of the button text.
-  --connect__button-fw: Font weight of the button text.
-  --connect__button-text-transform: Text transformation.
-  --connect__button-color: Text color of the button.
-  --connect__button-bg: Background color of the button.
-  --connect__button-border-w: Border width of the button.
-  --connect__button-border-c: Border color of the button.
-  --connect__button-radius: Border radius of the button.
-  --connect__button-gap: Gap between elements inside the button.
-  --connect__icon-fill-color: Fill color for icons inside the button.
-  --connect__button-padding-y: Vertical padding of the button.
-  --connect__button-padding-x: Horizontal padding of the button.
-  --connect__button-justify-content: Justification of content inside the button.
-  --connect__button-flow: Flex flow direction of the button content.
-  --connect__button-w: Width of the button.
-  --connect__button-h: Height of the button.
-
-Variables related to states:
-  --state-based-bg: State-based background color.
-  --active-color: Active state color.
-
-Student / System States
-  -correct / -incorrect: Affects Primary and Secondary buttons only
-
-  All Buttons: 
-  --connect__state-based-pointer: Cursor style when the button answered.
-
-  Primary Buttons: Variables related to states
-   --state-based-bg: State-based background color.
-
-  Secondary Buttons: Variables related to states
-  --connect__inner-status-color: Inner status color.
-  --connect__inner-status-color-state: State-based inner status color.
-  --active-color: Active state color.
+Buttons take variables in the following format
+  1: theme variable for external theming
+  2: variant variables for button tweaks e.g speech to text
+  3: state variables, represents a visual state
+  3.1 Secondary Buttons: state variables
+      Variant = --connect__inner-status-color
+      State --connect__inner-status-color-state
 
 
+/*
+| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
+|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
+| Font size           | --theme__btn-fs              | --variant__btn-fs             | --connect__body-sm                                       |
+| Line height         | --theme__btn-lh              | --variant__btn-lh             | --connect__body-sm-lheight                               |
+| Font weight         | --theme__btn-fw              | --variant__btn-fw             | --connect__fw-regular                                    |
+| Text transform      | --theme__btn-text-transform  | --variant__btn-text-transform | --connect__text-capitalize                               |
+| Background color    | --theme__btn-bg              | --state__btn-bg               | --connect__primary-mid                                   |
+| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__neutrals-null                                 |
+| Gap                 | --theme__btn-gap             | --variant__btn-gap            | --connect__spacer-sm                                     |
+| Padding X           | --theme__btn-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Flex align          | --theme__btn-align           | --variant__btn-align          | center                                                   |
+| Flex justify        | --theme__btn-justify         | --variant__btn-justify        | space-between                                            |
+| Border radius       | --theme__border-radius       | --variant__border-radius      | --connect__border-radius                                 |
+| Height              | --connect__btn-h             | --variant__btn-h              | auto                                                     |
+| Width               | --connect__btn-w             | --variant__btn-w              | fit-content                                               |
+| Icon Fill           | --theme__icon-fill            | --state-based-icon-fill        | --connect__icon-fill                                      |
+| Cursor              |                              |                               | pointer                                                  |
 */
 
 .connect__button {
-  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
-  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-  --connect__button-fw: var(--theme__button-fw, var(--connect__fw-regular));
-  --connect__button-text-transform: var(--theme__button-transform, var(--connect__text-capitalize));
+  --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
+  --connect__btn-border-w: var(
+    --theme__btn-border-w,
+    var(--variant__btn-border-w, var(--connect__spacer-zero))
+  );
 
-  --connect__button-border-w: var(--theme__button-border-w, var(--connect__spacer-zero));
-  --connect__button-border-c: var(--connect__surface-white, transparent);
-  --connect__button-radius: var(--theme__border-radius, var(--connect__border-radius));
-
-  --connect__button-color: var(--active-color, var(--connect__surface-dark));
-  --connect__button-bg: var(--state-based-bg, var(--connect__primary-mid));
-
-  --connect__button-gap: var(--connect__spacer-sm);
-  --connect__button-padding-y: calc(var(--connect__spacer-sm) - var(--connect__button-border-w));
-  --connect__button-padding-x: calc(var(--connect__spacer-md) - var(--connect__button-border-w));
-  --connect__button-align: var(--theme__button-align, center);
-  --connect__button-justify-content: var(--btn-justify, space-between);
-  --connect__button-flow: var(--btn-flow, row wrap);
+  --connect__btn-padding-y: var(
+    --theme__btn-padding-y,
+    var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
+  );
+  --connect__btn-padding-x: var(
+    --theme__btn-padding-x,
+    var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
+  );
 
   --icon-fill-color: var(
     --theme__icon-fill,
     var(--state-based-icon-fill, var(--connect__icon-fill))
   );
 
-  align-items: var(--connect__button-align);
-  background-color: var(--theme__button-bg, var(--connect__button-bg));
-  border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
-  border-radius: var(--connect__button-radius, 0);
+  align-items: var(--theme__btn-align, var(--variant__btn-align, center));
+  background-color: var(
+    --theme__btn-bg,
+    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
+  );
+  border: var(--connect__btn-border-w) solid
+    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__neutrals-null)));
+  border-radius: var(
+    --theme__border-radius,
+    var(--variant__border-radius, var(--connect__border-radius))
+  );
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__button-color, var(--connect__button-color));
+  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  flex-flow: var(--connect__button-flow);
+  flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
-  font-size: var(--connect__button-fs);
-  font-weight: var(--connect__button-fw, initial);
-  height: var(--connect__button-h, auto);
-  gap: var(--connect__button-gap, 0);
-  justify-content: var(--connect__button-justify-content);
-  line-height: var(--connect__button-lh);
-  padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
-    calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
-  text-transform: var(--connect__button-text-transform, initial);
+  font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
+  font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular)));
+  height: var(--connect__btn-h, auto);
+  gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
+  line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
+  padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
+  text-transform: var(--connect__btn-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
-  width: var(--connect__button-w, fit-content);
+  width: var(--connect__btn-w, fit-content);
 
   &:hover {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
@@ -164,11 +153,6 @@ Student / System States
   &:focus-visible:not(:active) {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
-
-  /* 
-    Each button type has an active color
-    set icon fill to that, change on case by case
-  */
 
   .connect__icon {
     --connect__icon-fill-color: var(--icon-fill-color);
@@ -219,23 +203,22 @@ Student / System States
   }
 
   &-menu {
-    --connect__button-padding-y: var(--connect__spacer-sm);
-    --connect__button-padding-x: var(--connect__spacer-sm);
-    --connect__button-bg: var(--connect__surface-null);
+    --variant__btn-bg: var(--connect__surface-null);
     --connect__inner-status-color: var(--connect__surface-null);
     --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+    --variant__btn-padding-x: var(--connect__spacer-sm);
 
     box-shadow: var(--connect__shadow-null);
 
-    &:active {
-      box-shadow: var(--connect__shadow-lvl-0);
-    }
-
     &:not(:disabled) {
       &:hover {
-        --connect__button-bg: var(--connect__surface-white);
+        --variant__btn-bg: var(--connect__surface-white);
         --connect__inner-status-color: var(--connect__surface-white);
         box-shadow: var(--connect__shadow-lvl-2);
+      }
+
+      &:active {
+        box-shadow: var(--connect__shadow-null);
       }
     }
 
@@ -246,7 +229,7 @@ Student / System States
 
   &-selected {
     &:not(:disabled) {
-      --connect__button-bg: var(--connect__brand-pale-magenta);
+      --variant__btn-bg: var(--connect__brand-pale-magenta);
       --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
 
@@ -267,14 +250,14 @@ Student / System States
   }
 
   &-media {
-    --btn-justify: center;
-    --btn-flow: column wrap;
-    --connect__button-padding-y: var(--connect__spacer-md);
-    --connect__button-padding-x: var(--connect__spacer-md);
+    --variant__btn-justify: center;
+    --variant__btn-flow: column wrap;
+    --connect__btn-padding-y: var(--connect__spacer-md);
+    --connect__btn-padding-x: var(--connect__spacer-md);
 
-    --connect__button-radius: 100%;
-    --connect__button-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-y));
-    --connect__button-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-x));
+    --variant__border-radius: 100%;
+    --connect__btn-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-y));
+    --connect__btn-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-x));
 
     &.connect__media-active:not(:disabled) {
       --state-based-bg: var(--connect__red-s45);
@@ -282,7 +265,7 @@ Student / System States
   }
 
   &:disabled {
-    --connect__button-bg: var(--state-based-bg);
+    --variant__btn-bg: var(--state-based-bg);
   }
 }
 
@@ -295,7 +278,6 @@ Student / System States
     transform: rotate(360deg);
   }
 }
-
 
 /* 
 .connect__input Component
@@ -587,10 +569,10 @@ Variables related to theme/overrides:
 .connect__button-split-button Component
 
 Variables related to theme/overrides:
-  --connect__button-fs: Font size of the button.
-  --connect__button-lh: Line height of the button.
-  --connect__button-color: Text color of the button.
-  --connect__button-bg: Background color of the button.
+  --connect__btn-fs: Font size of the button.
+  --connect__btn-lh: Line height of the button.
+  --connect__btn-color: Text color of the button.
+  --connect__btn-bg: Background color of the button.
   --state-based-bg: State-based background color.
   --connect__primary-mid: Mid color for selected state.
   --color-action-disabled: Color for disabled actions.
@@ -598,18 +580,18 @@ Variables related to theme/overrides:
 */
 
 .connect__button-split-button {
-  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
-  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-  --connect__button-color: var(--active-color, var(--connect__surface-dark));
-  --connect__button-bg: var(--state-based-bg, var(--connect__primary-mid));
+  --connect__btn-fs: var(--theme__btn-fs, var(--connect__body-sm));
+  --connect__btn-lh: var(--theme__btn-lh, var(--connect__body-sm-lheight));
+  --connect__btn-color: var(--active-color, var(--connect__surface-dark));
+  --connect__btn-bg: var(--state-based-bg, var(--connect__primary-mid));
 
-  background-color: var(--theme__button-bg, var(--connect__button-bg));
+  background-color: var(--theme__btn-bg, var(--connect__btn-bg));
   border: unset;
-  color: var(--theme__button-color, var(--connect__button-color));
+  color: var(--theme__btn-color, var(--connect__btn-color));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  font-size: var(--connect__button-fs);
-  line-height: var(--connect__button-lh);
+  font-size: var(--connect__btn-fs);
+  line-height: var(--connect__btn-lh);
 
   &:disabled {
     --active-color: var(--color-action-disabled);
@@ -623,7 +605,7 @@ Variables related to theme/overrides:
 
 .connect__button-split-button-actions {
   border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__surface-white);
-  padding-left: var(--connect__button-gap);
+  padding-left: var(--connect__btn-gap);
 }
 
 /* 
@@ -643,13 +625,11 @@ Variables related to theme/overrides:
 */
 
 .connect__accordion {
-  
   .connect__list-item {
     margin-left: 0;
     margin-top: var(--connect__effects-inner-edge);
     padding-left: 0;
   }
-
 }
 
 .connect__details {
@@ -701,10 +681,7 @@ Variables related to theme/overrides:
 }
 
 .connect__summary {
-  --connect__summary-bg: var(
-    --theme__summary-bg,
-    var(--variant__summary-bg, var(--active-color))
-  );
+  --connect__summary-bg: var(--theme__summary-bg, var(--variant__summary-bg, var(--active-color)));
 
   --connect__summary-icon-active-ring: var(
     --theme__summary-icon-active-ring,
@@ -720,7 +697,6 @@ Variables related to theme/overrides:
     var(--variant__summary-padding-x, var(--connect__spacer-sm))
   );
 
-  // alignment of summary items
   --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
   --connect__justify-content: var(
     --theme__justify-content,
@@ -844,12 +820,9 @@ Variables related to theme/overrides:
   --connect__card-border-w: var(--theme__card-border-w, var(--connect__spacer-zero));
   --connect__card-border-c: var(--connect__surface-white, transparent);
   --connect__card-radius: var(--theme__border-radius, var(--connect__border-radius));
-
   --connect__card-padding-y: var(--connect__spacer-sm);
   --connect__card-padding-x: var(--connect__spacer-md);
-
   --connect__card-flow: var(--theme__card-flow, column wrap);
-
   --connect__card-gap: var(--theme__card-gap, var(--connect__spacer-sm));
 
   background-color: var(--connect__surface-white);
@@ -877,17 +850,16 @@ Variables related to theme/overrides:
 }
 
 /* 
-.connect__blockquote Component
-
-Variables related to typography:
-  --connect__body-md: Font size for medium body text.
-
-Variables related to spacing:
-  --connect__spacer-md: Medium spacer for margin.
+  Blockquote Component
 */
 .connect__blockquote {
-  font-size: var(--connect__body-md);
-  margin: var(--connect__spacer-md) 0;
+  font-size: var(--connect__blockquote-fs, var(--connect__body-md));
+  font-style: var(--connect__blockquote-font-style, normal);
+  padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
+  padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
+  padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
+  padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
+  margin: var(--connect__blockquote-margin, 0);
 }
 
 /* 
@@ -978,100 +950,6 @@ Variables related to theme/overrides:
   transition-timing-function: var(--connect__ease-out);
   visibility: var(--connect__tooltip-visibility);
   white-space: nowrap;
-}
-
-/*
-.connect__breakout Component
-
-This component is used to create a "breakout" effect, extending an element beyond its container.
-
-Variables:
---connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
---connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
---connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
---connect__breakout-t: Top position (theme: --theme__breakout-t, default: 0)
---connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
---connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
-
-Usage:
-- Apply this class to an element to make it break out of its container.
-- The element will be positioned absolutely and extend beyond its container's boundaries.
-- Use the custom properties to adjust the positioning and z-index as needed.
-*/
-
-.connect__breakout {
-  --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
-  --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
-  background-color: var(--connect__breakout-bg-color);
-
-  &:not(.connect__linear):not(.connect__halftone) {
-    &::after {
-      content: unset;
-    }
-  }
-
-  &:not(.connect__figure) {
-    &::before,
-    &::after {
-      content: '';
-      pointer-events: none;
-      position: absolute;
-    }
-
-    &::before {
-      background-color: var(--theme__connect-breakout-bg-color-before, initial);
-      bottom: var(--theme__connect-breakout-b-before, 0);
-      left: calc(
-        var(--connect__breakout-gutter-w) *
-          var(--theme__connect-breakout-l-before, var(--connect__spacer-md))
-      );
-      max-width: 100vw;
-      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-before, 0));
-      top: var(--theme__connect-breakout-t-before, 0);
-      width: var(
-        --theme__connect-breakout-w-before,
-        calc(var(--connect__full-w) + 2 * var(--connect__breakout-gutter-w))
-      );
-      z-index: var(--theme__connect-breakout-z-before, 0);
-    }
-
-    &::after {
-      background-color: var(--theme__connect-breakout-bg-color-after, initial);
-      bottom: var(--theme__connect-breakout-b-after, 0);
-      left: calc(
-        var(--connect__breakout-gutter-w) *
-          var(--theme__connect-breakout-l-after, var(--connect__spacer__md))
-      );
-      max-width: 100vw;
-      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-after, 0));
-      top: var(--theme__connect-breakout-t-after, 0);
-      width: var(
-        --theme__connect-breakout-w-after,
-        calc(var(--connect__full-w) + 2 * var(--connect__breakout-gutter-w))
-      );
-
-      z-index: var(--theme__connect-breakout-z-after, 0);
-    }
-
-    &.connect__linear {
-      z-index: var(--connect__linear-z, var(--connect__breakout-z));
-    }
-
-    &.connect__halftone {
-      z-index: var(--connect__halftone-z, var(--connect__breakout-z));
-    }
-  }
-
-  &.connect__figure {
-    bottom: var(--connect__breakout-b, 0);
-    grid-column: unset;
-    left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l, -1));
-    margin-top: 0;
-    position: absolute;
-    right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r, -1));
-    top: var(--connect__breakout-t);
-    z-index: var(--connect__breakout-z, var(--connect__z-1));
-  }
 }
 
 /*
@@ -1342,102 +1220,6 @@ Usage:
     &::after {
       content: unset;
     }
-  }
-
-  &.connect__linear,
-  &.connect__halftone,
-  &.connect__breakout {
-    position: relative;
-  }
-}
-
-/*
-.connect__linear Component
-
-This component applies a linear gradient background to an element.
-
-Variables:
---connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
---connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
---connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__surface-null))
---connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__surface-null))
-
-Usage:
-- Apply this class to an element to give it a linear gradient background.
-- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
-- Customize the gradient by adjusting the custom properties.
-*/
-
-.connect__linear {
-  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
-  --connect__linear-direction: var(--theme__linear-direction, to right);
-  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__surface-null));
-  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__surface-null));
-  --connect__linear-z: var(--theme--connect__linear-z, initial);
-
-  &::before {
-    background-image: linear-gradient(
-      var(--connect__linear-direction),
-      var(--connect__linear-color-one),
-      var(--connect__linear-color-two)
-    );
-    content: '';
-    inset: 0;
-    mix-blend-mode: var(--connect__linear-blend-mode);
-    position: absolute;
-  }
-
-  &.connect__breakout {
-    &::after {
-      content: '';
-      position: absolute;
-    }
-  }
-}
-
-/*
-.connect__halftone Component
-
-This component applies a halftone pattern effect to an element using radial gradients.
-
-Variables:
---connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__surface-null))
---connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
---radial-color: Color of the halftone dots (theme: --theme__radial-color)
---radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
---radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
-
-Usage:
-- Apply this class to an element to give it a halftone pattern effect.
-- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
-- Customize the halftone effect by adjusting the custom properties.
-*/
-
-.connect__halftone {
-  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__surface-null));
-  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
-  --radial-color: var(--theme__radial-color);
-  --radial-size: var(--theme__radial-size, 0.25rem);
-  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-  --connect__halftone-z: var(--theme__connect-halftone-z, initial);
-
-  &::after {
-    background-color: var(--connect__halftone-solid-bg);
-
-    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
-      radial-gradient(var(--radial-color) 33%, transparent 33%);
-    background-position:
-      0 0,
-      var(--radial-size) var(--radial-size),
-      0 0;
-    background-size:
-      var(--radial-bg-size) var(--radial-bg-size),
-      var(--radial-bg-size) var(--radial-bg-size),
-      100% 100%;
-    content: '';
-    inset: 0;
-    mix-blend-mode: var(--connect__halftone-blend-mode);
-    position: absolute;
   }
 }
 
@@ -1815,7 +1597,7 @@ Variables related to theme/overrides:
   border: var(--connect__chip-border-w) solid var(--connect__chip-border-c, transparent);
   border-radius: var(--connect__chip-radius, 0);
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__button-color, var(--connect__chip-color));
+  color: var(--theme__chip-color, var(--connect__chip-color));
   font-family: var(--connect__font-sans);
   font-size: var(--connect__chip-fs);
   line-height: var(--connect__chip-lh);
@@ -2513,7 +2295,7 @@ Variables related to theme/overrides:
 
   .connect__selected {
     &:not(:disabled) {
-      --connect__button-bg: var(--connect__brand-pale-magenta);
+      --variant__btn-bg: var(--connect__brand-pale-magenta);
       --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
     }
@@ -2592,26 +2374,6 @@ Example:
     --variant__divider-margin-x: var(--connect__spacer-zero);
     --variant__divider-h: var(--connect__full-h);
     --variant__divider-w: var(--connect__effects-inner-edge);
-  }
-}
-
-.connect__toolbar-item {
-  padding: 0.0625rem;
-
-  > .connect__selected {
-    --state-based-bg: var(--connect__primary-light);
-
-    &:not(:disabled) {
-      --connect__button-bg: var(--connect__primary-mid);
-      --inner-shadow-color: var(--connect__primary-mid);
-      --connect__icon-fill: var(--connect__surface-white);
-
-      &:active {
-        --inner-shadow-color: var(--connect__surface-white);
-      }
-    }
-    // > .connect__button-menu {
-    // }
   }
 }
 
@@ -2776,16 +2538,6 @@ Rounded corners modifier:
 */
 
 :where([class^='connect__']) {
-  blockquote {
-    font-size: var(--connect__blockquote-fs, var(--connect__body-md));
-    font-style: var(--connect__blockquote-font-style, normal);
-    margin: var(--connect__blockquote-margin, 0);
-    padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
-    padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
-    padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
-    padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
-  }
-
   figure {
     border-radius: var(--theme__border-radius, var(--connect__border-radius));
     margin: var(--connect__fig-margin, 0);
@@ -2813,19 +2565,18 @@ Rounded corners modifier:
   }
 }
 
-/*
-Disabled State Styles for Connect Components
+/* 
+These styles apply to elements with classes that include '-correct'.
 
-Variables related to disabled state:
-  --active-color: Color used when the component is active, set to disabled color.
-  --connect__icon-fill-color: Fill color for icons, set to disabled icon fill.
-  --checkbox-state-based-bg: Background color for checkbox state, set to neutrals white.
-  --checkbox-state-based-inner-shadow: Inner shadow for checkbox state, set to state-based background.
-  --connect__state-based-pointer: Cursor style for state-based interactions, set to disabled cursor.
-  --state__connect-dropdown-icon: Icon state for dropdowns, set to variant-specific dropdown icon.
-
-Styles:
-  Applies styles to all elements with classes containing 'connect_' when they are disabled.
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Text color            | --active-color                          | Change to --connect__disabled-mid                        |
+| Icon Fills            | --connect__icon-fill-color               | Change to --connect__disabled-light                      |
+| Bg Colors             | --checkbox-state-based-bg               | Change to --connect__surface-white                       |
+| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
+| Shadow                | --checkbox-state-based-inner-shadow     | Change to --state-based-bg                               |
+| Cursors               | --connect__state-based-pointer          | Change to --connect__disabled-cursor                     |
+| Dropdown Icon         | --state__connect-dropdown-icon          | Change to --state__variant-connect-dropdown-icon         |
 */
 
 [class*='connect_']:disabled {
@@ -2839,46 +2590,24 @@ Styles:
 }
 
 /* 
-Styles for elements with classes containing '-correct'
+These styles apply to elements with classes that include '-correct'.
 
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --state-icon: Icon used to represent the state.
-  --state-based-bg: Background color based on the state.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__surface-white: Neutral white color.
-  --checked-state-icon: Icon used for the checked state.
-
-
-Styles:
-  [class*='-correct'],
-  [class*='-correct']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --state-icon: var(--icon-correct);
-      - Sets the icon used to represent the state to the 'correct' icon.
-    --state-based-bg: var(--connect__correct-pale);
-      - Sets the background color based on the state to the correct pale color.
-    --checkbox-state-based-bg: var(--connect__correct-mid);
-      - Sets the background color for the state of checkboxes to the correct mid color.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__surface-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checked-state-icon: var(--checked-correct);
-      - Sets the icon used for the checked state to the 'correct' icon.
-  }
-}
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__correct-mid                         |
+| BG Color              | --state-based-bg                        | Change bg to --color-correct-pale                        |
+| Icon Input            | --state-icon                            | Change to correct icon                                   |
+| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
+| Shadow                | --checkbox-state-based-inner-shadow     | Change to --color-correct-pale                           |
+| Checkbox BG           | --checkbox-state-based-bg               | Change to --color-correct-pale                           |
+| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-correct                              |
 */
 
 [class*='-correct'],
 [class*='-correct']:disabled {
   --connect__inner-status-color: var(--connect__correct-mid);
-  --state-icon: var(--icon-correct);
   --state-based-bg: var(--connect__correct-pale);
+  --state-icon: var(--icon-correct);
   --checkbox-state-based-bg: var(--connect__correct-mid);
   --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
   --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
@@ -2886,99 +2615,48 @@ Styles:
 }
 
 /* 
-Styles for elements with classes containing '-incorrect'
-
 These styles apply to elements with classes that include '-incorrect'.
-They use CSS variables extensively to allow for easy theming and state-driven changes.
 
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --state-icon: Icon used to represent the state.
-  --state-based-bg: Background color based on the state.
-  --connect__inner-status-color-state: State-based inner status color.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__surface-white: Neutral white color.
-  --checked-state-icon: Icon used for the checked state.
-
-Styles:
-  [class*='-incorrect'],
-  [class*='-incorrect']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --state-icon: var(--icon-incorrect);
-      - Sets the icon used to represent the state to the 'incorrect' icon.
-    --state-based-bg: var(--color-incorrect-bg);
-      - Sets the background color based on the state to the incorrect background color.
-    --connect__inner-status-color-state: var(--color-incorrect-bg);
-      - Sets the state-based inner status color to the incorrect background color.
-    --checkbox-state-based-bg: var(--checked-incorrect-bg);
-      - Sets the background color for the state of checkboxes to the incorrect background color.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__surface-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checked-state-icon: var(--checked-incorrect);
-      - Sets the icon used for the checked state to the 'incorrect' icon.
-  }
-}
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__incorrect-mid                       |
+| BG Color              | --state-based-bg                        | Change bg to --color-incorrect-bg                        |
+| Icon Input            | --state-icon                            | Change to incorrect icon                                 |
+| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
+| Shadow                | --checkbox-state-based-inner-shadow     | Change to --checked-incorrect-bg                         |
+| Checkbox BG           | --checkbox-state-based-bg               | Change to --checked-incorrect-bg                         |
+| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-incorrect                            |
 */
 
 [class*='-incorrect'],
 [class*='-incorrect']:disabled {
-  --connect__inner-status-color-state: var(--connect__incorrect-mid);
-  --state-icon: var(--icon-incorrect);
+  --connect__inner-status-color: var(--connect__incorrect-mid);
   --state-based-bg: var(--color-incorrect-bg);
+  --state-icon: var(--icon-incorrect);
   --checkbox-state-based-bg: var(--checked-incorrect-bg);
   --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
   --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
   --checked-state-icon: var(--checked-incorrect);
 }
 
+
 /* 
-Styles for elements with classes containing '-shown'
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --starting-shadow-color: Initial shadow color.
-  --state-based-bg: Background color based on the state.
-  --state-icon: Icon used to represent the state.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__surface-white: Neutral white color.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --connect__surface-dark: Neutral dark color.
-  --checked-state-icon: Icon used for the checked state.
+These styles apply to elements with classes that include '-shown'.
 
-Styles:
-  [class*='-shown'],
-  [class*='-shown']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --starting-shadow-color: var(--connect__surface-dark);
-      - Sets the initial shadow color to a neutral dark color.
-    --state-based-bg: var(--connect__surface-white);
-      - Sets the background color based on the state to a neutral white color.
-    --state-icon: var(--icon-shown);
-      - Sets the icon used to represent the state to the 'shown' icon.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__surface-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checkbox-state-based-bg: var(--connect__surface-dark);
-      - Sets the background color for the state of checkboxes to a neutral dark color.
-    --checked-state-icon: var(--checked-correct);
-      - Sets the icon used for the checked state to the 'correct' icon.
-  }
-}
-
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__surface-mid                         |
+| BG Color              | --state-based-bg                        | Change bg to white                                       |
+| Icon Input            | --state-icon                            | Change to shown icon                                     |
+| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
+| Shadow                | --checkbox-state-based-inner-shadow     | Change to --connect__surface-dark                        |
+| Checkbox BG           | --checkbox-state-based-bg               | Change to --connect__surface-dark                        |
+| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-correct                              |
 */
+
 [class*='-shown'],
 [class*='-shown']:disabled {
   --connect__inner-status-color: var(--connect__surface-mid);
-  --starting-shadow-color: var(--connect__surface-dark);
   --state-based-bg: var(--connect__surface-white);
   --state-icon: var(--icon-shown);
   --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
@@ -2993,24 +2671,13 @@ Styles:
 
 /* 
 These styles apply to elements with classes that include '-correct', '-incorrect', or '-shown'.
+Cover Text / Cursors / Iconography
 
-Variables:
-  --active-color: color used for active state.
-  --connect__surface-mid: Neutral mid color.
-  --connect__state-based-pointer: Cursor style when the element is disabled.
-  --connect__surface-null: Null neutral color.
-
-Styles:
-    &:disabled {
-      --active-color: var(--connect__surface-mid);
-        - Sets the active color to a neutral mid color when the element is disabled.
-    }
-    --active-color: var(--connect__surface-mid);
-      - Sets the active color to a neutral mid color.
-    --connect__state-based-pointer: not-allowed;
-      - Sets the cursor style to 'not-allowed' when the element is disabled.
-  }
-}
+| Property Type | Variable                        | Description                    |
+|---------------|---------------------------------|--------------------------------|
+| Color         | --active-color                  | Change to disabled text mid ---|
+| Cursor        | --connect__state-based-pointer  | Change to disabled cursor -----|
+| Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon -|
 */
 
 [class*='-correct'],

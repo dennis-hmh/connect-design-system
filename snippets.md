@@ -50,6 +50,14 @@ It includes
  - Drawing Tool menu options
  - Drawing Tool Sub Menus
 
+## Header Effects Halftone Linear Breakout
+
+This is the [Header Effects Halftone Linear Breakout](https://scm.eng.hmhco.com/gist/RockA/9c4d22ec00855f02371547ef6310a9ec) 
+It includes 
+
+ - Halftone
+ - Linear
+ - Breakout
 
 # React Snippets
 
