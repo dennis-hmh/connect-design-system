@@ -23,7 +23,7 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve", //"react-jsx",
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
 
     /* Linting */
@@ -32,15 +32,16 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*", "src/**/**/*", "src/types/*", "src/types/**/*"],
+  "include": ["src", "src/**/*", "src/**/**/*", ".storybook/*", "eslint.config.mjs"],
   "exclude": [
-    "src/**/**/*.stories.tsx",
-    "src/components/**/*.stories.tsx",
-    ".storybook/*",
+    "dist",
     "node_modules",
     "node_modules/**/*",
+    "src/**/**/*.stories.tsx",
+    "src/components/**/*.stories.tsx",
     "vite.config.ts",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "vitest.workspace.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
