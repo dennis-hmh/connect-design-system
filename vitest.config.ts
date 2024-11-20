@@ -13,10 +13,7 @@ export default mergeConfig(
       }),
     ],
     test: {
-      include: [
-        'src/components/**/*.stories.@(js|jsx|ts|tsx)',
-        'src/components/**/*.test.@(js|jsx|ts|tsx)',
-      ],
+      include: ['src/components/**/*.stories.@(ts|tsx)'],
       exclude: [
         'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
         'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
@@ -28,6 +25,8 @@ export default mergeConfig(
         provider: 'playwright',
         headless: true,
       },
+      globals: true,
+      environment: 'jsdom',
       coverage: {
         enabled: false,
       },

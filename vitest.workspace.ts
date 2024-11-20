@@ -13,7 +13,7 @@ export default defineWorkspace([
     ],
     test: {
       name: 'storybook',
-      include: ['src/**/**/*.stories.?(m)[jt]s?(x)'],
+      include: ['src/**/**/*.stories.?(ts|tsx)'],
       browser: {
         enabled: true,
         name: 'chromium',

@@ -36,20 +36,14 @@
     "src",
     "src/**/*",
     "src/**/**/*",
-    "src/types/*",
-    "src/types/**/*",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    ".storybook/*"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "node_modules/**/*",
-    "eslint.config.mjs",
+    ".storybook/*",
     "vite.config.ts",
     "vitest.config.ts",
-    "vitest.workspace.ts"
+    "vitest.workspace.ts",
+    "eslint.config.mjs"
   ],
+  "exclude": ["dist", "node_modules", "node_modules/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
