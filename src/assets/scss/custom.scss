@@ -1642,58 +1642,6 @@ Child Element State Styles:
 /*
 .connect__icon Component
 
-Variables related to theme/overrides:
-  --icon-fill: Fill color for the icon.
-  --icon-stroke: Stroke color for the icon.
-  --connect__icon-size: Size of the icon.
-  --connect__icon-opacity: Opacity of the icon.
-
-Styles:
-  color:
-    - Sets the color of the icon using the fill variable.
-  height:
-    - Sets the height of the icon.
-  opacity:
-    - Sets the opacity of the icon.
-  width:
-    - Sets the width of the icon.
-
-SVG Styles:
-  svg
-    fill: var(--icon-fill);
-      - Sets the fill color of the SVG.
-    stroke: var(--icon-stroke, transparent);
-      - Sets the stroke color of the SVG.
-
-Size Modifiers:
-  &-xs
-    --connect__icon-size: var(--connect__icon-xs);
-      - Sets the icon size to extra small.
-
-  &-sm
-    --connect__icon-size: var(--connect__icon-sm);
-      - Sets the icon size to small.
-
-  &-md
-    --connect__icon-size: var(--connect__icon-md);
-      - Sets the icon size to medium.
-
-  &-lg
-    --connect__icon-size: var(--connect__icon-lg);
-      - Sets the icon size to large.
-
-  &-xl
-    --connect__icon-size: var(--connect__icon-xl);
-      - Sets the icon size to extra large.
-
-  &-xxl
-    --connect__icon-size: var(--connect__icon-xxl);
-      - Sets the icon size to extra extra large.
-*/
-
-/*
-.connect__pill Component
-
 | Property| Fallback / Default           | Sizes              |
 |---------|------------------------------|--------------------|
 | Fill    | --connect__icon-fill-color    |
@@ -2166,6 +2114,19 @@ Variables related to theme/overrides:
   --connect__aside-direction: Flex direction of the aside content.
 */
 
+/*
+.connect__aside Component
+
+| Property| Fallback / Default           | Sizes              |
+|---------|------------------------------|--------------------|
+| padding-y    | --connect__icon-fill-color    |
+| padding-x  | --connect__icon-stroke-color |
+| Background   | --connect__icon-fill-color    |
+| Width | --connect__icon-opacity      |             
+| Direction   |--connect__icon-size          | xs sm md lg xl xxl |
+
+*/
+
 .connect__aside {
   --connect__aside-padding-y: var(--connect__spacer-md);
   --connect__aside-padding-x: var(--connect__spacer-xs);
@@ -2218,33 +2179,20 @@ Variables related to theme/overrides:
 /*
 .connect__divider Component
 
-Variables related to theme/overrides:
-  --connect__divider-bg: Background color of the divider.
-  --connect__divider-h: Height of the divider.
-  --connect__divider-w: Width of the divider.
-  --connect__divider-br: Border radius of the divider.
-  --connect__divider-margin-y: Vertical margin of the divider.
-  --connect__divider-margin-x: Horizontal margin of the divider.
+Divider can be vertical or horizontal
+[aria-orientation='vertical']
 
-Styles:
-
-Usage:
-  The .connect__divider class can be applied to an <hr> element or any other
-  element that needs to act as a visual separator. The appearance and spacing
-  can be customised using the provided CSS variables.
-
-  Divider can be vertical or horizontal
-  [aria-orientation='vertical']
-
-Example:
-  <hr class="connect__divider">
+| Property         | Theme                     | Variant                     | Fallback / Default             |
+|------------------|---------------------------|-----------------------------|--------------------------------|
+| Background color | --theme__divider-bg       | --variant__divider-bg       | --connect__gray-c10            |
+| Height           | --theme__divider-h        | --variant__divider-h        | --connect__effects-inner-edge  |
+| Width            | --theme__divider-w        | --variant__divider-w        | --connect__full-w              |
+| Radius           | --theme__divider-br       | --variant__divider-br       | --connect__border-radius       |         
+| Margin x         | --theme__divider-margin-x | --variant__divider-margin-x | --connect__spacer-zero         |      
+| Margin y         | --theme__divider-margin-y | --variant__divider-margin-y | --connect__spacer-zero         |       
 */
 
 .connect__divider {
-  --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
-  --connect__divider-h: var(--theme__divider-h, var(--connect__effects-inner-edge));
-  --connect__divider-w: var(--theme__divider-w, var(--connect__full-w));
-  --connect__divider-br: var(--theme__divider-br, var(--connect__border-radius));
   --connect__divider-margin-y: var(
     --theme__divider-margin-y,
     var(--variant__divider-margin-y, var(--connect__spacer-zero))
@@ -2254,16 +2202,19 @@ Example:
     var(--variant__divider-margin-x, var(--connect__spacer-zero))
   );
 
-  background-color: var(--connect__divider-bg);
+  background-color: var(--theme__divider-bg, var(--variant__divider-bg, var(--connect__gray-c10)));
   border: 0;
-  border-radius: var(--connect__divider-br);
-  height: var(--variant__divider-h, var(--connect__divider-h));
+  border-radius: var(
+    --theme__divider-br,
+    var(--variant__divider-br, var(--connect__border-radius))
+  );
+  height: var(--theme__divider-h, var(--variant__divider-h, var(--connect__effects-inner-edge)));
   margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
   position: relative;
-  width: var(--variant__divider-w, var(--connect__divider-w));
   width: calc(
-    var(--variant__divider-w, var(--connect__divider-w)) - (var(--connect__divider-margin-x) * 2)
+    var(--theme__divider-w, var(--variant__divider-w, var(--connect__full-w))) -
+      (var(--connect__divider-margin-x) * 2)
   );
 
   &[aria-orientation='vertical'] {
