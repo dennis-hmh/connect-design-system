@@ -84,7 +84,7 @@ Buttons take variables in the following format
 | Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
 | Flex align          | --theme__btn-align           | --variant__btn-align          | center                                                   |
 | Flex justify        | --theme__btn-justify         | --variant__btn-justify        | space-between                                            |
-| Border radius       | --theme__border-radius       | --variant__border-radius      | --connect__border-radius                                 |
+| Border radius       | --theme__btn-border-radius   | --variant__btn-border-radius  | --connect__border-radius                                 |
 | Height              | --connect__btn-h             | --variant__btn-h              | auto                                                     |
 | Width               | --connect__btn-w             | --variant__btn-w              | fit-content                                               |
 | Icon Fill           | --theme__icon-fill            | --state-based-icon-fill        | --connect__icon-fill                                      |
@@ -120,8 +120,8 @@ Buttons take variables in the following format
   border: var(--connect__btn-border-w) solid
     var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__neutrals-null)));
   border-radius: var(
-    --theme__border-radius,
-    var(--variant__border-radius, var(--connect__border-radius))
+    --theme__btn-border-radius,
+    var(--variant__btn-border-radius, var(--connect__border-radius))
   );
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
@@ -501,111 +501,6 @@ States:
   &::-ms-expand {
     display: var(--connect__display-none);
   }
-}
-
-/* 
-.connect__button-split Component
-
-Variables related to theme/overrides:
-  --connect__list-bg: Background color of the list.
-  --connect__list-radius: Border radius of the list.
-  --connect__list-flow: Flex flow direction of the list.
-  --connect__list-wrap: Flex wrap property of the list.
-  --connect__surface-dark: Dark neutral color.
-  --connect__effects-inner-edge: Inner edge effect size.
-  --connect__full-w: Full width of the component.
-  --connect__z-1: Z-index for stacking context.
-*/
-
-.connect__button-split {
-  position: relative;
-
-  .connect__list {
-    --connect__list-bg: var(--theme__list-bg, var(--connect__surface-white));
-    --connect__list-radius: var(--theme__list-radius, var(--connect__border-radius));
-
-    --connect__list-flow: var(--theme__list-flow, column);
-    --connect__list-wrap: var(--theme__list-wrap, wrap);
-
-    background-color: var(--connect__list-bg);
-    border-radius: var(--connect__list-radius);
-    box-shadow: var(--connect__shadow-lvl-4);
-    color: var(--connect__surface-dark);
-    display: flex;
-    flex-flow: var(--connect__list-flow) var(--connect__list-wrap);
-    left: 0;
-    margin-top: calc(var(--connect__effects-inner-edge) * 2);
-    padding: 0;
-    position: absolute;
-    top: 100%;
-    width: var(--connect__full-w);
-    z-index: var(--connect__z-1);
-  }
-
-  .connect__list-item {
-    cursor: var(--connect__state-based-pointer, pointer);
-    font-family: var(--connect__font-sans);
-    font-size: var(--connect__caption);
-    line-height: var(--connect__caption-lheight);
-    padding: var(--connect__spacer-sm) var(--connect__spacer-md);
-
-    &:first-of-type {
-      border-radius: var(--connect__border-radius) var(--connect__border-radius)
-        var(--connect__spacer-zero) var(--connect__spacer-zero);
-    }
-
-    &:last-of-type {
-      border-radius: var(--connect__spacer-zero) var(--connect__spacer-zero)
-        var(--connect__border-radius) var(--connect__border-radius);
-    }
-
-    &:hover {
-      background-color: var(--connect__surface-pale);
-    }
-  }
-}
-
-/* 
-.connect__button-split-button Component
-
-Variables related to theme/overrides:
-  --connect__btn-fs: Font size of the button.
-  --connect__btn-lh: Line height of the button.
-  --connect__btn-color: Text color of the button.
-  --connect__btn-bg: Background color of the button.
-  --state-based-bg: State-based background color.
-  --connect__primary-mid: Mid color for selected state.
-  --color-action-disabled: Color for disabled actions.
-  --connect__surface-mid: Mid neutral color.
-*/
-
-.connect__button-split-button {
-  --connect__btn-fs: var(--theme__btn-fs, var(--connect__body-sm));
-  --connect__btn-lh: var(--theme__btn-lh, var(--connect__body-sm-lheight));
-  --connect__btn-color: var(--active-color, var(--connect__surface-dark));
-  --connect__btn-bg: var(--state-based-bg, var(--connect__primary-mid));
-
-  background-color: var(--theme__btn-bg, var(--connect__btn-bg));
-  border: unset;
-  color: var(--theme__btn-color, var(--connect__btn-color));
-  cursor: var(--connect__state-based-pointer, pointer);
-  display: inline-flex;
-  font-size: var(--connect__btn-fs);
-  line-height: var(--connect__btn-lh);
-
-  &:disabled {
-    --active-color: var(--color-action-disabled);
-    color: var(--connect__surface-mid);
-  }
-}
-
-/* 
-.connect__button-split-button-actions Component
-*/
-
-.connect__button-split-button-actions {
-  border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__surface-white);
-  padding-left: var(--connect__btn-gap);
 }
 
 /* 
@@ -1568,39 +1463,45 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 /*
 .connect__chip Component
 
-Variables related to theme/overrides:
-  --connect__chip-fs: Font size of the chip.
-  --connect__chip-lh: Line height of the chip.
-  --connect__chip-border-w: Border width of the chip.
-  --connect__chip-border-c: Border color of the chip.
-  --connect__chip-radius: Border radius of the chip.
-  --connect__chip-color: Text color of the chip.
-  --connect__chip-bg: Background color of the chip.
-  --connect__chip-padding-y: Vertical padding of the chip.
-  --connect__chip-padding-x: Horizontal padding of the chip.
+| Property         | Theme                         | Variant/State                 | Fallback / Default                                        |
+|------------------|------------------------------ |-------------------------------|-----------------------------------------------------------|
+| Font size        | --theme__chip-fs              | --variant__btn-fs             | --connect__body-sm                                        |
+| Line height      | --theme__chip-lh              | --variant__btn-lh             | --connect__body-sm-lheight                                |
+| Background color | --theme__chip-bg              | --state__btn-bg               | --connect__primary-mid                                    |
+| Border color     | --theme__chip-border-c        | --variant__btn-border-c       | --connect__neutrals-null                                  |
+| Border width     | --theme__chip-border-w        | --variant__btn-border-w       | --connect__spacer-zero                                    |
+| Padding X        | --theme__chip-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
+| Padding Y        | --theme__chip-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
+| Width            | --theme__chip-radius          | --variant__border-radius      | --connect__border-radius                                  |
 */
 
 .connect__chip {
-  --connect__chip-fs: var(--theme__chip-fs, var(--connect__caption));
-  --connect__chip-lh: var(--theme__chip-lh, var(--connect__caption-lheight));
-  --connect__chip-border-w: var(--theme__chip-border-w, var(--connect__spacer-zero));
-  --connect__chip-border-c: var(--connect__surface-white, transparent);
-  --connect__chip-radius: var(--theme__border-radius, var(--connect__border-radius));
+  --connect__chip-border-w: var(
+    --theme__chip-border-w,
+    var(--variant__chip-border-w, var(--connect__spacer-zero))
+  );
 
-  --connect__chip-color: var(--active-color, var(--connect__surface-dark));
-  --connect__chip-bg: var(--theme__chip-bg, var(--connect__surface-white));
+  --connect__chip-padding-y: var(
+    --theme__chip-padding-y,
+    var(--variant__chip-padding-y, calc(var(--connect__spacer-xs) - var(--connect__chip-border-w)))
+  );
+  --connect__chip-padding-x: var(
+    --theme__chip-padding-x,
+    var(--variant__chip-padding-x, calc(var(--connect__spacer-md) - var(--connect__chip-border-w)))
+  );
 
-  --connect__chip-padding-y: var(--connect__spacer-xs);
-  --connect__chip-padding-x: var(--connect__spacer-md);
-
-  background-color: var(--connect__chip-bg);
-  border: var(--connect__chip-border-w) solid var(--connect__chip-border-c, transparent);
-  border-radius: var(--connect__chip-radius, 0);
+  background-color: var(--theme__chip-bg, var(--variant__chip-bg, var(--connect__surface-white)));
+  border: var(--connect__chip-border-w) solid
+    var(--theme__chip-border-c, var(--variant__chip-border-c, var(--connect__neutrals-null)));
+  border-radius: var(
+    --theme__chip-border-radius,
+    var(--variant__chip-border-radius, var(--connect__border-radius))
+  );
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__chip-color, var(--connect__chip-color));
+  color: var(--theme__chip-color, var(--active-color, var(--connect__surface-dark)));
   font-family: var(--connect__font-sans);
-  font-size: var(--connect__chip-fs);
-  line-height: var(--connect__chip-lh);
+  font-size: var(--theme__chip-fs, var(--variant__chip-fs, var(--connect__caption)));
+  line-height: var(--theme__chip-lh, var(--variant__chip-lh, var(--connect__caption-lheight)));
   padding: calc(var(--connect__chip-padding-y) - var(--connect__chip-border-w))
     calc(var(--connect__chip-padding-x) - var(--connect__chip-border-w));
   width: var(--connect__chip-w, fit-content);
@@ -2638,7 +2539,6 @@ These styles apply to elements with classes that include '-incorrect'.
   --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
   --checked-state-icon: var(--checked-incorrect);
 }
-
 
 /* 
 These styles apply to elements with classes that include '-shown'.
