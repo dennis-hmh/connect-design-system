@@ -1,14 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { Timer } from '../Timer/Timer';
+import { Timer, timerStates } from '../Timer/Timer';
 import { Button } from '../Button/Button';
 import { RiveEngine, setRiveInputValue } from './RiveEngine';
-
-enum timerStates {
-    waiting_to_start,
-    counting_down,
-    finished,
-    paused
-}
 
 /** Testing out an approach for sharing data between the Timer Tool's various components */
 export function CCTimerToolTest(){
@@ -198,7 +191,7 @@ export function CCTimerToolTest(){
 
     //Swap between gradebanded RIVs, just for quick testing
     const filenames = {
-        0: "3-5-timer.riv",
+        0: "3-5-timer.riv", //NOTE: the 3-5 version is temporarily used for K-2 too!
         1: "3-5-timer.riv",
         2: "6-8-timer.riv",
         3: "9-12-timer.riv",
@@ -222,11 +215,6 @@ export function CCTimerToolTest(){
     );
 
     //Main component elements
-    /* NOTE: the Timer component used here requires some extra functionality I added via a new "parentState" prop
-        (used to externally control whether it's counting down/paused/reset/etc.),
-        so it'll look slightly broken if the version without those updates is what's in use here! 
-        I'm splitting the Timer component update out into a second PR, so the changes may be missing here depending on which PR you're looking at!
-    */
     return (
     <>
         {select}
