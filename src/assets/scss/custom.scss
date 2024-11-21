@@ -1510,22 +1510,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   }
 }
 
-/* Connect pill Component
-
-Variables related to theme/overrides:
-  --theme__pill-bg: Custom background color for the pill.
-  --theme__pill-color: Custom text color for the pill.
-  --theme__pill-py: Custom vertical padding for the pill.
-  --theme__pill-pl: Custom left padding for the pill.
-  --theme__pill-pr: Custom right padding for the pill.
-  --theme__connect-pill-fs: Custom font size for the pill text.
-  --theme__connect-pill-lh: Custom line height for the pill text.
-  --theme__connect-pill-fw: Custom font weight for the pill text.
-  --theme__connect-pill-ff: Custom font family for the pill text.
-*/
-
 /*
-.connect__chip Component
+.connect__pill Component
 
 | Property         | Theme               | Variant/State         | Fallback / Default            | Props                      |
 |------------------|---------------------|---------------------- |-------------------------------|----------------------------|
@@ -1705,17 +1691,27 @@ Size Modifiers:
       - Sets the icon size to extra extra large.
 */
 
+/*
+.connect__pill Component
+
+| Property| Fallback / Default           | Sizes              |
+|---------|------------------------------|--------------------|
+| Fill    | --connect__icon-fill-color    |
+| Stroke  | --connect__icon-stroke-color |
+| Color   | --connect__icon-fill-color    |
+| Opacity | --connect__icon-opacity      |             
+| Sizes   |--connect__icon-size          | xs sm md lg xl xxl |
+*/
+
 .connect__icon {
-  --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
-  --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
   color: var(--icon-fill);
   height: var(--connect__icon-size);
   opacity: var(--connect__icon-opacity, 1);
   width: var(--connect__icon-size);
 
   svg {
-    fill: var(--icon-fill);
-    stroke: var(--icon-stroke, transparent);
+    fill: var(--connect__icon-fill-color, var(--connect__surface-dark));
+    stroke: var(--connect__icon-stroke-color);
   }
 
   &-xs {
