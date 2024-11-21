@@ -2102,49 +2102,29 @@ Transitions:
   );
 }
 
-/* 
-.connect__aside Component
-
-Variables related to theme/overrides:
-  --connect__aside-padding-y: Vertical padding of the aside.
-  --connect__aside-padding-x: Horizontal padding of the aside.
-  --connect__aside-bg: Background color of the aside.
-  --connect__aside-w: Width of the aside.
-  --connect__aside-align: Alignment of items within the aside.
-  --connect__aside-direction: Flex direction of the aside content.
-*/
-
 /*
 .connect__aside Component
 
-| Property| Fallback / Default           | Sizes              |
-|---------|------------------------------|--------------------|
-| padding-y    | --connect__icon-fill-color    |
-| padding-x  | --connect__icon-stroke-color |
-| Background   | --connect__icon-fill-color    |
-| Width | --connect__icon-opacity      |             
-| Direction   |--connect__icon-size          | xs sm md lg xl xxl |
-
+| Property         | Theme                    | Variant                    | Fallback / Default       |
+|------------------|--------------------------|----------------------------|--------------------------|
+| Background color | --theme__aside-bg        | --variant__aside-bg        | --connect__surface-white |
+| Padding X        | --theme__aside-padding-x | --variant__aside-padding-x | --connect__spacer-xs     |
+| Padding Y        | --theme__aside-padding-y | --variant__aside-padding-y | --connect__spacer-md     |
+| Width            | --theme__aside-w         | --variant__aside-w         | 3.625rem                 |
+| Height           | --theme__aside-h         | --variant__aside-h         | 100vh                    |
 */
 
 .connect__aside {
-  --connect__aside-padding-y: var(--connect__spacer-md);
-  --connect__aside-padding-x: var(--connect__spacer-xs);
-  --connect__aside-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
-  --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__surface-white));
-  --connect__aside-w: var(--theme__aside-w, 3.625rem);
-  --connect__aside-h: var(--theme__aside-h, 100vh);
-  --variant__marker-color: var(--connect__surface-null);
-
-  align-items: var(--connect__aside-align, center);
-  background-color: var(--connect__aside-bg);
+  align-items: center;
+  background-color: var(--theme__aside-bg, var(--variant__aside-bg, var(--connect__surface-white)));
   display: flex;
-  flex-flow: var(--connect__aside-direction, column wrap);
-  height: var(--connect__aside-h);
+  flex-flow: column wrap;
+  height: var(--theme__aside-h, var(--variant__aside-h, 100vh));
   justify-content: space-between;
   margin: 0;
-  padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
-  width: var(--connect__aside-w);
+  padding: var(--theme__aside-padding-y, var(--variant__aside-padding-y, var(--connect__spacer-md)))
+    var(--theme__aside-padding-x, var(--variant__aside-padding-x, var(--connect__spacer-xs)));
+  width: var(--theme__aside-w, var(--variant__aside-w, 3.625rem));
 
   &:has(ul:only-child) {
     justify-content: end;
@@ -2227,55 +2207,21 @@ Divider can be vertical or horizontal
 /*
 .connect__list Component
 
-Variables related to list styling:
-
-List style type modifiers:
-  &.connect__list-none
-    --variant__marker-color: var(--connect__surface-null);
-      - Sets the marker color to null.
-
-  &.connect__list-circle
-    --variant__list-style-type: circle;
-      - Sets the list style type to circle.
-
-  &.connect__list-decimal
-    --variant__list-style-type: decimal;
-      - Sets the list style type to decimal.
-
-  &.connect__list-disc
-    --variant__list-style-type: disc;
-      - Sets the list style type to disc.
-
-  &.connect__list-roman
-    --variant__list-style-type: lower-roman;
-      - Sets the list style type to lower-roman.
-
-  &.connect__list-square
-    --variant__list-style-type: square;
-      - Sets the list style type to square.
-
-  &.connect__list-alpha
-    --variant__list-style-type: lower-alpha;
-      - Sets the list style type to lower-alpha.
+| Property    | Theme            | Variants           | Fallback / Default         |
+|-------------|------------------|--------------------|----------------------------|
+| Font size   | --theme__list-fs | --variant__list-fs | --connect__body-sm         |
+| Line Height | --theme__list-lh | --variant__list-lh | --connect__body-sm-lheight |
+|-------------|------------------|--------------------|----------------------------|
+| Marker Type |                  | --variant__list-style-type   
 */
 
 .connect__list {
-  --connect__list-item-padding-left: var(--connect__spacer-sm);
-  --connect__list-item-margin-left: calc(4ch * 1);
-  --connect__list-marker-color: var(
-    --theme__list-marker-color,
-    var(--variant__marker-color, inherit)
-  );
-
   > .connect__list-item {
-    --connect__list-fs: var(--connect__body-sm);
-    --connect__list-lh: var(--connect__body-sm-lheight);
-
-    font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
-    line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
+    font-size: var(--theme__list-fs, var(--variant__list-fs, var(--connect__body-sm)));
+    line-height: var(--theme__list-lh, var(--variant__list-lh, var(--connect__body-sm-lheight)));
 
     &::marker {
-      color: var(--connect__list-marker-color);
+      color: var(--theme__list-marker-color, var(--variant__marker-color, inherit));
       font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
