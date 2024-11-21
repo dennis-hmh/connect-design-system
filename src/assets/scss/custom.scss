@@ -1527,12 +1527,12 @@ Variables related to theme/overrides:
 /*
 .connect__chip Component
 
-| Property         | Theme               | Variant/State         | Fallback / Default            |
-|------------------|---------------------|---------------------- |-------------------------------|
+| Property         | Theme               | Variant/State         | Fallback / Default            | Props                      |
+|------------------|---------------------|---------------------- |-------------------------------|----------------------------|
 | Font size        | --theme__pill-fs    | --variant__pill-fs    | --connect__body-sm            |
 | Font weight      | --theme__pill-fw    | --variant__pill-fw    | --connect__fw-bold            |
 | Line height      | --theme__pill-lh    | --variant__pill-lh    | --connect__body-sm-lheight    |
-| Background color | --theme__pill-bg    | --variant__pill-bg    | --connect__cc-purple          |
+| Background color | --theme__pill-bg    | --variant__pill-bg    | --connect__cc-purple          | --connect__default-pill-bg |
 | Color            | --theme__pill-color | --variant__pill-color | --connect__surface-white      |
 | Padding Y        | --theme__pill-py    | --variant__pill-py    | --connect__spacer-xs          |
 | Padding L        | --theme__pill-pl    | --variant__pill-pl    | --connect__spacer-md          |
@@ -1548,7 +1548,10 @@ Variables related to theme/overrides:
 
 .connect__pill {
   align-items: center;
-  background-color: var(--theme__pill-bg, var(--variant__pill-bg, var(--connect__cc-purple)));
+  background-color: var(
+    --theme__pill-bg,
+    var(--variant__pill-bg, var(--connect__default-pill-bg, var(--connect__cc-purple)))
+  );
   border-radius: var(--theme__pill-br-tl, var(--variant__pill-br-tl, var(--connect__spacer-zero)))
     var(--theme__pill-br-tr, var(--variant__pill-br-tr, var(--connect__heading-lg-lheight)))
     var(--theme__pill-br-br, var(--variant__pill-br-br, var(--connect__heading-lg-lheight)))
