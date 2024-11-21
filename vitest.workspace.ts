@@ -9,7 +9,6 @@ export default defineWorkspace([
       storybookTest({
         storybookScript: 'pnpm storybook --ci',
       }),
-      // storybookNextJsPlugin(),
     ],
     test: {
       name: 'storybook',
@@ -17,8 +16,6 @@ export default defineWorkspace([
       browser: {
         enabled: true,
         name: 'chromium',
-        provider: 'playwright',
-        headless: true,
       },
       isolate: false,
       setupFiles: ['./.storybook/vitest.setup.ts'],
