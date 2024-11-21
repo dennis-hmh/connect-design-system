@@ -48,10 +48,7 @@ WithProgressBar.args = {
   progressBar: true,
 };
 
-/** An example of controlling the timer from its parent component
- * 
- *  (I couldn't figure out how to get the GradeBanded styles to work on the test Buttons, apologies!)
- */
+/** An example of controlling the timer via its parent component's Buttons. */
 export const ControlledByParentComponent: Story = {
   render: () => {
     const countdownLength = 5000;
@@ -88,35 +85,38 @@ export const ControlledByParentComponent: Story = {
 
     //Conditional controls
     let timerControls: any = null;
+    const buttonStyle = "connect__g68";
     if (isWaiting)
       timerControls = (
-          <Button primary clickHandler={handleTimerStart}>Start</Button>
+          <Button primary clickHandler={handleTimerStart} additionalClass={buttonStyle}>Start</Button>
       );
     else if (isCountingDown)
       timerControls = (
       <>
-          <Button primary clickHandler={handleTimerReset}>Reset</Button>
+          <Button primary clickHandler={handleTimerReset} additionalClass={buttonStyle}>Reset</Button>
           <span> </span>
-          <Button primary clickHandler={handleTimerPause}>Pause</Button>
+          <Button primary clickHandler={handleTimerPause} additionalClass={buttonStyle}>Pause</Button>
       </>
       );
     else if (isPaused)
       timerControls = (
       <>
-          <Button primary clickHandler={handleTimerReset}>Reset</Button>
+          <Button primary clickHandler={handleTimerReset} additionalClass={buttonStyle}>Reset</Button>
           <span> </span>
-          <Button primary clickHandler={handleTimerResume}>Resume</Button>
+          <Button primary clickHandler={handleTimerResume} additionalClass={buttonStyle}>Resume</Button>
       </>
       );
     else if (isFinished)
       timerControls = (
-          <Button primary clickHandler={handleTimerReset}>Reset</Button>
+          <Button primary clickHandler={handleTimerReset} additionalClass={buttonStyle}>Reset</Button>
       );
 
     return (
     <>
-      <Timer time={countdownLength} onTimeUp={handleTimerFinish} parentState={timerState} progressBar/>
-      {timerControls}
+      <div style={{width: '200px', textAlign: 'center'}}>
+      <Timer time={countdownLength} onTimeUp={handleTimerFinish} parentState={timerState} progressBar gradeBand={'g4-5'}/>
+      <div style={{padding: '7px'}}>{timerControls}</div>
+      </div>
     </>  
     );
   },

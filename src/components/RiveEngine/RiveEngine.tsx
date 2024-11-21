@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useEffect, useRef } from 'react';
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { StateMachineInput, StateMachineInputType, EventType, useRive } from '@rive-app/react-canvas';
 import { Typography } from '../Typography/Typography';
 import { usePrefersReducedMotion, usePrefersDarkMode } from './accessibilityUtils'
@@ -11,7 +11,10 @@ export type RiveEngineProps = {
   playState?: 'playing' | 'paused' | 'stopped';
   autoplay?: boolean;
   disableTouchScroll?: boolean;
+  width?: string,
+  height?: string,
   contain?: boolean;
+  sizeByHeight?: boolean;
   inputs?: { current: {[key: string]: StateMachineInput}, exposed?: boolean } | MutableRefObject<undefined>;
   inputToStateLinks?: {[key: string]: any};
   volume?: number;
@@ -28,7 +31,10 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   playState = 'playing',
   autoplay = true,
   disableTouchScroll = true,
+  width,
+  height,
   contain = false,
+  sizeByHeight = false,
   inputs = undefined,
   inputToStateLinks = {},
   volume = 1,
@@ -63,6 +69,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     //Initial setup
     handleLoad();
     exposeInputs();
+    updateAspectRatio();
 
     //Handle accessibility preferences
     handleReducedMotion();
@@ -163,7 +170,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
 
   function onRiveAdvance(riveEvent){ 
     const deltaTime = riveEvent.data;
-    //DEBUG && console.log(`Frame drawn in ${deltaTime.toFixed(2)}s`); 
+    0 && DEBUG && console.log(`Frame drawn in ${deltaTime.toFixed(2)}s`);
 
     if (inputToStateLinks)
       checkForInputChanges();
@@ -212,7 +219,30 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
         return stop();
     }
   }, [playState, rive]);
+
+  //Handle changes in size
+  //TO-DO: check this in detail when there's more time! Recently brought over from Chris' branch, need to investigate how it works.
   
+  const divRef = useRef<HTMLDivElement | null>(null); 
+  const [calculatedHeight, setCalculatedHeight] = useState(0); // State to store the dynamic height
+  const [aspectRatio, setAspectRatio] = useState<number | null>(null); // Aspect ratio state
+  
+  function updateAspectRatio(){
+    if (!rive)
+      return;
+
+    const artboardBounds = rive.bounds;
+    const ratio = artboardBounds.maxX / artboardBounds.maxY;
+    setAspectRatio(ratio);
+  }
+
+  useEffect(() => {
+    if (divRef.current && aspectRatio) {
+        // Measure the height of the div
+        const divHeight = divRef.current.offsetHeight;
+        setCalculatedHeight(divHeight * aspectRatio); // Calculate height based on aspect ratio
+    }
+  }, [width, height, sizeByHeight, aspectRatio]); // Recalculate if sizeByHeight or aspect ratio changes  
 
   /** State Machine Inputs will stay hidden if their name begins with this, and won't be exposed onto the "inputs" prop object */
   const INPUT_HIDING_PREFIX = "_";
@@ -279,11 +309,21 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     rive && rive.stop();
   }
 
+  const widthToSet = width == undefined ? '100%' : width;
+  const heightToSet = height == undefined ? '100%' : height;
+  //...(sizeByHeight && aspectRatio && { width: calculatedHeight * aspectRatio })
+  /* TO-DO: try to get Chris' described sizing behaviour working when there's more time
+    For now, just set a size for the container's width/height props like '500px'
+  */
+
   return (
-    <>
+    <div ref={divRef} style={{
+      width: widthToSet, 
+      height: heightToSet,
+    }}>
       <RiveComponent/>
       <Typography element='p' ariaLive='polite'>{desc}</Typography>
-    </>
+    </div>
   );
 };
 
