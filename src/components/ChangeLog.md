@@ -1,73 +1,13 @@
-### v1.13.1 Release Notice
-
-### Release date: November, 13, 2024
-
-#### Changelog:
-
-- New Component: N/A
-- Updated Component: `<Timer />`, `<Typography />`
-- Bug Fix: N/A
-- Other Updated: Update Storybook to version 8.4.3
-
-#### Repo:
-
-- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
-- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
-
-&nbsp;
-
----
-
-### v1.13.0 Release Notice
-
-### Release date: November, 5, 2024
-
-#### Changelog:
-
-- New Component: `<Checkbox />`, `<Paper />`, `<Timer />`
-- Updated Component: N/A
-- Bug Fix: N/A
-- Other Updated: Plankton support CSS variables added/updated.
-
-#### Repo:
-
-- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
-- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
-
-&nbsp;
-
----
-
-### v1.12.2 Release Notice
-
-### Release date: October, 28, 2024
-
-#### Changelog:
-
-- New Component: N/A
-- Updated Component: N/A
-- Bug Fix: `ESLint` issues fixed
-- Other Updated: N/A
-
-#### Repo:
-
-- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
-- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
-
-&nbsp;
-
----
-
 ### v1.12.1 Release Notice
 
-### Release date: October, 24, 2024
+### Release date: November, 21, 2024
 
 #### Changelog:
 
-- New Component: `<RiveGradeBanded />`
+- New Component: `<RiveEngine />`
 - Updated Component: N/A
 - Bug Fix: N/A
-- Other Updated: Some updates to styles.
+- Other Updated: Added some test pages for the RiveEngine, showing how it could be used for the Timer Tool and Student Picker Tool.
 
 #### Repo:
 
