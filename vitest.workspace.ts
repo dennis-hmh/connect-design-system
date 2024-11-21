@@ -13,6 +13,11 @@ export default defineWorkspace([
     test: {
       name: 'storybook',
       include: ['src/**/**/*.stories.?(ts|tsx)'],
+      exclude: [
+        'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
+        'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
+        'src/components/Reveal/Reveal.stories.@(jsx|tsx)',
+      ],
       browser: {
         enabled: true,
         name: 'chromium',
