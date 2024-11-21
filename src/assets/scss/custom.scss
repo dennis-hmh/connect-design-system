@@ -1742,17 +1742,11 @@ Size Modifiers:
 
 /*
 .connect__choice-label-wrapper Components
-
-Variables related to icon size:
-  --connect__icon-size: Size of the icon, set to extra large when .connect__mcq-text is present.
+  Wraps all components with state based iconography
 */
 
 .connect__choice-label-wrapper {
   position: relative;
-
-  &:has(.connect__mcq-text) {
-    --connect__icon-size: var(--connect__icon-xl);
-  }
 }
 
 /*
@@ -2136,29 +2130,29 @@ Transitions:
 /*
 .connect__timer Component
 
-Variables related to typography:
-  --connect__timer-fs: Font size of the timer.
-  --connect__timer-lh: Line height of the timer.
-  --connect__timer-fw: Font weight of the timer.
-  --connect__timer-style: Font style of the timer.
-  --connect__timer-color: Text color of the timer.
-  font-variant-numeric: tabular-nums;
-    - Uses tabular numbers for consistent alignment.
+| Property    | Theme                 | Variant/State            | Fallback / Default            | Props               |
+|-------------|---------------------- |------------------------- |-------------------------------|---------------------|
+| Font size   | --theme__timer-fs     | --variant__timer-fs      | --connect__heading-lg         | --connect__timer-fs |
+| Line height | --theme__timer-lh     | --variant__timer-lh      | --connect__heading-lg-lheight | --connect__timer-lh |
+| Font weight | --theme__timer-fw     | --variant__timer-fw      | --connect__fw-bold            |
+| Font Style  | --theme__timer-fstyle | --variant__timer-fstyle  | normal                        |
+| Color       | --theme__timer-color  | --variant__timer-color   | --connect__surface-dark       |
 */
 
 .connect__timer {
-  --connect__timer-fs: var(--theme__timer-fs, var(--connect__heading-lg));
-  --connect__timer-lh: var(--theme__time-lh, var(--connect__heading-lg-lheight));
-  --connect__timer-fw: var(--theme__time-fw, 700);
-  --connect__timer-style: var(--theme__time-style, normal);
-  --connect__timer-color: var(--theme__time-color, var(--connect__surface-dark));
-
-  color: var(--connect__timer-color);
-  font-size: var(--connect__timer-fs);
-  font-style: var(--connect__timer-style);
+  color: var(--theme__timer-color, var(--variant__timer-color, var(--connect__surface-dark)));
+  font-family: var(--connect__font-sans);
+  font-size: var(
+    --theme__timer-fs,
+    var(--variant__timer-fs, var(--connect__timer-fs, var(--connect__heading-lg)))
+  );
+  font-style: var(--theme__timer-fstyle, var(--variant__timer-fstyle, var(--connect__fw-style)));
   font-variant-numeric: tabular-nums;
-  font-weight: var(--connect__timer-fw);
-  line-height: var(--connect__timer-lh);
+  font-weight: var(--theme__timer-fw, var(--variant__timer-fw, var(--connect__fw-bold)));
+  line-height: var(
+    --theme__timer-lh,
+    var(--variant__timer-lh, var(--connect__timer-lh, var(--connect__heading-lg-lheight)))
+  );
 }
 
 /* 
