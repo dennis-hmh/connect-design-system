@@ -29,7 +29,7 @@ export function InputBox({
   noShadow = false,
   dataTestId,
 }: InputBoxProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -54,7 +54,10 @@ export function InputBox({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__choice-label ${inputStates}`}>
+      <label
+        htmlFor={id}
+        className={`connect__choice-label ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
+      >
         {children}
       </label>
     </div>

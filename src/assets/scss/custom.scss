@@ -164,11 +164,11 @@ Buttons take variables in the following format
       --state-based-bg: var(--connect__disabled-pale);
     }
 
-    &.connect__button-correct {
+    &.connect__feedback-correct {
       --connect__inner-status-color-state: var(--connect__surface-null);
     }
 
-    &.connect__button-incorrect {
+    &.connect__feedback-incorrect {
       --connect__inner-status-color-state: var(--connect__surface-null);
     }
   }
@@ -184,11 +184,11 @@ Buttons take variables in the following format
       --connect__inner-status-color-state: var(--connect__surface-pale);
     }
 
-    &.connect__button-incorrect {
+    &.connect__feedback-incorrect {
       --state-based-bg: var(--connect__surface-white);
     }
 
-    &.connect__button-correct {
+    &.connect__feedback-correct {
       --state-based-bg: var(--connect__surface-white);
       --connect__inner-status-color: var(--connect__correct-light);
     }
@@ -1425,30 +1425,6 @@ Pseudo-element Styles:
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
-
-  &.connect__input-correct {
-    --state-icon: var(--icon-correct);
-  }
-
-  &.connect__input-incorrect {
-    --state-icon: var(--icon-incorrect);
-  }
-
-  &.connect__input-shown {
-    --state-icon: var(--icon-shown);
-  }
-
-  > .connect__select-correct {
-    --state-icon: var(--icon-correct);
-  }
-
-  > .connect__select-incorrect {
-    --state-icon: var(--icon-incorrect);
-  }
-
-  > .connect__select-shown {
-    --state-icon: var(--icon-shown);
-  }
 }
 
 /*
@@ -1591,6 +1567,45 @@ Padding on MCQ labels is the total border + spacer
   &:focus-visible:not(:active) {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
+
+  &.connect__label-checked {
+    &::before {
+      background-color: var(--checkbox-state-based-bg, var(--connect__primary-mid));
+      background-image: var(--checked-state-icon, var(--connect__surface-null));
+      background-size: contain;
+      box-shadow: var(--connect__shadow-reset) var(--connect__input-border-w)
+        var(--checkbox-state-based-inner-shadow, var(--connect__surface-white)) inset;
+    }
+
+    &.connect__disabled {
+      --checkbox-state-based-bg: var(--connect__disabled-light);
+    }
+
+    &.connect__feedback-correct {
+      --checkbox-state-based-bg: var(--connect__correct-mid);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-correct);
+    }
+
+    &.connect__feedback-incorrect {
+      --checkbox-state-based-bg: var(--checked-incorrect-bg);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-incorrect);
+    }
+
+    &.connect__input-shown {
+      --checkbox-state-based-bg: var(--connect__surface-dark);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-correct);
+    }
+  }
+
+  &.connect__disabled {
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+  }
 }
 
 .connect__input-no-shadow {
@@ -1666,44 +1681,13 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-:where([class^='connect__']) input[type='checkbox'],
-:where([class^='connect__']) input[type='radio'] {
+.connect__choice {
   inset: 0;
   opacity: var(--connect__opacity-zero);
   position: absolute;
-
-  &:disabled {
-    + .connect__choice-label {
-      --active-color: var(--connect__surface-mid);
-      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
-      --checkbox-state-based-bg: var(--connect__surface-white);
-      --connect__state-based-pointer: var(--connect__disabled-cursor);
-      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
-    }
-  }
-
-  &:checked {
-    + .connect__choice-label {
-      &::before {
-        background-color: var(--checkbox-state-based-bg, var(--connect__primary-mid));
-        background-image: var(--checked-state-icon, var(--connect__surface-null));
-        background-size: contain;
-        box-shadow: var(--connect__shadow-reset) var(--connect__input-border-w)
-          var(--checkbox-state-based-inner-shadow, var(--connect__surface-white)) inset;
-      }
-    }
-  }
-
-  &:checked:disabled {
-    + .connect__choice-label {
-      --checkbox-state-based-bg: var(--connect__disabled-light);
-      --checkbox-state-based-inner-shadow: var(--connect__surface-white);
-      --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
-    }
-  }
 }
 
-:where([class^='connect__']) input[type='radio'] {
+.connect__choice[type='radio'] {
   + label {
     --variant__mcq-radius: var(--connect__half-radius);
   }
@@ -2059,7 +2043,7 @@ These styles apply to elements with classes that include '-correct'.
 | Dropdown Icon         | --state__connect-dropdown-icon          | Change to --state__variant-connect-dropdown-icon         |
 */
 
-[class*='connect_']:disabled {
+.connect__disabled {
   --active-color: var(--connect__disabled-mid);
   --connect__icon-fill-color: var(--connect__disabled-light);
   --checkbox-state-based-bg: var(--connect__surface-white);
@@ -2077,21 +2061,12 @@ These styles apply to elements with classes that include '-correct'.
 | Inner Status          | --connect__inner-status-color           | Change to --connect__correct-mid                         |
 | BG Color              | --state-based-bg                        | Change bg to --color-correct-pale                        |
 | Icon Input            | --state-icon                            | Change to correct icon                                   |
-| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
-| Shadow                | --checkbox-state-based-inner-shadow     | Change to --color-correct-pale                           |
-| Checkbox BG           | --checkbox-state-based-bg               | Change to --color-correct-pale                           |
-| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-correct                              |
 */
 
-[class*='-correct'],
-[class*='-correct']:disabled {
+.connect__feedback-correct {
   --connect__inner-status-color: var(--connect__correct-mid);
   --state-based-bg: var(--connect__correct-pale);
   --state-icon: var(--icon-correct);
-  --checkbox-state-based-bg: var(--connect__correct-mid);
-  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checked-state-icon: var(--checked-correct);
 }
 
 /* 
@@ -2102,21 +2077,12 @@ These styles apply to elements with classes that include '-incorrect'.
 | Inner Status          | --connect__inner-status-color           | Change to --connect__incorrect-mid                       |
 | BG Color              | --state-based-bg                        | Change bg to --color-incorrect-bg                        |
 | Icon Input            | --state-icon                            | Change to incorrect icon                                 |
-| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
-| Shadow                | --checkbox-state-based-inner-shadow     | Change to --checked-incorrect-bg                         |
-| Checkbox BG           | --checkbox-state-based-bg               | Change to --checked-incorrect-bg                         |
-| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-incorrect                            |
 */
 
-[class*='-incorrect'],
-[class*='-incorrect']:disabled {
+.connect__feedback-incorrect {
   --connect__inner-status-color: var(--connect__incorrect-mid);
   --state-based-bg: var(--color-incorrect-bg);
   --state-icon: var(--icon-incorrect);
-  --checkbox-state-based-bg: var(--checked-incorrect-bg);
-  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checked-state-icon: var(--checked-incorrect);
 }
 
 /* 
@@ -2127,21 +2093,12 @@ These styles apply to elements with classes that include '-shown'.
 | Inner Status          | --connect__inner-status-color           | Change to --connect__surface-mid                         |
 | BG Color              | --state-based-bg                        | Change bg to white                                       |
 | Icon Input            | --state-icon                            | Change to shown icon                                     |
-| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
-| Shadow                | --checkbox-state-based-inner-shadow     | Change to --connect__surface-dark                        |
-| Checkbox BG           | --checkbox-state-based-bg               | Change to --connect__surface-dark                        |
-| Checkbox Icon         | --connect__state-based-pointer          | Change to --checked-correct                              |
 */
 
-[class*='-shown'],
-[class*='-shown']:disabled {
+.connect__feedback-shown {
   --connect__inner-status-color: var(--connect__surface-mid);
   --state-based-bg: var(--connect__surface-white);
   --state-icon: var(--icon-shown);
-  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checkbox-state-based-bg: var(--connect__surface-dark);
-  --checked-state-icon: var(--checked-correct);
 }
 
 [class*='-selected'] {
@@ -2159,9 +2116,9 @@ Cover Text / Cursors / Iconography
 | Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon -|
 */
 
-[class*='-correct'],
-[class*='-incorrect'],
-[class*='-shown'] {
+.connect__feedback-correct,
+.connect__feedback-incorrect,
+.connect__feedback-shown {
   --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);

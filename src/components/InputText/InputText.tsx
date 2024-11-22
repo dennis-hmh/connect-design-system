@@ -22,7 +22,7 @@ export function InputText({
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
 
@@ -43,7 +43,7 @@ export function InputText({
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
-        className={`connect__input ${inputStates}`}
+        className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
         onChange={(e) => setText(e.target.value)}
