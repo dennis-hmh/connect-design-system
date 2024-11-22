@@ -128,7 +128,7 @@ const TimerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (a
       <RiveEngine src={src} volume={0.5} inputs={inputs} playState={rivePlayState} width='400px' height='400px'/>
     </div>
   
-    <div style={{width: '200px', textAlign: 'center', justifySelf: 'center'}}>
+    <div style={{width: '220px', textAlign: 'center', justifySelf: 'center'}}>
       <Timer time={countdownLength} onTimeUp={handleTimerFinish} parentState={timerState} progressBar gradeBand={'g4-5'}/>
       <div style={{padding: '7px'}}>{timerControls}</div>
     </div>
@@ -239,10 +239,10 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
       size="heading-lg"
       style="normal"
     >
-      {ratingValue}
+      <span style={{fontSize: 'x-large'}}>{ratingValue}</span>
     </Typography>
     <RiveEngine src={args["src"]} inputs={inputs} inputToStateLinks={inputToStateLinks} width='400px' height='400px' ignoreReducedMotion={true} />
-    <div>
+    <div style={{padding: '10px'}}>
       <Button primary clickHandler={() => setRatingValue(0)} additionalClass={"connect__g68"}>0 Stars</Button>
       <Button primary clickHandler={() => setRatingValue(1)} additionalClass={"connect__g68"}>1 Star</Button>
       <Button primary clickHandler={() => setRatingValue(2)} additionalClass={"connect__g68"}>2 Stars</Button>
@@ -264,7 +264,7 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
  *     rating: { setter: setRatingValue },
  *   };
  * 
- * In this case, "rating" is the name of the internal Rive input, and "setRatingValue" is the React setter function for the stateful value (ratingValue). Multiple keys can be added to this object to link other inputs to other values, as needed. This "inputToStateLinks" object is then passed to the RiveComponent as a prop.
+ * In this case, "rating" is the name of the internal Rive input, and "setRatingValue" is the React setter function for the stateful value (ratingValue). Multiple keys can be added to this object to link other inputs to other values, as needed. This "inputToStateLinks" object is then passed to the RiveEngine as a prop.
 */
 export const LinkInputValueToState: Story = LinkInputValueToStateExample.bind({});
 LinkInputValueToState.args = {

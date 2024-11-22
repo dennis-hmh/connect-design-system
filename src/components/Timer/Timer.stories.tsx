@@ -113,7 +113,7 @@ export const ControlledByParentComponent: Story = {
 
     return (
     <>
-      <div style={{width: '200px', textAlign: 'center'}}>
+      <div style={{width: '220px', textAlign: 'center'}}>
       <Timer time={countdownLength} onTimeUp={handleTimerFinish} parentState={timerState} progressBar gradeBand={'g4-5'}/>
       <div style={{padding: '7px'}}>{timerControls}</div>
       </div>
