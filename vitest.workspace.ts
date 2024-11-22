@@ -9,16 +9,18 @@ export default defineWorkspace([
       storybookTest({
         storybookScript: 'pnpm storybook --ci',
       }),
-      // storybookNextJsPlugin(),
     ],
     test: {
       name: 'storybook',
       include: ['src/**/**/*.stories.?(ts|tsx)'],
+      exclude: [
+        'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
+        'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
+        'src/components/Reveal/Reveal.stories.@(jsx|tsx)',
+      ],
       browser: {
         enabled: true,
         name: 'chromium',
-        provider: 'playwright',
-        headless: true,
       },
       isolate: false,
       setupFiles: ['./.storybook/vitest.setup.ts'],

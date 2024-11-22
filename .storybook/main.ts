@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { withoutVitePlugins } from '@storybook/builder-vite';
 
 const config: StorybookConfig = {
   framework: {
@@ -36,6 +37,13 @@ const config: StorybookConfig = {
       .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
     </style>
   `,
+
+  async viteFinal(config) {
+    return {
+      ...config,
+      plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
+    };
+  },
 };
 
 export default config;

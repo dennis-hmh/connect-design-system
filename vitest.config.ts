@@ -12,26 +12,25 @@ export default mergeConfig(
         storybookScript: 'pnpm storybook --ci',
       }),
     ],
-    test: {
-      include: ['src/components/**/*.stories.@(ts|tsx)'],
-      exclude: [
-        'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
-        'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
-        'src/components/Reveal/Reveal.stories.@(jsx|tsx)',
-      ],
-      browser: {
-        enabled: true,
-        name: 'chromium',
-        provider: 'playwright',
-        headless: true,
-      },
-      globals: true,
-      environment: 'jsdom',
-      coverage: {
-        enabled: false,
-      },
-      isolate: false,
-      setupFiles: ['./.storybook/vitest.setup.ts'],
-    },
+    // Test now handled in vitest.workspace.ts
+    // test: {
+    //   include: ['src/components/**/*.stories.@(ts|tsx)'],
+    //   exclude: [
+    //     'src/components/DragDrop/DragDrop.stories.@(jsx|tsx)',
+    //     'src/components/FlipCards/FrontCard.stories.@(jsx|tsx)',
+    //     'src/components/Reveal/Reveal.stories.@(jsx|tsx)',
+    //   ],
+    //   browser: {
+    //     enabled: true,
+    //     name: 'chromium',
+    //   },
+    //   globals: true,
+    //   environment: 'jsdom',
+    //   coverage: {
+    //     enabled: false,
+    //   },
+    //   isolate: false,
+    //   setupFiles: ['./.storybook/vitest.setup.ts'],
+    // },
   }),
 );
