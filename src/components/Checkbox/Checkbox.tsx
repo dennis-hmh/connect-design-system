@@ -37,7 +37,7 @@ export function Checkbox({ id, name, children, checked, disabled, dataTestId }: 
       />
       <label
         htmlFor={id}
-        className={`connect__choice-label connect__input-no-shadow${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+        className={`connect__choice-label connect__input-no-shadow ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
       >
         {children}
       </label>
