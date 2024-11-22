@@ -1692,9 +1692,6 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-.connect__progress-wrapper {
-  width: var(--connect__full-w);
-}
 
 /* 
 .connect__progress Component
@@ -1725,6 +1722,10 @@ Transitions:
     width var(--connect__transition-medium) var(--connect__in-out-quad);
     - transitions to the progress bar width changes.
 */
+
+.connect__progress-wrapper {
+  width: var(--connect__full-w);
+}
 
 .connect__progress[value] {
   --connect__progress-outer-shadow-c: var(
