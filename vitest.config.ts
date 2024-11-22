@@ -12,6 +12,7 @@ export default mergeConfig(
         storybookScript: 'pnpm storybook --ci',
       }),
     ],
+    // Test now handled in vitest.workspace.ts
     // test: {
     //   include: ['src/components/**/*.stories.@(ts|tsx)'],
     //   exclude: [
