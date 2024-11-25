@@ -1406,6 +1406,7 @@
   --connect__opacity-zero: 0;
   --connect__opacity-one: 1;
   --connect__overflow-hidden: hidden;
+  --connect__overflow-auto: auto;
   --connect__absolute: absolute;
   --connect__relative: relative;
   --connect__animation-reset: none;
