@@ -1,6 +1,6 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.13.3",
+  "version": "1.13.4",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./dist/connect-design-system.umd.js",
@@ -27,7 +27,7 @@
     "stylelint": "stylelint 'src/assets/**/*.{css,scss}'",
     "storybook": "storybook dev -p 6006",
     "test": "vitest --run",
-    "test:browser": "vitest --workspace=vitest.workspace.ts",
+    "test:browser": "vitest --config vitest.config.ts",
     "test:ui": "vitest --ui",
     "type:check": "tsc && echo type check complete"
   },
