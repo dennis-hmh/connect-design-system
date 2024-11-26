@@ -47,7 +47,7 @@ export function InputBox({
         ref={checkRef}
         type={type}
         id={id}
-        className={`connect__input ${inputStates}`}
+        className={`connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
@@ -56,7 +56,7 @@ export function InputBox({
       />
       <label
         htmlFor={id}
-        className={`connect__choice-label ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
+        className={`connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
       >
         {children}
       </label>
