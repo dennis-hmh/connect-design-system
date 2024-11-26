@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { RiveGradeBanded, RiveGradeBandedProps } from './RiveGradeBanded';
+import { RiveSimple, RiveSimpleProps } from './RiveSimple';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
-const meta: Meta<typeof RiveGradeBanded> = {
-  title: 'Animation/Rive Grade Banded',
-  component: RiveGradeBanded,
+const meta: Meta<typeof RiveSimple> = {
+  title: 'Animation/Rive Simple',
+  component: RiveSimple,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -15,16 +15,16 @@ const meta: Meta<typeof RiveGradeBanded> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RiveGradeBanded>;
+type Story = StoryObj<typeof RiveSimple>;
 
-const Template: StoryFn<RiveGradeBandedProps> = (args) => {
+const Template: StoryFn<RiveSimpleProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
 
   return (
     <GradeBandContext.Provider value={args.gradeBand}>
       <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
         <div ref={themeWrapperRef}>
-          <RiveGradeBanded {...args} />
+          <RiveSimple {...args} />
         </div>
       </ConnectTheme>
     </GradeBandContext.Provider>
@@ -46,7 +46,7 @@ Default.args = {
   desc912: 'Grade 9-12',
   hidePlayPause: true,
   autoplay: true,
-  'play-state': 'playing',
+  playState: 'playing',
   stateMachine: 'StateMachine1',
   contain: true,
   height: true,

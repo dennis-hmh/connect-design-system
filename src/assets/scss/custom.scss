@@ -1382,29 +1382,22 @@ Transition Styles:
 .connect__tooltip {
   --connect__tooltip-bg: var(--theme__tooltip-bg, var(--connect__neutrals-dark));
   --connect__tooltip-color: var(--theme__tooltip-color, var(--connect__neutrals-white));
-
   --connect__tooltip-padding-y: var(--theme__tooltip-padding-y, var(--connect__spacer-xs));
   --connect__tooltip-padding-x: var(--theme__tooltip-padding-y, var(--connect__spacer-sm));
-
   --shadow-level-1: var(--theme__tooltip-shadow-1, var(--connect__shadow-spread-level-1));
   --shadow-level-2: var(--theme__tooltip-shadow-2, var(--connect__shadow-spread-level-7));
   --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
   --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
-
   --connect__tooltip-opacity: 0;
   --connect__tooltip-visibility: hidden;
-
   --connect__tooltip-transition: var(--connect__ease-in-out);
-
   --connect__tooltip-top: var(--connect__tooltip-vertical-top, unset);
   --connect__tooltip-right: var(--connect__tooltip-vertical-right, unset);
-
   --connect__tooltip-left: var(--connect__tooltip-vertical-left, 50%);
-
   --connect__tooltip-translateX: var(--connect__tooltip-vertical-translateX, -50%);
   --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY, -100%);
-  align-content: center;
 
+  align-content: center;
   align-items: center;
   background: var(--connect__tooltip-bg);
   border-radius: var(--connect__inner-radius, 0.25rem);
@@ -1450,6 +1443,7 @@ Usage:
 - The element will be positioned absolutely and extend beyond its container's boundaries.
 - Use the custom properties to adjust the positioning and z-index as needed.
 */
+
 .connect__breakout {
   --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
   --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));

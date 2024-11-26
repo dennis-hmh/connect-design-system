@@ -67,6 +67,7 @@ export const ButtonRive: React.FC<ButtonRiveProps> = ({
         aria-hidden="true"
         style={{ opacity: isTypographyHidden ? 1 : 0 }}
         height
+        inputs
       ></hmh-rive>
     </Button>
   );

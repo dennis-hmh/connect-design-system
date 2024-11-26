@@ -144,7 +144,7 @@
 
 #### Changelog:
 
-- New Component: `<RiveGradeBanded />`
+- New Component: `<RiveSimple />`
 - Updated Component: N/A
 - Bug Fix: N/A
 - Other Updated: Some updates to styles.
