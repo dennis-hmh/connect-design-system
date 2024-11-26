@@ -18,7 +18,7 @@ import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
-import Grid from './components/Grid/Grid';
+import { Grid } from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
@@ -58,9 +58,8 @@ const App: React.FC = () => {
               descDefault="hi"
               hidePlayPause={true}
               autoplay={true}
-              inputs={{ animationState }} 
+              inputs={{ animationState }}
             />
-
           </GridItem>
           <GridItem>
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
