@@ -2780,19 +2780,21 @@ Transitions:
   Time Component
 */
 
-.connect__timer {
+.connect__timer-wrapper {
   --connect__timer-fs: var(--theme__timer-fs, var(--connect__heading-lg));
   --connect__timer-lh: var(--theme__time-lh, var(--connect__heading-lg-lheight));
   --connect__timer-fw: var(--theme__time-fw, 700);
   --connect__timer-style: var(--theme__time-style, normal);
   --connect__timer-color: var(--theme__time-color, var(--connect__neutrals-dark));
 
-  color: var(--connect__timer-color);
-  font-size: var(--connect__timer-fs);
-  font-style: var(--connect__timer-style);
-  font-variant-numeric: tabular-nums;
-  font-weight: var(--connect__timer-fw);
-  line-height: var(--connect__timer-lh);
+  .connect__timer {
+    color: var(--connect__timer-color);
+    font-size: var(--connect__timer-fs);
+    font-style: var(--connect__timer-style);
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--connect__timer-fw);
+    line-height: var(--connect__timer-lh);
+  }
 }
 
 /* 

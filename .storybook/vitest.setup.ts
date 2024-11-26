@@ -7,5 +7,4 @@ globalThis.React = React;
 
 const annotations = setProjectAnnotations([previewAnnotations]);
 
-// Run Storybook's beforeAll hook
 beforeAll(annotations.beforeAll);

@@ -34,7 +34,7 @@ export const Timer: React.FC<TimerProps> = ({
   onTimeUp,
   size,
   className,
-  ariaLive,
+  ariaLive = 'off',
   progressBar = false,
   dataTestId,
 }) => {
@@ -66,9 +66,9 @@ export const Timer: React.FC<TimerProps> = ({
     setRemainingTime(time);
   }, [time]);
 
-  const hours = Math.floor(remainingTime / 3600000);
-  const minutes = Math.floor(remainingTime / 60000) % 60;
-  const seconds = Math.floor((remainingTime % 60000) / 1000);
+  const hours: number = Math.floor(remainingTime / 3600000);
+  const minutes: number = Math.floor((remainingTime / 60000) % 60);
+  const seconds: number = Math.floor((remainingTime % 60000) / 1000);
 
   const formattedTime = hours
     ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
@@ -86,17 +86,27 @@ export const Timer: React.FC<TimerProps> = ({
   const percentage = ((remainingTime / time) * 100).toFixed(1);
 
   return (
-    <div className="connect__timer-wrapper">
-      <time
-        className={`connect__timer ${className ? className : ''}`}
+    <div
+      className={`connect__timer-wrapper ${className ? className : ''}`}
+      style={typoProps}
+      data-testid={dataTestId}
+    >
+      <div
+        className="connect__timer"
+        role="timer"
         aria-live={ariaLive}
+        aria-label={`Time remaining: ${formattedTime}`}
         data-percentage={percentage}
-        data-testid={dataTestId}
-        style={typoProps}
       >
         {formattedTime}
-      </time>
-      {progressBar && <ProgressBar value={Number(percentage)} max={100} />}
+      </div>
+      {progressBar && (
+        <ProgressBar
+          value={parseFloat(percentage)}
+          max={100}
+          ariaLabel={`Progress: ${percentage}%`}
+        />
+      )}
     </div>
   );
 };
