@@ -1,11 +1,11 @@
 ### v1.13.5 Release Notice
 
-### Release date: November, XX, 2024
+### Release date: November, 26, 2024
 
 #### Changelog:
 
 - New Component: N/A
-- Updated Component: `<Icon />`
+- Updated Component: `<Icon />`, `<Button />`
 - Bug Fix: N/A
 - Other Updated: N/A
 
