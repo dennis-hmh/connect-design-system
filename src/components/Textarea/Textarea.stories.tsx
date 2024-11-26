@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { InputText, InputTextProps } from './InputText';
+import { Textarea, TextareaProps } from './Textarea';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
-const meta: Meta<typeof InputText> = {
-  component: InputText,
-  title: 'Input/Input Text',
+const meta: Meta<typeof Textarea> = {
+  component: Textarea,
+  title: 'Input/Textarea',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -18,15 +18,15 @@ const meta: Meta<typeof InputText> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof InputText>;
+type Story = StoryObj<typeof Textarea>;
 
-const Template: StoryFn<InputTextProps> = (args) => {
+const Template: StoryFn<TextareaProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <InputText {...args} />
+        <Textarea {...args} />
       </div>
     </ConnectTheme>
   );
@@ -41,11 +41,10 @@ export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
-export const Number: Story = Template.bind({});
 
 Default.args = {
-  defaultText: '',
-  placeholderText: '',
+  defaultText: undefined,
+  placeholder: undefined,
   characterCount: false,
   characterLimit: undefined,
   correct: false,
@@ -74,7 +73,7 @@ CharacterCounter.args = {
 CharacterLimit.args = {
   ...Default.args,
   characterCount: true,
-  characterLimit: 50,
+  characterLimit: 100,
 };
 
 Correct.args = {
@@ -82,15 +81,16 @@ Correct.args = {
   correct: true,
   defaultText: 'Answer correct',
   characterCount: true,
-  characterLimit: 50,
+  characterLimit: 100,
 };
 
 Incorrect.args = {
   ...Default.args,
+  correct: false,
   incorrect: true,
   defaultText: 'Answer incorrect',
   characterCount: true,
-  characterLimit: 50,
+  characterLimit: 100,
 };
 
 AnswerShown.args = {
@@ -98,18 +98,13 @@ AnswerShown.args = {
   answerShown: true,
   defaultText: 'Answer shown',
   characterCount: true,
-  characterLimit: 50,
+  characterLimit: 100,
 };
 
 Disabled.args = {
   ...Default.args,
   defaultText: 'Disabled',
   characterCount: true,
-  characterLimit: 50,
-};
-
-Number.args = {
-  ...Default.args,
-  defaultText: 50,
-  number: true,
+  characterLimit: 100,
+  disabled: true,
 };

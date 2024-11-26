@@ -642,6 +642,12 @@ States:
     }
   }
 
+  &::placeholder {
+    --connect__input-text-color: var(--connect__neutrals-mid);
+    color: var(--connect__input-text-color);
+    font-style: italic;
+  }
+
   &.connect__input-selected,
   &.connect__input-selected:disabled {
     --connect__caret-color: var(--connect__selected-mid);
@@ -670,8 +676,8 @@ States:
   // min 2 lines
   // max 4 lines
 
-  & textarea {
-    field-sizing: content;
+  &-textarea {
+    field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
   }
@@ -1376,29 +1382,22 @@ Transition Styles:
 .connect__tooltip {
   --connect__tooltip-bg: var(--theme__tooltip-bg, var(--connect__neutrals-dark));
   --connect__tooltip-color: var(--theme__tooltip-color, var(--connect__neutrals-white));
-
   --connect__tooltip-padding-y: var(--theme__tooltip-padding-y, var(--connect__spacer-xs));
   --connect__tooltip-padding-x: var(--theme__tooltip-padding-y, var(--connect__spacer-sm));
-
   --shadow-level-1: var(--theme__tooltip-shadow-1, var(--connect__shadow-spread-level-1));
   --shadow-level-2: var(--theme__tooltip-shadow-2, var(--connect__shadow-spread-level-7));
   --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
   --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
-
   --connect__tooltip-opacity: 0;
   --connect__tooltip-visibility: hidden;
-
   --connect__tooltip-transition: var(--connect__ease-in-out);
-
   --connect__tooltip-top: var(--connect__tooltip-vertical-top, unset);
   --connect__tooltip-right: var(--connect__tooltip-vertical-right, unset);
-
   --connect__tooltip-left: var(--connect__tooltip-vertical-left, 50%);
-
   --connect__tooltip-translateX: var(--connect__tooltip-vertical-translateX, -50%);
   --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY, -100%);
-  align-content: center;
 
+  align-content: center;
   align-items: center;
   background: var(--connect__tooltip-bg);
   border-radius: var(--connect__inner-radius, 0.25rem);
@@ -1444,6 +1443,7 @@ Usage:
 - The element will be positioned absolutely and extend beyond its container's boundaries.
 - Use the custom properties to adjust the positioning and z-index as needed.
 */
+
 .connect__breakout {
   --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
   --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
@@ -2334,6 +2334,7 @@ Usage:
 
   display: inline-flex;
   flex: 1;
+  flex-direction: var(--connect__display-flex-direction);
   position: relative;
   width: 100%;
 
@@ -2360,6 +2361,12 @@ Usage:
 
   &.connect__input-shown {
     --state-icon: var(--icon-shown);
+  }
+
+  &.connect__input-character-count {
+    --connect__display-align-items: end;
+    --connect__display-flex: flex;
+    --connect__display-flex-direction: column;
   }
 
   > .connect__select-correct {
@@ -2800,6 +2807,90 @@ Transitions:
     font-variant-numeric: tabular-nums;
     font-weight: var(--connect__timer-fw);
     line-height: var(--connect__timer-lh);
+  }
+}
+
+/* 
+.connect__character-counter Component
+
+Variables:
+  --connect__character-count-ff: Font family for the character counter.
+  --connect__character-count-fs: Font size of the character counter.
+  --connect__character-count-fw: Font weight of the character counter.
+  --connect__character-count-lh: Line height of the character counter.
+  --connect__character-count-style: Font style of the character counter.
+  --connect__character-count-color: Text color of the character counter.
+
+Default values and fallbacks:
+  --theme__character-count-ff: Theme-specific font family, falls back to --connect__font-sans.
+  --theme__character-count-fs: Theme-specific font size, falls back to --connect__caption.
+  --theme__character-count-fw: Theme-specific font weight, defaults to 400.
+  --theme__character-count-lh: Theme-specific line height, falls back to --connect__caption-lheight.
+  --theme__connect__character-count-style: Theme-specific font style, defaults to normal.
+  --theme__character-count-color: Theme-specific color, defaults to rgb(102, 102, 102).
+
+Styles:
+  color: Sets the text color of the character counter.
+  font-family: Applies the font family to the character counter.
+  font-size: Sets the font size of the character counter.
+  font-style: Applies the font style to the character counter.
+  font-weight: Sets the font weight of the character counter.
+  line-height: Defines the line height of the character counter.
+
+Usage:
+  The .connect__character-counter class can be applied to an element that displays
+  the character count for an input field.
+*/
+
+.connect__character-counter {
+  --connect__character-count-ff: var(--theme__character-count-ff, var(--connect__font-sans));
+  --connect__character-count-fs: var(--theme__character-count-fs, var(--connect__caption));
+  --connect__character-count-fw: var(--theme__character-count-fw, 400);
+
+  --connect__character-count-lh: var(--theme__character-count-lh, var(--connect__caption-lheight));
+  --connect__character-count-style: var(--theme__connect__character-count-style, normal);
+  --connect__character-count-color: var(
+    --theme__character-count-color,
+    var(--connect__neutrals-mid)
+  );
+  --connect__character-count-reached: var(--theme__character-count-reached, 400);
+
+  --connect__display-align-items: end;
+  --connect__display-flex: flex;
+  --connect__display-flex-direction: column;
+
+  color: var(--connect__character-count-color);
+  font-family: var(--connect__character-count-ff);
+  font-size: var(--connect__character-count-fs);
+  font-style: var(--connect__character-count-style);
+  font-weight: var(--connect__character-count-fw);
+  line-height: var(--connect__character-count-lh);
+
+  > em {
+    font-style: normal;
+    font-weight: var(--connect__character-count-reached);
+  }
+
+  &-limit-reached {
+    --connect__character-count-reached: 700;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0eg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 }
 

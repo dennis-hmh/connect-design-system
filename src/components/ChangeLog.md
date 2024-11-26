@@ -1,4 +1,4 @@
-### v1.13.2 Release Notice
+### v1.14.0 Release Notice
 
 ### Release date: November, 22, 2024
 
@@ -8,6 +8,79 @@
 - Updated Component: `<Timer />`
 - Bug Fix: N/A
 - Other Updated: Added some Storybook examples for the RiveEngine, showing how it could be used for the Timer Tool and Student Picker Tool! Also made some updates to the Timer component (an optional prop that allows the countdown to be started/reset/paused/etc. by an ancestor component) to facilitate the Timer Tool example.
+
+---
+
+### v1.13.5 Release Notice
+
+### Release date: November, 26, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Icon />`, `<Button />`
+- Bug Fix: N/A
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.4 Release Notice
+
+### Release date: November, 25, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: Vitest updated and simplifited
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.3 Release Notice
+
+### Release date: November, 24, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: Playwrite removed from Vitest, packages realigned
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.2 Release Notice
+
+### Release date: November, 22, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/a
+- Bug Fix: Vitest browser package added, Vitest overhaul
+- Other Updated: N/A
 
 #### Repo:
 
@@ -77,6 +150,30 @@
 &nbsp;
 
 ---
+
+# <<<<<<< HEAD
+
+### v1.12.1 Release Notice
+
+### Release date: October, 24, 2024
+
+#### Changelog:
+
+- New Component: `<RiveSimple />`
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Some updates to styles.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+> > > > > > > v1.14.0
 
 ### v1.12.0 Release Notice
 

@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { withoutVitePlugins } from '@storybook/builder-vite';
 
 const config: StorybookConfig = {
   framework: {
@@ -34,8 +35,16 @@ const config: StorybookConfig = {
       button[id="removed-reveal"] {display: none; }
       .sidebar-item:has(button[id="buttons-button-rive"]) { display: none; }
       .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
+      .sidebar-item:has(button[id="layout-card"]) { display: none; }
     </style>
   `,
+
+  async viteFinal(config) {
+    return {
+      ...config,
+      plugins: await withoutVitePlugins(config.plugins, ['vite:lib-inject-css']),
+    };
+  },
 };
 
 export default config;

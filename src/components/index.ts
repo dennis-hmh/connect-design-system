@@ -24,6 +24,7 @@ export * from './Paper/Paper';
 export * from './Pill/Pill';
 export * from './ProgressBar/ProgressBar';
 export * from './RiveEngine/RiveEngine';
+export * from './RiveSimple/RiveSimple';
 export * from './SelectBox/SelectBox';
 export * from './Sidebar/Sidebar';
 export * from './SingleBlockquote/SingleBlockquote';

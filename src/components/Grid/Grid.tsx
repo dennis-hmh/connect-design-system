@@ -2,16 +2,16 @@ import React from 'react';
 
 type GapSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-interface GridProps {
+export type GridProps = {
   children: React.ReactNode;
   gap?: GapSizes;
-  gutter?: boolean | GapSizes;
+  gutter?: boolean;
   className?: string;
   style?: string;
   dataTestId?: string;
-}
+};
 
-const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestId }) => {
+export const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestId }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
     xs: 'var(--connect__spacer-xs)',
@@ -41,5 +41,3 @@ const Grid: React.FC<GridProps> = ({ children, gap, gutter, className, dataTestI
     </section>
   );
 };
-
-export default Grid;
