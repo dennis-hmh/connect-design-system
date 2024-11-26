@@ -3,6 +3,12 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "alpha-value-notation": "number",
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": ["inside-block"]
+      }
+    ],
     "color-function-notation": "legacy",
     "custom-property-empty-line-before": null,
     "custom-property-pattern": null,
@@ -37,7 +43,7 @@
       "always",
       {
         "except": ["first-nested", "after-single-line-comment"],
-        "ignore": ["after-comment"]
+        "ignore": ["after-comment", "inside-block"]
       }
     ],
     "selector-class-pattern": [
