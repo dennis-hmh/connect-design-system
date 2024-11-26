@@ -17,7 +17,7 @@ interface GridItemProps {
   dataTestId?: string;
 }
 
-const GridItem: React.FC<GridItemProps> = ({
+export const GridItem: React.FC<GridItemProps> = ({
   children,
   xs,
   sm,
