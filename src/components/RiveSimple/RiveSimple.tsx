@@ -90,6 +90,7 @@ export const RiveSimple: React.FC<RiveSimpleProps> = ({
   // Update inputs on the <hmh-rive> element whenever they change
   useEffect(() => {
     if (hmhRiveRef.current) {
+      // eslint-disable-next-line no-console
       console.log('Updating inputs on hmhRiveRef:', inputs);
       Object.entries(inputs).forEach(([key, value]) => {
         hmhRiveRef.current?.setAttribute(key, value);
@@ -99,7 +100,7 @@ export const RiveSimple: React.FC<RiveSimpleProps> = ({
       });
     }
   }, [inputs]);
-  
+
   return (
     <GradeBandContext.Provider value={gradeBand}>
       <hmh-rive
