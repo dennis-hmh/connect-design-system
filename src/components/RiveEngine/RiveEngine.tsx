@@ -241,6 +241,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
         // Measure the height of the div
         const divHeight = divRef.current.offsetHeight;
         setCalculatedHeight(divHeight * aspectRatio); // Calculate height based on aspect ratio
+        DEBUG && console.log(calculatedHeight);
     }
   }, [width, height, sizeByHeight, aspectRatio]); // Recalculate if sizeByHeight or aspect ratio changes  
 
