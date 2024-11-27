@@ -28,8 +28,6 @@ export function InputText({
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const isNumber = number ? 'number' : 'text';
-
   const [text, setText] = useState(defaultText);
   const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
   const [isSelected, setIsSelected] = useState(false);
