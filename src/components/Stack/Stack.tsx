@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface BreakpointValues {
+export interface BreakpointValues {
   direction?: 'row' | 'column';
   spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
@@ -10,7 +10,7 @@ interface BreakpointValues {
   paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-interface StackProps {
+export interface StackProps {
   children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
