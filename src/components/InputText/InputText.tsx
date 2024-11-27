@@ -34,7 +34,7 @@ export function InputText({
 
   // const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
 
@@ -63,7 +63,7 @@ export function InputText({
         disabled={shouldBeDisabled}
         value={text}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => handleTextChange(e)}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
