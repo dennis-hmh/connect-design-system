@@ -140,16 +140,18 @@ Buttons take variables in the following format
   transition-timing-function: var(--connect__ease-out);
   width: var(--connect__btn-w, fit-content);
 
-  &:hover {
-    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
-  }
+  &:not(:disabled) {
+    &:hover {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
+    }
 
-  &:active {
-    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
-  }
+    &:active {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+    }
 
-  &:focus-visible:not(:active) {
-    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
+    &:focus-visible:not(:active) {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
+    }
   }
 
   .connect__icon {
@@ -272,6 +274,7 @@ Buttons take variables in the following format
   &:disabled {
     --variant__btn-bg: var(--state-based-bg);
     --active-color: var(--connect__disabled-mid);
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
   }
 }
 
