@@ -841,9 +841,11 @@
   --connect__unset: unset;
 
   --connect__white: #fff;
+
   /*
     3.2: Connect Default Palette
   */
+  
   --connect__cc-purple: rgb(113, 47, 253);
   --connect__brand-magenta: rgb(255, 0, 179);
   --connect__brand-deep-magenta: rgb(204, 0, 192);

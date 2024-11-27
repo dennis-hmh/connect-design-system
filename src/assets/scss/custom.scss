@@ -129,8 +129,8 @@ Buttons take variables in the following format
   font-family: var(--connect__font-sans);
   font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
   font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
-  height: var(--connect__btn-h, auto);
   gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  height: var(--connect__btn-h, auto);
   justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
   line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
@@ -373,6 +373,7 @@ Buttons take variables in the following format
 
   &.connect__selected {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
+
     &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
     }
@@ -684,11 +685,11 @@ Variables related to theme/overrides:
 .connect__blockquote {
   font-size: var(--connect__blockquote-fs, var(--connect__body-md));
   font-style: var(--connect__blockquote-font-style, normal);
+  margin: var(--connect__blockquote-margin, 0);
   padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
   padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
   padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
   padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
-  margin: var(--connect__blockquote-margin, 0);
 }
 
 /*
