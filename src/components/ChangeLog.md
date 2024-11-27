@@ -1,13 +1,13 @@
 ### v1.14.0 Release Notice
 
-### Release date: November, 22, 2024
+### Release date: November, 27, 2024
 
 #### Changelog:
 
-- New Component: `<RiveEngine />`
-- Updated Component: `<Timer />`
+- New Component: `<RiveEngine />`, `<SimpleRive />`, `<Textarea />`
+- Updated Component: `<Paper />`, `<Timer />`,
 - Bug Fix: N/A
-- Other Updated: Added some Storybook examples for the RiveEngine, showing how it could be used for the Timer Tool and Student Picker Tool! Also made some updates to the Timer component (an optional prop that allows the countdown to be started/reset/paused/etc. by an ancestor component) to facilitate the Timer Tool example.
+- Other Updated: Plankton support added to CSS. CSS has been trimmed. Stories added for Grid and Stack.
 
 ---
 
