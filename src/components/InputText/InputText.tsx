@@ -8,10 +8,10 @@ export type InputTextProps = {
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  defaultText?: string | undefined;
+  defaultText?: string | number | undefined;
   characterCount?: boolean;
+  characterLimit?: number | undefined;
   placeholderText?: string | undefined;
-  defaultText?: string | number;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -23,8 +23,8 @@ export function InputText({
   number,
   disabled,
   characterCount,
-  placeholderText,
   characterLimit,
+  placeholderText,
   defaultText,
   dataTestId,
 }: InputTextProps) {
@@ -33,7 +33,7 @@ export function InputText({
   const isNumber = number ? 'number' : 'text';
 
   const [text, setText] = useState(defaultText);
-  const [charCount, setCharCount] = useState(defaultText?.length || 0);
+  const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -46,7 +46,7 @@ export function InputText({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newText = e.target.value;
     setText(newText);
     setCharCount(newText.length);

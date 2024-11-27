@@ -1,3 +1,16 @@
+### v1.14.0 Release Notice
+
+### Release date: November, 22, 2024
+
+#### Changelog:
+
+- New Component: `<RiveEngine />`
+- Updated Component: `<Timer />`
+- Bug Fix: N/A
+- Other Updated: Added some Storybook examples for the RiveEngine, showing how it could be used for the Timer Tool and Student Picker Tool! Also made some updates to the Timer component (an optional prop that allows the countdown to be started/reset/paused/etc. by an ancestor component) to facilitate the Timer Tool example.
+
+---
+
 ### v1.13.5 Release Notice
 
 ### Release date: November, 26, 2024
@@ -138,6 +151,8 @@
 
 ---
 
+# <<<<<<< HEAD
+
 ### v1.12.1 Release Notice
 
 ### Release date: October, 24, 2024
@@ -157,6 +172,8 @@
 &nbsp;
 
 ---
+
+> > > > > > > v1.14.0
 
 ### v1.12.0 Release Notice
 

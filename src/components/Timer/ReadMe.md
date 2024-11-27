@@ -59,6 +59,7 @@ The `Timer` component accepts the following props:
 - `ariaLive` ('off' | 'polite' | 'assertive', optional): The `aria-live` attribute for accessibility. Default is 'off'.
 - `progressBar` (boolean, optional): Whether to display a progress bar. Default is `false`.
 - `dataTestId` (string, optional): A test ID for the timer, useful for testing purposes.
+- `parentState` (number, optional): The timer can optionally be controlled by its ancestor! If this prop is provided, the countdown will only begin when parentState == 1. If parentState changes to 0 the timer's progress will reset, so that it's ready to begin counting down again on the next moment when parentState == 1. If parentState == 2 the countdown will immediately finish. If parentState >=3 the countdown's progress will pause at its current position (and can be resumed when parentState next becomes equal to 1).
 
 ## Example with Progress Bar
 
