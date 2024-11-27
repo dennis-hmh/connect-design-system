@@ -1434,6 +1434,13 @@ Pseudo-element Styles:
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
+
+   &.connect__input-character-count {
+    --connect__display-align-items: end;
+    --connect__display-flex: flex;
+    --connect__display-flex-direction: column;
+  }
+
 }
 
 /*
