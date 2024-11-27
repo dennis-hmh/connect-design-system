@@ -1,5 +1,4 @@
-// @ts-ignore: React is used implicitly in JSX
-import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
@@ -22,11 +21,12 @@ export function InputText({
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
+  const [text, setText] = useState(defaultText);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isFocused ? 'connect__selected' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
-
-  const [text, setText] = useState(defaultText);
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -40,13 +40,15 @@ export function InputText({
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (
-    <label className={`connect__icon-wrapper ${inputStates}`}>
+    <label className="connect__icon-wrapper">
       <input
         type={isNumber}
         className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
         onChange={(e) => setText(e.target.value)}
+        onMouseDown={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />

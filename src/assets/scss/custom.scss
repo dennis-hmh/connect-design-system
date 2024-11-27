@@ -333,19 +333,14 @@ Buttons take variables in the following format
   transition-timing-function: var(--connect__ease-in-out);
   width: var(--connect__input-width, var(--connect__full-w));
 
-  &:not(:disabled) {
-    &:hover,
-    &:active {
+  &:not(:disabled):not(.connect__selected) {
+    &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
     }
   }
 
-  &:focus-visible:not(:active) {
+  &:focus-visible:not(.connect__selected) {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
-  }
-
-  &:active:not(:disabled) {
-    --connect__active-state: var(--connect__primary-mid);
   }
 
   &::placeholder {
@@ -366,12 +361,13 @@ Buttons take variables in the following format
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
   }
-}
 
-.connect__input-selected,
-.connect__input-selected:disabled {
-  --connect__inner-status-color-state: var(--connect__primary-mid);
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+  .connect__selected {
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
+    &:hover {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
+    }
+  }
 }
 
 /* 
@@ -1691,7 +1687,6 @@ Positioning int he pseudos is the total border / 2
     --variant__mcq-radius: var(--connect__half-radius);
   }
 }
-
 
 /* 
 .connect__progress Component

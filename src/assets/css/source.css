@@ -1470,6 +1470,11 @@ class for scope, this ensures the values can be accessed
     var(--connect__mid-shadow-spread-level-f) var(--connect__surface-white),
     var(--connect__long-shadow-spread-level-f) var(--connect__surface-white);
 
+  --connect__shadow-lvl-active: var(--connect__definer-level-1) var(--connect__primary-mid),
+    0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
+    0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
+
   --connect__shadow-lvl--2: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
     var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
     var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
