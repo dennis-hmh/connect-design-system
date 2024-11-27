@@ -1,38 +1,33 @@
-// @ts-ignore: React is used implicitly in JSX
-import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
-import { GradeBand } from 'src/enum/gradeband';
+import React, { useState } from 'react';
+import { GradeBand } from '../../enum/gradeband';
 
-export type InputTextProps = {
+export type TextareaProps = {
   correct: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
-  number?: boolean;
   disabled?: boolean;
   defaultText?: string | undefined;
   characterCount?: boolean;
   placeholderText?: string | undefined;
-  defaultText?: string | number;
+  characterLimit?: number;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export function InputText({
+export const Textarea: React.FC<TextareaProps> = ({
   correct,
   incorrect,
   answerShown,
-  number,
   disabled,
+  defaultText,
   characterCount,
   placeholderText,
   characterLimit,
-  defaultText,
   dataTestId,
-}: InputTextProps) {
+}) => {
   const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
-  const isNumber = number ? 'number' : 'text';
-
-  const [text, setText] = useState(defaultText);
+  const [text, setText] = useState(defaultText || '');
   const [charCount, setCharCount] = useState(defaultText?.length || 0);
 
   let inputAriaLabel = 'Input field';
@@ -54,9 +49,8 @@ export function InputText({
 
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
-      <input
-        type={isNumber}
-        className={`connect__input ${inputStates}`}
+      <textarea
+        className={`connect__input connect__input-textarea ${inputStates}`}
         disabled={shouldBeDisabled}
         value={text}
         placeholder={placeholderText ? placeholderText : ''}
@@ -78,4 +72,4 @@ export function InputText({
       )}
     </label>
   );
-}
+};

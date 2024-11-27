@@ -35,6 +35,7 @@ const config: StorybookConfig = {
       button[id="removed-reveal"] {display: none; }
       .sidebar-item:has(button[id="buttons-button-rive"]) { display: none; }
       .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
+      .sidebar-item:has(button[id="layout-card"]) { display: none; }
     </style>
   `,
 
