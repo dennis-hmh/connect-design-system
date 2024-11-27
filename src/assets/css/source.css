@@ -1299,7 +1299,7 @@
 
   --connect__focus-dark: var(--connect__cerise-s50);
   --connect__focus-mid: var(--connect__cerise-s40);
-  --connect__focus-light: var(--connect__cerise-25);
+  --connect__focus-light: var(--connect__cerise-s25);
   --connect__focus-pale: var(--connect__cerise-s10);
 
   --connect__hint-dark: var(--connect__purple-c65);
