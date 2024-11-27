@@ -22,9 +22,9 @@ export function InputText({
   dataTestId,
 }: InputTextProps) {
   const [text, setText] = useState(defaultText);
-  const [isFocused, setIsFocused] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
 
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isFocused ? 'connect__selected' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
 
@@ -47,8 +47,8 @@ export function InputText({
         disabled={shouldBeDisabled}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        onMouseDown={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onMouseDown={() => setIsSelected(true)}
+        onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />

@@ -362,7 +362,7 @@ Buttons take variables in the following format
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
   }
 
-  .connect__selected {
+  &.connect__selected {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
     &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
