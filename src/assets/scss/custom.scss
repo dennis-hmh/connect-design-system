@@ -369,7 +369,7 @@ Buttons take variables in the following format
   }
 
   & textarea {
-    field-sizing: content;
+    field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
   }
@@ -1435,12 +1435,11 @@ Pseudo-element Styles:
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
 
-   &.connect__input-character-count {
+  &.connect__input-character-count {
     --connect__display-align-items: end;
     --connect__display-flex: flex;
     --connect__display-flex-direction: column;
   }
-
 }
 
 /*
