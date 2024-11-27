@@ -42,9 +42,11 @@ export const Icon: React.FC<IconProps> = ({
         if (symbol) {
           setSymbolContent(symbol.outerHTML);
         } else {
+          // eslint-disable-next-line no-console
           console.warn(`Symbol with id "${id}" not found in the spritesheet.`);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     };

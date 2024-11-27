@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+// @ts-ignore: React is used implicitly in JSX
+import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
