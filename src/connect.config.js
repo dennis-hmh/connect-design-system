@@ -184,23 +184,5 @@ module.exports = {
       hyphens: 'auto',
       'text-wrap': 'balance',
     },
-    connect__p: {
-      'font-size': '1.5rem',
-      'font-size-adjust': 'ex-height 0.486',
-      'line-height': '2.25rem',
-      'margin-top': '1.125rem',
-    },
-    connect__li: {
-      'font-size': '1.5rem',
-      'font-size-adjust': 'ex-height 0.486',
-      'line-height': '2.25rem',
-      'margin-top': '1.125rem',
-    },
-    connect__ol: {
-      'margin-top': '1.125rem',
-    },
-    connect__ul: {
-      'margin-top': '1.125rem',
-    },
   },
 };

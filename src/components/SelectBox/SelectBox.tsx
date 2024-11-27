@@ -39,7 +39,7 @@ export function SelectBox({
   }
 
   const wrapperClasses = `connect__icon-wrapper ${correct ? 'connect__icon-correct' : ''} ${incorrect ? 'connect__icon-incorrect' : ''} ${answerShown ? 'connect__icon-shown' : ''}`;
-  const selectClasses = `connect__select ${correct ? 'connect__select-correct' : ''} ${incorrect ? 'connect__select-incorrect' : ''}${answerShown ? 'connect__select-shown' : ''}`;
+  const selectClasses = `connect__select ${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''}${answerShown ? 'connect__feedback-shown' : ''}`;
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   return (

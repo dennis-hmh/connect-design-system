@@ -1,260 +1,197 @@
 @import '../css/source.css';
 
+/*
+FALLBACK VALUE GUIDE: when to use inherit vs initial
+
+inherit ensures that children respect the parent's styling.
+initial ensures that properties are reset to their default values 
+  .ideal for resetting styles to avoid unintended inherited styles
+
+
+| Property Type                                | Fallback |
+|----------------------------------------------|----------|
+| Color, font size/ family, line height        | inherit  |
+| Fixed component backgrounds                  | initial  |
+| Reset borders/shadows/z-index                | initial  |
+| Opacity, visibility                          | inherit  |
+| Flexible layout alignment (Flex / Grid)      | inherit  |
+| Positioning layout alignment (Absolute)      | initial  |
+| Font family and weight (nested text)         | inherit  |
+| Background color (for reset purposes)        | initial  |
+| Border styling (reset)                       | initial  |
+| Font style / weight / variant / wrap / align | initial  |
+*/
+
+/* 
+  SHADOW SELECTION GUIDE: when to use a shadow
+
+  There are three main shadow types in the system
+
+  1: --connect__effects-shadow
+  2: --connect__inner-shadow
+  3: --connect__shadow-null
+  4: --connect__shadow-lvl-focus
+
+  There are 9 shadow elevations ranging from minus 2 to 6
+  minus elevations have --1/--2 and positive elevations have -1/-2/-3 etc
+
+  Shadow types and shadow elevations work together. 
+  A shadow elevation does not require a shadow type
+
+|---------------------------------------------------------------------------|
+| Component                                   | Shadow Type                 |
+|---------------------------------------------------------------------------|
+| Interactive components:                     | --connect__effects-shadow   |
+|   elements that takes visual status line 
+|   when correct / incorrect/ shown             
+|---------------------------------------------------------------------------|
+| Inner Shadow components:                    | --connect__inner-shadow     |
+|   elements that takes inner shadows
+|   these components can take a 
+|   solid bg for state but no line
+|---------------------------------------------------------------------------|
+| Components with no definer line:             | --connect__shadow-null      |
+|   elements that takes no definer line
+|---------------------------------------------------------------------------|
+| Focus Shadow components:                    | --connect__shadow-lvl-focus |
+|   elements that takes focus shadows
+|---------------------------------------------------------------------------|
+*/
+
 /* 
 .connect__button Component
 
-Variables related to theme/overrides:
-  --connect__button-fs: Font size of the button text.
-  --connect__button-lh: Line height of the button text.
-  --connect__button-fw: Font weight of the button text.
-  --connect__button-text-transform: Text transformation.
-  --connect__button-border-w: Border width of the button.
-  --connect__button-border-c: Border color of the button.
-  --connect__button-radius: Border radius of the button.
-  --connect__button-gap: Gap between elements inside the button.
-  --connect__button-padding-y: Vertical padding of the button.
-  --connect__button-padding-x: Horizontal padding of the button.
-  --connect__button-justify-content: Justification of content inside the button.
-  --connect__button-flow: Flex flow direction of the button content.
-  --connect__button-margin: Margin around the button.
-  --connect__button-w: Width of the button.
-  --connect__button-h: Height of the button.
+Buttons take variables in the following format
+  1: theme variable for external theming
+  2: variant variables for button tweaks e.g speech to text
+  3: state variables, represents a visual state
+  3.1 Secondary Buttons: state variables
+      Variant = --connect__inner-status-color
+      State --connect__inner-status-color-state
 
-Variables related to states (e.g., correct/incorrect):
-  --inner-shadow: Inner shadow of the button.
-  --inner-shadow-color: color of the inner shadow.
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-  --connect__button-color: Text color of the button.
-  --connect__button-bg: Background color of the button.
-  --connect__state-based-pointer: Cursor style when the button is disabled.
-  --connect__icon-fill-color: Fill color for icons inside the button.
-  --connect__button-inner-divider: Inner divider size.
-  --connect__button-inner-divider-color: Inner divider color.
-  --connect__inner-status: Inner status size.
-  --connect__inner-status-color: Inner status color.
-  --connect__inner-status-color-state: State-based inner status color.
-  --state-based-bg: State-based background color.
-  --active-color: Active state color.
-
-States:
-  &:not(:disabled):not(.connect__button-toolbar):not([class*='-correct']):not([class*='-incorrect']):not([class*='-shown'])
-    - Default state for buttons that are not disabled, not in the toolbar, and not in specific states like correct, incorrect, or shown.
-    - &:hover: Hover state.
-    - &:active: Active state.
-
-  &:focus-visible:not(:active)
-    - Focus state when the button is visible and not active.
-
-  &-primary
-    - Primary button state.
-    - &:disabled: Disabled state for primary buttons.
-
-  &-secondary
-    - Secondary button state.
-    - &[class*='connect_']:disabled: Disabled state for secondary buttons with specific classes.
-    - &[class*='-correct']:disabled: Disabled state for secondary buttons in the correct state.
-    - &[class*='-incorrect']:disabled: Disabled state for secondary buttons in the incorrect state.
-    - &.connect__button-incorrect: Incorrect state for secondary buttons.
-    - &.connect__button-correct: Correct state for secondary buttons.
-
-  &-incorrect
-    - Incorrect button state.
-    - &:disabled: Disabled state for incorrect buttons.
-
-  &-toggle
-    - Toggle button state.
-    - &:not(:disabled): Default state for toggle buttons that are not disabled.
-    - &.connect__toggle-on:not(:disabled): Active state for toggle buttons that are not disabled.
-
-  &-icon
-    - Icon button state.
-    - &:not([class*='-primary']):not([class*='-secondary']): Default state for icon buttons that are not primary or secondary.
-    - svg: Styles for SVG icons inside the button.
-
-  &-media
-    - Media button state.
-    - &.media-active:not(:disabled): Active state for media buttons that are not disabled.
-
-  &:disabled
-    - Disabled state for the button.
-    - svg: Styles for SVG icons inside the disabled button.
-
-  &:has(svg)
-    - State for buttons that contain SVG icons.
-    - align-items: Centre alignment for content inside the button.
+/*
+| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
+|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
+| Font size           | --theme__btn-fs              | --variant__btn-fs             | --connect__body-sm                                       |
+| Line height         | --theme__btn-lh              | --variant__btn-lh             | --connect__body-sm-lheight                               |
+| Font weight         | --theme__btn-fw              | --variant__btn-fw             | --connect__fw-regular                                    |
+| Text transform      | --theme__btn-text-transform  | --variant__btn-text-transform | --connect__text-capitalize                               |
+| Background color    | --theme__btn-bg              | --state__btn-bg               | --connect__primary-mid                                   |
+| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__neutrals-null                                 |
+| Gap                 | --theme__btn-gap             | --variant__btn-gap            | --connect__spacer-sm                                     |
+| Padding X           | --theme__btn-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Flex align          | --theme__btn-align           | --variant__btn-align          | center                                                   |
+| Flex justify        | --theme__btn-justify         | --variant__btn-justify        | space-between                                            |
+| Border radius       | --theme__btn-border-radius   | --variant__btn-border-radius  | --connect__border-radius                                 |
+| Height              | --theme__btn-h               | --variant__btn-h              | auto                                                     |
+| Icon Fill           | --theme__icon-fill            | --state-based-icon-fill        | --connect__icon-fill                                      |
+| Cursor              |                              |                               | pointer                                                  |
 */
 
-@property --gradient-angle {
-  inherits: false;
-  initial-value: 0deg;
-  syntax: '<angle>';
-}
-
-@property --gradient-angle-offset {
-  inherits: false;
-  initial-value: 0deg;
-  syntax: '<angle>';
-}
-
-@property --gradient-percent {
-  inherits: false;
-  initial-value: 5%;
-  syntax: '<percentage>';
-}
-
-@property --gradient-shine {
-  inherits: false;
-  initial-value: transparent;
-  syntax: '<color>';
-}
-
 .connect__button {
-  // typography
-  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
-  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-  --connect__button-fw: var(--theme__button-fw, var(--connect__fw-regular));
-  --connect__button-text-transform: var(--theme__button-transform, capitalize);
+  --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
+  --connect__btn-border-w: var(
+    --theme__btn-border-w,
+    var(--variant__btn-border-w, var(--connect__spacer-zero))
+  );
 
-  // borders / radius
-  --connect__button-border-w: var(--theme__button-border-w, var(--connect__spacer-zero));
-  --connect__button-border-c: var(--connect__neutrals-white, transparent);
-  --connect__button-radius: var(--theme__border-radius, var(--connect__border-radius));
+  --connect__btn-padding-y: var(
+    --theme__btn-padding-y,
+    var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
+  );
+  --connect__btn-padding-x: var(
+    --theme__btn-padding-x,
+    var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
+  );
 
-  // shadows
-  --inner-shadow: 0 0 0 var(--connect__effects-inner-edge) var(--inner-shadow-color, transparent)
-    inset;
-  --inner-shadow-color: var(--connect__neutrals-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
-  // palette
-  --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
-
-  // spacings
-  --connect__button-gap: var(--connect__spacer-sm);
-  --connect__button-padding-y: calc(var(--connect__spacer-sm) - var(--connect__button-border-w));
-  --connect__button-padding-x: calc(var(--connect__spacer-md) - var(--connect__button-border-w));
-  --connect__button-align: var(--theme__button-align, center);
-  --connect__button-justify-content: var(--btn-justify, space-between);
-  --connect__button-flow: var(--btn-flow, row wrap);
-
-  // margins
-  --connect__button-margin: var(--theme__button-margin, 0);
-
-  // icons
   --icon-fill-color: var(
     --theme__icon-fill,
     var(--state-based-icon-fill, var(--connect__icon-fill))
   );
 
-  align-items: var(--connect__button-align);
-  background-color: var(--theme__button-bg, var(--connect__button-bg));
-  border: var(--connect__button-border-w) solid var(--connect__button-border-c, transparent);
-  border-radius: var(--connect__button-radius, 0);
-  box-shadow:
-    var(--inner-shadow),
-    0 0 0 var(--connect__inner-status, 0)
-      var(--connect__inner-status-color-state, var(--connect__inner-status-color, transparent))
-      inset,
-    0 0 0 var(--connect__button-inner-divider, 0)
-      var(--connect__button-inner-divider-color, transparent) inset,
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
-  color: var(--theme__button-color, var(--connect__button-color));
+  align-items: var(--theme__btn-align, var(--variant__btn-align, center));
+  background-color: var(
+    --theme__btn-bg,
+    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
+  );
+  border: var(--connect__btn-border-w) solid
+    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__neutrals-null)));
+  border-radius: var(
+    --theme__btn-border-radius,
+    var(--variant__btn-border-radius, var(--connect__border-radius))
+  );
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  flex-flow: var(--connect__button-flow);
+  flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
-  font-size: var(--connect__button-fs);
-  font-weight: var(--connect__button-fw, initial);
-  gap: var(--connect__button-gap, 0);
-  justify-content: var(--connect__button-justify-content);
-  line-height: var(--connect__button-lh);
-  margin: var(--connect__button-margin);
-  padding: calc(var(--connect__button-padding-y) - var(--connect__button-border-w))
-    calc(var(--connect__button-padding-x) - var(--connect__button-border-w));
-  text-transform: var(--connect__button-text-transform, initial);
+  font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
+  font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
+  gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  height: var(--connect__btn-h, auto);
+  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
+  line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
+  padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
+  text-transform: var(--connect__btn-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
+  width: var(--connect__btn-w, fit-content);
 
-  width: var(--connect__button-w, fit-content);
-
-  &:not(:disabled):not(.connect__button-menu):not([class*='-correct']):not(
-      [class*='-incorrect']
-    ):not([class*='-shown']) {
+  &:not(:disabled) {
     &:hover {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
     }
 
     &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+    }
+
+    &:focus-visible:not(:active) {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
     }
   }
 
-  &:focus-visible:not(:active) {
-    --connect__shadow-10: var(--connect__focus-mid);
-    --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-19);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  }
-
-  /* 
-    Each button type has an active color
-    set icon fill to that, change on case by case
-  */
   .connect__icon {
     --connect__icon-fill-color: var(--icon-fill-color);
   }
 
   &-primary {
-    --active-color: var(--connect__neutrals-white);
+    --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
     &:disabled {
-      --state-based-bg: var(--connect__neutrals-pale);
+      --state-based-bg: var(--connect__disabled-pale);
+    }
+
+    &.connect__feedback-correct {
+      --connect__inner-status-color-state: var(--connect__surface-null);
+    }
+
+    &.connect__feedback-incorrect {
+      --connect__inner-status-color-state: var(--connect__surface-null);
     }
   }
 
   &-secondary {
-    --state-based-bg: var(--connect__neutrals-white);
-    --active-color: var(--connect__selected-mid);
+    --state-based-bg: var(--connect__surface-white);
+    --active-color: var(--connect__primary-mid);
     --connect__icon-fill: var(--active-color);
-    --connect__inner-status-color: var(--connect__selected-mid);
-    --connect__button-inner-divider: var(--connect__button-padding-y);
-    --connect__button-inner-divider-color: var(--connect__neutrals-white);
+    --connect__inner-status-color: var(--connect__primary-mid);
 
-    &[class*='connect_']:disabled {
-      --state-based-bg: var(--connect__neutrals-white);
-      --connect__inner-status-color: var(--connect__neutrals-pale);
+    &:disabled {
+      --state-based-bg: var(--connect__surface-white);
+      --connect__inner-status-color-state: var(--connect__surface-pale);
     }
 
-    &[class*='-correct']:disabled {
-      --connect__inner-status-color: var(--connect__correct-light);
+    &.connect__feedback-incorrect {
+      --state-based-bg: var(--connect__surface-white);
     }
 
-    &[class*='-incorrect']:disabled {
-      --connect__inner-status-color: var(--connect__incorrect-light);
-    }
-
-    &.connect__button-incorrect {
-      --connect__inner-status-color: var(--connect__incorrect-mid);
-    }
-
-    &.connect__button-correct {
-      --state-based-bg: var(--connect__neutrals-white);
+    &.connect__feedback-correct {
+      --state-based-bg: var(--connect__surface-white);
       --connect__inner-status-color: var(--connect__correct-light);
     }
   }
@@ -265,41 +202,23 @@ States:
     }
   }
 
-  &-icon {
-    border-radius: var(--connect__border-radius);
-  }
-
-  &-icon,
   &-menu {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-    --connect__button-padding-y: var(--connect__spacer-sm);
-    --connect__button-padding-x: var(--connect__spacer-sm);
+    --variant__btn-bg: var(--connect__surface-null);
+    --connect__inner-status-color: var(--connect__surface-null);
+    --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+    --variant__btn-padding-x: var(--connect__spacer-sm);
 
-    &:active {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-    }
-
-    &:focus-visible:not(:active) {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --inner-shadow-color: var(--connect__neutrals-white);
-      --connect__button-bg: var(--connect__neutrals-white);
-    }
+    box-shadow: var(--connect__shadow-null);
 
     &:not(:disabled) {
       &:hover {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+        --variant__btn-bg: var(--connect__surface-white);
+        --connect__inner-status-color: var(--connect__surface-white);
+        box-shadow: var(--connect__shadow-lvl-2);
+      }
 
-        --connect__button-bg: var(--connect__neutrals-white);
-        --inner-shadow-color: var(--connect__neutrals-white);
+      &:active {
+        box-shadow: var(--connect__shadow-null);
       }
     }
 
@@ -310,12 +229,12 @@ States:
 
   &-selected {
     &:not(:disabled) {
-      --connect__button-bg: var(--connect__brand-pale-magenta);
-      --inner-shadow-color: var(--connect__brand-pale-magenta);
+      --variant__btn-bg: var(--connect__brand-pale-magenta);
+      --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
 
       &:active {
-        --inner-shadow-color: var(--connect__neutrals-white);
+        --connect__inner-status-color: var(--connect__surface-white);
       }
     }
 
@@ -325,312 +244,119 @@ States:
     }
   }
 
-  &-loading > svg,
-  [class*='loading'] > svg {
+  &-loading > svg {
     animation: connect-loading 0.85s linear infinite;
   }
 
-  @keyframes connect-loading {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   &-media {
-    --btn-justify: center;
-    --btn-flow: column wrap;
-    --connect__button-padding-y: var(--connect__spacer-md);
-    --connect__button-padding-x: var(--connect__spacer-md);
+    --variant__btn-justify: center;
+    --variant__btn-flow: column wrap;
+    --connect__btn-padding-y: var(--connect__spacer-md);
+    --connect__btn-padding-x: var(--connect__spacer-md);
 
-    --connect__button-radius: 100%;
-    --connect__button-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-y));
-    --connect__button-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__button-padding-x));
+    --variant__border-radius: 100%;
+    --connect__btn-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-y));
+    --connect__btn-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-x));
 
     &.connect__media-active:not(:disabled) {
       --state-based-bg: var(--connect__red-s45);
     }
   }
 
-  &-menu {
-    // --connect__effects-inner-edge: 0.0625rem;
-    --connect__button-bg: var(--connect__neutrals-null);
-    --inner-shadow-color: var(--connect__neutrals-null);
-    --active-color: var(--variant__icon-fill-color, var(--connect__neutrals-dark));
+  &.connect__feedback-correct,
+  &.connect__feedback-incorrect {
+    &:hover,
+    &:active {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+    }
   }
 
   &:disabled {
-    --connect__button-bg: var(--state-based-bg);
-  }
-
-  &--rive {
-    $shimmer-color: var(--connect__button-bg);
-    --shimmer-filter: brightness(120%);
-    --animation: gradient-angle linear infinite;
-    --connect__button-border-w: 2px;
-    --connect__button-justify-content: center;
-    --duration: 1.25s;
-    --rive-h: calc(var(--connect__button-lh) + calc(var(--connect__button-padding-y) * 2));
-    --conic-gradient-color: var(--connect__neutrals-null);
-
-    align-content: center;
-    align-items: center;
-    background:
-      linear-gradient(var(--connect__button-bg), var(--connect__button-bg)) padding-box,
-      conic-gradient(
-          from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
-          transparent,
-          var(--conic-gradient-color) var(--gradient-percent),
-          var(--conic-gradient-color) calc(var(--gradient-percent) * 2),
-          var(--conic-gradient-color) calc(var(--gradient-percent) * 3),
-          transparent calc(var(--gradient-percent) * 4)
-        )
-        border-box;
-    border: var(--connect__button-border-w) solid transparent;
-    display: grid;
-    grid-template-rows: 1fr;
-    isolation: isolate;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    transition: var(--transition);
-    transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-    }
-
-    &:is(:hover, :focus-visible):not(:disabled) {
-      --conic-gradient-color: var(--connect__button-bg);
-
-      &,
-      &::after {
-        animation:
-          var(--animation) var(--duration),
-          var(--animation) calc(var(--duration) / 0.4) reverse paused;
-        animation-composition: add;
-      }
-
-      &::after {
-        --animation: shimmer linear infinite;
-        aspect-ratio: 1;
-        background: linear-gradient(-50deg, transparent, var(--shimmer-filter), transparent);
-        mask-image: radial-gradient(circle at bottom, transparent 40%, var(--connect__button-bg));
-        opacity: 0.6;
-      }
-
-      &,
-      &::before,
-      &::after {
-        animation-play-state: running;
-      }
-    }
-
-    p {
-      grid-column: 1 / span 2;
-      grid-row: 1;
-      justify-self: center;
-      margin: 0;
-      position: relative;
-      width: fit-content;
-      z-index: 2;
-    }
-
-    &:has(svg) {
-      p {
-        grid-column: 2;
-        justify-self: start;
-      }
-
-      svg {
-        grid-column: 2;
-        grid-row: 1;
-      }
-
-      svg,
-      p {
-        &:first-child {
-          grid-column: 1;
-          justify-self: end;
-        }
-      }
-    }
-
-    hmh-rive {
-      align-self: stretch;
-      grid-column: 1 / span 2;
-      grid-row: 1;
-    }
+    --variant__btn-bg: var(--state-based-bg);
+    --active-color: var(--connect__disabled-mid);
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
   }
 }
 
-@keyframes gradient-angle {
-  to {
-    --gradient-angle: 360deg;
+@keyframes connect-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-@keyframes shimmer {
-  to {
-    rotate: 360deg;
-  }
-}
-
-/* 
-.connect__input Component
-
-Variables related to theme/overrides:
-  --resize: Resize property of the input field.
-  --connect__input-padding-y: Vertical padding of the input field.
-  --connect__input-padding-x: Horizontal padding of the input field.
-  --connect__input-fs: Font size of the input text.
-  --connect__input-lh: Line height of the input text.
-  --connect__input-text-color: Text color of the input field.
-  --connect__input-bg: Background color of the input field.
-  --connect__input-border-w: Border width of the input field.
-  --connect__input-border-c: Border color of the input field.
-  --caret-color: color of the caret (text cursor).
-  --connect__input-width: Width of the input field.
-
-Variables related to shadows:
-  --starting-shadow-color: Initial shadow color.
-  --connect__input-focus-shadow: Shadow color when the input is focused.
-  --outer-shadow-color: Outer shadow color.
-  --connect__shadow-level-1 to --connect__shadow-level-5: Different levels of box shadows.
-  --connect__input-outer-shadow: Outer shadow for the input field.
-
-Variables related to states (e.g., focus, active):
-  --state-based-bg: State-based background color.
-  --active-color: Active state color.
-  --connect__selected-mid: color for the selected state.
-  --connect__focus-mid: color for the focus state.
-  --connect__neutrals-white: Neutral white color.
-  --connect__neutrals-dark: Neutral dark color.
-  --connect__neutrals-light: Gray color.
-
-States:
-  &:not(:disabled)
-    - Default state for input fields that are not disabled.
-    - &:hover: Hover state.
-    - &:active: Active state.
-
-  &:focus-visible:not(:active)
-    - Focus state when the input is visible and not active.
-
-  &:active:not(:disabled)
-    - Active state for input fields that are not disabled.
-
-  &-resize
-    - Resize state for the input field.
-    - &:disabled: Disabled state for resizable input fields.
-
-  &.connect__input-selected,
-  &.connect__input-selected:disabled
-    - Selected state for input fields, including when disabled.
-    - &:hover: Hover state for selected input fields.
-    - &:focus-visible: Focus state for selected input fields.
-
-  & textarea
-    - Styles for textarea elements inside the input field.
-    - field-sizing: Content sizing for the textarea.
-    - max-height: Maximum height for the textarea.
-    - min-height: Minimum height for the textarea.
+/*
+| Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
+|---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
+| Font size           | --theme__input-fs            | --variant__input-fs            | --connect__body-sm                                         |
+| Line height         | --theme__input-lh            | --variant__input-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --theme__input-bg            | --state__btn-bg                | --connect__surface-white                                   |
+| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__neutrals-null                                   |
+| Padding X           | --theme__input-padding-x     | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
+| Padding Y           | --theme__input-padding-y     | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
+| Border radius       | --theme__input-border-radius | --variant__input-border-radius | --connect__border-radius                                   |
+| Width               | --connect__btn-w             | --variant__input-w             | fit-content                                                 |
+| Resize              |                              | Resize                         | none                                                       |
 */
 
 .connect__input {
-  --resize: none;
+  --connect__input-border-w: var(
+    --theme__input-border-w,
+    var(--variant__input-border-w, var(--connect__spacer-zero))
+  );
+  --connect__input-padding-y: var(
+    --theme__input-padding-y,
+    var(
+      --variant__input-padding-y,
+      calc(var(--connect__spacer-sm) - var(--connect__input-border-w))
+    )
+  );
+  --connect__input-padding-x: var(
+    --theme__input-padding-x,
+    var(
+      --variant__input-padding-x,
+      calc(var(--connect__spacer-md) - var(--connect__input-border-w))
+    )
+  );
 
-  --starting-shadow-color: var(--connect__shadow-10);
-  --connect__input-focus-shadow: var(--connect__neutrals-null);
-  --outer-shadow-color: var(--connect__neutrals-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-  --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
-  --connect__input-outer-shadow: var(--connect__shadow-spread-level-2);
-
-  --connect__input-shadow: var(--connect__shadow-level-1)
-      var(--starting-shadow-color, var(--connect__shadow-10)) inset,
-    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
-    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial)
-      var(--connect__input-focus-shadow, var(--connect__neutrals-null)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color);
-
-  --connect__input-padding-y: var(--connect__spacer-sm);
-  --connect__input-padding-x: var(--connect__spacer-md);
-  --connect__input-fs: var(--connect__body-sm);
-  --connect__input-lh: var(--connect__body-sm-lheight);
-
-  --connect__input-text-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__input-bg: var(--connect__neutrals-white);
-
-  --connect__input-border-c: var(--connect__neutrals-white, var(--connect__neutrals-null));
-
-  --connect__caret-color: var(--connect__selected-mid);
-  --connect__input-border-w: var(--connect__spacer-zero);
-
-  --connect__input-h: 100%;
-
-  background-color: var(--state-based-bg, var(--connect__neutrals-white));
-  border: var(--connect__input-border-w) solid var(--connect__input-border-c);
+  background-color: var(
+    --theme__input-bg,
+    var(--variant__input-bg, var(--state-based-bg, var(--connect__surface-white)))
+  );
+  border: var(--connect__input-border-w) solid
+    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__neutrals-null)));
   border-radius: var(--connect__border-radius);
-
-  box-shadow: var(--connect__input-shadow);
-  caret-color: var(--connect__caret-color);
-
-  color: var(--connect__input-text-color);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
+  caret-color: var(--connect__primary-mid);
+  color: var(--theme__input-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, text);
   font-family: var(--connect__font-sans);
-  font-size: var(--connect__input-fs);
-  line-height: var(--connect__input-lh);
-  padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
+  font-size: var(--theme__input-fs, var(--variant__input-fs, var(--connect__body-sm)));
+  line-height: var(--theme__input-lh, var(--variant__input-lh, var(--connect__body-sm-lheight)));
+  padding: calc(var(--connect__input-padding-y) - var(--connect__input-border-w))
+    calc(var(--connect__input-padding-x) - var(--connect__input-border-w));
   position: relative;
-  resize: var(--resize);
+  resize: var(--resize, none);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
-  width: var(--connect__input-width, 100%);
+  width: var(--connect__input-width, var(--connect__full-w));
 
-  &:not(:disabled) {
-    &:hover,
-    &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+  &:not(:disabled):not(.connect__selected) {
+    &:hover {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
     }
   }
 
-  &:focus-visible,
-  &:active {
-    outline: unset;
-  }
-
-  &:focus-visible:not(:active) {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-    --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
-    --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-    --starting-shadow-color: var(--connect__focus-mid);
-    --connect__input-focus-shadow: var(--connect__focus-mid);
-  }
-
-  &:active:not(:disabled) {
-    --starting-shadow-color: var(--connect__selected-mid);
+  &:focus-visible:not(.connect__selected) {
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
   }
 
   &::placeholder {
-    --connect__input-text-color: var(--connect__neutrals-mid);
-    color: var(--connect__input-text-color);
+    color: var(--connect__surface-mid);
     font-style: italic;
   }
 
@@ -642,184 +368,80 @@ States:
     }
   }
 
-  &::placeholder {
-    --connect__input-text-color: var(--connect__neutrals-mid);
-    color: var(--connect__input-text-color);
-    font-style: italic;
-  }
-
-  &.connect__input-selected,
-  &.connect__input-selected:disabled {
-    --connect__caret-color: var(--connect__selected-mid);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-    --starting-shadow-color: var(--connect__selected-mid);
-
-    &:hover {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-    }
-
-    &:focus-visible {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-      --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
-      --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-      --starting-shadow-color: var(--connect__focus-mid);
-      --connect__input-focus-shadow: var(--connect__focus-mid);
-    }
-  }
-
-  // min 2 lines
-  // max 4 lines
-
-  &-textarea {
+  & textarea {
     field-sizing: initial;
     max-height: calc(4lh + 2 * var(--connect__input-padding-y));
     min-height: calc(2lh + 2 * var(--connect__input-padding-y));
+  }
+
+  &.connect__selected {
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
+
+    &:hover {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
+    }
   }
 }
 
 /* 
 .connect__select Component
 
-Variables related to theme/overrides:
-  --connect__select-bg: Background color of the select dropdown.
-  --connect__select-border-w: Border width of the select dropdown.
-  --connect__select-border-c: Border color of the select dropdown.
-  --connect__select-fs: Font size of the select text.
-  --connect__select-lh: Line height of the select text.
-  --connect__select-fw: Font weight of the select text.
-  --connect__select-text-transform: Text transformation (e.g., capitalise, uppercase).
-  --connect__select-padding-y: Vertical padding of the select dropdown.
-  --connect__select-padding-x: Horizontal padding of the select dropdown.
-
-Variables related to shadows:
-  --outer-shadow-color: Outer shadow color.
-  --connect__shadow-level-1 to --connect__shadow-level-5: Different levels of box shadows.
-  --connect__input-outer-shadow: Outer shadow for the select dropdown.
-
-Variables related to states (e.g., focus, active):
-  --state-based-bg: State-based background color.
-  --active-color: Active state color.
-  --connect__selected-mid: color for the selected state.
-  --connect__focus-mid: color for the focus state.
-  --connect__neutrals-white: Neutral white color.
-  --connect__neutrals-dark: Neutral dark color.
-  --connect__state-based-pointer: Cursor style for the select dropdown.
-
-States:
-  &:not(:disabled)
-    - Default state for select dropdowns that are not disabled.
-    - &:hover: Hover state.
-    - &:active: Active state.
-
-  &:focus-visible:not(:active)
-    - Focus state when the select dropdown is visible and not active.
-
-  &:active:not(:disabled)
-    - Active state for select dropdowns that are not disabled.
-
-  &-correct,
-  &-incorrect,
-  &-shown,
-  &:disabled
-    - States for correct, incorrect, shown, and disabled select dropdowns.
-    - &:disabled: Disabled state for the select dropdown.
-
-  &::-ms-expand
-    - State for the select dropdown in Internet Explorer.
-    - display: var(--connect__display-none); Hides the default dropdown arrow in Internet Explorer.
+/*
+| Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
+|---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
+| Font size           | --theme__select-fs            | --variant__select-fs            | --connect__body-sm                                         |
+| Line height         | --theme__select-lh            | --variant__select-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --theme__select-bg            | --state__btn-bg                | --connect__surface-white                                   |
+| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__neutrals-null                                   |
+| Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w) |
+| Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w) |
+| Border radius       | --theme__select-border-radius | --variant__select-border-radius | --connect__border-radius                                   |
+| Width               | --connect__btn-w             | --variant__select-w             | fit-content                                                 |
+| Resize              |                              | Resize                         | none                                                       |
 */
+
 .connect__select {
-  // Palette
-  --connect__select-bg: var(--state-based-bg, var(--connect__neutrals-white));
-
-  --connect__select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4.70711 7.29289C4.31658 6.90237 3.68342 6.90237 3.29289 7.29289C2.90237 7.68342 2.90237 8.31658 3.29289 8.70711L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071L16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289C16.3166 6.90237 15.6834 6.90237 15.2929 7.29289L10 12.5858L4.70711 7.29289Z' fill='%23006AFF'/%3E%3C/svg%3E");
-  --connect__select-border-w: var(--connect__spacer-zero);
-  --connect__select-border-c: var(--connect__select-border-c, transparent);
-
-  // typography
-  --connect__select-fs: var(--connect__body-sm, 1.25rem);
-  --connect__select-lh: var(--connect__body-sm-lheight, 1.5);
+  --connect__select-bg: var(--state-based-bg, var(--connect__surface-white));
+  --connect__select-fs: var(--connect__body-sm);
+  --connect__select-lh: var(--connect__body-sm-lheight);
   --connect__select-fw: var(--connect__fw-regular);
-  --connect__select-text-transform: capitalize;
-
-  // shadows
-  --outer-shadow-color: var(--connect__neutrals-white);
-
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-  --connect__shadow-level-5: var(--connect__shadow-spread-level-0);
-  --connect__input-outer-shadow: var(--connect__shadow-spread-level-2);
-
-  // Paddings
-  --connect__select-padding-y: var(--connect__spacer-sm);
-  --connect__select-padding-x: var(--connect__spacer-md);
+  --connect__select-text-transform: var(--connect__text-capitalize);
 
   appearance: none;
   background-color: var(--connect__select-bg);
-
-  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon));
-  background-position: calc(100% - var(--connect__select-padding-x));
+  background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon-closed));
+  background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
-
-  background-size: var(--connect__ui-icon) var(--connect__ui-icon);
-
-  border: var(--connect__select-border-w) solid var(--connect__select-border-c);
+  background-size: var(--connect__icon-md);
+  border: var(--connect__spacer-zero) solid var(--connect__surface-null);
   border-radius: var(--connect__border-radius);
-
-  box-shadow:
-    var(--connect__shadow-level-1) var(--starting-shadow-color, var(--connect__shadow-10)) inset,
-    var(--connect__shadow-level-2) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-3) var(--connect__shadow-14) inset,
-    var(--connect__shadow-level-4) var(--connect__shadow-12) inset,
-    var(--connect__shadow-level-5, initial) var(--connect__input-focus-shadow, rgba(0, 0, 0, 0)),
-    var(--connect__input-outer-shadow) var(--outer-shadow-color, #fff);
-  color: var(--active-color, var(--connect__neutrals-dark));
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   flex: 1;
   font-size: var(--connect__select-fs);
   font-weight: var(--connect__select-fw);
   line-height: var(--connect__select-lh);
-  padding: var(--connect__select-padding-y) var(--connect__select-padding-x);
+  padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+  padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: relative;
-  text-transform: capitalize;
-  width: 100%;
+  text-transform: var(--connect__text-capitalize);
+  width: var(--connect__full-w);
 
   &:not(:disabled) {
     &:hover,
     &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-14);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
     }
   }
 
-  &:focus-visible,
-  &:active {
-    outline: unset;
-  }
-
   &:focus-visible:not(:active) {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-3);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-5);
-    --connect__shadow-level-5: var(--connect__shadow-spread-level-17);
-    --connect__input-outer-shadow: var(--connect__shadow-spread-level-15);
-
-    --starting-shadow-color: var(--connect__focus-mid);
-    --connect__input-focus-shadow: var(--connect__focus-mid);
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
   }
 
   &:active:not(:disabled) {
-    --starting-shadow-color: var(--connect__selected-mid);
+    --starting-shadow-color: var(--connect__primary-mid);
   }
 
   &::-ms-expand {
@@ -827,89 +449,21 @@ States:
   }
 }
 
-.connect__button-split {
-  position: relative;
+/* 
+.connect__accordion Component
 
-  .connect__list {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
-    --connect__list-bg: var(--theme__list-bg, var(--connect__neutrals-white));
-    --connect__list-radius: var(--theme__list-radius, var(--connect__border-radius));
-
-    --connect__list-flow: var(--theme__list-flow, column);
-    --connect__list-wrap: var(--theme__list-wrap, wrap);
-
-    background-color: var(--connect__list-bg);
-    border-radius: var(--connect__list-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-10),
-      var(--connect__shadow-level-2) var(--connect__shadow-20),
-      var(--connect__shadow-level-3) var(--connect__shadow-14),
-      var(--connect__shadow-level-4) var(--connect__shadow-12);
-    color: var(--connect__neutrals-dark);
-    display: flex;
-    flex-flow: var(--connect__list-flow) var(--connect__list-wrap);
-    left: 0;
-    margin-top: calc(var(--connect__effects-inner-edge) * 2);
-    padding: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .connect__list-item {
-    cursor: var(--connect__state-based-pointer, pointer);
-    font-family: var(--connect__font-sans);
-    font-size: var(--connect__caption);
-    line-height: var(--connect__caption-lheight);
-    padding: var(--connect__spacer-sm) var(--connect__spacer-md);
-
-    &:first-of-type {
-      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
-    }
-
-    &:last-of-type {
-      border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
-    }
-
-    &:hover {
-      background-color: var(--connect__neutrals-pale);
-    }
-  }
-}
-
-.connect__button-split-button {
-  --connect__button-fs: var(--theme__button-fs, var(--connect__body-sm));
-  --connect__button-lh: var(--theme__button-lh, var(--connect__body-sm-lheight));
-  --connect__button-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__button-bg: var(--state-based-bg, var(--connect__selected-mid));
-
-  background-color: var(--theme__button-bg, var(--connect__button-bg));
-  border: unset;
-  color: var(--theme__button-color, var(--connect__button-color));
-  cursor: var(--connect__state-based-pointer, pointer);
-  display: inline-flex;
-  font-size: var(--connect__button-fs);
-  line-height: var(--connect__button-lh);
-
-  &:disabled {
-    --active-color: var(--color-action-disabled);
-    color: var(--connect__neutrals-mid);
-  }
-
-  &:focus-visible {
-    outline: unset;
-  }
-}
-
-.connect__button-split-button-actions {
-  border-left: calc(var(--connect__spacer-xs) / 2) solid var(--connect__neutrals-white);
-  padding-left: var(--connect__button-gap);
-}
+Variables related to theme/overrides:
+  --connect__effects-inner-edge: Inner edge effect size grade banded value used to margin top.
+  --connect__details-padding-t/r/b/l: Padding for the details section.
+  --connect__details-closed-radius: Border radius when details are closed.
+  --connect__details-open-radius: Border radius when details are open.
+  --connect__icon-rotate: Rotation for the accordion icon.
+  --connect__summary-bg: Background color of the summary.
+  --connect__summary-icon-active-ring: Active ring color for the summary icon.
+  --connect__summary-padding-y/x: Padding for the summary.
+  --connect__align-items: Alignment of summary items.
+  --connect__justify-content: Justification of summary items.
+*/
 
 .connect__accordion {
   .connect__list-item {
@@ -917,153 +471,132 @@ States:
     margin-top: var(--connect__effects-inner-edge);
     padding-left: 0;
   }
+}
 
-  .connect__details {
-    // paddings for details itself
-    --connect__details-padding-t: var(
-      --theme__details-padding-t,
-      var(--variant__details-padding-t, 0)
-    );
-    --connect__details-padding-r: var(
-      --theme__details-padding-r,
-      var(--variant__details-padding-r, 0)
-    );
-    --connect__details-padding-b: var(
-      --theme__details-padding-b,
-      var(--variant__details-padding-b, 0)
-    );
-    --connect__details-padding-l: var(
-      --theme__details-padding-l,
-      var(--variant__details-padding-l, 0)
-    );
+.connect__details {
+  --connect__details-padding-t: var(
+    --theme__details-padding-t,
+    var(--variant__details-padding-t, 0)
+  );
+  --connect__details-padding-r: var(
+    --theme__details-padding-r,
+    var(--variant__details-padding-r, 0)
+  );
+  --connect__details-padding-b: var(
+    --theme__details-padding-b,
+    var(--variant__details-padding-b, 0)
+  );
+  --connect__details-padding-l: var(
+    --theme__details-padding-l,
+    var(--variant__details-padding-l, 0)
+  );
 
-    // border radius for details based on open closed
-    --connect__details-closed-radius: var(--connect__border-radius);
-    --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  // border radius for details based on open closed
+  --connect__details-closed-radius: var(--connect__border-radius);
+  --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
 
-    // Icon for accordion. Changes when open. in the [open]
-    --connect__icon-rotate: rotate(0deg);
+  // Icon for accordion. Changes when open. in the [open]
+  --connect__icon-rotate: rotate(0deg);
 
-    padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
-      var(--connect__details-padding-b) var(--connect__details-padding-l);
-    position: relative;
+  padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
+    var(--connect__details-padding-b) var(--connect__details-padding-l);
+  position: relative;
 
-    > *:not(summary) {
-      padding: var(--connect__details-items-state-padding-t, 0)
-        var(--connect__details-items-state-padding-r, 0)
-        var(--connect__details-items-state-padding-b, 0)
-        var(--connect__details-items-state-padding-l, 0);
+  > *:not(summary) {
+    padding: var(--connect__details-items-state-padding-t, 0)
+      var(--connect__details-items-state-padding-r, 0)
+      var(--connect__details-items-state-padding-b, 0)
+      var(--connect__details-items-state-padding-l, 0);
+  }
+
+  &[open] {
+    --connect__icon-rotate: rotate(180deg);
+    --variant__details-padding-b: var(--connect__spacer-sm);
+
+    *:not(summary) {
+      --connect__details-items-state-padding-t: var(--connect__spacer-sm);
+      --connect__details-items-state-padding-r: var(--connect__spacer-sm);
+      --connect__details-items-state-padding-l: var(--connect__spacer-sm);
     }
+  }
+}
 
-    &[open] {
-      --connect__icon-rotate: rotate(180deg);
-      --variant__details-padding-b: var(--connect__spacer-sm);
+.connect__summary {
+  --connect__summary-bg: var(--theme__summary-bg, var(--variant__summary-bg, var(--active-color)));
 
-      *:not(summary) {
-        --connect__details-items-state-padding-t: var(--connect__spacer-sm);
-        --connect__details-items-state-padding-r: var(--connect__spacer-sm);
-        --connect__details-items-state-padding-l: var(--connect__spacer-sm);
-      }
+  --connect__summary-icon-active-ring: var(
+    --theme__summary-icon-active-ring,
+    var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
+  );
+
+  --connect__summary-padding-y: var(
+    --theme__summary-padding-y,
+    var(--variant__summary-padding-y, var(--connect__spacer-sm))
+  );
+  --connect__summary-padding-x: var(
+    --theme__summary-padding-x,
+    var(--variant__summary-padding-x, var(--connect__spacer-sm))
+  );
+
+  --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
+  --connect__justify-content: var(
+    --theme__justify-content,
+    var(--variant__justify-content, space-between)
+  );
+
+  align-items: var(--connect__align-items);
+  background-color: var(--connect__summary-bg);
+  border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
+  cursor: var(--connect__state-based-pointer, pointer);
+  display: flex;
+  justify-content: var(--connect__justify-content);
+  padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
+
+  &::after {
+    background-image: var(--connect__dropdown-icon-closed);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: var(--connect__icon-sm) var(--connect__icon-sm);
+    border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
+    border-radius: 50%;
+    content: '';
+    flex-shrink: 0;
+    height: var(--connect__icon-md);
+    margin-left: var(--connect__spacer-md);
+    transform: var(--connect__icon-rotate);
+    width: var(--connect__icon-md);
+  }
+
+  &::before {
+    background: var(--connect__surface-white);
+    border-radius: var(--connect__border-radius);
+    box-shadow: var(--connect__shadow-lvl-2);
+    content: '';
+    height: var(--connect__full-h);
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition-duration: var(--connect__transition-medium);
+    transition-property: visibility, opacity, transform, max-height;
+    transition-timing-function: var(--connect__ease-out);
+    width: var(--connect__full-w);
+    z-index: -1;
+  }
+
+  &:hover,
+  &:active {
+    &::before {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-4);
     }
   }
 
-  .connect__summary {
-    --connect__summary-bg: var(
-      --theme__summary-bg,
-      var(--variant__summary-bg, var(--active-color))
-    );
+  &:active:not(:disabled) {
+    --connect__inner-status-color-state: var(--connect__primary-mid);
+  }
 
-    --connect__summary-icon-active-ring: var(
-      --theme__summary-icon-active-ring,
-      var(--variant__summary-icon-active-ring, var(--connect__selected-mid))
-    );
-
-    --connect__summary-padding-y: var(
-      --theme__summary-padding-y,
-      var(--variant__summary-padding-y, var(--connect__spacer-sm))
-    );
-    --connect__summary-padding-x: var(
-      --theme__summary-padding-x,
-      var(--variant__summary-padding-x, var(--connect__spacer-sm))
-    );
-
-    // alignment of summary items
-    --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
-    --connect__justify-content: var(
-      --theme__justify-content,
-      var(--variant__justify-content, space-between)
-    );
-
-    align-items: var(--connect__align-items);
-    background-color: var(--connect__summary-bg);
-    border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
-    cursor: var(--connect__state-based-pointer, pointer);
-    display: flex;
-    justify-content: var(--connect__justify-content);
-    padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
-
-    &::after {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath fill='%230072db' fill-rule='nonzero' d='M16 5.8c.5-.4 1.2-.4 1.7 0 .4.5.4 1.2 0 1.6l-6.9 6.8c-.4.4-1.2.4-1.6 0L2.3 7.4C2 7 2 6.3 2.3 5.8c.5-.4 1.2-.4 1.7 0l6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: var(--connect__ui-icon) var(--connect__ui-icon);
-      border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
-      border-radius: 50%;
-      content: '';
-      flex-shrink: 0;
-      height: var(--ui-button);
-      margin-left: var(--connect__spacer-md);
-      transform: var(--connect__icon-rotate);
-      width: var(--ui-button);
-    }
-
+  &:focus-visible:not(:active) {
     &::before {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
-      background: var(--connect__neutrals-white);
-      border-radius: var(--connect__border-radius);
-      box-shadow:
-        var(--connect__shadow-level-1) var(--connect__shadow-10),
-        var(--connect__shadow-level-2) var(--connect__shadow-20),
-        var(--connect__shadow-level-3) var(--connect__shadow-14),
-        var(--connect__shadow-level-4) var(--connect__shadow-12);
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      transition-duration: var(--connect__transition-medium);
-      transition-property: visibility, opacity, transform, max-height;
-      transition-timing-function: var(--connect__ease-out);
-      width: 100%;
-      z-index: -1;
-    }
-
-    &:hover {
-      &::before {
-        --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-        --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-        --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-        --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
-      }
-    }
-
-    &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-    }
-
-    &:focus-visible:not(:active) {
-      --connect__shadow-10: var(--connect__focus-mid);
-      --connect__shadow-20: var(--connect__focus-mid);
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-2);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
     }
   }
 }
@@ -1071,18 +604,17 @@ States:
 .connect__accordion--divider {
   summary {
     & + * {
+      --active-color: var(--connect__primary-mid);
       position: relative;
 
       &::before {
-        --active-color: var(--connect__selected-mid);
         background: var(--active-color);
         content: '';
         height: var(--connect__effects-inner-edge);
         left: var(--connect__spacer-md);
-
         position: absolute;
         top: 0;
-        width: calc(100% - var(--connect__spacer-xl));
+        width: calc(var(--connect__full-w) - var(--connect__spacer-xl));
       }
     }
   }
@@ -1091,432 +623,77 @@ States:
 .connect__accordion--color {
   [open] {
     .connect__summary {
-      --active-color: var(--connect__selected-mid);
+      --active-color: var(--connect__primary-mid);
     }
   }
 }
 
-/* 
+/*
 .connect__card Component
 
-Variables related to theme/overrides:
-  --connect__card-border-w: Border width of the card.
-  --connect__card-border-c: Border color of the card.
-  --connect__card-radius: Border radius of the card.
-  --connect__card-padding-y: Vertical padding of the card.
-  --connect__card-padding-x: Horizontal padding of the card.
-  --connect__card-flow: Flex flow direction of the card content.
-  --connect__card-gap: Gap between elements inside the card.
-
-Variables related to shadows:
-  --connect__shadow-level-1 to --connect__shadow-level-4: Different levels of box shadows.
-
-Variables related to colors:
-  --connect__neutrals-white: Neutral white color.
-
-Styles:
-  background-color
-    - Sets the background color of the card.
-  border:
-    - Sets the border width and color of the card.
-  border-radius:
-    - Sets the border radius of the card.
-  box-shadow:
-    - Applies multiple box shadows to the card.
-  box-sizing: border-box;
-    - Ensures padding and border are included in the element's total width and height.
- 
-  flex-flow: var(--connect__card-flow);
-    - Sets the flex direction and wrapping of the card content.
-  gap: var(--connect__card-gap);
-    - Sets the gap between elements inside the card.
-  padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w)) 0;
-    - Sets the padding of the card, adjusted for the border width.
+| Property         | Theme                         | Variant/State                 | Fallback / Default                                        |
+|------------------|------------------------------ |-------------------------------|-----------------------------------------------------------|
+| Border width     | --theme__card-border-w        | --variant__card-border-w      | --connect__spacer-zero                                    |
+| Border color     | --theme__card-border-c        | --variant__card-border-c      | --connect__neutrals-null                                  |
+| Border radius    | --theme__card-fs              | --variant__card-fs            | --connect__body-sm                                        |
+| Padding X        | --theme__card-padding-x       | --variant__card-padding-x     | var(--connect__spacer-sm) - var(--connect__card-border-w) |
+| Padding Y        | --theme__card-padding-y       | --variant__card-padding-y     | var(--connect__spacer-sm) - var(--connect__card-border-w) |
+| Gap              | --theme__card-bg              | --variant__card-bg            | --connect__primary-mid                                    |
 */
 
 .connect__card {
-  --connect__card-border-w: var(--theme__chip-border-w, var(--connect__spacer-zero));
-  --connect__card-border-c: var(--connect__neutrals-white, transparent);
-  --connect__card-radius: var(--theme__border-radius, var(--connect__border-radius));
+  --connect__card-border-w: var(
+    --theme__card-border-w,
+    var(--variant__card-border-w, var(--connect__spacer-zero))
+  );
+  --connect__card-padding-y: var(
+    --theme__card-padding-y,
+    var(--variant__card-padding-y, calc(var(--connect__spacer-sm) - var(--connect__card-border-w)))
+  );
+  --connect__card-padding-x: var(
+    --theme__card-padding-x,
+    var(--variant__card-padding-x, calc(var(--connect__spacer-md) - var(--connect__card-border-w)))
+  );
 
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
-  --connect__card-padding-y: var(--connect__spacer-sm);
-  --connect__card-padding-x: var(--connect__spacer-md);
-
-  --connect__card-flow: var(--theme__card-flow, column wrap);
-
-  --connect__card-gap: var(--theme__card-gap, var(--connect__spacer-sm));
-
-  background-color: var(--connect__neutrals-white);
-  border: var(--connect__card-border-w) solid var(--connect__card-border-c, transparent);
-
-  border-radius: var(--connect__border-radius);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-  box-sizing: border-box;
+  background-color: var(--connect__surface-white);
+  border: var(--connect__card-border-w) solid
+    var(--theme__card-border-c, var(--variant__card-border-c, var(--connect__neutrals-null)));
+  border-radius: var(
+    --theme__border-radius,
+    var(--variant__card-radius, var(--connect__border-radius))
+  );
+  box-shadow: var(--connect__shadow-lvl-2);
   display: inline-flex;
-  flex-flow: var(--connect__card-flow);
-  gap: var(--connect__card-gap);
+  flex-flow: column wrap;
+  gap: var(--theme__card-gap, var(--variant__card-gap, var(--connect__spacer-sm)));
   padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
     calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
-  width: 100%;
+  width: var(--connect__full-w);
 
   .connect__figure,
   .connect__card-header,
   .connect__card-content,
   .connect__card-footer {
-    width: 100%;
+    width: var(--connect__full-w);
   }
 
   header,
   footer {
     display: flex;
   }
-
-  // Comment out container query, until needed
-
-  /* &:has(menu) {
-    container-name: cpl-card;
-    container-type: inline-size;
-
-    @container cpl-card (max-width: 40.625rem) {
-      .connect__card-content {
-        --connect__toolbar-width: calc(var(--connect__spacer-lg) * 2);
-        display: grid;
-        grid-template-columns: var(--connect__toolbar-width) 1fr;
-      }
-
-      .connect__toolbar {
-        --connect__toolbar-direction: column wrap;
-        --connect__toolbar-padding-x: 0;
-        align-content: start;
-        grid-column: 1;
-
-        .connect__tooltip {
-          --connect__tooltip-vertical-left: unset;
-          --connect__tooltip-vertical-right: 100%;
-          --connect__tooltip-vertical-translateX: var(--connect__spacer-md);
-          --connect__tooltip-vertical-translateY: var(--connect__spacer-sm);
-        }
-
-        .connect__toolbar-menu {
-          --connect__menu-divider-line-h: var(--connect__toolbar-sub-menu-divider-w);
-
-          --connect__menu-divider-line-w: calc(
-            100% - var(--connect__menu-divider-line-x-offset) * 2
-          );
-          --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-xs) * 2);
-          --connect__menu-divider-line-y-offset: calc(
-            -1 * var(--connect__menu-divider-line-x-offset)
-          );
-        }
-
-        .connect__toolbar-item-menu {
-          --connect__toolbar-item-menu-y-offset: 0;
-          --connect__toolbar-item-menu-x-offset: calc(
-            var(--connect__toolbar-width) + var(--connect__spacer-sm)
-          );
-
-          --connect__toolbar-menu-padding-x: var(--connect__spacer-xs);
-          --connect__toolbar-sub-menu-flow: row;
-          --connect__toolbar-sub-menu-cols: 2;
-        }
-
-        .connect__toolbar-item-menu-item {
-          --connect__toolbar-sub-menu-padding-y: 0;
-
-          &:nth-of-type(1) {
-            --menu-col-start: 1;
-            --connect__toolbar-sub-menu-vertical-divider-left: var(
-              --connect__toolbar-sub-menu-padding-x
-            );
-            --connect__toolbar-sub-menu-vertical-divider-top: unset;
-            --connect__toolbar-sub-menu-vertical-divider-bottom: calc(
-              -1 * calc(var(--connect__toolbar-row-gap) / 2) - var(--connect__toolbar-sub-menu-divider-h)
-            );
-            --connect__toolbar-sub-menu-vertical-divider-h: calc(
-              100% + calc(var(--connect__spacer-xs) * 2)
-            );
-            --connect__toolbar-sub-menu-vertical-divider-top: calc(-1 * var(--connect__spacer-xs));
-            --connect__toolbar-sub-menu-vertical-divider-left: unset;
-            --connect__toolbar-sub-menu-vertical-divider-right: calc(
-              -1 * var(--connect__spacer-xs)
-            );
-
-            &:has(:nth-child(6)) {
-              --connect__toolbar-sub-menu-vertical-divider-w: var(--connect__effects-inner-edge);
-            }
-
-            .connect__toolbar-item-menu-item-sub-menu {
-              margin-right: var(--connect__toolbar-sub-menu-padding-x);
-            }
-          }
-
-          &:nth-of-type(2) {
-            --menu-col-start: 2;
-            .connect__toolbar-item-menu-item-sub-menu {
-              margin-left: var(--connect__toolbar-sub-menu-padding-x);
-            }
-          }
-
-          &:nth-of-type(1),
-          &:nth-of-type(2) {
-            ul {
-              padding-left: 0;
-            }
-          }
-
-          ul {
-            flex-flow: column wrap;
-          }
-        }
-
-        .connect__toolbar-item-menu-item-sub-menu {
-          height: 100%;
-        }
-      }
-
-      .connect__button {
-        --connect__button-justify-content: center;
-        --connect__button-w: 100%;
-      }
-    }
-  } */
 }
 
+/* 
+  Blockquote Component
+*/
 .connect__blockquote {
-  font-size: var(--connect__body-md);
-  margin: var(--connect__spacer-md) 0;
-}
-
-.connect__tooltip-wrapper {
-  display: inline-block;
-  position: relative;
-
-  &:hover {
-    .connect__tooltip {
-      --connect__tooltip-opacity: 1;
-      --connect__tooltip-visibility: visible;
-      --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY-hover, -110%);
-      transition-duration: var(--connect__transition-fast);
-      transition-property: visibility, opacity, transform;
-      transition-timing-function: var(--connect__ease-out);
-    }
-  }
-}
-
-/*
-.connect__tooltip Component
-
-Variables related to theme/overrides:
-  --connect__tooltip-bg: Background color of the tooltip.
-  --connect__tooltip-color: Text color of the tooltip.
-  --connect__tooltip-padding-y: Vertical padding inside the tooltip.
-  --connect__tooltip-padding-x: Horizontal padding inside the tooltip.
-  --shadow-level-1: Shadow level 1 for the tooltip.
-  --shadow-level-2: Shadow level 2 for the tooltip.
-  --shadow-level-3: Shadow level 3 for the tooltip.
-  --shadow-level-4: Shadow level 4 for the tooltip.
-  --connect__tooltip-opacity: Opacity of the tooltip.
-  --connect__tooltip-visibility: Visibility of the tooltip.
-  --connect__tooltip-transition: Transition effect for the tooltip.
-  --connect__tooltip-top: Top position of the tooltip.
-  --connect__tooltip-right: Right position of the tooltip.
-  --connect__tooltip-left: Left position of the tooltip.
-  --connect__tooltip-translateX: Horizontal translation of the tooltip.
-  --connect__tooltip-translateY: Vertical translation of the tooltip.
-
-Tooltip Styles:
-  align-items: center;
-    - Aligns items along the cross axis.
-  align-content: center;
-    - Aligns content along the cross axis.
-  border-radius: var(connect__inner-radius, 0.25rem);
-    - Rounds the corners of the tooltip.
-  background: var(--connect__tooltip-bg);
-    - Sets the background color of the tooltip.
-  box-shadow:
-    var(--shadow-level-1) var(--connect__shadow-10),
-    var(--shadow-level-2) var(--connect__shadow-20),
-    var(--shadow-level-3) var(--connect__shadow-14),
-    var(--shadow-level-4) var(--connect__shadow-12);
-    - Applies multiple box shadows to the tooltip.
-  color: var(--connect__tooltip-color);
-    - Sets the text color of the tooltip.
-  display: inline-block;
-    - Displays the tooltip as an inline-block element.
-  justify-content: center;
-    - Centers the content along the main axis.
-  padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
-    - Applies padding inside the tooltip.
-  position: absolute;
-    - Positions the tooltip absolutely.
-  top: 0;
-    - Sets the top position of the tooltip.
-  left: var(--connect__tooltip-left);
-    - Sets the left position of the tooltip.
-  transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
-    - Translates the tooltip based on the specified values.
-
-Transition Styles:
-  transition:
-    opacity,
-    visibility,
-    transform var(--connect__transition-default) var(--connect__tooltip-transition) allow-discrete;
-    - Applies transitions to opacity, visibility, and transform properties.
-  white-space: nowrap;
-    - Prevents the tooltip text from wrapping.
-  opacity: var(--connect__tooltip-opacity);
-    - Sets the opacity of the tooltip.
-  visibility: var(--connect__tooltip-visibility);
-    - Sets the visibility of the tooltip.
-*/
-
-.connect__tooltip {
-  --connect__tooltip-bg: var(--theme__tooltip-bg, var(--connect__neutrals-dark));
-  --connect__tooltip-color: var(--theme__tooltip-color, var(--connect__neutrals-white));
-  --connect__tooltip-padding-y: var(--theme__tooltip-padding-y, var(--connect__spacer-xs));
-  --connect__tooltip-padding-x: var(--theme__tooltip-padding-y, var(--connect__spacer-sm));
-  --shadow-level-1: var(--theme__tooltip-shadow-1, var(--connect__shadow-spread-level-1));
-  --shadow-level-2: var(--theme__tooltip-shadow-2, var(--connect__shadow-spread-level-7));
-  --shadow-level-3: var(--theme__tooltip-shadow-3, var(--connect__shadow-spread-level-8));
-  --shadow-level-4: var(--theme__tooltip-shadow-4, var(--connect__shadow-spread-level-9));
-  --connect__tooltip-opacity: 0;
-  --connect__tooltip-visibility: hidden;
-  --connect__tooltip-transition: var(--connect__ease-in-out);
-  --connect__tooltip-top: var(--connect__tooltip-vertical-top, unset);
-  --connect__tooltip-right: var(--connect__tooltip-vertical-right, unset);
-  --connect__tooltip-left: var(--connect__tooltip-vertical-left, 50%);
-  --connect__tooltip-translateX: var(--connect__tooltip-vertical-translateX, -50%);
-  --connect__tooltip-translateY: var(--connect__tooltip-vertical-translateY, -100%);
-
-  align-content: center;
-  align-items: center;
-  background: var(--connect__tooltip-bg);
-  border-radius: var(--connect__inner-radius, 0.25rem);
-  box-shadow:
-    var(--shadow-level-1) var(--connect__shadow-10),
-    var(--shadow-level-2) var(--connect__shadow-20),
-    var(--shadow-level-3) var(--connect__shadow-14),
-    var(--shadow-level-4) var(--connect__shadow-12);
-  color: var(--connect__tooltip-color);
-  display: inline-block;
-  font-size: var(--connect__caption);
-  justify-content: center;
-  left: var(--connect__tooltip-left);
-  line-height: var(--connect__caption-lheight);
-  opacity: var(--connect__tooltip-opacity);
-  padding: var(--connect__tooltip-padding-y) var(--connect__tooltip-padding-x);
-  position: absolute;
-  top: 0;
-  transform: translate(var(--connect__tooltip-translateX), var(--connect__tooltip-translateY));
-  transform-origin: bottom;
-  transition-duration: var(--connect__transition-fast);
-  transition-property: visibility, opacity, transform;
-  transition-timing-function: var(--connect__ease-out);
-  visibility: var(--connect__tooltip-visibility);
-  white-space: nowrap;
-}
-
-/*
-.connect__breakout Component
-
-This component is used to create a "breakout" effect, extending an element beyond its container.
-
-Variables:
---connect__breakout-b: Bottom position (theme: --theme__breakout-b, default: 0)
---connect__breakout-l: Left position multiplier (theme: --theme__breakout-l, default: -1)
---connect__breakout-r: Right position multiplier (theme: --theme__breakout-r, default: -1)
---connect__breakout-t: Top position (theme: --theme__breakout-t, default: 0)
---connect__breakout-gutter-w: Gutter width (theme: --theme__gutter-width, default: var(--gutter-width))
---connect__breakout-z: Z-index (theme: --theme__connect__breakout-z, default: 0)
-
-Usage:
-- Apply this class to an element to make it break out of its container.
-- The element will be positioned absolutely and extend beyond its container's boundaries.
-- Use the custom properties to adjust the positioning and z-index as needed.
-*/
-
-.connect__breakout {
-  --connect__breakout-bg-color: var(--theme__breakout-bg-color, initial);
-  --connect__breakout-gutter-w: var(--theme__gutter-width, var(--gutter-width));
-  background-color: var(--connect__breakout-bg-color);
-
-  &:not(.connect__linear):not(.connect__halftone) {
-    &::after {
-      content: unset;
-    }
-  }
-
-  &:not(.connect__figure) {
-    &::before,
-    &::after {
-      content: '';
-      pointer-events: none;
-      position: absolute;
-    }
-
-    &::before {
-      background-color: var(--theme__connect-breakout-bg-color-before, initial);
-      bottom: var(--theme__connect-breakout-b-before, 0);
-      left: calc(
-        var(--connect__breakout-gutter-w) *
-          var(--theme__connect-breakout-l-before, var(--connect__spacer-md))
-      );
-      max-width: 100vw;
-      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-before, 0));
-      top: var(--theme__connect-breakout-t-before, 0);
-      width: var(
-        --theme__connect-breakout-w-before,
-        calc(100% + 2 * var(--connect__breakout-gutter-w))
-      );
-      z-index: var(--theme__connect-breakout-z-before, 0);
-    }
-
-    &::after {
-      background-color: var(--theme__connect-breakout-bg-color-after, initial);
-      bottom: var(--theme__connect-breakout-b-after, 0);
-      left: calc(
-        var(--connect__breakout-gutter-w) *
-          var(--theme__connect-breakout-l-after, var(--connect__spacer__md))
-      );
-      max-width: 100vw;
-      right: calc(var(--connect__breakout-gutter-w) * var(--theme__connect-breakout-r-after, 0));
-      top: var(--theme__connect-breakout-t-after, 0);
-      width: var(
-        --theme__connect-breakout-w-after,
-        calc(100% + 2 * var(--connect__breakout-gutter-w))
-      );
-
-      z-index: var(--theme__connect-breakout-z-after, 0);
-    }
-
-    &.connect__linear {
-      z-index: var(--connect__linear-z, var(--connect__breakout-z));
-    }
-
-    &.connect__halftone {
-      z-index: var(--connect__halftone-z, var(--connect__breakout-z));
-    }
-  }
-
-  &.connect__figure {
-    bottom: var(--connect__breakout-b, 0);
-    grid-column: unset;
-    left: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-l, -1));
-    margin-top: 0;
-    position: absolute;
-    right: calc(var(--connect__breakout-gutter-w) * var(--connect__breakout-r, -1));
-    top: var(--connect__breakout-t);
-    z-index: var(--connect__breakout-z, 1);
-  }
+  font-size: var(--connect__blockquote-fs, var(--connect__body-md));
+  font-style: var(--connect__blockquote-font-style, normal);
+  margin: var(--connect__blockquote-margin, 0);
+  padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
+  padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
+  padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
+  padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
 }
 
 /*
@@ -1538,7 +715,7 @@ Variables and Theme Options:
 
 3. Borders:
    --connect__header-border-w: Border width (theme: --theme__connect-header-border-w, default: 0)
-   --connect__header-border-c: Border color (theme: --theme__connect-header-border-c, default: var(--connect__neutrals-null))
+   --connect__header-border-c: Border color (theme: --theme__connect-header-border-c, default: var(--connect__surface-null))
    --connect__header-border-r: Border radius (theme: --theme__connect-header-border-r, default: 0)
 
 4. Background:
@@ -1548,7 +725,7 @@ Variables and Theme Options:
    --connect__header-bg-repeat: Background repeat (theme: --theme__header-bg-repeat, default: no-repeat)
 
 5. Breakout Section (::before pseudo-element):
-   --connect__header-breakout-bg: Breakout background color (theme: --theme__header-breakout-bg, default: var(--connect__neutrals-null))
+   --connect__header-breakout-bg: Breakout background color (theme: --theme__header-breakout-bg, default: var(--connect__surface-null))
    --connect__header-breakout-l: Left offset (theme: --theme__header-breakout-l, default: -1)
    --connect__header-breakout-w: Width (theme: --theme__header-breakout-w, default: 2)
    --connect__header-breakout-h: Height (theme: --theme__header-breakout-h, default: 100%)
@@ -1565,12 +742,12 @@ Variables and Theme Options:
 
 7. Linear Gradient (when .connect__linear class is applied):
    --connect__header-breakout-gradient-direction: Gradient direction (theme: --theme__header-breakout-gradient-direction, default: to right)
-   --connect__header-breakout-gradient-color-one: First gradient color (theme: --theme__header-breakout-gradient-color-one, default: var(--connect__neutrals-null))
-   --connect__header-breakout-gradient-color-two: Second gradient color (theme: --theme__header-breakout-gradient-color-two, default: var(--connect__neutrals-null))
+   --connect__header-breakout-gradient-color-one: First gradient color (theme: --theme__header-breakout-gradient-color-one, default: var(--connect__surface-null))
+   --connect__header-breakout-gradient-color-two: Second gradient color (theme: --theme__header-breakout-gradient-color-two, default: var(--connect__surface-null))
 
 8. Halftone (when .connect__halftone class is applied):
-   --connect__header-halftone-bg: Halftone background color (theme: --theme__header-halftone-bg, default: var(--connect__neutrals-null))
-   --connect__header-halftone-dot-color: Halftone dot color (theme: --theme__header-halftone-dot-color, default: var(--connect__neutrals-white))
+   --connect__header-halftone-bg: Halftone background color (theme: --theme__header-halftone-bg, default: var(--connect__surface-null))
+   --connect__header-halftone-dot-color: Halftone dot color (theme: --theme__header-halftone-dot-color, default: var(--connect__surface-white))
    --connect__header-halftone-dot-size: Halftone dot size (theme: --theme__header-halftone-dot-size, default: 2px)
    --connect__header-halftone-dot-space: Halftone dot spacing (theme: --theme__header-halftone-dot-space, default: 22px)
 
@@ -1591,7 +768,6 @@ Usage:
 
   --connect__header-margin-t: var(--theme__connect-header-margin-t, 0);
 
-  // Single border width for all sides
   --connect__header-border-w: var(--theme__connect-header-border-w, var(--connect__spacer-zero));
 
   // Individual border widths
@@ -1612,7 +788,7 @@ Usage:
     var(--connect__header-border-w)
   );
 
-  --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__neutrals-null));
+  --connect__header-border-c: var(--theme__connect-header-border-c, var(--connect__surface-null));
 
   // Single border radius for all corners
   --connect__header-border-r: var(--theme__connect-header-border-r, 0);
@@ -1635,7 +811,7 @@ Usage:
     var(--connect__header-border-r)
   );
 
-  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__neutrals-pale));
+  --connect__header-bg-color: var(--theme__connect-header-bg-color, var(--connect__surface-pale));
   --connect__header-bg-image: var(--theme__connect-header-bg-image, none);
   --connect__header-bg-size: var(--theme__connect-header-bg-size, cover);
   --connect__header-bg-repeat: var(--theme__connect-header-bg-repeat, no-repeat);
@@ -1659,7 +835,7 @@ Usage:
   position: relative;
 
   > * {
-    z-index: 1;
+    z-index: var(--connect__z-1);
   }
 
   &::before,
@@ -1673,7 +849,7 @@ Usage:
     // Breakout section background variables
     --connect__header-breakout-bg: var(
       --theme__connect-header-breakout-bg,
-      var(--connect__neutrals-null)
+      var(--connect__surface-null)
     );
 
     // Breakout section dimension variables
@@ -1684,7 +860,7 @@ Usage:
       var(--gutter-width)
     );
 
-    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
+    --connect__header-breakout-h: var(--theme__connect-header-breakout-h, var(--connect__full-w));
 
     // Single border radius for all corners
     --connect__header-border-r-before: var(
@@ -1719,7 +895,10 @@ Usage:
     height: var(--connect__header-breakout-h);
     left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
     top: 0;
-    width: calc(100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi));
+    width: calc(
+      var(--connect__full-w) + var(--connect__header-breakout-w) *
+        var(--connect__header-breakout-w-multi)
+    );
   }
 
   &:not(.connect__breakout):not(.connect__linear):not(.connect__halftone) {
@@ -1728,7 +907,7 @@ Usage:
       // Breakout section background variables
       --connect__header-breakout-bg: var(
         --theme__connect-header-breakout-bg,
-        var(--connect__neutrals-null)
+        var(--connect__surface-null)
       );
 
       // Breakout section dimension variables
@@ -1739,7 +918,7 @@ Usage:
         var(--gutter-width)
       );
 
-      --connect__header-breakout-h: var(--theme__connect-header-breakout-h, 100%);
+      --connect__header-breakout-h: var(--theme__connect-header-breakout-h, var(--connect__full-h));
 
       // Single border radius for all corners
       --connect__header-border-r-before: var(
@@ -1775,7 +954,8 @@ Usage:
       left: calc(var(--connect__header-breakout-l) * var(--gutter-width));
       top: 0;
       width: calc(
-        100% + var(--connect__header-breakout-w) * var(--connect__header-breakout-w-multi)
+        var(--connect__full-w) + var(--connect__header-breakout-w) *
+          var(--connect__header-breakout-w-multi)
       );
     }
   }
@@ -1784,100 +964,6 @@ Usage:
     &::after {
       content: unset;
     }
-  }
-
-  &.connect__linear,
-  &.connect__halftone,
-  &.connect__breakout {
-    position: relative;
-  }
-}
-
-/*
-.connect__linear Component
-
-This component applies a linear gradient background to an element.
-
-Variables:
---connect__linear-blend-mode: Blend mode for the gradient (theme: --theme__linear-blend-mode, default: normal)
---connect__linear-direction: Direction of the gradient (theme: --theme__linear-direction, default: to right)
---connect__linear-color-one: Start color of the gradient (theme: --theme__linear-color-one, default: var(--connect__neutrals-null))
---connect__linear-color-two: End color of the gradient (theme: --theme__linear-color-two, default: var(--connect__neutrals-null))
-
-Usage:
-- Apply this class to an element to give it a linear gradient background.
-- The gradient is applied using a pseudo-element (::before) to allow for blend mode effects.
-- Customize the gradient by adjusting the custom properties.
-*/
-.connect__linear {
-  --connect__linear-blend-mode: var(--theme__linear-blend-mode, normal);
-  --connect__linear-direction: var(--theme__linear-direction, to right);
-  --connect__linear-color-one: var(--theme__linear-color-one, var(--connect__neutrals-null));
-  --connect__linear-color-two: var(--theme__linear-color-two, var(--connect__neutrals-null));
-  --connect__linear-z: var(--theme--connect__linear-z, initial);
-
-  &::before {
-    background-image: linear-gradient(
-      var(--connect__linear-direction),
-      var(--connect__linear-color-one),
-      var(--connect__linear-color-two)
-    );
-    content: '';
-    inset: 0;
-    mix-blend-mode: var(--connect__linear-blend-mode);
-    position: absolute;
-  }
-
-  &.connect__breakout {
-    &::after {
-      content: '';
-      position: absolute;
-    }
-  }
-}
-
-/*
-.connect__halftone Component
-
-This component applies a halftone pattern effect to an element using radial gradients.
-
-Variables:
---connect__halftone-solid-bg: Solid background color (theme: --theme__halftone-solid-bg, default: var(--connect__neutrals-null))
---connect__halftone-blend-mode: Blend mode for the halftone effect (theme: --theme__radial-blend-mode, default: normal)
---radial-color: Color of the halftone dots (theme: --theme__radial-color)
---radial-size: Size of the halftone dots (theme: --theme__radial-size, default: 0.25rem)
---radial-bg-size: Size of the background pattern (theme: --theme__radial-bg-size, default: 0.5rem)
-
-Usage:
-- Apply this class to an element to give it a halftone pattern effect.
-- The halftone pattern is applied using a pseudo-element (::after) to allow for blend mode effects.
-- Customize the halftone effect by adjusting the custom properties.
-*/
-.connect__halftone {
-  --connect__halftone-solid-bg: var(--theme__halftone-solid-bg, var(--connect__neutrals-null));
-  --connect__halftone-blend-mode: var(--theme__radial-blend-mode, normal);
-  --radial-color: var(--theme__radial-color);
-  --radial-size: var(--theme__radial-size, 0.25rem);
-  --radial-bg-size: var(--theme__radial-bg-size, 0.5rem);
-  --connect__halftone-z: var(--theme__connect-halftone-z, initial);
-
-  &::after {
-    background-color: var(--connect__halftone-solid-bg);
-
-    background-image: radial-gradient(var(--radial-color) 33%, transparent 33%),
-      radial-gradient(var(--radial-color) 33%, transparent 33%);
-    background-position:
-      0 0,
-      var(--radial-size) var(--radial-size),
-      0 0;
-    background-size:
-      var(--radial-bg-size) var(--radial-bg-size),
-      var(--radial-bg-size) var(--radial-bg-size),
-      100% 100%;
-    content: '';
-    inset: 0;
-    mix-blend-mode: var(--connect__halftone-blend-mode);
-    position: absolute;
   }
 }
 
@@ -1888,7 +974,7 @@ This component creates a footer with a breakout section that extends beyond its 
 
 Variables:
 1. Background:
-   --connect__footer-breakout-bg: Breakout background color (theme: --theme__footer-breakout-bg, default: var(--connect__neutrals-mid))
+   --connect__footer-breakout-bg: Breakout background color (theme: --theme__footer-breakout-bg, default: var(--connect__surface-mid))
 
 2. Positioning:
    --connect__footer-position: Footer position (theme: --theme__footer-position, default: relative)
@@ -1926,8 +1012,9 @@ Breakout Section:
 - Positioned absolutely with top offset of --connect__footer-position-t.
 - Width extends beyond the footer using the breakout variables.
 */
+
 .connect__footer {
-  --connect__footer-breakout-bg: var(--theme__footer-breakout-bg, var(--connect__neutrals-mid));
+  --connect__footer-breakout-bg: var(--theme__footer-breakout-bg, var(--connect__surface-mid));
 
   --connect__footer-position: var(--theme__footer-position, relative);
   --connect__footer-position-t: var(--theme__footer-position, 0);
@@ -1944,22 +1031,21 @@ Breakout Section:
   --connect__footer-padding-b: var(--theme__footer-padding-b, var(--connect__spacer-sm));
   --connect__footer-margin-t: var(--theme__footer-margin-t, 0);
 
-  background-color: var(--connect__neutrals-white);
+  background-color: var(--connect__surface-white);
   margin-top: var(--connect__footer-margin-t);
   padding: var(--connect__footer-padding-t) var(--connect__footer-padding-r)
     var(--connect__footer-padding-b) var(--connect__footer-padding-l);
   position: var(--connect__footer-position);
-  width: 100%;
+  width: var(--connect__full-w);
 
   &::after {
     background-color: var(--connect__footer-breakout-bg);
-
     content: '';
     height: var(--connect__footer-h);
     left: calc(var(--connect__footer-breakout-l) * var(--gutter-width));
     position: absolute;
     top: var(--connect__footer-position-t);
-    width: calc(100% + var(--connect__footer-breakout-w) * var(--gutter-width));
+    width: calc(var(--connect__full-w) + var(--connect__footer-breakout-w) * var(--gutter-width));
   }
 }
 
@@ -1970,51 +1056,81 @@ Variables related to theme/overrides:
   --default-grid-gap: Default gap between grid items.
   --connect__spacer-xl: Extra large spacer.
   --gutter-width: Width of the gutter.
-  --grid-rows: Number of rows in the grid (default: auto-fill).
+  --grid-cols: Number of columns in the grid (default: 12).
 
 Grid Container Styles:
-    align-content: start;
-      - Aligns the content to the start of the grid container.
-    gap: var(--default-grid-gap);
-      - Sets the gap between grid items.
+  align-content: start;
+    - Aligns the content to the start of the grid container.
+  display: var(--connect__display-grid);
+    - Sets the display to grid.
+  gap: var(--theme__content-gap, var(--default-grid-gap));
+    - Sets the gap between grid items.
+  grid-auto-rows: auto;
+    - Automatically sizes rows based on content.
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+    - Defines the number of columns and their size.
+  grid-template-rows: max-content;
+    - Sets the row size to fit content.
+  position: relative;
+    - Positions the grid container relative to its normal position.
+  width: var(--theme__connect-grid-width, var(--connect__full-w));
+    - Sets the width of the grid container.
 
-    &.connect__grid-gutter
-      padding: calc(var(--connect__spacer-xl) * 2) var(--gutter-width);
-        - Adds padding to the grid container with gutter class.
+Gutter Styles:
+  &.connect__grid-gutter
+    padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
+      - Adds padding to the grid container with gutter class.
+
+Nested Grid Styles:
+  .connect__grid
+    display: var(--connect__display-grid);
+      - Sets the display to grid for nested grids.
+    grid-column: 1 / -1;
+      - Spans the entire width of the parent grid.
+    grid-template-columns: subgrid;
+      - Uses subgrid for nested grid columns.
 
 Grid Item Styles:
+  .connect__grid-item
     grid-column: var(--start-col, 1) / span var(--span-col, 12);
-      - Defines the starting column and span for the grid item, if no custom value passed, starts 1 ends 12.
-    grid-row: var(--start-row, auto) / span var(--span-row, 1);
+      - Defines the starting column and span for the grid item.
+    grid-row: var(--xs-row-start, auto) / span var(--xs-row-span, 1);
       - Defines the starting row and span for the grid item.
 
 Responsive Styles:
-Columns and row spanning can be changed at each BP;
+  @media (min-width: 30rem)
+    .connect__sm
+      grid-column: var(--sm-start-col) / span var(--sm-span-col);
+      grid-row: var(--sm-row-span, auto);
 
-example: 
-    grid-column: var(--sm-start-col) / span var(--sm-span-col);
-    grid-row: var(--sm-start-row, auto) / span var(--sm-span-row, 1);
+  @media (min-width: 40.625rem)
+    .connect__md
+      grid-column: var(--md-start-col) / span var(--md-span-col);
+      grid-row: var(--md-row-span, auto);
 
-    grid-column: var(--md-start-col) / span var(--md-span-col);
-    grid-row: var(--md-start-row, auto) / span var(--md-span-row, 1);
+  @media (min-width: 55rem)
+    .connect__lg
+      grid-column: var(--lg-start-col) / span var(--lg-span-col);
+      grid-row: var(--lg-row-span, auto);
 
-    grid-column: var(--lg-start-col) / span var(--lg-span-col);
-    grid-row: var(--lg-start-row, auto) / span var(--lg-span-row, 1);
-
-    grid-column: var(--xl-start-col) / span var(--xl-span-col);
-    grid-row: var(--xl-start-row, auto) / span var(--xl-span-row, 1);
+  @media (min-width: 80rem)
+    .connect__xl
+      grid-column: var(--xl-start-col) / span var(--xl-span-col);
+      grid-row: var(--xl-row-span, auto);
 */
+
 .connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
   --grid-cols: var(--theme-col-amount, 12);
   align-content: start;
-  display: grid;
+  display: var(--connect__display-grid);
   gap: var(--theme__content-gap, var(--default-grid-gap));
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
   position: relative;
-  width: var(--theme__connect-grid-width, 100%);
+  width: var(--theme__connect-grid-width, var(--connect__full-w));
+
   // Apply margin to all direct children except .connect__grid and section
   > *:not(.connect__grid):not(section):not(.connect__breakout) {
     @media (min-width: 40.625rem) {
@@ -2034,7 +1150,7 @@ example:
 
   // Make nested .connect__grid elements use subgrid
   .connect__grid {
-    display: grid;
+    display: var(--connect__display-grid);
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
   }
@@ -2116,6 +1232,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   --connect__stack-align: var(--lg-alignItems);
   --connect__stack-align: var(--xl-alignItems);
 */
+
 .connect__stack {
   --default__stack-paddingX: 0;
   --default__stack-paddingY: 0;
@@ -2135,7 +1252,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
   justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
-  width: 100%;
+  width: var(--connect__full-w);
 
   &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);
@@ -2189,154 +1306,122 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
       --connect__paddingY: var(--lg-paddingY, 0);
     }
   }
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    margin: 0;
-    padding: 0;
+/*
+.connect__chip Component
+
+| Property         | Theme                         | Variant/State              | Fallback / Default                                        |
+|------------------|------------------------------ |----------------------------|-----------------------------------------------------------|
+| Font size        | --theme__chip-fs              | --variant__chip-fs         | --connect__body-sm                                        |
+| Line height      | --theme__chip-lh              | --variant__chip-lh         | --connect__body-sm-lheight                                |
+| Background color | --theme__chip-bg              | --variant__chip-bg         | --connect__primary-mid                                    |
+| Border color     | --theme__chip-border-c        | --variant__chip-border-c   | --connect__neutrals-null                                  |
+| Border width     | --theme__chip-border-w        | --variant__chip-border-w   | --connect__spacer-zero                                    |
+| Padding X        | --theme__chip-padding-x       | --variant__chip-padding-x  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
+| Padding Y        | --theme__chip-padding-y       | --variant__chip-padding-y  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
+| Width            | --theme__chip-radius          | --variant__chip-radius     | --connect__border-radius                                  |
+*/
+
+.connect__chip {
+  --connect__chip-border-w: var(
+    --theme__chip-border-w,
+    var(--variant__chip-border-w, var(--connect__spacer-zero))
+  );
+  --connect__chip-padding-y: var(
+    --theme__chip-padding-y,
+    var(--variant__chip-padding-y, calc(var(--connect__spacer-xs) - var(--connect__chip-border-w)))
+  );
+  --connect__chip-padding-x: var(
+    --theme__chip-padding-x,
+    var(--variant__chip-padding-x, calc(var(--connect__spacer-md) - var(--connect__chip-border-w)))
+  );
+
+  background-color: var(--theme__chip-bg, var(--variant__chip-bg, var(--connect__surface-white)));
+  border: var(--connect__chip-border-w) solid
+    var(--theme__chip-border-c, var(--variant__chip-border-c, var(--connect__neutrals-null)));
+  border-radius: var(
+    --theme__chip-border-radius,
+    var(--variant__chip-border-radius, var(--connect__border-radius))
+  );
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+  color: var(--theme__chip-color, var(--active-color, var(--connect__surface-dark)));
+  font-family: var(--connect__font-sans);
+  font-size: var(--theme__chip-fs, var(--variant__chip-fs, var(--connect__caption)));
+  line-height: var(--theme__chip-lh, var(--variant__chip-lh, var(--connect__caption-lheight)));
+  padding: calc(var(--connect__chip-padding-y) - var(--connect__chip-border-w))
+    calc(var(--connect__chip-padding-x) - var(--connect__chip-border-w));
+  width: var(--connect__chip-w, fit-content);
+
+  &:focus-visible:not(:active) {
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
 }
 
-.connect__chip {
-  --connect__chip-fs: var(--theme__chip-fs, var(--connect__caption));
-  --connect__chip-lh: var(--theme__chip-lh, var(--connect__caption-lheight));
-  --connect__chip-border-w: var(--theme__chip-border-w, var(--connect__spacer-zero));
-  --connect__chip-border-c: var(--connect__neutrals-white, transparent);
-  --connect__chip-radius: var(--theme__border-radius, var(--connect__border-radius));
+/*
+.connect__pill Component
 
-  --connect__chip-color: var(--active-color, var(--connect__neutrals-dark));
-  --connect__chip-bg: var(--theme__chip-bg, var(--connect__neutrals-white));
+| Property         | Theme               | Variant/State         | Fallback / Default            | Props                      |
+|------------------|---------------------|---------------------- |-------------------------------|----------------------------|
+| Font size        | --theme__pill-fs    | --variant__pill-fs    | --connect__body-sm            |
+| Font weight      | --theme__pill-fw    | --variant__pill-fw    | --connect__fw-bold            |
+| Line height      | --theme__pill-lh    | --variant__pill-lh    | --connect__body-sm-lheight    |
+| Background color | --theme__pill-bg    | --variant__pill-bg    | --connect__cc-purple          | --connect__default-pill-bg |
+| Color            | --theme__pill-color | --variant__pill-color | --connect__surface-white      |
+| Padding Y        | --theme__pill-py    | --variant__pill-py    | --connect__spacer-xs          |
+| Padding L        | --theme__pill-pl    | --variant__pill-pl    | --connect__spacer-md          |
+| Padding R        | --theme__pill-pr    | --variant__pill-pr    | --connect__spacer-lg          |
 
-  --connect__chip-padding-y: var(--connect__spacer-xs);
-  --connect__chip-padding-x: var(--connect__spacer-md);
+|-------------------border-radius: top-left top-right bottom-right bottom-left ------------------|
 
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-
-  background-color: var(--connect__chip-bg);
-
-  border: var(--connect__chip-border-w) solid var(--connect__chip-border-c, transparent);
-  border-radius: var(--connect__chip-radius, 0);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-  color: var(--theme__button-color, var(--connect__chip-color));
-  font-family: var(--connect__font-sans);
-  font-size: var(--connect__chip-fs);
-
-  line-height: var(--connect__chip-lh);
-  padding: calc(var(--connect__chip-padding-y) - var(--connect__chip-border-w))
-    calc(var(--connect__chip-padding-x) - var(--connect__chip-border-w));
-
-  width: var(--connect__chip-w, fit-content);
-}
-
-/* Connect pill Component
-
-Variables related to theme/overrides:
-  --theme__pill-bg: Custom background color for the pill.
-  --theme__pill-color: Custom text color for the pill.
-  --theme__pill-py: Custom vertical padding for the pill.
-  --theme__pill-pl: Custom left padding for the pill.
-  --theme__pill-pr: Custom right padding for the pill.
-  --theme__connect-pill-fs: Custom font size for the pill text.
-  --theme__connect-pill-lh: Custom line height for the pill text.
-  --theme__connect-pill-fw: Custom font weight for the pill text.
-  --theme__connect-pill-ff: Custom font family for the pill text.
-
-Variables related to default styles:
-  --connect__default-pill-bg: Default background color for the pill.
-  --connect__default-pill-color: Default text color for the pill.
-  --connect__pill-bg: Final background color (theme override or default).
-  --connect__pill-color: Final text color (theme override or default).
-
-Variables related to border radius:
-  --connect__pill-br-tl: Top-left border radius.
-  --connect__pill-br-tr: Top-right border radius.
-  --connect__pill-br-br: Bottom-right border radius.
-  --connect__pill-br-bl: Bottom-left border radius.
-  --connect__heading-lg-lheight: Used as a fallback for border radius values.
-
-Variables related to padding:
-  --connect__pill-py: Vertical padding (top and bottom).
-  --connect__pill-pl: Left padding.
-  --connect__pill-pr: Right padding.
-  --connect__spacer-xs: Used as a fallback for vertical padding.
-  --connect__spacer-md: Used as a fallback for left padding.
-  --connect__spacer-lg: Used as a fallback for right padding.
-
-Variables related to typography:
-  --connect__pill-fs: Font size.
-  --connect__pill-lh: Line height.
-  --connect__pill-fw: Font weight.
-  --connect__pill-ff: Font family.
-  --connect__body-sm: Used as a fallback for font size.
-  --connect__body-sm-lheight: Used as a fallback for line height.
-  --connect__font-sans: Used as a fallback for font family.
-
-Usage:
-- The pill uses flexbox for layout with centered content.
-- It has customisable palette, spacing, and typography.
-- The border radius can be adjusted to create various shapes, from rectangular to fully rounded.
-- All style properties can be overridden using theme variables
+| Border Radius TL | --theme__pill-br-tl | --variant__pill-br-tl | --connect__heading-lg-lheight |
+| Border Radius TR | --theme__pill-br-tr | --variant__pill-br-tr | --connect__heading-lg-lheight |
+| Border Radius BR | --theme__pill-br-br | --variant__pill-br-br | --connect__spacer-zero        |
+| Border Radius BL | --theme__pill-br-bl | --variant__pill-br-bl | --connect__spacer-zero        |
 */
+
 .connect__pill {
-  // palette
-  --connect__default-pill-bg: var(--connect__cc-purple, var(--connect__purple-s50));
-  --connect__default-pill-color: var(--connect__neutrals-white);
-  --connect__pill-bg: var(--theme__pill-bg, var(--connect__default-pill-bg));
-  --connect__pill-color: var(--theme__pill-color, var(--connect__default-pill-color));
-
-  // border radius
-  --connect__pill-br-tl: var(--connect__spacer-zero);
-  --connect__pill-br-tr: var(--connect__heading-lg-lheight, 5rem);
-  --connect__pill-br-br: var(--connect__heading-lg-lheight, 5rem);
-  --connect__pill-br-bl: var(--connect__spacer-zero);
-
-  // padding
-  --connect__pill-py: var(--theme__pill-py, var(--connect__spacer-xs));
-  --connect__pill-pl: var(--theme__pill-pl, var(--connect__spacer-md));
-  --connect__pill-pr: var(--theme__pill-pr, var(--connect__spacer-lg));
-
-  // typography
-  --connect__pill-fs: var(--theme__connect-pill-fs, var(--connect__body-sm));
-  --connect__pill-lh: var(--theme__connect-pill-lh, var(--connect__body-sm-lheight));
-  --connect__pill-fw: var(--theme__connect-pill-fw, var(--connect__fw-bold));
-  --connect__pill-ff: var(--theme__connect-pill-ff, var(--connect__font-sans));
-
   align-items: center;
-  background-color: var(--connect__pill-bg);
-  border-radius: var(--connect__pill-br-tl) var(--connect__pill-br-tr) var(--connect__pill-br-br)
-    var(--connect__pill-br-bl);
-  color: var(--connect__pill-color);
+  background-color: var(
+    --theme__pill-bg,
+    var(--variant__pill-bg, var(--connect__default-pill-bg, var(--connect__cc-purple)))
+  );
+  border-radius: var(--theme__pill-br-tl, var(--variant__pill-br-tl, var(--connect__spacer-zero)))
+    var(--theme__pill-br-tr, var(--variant__pill-br-tr, var(--connect__heading-lg-lheight)))
+    var(--theme__pill-br-br, var(--variant__pill-br-br, var(--connect__heading-lg-lheight)))
+    var(--theme__pill-br-bl, var(--variant__pill-br-bl, var(--connect__spacer-zero)));
+  color: var(--theme__pill-color, var(--variant__pill-color, var(--connect__surface-white)));
   display: inline-flex;
-  font-family: var(--connect__pill-ff);
-  font-size: var(--connect__pill-fs);
-  font-weight: var(--connect__pill-fw);
+  font-family: var(--connect__font-sans);
+  font-size: var(--theme__pill-fs, var(--variant__pill-fs, var(--connect__body-sm)));
+  font-weight: var(--theme__pill-fw, var(--variant__pill-fw, var(--connect__fw-bold)));
   justify-content: center;
-  line-height: var(--connect__pill-lh);
-  padding: var(--connect__pill-py) var(--connect__pill-pr) var(--connect__pill-py)
-    var(--connect__pill-pl);
+  line-height: var(--theme__pill-lh, var(--variant__pill-lh, var(--connect__body-sm-lheight)));
+  padding: var(--theme__pill-py, var(--variant__pill-py, var(--connect__spacer-xs)))
+    var(--theme__pill-pr, var(--variant__pill-pr, var(--connect__spacer-lg)))
+    var(--theme__pill-py, var(--variant__pill-py, var(--connect__spacer-xs)))
+    var(--theme__pill-pl, var(--variant__pill-pl, var(--connect__spacer-md)));
 }
+
+/*
+.connect__icon-wrapper Component
+
+Variables related to positioning:
+  --connect__feedback-translateY: Vertical translation for feedback icon.
+  --connect__feedback-translateX: Horizontal translation for feedback icon.
+  --connect__icon-size: Size of the icon, defaults to medium if not specified.
+
+Pseudo-element Styles:
+  &::after
+    background-image: var(--state-icon);
+*/
 
 .connect__icon-wrapper {
-  --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
-  --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
-
   display: inline-flex;
   flex: 1;
   flex-direction: var(--connect__display-flex-direction);
   position: relative;
-  width: 100%;
+  width: var(--connect__full-w);
 
   &::after {
     background-image: var(--state-icon);
@@ -2351,48 +1436,34 @@ Usage:
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
 
-  &.connect__input-correct {
-    --state-icon: var(--icon-correct);
-  }
-
-  &.connect__input-incorrect {
-    --state-icon: var(--icon-incorrect);
-  }
-
-  &.connect__input-shown {
-    --state-icon: var(--icon-shown);
-  }
-
   &.connect__input-character-count {
     --connect__display-align-items: end;
     --connect__display-flex: flex;
     --connect__display-flex-direction: column;
   }
-
-  > .connect__select-correct {
-    --state-icon: var(--icon-correct);
-  }
-
-  > .connect__select-incorrect {
-    --state-icon: var(--icon-incorrect);
-  }
-
-  > .connect__select-shown {
-    --state-icon: var(--icon-shown);
-  }
 }
 
+/*
+.connect__icon Component
+
+| Property| Fallback / Default           | Sizes              |
+|---------|------------------------------|--------------------|
+| Fill    | --connect__icon-fill-color    |
+| Stroke  | --connect__icon-stroke-color |
+| Color   | --connect__icon-fill-color    |
+| Opacity | --connect__icon-opacity      |             
+| Sizes   |--connect__icon-size          | xs sm md lg xl xxl |
+*/
+
 .connect__icon {
-  --icon-fill: var(--connect__icon-fill-color, #2d2d2d);
-  --icon-stroke: var(--connect__icon-stroke-color, var(--connect__icon-default-stroke-color));
   color: var(--icon-fill);
   height: var(--connect__icon-size);
   opacity: var(--connect__icon-opacity, 1);
   width: var(--connect__icon-size);
 
   svg {
-    fill: var(--icon-fill);
-    stroke: var(--icon-stroke, transparent);
+    fill: var(--connect__icon-fill-color, var(--connect__surface-dark));
+    stroke: var(--connect__icon-stroke-color);
   }
 
   &-xs {
@@ -2420,101 +1491,80 @@ Usage:
   }
 }
 
-.connect__checkbox-label-wrapper,
-.connect__input-label-wrapper,
-.connect__mcq-label-wrapper {
-  position: relative;
+/*
+.connect__choice Component
 
-  &:has(.connect__mcq-text) {
-    --connect__icon-size: var(--connect__icon-xl);
-  }
+Padding on MCQ labels is the total border + spacer
+
+| Property            | Theme                        | Variant/State                  | Fallback / Default                                       |
+|---------------------|------------------------------|--------------------------------|----------------------------------------------------------|
+| Font size           | --theme__label-fs            | --variant__label-fs            | --connect__body-sm                                       |
+| Line height         | --theme__label-lh            | --variant__label-lh            | --connect__body-sm-lheight                               |
+| Font weight         | --theme__label-fw            | --variant__label-fw            | --connect__fw-regular                                    |
+| Radius              | --theme__label-border-radius | --variant__label-border-radius | --connect__border-radius                              |
+| Background color    | --theme__label-bg            | --variant__label-bg            | --connect__surface-white                                   |
+| Color               | --theme__label-color         | --variant__label-color         | --connect__surface-dark                                |
+| Gap                 | --theme__label-gap           | --variant__label-gap             | --connect__spacer-md                                     |
+| Cursor              |                              | --connect__state-based-pointer | pointer                                                  |
+
+
+|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
+|---------------------|-------INPUT VARIABLES--------|-------------------------------|----------------------------------------------------------|
+|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
+| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
+|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
+| Radius              | --theme__mcq-border-radius   | --variant__mcq-border-radius  | --connect__inner-radius                              |
+| Dimensions          | --theme__input-dimensions    | --variant__input-dimensions   | --connect__caption-lheight                              |
+
+*/
+
+.connect__choice-label-wrapper {
+  position: relative;
 }
 
-.connect__checkbox-label,
-.connect__mcq-label {
-  // typography
-  --connect__label-fs: var(--connect__body-sm, 1.25rem);
-  --connect__label-lh: var(--connect__body-sm-lheight, 1.5);
-  --connect__label-fw: var(--connect__fw-regular);
-  --connect__label-text-transform: capitalize;
-
-  // borders / radius
-  --connect__label-border-w: var(--connect__spacer-zero);
-  --connect__label-border-c: var(--connect__neutrals-white, transparent);
-  --connect__label-radius: var(--connect__border-radius);
-
-  // shadows
-  --connect__shadow_inner-null: var(--connect__spacer-zero) var(--connect__spacer-zero)
-    var(--connect__spacer-zero);
-  --inner-shadow: var(--connect__shadow_inner-null) var(--connect__effects-inner-edge)
-    var(--inner-shadow-color, transparent) inset;
-  --inner-shadow-color: var(--connect__neutrals-white);
-  --starting-shadow-color: var(--connect__neutrals-white);
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-7);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-8);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-9);
-
-  // radius
-  --connect__mcq-radius: var(
-    --theme__mcq-radius,
-    var(--variant__mcq-radius, var(--connect__inner-radius))
-  );
-
-  // palette
-  --connect__label-color: var(--active-color, var(--connect__neutrals-dark));
-
-  // spacings
-  --connect__label-gap: var(--connect__spacer-md);
-
+.connect__choice-label {
   --connect__label-padding-y: calc(var(--connect__total-border) + var(--connect__spacer-xs));
   --connect__label-padding-x: calc(var(--connect__total-border) + var(--connect__spacer-sm));
-  --connect__label-justify-content: var(--connect__card-justify, start);
-  --connect__label-w: 100%;
 
-  // inputs
-  --connect__input-dimensions: var(--connect__caption-lheight);
-  --connect__input-border-w: 0.125rem;
+  --connect__input-dimensions: var(
+    --theme__input-dimensions,
+    var(--variant__input-dimensions, var(--connect__caption-lheight))
+  );
+  --connect__input-border-w: var(--connect__mcq-border-w);
 
   align-items: center;
-  background-color: var(--theme__mcq-bg, var(--connect__neutrals-white));
-
-  border: var(--connect__label-border-w) solid var(--connect__label-border-c, transparent);
-  border-radius: var(--connect__label-radius, 0);
-
-  box-shadow:
-    var(--inner-shadow),
-    var(--connect__shadow_inner-null) var(--connect__inner-status)
-      var(--connect__mcq-starting-shadow-color, var(--starting-shadow-color)) inset,
-    var(--connect__shadow_inner-null) var(--connect__effects-inner-edge)
-      var(--state-based-bg, var(--connect__neutrals-white)) inset,
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
-  color: var(--connect__label-color);
+  background-color: var(--theme__label-bg, var(--variant__label-bg, var(--connect__surface-white)));
+  border-radius: var(
+    --theme__label-border-radius,
+    var(--variant__label-border-radius, var(--connect__border-radius))
+  );
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+  color: var(--theme__label-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   font-family: var(--connect__font-sans);
-  font-size: var(--connect__label-fs);
-  font-weight: var(--connect__label-fw, initial);
-  gap: var(--connect__label-gap);
-  justify-content: var(--connect__label-justify-content);
-  line-height: var(--connect__label-lh);
+  font-size: var(--theme__label-fs, var(--variant__label-fs, var(--connect__body-sm)));
+  font-weight: var(
+    --theme__label-fw,
+    var(--variant__label-fw, var(--connect__fw-regular, initial))
+  );
+  gap: var(--theme__label-gap, var(--variant__label-gap, var(--connect__spacer-md)));
+  justify-content: start;
+  line-height: var(--theme__label-lh, var(--variant__label-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
-
   position: relative;
-  text-transform: var(--connect__label-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
-  width: var(--connect__label-w, fit-content);
+  width: var(--connect__full-w, fit-content);
 
   &::before {
     border: var(--connect__input-border-w) solid
-      var(--checkbox-checked-state-based-border-c, var(--connect__selected-mid));
-    border-radius: var(--connect__mcq-radius);
+      var(--checkbox-checked-state-based-border-c, var(--connect__primary-mid));
+    border-radius: var(
+      --theme__mcq-radius,
+      var(--variant__mcq-radius, var(--connect__inner-radius))
+    );
     content: '';
     flex-shrink: 0;
     height: var(--connect__input-dimensions);
@@ -2523,45 +1573,88 @@ Usage:
   }
 
   &:hover {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-12);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
   }
 
   &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   &:focus-visible:not(:active) {
-    --connect__shadow-10: var(--connect__focus-mid);
-    --connect__shadow-20: var(--connect__focus-mid);
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-16);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-2);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-15);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
+  }
+
+  &.connect__label-checked {
+    &::before {
+      background-color: var(--checkbox-state-based-bg, var(--connect__primary-mid));
+      background-image: var(--checked-state-icon, var(--connect__surface-null));
+      background-size: contain;
+      box-shadow: var(--connect__shadow-reset) var(--connect__input-border-w)
+        var(--checkbox-state-based-inner-shadow, var(--connect__surface-white)) inset;
+    }
+
+    &.connect__disabled {
+      --checkbox-state-based-bg: var(--connect__disabled-light);
+    }
+
+    &.connect__feedback-correct {
+      --checkbox-state-based-bg: var(--connect__correct-mid);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-correct);
+    }
+
+    &.connect__feedback-incorrect {
+      --checkbox-state-based-bg: var(--checked-incorrect-bg);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-incorrect);
+    }
+
+    &.connect__input-shown {
+      --checkbox-state-based-bg: var(--connect__surface-dark);
+      --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
+      --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
+      --checked-state-icon: var(--checked-correct);
+    }
+  }
+
+  &.connect__disabled {
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 }
 
 .connect__input-no-shadow {
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
+  box-shadow: var(--connect__shadow-null);
 }
 
+/*
+.connect__mcq-card Component
+
+Padding on MCQ labels is the total border
+Positioning int he pseudos is the total border / 2
+
+  &::after
+    background-color of area around the input
+    border-radius of this click area
+
+|-----------|-----------------------|-------------------------|
+|-----------|-------MCQ Card--------|-------------------------|
+|-----------|-------|---------------|-------------------------|
+| Property  | Theme | Variant/State | Fallback / Default      |
+|-----------|-------|---------------|-------------------------|
+| Padding-y |       |               | --connect__total-border |
+| Padding-x |       |               | --connect__total-border |
+| Margin    |       |               | --connect__spacer-xs    |
+*/
+
 .connect__mcq-card {
-  --connect__label-gap: var(--connect__spacer-sm);
   --connect__label-padding-y: var(--connect__total-border);
   --connect__label-padding-x: var(--connect__total-border);
-  --starting-shadow-color: transparent;
-  --connect__mcq-bg: var(--connect__neutrals-white);
   --connect__mcq-input-margin: var(--connect__spacer-xs);
 
   align-items: flex-start;
-  display: grid;
+  display: var(--connect__display-grid);
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
@@ -2569,14 +1662,15 @@ Usage:
     grid-column: 1;
     grid-row: 1;
     left: calc(var(--connect__label-padding-x) / 2);
-    position: absolute;
+    position: var(--connect__absolute);
     top: calc(var(--connect__label-padding-y) / 2);
-    z-index: 2;
+    z-index: var(--connect__z-1);
   }
 
   &::after {
-    background-color: var(--theme__mcq-bg, var(--connect__mcq-bg));
-    border-radius: var(--theme__inner-radius, var(--connect__inner-radius)) 0;
+    background-color: var(--connect__surface-white);
+    border-radius: var(--theme__inner-radius, var(--connect__inner-radius))
+      var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
@@ -2601,104 +1695,24 @@ Usage:
       --connect__fig-px: var(--connect__spacer-sm);
     }
   }
-
-  &.connect__mcq-card-selected {
-    &:not(:hover):not(:active):not(:focus-visible) {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-    }
-  }
 }
 
-.connect__mcq-text {
-  &::before {
-    content: unset;
-  }
-}
-
-/* Using the where will resolve any stylelint errors,
-  specifically the error 
-  Unexpected qualifying type selector selector-no-qualifying-type "input[type='checkbox'].connect__input"
-*/
-:where([class^='connect__']) input[type='checkbox'],
-:where([class^='connect__']) input[type='radio'] {
+.connect__choice {
   inset: 0;
-  opacity: 0;
+  opacity: var(--connect__opacity-zero);
   position: absolute;
-
-  &:disabled {
-    + .connect__mcq-label {
-      --active-color: var(--connect__neutrals-mid);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
-      --checkbox-state-based-bg: var(--connect__neutrals-white);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      --connect__state-based-pointer: not-allowed;
-      --state-mcq-shadow: var(--connect__neutrals-light);
-    }
-
-    + .connect__checkbox-label {
-      --active-color: var(--connect__neutrals-mid);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
-      --checkbox-state-based-bg: var(--connect__neutrals-white);
-      --connect__state-based-pointer: not-allowed;
-      --state-mcq-shadow: var(--connect__neutrals-light);
-    }
-
-    + .connect__mcq-card {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-6);
-    }
-  }
-
-  &:checked {
-    + .connect__checkbox-label,
-    + .connect__mcq-label {
-      &::before {
-        background-color: var(--checkbox-state-based-bg, var(--connect__selected-mid));
-        background-image: var(--checked-state-icon, transparent);
-        background-size: contain;
-        box-shadow: var(--connect__shadow_inner-null) var(--connect__input-border-w)
-          var(--checkbox-state-based-inner-shadow, var(--connect__neutrals-white)) inset;
-      }
-    }
-  }
-
-  &:checked:disabled {
-    + .connect__checkbox-label,
-    + .connect__mcq-label {
-      --checkbox-state-based-bg: var(--connect__neutrals-light);
-      --checkbox-state-based-inner-shadow: var(--connect__neutrals-white);
-      --checkbox-checked-state-based-border-c: var(--connect__neutrals-light);
-    }
-  }
-
-  &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  }
 }
 
-:where([class^='connect__']) input[type='radio'] {
+.connect__choice[type='radio'] {
   + label {
-    --variant__mcq-radius: 50%;
+    --variant__mcq-radius: var(--connect__half-radius);
   }
-}
-
-.connect__progress-wrapper {
-  width: 100%;
 }
 
 /* 
 .connect__progress Component
 
 Variables related to theme/overrides:
-  --connect__shadow-level-1: First level of box shadow spread.
-  --connect__shadow-level-2: Second level of box shadow spread.
-  --connect__progress-outer-shadow-c: Color of the outer shadow for the progress bar.
   --connect__progress-bg: Background color of the progress bar container.
   --connect__progress-color: Color of the progress bar itself.
   --connect__inner-bar-radius: Border radius of the inner progress bar.
@@ -2707,14 +1721,8 @@ Variables related to theme/overrides:
 Styles:
   appearance: none;
     - Removes default browser styling.
-  border: none;
-    - Removes default border.
   border-radius: var(--connect__border-radius);
     - Applies border radius to the overall progress bar.
-  overflow: hidden;
-    - Hides overflow to maintain rounded corners.
-  width: 100%;
-    - Sets the width to full container width.
 
 Browser-specific styles:
   &::-webkit-progress-bar
@@ -2728,22 +1736,20 @@ Transitions:
   transition:
     inline-size var(--connect__transition-medium) var(--connect__in-out-quad),
     width var(--connect__transition-medium) var(--connect__in-out-quad);
-    - Applies smooth transitions to the progress bar width changes.
-
+    - transitions to the progress bar width changes.
 */
 
+.connect__progress-wrapper {
+  width: var(--connect__full-w);
+}
+
 .connect__progress[value] {
-  --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-2);
   --connect__progress-outer-shadow-c: var(
     --theme__progress-outer-shadow-c,
-    var(--connect__neutrals-white)
+    var(--connect__surface-white)
   );
 
-  // palette
-  --connect__cc-purple: rgb(113, 47, 253);
-
-  --connect__progress-bg: var(--theme__progress-bg, var(--connect__neutrals-white));
+  --connect__progress-bg: var(--theme__progress-bg, var(--connect__surface-white));
   --connect__progress-color: var(--theme__progress-color, var(--connect__cc-purple));
 
   // border radius
@@ -2753,22 +1759,16 @@ Transitions:
   // This is here because FF needs it here, will ignore in chrome
   appearance: none;
   background: var(--connect__progress-bg);
-
   border: none;
   border-radius: var(--connect__progress-bar-radius);
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-    var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
+  box-shadow: var(--connect__shadow-lvl-0);
   overflow: hidden;
-  width: 100%;
+  width: var(--connect__full-w);
 
   // Outer bars
   &::-webkit-progress-bar {
     background: var(--connect__progress-bg);
     border-radius: var(--connect__progress-bar-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-      var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
   }
 
   &::-webkit-progress-value {
@@ -2781,33 +1781,36 @@ Transitions:
 
   &::-moz-progress-bar {
     background: var(--connect__progress-color);
-
     border-radius: var(--connect__progress-bar-radius);
-    box-shadow:
-      var(--connect__shadow-level-1) var(--connect__shadow-20) inset,
-      var(--connect__shadow-level-2) var(--connect__progress-outer-shadow-c);
   }
 }
 
-/* Time
-  Time Component
+/*
+.connect__timer Component
+
+| Property    | Theme                 | Variant/State            | Fallback / Default            | Props               |
+|-------------|---------------------- |------------------------- |-------------------------------|---------------------|
+| Font size   | --theme__timer-fs     | --variant__timer-fs      | --connect__heading-lg         | --connect__timer-fs |
+| Line height | --theme__timer-lh     | --variant__timer-lh      | --connect__heading-lg-lheight | --connect__timer-lh |
+| Font weight | --theme__timer-fw     | --variant__timer-fw      | --connect__fw-bold            |
+| Font Style  | --theme__timer-fstyle | --variant__timer-fstyle  | normal                        |
+| Color       | --theme__timer-color  | --variant__timer-color   | --connect__surface-dark       |
 */
 
-.connect__timer-wrapper {
-  --connect__timer-fs: var(--theme__timer-fs, var(--connect__heading-lg));
-  --connect__timer-lh: var(--theme__time-lh, var(--connect__heading-lg-lheight));
-  --connect__timer-fw: var(--theme__time-fw, 700);
-  --connect__timer-style: var(--theme__time-style, normal);
-  --connect__timer-color: var(--theme__time-color, var(--connect__neutrals-dark));
-
-  .connect__timer {
-    color: var(--connect__timer-color);
-    font-size: var(--connect__timer-fs);
-    font-style: var(--connect__timer-style);
-    font-variant-numeric: tabular-nums;
-    font-weight: var(--connect__timer-fw);
-    line-height: var(--connect__timer-lh);
-  }
+.connect__timer {
+  color: var(--theme__timer-color, var(--variant__timer-color, var(--connect__surface-dark)));
+  font-family: var(--connect__font-sans);
+  font-size: var(
+    --theme__timer-fs,
+    var(--variant__timer-fs, var(--connect__timer-fs, var(--connect__heading-lg)))
+  );
+  font-style: var(--theme__timer-fstyle, var(--variant__timer-fstyle, var(--connect__fw-style)));
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--theme__timer-fw, var(--variant__timer-fw, var(--connect__fw-bold)));
+  line-height: var(
+    --theme__timer-lh,
+    var(--variant__timer-lh, var(--connect__timer-lh, var(--connect__heading-lg-lheight)))
+  );
 }
 
 /* 
@@ -2895,84 +1898,28 @@ Usage:
 }
 
 /* 
-  Toolbar Component
-
-  Variables:
-    --connect__toolbar-direction: Direction and wrapping of toolbar items.
-    --connect__toolbar-align: Alignment of toolbar items.
-    --connect__toolbar-padding-y: Vertical padding of the toolbar.
-    --connect__toolbar-padding-x: Horizontal padding of the toolbar.
-    --connect__toolbar-sub-menu-divider-w: Width of the sub-menu divider.
-    --connect__toolbar-bg: Background color of the toolbar.
-  */
-.connect__toolbar {
-  --connect__toolbar-direction: row wrap;
-  --connect__toolbar-align: center;
-  --connect__toolbar-padding-y: var(--connect__spacer-xs);
-  --connect__toolbar-padding-x: var(--connect__spacer-sm);
-  --connect__toolbar-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
-  --connect__toolbar-bg: var(--theme__connect_toolbar-bg, var(--connect__neutrals-pale));
-
-  align-items: var(--connect__toolbar-align, baseline);
-  background-color: var(--connect__toolbar-bg);
-  container-name: toolbar;
-  container-type: inline-size;
-  display: flex;
-  flex-flow: var(--connect__toolbar-direction, column wrap);
-  justify-content: space-between;
-  margin: 0;
-  padding: var(--connect__toolbar-padding-y) var(--connect__toolbar-padding-x);
-}
-
-/* 
 .connect__aside Component
 
-Variables related to theme/overrides:
-  --connect__aside-padding-y: Vertical padding of the aside.
-  --connect__aside-padding-x: Horizontal padding of the aside.
-  --connect__aside-bg: Background color of the aside.
-  --connect__aside-w: Width of the aside.
-  --connect__aside-align: Alignment of items within the aside.
-  --connect__aside-direction: Flex direction of the aside content.
-
-Other variables:
-  --connect__aside-sub-menu-divider-w: Width of the sub-menu divider.
-  --connect__neutrals-white: Default background color if not overridden.
-
-Styles:
-  align-items: Aligns items within the aside.
-  background-color: Sets the background color of the aside.
-  display: Sets the display property to flex.
-  flex-flow: Determines the flex direction and wrapping behavior.
-  justify-content: Distributes space between and around content items.
-  margin: Removes default margin.
-  padding: Applies vertical and horizontal padding.
-  width: Sets the width of the aside.
-
-Usage:
-  The .connect__aside class can be applied to a container element to create 
-  a sidebar or navigation panel. The appearance and layout can be customised 
-  using the provided CSS variables.
-
+| Property         | Theme                    | Variant                    | Fallback / Default       |
+|------------------|--------------------------|----------------------------|--------------------------|
+| Background color | --theme__aside-bg        | --variant__aside-bg        | --connect__surface-white |
+| Padding X        | --theme__aside-padding-x | --variant__aside-padding-x | --connect__spacer-xs     |
+| Padding Y        | --theme__aside-padding-y | --variant__aside-padding-y | --connect__spacer-md     |
+| Width            | --theme__aside-w         | --variant__aside-w         | 3.625rem                 |
+| Height           | --theme__aside-h         | --variant__aside-h         | 100vh                    |
 */
-.connect__aside {
-  --connect__aside-padding-y: var(--connect__spacer-md);
-  --connect__aside-padding-x: var(--connect__spacer-xs);
-  --connect__aside-sub-menu-divider-w: calc(var(--connect__spacer-xs) / 2);
-  --connect__aside-bg: var(--theme__connect-aside-bg, var(--connect__neutrals-white));
-  --connect__aside-w: var(--theme__aside-w, 3.625rem);
-  --connect__aside-h: var(--theme__aside-h, 100vh);
-  --variant__marker-color: var(--connect__neutrals-null);
 
-  align-items: var(--connect__aside-align, center);
-  background-color: var(--connect__aside-bg);
+.connect__aside {
+  align-items: center;
+  background-color: var(--theme__aside-bg, var(--variant__aside-bg, var(--connect__surface-white)));
   display: flex;
-  flex-flow: var(--connect__aside-direction, column wrap);
-  height: var(--connect__aside-h);
+  flex-flow: column wrap;
+  height: var(--theme__aside-h, var(--variant__aside-h, 100vh));
   justify-content: space-between;
   margin: 0;
-  padding: var(--connect__aside-padding-y) var(--connect__aside-padding-x);
-  width: var(--connect__aside-w);
+  padding: var(--theme__aside-padding-y, var(--variant__aside-padding-y, var(--connect__spacer-md)))
+    var(--theme__aside-padding-x, var(--variant__aside-padding-x, var(--connect__spacer-xs)));
+  width: var(--theme__aside-w, var(--variant__aside-w, 3.625rem));
 
   &:has(ul:only-child) {
     justify-content: end;
@@ -2980,13 +1927,9 @@ Usage:
 
   .connect__selected {
     &:not(:disabled) {
-      --connect__button-bg: var(--connect__brand-pale-magenta);
-      --inner-shadow-color: var(--connect__brand-pale-magenta);
+      --variant__btn-bg: var(--connect__brand-pale-magenta);
+      --connect__inner-status-color: var(--connect__brand-pale-magenta);
       --connect__icon-fill: var(--connect__brand-deep-magenta);
-
-      &:active {
-        --inner-shadow-color: var(--connect__neutrals-white);
-      }
     }
 
     &:disabled {
@@ -2996,409 +1939,116 @@ Usage:
   }
 
   .connect__list {
+    align-items: center;
     display: flex;
     flex-flow: column wrap;
     gap: var(--connect__spacer-xs);
+    width: 100%;
+  }
+
+  hr {
+    --variant__divider-margin-x: var(--connect__spacer-sm);
   }
 }
 
-/* 
+/*
 .connect__divider Component
-Variables related to theme/overrides:
-  --connect__divider-bg: Background color of the divider.
-  --connect__divider-h: Height of the divider.
-  --connect__divider-w: Width of the divider.
-  --connect__divider-br: Border radius of the divider.
-  --connect__divider-margin-y: Vertical margin of the divider.
-  --connect__divider-margin-x: Horizontal margin of the divider.
-Default values and fallbacks:
-  --connect__gray-c10: Default background color if not overridden.
-  --connect__border-radius: Default border radius if not overridden.
-  --connect__spacer-xs: Default vertical margin and bottom padding.
-  --connect__spacer-sm: Default horizontal margin.
-Styles:
-  background-color: Sets the background color of the divider.
-  border: Removes any border.
-  border-radius: Applies border radius to the divider.
-  height: Sets the height of the divider.
-  margin: Applies vertical and horizontal margins.
-  padding-bottom: Adds bottom padding to the divider.
-  position: Sets the positioning context for the divider.
-Usage:
-  The .connect__divider class can be applied to an <hr> element or any other
-  element that needs to act as a visual separator. The appearance and spacing
-  can be customised using the provided CSS variables.
-Example:
-  <hr class="connect__divider">
-  To override styles:
-  <hr class="connect__divider" style="--connect__divider-bg: blue;">
+
+Divider can be vertical or horizontal
+[aria-orientation='vertical']
+
+| Property         | Theme                     | Variant                     | Fallback / Default             |
+|------------------|---------------------------|-----------------------------|--------------------------------|
+| Background color | --theme__divider-bg       | --variant__divider-bg       | --connect__gray-c10            |
+| Height           | --theme__divider-h        | --variant__divider-h        | --connect__effects-inner-edge  |
+| Width            | --theme__divider-w        | --variant__divider-w        | --connect__full-w              |
+| Radius           | --theme__divider-br       | --variant__divider-br       | --connect__border-radius       |         
+| Margin x         | --theme__divider-margin-x | --variant__divider-margin-x | --connect__spacer-zero         |      
+| Margin y         | --theme__divider-margin-y | --variant__divider-margin-y | --connect__spacer-zero         |       
 */
+
 .connect__divider {
-  --connect__divider-bg: var(--theme__divider-bg, var(--connect__gray-c10));
-  --connect__divider-h: var(--theme__divider-h, 0.1875rem);
-  --connect__divider-w: var(--theme__divider-w, 100%);
-  --connect__divider-br: var(--theme__divider-br, var(--connect__border-radius));
-  --connect__divider-margin-y: var(--theme__divider-margin-y, var(--connect__spacer-xs));
+  --connect__divider-margin-y: var(
+    --theme__divider-margin-y,
+    var(--variant__divider-margin-y, var(--connect__spacer-zero))
+  );
+  --connect__divider-margin-x: var(
+    --theme__divider-margin-x,
+    var(--variant__divider-margin-x, var(--connect__spacer-zero))
+  );
 
-  --connect__divider-margin-x: var(--theme__divider-margin-x, var(--connect__spacer-sm));
-
-  background-color: var(--connect__divider-bg);
+  background-color: var(--theme__divider-bg, var(--variant__divider-bg, var(--connect__gray-c10)));
   border: 0;
-  border-radius: var(--connect__divider-br);
-  box-sizing: border-box;
-  height: var(--connect__divider-h, initial);
-  margin: 0 var(--connect__divider-margin-x);
+  border-radius: var(
+    --theme__divider-br,
+    var(--variant__divider-br, var(--connect__border-radius))
+  );
+  height: var(--theme__divider-h, var(--variant__divider-h, var(--connect__effects-inner-edge)));
+  margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
   position: relative;
-  width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
-}
-
-// Moved toolbar button styles to here to support JS
-// these are the top level styles only
-.connect__toolbar-item {
-  padding: 0.0625rem;
-
-  > .connect__selected {
-    --state-based-bg: var(--connect__selected-light);
-
-    &:not(:disabled) {
-      --connect__button-bg: var(--connect__selected-mid);
-      --inner-shadow-color: var(--connect__selected-mid);
-      --connect__icon-fill: var(--connect__neutrals-white);
-
-      &:active {
-        --inner-shadow-color: var(--connect__neutrals-white);
-      }
-    }
-    // > .connect__button-menu {
-    // }
-  }
-}
-
-/* 
-  Toolbar Menu Component
-
-  Variables:
-    --connect__toolbar-direction: Direction and wrapping of toolbar menu items.
-    --connect__toolbar-align: Alignment of toolbar menu items.
-    --connect__toolbar-justify: Justification of toolbar menu items.
-    --connect__toolbar-gap: Gap between toolbar menu items.
-    --connect__toolbar-menu-padding-x: Horizontal padding of the toolbar menu.
-    --connect__toolbar-menu-margin: Margin of the toolbar menu.
-    --connect__menu-divider-line-y-offset: Vertical offset of the menu divider line.
-    --connect__menu-divider-line-x-offset: Horizontal offset of the menu divider line.
-    --connect__menu-divider-line-h: Height of the menu divider line.
-
-  Styles:
-    - Add a divider line after the second toolbar menu.
-  */
-.connect__toolbar-menu {
-  --connect__toolbar-direction: row wrap;
-  --connect__toolbar-align: center;
-  --connect__toolbar-justify: center;
-  --connect__toolbar-gap: var(--connect__spacer-xs);
-
-  --connect__toolbar-menu-padding-x: 0;
-  --connect__toolbar-menu-margin: 0;
-
-  --connect__menu-divider-line-y-offset: var(--connect__spacer-xs);
-  --connect__menu-divider-line-x-offset: calc(var(--connect__spacer-sm) * -1);
-
-  --connect__menu-divider-line-h: calc(100% - calc(var(--connect__menu-divider-line-y-offset) * 2));
-
-  --connect__menu-divider-line-w: var(--connect__effects-inner-edge);
-
-  align-items: var(--connect__toolbar-align, baseline);
-  display: flex;
-  flex-flow: var(--connect__toolbar-direction, column wrap);
-  gap: var(--connect__toolbar-gap);
-  justify-content: var(--connect__toolbar-justify, baseline);
-  margin: var(--connect__toolbar-menu-margin);
-  padding: var(--connect__toolbar-menu-padding-x);
-  position: relative;
-
-  &:nth-of-type(2) {
-    --connect__icon-fill-color: var(--connect__gray-c35);
-
-    &::after {
-      background-color: var(--connect__gray-c35);
-      border-radius: var(--connect__border-radius);
-      content: '';
-      height: var(--connect__menu-divider-line-h);
-      left: var(--connect__menu-divider-line-x-offset);
-      position: absolute;
-      top: var(--connect__menu-divider-line-y-offset);
-      width: var(--connect__menu-divider-line-w);
-    }
-  }
-}
-
-/* 
-  Toolbar Sub-Menu Component
-
-  Button styles in here are sub menu only, only difference the shadow on hover and active
-
-  Variables:
-    --connect__toolbar-sub-menu-divider-c: Color of the sub-menu divider.
-    --connect__toolbar-row-gap: Row gap in the sub-menu.
-    --connect__toolbar-col-gap: Column gap in the sub-menu.
-    --connect__toolbar-item-menu-y-offset: Vertical offset of the sub-menu.
-    --connect__toolbar-sub-menu-flow: Flow direction of the sub-menu.
-    --connect__toolbar-sub-menu-cols: Number of columns in the sub-menu.
-    --starting-speed: Transition speed.
-    --transition-origin-start: Transition origin.
-    --starting-bezier: Transition timing function.
-
-  Styles:
-    - Set the background color and border radius of the sub-menu.
-    - Apply box shadows to the sub-menu.
-    - Define the grid layout for the sub-menu.
-    - Set the initial opacity and position of the sub-menu.
-    - Apply transitions to the sub-menu.
-  */
-.connect__toolbar-item-menu {
-  --connect__toolbar-sub-menu-divider-c: var(--connect__gray-c10);
-  --connect__toolbar-row-gap: var(--connect__spacer-xs);
-  --connect__toolbar-col-gap: var(--connect__spacer-xs);
-  --connect__toolbar-item-menu-y-offset: calc(100% + var(--connect__spacer-md, 0));
-  --connect__toolbar-sub-menu-flow: column;
-  --connect__toolbar-sub-menu-cols: var(--demo-cols, 1);
-
-  background: var(--connect__neutrals-white);
-  border-radius: var(--connect__border-radius);
-  box-shadow:
-    var(--connect__shadow-spread-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-spread-level-4) var(--connect__shadow-20),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-14),
-    var(--connect__shadow-spread-level-18) var(--connect__shadow-12);
-  column-gap: var(--connect__toolbar-col-gap);
-  display: grid;
-  grid-auto-flow: var(--connect__toolbar-sub-menu-flow) dense;
-  grid-template-columns: repeat(var(--connect__toolbar-sub-menu-cols), 1fr);
-  padding: var(--connect__spacer-xs);
-  position: absolute;
-  row-gap: var(--connect__toolbar-row-gap);
-  top: var(--connect__toolbar-item-menu-y-offset);
-  transform: translate(
-    var(--connect__toolbar-item-menu-x-offset),
-    var(--connect__toolbar-item-menu-y-offset)
+  width: calc(
+    var(--theme__divider-w, var(--variant__divider-w, var(--connect__full-w))) -
+      (var(--connect__divider-margin-x) * 2)
   );
 
-  &:has(li:nth-child(6)) {
-    --connect__toolbar-row-gap: calc(
-      var(--connect__spacer-xs) + var(--connect__effects-inner-edge)
-    );
-    --connect__toolbar-sub-menu-flow: row;
+  &[aria-orientation='vertical'] {
+    --variant__divider-margin-x: var(--connect__spacer-zero);
+    --variant__divider-h: var(--connect__full-h);
+    --variant__divider-w: var(--connect__effects-inner-edge);
   }
 }
 
-/* 
-  Toolbar Sub-Menu Item Component
+/*
+.connect__list Component
 
-  Variables:
-    --row-start: Starting row of the sub-menu item.
-    --row-span: Row span of the sub-menu item.
-    --col-start: Starting column of the sub-menu item.
-    --connect__toolbar-sub-menu-padding-x: Horizontal padding of the sub-menu item.
-    --connect__toolbar-sub-menu-padding-y: Vertical padding of the sub-menu item.
-    --connect__toolbar-sub-menu-divider-h: Height of the sub-menu divider.
-    --connect__toolbar-sub-menu-divider-w: Width of the sub-menu divider.
-
-  Styles:
-    - Define the grid layout for the sub-menu items.
-    - Add a divider line after the sub-menu items.
-  */
-
-.connect__toolbar-item-menu-item {
-  --row-start: var(--menu-row-start, auto);
-  --row-span: var(--menu-row-span, auto);
-  --col-start: var(--menu-col-start, auto);
-
-  --connect__toolbar-sub-menu-padding-x: var(--connect__spacer-xs);
-  --connect__toolbar-sub-menu-padding-y: var(--connect__spacer-xs);
-  --connect__toolbar-sub-menu-divider-h: var(--connect__effects-inner-edge);
-  --connect__toolbar-sub-menu-divider-w: var(--connect__effects-inner-edge);
-
-  grid-column: var(--menu-col-start) / span var(--menu-col-span);
-  grid-row: var(--row-start) / span var(--row-span);
-  position: relative;
-
-  &:nth-of-type(1),
-  &:nth-of-type(2) {
-    --menu-col-span: 1;
-  }
-
-  &:nth-of-type(1) {
-    --connect__toolbar-sub-menu-divider-h: calc(100% - calc(var(--connect__spacer-xs) * 2));
-    --connect__toolbar-sub-menu-divider-right: calc(
-      var(--connect__toolbar-sub-menu-divider-w) * -1
-    );
-    --connect__toolbar-sub-menu-divider-top: var(--connect__spacer-xs);
-
-    &:not(:only-of-type) {
-      .connect__toolbar-item-menu-item-sub-menu {
-        &::after {
-          background-color: var(--connect__toolbar-sub-menu-divider-c);
-          bottom: var(
-            --connect__toolbar-sub-menu-vertical-divider-bottom,
-            var(--connect__toolbar-sub-menu-divider-bottom, initial)
-          );
-          content: '';
-          height: var(
-            --connect__toolbar-sub-menu-vertical-divider-h,
-            var(--connect__toolbar-sub-menu-divider-h, initial)
-          );
-          left: var(
-            --connect__toolbar-sub-menu-vertical-divider-left,
-            var(--connect__toolbar-sub-menu-divider-left, initial)
-          );
-          position: absolute;
-          right: var(
-            --connect__toolbar-sub-menu-vertical-divider-right,
-            var(--connect__toolbar-sub-menu-divider-right, initial)
-          );
-          top: var(
-            --connect__toolbar-sub-menu-vertical-divider-top,
-            var(--connect__toolbar-sub-menu-divider-top, initial)
-          );
-          width: var(
-            --connect__toolbar-sub-menu-vertical-divider-w,
-            var(--connect__toolbar-sub-menu-divider-w, initial)
-          );
-        }
-      }
-    }
-
-    .connect__toolbar-item-menu-item-sub-menu {
-      margin-right: var(--connect__toolbar-sub-menu-padding-x);
-    }
-
-    // if the menu on the left has 6 items then do this
-    &:has(:nth-child(6)) {
-      --connect__toolbar-sub-menu-vertical-divider-right: unset; // Unsets the right position of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-left: calc(
-        -1 * var(--connect__spacer-xs)
-      ); // Adjusts the left position of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-w: calc(
-        100% + calc(var(--connect__spacer-xs) * 2)
-      ); // Adjusts the width of the sub-menu divider
-      --connect__toolbar-sub-menu-vertical-divider-h: var(
-        --connect__effects-inner-edge
-      ); // Sets the height of the sub-menu divider to the inner edge value
-      --connect__toolbar-sub-menu-vertical-divider-top: calc(
-        100% + calc(var(--connect__spacer-xs) / 2)
-      ); // Adjusts the top position of the sub-menu divider
-
-      .connect__toolbar-item-menu-item-sub-menu {
-        margin-right: 0;
-
-        &:nth-of-type(1) {
-          padding-bottom: var(--connect__toolbar-sub-menu-padding-y);
-        }
-
-        &:nth-of-type(2) {
-          padding-top: var(--connect__toolbar-sub-menu-padding-y);
-        }
-      }
-
-      ~ li {
-        --menu-row-start: 2;
-        --menu-col-start: 1;
-
-        ul {
-          margin: 0;
-        }
-      }
-    }
-  }
-
-  &:nth-of-type(2) {
-    --menu-col-start: 2;
-
-    .connect__toolbar-item-menu-item-sub-menu {
-      margin-left: var(--connect__toolbar-sub-menu-padding-x);
-    }
-  }
-}
-
-/* 
-  Toolbar Sub-Menu Item Sub-Menu Component
-
-  Styles:
-    - Define the styles for the sub-menu items.
-    - Add a divider line after the sub-menu items.
-  */
-.connect__toolbar-item-menu-item-sub-menu {
-  display: flex;
-  padding: 0;
-
-  .connect__toolbar-item {
-    > .connect__selected {
-      --connect__button-bg: var(--connect__neutrals-white);
-      --connect__icon-fill: currentcolor;
-
-      &:active {
-        --inner-shadow-color: var(--connect__selected-mid);
-      }
-
-      &:disabled {
-        --state-based-bg: var(--connect__neutrals-null);
-        --inner-shadow-color: var(--connect__neutrals-pale);
-        --connect__icon-fill: var(--connect__neutrals-mid);
-      }
-    }
-  }
-}
+| Property    | Theme            | Variants           | Fallback / Default         |
+|-------------|------------------|--------------------|----------------------------|
+| Font size   | --theme__list-fs | --variant__list-fs | --connect__body-sm         |
+| Line Height | --theme__list-lh | --variant__list-lh | --connect__body-sm-lheight |
+|-------------|------------------|--------------------|----------------------------|
+| Marker Type |                  | --variant__list-style-type   
+*/
 
 .connect__list {
-  --connect__list-item-padding-left: var(--connect__spacer-sm);
-  --connect__list-item-margin-left: calc(4ch * 1);
-  --connect__list-marker-color: var(
-    --theme__list-marker-color,
-    var(--variant__marker-color, inherit)
-  );
-
   > .connect__list-item {
-    --connect__list-fs: var(--connect__body-sm);
-    --connect__list-lh: var(--connect__body-sm-lheight);
-
-    font-size: var(--theme__connect-list-fs, var(--connect__list-fs));
-    line-height: var(--theme__connect-list-lh, var(--connect__list-lh));
+    font-size: var(--theme__list-fs, var(--variant__list-fs, var(--connect__body-sm)));
+    line-height: var(--theme__list-lh, var(--variant__list-lh, var(--connect__body-sm-lheight)));
 
     &::marker {
-      color: var(--connect__list-marker-color);
+      color: var(--theme__list-marker-color, var(--variant__marker-color, inherit));
       font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
       line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
     }
   }
+}
 
-  &.connect__list-none {
-    --variant__marker-color: var(--connect__neutrals-null);
-  }
+.connect__list-none {
+  --variant__marker-color: var(--connect__surface-null);
+}
 
-  &.connect__list-circle {
-    --variant__list-style-type: circle;
-  }
+.connect__list-circle {
+  --variant__list-style-type: circle;
+}
 
-  &.connect__list-decimal {
-    --variant__list-style-type: decimal;
-  }
+.connect__list-decimal {
+  --variant__list-style-type: decimal;
+}
 
-  &.connect__list-disc {
-    --variant__list-style-type: disc;
-  }
+.connect__list-disc {
+  --variant__list-style-type: disc;
+}
 
-  &.connect__list-roman {
-    --variant__list-style-type: lower-roman;
-  }
+.connect__list-roman {
+  --variant__list-style-type: lower-roman;
+}
 
-  &.connect__list-square {
-    --variant__list-style-type: square;
-  }
+.connect__list-square {
+  --variant__list-style-type: square;
+}
 
-  &.connect__list-alpha {
-    --variant__list-style-type: lower-alpha;
-  }
+.connect__list-alpha {
+  --variant__list-style-type: lower-alpha;
 }
 
 .connect__counters {
@@ -3410,79 +2060,53 @@ Example:
   }
 }
 
+/*
+.connect__paper Component
+
+| Property   | Theme                 | Variants                | Fallback / Default         |
+|------------|-----------------------|-------------------------|----------------------------|
+| Radius     | --theme__paper-radius | --variant__paper-radius | --connect__spacer-zero     |
+|------------|-----------------------|-------------------------|----------------------------|
+| Elevation-levels 
+*/
+
 .connect__paper {
-  --connect__paper-radius: var(
+  border-radius: var(
     --theme__paper-radius,
-    var(--variant__paper-radius, var(--connect__spacer-zero, 0))
+    var(--variant__paper-radius, var(--connect__spacer-zero))
   );
   --connect__paper-bg: var(--theme__paper-bg, var(--connect__white));
-
-  background-color: var(--connect__paper-bg);
-  border-radius: var(--connect__paper-radius);
-
-  box-shadow:
-    var(--connect__shadow-level-1) var(--connect__shadow-10),
-    var(--connect__shadow-level-2) var(--connect__shadow-20),
-    var(--connect__shadow-level-3) var(--connect__shadow-14),
-    var(--connect__shadow-level-4) var(--connect__shadow-12);
-
-  &.connect__elevation-0 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  }
-
-  &.connect__elevation-1 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-4);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-18);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-18);
-  }
-
-  &.connect__elevation-2 {
-    --connect__shadow-level-1: var(--connect__shadow-spread-level-1);
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-10);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-11);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-13);
-  }
 
   &.connect__rounded-corners {
     --variant__paper-radius: var(--connect__border-radius);
   }
 }
 
-:where([class^='connect__']) {
-  blockquote {
-    font-size: var(--connect__blockquote-fs, var(--connect__body-md));
-    font-style: var(--connect__blockquote-font-style, normal);
-    margin: var(--connect__blockquote-margin, 0);
-    padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
-    padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
-    padding-right: var(--connect__blockquote-padding-right, var(--connect__spacer-md));
-    padding-top: var(--connect__blockquote-padding-top, var(--connect__spacer-sm));
-  }
+.connect__elevation--1 {
+  box-shadow: var(--connect__shadow-lvl--1);
+}
 
+.connect__elevation-0 {
+  box-shadow: var(--connect__shadow-lvl-0);
+}
+
+.connect__elevation-1 {
+  box-shadow: var(--connect__shadow-lvl-2);
+}
+
+.connect__elevation-2 {
+  box-shadow: var(--connect__shadow-lvl-4);
+}
+
+.connect__elevation-3 {
+  box-shadow: var(--connect__shadow-lvl-6);
+}
+
+:where([class^='connect__']) {
   figure {
     border-radius: var(--theme__border-radius, var(--connect__border-radius));
     margin: var(--connect__fig-margin, 0);
     overflow: hidden;
-
-    /*
-      Figures not in paper do this for now
-    */
-    &:not(.connect__paper) {
-      --connect__shadow-level-1: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-
-      box-shadow:
-        var(--connect__shadow-level-1) var(--connect__shadow-10),
-        var(--connect__shadow-level-2) var(--connect__shadow-20),
-        var(--connect__shadow-level-3) var(--connect__shadow-14),
-        var(--connect__shadow-level-4) var(--connect__shadow-12);
-    }
 
     &:has(img) {
       img {
@@ -3506,270 +2130,97 @@ Example:
   }
 }
 
-[class*='connect_']:disabled {
-  --active-color: var(--connect__disabled-color);
-  --connect__icon-fill-color: var(--connect__disabled-icon-fill);
-  --checkbox-state-based-bg: var(--connect__neutrals-white);
+/* 
+These styles apply to elements with classes that include '-correct'.
+
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Text color            | --active-color                          | Change to --connect__disabled-mid                        |
+| Icon Fills            | --connect__icon-fill-color               | Change to --connect__disabled-light                      |
+| Bg Colors             | --checkbox-state-based-bg               | Change to --connect__surface-white                       |
+| Checkbox border color | --checkbox-checked-state-based-border-c | The border around the checkbox, it's blue before a state |
+| Shadow                | --checkbox-state-based-inner-shadow     | Change to --state-based-bg                               |
+| Cursors               | --connect__state-based-pointer          | Change to --connect__disabled-cursor                     |
+| Dropdown Icon         | --state__connect-dropdown-icon          | Change to --state__variant-connect-dropdown-icon         |
+*/
+
+.connect__disabled {
+  --active-color: var(--connect__disabled-mid);
+  --connect__icon-fill-color: var(--connect__disabled-light);
+  --checkbox-state-based-bg: var(--connect__surface-white);
+  --checkbox-checked-state-based-border-c: var(--connect__disabled-light);
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
 /* 
-Styles for elements with classes containing '-correct'
+These styles apply to elements with classes that include '-correct'.
 
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --state-icon: Icon used to represent the state.
-  --state-based-bg: Background color based on the state.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__neutrals-white: Neutral white color.
-  --checked-state-icon: Icon used for the checked state.
-
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
-
-Styles:
-  [class*='-correct'],
-  [class*='-correct']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --state-icon: var(--icon-correct);
-      - Sets the icon used to represent the state to the 'correct' icon.
-    --state-based-bg: var(--connect__correct-pale);
-      - Sets the background color based on the state to the correct pale color.
-    --checkbox-state-based-bg: var(--connect__correct-mid);
-      - Sets the background color for the state of checkboxes to the correct mid color.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__neutrals-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checked-state-icon: var(--checked-correct);
-      - Sets the icon used for the checked state to the 'correct' icon.
-  }
-}
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__correct-mid                         |
+| BG Color              | --state-based-bg                        | Change bg to --color-correct-pale                        |
+| Icon Input            | --state-icon                            | Change to correct icon                                   |
 */
 
-[class*='-correct'],
-[class*='-correct']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__correct-mid);
-  --state-icon: var(--icon-correct);
+.connect__feedback-correct {
+  --connect__inner-status-color: var(--connect__correct-mid);
   --state-based-bg: var(--connect__correct-pale);
-  --checkbox-state-based-bg: var(--connect__correct-mid);
-  --checkbox-checked-state-based-border-c: var(--connect__correct-mid);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checked-state-icon: var(--checked-correct);
+  --state-icon: var(--icon-correct);
 }
 
 /* 
-Styles for elements with classes containing '-incorrect'
-
 These styles apply to elements with classes that include '-incorrect'.
-They use CSS variables extensively to allow for easy theming and state-driven changes.
 
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --state-icon: Icon used to represent the state.
-  --state-based-bg: Background color based on the state.
-  --connect__inner-status-color-state: State-based inner status color.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__neutrals-white: Neutral white color.
-  --checked-state-icon: Icon used for the checked state.
-
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
-
-Styles:
-  [class*='-incorrect'],
-  [class*='-incorrect']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --state-icon: var(--icon-incorrect);
-      - Sets the icon used to represent the state to the 'incorrect' icon.
-    --state-based-bg: var(--color-incorrect-bg);
-      - Sets the background color based on the state to the incorrect background color.
-    --connect__inner-status-color-state: var(--color-incorrect-bg);
-      - Sets the state-based inner status color to the incorrect background color.
-    --checkbox-state-based-bg: var(--checked-incorrect-bg);
-      - Sets the background color for the state of checkboxes to the incorrect background color.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__neutrals-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checked-state-icon: var(--checked-incorrect);
-      - Sets the icon used for the checked state to the 'incorrect' icon.
-  }
-}
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__incorrect-mid                       |
+| BG Color              | --state-based-bg                        | Change bg to --color-incorrect-bg                        |
+| Icon Input            | --state-icon                            | Change to incorrect icon                                 |
 */
 
-[class*='-incorrect'],
-[class*='-incorrect']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__incorrect-mid);
-  --state-icon: var(--icon-incorrect);
+.connect__feedback-incorrect {
+  --connect__inner-status-color: var(--connect__incorrect-mid);
   --state-based-bg: var(--color-incorrect-bg);
-  --connect__inner-status-color-state: var(--color-incorrect-bg);
-  --checkbox-state-based-bg: var(--checked-incorrect-bg);
-  --checkbox-checked-state-based-border-c: var(--checked-incorrect-bg);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checked-state-icon: var(--checked-incorrect);
+  --state-icon: var(--icon-incorrect);
 }
 
 /* 
-Styles for elements with classes containing '-shown'
-Variables:
-  --connect__mcq-starting-shadow-color: Initial shadow color for multiple-choice questions.
-  --starting-shadow-color: Initial shadow color.
-  --state-based-bg: Background color based on the state.
-  --state-icon: Icon used to represent the state.
-  --checkbox-checked-state-based-border-c: Border color for checked state of checkboxes.
-  --grade-checkbox-checked-state-based-border-c: Fallback border color for checked state of checkboxes.
-  --connect__neutrals-white: Neutral white color.
-  --checkbox-state-based-bg: Background color for the state of checkboxes.
-  --connect__neutrals-dark: Neutral dark color.
-  --checked-state-icon: Icon used for the checked state.
+These styles apply to elements with classes that include '-shown'.
 
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
-
-Styles:
-  [class*='-shown'],
-  [class*='-shown']:disabled {
-    --connect__mcq-starting-shadow-color: transparent;
-      - Sets the initial shadow color for multiple-choice questions to transparent.
-    --starting-shadow-color: var(--connect__neutrals-dark);
-      - Sets the initial shadow color to a neutral dark color.
-    --state-based-bg: var(--connect__neutrals-white);
-      - Sets the background color based on the state to a neutral white color.
-    --state-icon: var(--icon-shown);
-      - Sets the icon used to represent the state to the 'shown' icon.
-    --checkbox-checked-state-based-border-c: var(
-      --grade-checkbox-checked-state-based-border-c,
-      var(--connect__neutrals-white)
-    );
-      - Sets the border color for the checked state of checkboxes, with a fallback to a neutral white color.
-    --checkbox-state-based-bg: var(--connect__neutrals-dark);
-      - Sets the background color for the state of checkboxes to a neutral dark color.
-    --checked-state-icon: var(--checked-correct);
-      - Sets the icon used for the checked state to the 'correct' icon.
-  }
-}
-
+| Property Type         | Variable                                | Description                                              |
+|-----------------------|-----------------------------------------|----------------------------------------------------------|
+| Inner Status          | --connect__inner-status-color           | Change to --connect__surface-mid                         |
+| BG Color              | --state-based-bg                        | Change bg to white                                       |
+| Icon Input            | --state-icon                            | Change to shown icon                                     |
 */
-[class*='-shown'],
-[class*='-shown']:disabled {
-  --connect__mcq-starting-shadow-color: var(--connect__neutrals-mid);
-  --starting-shadow-color: var(--connect__neutrals-dark);
-  --state-based-bg: var(--connect__neutrals-white);
+
+.connect__feedback-shown {
+  --connect__inner-status-color: var(--connect__surface-mid);
+  --state-based-bg: var(--connect__surface-white);
   --state-icon: var(--icon-shown);
-  --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
-  --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
-  --checkbox-state-based-bg: var(--connect__neutrals-dark);
-  --checked-state-icon: var(--checked-correct);
 }
 
 [class*='-selected'] {
-  --connect__mcq-starting-shadow-color: var(--connect__selected-mid);
+  --connect__inner-status-color-state: var(--connect__primary-mid);
 }
 
 /* 
 These styles apply to elements with classes that include '-correct', '-incorrect', or '-shown'.
+Cover Text / Cursors / Iconography
 
-Classes using these variables:
-  - .connect__button
-  - .connect__input
-  - .connect__card
-  - .connect__radio
-  - .connect__checkbox
-  - .connect__select
-  - .connect__toggle
-
-Variables:
-  --active-color: color used for active state.
-  --connect__neutrals-mid: Neutral mid color.
-  --connect__shadow-level-2: Second level of box shadow.
-  --connect__shadow-level-3: Third level of box shadow.
-  --connect__shadow-level-4: Fourth level of box shadow.
-  --connect__shadow-spread-level-0: Zero spread level for box shadow.
-  --connect__state-based-pointer: Cursor style when the element is disabled.
-  --connect__neutrals-null: Null neutral color.
-
-Styles:
-  [class*='-correct'],
-  [class*='-incorrect'],
-  [class*='-shown'] {
-    &:disabled {
-      --active-color: var(--connect__neutrals-mid);
-        - Sets the active color to a neutral mid color when the element is disabled.
-    }
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-      - Sets the second level of box shadow to zero spread.
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-      - Sets the third level of box shadow to zero spread.
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-      - Sets the fourth level of box shadow to zero spread.
-    --active-color: var(--connect__neutrals-mid);
-      - Sets the active color to a neutral mid color.
-    --connect__state-based-pointer: not-allowed;
-      - Sets the cursor style to 'not-allowed' when the element is disabled.
-
-    &:hover,
-    &:active {
-      --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-        - Sets the second level of box shadow to zero spread on hover and active states.
-      --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-        - Sets the third level of box shadow to zero spread on hover and active states.
-      --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-        - Sets the fourth level of box shadow to zero spread on hover and active states.
-    }
-  }
-}
+| Property Type | Variable                        | Description                    |
+|---------------|---------------------------------|--------------------------------|
+| Color         | --active-color                  | Change to disabled text mid ---|
+| Cursor        | --connect__state-based-pointer  | Change to disabled cursor -----|
+| Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon -|
 */
 
-[class*='-correct'],
-[class*='-incorrect'],
-[class*='-shown'] {
-  --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-  --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  --active-color: var(--connect__disabled-color);
+.connect__feedback-correct,
+.connect__feedback-incorrect,
+.connect__feedback-shown {
+  --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
-
-  &:disabled {
-    --active-color: var(--connect__disabled-color);
-  }
-
-  &:hover,
-  &:active {
-    --connect__shadow-level-2: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-3: var(--connect__shadow-spread-level-0);
-    --connect__shadow-level-4: var(--connect__shadow-spread-level-0);
-  }
 }

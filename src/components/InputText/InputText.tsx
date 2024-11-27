@@ -28,12 +28,17 @@ export function InputText({
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
-
   const isNumber = number ? 'number' : 'text';
 
   const [text, setText] = useState(defaultText);
   const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
+  const [isSelected, setIsSelected] = useState(false);
+
+  // const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''}`;
+
+  const isNumber = number ? 'number' : 'text';
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -56,11 +61,13 @@ export function InputText({
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
-        className={`connect__input ${inputStates}`}
+        className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={handleTextChange}
+        onChange={(e) => setText(e.target.value)}
+        onMouseDown={() => setIsSelected(true)}
+        onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />

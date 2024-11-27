@@ -29,7 +29,7 @@ export function InputBox({
   noShadow = false,
   dataTestId,
 }: InputBoxProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''} ${noShadow ? 'connect__input-no-shadow' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -42,19 +42,22 @@ export function InputBox({
   }, [checked]);
 
   return (
-    <div className="connect__input-label-wrapper">
+    <div className="connect__choice-label-wrapper">
       <input
         ref={checkRef}
         type={type}
         id={id}
-        className={`connect__input ${inputStates}`}
+        className={`connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__checkbox-label ${inputStates}`}>
+      <label
+        htmlFor={id}
+        className={`connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+      >
         {children}
       </label>
     </div>
