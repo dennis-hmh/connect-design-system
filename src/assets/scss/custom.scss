@@ -2071,11 +2071,13 @@ Divider can be vertical or horizontal
 */
 
 .connect__paper {
+  --connect__paper-bg: var(--theme__paper-bg, var(--connect__white));
+
+  background-color: var(--connect__paper-bg);
   border-radius: var(
     --theme__paper-radius,
     var(--variant__paper-radius, var(--connect__spacer-zero))
   );
-  --connect__paper-bg: var(--theme__paper-bg, var(--connect__white));
 
   &.connect__rounded-corners {
     --variant__paper-radius: var(--connect__border-radius);
