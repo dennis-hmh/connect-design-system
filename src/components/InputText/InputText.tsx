@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
