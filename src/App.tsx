@@ -58,8 +58,14 @@ const App: React.FC = () => {
               descDefault="hi"
               hidePlayPause={true}
               autoplay={true}
-              inputs={{ animationState }}
+              inputs={{ animationState }} 
             />
+
+          </GridItem>
+          <GridItem>
+            <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
+            <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
+            <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
           </GridItem>
           <GridItem>
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
