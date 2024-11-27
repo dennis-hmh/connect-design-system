@@ -3415,7 +3415,9 @@ Example:
     --theme__paper-radius,
     var(--variant__paper-radius, var(--connect__spacer-zero, 0))
   );
+  --connect__paper-bg: var(--theme__paper-bg, var(--connect__white));
 
+  background-color: var(--connect__paper-bg);
   border-radius: var(--connect__paper-radius);
 
   box-shadow:
