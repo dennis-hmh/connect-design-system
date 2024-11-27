@@ -18,7 +18,7 @@ import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
-import Grid from './components/Grid/Grid';
+import { Grid } from './components/Grid/Grid';
 import GridItem from './components/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
@@ -61,6 +61,11 @@ const App: React.FC = () => {
               inputs={{ animationState }} 
             />
 
+          </GridItem>
+          <GridItem>
+            <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
+            <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
+            <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
           </GridItem>
           <GridItem>
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
