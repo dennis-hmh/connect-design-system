@@ -20,7 +20,7 @@ const Template: StoryFn<StackProps> = (args) => {
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Stack {...args}>
-          <Stack xs={{ direction: 'row', spacing: 'xs' }}>
+          <Stack sm={{ direction: 'row', spacing: 'sm' }}>
             <div
               style={{
                 background: 'var(--connect__correct-light)',
@@ -46,7 +46,7 @@ const Template: StoryFn<StackProps> = (args) => {
               3 row
             </div>
           </Stack>
-          <Stack xs={{ direction: 'column', spacing: 'xs' }}>
+          <Stack sm={{ direction: 'column', spacing: 'sm' }}>
             <div
               style={{
                 background: 'var(--connect__correct-light)',
@@ -80,9 +80,10 @@ const Template: StoryFn<StackProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  xs: { direction: 'column', spacing: 'xs' },
+  sm: { direction: 'column', spacing: 'sm' },
   md: { direction: 'row', spacing: 'md', alignItems: 'center', justifyContent: 'space-between' },
   lg: { spacing: 'lg', paddingX: 'lg', paddingY: 'lg' },
+  xl: { spacing: 'xl', paddingX: 'xl', paddingY: 'xl' },
   className: '',
   dataTestId: '',
 };
