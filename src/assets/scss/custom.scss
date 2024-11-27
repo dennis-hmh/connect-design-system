@@ -424,6 +424,7 @@ Buttons take variables in the following format
   font-weight: var(--connect__select-fw);
   line-height: var(--connect__select-lh);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+  padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: relative;
   text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
