@@ -10,6 +10,7 @@ declare namespace JSX {
       'play-state'?: string;
       height?: boolean;
       contain?: boolean;
+      inputs: any;
     };
   }
 }

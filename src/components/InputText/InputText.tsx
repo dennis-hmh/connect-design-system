@@ -8,7 +8,10 @@ export type InputTextProps = {
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  defaultText?: string | number;
+  defaultText?: string | number | undefined;
+  characterCount?: boolean;
+  characterLimit?: number | undefined;
+  placeholderText?: string | undefined;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -19,14 +22,21 @@ export function InputText({
   answerShown,
   number,
   disabled,
+  characterCount,
+  characterLimit,
+  placeholderText,
   defaultText,
   dataTestId,
 }: InputTextProps) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''}`;
+  const [text, setText] = useState(defaultText);
+  const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
+  const [isSelected, setIsSelected] = useState(false);
+
+  // const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   const isNumber = number ? 'number' : 'text';
-
-  const [text, setText] = useState(defaultText);
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -39,17 +49,38 @@ export function InputText({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newText = e.target.value;
+    setText(newText);
+    setCharCount(newText.length);
+  };
+
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
-        className={`connect__input ${inputStates}`}
+        className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        placeholder={placeholderText ? placeholderText : ''}
+        onChange={(e) => handleTextChange(e)}
+        onMouseDown={() => setIsSelected(true)}
+        onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
+      {characterCount && (
+        <div
+          className={`connect__character-counter ${
+            characterLimit && charCount >= characterLimit
+              ? 'connect__character-counter-limit-reached'
+              : ''
+          }`}
+        >
+          <em>{charCount}</em>
+          {characterLimit ? ` / ${characterLimit}` : ''}
+        </div>
+      )}
     </label>
   );
 }

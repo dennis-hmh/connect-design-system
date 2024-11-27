@@ -27,7 +27,7 @@ export function MultipleChoiceQuestion({
   answerShown,
   dataTestId,
 }: MultipleChoiceQuestionProp) {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__mcq-label-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
 
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
@@ -49,12 +49,12 @@ export function MultipleChoiceQuestion({
   }
 
   return (
-    <div className="connect__mcq-label-wrapper">
+    <div className="connect__choice-label-wrapper">
       <input
         ref={checkRef}
         type={type}
         id={id}
-        className={`connect__input ${inputStates}`}
+        className={`connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
@@ -62,7 +62,10 @@ export function MultipleChoiceQuestion({
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      <label className={`connect__mcq-label ${inputStates}`} htmlFor={id}>
+      <label
+        className={`connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+        htmlFor={id}
+      >
         {children}
       </label>
     </div>

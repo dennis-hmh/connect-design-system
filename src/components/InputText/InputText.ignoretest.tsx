@@ -23,19 +23,19 @@ describe('InputText Component', () => {
   it('applies the correct class for correct input', () => {
     render(<InputText {...defaultProps} correct={true} />);
     const inputElement = screen.getByLabelText(/Input field, marked as correct/i);
-    expect(inputElement).toHaveClass('connect__input-correct');
+    expect(inputElement).toHaveClass('connect__feedback-correct');
   });
 
   it('applies the correct class for incorrect input', () => {
     render(<InputText {...defaultProps} incorrect={true} />);
     const inputElement = screen.getByLabelText(/Input field, marked as incorrect/i);
-    expect(inputElement).toHaveClass('connect__input-incorrect');
+    expect(inputElement).toHaveClass('connect__feedback-incorrect');
   });
 
   it('applies the correct class for answer shown input', () => {
     render(<InputText {...defaultProps} answerShown={true} />);
     const inputElement = screen.getByLabelText(/Input field, answer shown/i);
-    expect(inputElement).toHaveClass('connect__input-shown');
+    expect(inputElement).toHaveClass('connect__feedback-shown');
   });
 
   it('disables the input when disabled prop is true', () => {

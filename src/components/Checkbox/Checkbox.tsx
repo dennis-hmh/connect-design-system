@@ -23,19 +23,22 @@ export function Checkbox({ id, name, children, checked, disabled, dataTestId }: 
   }, [checked]);
 
   return (
-    <div className="connect__checkbox-label-wrapper">
+    <div className="connect__choice-label-wrapper">
       <input
         ref={checkRef}
         type="checkbox"
         id={id}
-        className={`connect__input }`}
+        className={`connect__choice ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
         name={name}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`connect__checkbox-label connect__input-no-shadow`}>
+      <label
+        htmlFor={id}
+        className={`connect__choice-label connect__input-no-shadow ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+      >
         {children}
       </label>
     </div>

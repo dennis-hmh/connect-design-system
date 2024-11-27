@@ -1,3 +1,16 @@
+### v1.14.0 Release Notice
+
+### Release date: November, 27, 2024
+
+#### Changelog:
+
+- New Component: `<RiveEngine />`, `<SimpleRive />`, `<Textarea />`
+- Updated Component: `<Paper />`, `<Timer />`,
+- Bug Fix: N/A
+- Other Updated: Plankton support added to CSS. CSS has been trimmed. Stories added for Grid and Stack.
+
+---
+
 ### v1.13.5 Release Notice
 
 ### Release date: November, 26, 2024
@@ -138,13 +151,15 @@
 
 ---
 
+# <<<<<<< HEAD
+
 ### v1.12.1 Release Notice
 
 ### Release date: October, 24, 2024
 
 #### Changelog:
 
-- New Component: `<RiveGradeBanded />`
+- New Component: `<RiveSimple />`
 - Updated Component: N/A
 - Bug Fix: N/A
 - Other Updated: Some updates to styles.
@@ -157,6 +172,8 @@
 &nbsp;
 
 ---
+
+> > > > > > > v1.14.0
 
 ### v1.12.0 Release Notice
 

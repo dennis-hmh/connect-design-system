@@ -40,6 +40,7 @@ Default.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: false,
+  backgroundColor: '',
   className: '',
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
