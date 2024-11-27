@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface BreakpointValues {
+export type BreakpointValues = {
   direction?: 'row' | 'column';
   spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
@@ -8,9 +8,9 @@ interface BreakpointValues {
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}
+};
 
-interface StackProps {
+export type StackProps = {
   children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
@@ -19,7 +19,7 @@ interface StackProps {
   xl?: BreakpointValues;
   className?: string;
   dataTestId?: string;
-}
+};
 
 export const Stack: React.FC<StackProps> = ({
   children,
