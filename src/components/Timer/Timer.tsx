@@ -117,7 +117,7 @@ export const Timer: React.FC<TimerProps> = ({
       setRemainingTime((prevTime) => {
         if (countdownStartedAt.current == null) return time;
 
-        let newTime =
+        const newTime =
           time - (Date.now() - countdownStartedAt.current - countdownTotalTimeSpentPaused.current);
 
         if (newTime <= 0 || prevTime <= 0) {
@@ -143,7 +143,7 @@ export const Timer: React.FC<TimerProps> = ({
   }, [time]);
 
   //Quantise the progress wrt. the update interval
-  let nearestMultiple = Math.max(0, Math.round(remainingTime / updateInterval) * updateInterval);
+  const nearestMultiple = Math.max(0, Math.round(remainingTime / updateInterval) * updateInterval);
   const roundingCorrection = Math.ceil(Math.round(nearestMultiple - updateInterval / 3) / 1000);
 
   //Calculate h/m/s for the time string
