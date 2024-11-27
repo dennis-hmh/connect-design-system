@@ -24,8 +24,8 @@ export default [
     ignores: [
       '**/dist',
       '**/storybook-static',
-      '**/.eslintrc.js',
       'src/components/**/*.stories.tsx',
+      'eslint.config.mjs',
     ],
   },
   ...fixupConfigRules(

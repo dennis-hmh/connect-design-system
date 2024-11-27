@@ -1,4 +1,3 @@
-import React from 'react';
 import { Preview } from '@storybook/react';
 
 import '../src/assets/css/source.css';
@@ -20,6 +19,8 @@ const preview: Preview = {
       },
     },
   },
+
+  tags: ['autodocs'],
 };
 
 export default preview;

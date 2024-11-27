@@ -1,6 +1,106 @@
+### v1.13.5 Release Notice
+
+### Release date: November, 26, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Icon />`, `<Button />`
+- Bug Fix: N/A
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.4 Release Notice
+
+### Release date: November, 25, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: Vitest updated and simplifited
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.3 Release Notice
+
+### Release date: November, 24, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: Playwrite removed from Vitest, packages realigned
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.2 Release Notice
+
+### Release date: November, 22, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/a
+- Bug Fix: Vitest browser package added, Vitest overhaul
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.13.1 Release Notice
+
+### Release date: November, 13, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Timer />`, `<Typography />`
+- Bug Fix: N/A
+- Other Updated: Update Storybook to version 8.4.3
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.13.0 Release Notice
 
-### Release date: Novenber, 5, 2024
+### Release date: November, 5, 2024
 
 #### Changelog:
 
