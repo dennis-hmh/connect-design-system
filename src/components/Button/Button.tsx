@@ -48,6 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
     !primary && 'connect__button-secondary',
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
+    disabled && 'connect__disabled',
     additionalClass,
   ]
     .filter(Boolean)

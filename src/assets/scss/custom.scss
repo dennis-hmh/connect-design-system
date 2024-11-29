@@ -162,10 +162,6 @@ Buttons take variables in the following format
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
-    &:disabled {
-      --state-based-bg: var(--connect__disabled-pale);
-    }
-
     &.connect__feedback-correct {
       --connect__inner-status-color-state: var(--connect__surface-null);
     }
@@ -269,12 +265,6 @@ Buttons take variables in the following format
     &:active {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
     }
-  }
-
-  &:disabled {
-    --variant__btn-bg: var(--state-based-bg);
-    --active-color: var(--connect__disabled-mid);
-    --connect__state-based-pointer: var(--connect__disabled-cursor);
   }
 }
 
@@ -441,7 +431,7 @@ Buttons take variables in the following format
   }
 
   &:active:not(:disabled) {
-    --starting-shadow-color: var(--connect__primary-mid);
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
   }
 
   &::-ms-expand {
@@ -2154,6 +2144,7 @@ These styles apply to elements with classes that include '-correct'.
   --checkbox-state-based-inner-shadow: var(--state-based-bg);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
+  --state-based-bg: var(--connect__disabled-pale);
 }
 
 /* 

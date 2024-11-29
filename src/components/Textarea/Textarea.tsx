@@ -50,7 +50,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <textarea
-        className={`connect__input connect__input-textarea ${inputStates}`}
+        className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
         placeholder={placeholderText ? placeholderText : ''}
