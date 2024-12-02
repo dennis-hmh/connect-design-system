@@ -79,4 +79,13 @@ It includes
 - Tooltip
 - Tooltip animations
 
+## Card Styles
+
+This is the [Card](https://scm.eng.hmhco.com/gist/RockA/0c9ad818b56259d80bd0d6ba69734fa0)
+
+It includes
+
+- Card base styles
+- Generic styles for elements
+
 # React Snippets
