@@ -24,37 +24,38 @@ initial ensures that properties are reset to their default values
 
 /* 
   SHADOW SELECTION GUIDE: when to use a shadow
-
   There are three main shadow types in the system
-
   1: --connect__effects-shadow
   2: --connect__inner-shadow
   3: --connect__shadow-null
   4: --connect__shadow-lvl-focus
+  4: --connect__shadow-lvl-active
 
   There are 9 shadow elevations ranging from minus 2 to 6
   minus elevations have --1/--2 and positive elevations have -1/-2/-3 etc
-
   Shadow types and shadow elevations work together. 
   A shadow elevation does not require a shadow type
 
 |---------------------------------------------------------------------------|
-| Component                                   | Shadow Type                 |
+| Component                                  | Shadow Type                  |
 |---------------------------------------------------------------------------|
-| Interactive components:                     | --connect__effects-shadow   |
-|   elements that takes visual status line 
-|   when correct / incorrect/ shown             
+| Interactive components:                    | --connect__effects-shadow    |
+|   elements that takes visual status line   |                              |
+|   when correct / incorrect/ shown          |                              |     
 |---------------------------------------------------------------------------|
-| Inner Shadow components:                    | --connect__inner-shadow     |
-|   elements that takes inner shadows
-|   these components can take a 
-|   solid bg for state but no line
+| Inner Shadow components:                   | --connect__inner-shadow      |
+|   elements that takes inner shadows        |                              |
+|   these components can take a              |                              |
+|   solid bg for state but no line           |                              |
 |---------------------------------------------------------------------------|
-| Components with no definer line:             | --connect__shadow-null      |
-|   elements that takes no definer line
+| Components with no definer line:            | --connect__shadow-null       |
+|   elements that takes no definer line       |                              |
 |---------------------------------------------------------------------------|
-| Focus Shadow components:                    | --connect__shadow-lvl-focus |
-|   elements that takes focus shadows
+| Focus Shadow components:                   | --connect__shadow-lvl-focus  |
+|   elements that takes focus shadows        |                              |
+|---------------------------------------------------------------------------|
+| Active Shadow components:                  | --connect__shadow-lvl-active |
+|   elements that takes active shadows       |                              |
 |---------------------------------------------------------------------------|
 */
 
@@ -131,14 +132,14 @@ Buttons take variables in the following format
   font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
   gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
   height: var(--connect__btn-h, auto);
-  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
+  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, start));
   line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   text-transform: var(--connect__btn-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
-  width: var(--connect__btn-w, fit-content);
+  width: var(--connect__btn-w, auto);
 
   &:not(:disabled) {
     &:hover {
@@ -625,61 +626,6 @@ Variables related to theme/overrides:
     .connect__summary {
       --active-color: var(--connect__primary-mid);
     }
-  }
-}
-
-/*
-.connect__card Component
-
-| Property         | Theme                         | Variant/State                 | Fallback / Default                                        |
-|------------------|------------------------------ |-------------------------------|-----------------------------------------------------------|
-| Border width     | --theme__card-border-w        | --variant__card-border-w      | --connect__spacer-zero                                    |
-| Border color     | --theme__card-border-c        | --variant__card-border-c      | --connect__neutrals-null                                  |
-| Border radius    | --theme__card-fs              | --variant__card-fs            | --connect__body-sm                                        |
-| Padding X        | --theme__card-padding-x       | --variant__card-padding-x     | var(--connect__spacer-sm) - var(--connect__card-border-w) |
-| Padding Y        | --theme__card-padding-y       | --variant__card-padding-y     | var(--connect__spacer-sm) - var(--connect__card-border-w) |
-| Gap              | --theme__card-bg              | --variant__card-bg            | --connect__primary-mid                                    |
-*/
-
-.connect__card {
-  --connect__card-border-w: var(
-    --theme__card-border-w,
-    var(--variant__card-border-w, var(--connect__spacer-zero))
-  );
-  --connect__card-padding-y: var(
-    --theme__card-padding-y,
-    var(--variant__card-padding-y, calc(var(--connect__spacer-sm) - var(--connect__card-border-w)))
-  );
-  --connect__card-padding-x: var(
-    --theme__card-padding-x,
-    var(--variant__card-padding-x, calc(var(--connect__spacer-md) - var(--connect__card-border-w)))
-  );
-
-  background-color: var(--connect__surface-white);
-  border: var(--connect__card-border-w) solid
-    var(--theme__card-border-c, var(--variant__card-border-c, var(--connect__neutrals-null)));
-  border-radius: var(
-    --theme__border-radius,
-    var(--variant__card-radius, var(--connect__border-radius))
-  );
-  box-shadow: var(--connect__shadow-lvl-2);
-  display: inline-flex;
-  flex-flow: column wrap;
-  gap: var(--theme__card-gap, var(--variant__card-gap, var(--connect__spacer-sm)));
-  padding: calc(var(--connect__card-padding-y) - var(--connect__card-border-w))
-    calc(var(--connect__card-padding-x) - var(--connect__card-border-w));
-  width: var(--connect__full-w);
-
-  .connect__figure,
-  .connect__card-header,
-  .connect__card-content,
-  .connect__card-footer {
-    width: var(--connect__full-w);
-  }
-
-  header,
-  footer {
-    display: flex;
   }
 }
 
@@ -1189,61 +1135,25 @@ Responsive Styles:
   }
 }
 
-/* 
+/*
 .connect__stack Component
 
-Variables related to theme/overrides:
-  --connect__stack-spacing: Spacing between elements in the stack.
-  --connect__stack-direction: Flex direction of the stack.
-  --connect__stack-align: Alignment of items in the stack.
-  --connect__stack-wrap: Flex wrap property of the stack.
-  --connect__justify-content: Justification of content in the stack.
-  --connect__paddingX: Horizontal padding of the stack.
-  --connect__paddingY: Vertical padding of the stack.
+The connect stack component is built to set a default set of styles. Rather than variants and themes
+these styles are then open to breakpoint changes
 
-Stack Container Styles:
-  .connect__stack {
-    align-items: var(--xs-alignItems, start);
-      - Aligns items along the cross axis.
-    flex-flow: var(--connect__stack-direction, column);
-      - Sets the flex direction and wrapping of the stack content.
-    flex-wrap: var(--connect__stack-wrap, wrap);
-      - Sets the flex wrap property.
-    gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
-      - Sets the gap between elements inside the stack.
-    justify-content: var(--connect__justify-content, start);
-      - Sets the justification of content along the main axis.
-    padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
-      - Sets the padding of the stack.
+| Property        | xl                  | lg                  | md                  | sm                  | xs                  |
+|-----------------|---------------------|---------------------|---------------------|---------------------|---------------------|
+| align items     | --xl-alignItems     | --lg-alignItems     | --md-alignItems     | --sm-alignItems     | --xs-alignItems     |
+| flex flow         | --xl-direction      | --lg-direction      | --md-direction      | --sm-direction      | --xs-direction      |
+| flex wrap        | --xl-flexWrap        | --lg-flexWrap        | --md-flexWrap        | --sm-flexWrap        | --xs-flexWrap        |
+| justify content | --xl-justifyContent | --lg-justifyContent | --md-justifyContent | --sm-justifyContent | --xs-justifyContent |
+| Padding X       | --xl-paddingX       | --lg-paddingX       | --md-paddingX       | --sm-paddingX       | --xs-paddingX       |
+| Padding Y       | --xl-paddingY       | --lg-paddingY       | --md-paddingY       | --sm-paddingY       | --xs-paddingY       |
+| Spacing         | --xl-spacing        | --lg-spacing        | --md-spacing        | --sm-spacing        | --xs-spacing        |
 
-
-Responsive Styles: To make these responsive, apply sm/md/lg/xl
-  --connect__stack-spacing
-  --connect__stack-direction
-  --connect__stack-align
-  --connect__stack-wrap
-  --connect__justify-content
-  --connect__paddingX
-  --connect__paddingY
-
-  examples: 
-  --connect__stack-align: var(--sm-alignItems);
-  --connect__stack-align: var(--md-alignItems);
-  --connect__stack-align: var(--lg-alignItems);
-  --connect__stack-align: var(--xl-alignItems);
 */
 
 .connect__stack {
-  --default__stack-paddingX: 0;
-  --default__stack-paddingY: 0;
-  --connect__stack-spacing: var(--xs-spacing);
-  --connect__stack-direction: var(--xs-direction);
-  --connect__stack-align: var(--xs-alignItems);
-  --connect__stack-wrap: var(--xs-flexWrap);
-  --connect__justify-content: var(--xs-justifyContent);
-  --connect__paddingX: var(--default__stack-padding);
-  --connect__paddingY: var(--default__stack-padding);
-
   align-items: var(--xs-alignItems, start);
   display: flex;
   flex: 1;
@@ -1255,8 +1165,13 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   width: var(--connect__full-w);
 
   &.connect__stack-xs {
-    --connect__paddingX: var(--xs-paddingX, 0);
-    --connect__paddingY: var(--xs-paddingY, 0);
+    --connect__stack-spacing: var(--xs-spacing);
+    --connect__stack-direction: var(--xs-direction);
+    --connect__stack-align: var(--xs-alignItems);
+    --connect__stack-wrap: var(--xs-flexWrap);
+    --connect__justify-content: var(--sm-justifyContent);
+    --connect__paddingX: var(--xs-paddingX);
+    --connect__paddingY: var(--xs-paddingY);
   }
 
   @media (min-width: 30rem) {
@@ -1266,8 +1181,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
       --connect__stack-align: var(--sm-alignItems);
       --connect__stack-wrap: var(--sm-flexWrap);
       --connect__justify-content: var(--sm-justifyContent);
-      --connect__paddingX: var(--sm-paddingX, 0);
-      --connect__paddingY: var(--sm-paddingY, 0);
+      --connect__paddingX: var(--sm-paddingX);
+      --connect__paddingY: var(--sm-paddingY);
     }
   }
 
@@ -1278,8 +1193,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
       --connect__stack-align: var(--md-alignItems);
       --connect__stack-wrap: var(--md-flexWrap);
       --connect__justify-content: var(--md-justifyContent);
-      --connect__paddingX: var(--md-paddingX, 0);
-      --connect__paddingY: var(--md-paddingY, 0);
+      --connect__paddingX: var(--md-paddingX);
+      --connect__paddingY: var(--md-paddingY);
     }
   }
 
@@ -1290,8 +1205,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
       --connect__stack-align: var(--lg-alignItems);
       --connect__stack-wrap: var(--lg-flexWrap);
       --connect__justify-content: var(--lg-justifyContent);
-      --connect__paddingX: var(--lg-paddingX, 0);
-      --connect__paddingY: var(--lg-paddingY, 0);
+      --connect__paddingX: var(--lg-paddingX);
+      --connect__paddingY: var(--lg-paddingY);
     }
   }
 
@@ -1302,8 +1217,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
       --connect__stack-align: var(--xl-alignItems);
       --connect__stack-wrap: var(--xl-flexWrap);
       --connect__justify-content: var(--xl-justifyContent);
-      --connect__paddingX: var(--lg-paddingX, 0);
-      --connect__paddingY: var(--lg-paddingY, 0);
+      --connect__paddingX: var(--xl-paddingX);
+      --connect__paddingY: var(--xl-paddingY);
     }
   }
 }
@@ -1709,79 +1624,66 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-/* 
-.connect__progress Component
+/*
 
-Variables related to theme/overrides:
-  --connect__progress-bg: Background color of the progress bar container.
-  --connect__progress-color: Color of the progress bar itself.
-  --connect__inner-bar-radius: Border radius of the inner progress bar.
-  --connect__progress-bar-radius: Border radius of the outer progress bar container.
+ .connect__progress Component
 
-Styles:
-  appearance: none;
-    - Removes default browser styling.
-  border-radius: var(--connect__border-radius);
-    - Applies border radius to the overall progress bar.
+ The progress component is made up of three main styling zones
 
-Browser-specific styles:
-  &::-webkit-progress-bar
-    - Styles for the progress bar container in WebKit browsers.
-  &::-webkit-progress-value
-    - Styles for the actual progress in WebKit browsers.
-  &::-moz-progress-bar
-    - Styles for both container and progress in Mozilla Firefox.
+  i: connect__progress (aesthetic container)
+  ii: ::-webkit-progress-bar (Bg color of remainder of bar)
+  iii: ::-webkit-progress-value (inner bar, radius, color), dynamic part of progress bar
 
-Transitions:
-  transition:
-    inline-size var(--connect__transition-medium) var(--connect__in-out-quad),
-    width var(--connect__transition-medium) var(--connect__in-out-quad);
-    - transitions to the progress bar width changes.
+ | Property         | Theme                 | Variant/State           | Fallback / Default      | Props                 |
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+ | Background color | theme__progress-bg    | variant__progress-bg    | connect__surface-white  | theme__progress-bg    |
+ | Border radius    | theme__progress-br    | variant__progress-br    |  1rem                   |                       |
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+ |-----------------------------------------::-webkit-progress-bar-------------------------------------------------------|
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+ | Background color | theme__progress-bg    | variant__progress-bg    | connect__surface-white  | theme__progress-bg    |
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+ |-----------------------------------------::-webkit-progress-value---|-------------------------|-----------------------|
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+ | Background color | theme__progress-color | variant__progress-color | --connect__cc-purple    | theme__progress-color |
+ | Border radius    | theme__inner-br       | variant__inner-br       |  2.5rem                 |                       |
+ |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
+
 */
 
 .connect__progress-wrapper {
   width: var(--connect__full-w);
 }
 
-.connect__progress[value] {
-  --connect__progress-outer-shadow-c: var(
-    --theme__progress-outer-shadow-c,
-    var(--connect__surface-white)
-  );
-
-  --connect__progress-bg: var(--theme__progress-bg, var(--connect__surface-white));
-  --connect__progress-color: var(--theme__progress-color, var(--connect__cc-purple));
-
-  // border radius
-  --connect__inner-bar-radius: var(--theme__inner-bar-radius, 2.5rem);
-  --connect__progress-bar-radius: var(--theme__progress-bar-radius, 1rem);
-
-  // This is here because FF needs it here, will ignore in chrome
-  appearance: none;
-  background: var(--connect__progress-bg);
+.connect__progress {
+  background: var(--theme__progress-bg, var(--variant__progress-bg, var(--connect__surface-white)));
   border: none;
-  border-radius: var(--connect__progress-bar-radius);
+  border-radius: var(--theme__progress-br, var(--variant__progress-br, 1rem));
   box-shadow: var(--connect__shadow-lvl-0);
   overflow: hidden;
   width: var(--connect__full-w);
 
-  // Outer bars
   &::-webkit-progress-bar {
-    background: var(--connect__progress-bg);
-    border-radius: var(--connect__progress-bar-radius);
+    background: var(
+      --theme__progress-bg,
+      var(--variant__progress-bg, var(--connect__surface-white))
+    );
   }
 
   &::-webkit-progress-value {
-    background: var(--connect__progress-color);
-    border-radius: var(--connect__inner-bar-radius);
+    background: var(--theme__progress-color, var(--connect__cc-purple));
+    border-radius: var(--theme__inner-br, var(--variant__inner-br, 2.5rem));
     transition:
       inline-size var(--connect__transition-medium) var(--connect__in-out-quad),
       width var(--connect__transition-medium) var(--connect__in-out-quad);
   }
 
   &::-moz-progress-bar {
-    background: var(--connect__progress-color);
-    border-radius: var(--connect__progress-bar-radius);
+    background: var(
+      --theme__progress-color,
+      var(--variant__progress-color, var(--connect__cc-purple))
+    );
+    border-radius: var(--theme__progress-br, var(--variant__progress-br, 1rem));
   }
 }
 
