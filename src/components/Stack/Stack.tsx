@@ -52,13 +52,27 @@ export const Stack: React.FC<StackProps> = ({
       const paddingX = values.paddingX ?? previousBreakpoint.paddingX ?? '';
       const paddingY = values.paddingY ?? previousBreakpoint.paddingY ?? '';
       // Now, only update the style object if the current breakpoint explicitly sets the property
-      if (values.direction) style[`--${breakpoint}-direction`] = direction;
-      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
-      if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
-      if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
-      if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
-      if (values.paddingX) style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
-      if (values.paddingY) style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
+      if (values.direction) {
+        style[`--${breakpoint}-direction`] = direction;
+      }
+      if (values.spacing) {
+        style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
+      }
+      if (values.alignItems) {
+        style[`--${breakpoint}-alignItems`] = alignItems;
+      }
+      if (values.justifyContent) {
+        style[`--${breakpoint}-justifyContent`] = justifyContent;
+      }
+      if (values.flexWrap) {
+        style[`--${breakpoint}-flexWrap`] = flexWrap;
+      }
+      if (values.paddingX) {
+        style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
+      }
+      if (values.paddingY) {
+        style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
+      }
       // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
     }

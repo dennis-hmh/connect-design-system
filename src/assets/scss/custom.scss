@@ -1247,7 +1247,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
   align-items: var(--xs-alignItems, start);
   display: flex;
   flex: 1;
-  flex-flow: var(--connect__stack-direction, column);
+  flex-direction: var(--connect__stack-direction, column);
   flex-wrap: var(--connect__stack-wrap, wrap);
   gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
   justify-content: var(--connect__justify-content, start);
