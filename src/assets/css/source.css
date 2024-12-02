@@ -1025,13 +1025,6 @@
   }
 }
 
-/* Shadows that require gradebanded values need the connect
-class for scope, this ensures the values can be accessed
-*/
-
-:where([class^='connect__']) {
-}
-
 /* A connect reset starter kit
 An attempt to unify code, reduce need for extra css 
 A modern 2024 take on the reset
