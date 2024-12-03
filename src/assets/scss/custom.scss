@@ -214,7 +214,7 @@ Buttons take variables in the following format
   &-menu {
     --variant__btn-bg: var(--connect__surface-null);
     --connect__inner-status-color: var(--connect__surface-null);
-    --active-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
     --variant__btn-padding-x: var(--connect__spacer-sm);
 
     box-shadow: var(--connect__shadow-null);
@@ -240,7 +240,7 @@ Buttons take variables in the following format
     &:not(:disabled) {
       --variant__btn-bg: var(--connect__brand-pale-magenta);
       --connect__inner-status-color: var(--connect__brand-pale-magenta);
-      --connect__icon-fill: var(--connect__brand-deep-magenta);
+      --variant__icon-fill-color: var(--connect__brand-deep-magenta);
 
       &:active {
         --connect__inner-status-color: var(--connect__surface-white);
