@@ -5,7 +5,9 @@ import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { Divider, DividerProps } from '../Divider/Divider';
+import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { GradeBand } from 'src/enum/gradeband';
+import { wrap } from 'module';
 
 export type AlertProps = {
   children: React.ReactNode;
@@ -31,19 +33,43 @@ export const Alert: React.FC<AlertProps> = ({
         xs={{
           direction: 'row',
           spacing: 'md',
-          alignItems: 'center',
+          alignItems: 'stretch',
           justifyContent: 'start',
-          paddingX: 'sm',
-          paddingY: 'xs',
+          paddingX: 'md',
+          paddingY: 'sm',
         }}
       >
-        {iconId && (
-          <>
-            <Icon id={iconId} size={iconSize} fill={fill} />
-            <Divider aria-orientation="vertical" />
-          </>
-        )}
-        {children}
+        <Stack
+          xs={{
+            direction: 'row',
+            flexWrap: 'nowrap',
+            spacing: 'md',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingX: 'zero',
+            paddingY: 'zero',
+          }}
+        >
+          {iconId && (
+            <>
+              <Icon id={iconId} size={iconSize} fill={fill} />
+              <Divider orientation="vertical" />
+            </>
+          )}
+        </Stack>
+        <Stack
+          xs={{
+            direction: 'column',
+            spacing: 'xs',
+            alignItems: 'center',
+            justifyContent: 'start',
+            paddingX: 'zero',
+            paddingY: 'zero',
+          }}
+        >
+          {children}
+        </Stack>
+
         <button onClick={handleClick}>
           <Icon id="close" size="md" fill="" />
         </button>

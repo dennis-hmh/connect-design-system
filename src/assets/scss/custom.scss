@@ -1246,13 +1246,11 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
   align-items: var(--xs-alignItems, start);
   display: flex;
-  flex: 1;
   flex-direction: var(--connect__stack-direction, column);
   flex-wrap: var(--connect__stack-wrap, wrap);
   gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
   justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
-  width: var(--connect__full-w);
 
   &.connect__stack-xs {
     --connect__paddingX: var(--xs-paddingX, 0);

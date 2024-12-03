@@ -18,6 +18,7 @@ export type ButtonMenuProps = {
   dataTestId?: string;
   additionalClass?: string;
   clickedClass?: string;
+  onClick?: () => void;
   gradeBand?: GradeBand;
 };
 
