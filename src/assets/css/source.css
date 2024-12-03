@@ -804,7 +804,7 @@
   /*
     3.1: Connect Default Palette
   */
- --connect__gray-c70: rgb(45, 45, 45);
+  --connect__gray-c70: rgb(45, 45, 45);
   --connect__gray-c55: rgb(93, 95, 95);
   --connect__gray-c40: rgb(137, 141, 141);
   --connect__gray-c35: rgb(160, 162, 162);
@@ -845,7 +845,7 @@
   /*
     3.2: Connect Default Palette
   */
-  
+
   --connect__cc-purple: rgb(113, 47, 253);
   --connect__brand-magenta: rgb(255, 0, 179);
   --connect__brand-deep-magenta: rgb(204, 0, 192);
@@ -990,7 +990,7 @@
   --connect__display-flex: flex;
 
   /* 6.2: Resets */
-  --connect__spacer-zero: 0rem;
+  --connect__spacer-unset: 0rem;
   --connect__opacity-zero: 0;
   --connect__opacity-one: 1;
   --connect__overflow-hidden: hidden;

@@ -2,12 +2,12 @@ import React from 'react';
 
 export type BreakpointValues = {
   direction?: 'row' | 'column';
-  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'unset';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
-  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'unset';
+  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'unset';
 };
 
 export type StackProps = {
