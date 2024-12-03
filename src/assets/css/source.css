@@ -990,7 +990,7 @@
   --connect__display-flex: flex;
 
   /* 6.2: Resets */
-  --connect__spacer-unset: 0rem;
+  --connect__spacer-zero: 0rem;
   --connect__opacity-zero: 0;
   --connect__opacity-one: 1;
   --connect__overflow-hidden: hidden;

@@ -93,7 +93,7 @@ Buttons take variables in the following format
   --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
   --connect__btn-border-w: var(
     --theme__btn-border-w,
-    var(--variant__btn-border-w, var(--connect__spacer-unset))
+    var(--variant__btn-border-w, var(--connect__spacer-zero))
   );
 
   --connect__btn-padding-y: var(
@@ -305,7 +305,7 @@ Buttons take variables in the following format
 .connect__input {
   --connect__input-border-w: var(
     --theme__input-border-w,
-    var(--variant__input-border-w, var(--connect__spacer-unset))
+    var(--variant__input-border-w, var(--connect__spacer-zero))
   );
   --connect__input-padding-y: var(
     --theme__input-padding-y,
@@ -413,7 +413,7 @@ Buttons take variables in the following format
   background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
   background-size: var(--connect__icon-md);
-  border: var(--connect__spacer-unset) solid var(--connect__surface-null);
+  border: var(--connect__spacer-zero) solid var(--connect__surface-null);
   border-radius: var(--connect__border-radius);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   color: var(--active-color, var(--connect__surface-dark));
@@ -633,7 +633,7 @@ Variables related to theme/overrides:
 
 | Property         | Theme                         | Variant/State                 | Fallback / Default                                        |
 |------------------|------------------------------ |-------------------------------|-----------------------------------------------------------|
-| Border width     | --theme__card-border-w        | --variant__card-border-w      | --connect__spacer-unset                                    |
+| Border width     | --theme__card-border-w        | --variant__card-border-w      | --connect__spacer-zero                                    |
 | Border color     | --theme__card-border-c        | --variant__card-border-c      | --connect__neutrals-null                                  |
 | Border radius    | --theme__card-fs              | --variant__card-fs            | --connect__body-sm                                        |
 | Padding X        | --theme__card-padding-x       | --variant__card-padding-x     | var(--connect__spacer-sm) - var(--connect__card-border-w) |
@@ -644,7 +644,7 @@ Variables related to theme/overrides:
 .connect__card {
   --connect__card-border-w: var(
     --theme__card-border-w,
-    var(--variant__card-border-w, var(--connect__spacer-unset))
+    var(--variant__card-border-w, var(--connect__spacer-zero))
   );
   --connect__card-padding-y: var(
     --theme__card-padding-y,
@@ -768,7 +768,7 @@ Usage:
 
   --connect__header-margin-t: var(--theme__connect-header-margin-t, 0);
 
-  --connect__header-border-w: var(--theme__connect-header-border-w, var(--connect__spacer-unset));
+  --connect__header-border-w: var(--theme__connect-header-border-w, var(--connect__spacer-zero));
 
   // Individual border widths
   --connect__header-border-w-t: var(
@@ -1315,7 +1315,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 | Line height      | --theme__chip-lh              | --variant__chip-lh         | --connect__body-sm-lheight                                |
 | Background color | --theme__chip-bg              | --variant__chip-bg         | --connect__primary-mid                                    |
 | Border color     | --theme__chip-border-c        | --variant__chip-border-c   | --connect__neutrals-null                                  |
-| Border width     | --theme__chip-border-w        | --variant__chip-border-w   | --connect__spacer-unset                                    |
+| Border width     | --theme__chip-border-w        | --variant__chip-border-w   | --connect__spacer-zero                                    |
 | Padding X        | --theme__chip-padding-x       | --variant__chip-padding-x  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
 | Padding Y        | --theme__chip-padding-y       | --variant__chip-padding-y  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
 | Width            | --theme__chip-radius          | --variant__chip-radius     | --connect__border-radius                                  |
@@ -1324,7 +1324,7 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 .connect__chip {
   --connect__chip-border-w: var(
     --theme__chip-border-w,
-    var(--variant__chip-border-w, var(--connect__spacer-unset))
+    var(--variant__chip-border-w, var(--connect__spacer-zero))
   );
   --connect__chip-padding-y: var(
     --theme__chip-padding-y,
@@ -1374,8 +1374,8 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
 
 | Border Radius TL | --theme__pill-br-tl | --variant__pill-br-tl | --connect__heading-lg-lheight |
 | Border Radius TR | --theme__pill-br-tr | --variant__pill-br-tr | --connect__heading-lg-lheight |
-| Border Radius BR | --theme__pill-br-br | --variant__pill-br-br | --connect__spacer-unset        |
-| Border Radius BL | --theme__pill-br-bl | --variant__pill-br-bl | --connect__spacer-unset        |
+| Border Radius BR | --theme__pill-br-br | --variant__pill-br-br | --connect__spacer-zero        |
+| Border Radius BL | --theme__pill-br-bl | --variant__pill-br-bl | --connect__spacer-zero        |
 */
 
 .connect__pill {
@@ -1384,10 +1384,10 @@ Responsive Styles: To make these responsive, apply sm/md/lg/xl
     --theme__pill-bg,
     var(--variant__pill-bg, var(--connect__default-pill-bg, var(--connect__cc-purple)))
   );
-  border-radius: var(--theme__pill-br-tl, var(--variant__pill-br-tl, var(--connect__spacer-unset)))
+  border-radius: var(--theme__pill-br-tl, var(--variant__pill-br-tl, var(--connect__spacer-zero)))
     var(--theme__pill-br-tr, var(--variant__pill-br-tr, var(--connect__heading-lg-lheight)))
     var(--theme__pill-br-br, var(--variant__pill-br-br, var(--connect__heading-lg-lheight)))
-    var(--theme__pill-br-bl, var(--variant__pill-br-bl, var(--connect__spacer-unset)));
+    var(--theme__pill-br-bl, var(--variant__pill-br-bl, var(--connect__spacer-zero)));
   color: var(--theme__pill-color, var(--variant__pill-color, var(--connect__surface-white)));
   display: inline-flex;
   font-family: var(--connect__font-sans);
@@ -1668,7 +1668,7 @@ Positioning int he pseudos is the total border / 2
   &::after {
     background-color: var(--connect__surface-white);
     border-radius: var(--theme__inner-radius, var(--connect__inner-radius))
-      var(--connect__spacer-unset);
+      var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
@@ -1961,18 +1961,18 @@ Divider can be vertical or horizontal
 | Height           | --theme__divider-h        | --variant__divider-h        | --connect__effects-inner-edge  |
 | Width            | --theme__divider-w        | --variant__divider-w        | --connect__full-w              |
 | Radius           | --theme__divider-br       | --variant__divider-br       | --connect__border-radius       |         
-| Margin x         | --theme__divider-margin-x | --variant__divider-margin-x | --connect__spacer-unset         |      
-| Margin y         | --theme__divider-margin-y | --variant__divider-margin-y | --connect__spacer-unset         |       
+| Margin x         | --theme__divider-margin-x | --variant__divider-margin-x | --connect__spacer-zero         |      
+| Margin y         | --theme__divider-margin-y | --variant__divider-margin-y | --connect__spacer-zero         |       
 */
 
 .connect__divider {
   --connect__divider-margin-y: var(
     --theme__divider-margin-y,
-    var(--variant__divider-margin-y, var(--connect__spacer-unset))
+    var(--variant__divider-margin-y, var(--connect__spacer-zero))
   );
   --connect__divider-margin-x: var(
     --theme__divider-margin-x,
-    var(--variant__divider-margin-x, var(--connect__spacer-unset))
+    var(--variant__divider-margin-x, var(--connect__spacer-zero))
   );
 
   background-color: var(--theme__divider-bg, var(--variant__divider-bg, var(--connect__gray-c10)));
@@ -1991,7 +1991,7 @@ Divider can be vertical or horizontal
   );
 
   &[aria-orientation='vertical'] {
-    --variant__divider-margin-x: var(--connect__spacer-unset);
+    --variant__divider-margin-x: var(--connect__spacer-zero);
     --variant__divider-h: var(--connect__full-h);
     --variant__divider-w: var(--connect__effects-inner-edge);
   }
@@ -2063,7 +2063,7 @@ Divider can be vertical or horizontal
 
 | Property   | Theme                 | Variants                | Fallback / Default         |
 |------------|-----------------------|-------------------------|----------------------------|
-| Radius     | --theme__paper-radius | --variant__paper-radius | --connect__spacer-unset     |
+| Radius     | --theme__paper-radius | --variant__paper-radius | --connect__spacer-zero     |
 |------------|-----------------------|-------------------------|----------------------------|
 | Elevation-levels 
 */
@@ -2074,7 +2074,7 @@ Divider can be vertical or horizontal
   background-color: var(--connect__paper-bg);
   border-radius: var(
     --theme__paper-radius,
-    var(--variant__paper-radius, var(--connect__spacer-unset))
+    var(--variant__paper-radius, var(--connect__spacer-zero))
   );
 
   &.connect__rounded-corners {

@@ -45,8 +45,8 @@ export const Alert: React.FC<AlertProps> = ({
             spacing: 'md',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingX: 'unset',
-            paddingY: 'unset',
+            paddingX: 'zero',
+            paddingY: 'zero',
           }}
         >
           {iconId && (
@@ -62,20 +62,14 @@ export const Alert: React.FC<AlertProps> = ({
             spacing: 'xs',
             alignItems: 'start',
             justifyContent: 'center',
-            paddingX: 'unset',
-            paddingY: 'unset',
+            paddingX: 'zero',
+            paddingY: 'zero',
           }}
         >
           {children}
         </Stack>
 
-        <ButtonMenu
-          iconId="close"
-          iconSize="md"
-          ariaLabel="Close"
-          onClick={handleClick}
-          backgroundColor="gray-c5"
-        />
+        <ButtonMenu iconId="close" iconSize="md" ariaLabel="Close" onClick={handleClick} />
       </Stack>
     </Paper>
   );
