@@ -106,7 +106,7 @@ Buttons take variables in the following format
     var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
   );
 
-  --icon-fill-color: var(
+  --icon__fill-color: var(
     --theme__icon-fill,
     var(--state-based-icon-fill, var(--connect__icon-fill))
   );
@@ -156,7 +156,10 @@ Buttons take variables in the following format
   }
 
   .connect__icon {
-    --connect__icon-fill-color: var(--icon-fill-color);
+    --connect__icon-fill-color: var(
+      --variant__icon-fill,
+      var(--state__based-icon-fill, var(--icon__fill-color))
+    );
   }
 
   &-primary {
@@ -165,10 +168,17 @@ Buttons take variables in the following format
 
     &.connect__feedback-correct {
       --connect__inner-status-color-state: var(--connect__surface-null);
+      --state-based-icon-fill: var(--connect__correct-mid);
     }
 
     &.connect__feedback-incorrect {
       --connect__inner-status-color-state: var(--connect__surface-null);
+    }
+
+    &:disabled {
+      --active-color: var(--connect__surface-white);
+      --variant__icon-fill: var(--active-color);
+      --variant__btn-bg: var(--connect__disabled-light);
     }
   }
 
@@ -179,7 +189,8 @@ Buttons take variables in the following format
     --connect__inner-status-color: var(--connect__primary-mid);
 
     &:disabled {
-      --state-based-bg: var(--connect__surface-white);
+      --variant__btn-bg: var(--connect__surface-white);
+      --variant__icon-fill: var(--connect__disabled-light);
       --connect__inner-status-color-state: var(--connect__surface-pale);
     }
 
@@ -189,6 +200,7 @@ Buttons take variables in the following format
 
     &.connect__feedback-correct {
       --state-based-bg: var(--connect__surface-white);
+      --state-based-icon-fill: var(--connect__correct-mid);
       --connect__inner-status-color: var(--connect__correct-light);
     }
   }
@@ -246,17 +258,10 @@ Buttons take variables in the following format
   }
 
   &-media {
-    --variant__btn-justify: center;
-    --variant__btn-flow: column wrap;
-    --connect__btn-padding-y: var(--connect__spacer-md);
-    --connect__btn-padding-x: var(--connect__spacer-md);
-
-    --variant__border-radius: 100%;
-    --connect__btn-h: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-y));
-    --connect__btn-w: calc(var(--connect__spacer-xl) * 3.75 - var(--connect__btn-padding-x));
+    box-shadow: var(--connect__shadow-null);
 
     &.connect__media-active:not(:disabled) {
-      --state-based-bg: var(--connect__red-s45);
+      --state-based-bg: var(--connect__error-mid);
     }
   }
 
