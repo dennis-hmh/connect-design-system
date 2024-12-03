@@ -1,13 +1,12 @@
 import React from 'react';
 import { Paper } from '../Paper/Paper';
-import { Stack, StackProps } from '../Stack/Stack';
+import { Stack } from '../Stack/Stack';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
-import { Divider, DividerProps } from '../Divider/Divider';
+import { Divider } from '../Divider/Divider';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { GradeBand } from 'src/enum/gradeband';
-import { wrap } from 'module';
 
 export type AlertProps = {
   children: React.ReactNode;
@@ -46,8 +45,8 @@ export const Alert: React.FC<AlertProps> = ({
             spacing: 'md',
             alignItems: 'center',
             justifyContent: 'space-between',
-            paddingX: 'zero',
-            paddingY: 'zero',
+            paddingX: 'unset',
+            paddingY: 'unset',
           }}
         >
           {iconId && (
@@ -61,18 +60,22 @@ export const Alert: React.FC<AlertProps> = ({
           xs={{
             direction: 'column',
             spacing: 'xs',
-            alignItems: 'center',
-            justifyContent: 'start',
-            paddingX: 'zero',
-            paddingY: 'zero',
+            alignItems: 'start',
+            justifyContent: 'center',
+            paddingX: 'unset',
+            paddingY: 'unset',
           }}
         >
           {children}
         </Stack>
 
-        <button onClick={handleClick}>
-          <Icon id="close" size="md" fill="" />
-        </button>
+        <ButtonMenu
+          iconId="close"
+          iconSize="md"
+          ariaLabel="Close"
+          onClick={handleClick}
+          backgroundColor="gray-c5"
+        />
       </Stack>
     </Paper>
   );

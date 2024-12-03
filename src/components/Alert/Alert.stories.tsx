@@ -35,19 +35,12 @@ export const Default: Story = Template.bind({});
 Default.args = {
   iconId: 'info',
   children: (
-    <Stack
-      xs={{
-        direction: 'column',
-        spacing: 'xs',
-        alignItems: 'center',
-        justifyContent: 'start',
-      }}
-    >
+    <>
       <Typography element="h5" size="body-sm">
         Alert Heading
       </Typography>
       <Typography element="p">This is an alert message.</Typography>
-    </Stack>
+    </>
   ),
   handleClick: () => console.log('Close button clicked'),
   gradeBand: GradeBand.G4_5,
