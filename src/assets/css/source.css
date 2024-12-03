@@ -782,14 +782,10 @@
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
 
   /* 2.2: Font Weights */
-  --connect__fw-extra-light: 200;
-  --connect__fw-light: 300;
   --connect__fw-regular: 400;
   --connect__fw-medium: 500;
   --connect__fw-semi-bold: 600;
   --connect__fw-bold: 700;
-  --connect__fw-extra-bold: 800;
-  --connect__fw-black: 900;
 
   /*
     3: Palette
@@ -865,15 +861,27 @@
 
   /*
     3.4: State Driven Palette
+    Error states are system,
+    Feedback states are:
       Correct / Incorrect / Answer Shown
-      Selected / Hint / Focus / Opacities
-      Disabled
+      Selected / Hint 
+      
+      Browser states
+       Focus 
+       Disabled
+      
+       Opacities
   */
 
   --connect__correct-dark: var(--connect__green-c55);
   --connect__correct-mid: var(--connect__green-s40);
   --connect__correct-light: var(--connect__green-c25);
   --connect__correct-pale: #cbffa3;
+
+  --connect__error-dark: var(--connect__red-c55);
+  --connect__error-mid: var(--connect__red-s45);
+  --connect__error-light: var(--connect__red-s25);
+  --connect__error-pale: var(--connect__red-s15);
 
   --connect__incorrect-dark: rgb(115, 130, 143);
   --connect__incorrect-mid: rgb(158, 195, 228);
@@ -905,11 +913,6 @@
   --connect__disabled-mid: var(--connect__gray-c55);
   --connect__disabled-light: var(--connect__gray-c40);
   --connect__disabled-pale: var(--connect__gray-c10);
-
-  --connect__error-dark: var(--connect__red-c55);
-  --connect__error-mid: var(--connect__red-s45);
-  --connect__error-light: var(--connect__red-s25);
-  --connect__error-pale: var(--connect__red-s15);
 
   /*
     4: Shadows
