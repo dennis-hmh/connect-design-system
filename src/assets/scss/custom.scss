@@ -1710,6 +1710,12 @@ Positioning int he pseudos is the total border / 2
 | Line height  | theme__character-count-lh | variant__character-count-lh | connect__caption-lheight | 
 | Font weight  | theme__character-fw       | variant__character-fw       | connect__fw-regular      |
 | Color        | theme__character-color    | variant__character-color    | connect__surface-mid     |
+|--------------|---------------------------|-----------------------------|--------------------------|
+|--------------|-------Counter VARIABLES---|-----------------------------|--------------------------|
+|--------------|---------------------------|-----------------------------|--------------------------|
+| Font weight  | theme__character-fw       | variant__character-fw       | connect__fw-regular      |
+|--------------|---------------------------|-----------------------------|--------------------------|
+
 
 Usage:
   The .connect__character-counter class can be applied to an element that displays
