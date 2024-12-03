@@ -1029,6 +1029,7 @@
     --half-lheight: 1.125rem;
   }
 }
+
 [class^='connect__'] {
   --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
       var(--connect__surface-white) inset,
