@@ -1322,8 +1322,7 @@ Pseudo-element Styles:
 
 .connect__icon-wrapper {
   display: inline-flex;
-  flex: 1;
-  flex-direction: var(--connect__display-flex-direction);
+  flex-flow: column wrap;
   position: relative;
   width: var(--connect__full-w);
 
@@ -1338,12 +1337,6 @@ Pseudo-element Styles:
     top: 0;
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
-  }
-
-  &.connect__input-character-count {
-    --connect__display-align-items: end;
-    --connect__display-flex: flex;
-    --connect__display-flex-direction: column;
   }
 }
 
