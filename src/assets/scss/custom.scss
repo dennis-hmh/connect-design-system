@@ -78,7 +78,7 @@ Buttons take variables in the following format
 | Font weight         | --theme__btn-fw              | --variant__btn-fw             | --connect__fw-regular                                    |
 | Text transform      | --theme__btn-text-transform  | --variant__btn-text-transform | --connect__text-capitalize                               |
 | Background color    | --theme__btn-bg              | --state__btn-bg               | --connect__primary-mid                                   |
-| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__neutrals-null                                 |
+| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__surface-null                                 |
 | Gap                 | --theme__btn-gap             | --variant__btn-gap            | --connect__spacer-sm                                     |
 | Padding X           | --theme__btn-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
 | Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
@@ -117,7 +117,7 @@ Buttons take variables in the following format
     var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
   );
   border: var(--connect__btn-border-w) solid
-    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__neutrals-null)));
+    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__surface-null)));
   border-radius: var(
     --theme__btn-border-radius,
     var(--variant__btn-border-radius, var(--connect__border-radius))
@@ -290,7 +290,7 @@ Buttons take variables in the following format
 | Font size           | --theme__input-fs            | --variant__input-fs            | --connect__body-sm                                         |
 | Line height         | --theme__input-lh            | --variant__input-lh            | --connect__body-sm-lheight                                 |
 | Background color    | --theme__input-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__neutrals-null                                   |
+| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__surface-null                                   |
 | Padding X           | --theme__input-padding-x     | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
 | Padding Y           | --theme__input-padding-y     | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
 | Border radius       | --theme__input-border-radius | --variant__input-border-radius | --connect__border-radius                                   |
@@ -323,7 +323,7 @@ Buttons take variables in the following format
     var(--variant__input-bg, var(--state-based-bg, var(--connect__surface-white)))
   );
   border: var(--connect__input-border-w) solid
-    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__neutrals-null)));
+    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
   border-radius: var(--connect__border-radius);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   caret-color: var(--connect__primary-mid);
@@ -364,12 +364,6 @@ Buttons take variables in the following format
     }
   }
 
-  & textarea {
-    field-sizing: initial;
-    max-height: calc(4lh + 2 * var(--connect__input-padding-y));
-    min-height: calc(2lh + 2 * var(--connect__input-padding-y));
-  }
-
   &.connect__selected {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
 
@@ -388,7 +382,7 @@ Buttons take variables in the following format
 | Font size           | --theme__select-fs            | --variant__select-fs            | --connect__body-sm                                         |
 | Line height         | --theme__select-lh            | --variant__select-lh            | --connect__body-sm-lheight                                 |
 | Background color    | --theme__select-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__neutrals-null                                   |
+| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__surface-null                                   |
 | Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w) |
 | Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w) |
 | Border radius       | --theme__select-border-radius | --variant__select-border-radius | --connect__border-radius                                   |
@@ -1226,7 +1220,7 @@ these styles are then open to breakpoint changes
 | Font size        | --theme__chip-fs              | --variant__chip-fs         | --connect__body-sm                                        |
 | Line height      | --theme__chip-lh              | --variant__chip-lh         | --connect__body-sm-lheight                                |
 | Background color | --theme__chip-bg              | --variant__chip-bg         | --connect__primary-mid                                    |
-| Border color     | --theme__chip-border-c        | --variant__chip-border-c   | --connect__neutrals-null                                  |
+| Border color     | --theme__chip-border-c        | --variant__chip-border-c   | --connect__surface-null                                  |
 | Border width     | --theme__chip-border-w        | --variant__chip-border-w   | --connect__spacer-zero                                    |
 | Padding X        | --theme__chip-padding-x       | --variant__chip-padding-x  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
 | Padding Y        | --theme__chip-padding-y       | --variant__chip-padding-y  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
@@ -1249,7 +1243,7 @@ these styles are then open to breakpoint changes
 
   background-color: var(--theme__chip-bg, var(--variant__chip-bg, var(--connect__surface-white)));
   border: var(--connect__chip-border-w) solid
-    var(--theme__chip-border-c, var(--variant__chip-border-c, var(--connect__neutrals-null)));
+    var(--theme__chip-border-c, var(--variant__chip-border-c, var(--connect__surface-null)));
   border-radius: var(
     --theme__chip-border-radius,
     var(--variant__chip-border-radius, var(--connect__border-radius))
@@ -1747,54 +1741,55 @@ Usage:
 */
 
 .connect__character-counter {
-  --connect__character-count-ff: var(--theme__character-count-ff, var(--connect__font-sans));
-  --connect__character-count-fs: var(--theme__character-count-fs, var(--connect__caption));
-  --connect__character-count-fw: var(--theme__character-count-fw, 400);
-
-  --connect__character-count-lh: var(--theme__character-count-lh, var(--connect__caption-lheight));
-  --connect__character-count-style: var(--theme__connect__character-count-style, normal);
-  --connect__character-count-color: var(
-    --theme__character-count-color,
-    var(--connect__neutrals-mid)
+  align-items: center;
+  color: var(
+    --theme__character-color,
+    var(--variant__character-color, var(--connect__surface-mid))
   );
-  --connect__character-count-reached: var(--theme__character-count-reached, 400);
-
-  --connect__display-align-items: end;
-  --connect__display-flex: flex;
-  --connect__display-flex-direction: column;
-
-  color: var(--connect__character-count-color);
-  font-family: var(--connect__character-count-ff);
-  font-size: var(--connect__character-count-fs);
-  font-style: var(--connect__character-count-style);
-  font-weight: var(--connect__character-count-fw);
-  line-height: var(--connect__character-count-lh);
+  display: flex;
+  font-family: var(--connect__font-sans);
+  font-size: var(
+    --theme__character-count-fs,
+    var(--variant__character-color, var(--connect__caption))
+  );
+  font-weight: var(--theme__character-fw, var(--variant__character-fw, var(--connect__fw-regular)));
+  gap: var(--connect__spacer-xs);
+  justify-content: flex-end;
+  line-height: var(
+    --theme__character-count-lh,
+    var(--variant__character-color-lh, var(--connect__caption-lheight))
+  );
 
   > em {
     font-style: normal;
-    font-weight: var(--connect__character-count-reached);
+    font-weight: var(
+      --theme__character-fw,
+      var(--variant__character-fw, var(--connect__fw-regular))
+    );
   }
 
   &-limit-reached {
-    --connect__character-count-reached: 700;
+    em {
+      --variant__character-fw: 700;
+    }
   }
+}
 
-  @keyframes shake {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(5deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(-5deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

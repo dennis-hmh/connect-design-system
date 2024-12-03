@@ -70,7 +70,12 @@ export const Textarea: React.FC<TextareaProps> = ({
           }`}
         >
           <em>{charCount}</em>
-          {characterLimit ? ` / ${characterLimit}` : ''}
+          {characterLimit && (
+            <>
+              <span aria-hidden="true">/</span>
+              {characterLimit}
+            </>
+          )}
         </div>
       )}
     </label>
