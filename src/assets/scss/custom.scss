@@ -2083,10 +2083,6 @@ These styles apply to elements with classes that include '-shown'.
   --state-icon: var(--icon-shown);
 }
 
-[class*='-selected'] {
-  --connect__inner-status-color-state: var(--connect__primary-mid);
-}
-
 /* 
 These styles apply to elements with classes that include '-correct', '-incorrect', or '-shown'.
 Cover Text / Cursors / Iconography
