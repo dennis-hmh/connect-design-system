@@ -1536,6 +1536,10 @@ Padding on MCQ labels is the total border + spacer
 
 .connect__input-no-shadow {
   box-shadow: var(--connect__shadow-null);
+
+  &:hover {
+    box-shadow: var(--connect__shadow-null);
+  }
 }
 
 /*
