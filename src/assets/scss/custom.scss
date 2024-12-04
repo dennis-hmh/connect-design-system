@@ -1260,14 +1260,13 @@ these styles are then open to breakpoint changes
 /*
 .connect__icon-wrapper Component
 
-Variables related to positioning:
-  --connect__feedback-translateY: Vertical translation for feedback icon.
-  --connect__feedback-translateX: Horizontal translation for feedback icon.
-  --connect__icon-size: Size of the icon, defaults to medium if not specified.
-
-Pseudo-element Styles:
-  &::after
-    background-image: var(--state-icon);
+  | Property         | Fallback / Default           | States                      | Variants           | Future changes   |
+  |------------------|------------------------------|-----------------------------|--------------------|------------------|
+  | background-image | state-icon                   | Correct / Incorrect / Shown |                    |                  |
+  | height           | connect__icon-md             |                             | connect__icon-size | Liable to change |
+  | translateX       | connect__feedback-translateX |                             |                    | Liable to change |
+  | translateY       | connect__feedback-translateX |                             |                    |                  |
+  | width            | connect__icon-md             |                             | connect__icon-size |                  |        
 */
 
 .connect__icon-wrapper {
