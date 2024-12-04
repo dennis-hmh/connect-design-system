@@ -2001,11 +2001,11 @@ These styles apply to elements with classes that include '-correct'.
 /* 
 These styles apply to elements with classes that include '-correct'.
 
-| Property Type         | Variable                                | Description                                              |
-|-----------------------|-----------------------------------------|----------------------------------------------------------|
-| Inner Status          | --connect__inner-status-color           | Change to --connect__correct-mid                         |
-| BG Color              | --state-based-bg                        | Change bg to --color-correct-pale                        |
-| Icon Input            | --state-icon                            | Change to correct icon                                   |
+| Property      | Variable                      | Description                       |
+|---------------|-------------------------------|-----------------------------------|
+| Inner Status  | --connect__inner-status-color | Change to --connect__correct-mid  |
+| BG Color      | --state-based-bg              | Change bg to --color-correct-pale |
+| Icon Input    | --state-icon                  | Change to correct icon            |
 */
 
 .connect__feedback-correct {
@@ -2017,11 +2017,11 @@ These styles apply to elements with classes that include '-correct'.
 /* 
 These styles apply to elements with classes that include '-incorrect'.
 
-| Property Type         | Variable                                | Description                                              |
-|-----------------------|-----------------------------------------|----------------------------------------------------------|
-| Inner Status          | --connect__inner-status-color           | Change to --connect__incorrect-mid                       |
-| BG Color              | --state-based-bg                        | Change bg to --color-incorrect-bg                        |
-| Icon Input            | --state-icon                            | Change to incorrect icon                                 |
+| Property     | Variable                      | Description                        |
+|--------------|-------------------------------|------------------------------------|
+| Inner Status | --connect__inner-status-color | Change to --connect__incorrect-mid |
+| BG Color     | --state-based-bg              | Change bg to --color-incorrect-bg  |
+| Icon Input   | --state-icon                  | Change to incorrect icon           |
 */
 
 .connect__feedback-incorrect {
@@ -2033,11 +2033,11 @@ These styles apply to elements with classes that include '-incorrect'.
 /* 
 These styles apply to elements with classes that include '-shown'.
 
-| Property Type         | Variable                                | Description                                              |
-|-----------------------|-----------------------------------------|----------------------------------------------------------|
-| Inner Status          | --connect__inner-status-color           | Change to --connect__surface-mid                         |
-| BG Color              | --state-based-bg                        | Change bg to white                                       |
-| Icon Input            | --state-icon                            | Change to shown icon                                     |
+| Property     | Variable                      | Description                       |
+|--------------|-------------------------------|-----------------------------------|
+| Inner Status | --connect__inner-status-color | Change to --connect__surface-mid  |
+| BG Color     | --state-based-bg              | Change bg to white                |
+| Icon Input   | --state-icon                  | Change to shown icon              |
 */
 
 .connect__feedback-shown {
@@ -2052,9 +2052,9 @@ Cover Text / Cursors / Iconography
 
 | Property Type | Variable                        | Description                    |
 |---------------|---------------------------------|--------------------------------|
-| Color         | --active-color                  | Change to disabled text mid ---|
-| Cursor        | --connect__state-based-pointer  | Change to disabled cursor -----|
-| Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon -|
+| Color         | --active-color                  | Change to disabled text mid    |
+| Cursor        | --connect__state-based-pointer  | Change to disabled cursor      |
+| Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon  |
 */
 
 .connect__feedback-correct,
