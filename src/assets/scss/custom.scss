@@ -1886,15 +1886,18 @@ Divider can be vertical or horizontal
 */
 
 .connect__list {
-  > .connect__list-item {
-    font-size: var(--theme__list-fs, var(--variant__list-fs, var(--connect__body-sm)));
-    line-height: var(--theme__list-lh, var(--variant__list-lh, var(--connect__body-sm-lheight)));
+  list-style-type: var(--variant__list-style-type, none);
+  padding-inline: 0;
+}
 
-    &::marker {
-      color: var(--theme__list-marker-color, var(--variant__marker-color, inherit));
-      font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
-      line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
-    }
+.connect__list-item {
+  font-size: var(--theme__list-fs, var(--variant__list-fs, var(--connect__body-sm)));
+  line-height: var(--theme__list-lh, var(--variant__list-lh, var(--connect__body-sm-lheight)));
+
+  &::marker {
+    color: var(--theme__list-marker-color, var(--variant__marker-color, inherit));
+    font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
+    line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
   }
 }
 
