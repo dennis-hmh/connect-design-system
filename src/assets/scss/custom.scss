@@ -395,7 +395,6 @@ Buttons take variables in the following format
     --theme__select-bg,
     var(--variant__select-bg, var(--state-based-bg, var(--connect__surface-white)))
   );
-
   background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon-closed));
   background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
