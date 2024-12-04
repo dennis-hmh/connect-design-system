@@ -734,15 +734,12 @@
   /*
     2: TYPOGRAPHY
     2.1: Font Families
-    2.2: Font Weights: 200-900
-      200: Extra Light
-      300: Light
+    2.2: Font Weights
       400: Regular
       500: Medium
       600: Semi-Bold
       700: Bold
-      800: Extra Bold
-      900: Black
+    2.3: Text align / wrap  
   */
 
   /* 2.1: Font Families */
@@ -755,6 +752,11 @@
   --connect__fw-medium: 500;
   --connect__fw-semi-bold: 600;
   --connect__fw-bold: 700;
+
+  /* 2.3: Text align / wrap */
+  --connect__text-balance: balance;
+  --connect__text-left: left;
+  --connect__text-center: left;
 
   /*
     3: Palette
@@ -1119,7 +1121,6 @@ A modern 2024 take on the reset
 }
 
 :where([class^='connect__']) > img {
-  border-radius: var(--connect__img-br, var(--connect__border-radius, 0));
   width: 100%;
 }
 

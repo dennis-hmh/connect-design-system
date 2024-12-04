@@ -1537,13 +1537,11 @@ Positioning int he pseudos is the total border / 2
   }
 
   .connect__figure {
-    --connect__border-radius: var(--connect__inner-radius);
     grid-column: 1 / -1;
     grid-row: 1 / -1;
 
-    figcaption {
-      --connect__fig-py: var(--connect__spacer-xs);
-      --connect__fig-px: var(--connect__spacer-sm);
+    img {
+      border-radius: var(--connect__inner-radius);
     }
   }
 }
@@ -1935,32 +1933,45 @@ Divider can be vertical or horizontal
   box-shadow: var(--connect__shadow-lvl-6);
 }
 
-:where([class^='connect__']) {
-  figure {
-    border-radius: var(--theme__border-radius, var(--connect__border-radius));
-    margin: var(--connect__fig-margin, 0);
-    overflow: hidden;
+.connect__figure {
+  margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
+}
 
-    &:has(img) {
-      img {
-        --connect__img-br: 0;
-      }
-    }
-  }
+/* 
+.connect__figcaption
 
-  figcaption {
-    --connect__fig-py: var(--connect__spacer-sm);
-    --connect__fig-px: var(--connect__spacer-md);
-    font-size: var(--connect__fig-fs, var(--connect__caption));
-    line-height: var(--connect__fig-lh, var(--connect__caption-lheight));
-    margin-top: var(--connect__fig-mt, 0);
-    padding-bottom: var(--connect__fig-pb, var(--connect__fig-py));
-    padding-left: var(--connect__fig-pl, var(--connect__fig-px));
-    padding-right: var(--connect__fig-pr, var(--connect__fig-px));
-    padding-top: var(--connect__fig-pt, var(--connect__fig-py));
-    text-align: var(--connect__fig-text-align, left);
-    text-wrap: var(--connect__fig-text-wrap, initial);
-  }
+| Property Type | Theme                      | Variant                     | Default                  |
+|---------------|----------------------------|-----------------------------|--------------------------|
+| Color         | theme__caption-fs          | variant__caption-fs         | connect__caption         |
+| Line Height   | theme__caption-lh          | variant__caption-lh         | connect__caption-lheight |
+| Margin        | theme__caption-mt          | variant__caption-mt         | connect__spacer-zero     |
+| Padding T     | theme__caption-pt          | variant__caption-pt         | connect__spacer-xs       |
+| Padding R     | theme__caption-pr          | variant__caption-pr         | connect__spacer-sm       |
+| Padding B     | theme__caption-pb          | variant__caption-pb         | connect__spacer-xs       |
+| Padding L     | theme__caption-pl          | variant__caption-pl         | connect__spacer-sm       |
+| Text align    | theme__caption-text-align  | variant__caption-text-align | connect__text-left       |
+| Text wrap     | variant__caption-text-wrap | variant__caption-text-wrap  | connect__text-balance    |
+*/
+
+.connect__figcaption {
+  font-size: var(--theme__caption-fs, var(--variant__caption-fs, var(--connect__caption)));
+  line-height: var(
+    --theme__caption-lh,
+    var(--variant__caption-lh, var(--connect__caption-lheight))
+  );
+  margin-top: var(--theme__caption-mt, var(--variant__caption-mt, var(--connect__spacer-zero)));
+  padding: var(--theme__caption-pt, var(--variant__caption-pt, var(--connect__spacer-xs)))
+    var(--theme__caption-pr, var(--variant__caption-pr, var(--connect__spacer-sm)))
+    var(--theme__caption-pb, var(--variant__caption-pb, var(--connect__spacer-xs)))
+    var(--theme__caption-pl, var(--variant__caption-pl, var(--connect__spacer-sm)));
+  text-align: var(
+    --theme__caption-text-align,
+    var(--variant__caption-text-align, var(--connect__text-left))
+  );
+  text-wrap: var(
+    --theme__caption-text-wrap,
+    var(--variant__caption-text-wrap, var(--connect__text-balance))
+  );
 }
 
 /* 
