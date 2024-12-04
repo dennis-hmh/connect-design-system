@@ -9,7 +9,7 @@ const preview: Preview = {
       storySort: {
         //(a, b) =>
         // a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true }),
-        order: ['Animation', 'Buttons', 'Content', 'Figure', 'Input', 'Layout', 'Misc'],
+        order: ['Animation', 'Buttons', 'Content', 'Figure', 'Input', 'Layout', 'Misc', 'PoC'],
       },
     },
     controls: {
