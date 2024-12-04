@@ -390,14 +390,12 @@ Buttons take variables in the following format
 */
 
 .connect__select {
-  --connect__select-bg: var(--state-based-bg, var(--connect__surface-white));
-  --connect__select-fs: var(--connect__body-sm);
-  --connect__select-lh: var(--connect__body-sm-lheight);
-  --connect__select-fw: var(--connect__fw-regular);
-  --connect__select-text-transform: var(--connect__text-capitalize);
-
   appearance: none;
-  background-color: var(--connect__select-bg);
+  background-color: var(
+    --theme__select-bg,
+    var(--variant__select-bg, var(--state-based-bg, var(--connect__surface-white)))
+  );
+
   background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon-closed));
   background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
@@ -408,14 +406,12 @@ Buttons take variables in the following format
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  flex: 1;
-  font-size: var(--connect__select-fs);
-  font-weight: var(--connect__select-fw);
-  line-height: var(--connect__select-lh);
+  font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
+  font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
+  line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: relative;
-  text-transform: var(--connect__text-capitalize);
   width: var(--connect__full-w);
 
   &:not(:disabled) {
