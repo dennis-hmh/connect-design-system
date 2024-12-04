@@ -290,7 +290,7 @@ Buttons take variables in the following format
 | Font size           | --theme__input-fs            | --variant__input-fs            | --connect__body-sm                                         |
 | Line height         | --theme__input-lh            | --variant__input-lh            | --connect__body-sm-lheight                                 |
 | Background color    | --theme__input-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__surface-null                                   |
+| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__surface-null                                    |
 | Padding X           | --theme__input-padding-x     | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
 | Padding Y           | --theme__input-padding-y     | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
 | Border radius       | --theme__input-border-radius | --variant__input-border-radius | --connect__border-radius                                   |
@@ -376,17 +376,17 @@ Buttons take variables in the following format
 .connect__select Component
 
 /*
-| Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
-|---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
+| Property            | Theme                         | Variant/State                   | Fallback / Default                                         |
+|---------------------|-------------------------------|---------------------------------|------------------------------------------------------------|
 | Font size           | --theme__select-fs            | --variant__select-fs            | --connect__body-sm                                         |
 | Line height         | --theme__select-lh            | --variant__select-lh            | --connect__body-sm-lheight                                 |
-| Background color    | --theme__select-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__surface-null                                   |
-| Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w) |
-| Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w) |
+| Background color    | --theme__select-bg            | --state__btn-bg                 | --connect__surface-white                                   |
+| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__surface-null                                    |
+| Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
+| Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
 | Border radius       | --theme__select-border-radius | --variant__select-border-radius | --connect__border-radius                                   |
-| Width               | --connect__btn-w             | --variant__select-w             | fit-content                                                 |
-| Resize              |                              | Resize                         | none                                                       |
+| Width               | --connect__btn-w              | --variant__select-w             | fit-content                                                 |
+| Resize              |                               | Resize                          | none                                                       |
 */
 
 .connect__select {
@@ -455,31 +455,12 @@ Variables related to theme/overrides:
 */
 
 .connect__accordion {
-  .connect__list-item {
-    margin-left: 0;
-    margin-top: var(--connect__effects-inner-edge);
-    padding-left: 0;
-  }
+  display: flex;
+  flex-flow: column wrap;
+  gap: var(--connect__effects-inner-edge);
 }
 
 .connect__details {
-  --connect__details-padding-t: var(
-    --theme__details-padding-t,
-    var(--variant__details-padding-t, 0)
-  );
-  --connect__details-padding-r: var(
-    --theme__details-padding-r,
-    var(--variant__details-padding-r, 0)
-  );
-  --connect__details-padding-b: var(
-    --theme__details-padding-b,
-    var(--variant__details-padding-b, 0)
-  );
-  --connect__details-padding-l: var(
-    --theme__details-padding-l,
-    var(--variant__details-padding-l, 0)
-  );
-
   // border radius for details based on open closed
   --connect__details-closed-radius: var(--connect__border-radius);
   --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
@@ -487,66 +468,46 @@ Variables related to theme/overrides:
   // Icon for accordion. Changes when open. in the [open]
   --connect__icon-rotate: rotate(0deg);
 
-  padding: var(--connect__details-padding-t) var(--connect__details-padding-r)
-    var(--connect__details-padding-b) var(--connect__details-padding-l);
+  padding: var(--theme__details-padding-t, var(--variant__details-padding-t, 0))
+    var(--theme__details-padding-r, var(--variant__details-padding-r, 0))
+    var(--theme__details-padding-b, var(--variant__details-padding-b, 0))
+    var(--theme__details-padding-l, var(--variant__details-padding-l, 0));
   position: relative;
 
   > *:not(summary) {
-    padding: var(--connect__details-items-state-padding-t, 0)
-      var(--connect__details-items-state-padding-r, 0)
-      var(--connect__details-items-state-padding-b, 0)
-      var(--connect__details-items-state-padding-l, 0);
+    padding: var(--connect__spacer-sm) var(--connect__spacer-sm) var(--connect__spacer-zero)
+      var(--connect__spacer-sm);
   }
 
   &[open] {
     --connect__icon-rotate: rotate(180deg);
     --variant__details-padding-b: var(--connect__spacer-sm);
-
-    *:not(summary) {
-      --connect__details-items-state-padding-t: var(--connect__spacer-sm);
-      --connect__details-items-state-padding-r: var(--connect__spacer-sm);
-      --connect__details-items-state-padding-l: var(--connect__spacer-sm);
-    }
   }
 }
 
 .connect__summary {
-  --connect__summary-bg: var(--theme__summary-bg, var(--variant__summary-bg, var(--active-color)));
-
-  --connect__summary-icon-active-ring: var(
-    --theme__summary-icon-active-ring,
-    var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
-  );
-
-  --connect__summary-padding-y: var(
-    --theme__summary-padding-y,
-    var(--variant__summary-padding-y, var(--connect__spacer-sm))
-  );
-  --connect__summary-padding-x: var(
-    --theme__summary-padding-x,
-    var(--variant__summary-padding-x, var(--connect__spacer-sm))
-  );
-
-  --connect__align-items: var(--theme__align-items, var(--variant__align-items, center));
-  --connect__justify-content: var(
-    --theme__justify-content,
-    var(--variant__justify-content, space-between)
-  );
-
-  align-items: var(--connect__align-items);
-  background-color: var(--connect__summary-bg);
+  align-items: var(--theme__align-items, var(--variant__align-items, center));
   border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
   cursor: var(--connect__state-based-pointer, pointer);
   display: flex;
-  justify-content: var(--connect__justify-content);
-  padding: var(--connect__summary-padding-y) var(--connect__summary-padding-x);
+  justify-content: var(--theme__justify-content, var(--variant__justify-content, space-between));
+
+  padding: var(
+      --theme__summary-padding-y,
+      var(--variant__summary-padding-y, var(--connect__spacer-sm))
+    )
+    var(--theme__summary-padding-x, var(--variant__summary-padding-x, var(--connect__spacer-sm)));
 
   &::after {
     background-image: var(--connect__dropdown-icon-closed);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: var(--connect__icon-sm) var(--connect__icon-sm);
-    border: var(--connect__effects-inner-edge) solid var(--connect__summary-icon-active-ring);
+    border: var(--connect__effects-inner-edge) solid
+      var(
+        --theme__summary-icon-active-ring,
+        var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
+      );
     border-radius: 50%;
     content: '';
     flex-shrink: 0;
@@ -605,14 +566,6 @@ Variables related to theme/overrides:
         top: 0;
         width: calc(var(--connect__full-w) - var(--connect__spacer-xl));
       }
-    }
-  }
-}
-
-.connect__accordion--color {
-  [open] {
-    .connect__summary {
-      --active-color: var(--connect__primary-mid);
     }
   }
 }
