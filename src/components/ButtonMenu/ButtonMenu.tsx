@@ -57,7 +57,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
 
   return (
     <button
-      id={id}
+      id={id + '-icon'}
       className={classNames}
       onClick={handleClick}
       data-testid={dataTestId}

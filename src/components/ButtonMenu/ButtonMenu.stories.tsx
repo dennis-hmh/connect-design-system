@@ -41,6 +41,7 @@ const Template: StoryFn<ButtonMenuProps & { gradeBand: GradeBand }> = (args) => 
 export const Default: Story = Template.bind({});
 Default.args = {
   children: '',
+  id: 'add',
   iconId: 'add',
   iconSize: 'md',
   additionalClass: '',
