@@ -7,6 +7,8 @@ export type TableProps = {
   caption?: string;
   scrolling?: boolean;
   stickyHeader?: boolean;
+  scopeCol?: boolean;
+  scopeRow?: boolean;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -18,6 +20,8 @@ export const Table: React.FC<TableProps> = ({
   caption,
   scrolling,
   stickyHeader,
+  scopeCol,
+  scopeRow,
   className,
   dataTestId,
 }) => {
@@ -45,18 +49,26 @@ export const Table: React.FC<TableProps> = ({
         <thead>
           <tr>
             {headers.map((header, headerIndex) => (
-              <th key={headerIndex}>{header}</th>
+              <th scope={scopeCol ? 'scope=col' : undefined} key={headerIndex}>
+                {header}
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {cells.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td data-heading={headers[cellIndex]} key={cellIndex}>
-                  {cell}
-                </td>
-              ))}
+              {row.map((cell, cellIndex) =>
+                cellIndex === 0 && scopeRow ? (
+                  <th scope="row" data-heading={headers[cellIndex]} key={cellIndex}>
+                    {cell}
+                  </th>
+                ) : (
+                  <td data-heading={headers[cellIndex]} key={cellIndex}>
+                    {cell}
+                  </td>
+                ),
+              )}
             </tr>
           ))}
         </tbody>

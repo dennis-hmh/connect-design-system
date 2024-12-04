@@ -1817,9 +1817,10 @@ Transitions:
   Table Component
 */
 .connect__table-wrapper {
-  --connect__table-bg: var(--theme__table-bg, var(--connect__neutrals-white));
-  --connect__thead-bg: var(--theme__thead-bg, var(--connect__neutrals-pale));
-  --connect__table-border-c: var(--theme__table-border-c, var(--connect__neutrals-mid));
+  --connect__table-bg: var(--theme__table-bg, var(--connect__white));
+  --connect__thead-bg: var(--theme__thead-bg, var(--connect__gray-c10));
+  --connect__table-border-c: var(--theme__table-border-c, var(--connect__gray-c55));
+  --connect__tr-hover-bg: var(--theme__tr-hover-bg, var(--connect__gray-c10));
   --connect__table-border-w: var(--theme__table-border-w, 0.0625rem);
   --connect__container-type: var(--theme__container-type, inline-size);
   --connect__container-name: var(--theme__container-name, table-container);
@@ -1842,9 +1843,9 @@ Transitions:
     }
 
     &.connect__table-sticky-header {
-      &:is(table) {
-        border-top: unset;
-      }
+      // &:is(table) {
+      //   border-top: unset;
+      // }
 
       thead {
         border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
@@ -1867,6 +1868,13 @@ Transitions:
       background-color: var(--connect__thead-bg);
       padding: var(--connect__spacer-sm);
       text-align: left;
+      &:is([scope='row']) {
+        border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
+        border-right: var(--connect__table-border-w) solid var(--connect__table-border-c);
+        &:first-of-type {
+          border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
+        }
+      }
     }
 
     td {
@@ -1875,15 +1883,17 @@ Transitions:
     }
 
     tr:hover {
-      background-color: var(--connect__neutrals-pale);
+      background-color: var(--connect__tr-hover-bg);
     }
   }
   @container table-container (max-width: 26rem) {
     .connect__table {
       // display: block;
       tr,
+      th,
       td {
         display: block;
+        width: 100%;
       }
 
       tr {
@@ -1892,11 +1902,18 @@ Transitions:
       }
 
       tr:nth-of-type(odd) {
-        background-color: var(--connect__neutrals-pale);
+        background-color: var(--connect__thead-bg);
       }
 
-      td {
-        border: unset;
+      // th:is([scope='row']) {
+      //   background-color: unset;
+      //   border: unset !important;
+      // }
+
+      td,
+      th {
+        background-color: unset;
+        border: unset !important;
         position: relative;
         text-align: left;
       }
