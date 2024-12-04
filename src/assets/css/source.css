@@ -938,6 +938,51 @@
   --connect__long-shadow-spread-level-6: 0rem 0.3125rem 0.3125rem -0.1875rem;
   --connect__long-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.125rem;
 
+  --connect__shadow-lvl--2: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-0) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-0) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-1: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-1) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-1) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-2: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-3: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-3) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-3) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-3) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-4: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-5: var(--connect__short-shadow-spread-level-5) var(--connect__shadow-short),
+    var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__mid-shadow-spread-level-5) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-5) var(--connect__shadow-long);
+
+  --connect__shadow-lvl-6: var(--connect__definer-level-1) var(--connect__shadow-definer),
+    var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short),
+    var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid),
+    var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
+
   /*
     5: Motion
     5.1: Easing
@@ -1026,60 +1071,12 @@
     var(--connect__definer-level-0) var(--connect__shadow-mid),
     var(--connect__definer-level-0) var(--connect__shadow-long);
 
-  --connect__shadow-lvl-focus: var(--connect__definer-level-1) var(--connect__focus-mid),
-    var(--connect__short-shadow-spread-level-f) var(--connect__focus-mid),
-    var(--connect__mid-shadow-spread-level-f) var(--connect__surface-white),
-    var(--connect__long-shadow-spread-level-f) var(--connect__surface-white);
+
 
   --connect__shadow-lvl-active: var(--connect__definer-level-1) var(--connect__primary-mid),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
-
-  --connect__shadow-lvl--2: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long) inset;
-
-  --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
-
-  --connect__shadow-lvl-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-0) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-0) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-1: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-1) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-1) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-2: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-3: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-3) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-3) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-3) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-4: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-5: var(--connect__short-shadow-spread-level-5) var(--connect__shadow-short),
-    var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__mid-shadow-spread-level-5) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-5) var(--connect__shadow-long);
-
-  --connect__shadow-lvl-6: var(--connect__definer-level-1) var(--connect__shadow-definer),
-    var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short),
-    var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid),
-    var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
 
   --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
   --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
