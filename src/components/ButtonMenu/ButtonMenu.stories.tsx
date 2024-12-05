@@ -42,10 +42,17 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: '',
   id: 'add',
+  backgroundColor: '',
   iconId: 'add',
   iconSize: 'md',
   additionalClass: '',
   clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
   gradeBand: GradeBand.G4_5,
+};
+
+export const withBackgroundColors: Story = Template.bind({});
+withBackgroundColors.args = {
+  ...Default.args,
+  backgroundColor: 'gray-c5',
 };

@@ -35,7 +35,7 @@ export const Paper: React.FC<PaperProps> = ({
 
   if (backgroundColor) {
     paperProps = {
-      '--connect__paper-bg': `var(--connect__${backgroundColor})`,
+      '--connect__paper-bg': `var(${backgroundColor})`,
     } as React.CSSProperties;
   }
 
