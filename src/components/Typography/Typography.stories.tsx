@@ -34,6 +34,7 @@ export const Default: Story = Template.bind({});
 
 Default.args = {
   children: 'Typography',
+  id: 'typography',
   element: 'h1',
   color: undefined,
   family: 'sans',
