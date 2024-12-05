@@ -66,7 +66,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
       isTouchScrollEnabled: disableTouchScroll,
     },
     {
-      fitCanvasToArtboardHeight: contain ? false : true,
+      fitCanvasToArtboardHeight: contain || sizeByHeight ? false : true,
     },
   );
 
@@ -311,8 +311,8 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     rive && rive.stop();
   }
 
-  const widthToSet = width == undefined ? '100%' : width;
-  const heightToSet = height == undefined ? '100%' : height;
+  // const widthToSet = width == undefined ? '100%' : width;
+  // const heightToSet = height == undefined ? '100%' : height;
   //...(sizeByHeight && aspectRatio && { width: calculatedHeight * aspectRatio })
   /* TO-DO: try to get Chris' described sizing behaviour working when there's more time
     For now, just set a size for the container's width/height props like '500px'
@@ -327,9 +327,9 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     <div
       ref={divRef}
       style={{
-        width: widthToSet,
-        height: heightToSet,
-      }}
+        height: '100%', 
+        ...(sizeByHeight && aspectRatio && { width: calculatedHeight * aspectRatio })
+        }}
     >
       <RiveComponent />
       <Typography element="p" ariaLive="polite">

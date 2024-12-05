@@ -13,6 +13,7 @@ import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
 import { RiveSimple } from './components/RiveSimple/RiveSimple';
+import { RiveEngine } from './components/RiveEngine/RiveEngine';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
@@ -53,6 +54,30 @@ const App: React.FC = () => {
               hidePlayPause={true}
               autoplay={true}
             /> */}
+                      {/* <GridItem>
+            <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" />
+          </GridItem> */}
+          <GridItem>
+            <div style={{ height: "700px", width: "fit-content", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem" }}>
+              <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" sizeByHeight/>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div style={{ width: "700px", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem"  }}>
+              <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div style={{ width: "700px", height: "500px", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem"  }}>
+              <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" contain/>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div style={{ width: "500px", height: "700px", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem"  }}>
+              <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" contain/>
+            </div>
+          </GridItem>
+
             <RiveSimple
               srcDefault="/rive/timer.riv"
               descDefault="hi"
