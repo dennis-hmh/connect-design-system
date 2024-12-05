@@ -1146,13 +1146,11 @@ these styles are then open to breakpoint changes
 .connect__stack {
   align-items: var(--xs-alignItems, start);
   display: flex;
-  flex: 1;
-  flex-flow: var(--connect__stack-direction, column);
+  flex-direction: var(--connect__stack-direction, column);
   flex-wrap: var(--connect__stack-wrap, wrap);
-  gap: var(--connect__stack-spacing, var(--connect__spacer-sm));
+  gap: var(--connect__stack-spacing, 0);
   justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
-  width: var(--connect__full-w);
 
   &.connect__stack-xs {
     --connect__stack-spacing: var(--xs-spacing);
