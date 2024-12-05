@@ -15,7 +15,6 @@ type Size =
 
 export interface TypographyProps {
   children: React.ReactNode;
-  id?: string;
   element?: React.ElementType;
   color?: Color;
   family?: 'sans' | 'serif' | 'mono';
@@ -37,7 +36,6 @@ export interface TypographyProps {
 
 export const Typography: React.FC<TypographyProps> = ({
   children,
-  id,
   element: Component = 'span',
   color,
   family = 'sans',
