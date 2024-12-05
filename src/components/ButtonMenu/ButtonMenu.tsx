@@ -1,45 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
-import { useButtonMenuContext } from '../../context/ButtonMenuHooks';
+import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
-  id: string;
   children: React.ReactNode;
+  id?: string;
   title?: string;
-  clickHandler?: () => void;
+  backgroundColor?: Color;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
-  iconPosition?: 'before' | 'after';
   ariaLabel?: string;
   dataTestId?: string;
   additionalClass?: string;
   clickedClass?: string;
+  onClick?: () => void;
   gradeBand?: GradeBand;
 };
 
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
-  id,
   children,
+  id,
   title,
+  backgroundColor,
   clickHandler,
   iconId,
   iconSize = 'md',
   fill,
-  iconPosition = 'before',
   ariaLabel,
   additionalClass = '',
   clickedClass,
   dataTestId,
 }) => {
-  const { clickedButtonId, setClickedButtonId } = useButtonMenuContext();
+  const context = useContext(ButtonMenuContext);
+  const clickedButtonId = context?.clickedButtonId;
+  const setClickedButtonId = context?.setClickedButtonId;
 
   const handleClick = () => {
-    setClickedButtonId(clickedButtonId === id ? null : id);
-    if (clickHandler) clickHandler();
+    if (setClickedButtonId) {
+      setClickedButtonId(clickedButtonId === id ? null : id);
+    }
+    if (clickHandler) {
+      clickHandler();
+    }
+    if (onClick) {
+      onClick();
+    }
   };
 
   const isClicked = clickedButtonId === id;
@@ -61,12 +70,13 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
       className={classNames}
       onClick={handleClick}
       data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      aria-label={ariaLabel || (iconId ? `Icon button ${iconId}` : undefined)}
       title={title ? title : ariaLabel}
+      style={
+        backgroundColor ? { '--variant__btn-bg': `var(--connect__${backgroundColor})` } : undefined
+      }
     >
-      {iconPosition === 'before' && iconElement}
-      {children}
-      {iconPosition === 'after' && iconElement}
+      {(children = iconElement)}
     </button>
   );
 };
