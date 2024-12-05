@@ -1,16 +1,16 @@
 import React from 'react';
 
-interface BreakpointValues {
+export type BreakpointValues = {
   direction?: 'row' | 'column';
   spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}
+  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+};
 
-interface StackProps {
+export type StackProps = {
   children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
@@ -19,9 +19,18 @@ interface StackProps {
   xl?: BreakpointValues;
   className?: string;
   dataTestId?: string;
-}
+};
 
-const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, dataTestId }) => {
+export const Stack: React.FC<StackProps> = ({
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  className,
+  dataTestId,
+}) => {
   const style: React.CSSProperties = {};
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
@@ -29,7 +38,7 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
   // Construct a list of classes based on the breakpoints provided
   const breakpointClasses = Object.keys(breakpoints)
     .filter((bp) => breakpoints[bp as keyof typeof breakpoints])
-    .map((bp) => `stack-${bp}`)
+    .map((bp) => `connect__stack-${bp}`)
     .join(' ');
 
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {
@@ -48,9 +57,10 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
       if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
       if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
       if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
-      if (values.paddingX) style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
-      if (values.paddingY) style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
-      // Update previousBreakpoint for inheritance
+      if (values.paddingX !== undefined)
+        style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
+      if (values.paddingY !== undefined)
+        style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`; // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
     }
   });
@@ -63,5 +73,3 @@ const Stack: React.FC<StackProps> = ({ children, xs, sm, md, lg, xl, className, 
     </div>
   );
 };
-
-export default Stack;

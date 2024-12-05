@@ -33,7 +33,7 @@ const Template: StoryFn<InputTextProps> = (args) => {
 };
 
 export const Default: Story = Template.bind({});
-export const Placeholder: Strory = Template.bind({});
+export const Placeholder: Story = Template.bind({});
 export const DefaultText: Story = Template.bind({});
 export const CharacterCounter: Story = Template.bind({});
 export const CharacterLimit: Story = Template.bind({});

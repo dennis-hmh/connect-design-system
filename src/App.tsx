@@ -39,6 +39,9 @@ const App: React.FC = () => {
 
         <Grid gutter={true} gap="md">
           <GridItem>
+            <Button primary iconId="mic">Hi there</Button>
+          </GridItem>
+          <GridItem>
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"

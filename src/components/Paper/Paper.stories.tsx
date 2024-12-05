@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
+import { Stack, StackProps, Figure, Image, Button, Icon } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -58,4 +59,45 @@ Aside.args = {
 
 Aside.parameters = {
   layout: 'fullscreen',
+};
+
+export const Card: Story = Template.bind({});
+Card.args = {
+  ...Default.args,
+  children: (
+    <Stack
+      sm={{
+        direction: `column`,
+        spacing: 'sm',
+        alignItems: 'stretch',
+        justifyContent: 'start',
+        flexWrap: `wrap`,
+      }}
+      md={{
+        direction: `row`,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Figure caption="This is a caption">
+        <Image altText={'This is Alt Text'} />
+      </Figure>
+
+      <Stack
+        xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'md' }}
+        lg={{ direction: 'row', justifyContent: 'space-between' }}
+      >
+        <Button primary={true} disabled={true}>
+          Cancel
+        </Button>
+        <Button primary={true}>
+          <Icon id="check" size="sm" /> Save
+        </Button>
+      </Stack>
+    </Stack>
+  ),
+  element: 'section',
+  elevation: 2,
+  roundedCorner: true,
+  className: '',
 };
