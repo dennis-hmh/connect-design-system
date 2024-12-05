@@ -1968,6 +1968,12 @@ Divider can be vertical or horizontal
   );
 }
 
+.connect__typography {
+  font-weight: var(--connect__fw, var(--connect__fw-regular));
+  hyphens: auto;
+  margin: 0;
+}
+
 /* 
 These styles apply to elements with classes that include '-correct'.
 
