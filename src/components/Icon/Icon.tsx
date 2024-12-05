@@ -42,7 +42,7 @@ export const Icon: React.FC<IconProps> = ({
         if (symbol) {
           const appendedSymbol = symbol.outerHTML.replace(
             `id="${id}"`,
-            `id="${id}Icon"` // Dynamically add "Icon" to the symbol ID
+            `id="${id}-icon"`, // Dynamically add "Icon" to the symbol ID
           );
           setSymbolContent(appendedSymbol);
         } else {
@@ -76,7 +76,7 @@ export const Icon: React.FC<IconProps> = ({
       data-testid={dataTestId}
     >
       {symbolContent && <g dangerouslySetInnerHTML={{ __html: symbolContent }} />}
-      <use href={`#${id}Icon`} />
+      <use href={`#${id}-icon`} />
     </svg>
   );
 };
