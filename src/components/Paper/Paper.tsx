@@ -4,6 +4,7 @@ import { Color } from '../../utils/colors';
 
 export type PaperProps = {
   children: React.ReactNode;
+  id?: string;
   element?: 'section' | 'article' | 'main' | 'aside' | 'div';
   elevation?: -1 | 0 | 1 | 2 | 3;
   roundedCorner?: boolean;
@@ -15,6 +16,7 @@ export type PaperProps = {
 
 export const Paper: React.FC<PaperProps> = ({
   children,
+  id,
   element: Component = 'div',
   elevation,
   roundedCorner = false,
@@ -40,7 +42,7 @@ export const Paper: React.FC<PaperProps> = ({
   }
 
   return (
-    <Component className={paperClassName} data-testid={dataTestId} style={paperProps}>
+    <Component id={id} className={paperClassName} data-testid={dataTestId} style={paperProps}>
       {children}
     </Component>
   );
