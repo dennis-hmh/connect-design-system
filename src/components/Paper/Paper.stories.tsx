@@ -37,7 +37,6 @@ export const Aside: Story = Template.bind({});
 
 Default.args = {
   children: 'Paper',
-  id: 'paper',
   element: 'div',
   elevation: 0,
   roundedCorner: false,
@@ -50,7 +49,6 @@ Default.args = {
 Aside.args = {
   ...Default.args,
   children: 'Aside',
-  id: 'aside',
   element: 'aside',
   elevation: 2,
   className: 'connect__aside',
