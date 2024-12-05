@@ -40,7 +40,11 @@ export const Icon: React.FC<IconProps> = ({
         const symbol = svgDocument.getElementById(id);
 
         if (symbol) {
-          setSymbolContent(symbol.outerHTML);
+          const appendedSymbol = symbol.outerHTML.replace(
+            `id="${id}"`,
+            `id="${id}Icon"` // Dynamically add "Icon" to the symbol ID
+          );
+          setSymbolContent(appendedSymbol);
         } else {
           // eslint-disable-next-line no-console
           console.warn(`Symbol with id "${id}" not found in the spritesheet.`);
@@ -72,7 +76,7 @@ export const Icon: React.FC<IconProps> = ({
       data-testid={dataTestId}
     >
       {symbolContent && <g dangerouslySetInnerHTML={{ __html: symbolContent }} />}
-      <use href={`#${id}`} />
+      <use href={`#${id}Icon`} />
     </svg>
   );
 };
