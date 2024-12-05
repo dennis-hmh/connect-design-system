@@ -20,7 +20,7 @@ export interface TypographyProps {
   family?: 'sans' | 'serif' | 'mono';
   size?: Size;
   spacer?: boolean;
-  spacerSize?: Size;
+  spacerSize?: Size | undefined;
   style?: 'normal' | 'italic' | 'oblique';
   weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   letterSpacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
