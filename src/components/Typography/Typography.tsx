@@ -20,10 +20,11 @@ export interface TypographyProps {
   family?: 'sans' | 'serif' | 'mono';
   size?: Size;
   spacer?: boolean;
-  spacerSize?: Size | undefined;
+  spacerSize?: Size;
   style?: 'normal' | 'italic' | 'oblique';
   weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   letterSpacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  textWrap?: 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'stable';
   textAlign?: React.CSSProperties['textAlign'];
   textTransform?: React.CSSProperties['textTransform'];
   opacity?: React.CSSProperties['opacity'];
@@ -46,49 +47,41 @@ export const Typography: React.FC<TypographyProps> = ({
   letterSpacing,
   textAlign,
   textTransform,
+  textWrap,
   opacity,
-  className,
+  className = '',
   dataTestId,
   ariaLive,
 }) => {
-  const typoProps: React.CSSProperties = {};
+  const typoProps: React.CSSProperties = {
+    color: color ? `var(--connect__${color})` : undefined,
+    fontFamily: `var(--connect__font-${family})`,
+    letterSpacing: letterSpacing ? `var(--connect__spacer-${letterSpacing})` : undefined,
+    fontStyle: style,
+    fontWeight: weight ? `var(--connect__fw, ${weight})` : undefined,
+    textAlign,
+    textTransform,
+    opacity,
+    textWrap,
+  };
 
-  if (color) {
-    const colorVariable = `--connect__${color}`;
-    typoProps.color = `var(${colorVariable})`;
+  if (textWrap) {
+    typoProps.textWrap = textWrap;
   }
 
-  if (family) {
-    typoProps.fontFamily = `var(--connect__font-${family})`;
-  }
-  if (letterSpacing) {
-    typoProps.letterSpacing = `var(--connect__spacer-${letterSpacing})`;
-  }
-  if (style) typoProps.fontStyle = style;
-  if (weight) {
-    const weightVariable = `--connect__fw`;
-    typoProps.fontWeight = `var(${weightVariable}, ${weight})`;
-  }
-  if (textAlign) typoProps.textAlign = textAlign;
-  if (textTransform) typoProps.textTransform = textTransform;
-  if (opacity) typoProps.opacity = opacity;
   if (size) {
     typoProps.fontSize = `var(--connect__${size})`;
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
-    if (spacer && !spacerSize) {
-      typoProps.marginBottom = `var(--connect__${size}-spacer)`;
-      // typoProps.marginTop = `var(--connect__${size}-spacer)`;
+    const spacerSizeToUse = spacerSize || size;
+    if (spacer) {
+      typoProps.marginBottom = `var(--connect__${spacerSizeToUse}-spacer)`;
     }
-  }
-  if (spacer && spacerSize) {
-    typoProps.marginBottom = `var(--connect__${spacerSize}-spacer)`;
-    // typoProps.marginTop = `var(--connect__${spacerSize}-spacer)`;
   }
 
   return (
     <Component
-      {...(Object.keys(typoProps).length > 0 ? { style: typoProps } : {})}
-      className={className}
+      style={Object.keys(typoProps).length ? typoProps : undefined}
+      className={`connect__typography ${className}`}
       data-testid={dataTestId}
       aria-live={ariaLive}
     >
