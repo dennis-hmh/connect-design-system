@@ -4,7 +4,7 @@ import { GradeBand } from 'src/enum/gradeband';
 export type ImageProps = {
   imageSrc: string;
   altText: string;
-  roundedCorner?: boolean;
+  roundedCorners?: boolean;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -20,11 +20,11 @@ const defaultImageSrc =
 export const Image: React.FC<ImageProps> = ({
   imageSrc,
   altText,
-  roundedCorner,
+  roundedCorners,
   className,
   dataTestId,
 }) => {
-  const classNames = ['connect__image', roundedCorner && 'connect__rounded-corners', className]
+  const classNames = ['connect__image', roundedCorners && 'connect__rounded-corners', className]
     .filter(Boolean)
     .join(' ');
 
