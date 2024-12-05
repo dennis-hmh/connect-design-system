@@ -33,6 +33,7 @@ Default.args = {
   imageSrc: '',
   altText: 'This is Alt Text',
   roundedCorner: false,
+  className: '',
   gradeBand: GradeBand.G4_5,
 };
 
