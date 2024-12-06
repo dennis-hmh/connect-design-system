@@ -38,7 +38,7 @@ Default.args = {
 };
 
 export const WithRoundedCorners: Story = Template.bind({});
-WithRoundedCorners.arg = {
+WithRoundedCorners.args = {
   ...Default.args,
   roundedCorners: true,
 };

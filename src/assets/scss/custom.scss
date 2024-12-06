@@ -1905,6 +1905,14 @@ Divider can be vertical or horizontal
 
   &.connect__rounded-corners {
     --variant__paper-radius: var(--connect__border-radius);
+
+    .connect__image {
+      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+    }
+
+    .connect__image:only-child {
+      border-radius: var(--connect__border-radius);
+    }
   }
 }
 
