@@ -21,13 +21,13 @@ export type AlertProps = {
 export const Alert: React.FC<AlertProps> = ({
   children,
   iconId,
-  iconSize,
+  iconSize = 'md',
   fill,
   handleClick,
   testId,
 }) => {
   return (
-    <Paper elevation="3" roundedCorner={true} className="connect__alert" data-testid={testId}>
+    <Paper elevation={3} roundedCorner={true} className="connect__alert" data-testid={testId}>
       <Stack
         xs={{
           direction: 'row',

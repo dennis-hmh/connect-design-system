@@ -7,32 +7,34 @@ import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
   children?: React.ReactNode;
-  id?: string;
-  title?: string;
-  backgroundColor?: Color;
+  id?: string | undefined;
+  additionalClass?: string;
+  clickedClass?: string;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
+  backgroundColor?: Color;
   ariaLabel?: string;
-  dataTestId?: string;
-  additionalClass?: string;
-  clickedClass?: string;
+  title?: string;
+  clickHandler?: () => void;
   onClick?: () => void;
+  dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   children,
-  id,
-  title,
-  backgroundColor,
-  clickHandler,
+  id = '',
+  additionalClass = '',
+  clickedClass,
   iconId,
   iconSize = 'md',
   fill,
+  backgroundColor,
   ariaLabel,
-  additionalClass = '',
-  clickedClass,
+  title,
+  clickHandler,
+  onClick,
   dataTestId,
 }) => {
   const context = useContext(ButtonMenuContext);
@@ -41,7 +43,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
 
   const handleClick = () => {
     if (setClickedButtonId) {
-      setClickedButtonId(clickedButtonId === id ? null : id);
+      setClickedButtonId(clickedButtonId === id ? '' : id);
     }
     if (clickHandler) {
       clickHandler();
@@ -73,10 +75,13 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
       aria-label={ariaLabel || (iconId ? `Icon button ${iconId}` : undefined)}
       title={title ? title : ariaLabel}
       style={
-        backgroundColor ? { '--variant__btn-bg': `var(--connect__${backgroundColor})` } : undefined
+        backgroundColor
+          ? ({ '--variant__btn-bg': `var(--connect__${backgroundColor})` } as React.CSSProperties)
+          : undefined
       }
     >
-      {children || iconElement}
+      {iconElement}
+      {children}
     </button>
   );
 };
