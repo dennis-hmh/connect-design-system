@@ -233,23 +233,8 @@ Buttons take variables in the following format
 
     &:disabled {
       --icon__fill-opacity: var(--connect__state-opacity);
-    }
-  }
-
-  &-selected {
-    &:not(:disabled) {
-      --variant__btn-bg: var(--connect__brand-pale-magenta);
-      --connect__inner-status-color: var(--connect__brand-pale-magenta);
-      --variant__icon-fill-color: var(--connect__brand-deep-magenta);
-
-      &:active {
-        --connect__inner-status-color: var(--connect__surface-white);
-      }
-    }
-
-    &:disabled {
-      --state-based-bg: var(--connect__brand-pale-magenta);
-      --connect__icon-fill: var(--connect__brand-deep-magenta);
+      --variant__icon-fill-color: var(--connect__disabled-mid);
+      --connect__state-based-pointer: var(--connect__disabled-cursor);
     }
   }
 
@@ -1741,7 +1726,7 @@ Usage:
     var(--theme__aside-padding-x, var(--variant__aside-padding-x, var(--connect__spacer-xs)));
   width: var(--theme__aside-w, var(--variant__aside-w, 3.625rem));
 
-  &:has(ul:only-child) {
+  &:has(> .connect__list:only-child) {
     justify-content: end;
   }
 
@@ -1749,12 +1734,17 @@ Usage:
     &:not(:disabled) {
       --variant__btn-bg: var(--connect__brand-pale-magenta);
       --connect__inner-status-color: var(--connect__brand-pale-magenta);
-      --connect__icon-fill: var(--connect__brand-deep-magenta);
+      --variant__icon-fill-color: var(--connect__brand-deep-magenta);
+
+      &:active {
+        --connect__inner-status-color: var(--connect__surface-white);
+      }
     }
 
     &:disabled {
-      --state-based-bg: var(--connect__brand-pale-magenta);
-      --connect__icon-fill: var(--connect__brand-deep-magenta);
+      --variant__btn-bg: var(--connect__disabled-pale);
+      --variant__icon-fill-color: var(--connect__disabled-mid);
+      --connect__state-based-pointer: var(--connect__disabled-cursor);
     }
   }
 
@@ -1764,6 +1754,10 @@ Usage:
     flex-flow: column wrap;
     gap: var(--connect__spacer-xs);
     width: 100%;
+  }
+
+  .connect__stack {
+    --connect__stack-spacing: var(--connect__spacer-xs);
   }
 
   hr {
