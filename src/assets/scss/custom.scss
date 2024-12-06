@@ -1883,6 +1883,13 @@ Divider can be vertical or horizontal
   }
 }
 
+.connect__rounded-corners {
+  border-radius: var(
+    --theme__paper-radius,
+    var(--variant__paper-radius, var(--connect__border-radius))
+  );
+}
+
 /*
 .connect__paper Component
 
