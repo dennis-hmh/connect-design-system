@@ -32,13 +32,20 @@ const App: React.FC = () => {
   const [animationState, setAnimationState] = useState(0);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
         </Header>
 
         <Grid gutter={true} gap="md">
+          <GridItem>
+            <Button primary iconId="add" iconPosition='after'>
+              <Typography>Hi there</Typography>
+              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+            </Button>
+            
+          </GridItem>
           <GridItem>
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
@@ -78,13 +85,13 @@ const App: React.FC = () => {
             </div>
           </GridItem>
 
-            <RiveSimple
+            {/* <RiveSimple
               srcDefault="/rive/timer.riv"
               descDefault="hi"
               hidePlayPause={true}
               autoplay={true}
               inputs={{ animationState }} 
-            />
+            /> */}
 
           </GridItem>
           <GridItem>

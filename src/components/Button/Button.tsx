@@ -3,6 +3,7 @@ import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
+import { Typography } from '../Typography/Typography';
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -68,7 +69,7 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
-      {children}
+        {children}
       {iconPosition === 'after' && iconElement}
     </button>
   );
