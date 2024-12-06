@@ -1077,8 +1077,7 @@ these styles are then open to breakpoint changes
 .connect__stack {
   align-items: var(--connect__stack-align, start);
   display: flex;
-  flex-direction: var(--connect__stack-direction, column);
-  flex-wrap: var(--connect__stack-wrap, wrap);
+  flex-flow: var(--connect__stack-direction, column) var(--connect__stack-wrap, wrap);
   gap: var(--connect__stack-spacing, 0);
   justify-content: var(--connect__justify-content, start);
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
