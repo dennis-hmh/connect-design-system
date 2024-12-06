@@ -40,11 +40,38 @@ const App: React.FC = () => {
 
         <Grid gutter={true} gap="md">
           <GridItem>
+            <Button primary iconId="add" iconPosition='before'>
+              <Typography>Hi there</Typography>
+            </Button>
+          </GridItem>
+          <GridItem>
             <Button primary iconId="add" iconPosition='after'>
+              <Typography>Hi there</Typography>
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button primary iconId="add" iconPosition='before'>
               <Typography>Hi there</Typography>
               <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
             </Button>
-            
+          </GridItem>
+          <GridItem>
+            <Button primary disabled iconId="loader" iconPosition='before'>
+              <Typography>Loading</Typography>
+              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button primary>
+              <Typography>Generate Summaries</Typography>
+              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button primary>
+              <Typography styles={{opacity: 0}}>Generating</Typography>
+              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+            </Button>
           </GridItem>
           <GridItem>
             {/* <RiveSimple

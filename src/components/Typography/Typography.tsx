@@ -31,6 +31,7 @@ export interface TypographyProps {
   dataTestId?: string;
   ariaLive?: 'polite' | 'assertive' | 'off';
   gradeBand?: GradeBand;
+  styles?: React.CSSProperties;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -50,6 +51,7 @@ export const Typography: React.FC<TypographyProps> = ({
   className,
   dataTestId,
   ariaLive,
+  styles,
 }) => {
   const typoProps: React.CSSProperties = {};
 
@@ -91,6 +93,7 @@ export const Typography: React.FC<TypographyProps> = ({
       className={className}
       data-testid={dataTestId}
       aria-live={ariaLive}
+      style={styles}
     >
       {children}
     </Component>

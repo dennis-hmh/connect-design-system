@@ -171,17 +171,21 @@ Buttons take variables in the following format
   &:has(svg:first-child) {
     svg {
       grid-column: 1;
+      justify-self: end;
     }
     span {
       grid-column: 2;
+      justify-self: start;
     }
   }
   &:has(svg:last-child) {
     svg {
       grid-column: 2;
+      justify-self: start;
     }
     span {
       grid-column: 1;
+      justify-self: end;
     }
   }
 
