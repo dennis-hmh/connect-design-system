@@ -6,7 +6,7 @@ import { GradeBand } from 'src/enum/gradeband';
 import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   id?: string;
   title?: string;
   backgroundColor?: Color;
@@ -76,7 +76,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
         backgroundColor ? { '--variant__btn-bg': `var(--connect__${backgroundColor})` } : undefined
       }
     >
-      {(children = iconElement)}
+      {children || iconElement}
     </button>
   );
 };
