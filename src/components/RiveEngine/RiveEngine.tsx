@@ -7,6 +7,7 @@ import {
   EventType,
   useRive,
 } from '@rive-app/react-canvas';
+import { GradeBand } from 'src/enum/gradeband';
 import { Typography } from '../Typography/Typography';
 import { usePrefersReducedMotion, usePrefersDarkMode } from './accessibilityUtils';
 
@@ -22,6 +23,7 @@ export type RiveEngineProps = {
   height?: string;
   contain?: boolean;
   sizeByHeight?: boolean;
+  gradeBand?: GradeBand;
   inputs?:
     | { current: { [key: string]: StateMachineInput }; exposed?: boolean }
     | MutableRefObject<undefined>;

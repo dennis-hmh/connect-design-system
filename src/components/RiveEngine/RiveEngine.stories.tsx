@@ -7,7 +7,7 @@ import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
 import { Button } from '../Button/Button';
-import { Timer } from '../Timer/Timer';
+import { Timer, TimerProps } from '../Timer/Timer';
 import { timerStates } from '../Timer/TimerUtils';
 import { Typography } from '../Typography/Typography';
 
@@ -18,19 +18,27 @@ const meta: Meta<RiveEngineProps> = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    gradeBand: {
+      options: Object.values(GradeBand),
+      control: {
+        type: 'select',
+      }
+    }
+  }
 };
 
 export default meta;
 type Story = StoryObj<RiveEngineProps>;
 
-const Template: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (args) => {
+const Template: StoryFn<RiveEngineProps> = (args) => {
   return <RiveEngine {...args} />;
 };
 
 /** An example of showing a Rive animation! One special thing to note about this example is that it automatically responds to changes in the "Reduced Motion" and "Dark Mode" system preferences.
  *
  * To do this, the RiveEngine component checks if the animation's active State Machine contains any inputs with names that are reserved for accessibility features. If it does, it'll update the values of these inputs! The component handles all of this automatically, so no setup is needed and no props need be passed (though the "ignoreReducedMotion" and "ignoreDarkMode" props can be used to switch off this behaviour on a particular component instance).
- */
+*/
 export const Default: Story = Template.bind({});
 Default.args = {
   src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
@@ -42,11 +50,14 @@ Default.args = {
 
 // TIMER TOOL EXAMPLE
 
-const TimerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (args) => {
-  const countdownLength = args['countdownLength'];
+type TimerToolExampleProps = TimerProps & RiveEngineProps;
+type StoryTimerTool = StoryObj<TimerToolExampleProps>;
 
+const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
+  const countdownLength = args.time || 5000;
+  
   const [timerState, setTimerState] = useState(timerStates.waiting_to_start);
-
+  
   //Shorthands for checking the states
   const isWaiting = timerState <= timerStates.waiting_to_start;
   const isCountingDown = timerState == timerStates.counting_down;
@@ -119,7 +130,7 @@ const TimerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (a
   const inputs = useRef();
   const rivePlayState = isPaused ? 'paused' : 'playing';
 
-  const gradeBand = args['gradeBand'];
+  const gradeBand = args.gradeBand;
   const src = getGradeBandFile_timer(gradeBand);
 
   //Watch the timerState for changes, and update the Rive input's value accordingly
@@ -171,9 +182,13 @@ const TimerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (a
  *
  * Where timerState is the value to set, 'animationState' is the name of the input, and inputs is the object defined with "useRef()".
  */
-export const CountdownTimerTool: Story = TimerToolExample.bind({});
+export const CountdownTimerTool: StoryTimerTool = TimerToolExample.bind({});
+CountdownTimerTool.args = {
+  gradeBand: GradeBand.G4_5,
+  time: 10000,
+};
 
-function getGradeBandFile_timer(gradeBand) {
+function getGradeBandFile_timer(gradeBand: GradeBand) {
   const filenames = {
     0: 'k-2-timer.riv',
     1: '3-5-timer.riv',
