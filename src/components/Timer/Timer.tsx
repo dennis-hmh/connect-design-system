@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { GradeBand } from 'src/enum/gradeband';
+import { timerStates } from './TimerUtils'
 
 type Size =
   | 'heading-xl'
@@ -24,13 +25,6 @@ export type TimerProps = {
   gradeBand?: GradeBand;
   parentState?: number;
 };
-
-export enum timerStates {
-  waiting_to_start,
-  counting_down,
-  finished,
-  paused,
-}
 
 interface CustomCSSProperties extends React.CSSProperties {
   '--connect__timer-fs'?: string;

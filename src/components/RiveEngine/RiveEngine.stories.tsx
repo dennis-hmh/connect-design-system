@@ -1,15 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { RiveEngine, RiveEngineProps, setRiveInputValue } from './RiveEngine';
+import { RiveEngine, RiveEngineProps } from './RiveEngine';
+import { setRiveInputValue } from './RiveEngineUtils';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
 import { Button } from '../Button/Button';
-import { Timer, timerStates } from '../Timer/Timer';
+import { Timer } from '../Timer/Timer';
+import { timerStates } from '../Timer/TimerUtils';
 import { Typography } from '../Typography/Typography';
 
-const meta: Meta<typeof RiveEngineProps> = {
+const meta: Meta<RiveEngineProps> = {
   title: 'Animation/Rive Engine',
   component: RiveEngine,
   tags: ['autodocs'],
@@ -19,7 +21,7 @@ const meta: Meta<typeof RiveEngineProps> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RiveEngineProps>;
+type Story = StoryObj<RiveEngineProps>;
 
 const Template: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (args) => {
   return <RiveEngine {...args} />;
@@ -170,14 +172,10 @@ const TimerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (a
  * Where timerState is the value to set, 'animationState' is the name of the input, and inputs is the object defined with "useRef()".
  */
 export const CountdownTimerTool: Story = TimerToolExample.bind({});
-CountdownTimerTool.args = {
-  gradeBand: GradeBand.G4_5,
-  countdownLength: 5000,
-};
 
 function getGradeBandFile_timer(gradeBand) {
   const filenames = {
-    0: '3-5-timer.riv', //NOTE: the 3-5 version is temporarily used for K-2 too!
+    0: 'k-2-timer.riv',
     1: '3-5-timer.riv',
     2: '6-8-timer.riv',
     3: '9-12-timer.riv',
