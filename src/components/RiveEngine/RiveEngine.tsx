@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable react-hooks/rules-of-hooks */
 
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import {
@@ -97,10 +96,6 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     setVolume(volume);
   }, [rive, src]);
 
-  watchReducedMotion();
-  watchDarkMode();
-  watchVolume();
-
   /** Set the volume of internal Rive sound events
    *  Note that this only affects sounds that begin playing after this value is set
    *  @param newVolume A number from 0 to 1
@@ -110,25 +105,19 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   }
 
   /** Watch for changes in the volume prop */
-  function watchVolume() {
-    useEffect(() => {
-      setVolume(volume);
-    }, [volume]);
-  }
+  useEffect(() => {
+    setVolume(volume);
+  }, [volume]);
 
   /** Watch for changes in the Reduced Motion preference */
-  function watchReducedMotion() {
-    useEffect(() => {
-      handleReducedMotion();
-    }, [prefersReducedMotion]);
-  }
+  useEffect(() => {
+    handleReducedMotion();
+  }, [prefersReducedMotion]);
 
   /** Watch for changes in the Dark Mode preference */
-  function watchDarkMode() {
-    useEffect(() => {
-      handleDarkMode();
-    }, [prefersDarkMode]);
-  }
+  useEffect(() => {
+    handleDarkMode();
+  }, [prefersDarkMode]);
 
   /** Handle changes in the Reduced Motion preference */
   function handleReducedMotion() {
