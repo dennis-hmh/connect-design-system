@@ -176,7 +176,7 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
  *
  * An empty "inputs" object is defined with "useRef()" on the parent of these components – it's passed as a prop to the RiveEngine component, which automatically populates it with references to each exposed Rive State Machine Input it found in the Rive animation's active State Machine.
  *
- * This allows the parent component (or any of its children) to manipulate the internal value of the Rive inputs, affecting the animation. An importable "setRiveInputValue()"" helper function is available on the RiveEngine module, simplifying the process. In this case, its arguments are:
+ * This allows the parent component (or any of its children) to manipulate the internal value of the Rive inputs, affecting the animation. An importable "setRiveInputValue()"" helper function is available from the RiveEngineUtils module, simplifying the process. In this case, its arguments are:
  *
  * setRiveInputValue(timerState, 'animationState', inputs);
  *
