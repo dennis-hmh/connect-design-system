@@ -1881,6 +1881,10 @@ Divider can be vertical or horizontal
     --theme__paper-radius,
     var(--variant__paper-radius, var(--connect__border-radius))
   );
+
+  .connect__paper {
+     border-radius: var(--connect__unset);
+  }
 }
 
 /*
