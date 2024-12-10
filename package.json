@@ -26,9 +26,9 @@
     "preview": "vite preview",
     "stylelint": "stylelint 'src/assets/**/*.{css,scss}'",
     "storybook": "storybook dev -p 6006",
+    "storybook-test": "test-storybook",
     "test": "vitest --run",
-    "test:browser": "vitest --config vitest.config.ts",
-    "test:ui": "vitest --ui",
+    "test:storybook": "vitest --config vitest.storybook.config.ts",
     "type:check": "tsc && echo type check complete"
   },
   "dependencies": {
@@ -52,6 +52,7 @@
     "@storybook/react": "^8.4.3",
     "@storybook/react-vite": "^8.4.3",
     "@storybook/test": "^8.4.3",
+    "@storybook/test-runner": "^0.20.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/node": "^20.14.2",
