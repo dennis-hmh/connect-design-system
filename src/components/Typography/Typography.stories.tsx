@@ -45,6 +45,7 @@ Default.args = {
   letterSpacing: undefined,
   textAlign: undefined,
   textTransform: undefined,
+  textWrap: undefined,
   className: undefined,
   gradeBand: GradeBand.G4_5,
 };

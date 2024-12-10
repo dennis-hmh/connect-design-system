@@ -1,45 +1,56 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
-import { useButtonMenuContext } from '../../context/ButtonMenuHooks';
+import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
-  id: string;
-  children: React.ReactNode;
-  title?: string;
-  clickHandler?: () => void;
+  children?: React.ReactNode;
+  id?: string | undefined;
+  additionalClass?: string;
+  clickedClass?: string;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
-  iconPosition?: 'before' | 'after';
+  backgroundColor?: Color;
   ariaLabel?: string;
+  title?: string;
+  clickHandler?: () => void;
+  onClick?: () => void;
   dataTestId?: string;
-  additionalClass?: string;
-  clickedClass?: string;
   gradeBand?: GradeBand;
 };
 
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
-  id,
   children,
-  title,
-  clickHandler,
+  id = '',
+  additionalClass = '',
+  clickedClass,
   iconId,
   iconSize = 'md',
   fill,
-  iconPosition = 'before',
+  backgroundColor,
   ariaLabel,
-  additionalClass = '',
-  clickedClass,
+  title,
+  clickHandler,
+  onClick,
   dataTestId,
 }) => {
-  const { clickedButtonId, setClickedButtonId } = useButtonMenuContext();
+  const context = useContext(ButtonMenuContext);
+  const clickedButtonId = context?.clickedButtonId;
+  const setClickedButtonId = context?.setClickedButtonId;
 
   const handleClick = () => {
-    setClickedButtonId(clickedButtonId === id ? null : id);
-    if (clickHandler) clickHandler();
+    if (setClickedButtonId) {
+      setClickedButtonId(clickedButtonId === id ? '' : id);
+    }
+    if (clickHandler) {
+      clickHandler();
+    }
+    if (onClick) {
+      onClick();
+    }
   };
 
   const isClicked = clickedButtonId === id;
@@ -61,12 +72,16 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
       className={classNames}
       onClick={handleClick}
       data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      aria-label={ariaLabel || (iconId ? `Icon button ${iconId}` : undefined)}
       title={title ? title : ariaLabel}
+      style={
+        backgroundColor
+          ? ({ '--variant__btn-bg': `var(--connect__${backgroundColor})` } as React.CSSProperties)
+          : undefined
+      }
     >
-      {iconPosition === 'before' && iconElement}
+      {iconElement}
       {children}
-      {iconPosition === 'after' && iconElement}
     </button>
   );
 };

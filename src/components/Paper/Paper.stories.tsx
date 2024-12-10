@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
+import { Stack, StackProps, Figure, Image, Button, Icon } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -34,6 +35,7 @@ const Template: StoryFn<PaperProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 export const Aside: Story = Template.bind({});
+export const FullWidth: Story = Template.bind({});
 
 Default.args = {
   children: 'Paper',
@@ -42,6 +44,7 @@ Default.args = {
   roundedCorner: false,
   backgroundColor: '',
   className: '',
+  fullWidth: false,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
 };
@@ -52,8 +55,62 @@ Aside.args = {
   element: 'aside',
   elevation: 2,
   className: 'connect__aside',
+  fullWidth: false,
+};
+
+FullWidth.args = {
+  children: 'Paper full width',
+  element: 'div',
+  elevation: 0,
+  roundedCorner: false,
+  backgroundColor: '',
+  className: '',
+  fullWidth: true,
+  dataTestId: '',
+  gradeBand: GradeBand.G4_5,
 };
 
 Aside.parameters = {
   layout: 'fullscreen',
+};
+
+export const Card: Story = Template.bind({});
+Card.args = {
+  ...Default.args,
+  children: (
+    <Stack
+      sm={{
+        direction: `column`,
+        spacing: 'sm',
+        alignItems: 'stretch',
+        justifyContent: 'start',
+        flexWrap: `wrap`,
+      }}
+      md={{
+        direction: `row`,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Figure caption="This is a caption">
+        <Image altText={'This is Alt Text'} />
+      </Figure>
+
+      <Stack
+        xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'md' }}
+        lg={{ direction: 'row', justifyContent: 'space-between' }}
+      >
+        <Button primary={true} disabled={true}>
+          Cancel
+        </Button>
+        <Button primary={true}>
+          <Icon id="check" size="sm" /> Save
+        </Button>
+      </Stack>
+    </Stack>
+  ),
+  element: 'section',
+  elevation: 2,
+  roundedCorner: true,
+  className: '',
 };

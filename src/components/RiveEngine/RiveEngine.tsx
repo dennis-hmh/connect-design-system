@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable react-hooks/rules-of-hooks */
 
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import {
@@ -8,6 +7,7 @@ import {
   EventType,
   useRive,
 } from '@rive-app/react-canvas';
+import { GradeBand } from 'src/enum/gradeband';
 import { Typography } from '../Typography/Typography';
 import { usePrefersReducedMotion, usePrefersDarkMode } from './accessibilityUtils';
 
@@ -23,6 +23,7 @@ export type RiveEngineProps = {
   height?: string;
   contain?: boolean;
   sizeByHeight?: boolean;
+  gradeBand?: GradeBand;
   inputs?:
     | { current: { [key: string]: StateMachineInput }; exposed?: boolean }
     | MutableRefObject<undefined>;
@@ -97,10 +98,6 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     setVolume(volume);
   }, [rive, src]);
 
-  watchReducedMotion();
-  watchDarkMode();
-  watchVolume();
-
   /** Set the volume of internal Rive sound events
    *  Note that this only affects sounds that begin playing after this value is set
    *  @param newVolume A number from 0 to 1
@@ -110,25 +107,19 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   }
 
   /** Watch for changes in the volume prop */
-  function watchVolume() {
-    useEffect(() => {
-      setVolume(volume);
-    }, [volume]);
-  }
+  useEffect(() => {
+    setVolume(volume);
+  }, [volume]);
 
   /** Watch for changes in the Reduced Motion preference */
-  function watchReducedMotion() {
-    useEffect(() => {
-      handleReducedMotion();
-    }, [prefersReducedMotion]);
-  }
+  useEffect(() => {
+    handleReducedMotion();
+  }, [prefersReducedMotion]);
 
   /** Watch for changes in the Dark Mode preference */
-  function watchDarkMode() {
-    useEffect(() => {
-      handleDarkMode();
-    }, [prefersDarkMode]);
-  }
+  useEffect(() => {
+    handleDarkMode();
+  }, [prefersDarkMode]);
 
   /** Handle changes in the Reduced Motion preference */
   function handleReducedMotion() {
@@ -338,55 +329,3 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     </div>
   );
 };
-
-/** A general-purpose function for working with Rive StateMachineInputs that have
- *  been exposed onto a useRef() variable (provided to the RiveEngine via the "inputs" prop).
- *  This function is intended to be used by the ancestor of the RiveEngine component.
- *
- * @param newValue  The value to set.
- * @param inputName The name of the State Machine input (check what was exposed onto the "inputs" object, if you're unsure what names are present!)
- * @param inputs    The "useRef()" object that's storing references to the RiveEngine's inputs. This is the same object passed to the RiveEngine via the "inputs" prop!
- */
-export function setRiveInputValue(
-  newValue: number | boolean,
-  inputName: string,
-  inputs:
-    | MutableRefObject<undefined>
-    | { current: { [key: string]: StateMachineInput }; exposed?: boolean },
-  reportIfMissing = true,
-  reportIfNotYetExposed = false,
-) {
-  if (!inputs) {
-    console.error("Please provide the 'inputs' object (created with useRef)!");
-    return;
-  }
-
-  //Stop if the inputs have yet to be exposed
-  if (inputs.current == undefined || !inputs.exposed) {
-    reportIfNotYetExposed && console.error('The inputs have yet to be exposed!');
-    return;
-  }
-
-  const input = inputs.current[inputName];
-  if (!input) {
-    if (reportIfMissing)
-      console.error(
-        `Input "${inputName}" couldn't be found in the current State Machine!\n\nExposed inputs:`,
-        inputs.current,
-      );
-    return;
-  }
-
-  //If it's a Trigger-type Input and a nonzero value was provided, interpret this as a fire() request
-  if (input.type == StateMachineInputType.Trigger) {
-    if (!newValue) return;
-    input.fire();
-    return { fired: true };
-  }
-  //If it's a Number or Boolean-type Input, just set a value as usual
-  else {
-    const prevValue = input.value;
-    input.value = newValue;
-    return { prevValue, newValue };
-  }
-}
