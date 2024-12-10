@@ -2079,3 +2079,7 @@ Cover Text / Cursors / Iconography
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
+
+.connect__full-width {
+  width: var(--connect__full-w);
+}
