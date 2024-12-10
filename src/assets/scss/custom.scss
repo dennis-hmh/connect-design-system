@@ -1883,7 +1883,9 @@ Divider can be vertical or horizontal
   );
 
   .connect__paper {
-     border-radius: var(--connect__unset);
+      &:not(.connect__rounded-corners) {
+       border-radius: var(--connect__unset);
+    }
   }
 }
 
