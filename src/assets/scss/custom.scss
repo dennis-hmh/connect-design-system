@@ -167,7 +167,9 @@ Buttons take variables in the following format
   span {
     grid-column: 1 / span 2;
   }
-
+  svg:first-child:last-child {
+    grid-column: 1 / span 2;
+  }
   &:has(svg:first-child) {
     svg {
       grid-column: 1;
@@ -188,7 +190,6 @@ Buttons take variables in the following format
       justify-self: end;
     }
   }
-
   .connect__icon {
     --connect__icon-fill-color: var(--icon-fill-color);
   }

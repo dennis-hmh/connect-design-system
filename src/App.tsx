@@ -74,6 +74,15 @@ const App: React.FC = () => {
             </Button>
           </GridItem>
           <GridItem>
+          <Button
+              ariaLabel="Icon Button Right Arrow"
+              iconId="arrowUp"
+              iconSize="md"
+              primary
+              submit="button"
+            />
+          </GridItem>
+          <GridItem>
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
