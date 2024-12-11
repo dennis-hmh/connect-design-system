@@ -1,33 +1,22 @@
 /* eslint-disable no-console */
 
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import {
-  StateMachineInput,
-  StateMachineInputType,
-  EventType,
-  useRive,
-} from '@rive-app/react-canvas';
-import { GradeBand } from 'src/enum/gradeband';
+import { EventType, RiveState, Rive } from '@rive-app/react-canvas';
+import { GradeBand } from '../../enum/gradeband';
 import { Typography } from '../Typography/Typography';
 import { usePrefersReducedMotion, usePrefersDarkMode } from './accessibilityUtils';
 
-export type RiveEngineProps = {
-  src: string;
+export type RiveRef = MutableRefObject<Rive | null>;
+
+export type RiveEngineProps = RiveState & {
   desc?: string;
-  stateMachine?: string;
-  artboard?: string;
-  playState?: 'playing' | 'paused' | 'stopped';
-  autoplay?: boolean;
   disableTouchScroll?: boolean;
   width?: string;
   height?: string;
   contain?: boolean;
   sizeByHeight?: boolean;
   gradeBand?: GradeBand;
-  inputs?:
-    | { current: { [key: string]: StateMachineInput }; exposed?: boolean }
-    | MutableRefObject<undefined>;
-  inputToStateLinks?: { [key: string]: any };
+  playState?: 'playing' | 'paused' | 'stopped';
   volume?: number;
   ignoreReducedMotion?: boolean;
   ignoreDarkMode?: boolean;
@@ -35,19 +24,12 @@ export type RiveEngineProps = {
 };
 
 export const RiveEngine: React.FC<RiveEngineProps> = ({
-  src,
   desc,
-  stateMachine = 'State Machine 1',
-  artboard,
-  playState = 'playing',
-  autoplay = true,
-  disableTouchScroll = true,
   width,
   height,
-  contain = false,
+  rive,
+  RiveComponent,
   sizeByHeight = false,
-  inputs = undefined,
-  inputToStateLinks = {},
   volume = 1,
   ignoreReducedMotion = false,
   ignoreDarkMode = false,
@@ -57,19 +39,6 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   const prefersDarkMode = usePrefersDarkMode();
 
   const accessibilityInputs = useRef({});
-
-  const { RiveComponent, rive } = useRive(
-    {
-      src,
-      autoplay,
-      ...(artboard ? { artboard } : {}),
-      stateMachines: stateMachine,
-      isTouchScrollEnabled: disableTouchScroll,
-    },
-    {
-      fitCanvasToArtboardHeight: contain ? false : true,
-    },
-  );
 
   /** Set up the Rive */
   useEffect(() => {
@@ -82,7 +51,6 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
 
     //Initial setup
     handleLoad();
-    exposeInputs();
     updateAspectRatio();
 
     //Handle accessibility preferences
@@ -90,13 +58,14 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     handleDarkMode();
 
     //Subscribe to various Rive EventTypes
-    rive.on(EventType.Play, onRivePlay);
     rive.on(EventType.Advance, onRiveAdvance);
     rive.on(EventType.RiveEvent, onRiveEventReceived);
 
     //Set initial volume
     setVolume(volume);
-  }, [rive, src]);
+
+    return () => rive?.removeAllRiveEventListeners();
+  }, [rive]);
 
   /** Set the volume of internal Rive sound events
    *  Note that this only affects sounds that begin playing after this value is set
@@ -131,8 +100,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
 
     //Use the State Machine's Reduced Motion setup, if it has one!
     if (reducedMotionInput) reducedMotionInput.value = prefersReducedMotion;
-    //Otherwise simply pause/unpause the animation
-    else prefersReducedMotion ? pause() : play();
+    else if (prefersReducedMotion) pause();
   }
 
   /** Handle changes in the Dark Mode preference */
@@ -150,69 +118,22 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     darkModeInput.value = prefersDarkMode;
   }
 
-  function onRivePlay() {
-    //console.log("Playing!");
-  }
-
   /** Called after the Rive loads
    *  TO-DO: add more stuff here!
    */
   function handleLoad() {
-    DEBUG && console.log('Rive loaded!', src);
+    DEBUG && console.log('Rive loaded!');
   }
 
   function onRiveEventReceived(riveEvent) {
     //TO-DO: expand this and add some common helper events!
-    DEBUG && console.log('RiveEvent reported:', riveEvent.data);
+    DEBUG && console.log('RiveEvent reported:', riveEvent);
   }
 
   function onRiveAdvance(riveEvent) {
     const deltaTime = riveEvent.data;
     0 && DEBUG && console.log(`Frame drawn in ${deltaTime.toFixed(2)}s`); // eslint-disable-line no-constant-binary-expression
-
-    if (inputToStateLinks) checkForInputChanges();
   }
-
-  function checkForInputChanges() {
-    if (!inputs || !inputToStateLinks || !inputs.current) return;
-
-    Object.keys(inputToStateLinks).forEach((linkedInputName) => {
-      const stateLink = inputToStateLinks[linkedInputName];
-      const smInput = inputs.current[linkedInputName];
-
-      /* Not possible to detect Trigger-type Inputs' internal fire() events this way 
-        (unsure if there's any way to detect them when they're fired from the Rive side - 
-        aside from the animator reporting a RiveEvent as part of the same 
-        internal Rive Listener setup that fires the Input)
-      */
-      if (!smInput || smInput.type == StateMachineInputType.Trigger) return;
-
-      const prevValue = stateLink.prevValue;
-      const currentValue = smInput.value;
-
-      //If the value has changed since the last draw, use it to set the linked State value
-      if (prevValue != undefined && prevValue != currentValue) {
-        const setterFunction = stateLink.setter;
-        setterFunction(currentValue);
-      }
-
-      stateLink.prevValue = currentValue;
-    });
-  }
-
-  //Handle changes in playState
-  useEffect(() => {
-    if (!rive) return;
-
-    switch (playState) {
-      case 'playing':
-        return play();
-      case 'paused':
-        return pause();
-      case 'stopped':
-        return stop();
-    }
-  }, [playState, rive]);
 
   //Handle changes in size
   //TO-DO: check this in detail when there's more time! Recently brought over from Chris' branch, need to investigate how it works.
@@ -237,69 +158,14 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     }
   }, [width, height, sizeByHeight, aspectRatio]); // Recalculate if sizeByHeight or aspect ratio changes
 
-  /** State Machine Inputs will stay hidden if their name begins with this, and won't be exposed onto the "inputs" prop object */
-  const INPUT_HIDING_PREFIX = '_';
-
   /** State Machine Input names that're reserved for accessibility features */
   const RESERVED_ACCESSIBILITY_INPUTS = {
     reducedMotion: 'enableReducedMotion',
     darkMode: 'enableDarkMode',
   };
 
-  /** Expose Rive State Machine Input objects onto the "inputs" prop object */
-  function exposeInputs() {
-    if (!rive) return;
-
-    // Get all the State Machine Input objects and store a reference to any that should be exposed
-    const exposedInputs = {};
-    const allInputs = rive.stateMachineInputs(stateMachine);
-    allInputs.forEach((smInput) => {
-      //Expose the reserved accessibility inputs onto a separate object (the component will handle them itself)
-      if (Object.values(RESERVED_ACCESSIBILITY_INPUTS).includes(smInput.name))
-        return (accessibilityInputs[smInput.name] = smInput);
-
-      //Don't expose the input if its prefix marks it as hidden
-      if (smInput.name.startsWith(INPUT_HIDING_PREFIX)) {
-        DEBUG &&
-          console.log(
-            `Hiding input "${smInput.name}", since its name begins in '${INPUT_HIDING_PREFIX}`,
-          );
-        return;
-      }
-
-      exposedInputs[smInput.name] = smInput;
-
-      DEBUG &&
-        console.log(`Input Name: ${smInput.name}, Type: ${StateMachineInputType[smInput.type]}`);
-    });
-
-    //Don't expose the inputs if the "inputs" prop object wasn't provided
-    if (!inputs) return;
-
-    inputs.current = exposedInputs;
-    inputs['exposed'] = true; //Note that the inputs have now been exposed
-
-    DEBUG && console.log(inputs.current);
-  }
-
-  //Playback functions
-  function play() {
-    //Don't play if autoplay is disabled
-    if (!rive || autoplay == false) return;
-
-    //Don't play if prefersReducedMotion is on and the State Machine doesn't have an input-based reduced motion setup
-    if (prefersReducedMotion && !accessibilityInputs[RESERVED_ACCESSIBILITY_INPUTS.reducedMotion])
-      return;
-
-    rive.play();
-  }
-
   function pause() {
-    rive && rive.pause();
-  }
-
-  function stop() {
-    rive && rive.stop();
+    rive?.pause();
   }
 
   const widthToSet = width == undefined ? '100%' : width;

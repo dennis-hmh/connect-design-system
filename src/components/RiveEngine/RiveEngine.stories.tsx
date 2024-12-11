@@ -1,15 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { RiveEngine, RiveEngineProps } from './RiveEngine';
-import { setRiveInputValue } from './RiveEngineUtils';
-import { ConnectTheme } from '../ConnectTheme';
-import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
 import { Button } from '../Button/Button';
+import { useReactStateMachineInput } from './useReactStateMachineInput';
 import { Timer, TimerProps } from '../Timer/Timer';
 import { timerStates } from '../Timer/TimerUtils';
 import { Typography } from '../Typography/Typography';
+import { useRive } from '@rive-app/react-canvas';
 
 const meta: Meta<RiveEngineProps> = {
   title: 'Animation/Rive Engine',
@@ -23,29 +22,34 @@ const meta: Meta<RiveEngineProps> = {
       options: Object.values(GradeBand),
       control: {
         type: 'select',
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<RiveEngineProps>;
 
 const Template: StoryFn<RiveEngineProps> = (args) => {
-  return <RiveEngine {...args} />;
+  const riveState = useRive({
+    autoplay: true,
+    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
+    stateMachines: 'State Machine 1',
+  });
+
+  return <RiveEngine {...args} {...riveState} />;
 };
 
 /** An example of showing a Rive animation! One special thing to note about this example is that it automatically responds to changes in the "Reduced Motion" and "Dark Mode" system preferences.
  *
  * To do this, the RiveEngine component checks if the animation's active State Machine contains any inputs with names that are reserved for accessibility features. If it does, it'll update the values of these inputs! The component handles all of this automatically, so no setup is needed and no props need be passed (though the "ignoreReducedMotion" and "ignoreDarkMode" props can be used to switch off this behaviour on a particular component instance).
-*/
+ */
 export const Default: Story = Template.bind({});
 Default.args = {
-  src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
   width: '500px',
   height: '500px',
   contain: true,
-  autoplay: true,
+  debug: true,
 };
 
 // TIMER TOOL EXAMPLE
@@ -55,14 +59,28 @@ type StoryTimerTool = StoryObj<TimerToolExampleProps>;
 
 const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
   const countdownLength = args.time || 5000;
-  
+
   const [timerState, setTimerState] = useState(timerStates.waiting_to_start);
-  
+
   //Shorthands for checking the states
   const isWaiting = timerState <= timerStates.waiting_to_start;
   const isCountingDown = timerState == timerStates.counting_down;
   const isFinished = timerState == timerStates.finished;
   const isPaused = timerState >= timerStates.paused;
+
+  const gradeBand = args.gradeBand;
+  const src = getGradeBandFile_timer(gradeBand);
+
+  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' });
+  useReactStateMachineInput(
+    riveState.rive,
+    'State Machine 1',
+    'animationState',
+    timerState,
+    setTimerState,
+  );
+
+  const { rive } = riveState;
 
   //State changing functions
   function handleTimerStart() {
@@ -126,16 +144,14 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
       </Button>
     );
 
-  //RiveEngine component setup
-  const inputs = useRef();
-  const rivePlayState = isPaused ? 'paused' : 'playing';
-
-  const gradeBand = args.gradeBand;
-  const src = getGradeBandFile_timer(gradeBand);
-
   //Watch the timerState for changes, and update the Rive input's value accordingly
   useEffect(() => {
-    if (0 <= timerState && timerState <= 2) setRiveInputValue(timerState, 'animationState', inputs);
+    if (timerState === timerStates.paused) {
+      rive?.pause();
+    }
+    if (0 <= timerState && timerState <= 2) {
+      if (!rive?.isPlaying) rive?.play();
+    }
   }, [timerState]);
 
   //Reset the timer when changing gradeband
@@ -147,14 +163,7 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
     <>
       <div key={gradeBand}>
         <div>
-          <RiveEngine
-            src={src}
-            volume={0.5}
-            inputs={inputs}
-            playState={rivePlayState}
-            width="400px"
-            height="400px"
-          />
+          <RiveEngine volume={0.5} width="400px" height="400px" {...riveState} />
         </div>
 
         <div style={{ width: '220px', textAlign: 'center', justifySelf: 'center' }}>
@@ -221,15 +230,17 @@ function getGradeBandFile_timer(gradeBand: GradeBand) {
 
 const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (args) => {
   //RiveEngine component setup
-  const inputs = useRef();
-
-  function pickRandomStudentClicked() {
-    setRiveInputValue(true, 'pickStudent', inputs);
-  }
+  const riveState = useRive({
+    autoplay: true,
+    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
+    stateMachines: 'State Machine 1',
+  });
+  const pickStudent = useReactStateMachineInput(riveState.rive, 'State Machine 1', 'pickStudent');
+  const pickRandomStudentClicked = () => pickStudent?.fire();
 
   return (
     <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center' }}>
-      <RiveEngine src={args['src']} inputs={inputs} width="400px" height="400px" />
+      <RiveEngine width="400px" height="400px" {...riveState} />
       <Button primary clickHandler={pickRandomStudentClicked} additionalClass={'connect__g68'}>
         Pick Random Student
       </Button>
@@ -246,41 +257,33 @@ const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand
  *  setRiveInputValue(true, 'pickStudent', inputs);
  */
 export const StudentPickerTool: Story = StudentPickerToolExample.bind({});
-StudentPickerTool.args = {
-  src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
-};
+StudentPickerTool.args = {};
 
 //BI-DIRECTIONAL STATE<->INPUT LINK EXAMPLE
 const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   //The star rating state
-  const [ratingValue, setRatingValue] = useState(0);
 
   //RiveEngine component setup
-  const inputs = useRef();
-
-  /** Used to make changes in a named input affect a Stateful value (by calling its React setter function) */
-  const inputToStateLinks = {
-    rating: { setter: setRatingValue },
-  };
-
-  //Watch the ratingValue state for changes, and update the input accordingly
-  useEffect(() => {
-    setRiveInputValue(ratingValue, 'rating', inputs, false);
-  }, [ratingValue]);
+  const riveState = useRive({
+    autoplay: true,
+    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
+    stateMachines: 'State Machine 1',
+  });
+  const [ratingValue, setRatingValue] = useState(0);
+  useReactStateMachineInput(
+    riveState.rive,
+    'State Machine 1',
+    'rating',
+    ratingValue,
+    setRatingValue,
+  );
 
   return (
     <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center' }}>
       <Typography element="h1" family="sans" size="heading-lg" style="normal">
         <span style={{ fontSize: 'x-large' }}>{ratingValue}</span>
       </Typography>
-      <RiveEngine
-        src={args['src']}
-        inputs={inputs}
-        inputToStateLinks={inputToStateLinks}
-        width="400px"
-        height="400px"
-        ignoreReducedMotion={true}
-      />
+      <RiveEngine width="400px" height="400px" ignoreReducedMotion={true} {...riveState} />
       <div style={{ padding: '10px' }}>
         <Button primary clickHandler={() => setRatingValue(0)} additionalClass={'connect__g68'}>
           0 Stars
@@ -318,6 +321,4 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
  * In this case, "rating" is the name of the internal Rive input, and "setRatingValue" is the React setter function for the stateful value (ratingValue). Multiple keys can be added to this object to link other inputs to other values, as needed. This "inputToStateLinks" object is then passed to the RiveEngine as a prop.
  */
 export const LinkInputValueToState: Story = LinkInputValueToStateExample.bind({});
-LinkInputValueToState.args = {
-  src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
-};
+LinkInputValueToState.args = {};
