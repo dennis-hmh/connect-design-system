@@ -1,3 +1,43 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("fonts/sourcesans3vf-roman.ttf.woff2") format("woff2"),
+    url("fonts/sourcesans3vf-roman.ttf.woff") format("woff"),
+    url("fonts/sourcesans3vf-roman.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("fonts/sourcesans3vf-italic.ttf.woff2") format("woff2"),
+    url("fonts/sourcesans3vf-italic.ttf.woff") format("woff"),
+    url("fonts/sourcesans3vf-italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("fonts/sourceserifvariable-roman.ttf.woff2") format("woff2"),
+    url("fonts/sourceserifvariable-roman.ttf.woff") format("woff"),
+    url("fonts/sourceserifvariable-roman.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("fonts/sourceserifvariable-italic.ttf.woff2") format("woff2"),
+    url("fonts/sourceserifvariable-italic.ttf.woff") format("woff"),
+    url("fonts/sourceserifvariable-italic.ttf") format("truetype");
+}
+
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -777,6 +817,7 @@
   */
 
   /* 2.1: Font Families */
+
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
