@@ -35,6 +35,7 @@ const Template: StoryFn<PaperProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 export const Aside: Story = Template.bind({});
+export const FullWidth: Story = Template.bind({});
 
 Default.args = {
   children: 'Paper',
@@ -43,6 +44,7 @@ Default.args = {
   roundedCorner: false,
   backgroundColor: '',
   className: '',
+  fullWidth: false,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
 };
@@ -53,6 +55,19 @@ Aside.args = {
   element: 'aside',
   elevation: 2,
   className: 'connect__aside',
+  fullWidth: false,
+};
+
+FullWidth.args = {
+  children: 'Paper full width',
+  element: 'div',
+  elevation: 0,
+  roundedCorner: false,
+  backgroundColor: '',
+  className: '',
+  fullWidth: true,
+  dataTestId: '',
+  gradeBand: GradeBand.G4_5,
 };
 
 Aside.parameters = {

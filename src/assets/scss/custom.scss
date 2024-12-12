@@ -1881,6 +1881,12 @@ Divider can be vertical or horizontal
     --theme__paper-radius,
     var(--variant__paper-radius, var(--connect__border-radius))
   );
+
+  .connect__paper {
+      &:not(.connect__rounded-corners) {
+       border-radius: var(--connect__unset);
+    }
+  }
 }
 
 /*
@@ -2072,4 +2078,8 @@ Cover Text / Cursors / Iconography
   --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
+}
+
+.connect__full-width {
+  width: var(--connect__full-w);
 }
