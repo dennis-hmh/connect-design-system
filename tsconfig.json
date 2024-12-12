@@ -38,8 +38,6 @@
     "src/**/**/*",
     ".storybook/*",
     "eslint.config.mjs",
-    "vitest.config.ts",
-    "vitest.storybook.config.ts",
     "vitest.setup.ts"
   ],
   "exclude": [
@@ -48,7 +46,9 @@
     "node_modules/**/*",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    "vite.config.ts"
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.storybook.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
