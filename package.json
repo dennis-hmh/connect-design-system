@@ -3,12 +3,13 @@
   "version": "1.15.0",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
-  "main": "./dist/connect-design-system.umd.js",
+  "main": "./src/index.ts",
   "module": "./dist/connect-design-system.mjs",
   "files": [
     "dist"
   ],
   "publishConfig": {
+    "main": "./dist/connect-design-system.umd.js",
     "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
   },
   "scripts": {
