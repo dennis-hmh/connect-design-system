@@ -2,12 +2,12 @@ import React from 'react';
 
 export type BreakpointValues = {
   direction?: 'row' | 'column';
-  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
+  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
 };
 
 export type StackProps = {
@@ -51,14 +51,16 @@ export const Stack: React.FC<StackProps> = ({
       const flexWrap = values.flexWrap ?? previousBreakpoint.flexWrap ?? 'wrap';
       const paddingX = values.paddingX ?? previousBreakpoint.paddingX ?? '';
       const paddingY = values.paddingY ?? previousBreakpoint.paddingY ?? '';
-      // Now, only update the style object if the current breakpoint explicitly sets the property
-      if (values.direction) style[`--${breakpoint}-direction`] = direction;
-      if (values.spacing) style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
-      if (values.alignItems) style[`--${breakpoint}-alignItems`] = alignItems;
-      if (values.justifyContent) style[`--${breakpoint}-justifyContent`] = justifyContent;
-      if (values.flexWrap) style[`--${breakpoint}-flexWrap`] = flexWrap;
-      if (values.paddingX) style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
-      if (values.paddingY) style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
+
+      // Update the style object with inherited or explicit values
+      style[`--${breakpoint}-direction`] = direction;
+      style[`--${breakpoint}-spacing`] = `var(--connect__spacer-${spacingKey})`;
+      style[`--${breakpoint}-alignItems`] = alignItems;
+      style[`--${breakpoint}-justifyContent`] = justifyContent;
+      style[`--${breakpoint}-flexWrap`] = flexWrap;
+      style[`--${breakpoint}-paddingX`] = `var(--connect__spacer-${paddingX})`;
+      style[`--${breakpoint}-paddingY`] = `var(--connect__spacer-${paddingY})`;
+
       // Update previousBreakpoint for inheritance
       previousBreakpoint = { ...previousBreakpoint, ...values };
     }
