@@ -1,3 +1,42 @@
+### v1.14.4 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Font `@font-face` and font files added to design system
+
+---
+
+### v1.14.3 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Linted and Type checking errors resolved to satisfy Concourse tests.
+
+---
+
+### v1.14.2 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Vitest separated from Storybook to satisfy Concourse tests. Note: this version wasn't published.
+
+---
+
 ### v1.14.1 Release Notice
 
 ### Release date: December 10, 2024
