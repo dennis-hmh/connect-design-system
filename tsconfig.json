@@ -32,16 +32,23 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*", "src/**/**/*", ".storybook/*", "eslint.config.mjs"],
+  "include": [
+    "src",
+    "src/**/*",
+    "src/**/**/*",
+    ".storybook/*",
+    "eslint.config.mjs",
+    "vitest.config.ts",
+    "vitest.storybook.config.ts",
+    "vitest.setup.ts"
+  ],
   "exclude": [
     "dist",
     "node_modules",
     "node_modules/**/*",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    "vite.config.ts",
-    "vitest.config.ts",
-    "vitest.workspace.ts"
+    "vite.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
