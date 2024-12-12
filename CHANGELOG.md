@@ -1,5 +1,12 @@
 # @connect/connect-design-system
 
+## 1.14.4
+
+### Patch Changes
+
+- 256d66d: @font-face and font files added - part 2.
+- e56880b: @font-face and font files added.
+
 ## 1.14.3
 
 ### Patch Changes
