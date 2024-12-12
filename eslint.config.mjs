@@ -64,8 +64,6 @@ export default [
 
         project: './tsconfig.json',
       },
-
-      ignorePatterns: ['vitest.config.ts', 'vitest.storybook.config.ts'],
     },
 
     settings: {
