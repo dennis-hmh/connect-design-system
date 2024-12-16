@@ -1,17 +1,9 @@
 import React from 'react';
-
-export type BreakpointValues = {
-  direction?: 'row' | 'column';
-  spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
-  alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
-  justifyContent?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
-  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  paddingX?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
-  paddingY?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'zero';
-};
+import { BreakpointValues } from '../../utils/breakpoint-values';
 
 export type StackProps = {
   children: React.ReactNode;
+  element?: 'section' | 'article' | 'main' | 'header' | 'footer' | 'div';
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -23,6 +15,7 @@ export type StackProps = {
 
 export const Stack: React.FC<StackProps> = ({
   children,
+  element: Component = 'div',
   xs,
   sm,
   md,
@@ -69,8 +62,8 @@ export const Stack: React.FC<StackProps> = ({
   const classes = `connect__stack ${className || ''} ${breakpointClasses}`;
 
   return (
-    <div className={classes} style={style} data-testid={dataTestId}>
+    <Component className={classes} style={style} data-testid={dataTestId}>
       {children}
-    </div>
+    </Component>
   );
 };
