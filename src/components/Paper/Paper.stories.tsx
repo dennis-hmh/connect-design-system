@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, StackProps, Figure, Image, Button, Icon } from '../index';
+import { Stack, Figure, Image, Button, Icon } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -42,7 +42,7 @@ Default.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: false,
-  backgroundColor: '',
+  backgroundColor: undefined,
   className: '',
   fullWidth: false,
   dataTestId: '',
@@ -63,7 +63,7 @@ FullWidth.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: false,
-  backgroundColor: '',
+  backgroundColor: undefined,
   className: '',
   fullWidth: true,
   dataTestId: '',
@@ -93,7 +93,7 @@ Card.args = {
       }}
     >
       <Figure caption="This is a caption">
-        <Image altText={'This is Alt Text'} />
+        <Image imageSrc="" altText={'This is Alt Text'} />
       </Figure>
 
       <Stack
