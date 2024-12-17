@@ -2083,3 +2083,19 @@ Cover Text / Cursors / Iconography
 .connect__full-width {
   width: var(--connect__full-w);
 }
+
+
+
+/* 
+To be fleshed out / moved
+*/
+
+.connect__contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

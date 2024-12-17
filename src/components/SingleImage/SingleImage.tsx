@@ -8,10 +8,11 @@ export const SingleImage: React.FC<SingleImageProps> = ({
     imageSrc,
     altText,
     caption,
-    cite
+    cite,
+    contain
 }) => {
     return (
-        <Figure caption={caption} cite={cite}>
+        <Figure caption={caption} cite={cite} contain={contain}>
             <Image imageSrc={imageSrc} altText={altText} />
         </Figure>
     )
