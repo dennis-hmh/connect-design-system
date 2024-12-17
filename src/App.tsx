@@ -42,6 +42,39 @@ const App: React.FC = () => {
             <Button primary iconId="mic">Hi there</Button>
           </GridItem>
           <GridItem>
+            <Stack
+              md={{
+                direction: 'row',
+                spacing: 'md',
+                justifyContent: 'center'
+              }}  
+              lg={{
+                justifyContent: 'start',
+                flexWrap: 'nowrap'
+              }}
+            >
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+                            <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+
+            </Stack>
+          </GridItem>
+          <GridItem>
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
