@@ -36,7 +36,23 @@ const App: React.FC = () => {
         <Header>
           <h1>Welcome to My App</h1>
         </Header>
-
+        <div style={{width:"100%", height:"1000px",background:"lightgrey"}}>
+          <Grid gutter={true} gap="md" xs={{ alignContent:"center", justifyContent:"stretch" }}>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+              <Stack
+                  lg={{
+                    direction: 'row',
+                    spacing: 'xs',
+                    alignItems: 'start',
+                    justifyContent: 'start',
+                  }}
+                >
+                  <Button primary={true}>Button</Button>
+                  <Button primary={false}>Button</Button>
+                </Stack>
+            </GridItem>
+          </Grid>
+        </div>
         <Grid gutter={true} gap="md">
           <GridItem>
             <Button primary iconId="mic">Hi there</Button>

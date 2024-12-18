@@ -989,14 +989,60 @@ Responsive Styles:
 .connect__grid {
   --default-grid-gap: var(--connect__spacer-xl);
   --grid-cols: var(--theme-col-amount, 12);
-  align-content: start;
+  align-content: var(--connect__grid-align-content, start);
+  align-items: var(--connect__grid-align-items, start);
   display: var(--connect__display-grid);
   gap: var(--theme__content-gap, var(--default-grid-gap));
   grid-auto-rows: auto;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: max-content;
+  justify-content: var(--connect__grid-justify-content, start);
+  justify-items: var(--connect__grid-justify-items, start);
   position: relative;
   width: var(--theme__connect-grid-width, var(--connect__full-w));
+
+  &.connect__grid-xs {
+    --connect__grid-align-content: var(--xs-alignContent);
+    --connect__grid-align-items: var(--xs-alignItems);
+    --connect__justify-content: var(--xs-justifyContent);
+    --connect__justify-items: var(--xs-justifyItems);
+  }
+
+  @media (min-width: 30rem) {
+    &.connect__grid-sm {
+      --connect__grid-align-content: var(--sm-alignContent);
+      --connect__grid-align-items: var(--sm-alignItems);
+      --connect__justify-content: var(--sm-justifyContent);
+      --connect__justify-items: var(--sm-justifyItems);
+    }
+  }
+
+  @media (min-width: 40.625rem) {
+    &.connect__grid-md {
+      --connect__grid-align-content: var(--md-alignContent);
+      --connect__grid-align-items: var(--md-alignItems);
+      --connect__justify-content: var(--md-justifyContent);
+      --connect__justify-items: var(--md-justifyItems);
+    }
+  }
+
+  @media (min-width: 55rem) {
+    &.connect__grid-lg {
+      --connect__grid-align-content: var(--lg-alignContent);
+      --connect__grid-align-items: var(--lg-alignItems);
+      --connect__justify-content: var(--lg-justifyContent);
+      --connect__justify-items: var(--lg-justifyItems);
+    }
+  }
+
+  @media (min-width: 80rem) {
+    &.connect__grid-xl {
+      --connect__grid-align-content: var(--xl-alignContent);
+      --connect__grid-align-items: var(--xl-alignItems);
+      --connect__justify-content: var(--xl-justifyContent);
+      --connect__justify-items: var(--xl-justifyItems);
+    }
+  }
 
   // Apply margin to all direct children except .connect__grid and section
   > *:not(.connect__grid):not(section):not(.connect__breakout) {
