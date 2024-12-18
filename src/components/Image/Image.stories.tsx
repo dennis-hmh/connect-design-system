@@ -34,6 +34,7 @@ Default.args = {
   altText: 'This is Alt Text',
   roundedCorners: false,
   className: '',
+  contain: false,
   gradeBand: GradeBand.G4_5,
 };
 
@@ -41,4 +42,10 @@ export const WithRoundedCorners: Story = Template.bind({});
 WithRoundedCorners.args = {
   ...Default.args,
   roundedCorners: true,
+};
+
+export const WithContain: Story = Template.bind({});
+WithContain.args = {
+  ...Default.args,
+  contain: true,
 };
