@@ -1883,8 +1883,8 @@ Divider can be vertical or horizontal
   );
 
   .connect__paper {
-      &:not(.connect__rounded-corners) {
-       border-radius: var(--connect__unset);
+    &:not(.connect__rounded-corners) {
+      border-radius: var(--connect__unset);
     }
   }
 }
@@ -1942,8 +1942,8 @@ Divider can be vertical or horizontal
 }
 
 .connect__figure {
-  margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
   height: 100%;
+  margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
 }
 
 /* 
@@ -2085,17 +2085,15 @@ Cover Text / Cursors / Iconography
   width: var(--connect__full-w);
 }
 
-
-
 /* 
 To be fleshed out / moved
 */
 
 .connect__contain {
-  width: auto;
   height: auto;
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
   object-position: center center;
+  width: auto;
 }
