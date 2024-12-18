@@ -1943,6 +1943,7 @@ Divider can be vertical or horizontal
 
 .connect__figure {
   margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
+  height: 100%;
 }
 
 /* 
@@ -2082,4 +2083,19 @@ Cover Text / Cursors / Iconography
 
 .connect__full-width {
   width: var(--connect__full-w);
+}
+
+
+
+/* 
+To be fleshed out / moved
+*/
+
+.connect__contain {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
 }

@@ -5,6 +5,7 @@ export type ImageProps = {
   imageSrc: string;
   altText: string;
   roundedCorners?: boolean;
+  contain?: boolean;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -21,10 +22,11 @@ export const Image: React.FC<ImageProps> = ({
   imageSrc,
   altText,
   roundedCorners,
+  contain,
   className,
   dataTestId,
 }) => {
-  const classNames = ['connect__image', roundedCorners && 'connect__rounded-corners', className]
+  const classNames = ['connect__image', roundedCorners && 'connect__rounded-corners', contain && 'connect__contain', className]
     .filter(Boolean)
     .join(' ');
 
