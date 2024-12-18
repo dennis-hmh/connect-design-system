@@ -6,14 +6,13 @@ export type FigureProps = {
   children?: React.ReactNode;
   caption?: string;
   cite?: string;
-  contain?: boolean;
   dataTestId?: string;
   className?: string;
   gradeBand?: GradeBand;
 };
 
-export const Figure: React.FC<FigureProps> = ({ children, caption, cite, className, contain, dataTestId }) => {
-  const classNames = ['connect__figure', contain && 'connect__contain', className]
+export const Figure: React.FC<FigureProps> = ({ children, caption, cite, className, dataTestId }) => {
+  const classNames = ['connect__figure', className]
   .filter(Boolean)
   .join(' ');
 

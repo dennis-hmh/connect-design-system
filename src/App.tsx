@@ -46,6 +46,38 @@ const App: React.FC = () => {
               <Image
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
+              />
+            </div>
+            <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block", overflow:"hidden"}}>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block"}}>
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  />
+              </Figure>
+            </div>
+            <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block", overflow:"hidden"}}>
+            <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  />
+              </Figure>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block"}}>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
                 contain
               />
             </div>
@@ -59,18 +91,22 @@ const App: React.FC = () => {
           </GridItem>
           <GridItem>
             <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block"}}>
-              <SingleImage
-                imageSrc="https://picsum.photos/600/400"
-                altText="A random picture from Lorem Picsum"
-                contain
-                />
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                  />
+              </Figure>
             </div>
             <div style={{width:"500px", height:"200px", backgroundColor:"lightgrey", display: "inline-block", overflow:"hidden"}}>
-              <SingleImage
-                imageSrc="https://picsum.photos/600/400"
-                altText="A random picture from Lorem Picsum"
-                contain
-              />
+            <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                  />
+              </Figure>
             </div>
           </GridItem>
 
