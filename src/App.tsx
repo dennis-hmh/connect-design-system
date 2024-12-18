@@ -23,6 +23,7 @@ import GridItem from './components/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
+import { Alert } from './components/Alert/Alert';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
@@ -31,7 +32,7 @@ const App: React.FC = () => {
   const [animationState, setAnimationState] = useState(0);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
@@ -73,6 +74,9 @@ const App: React.FC = () => {
               />
 
             </Stack>
+          </GridItem>
+          <GridItem>
+            <Alert iconId='info' handleClick={() => console.log('click')}>Hi there</Alert>
           </GridItem>
           <GridItem>
             {/* <RiveSimple
