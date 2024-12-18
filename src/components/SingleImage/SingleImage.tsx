@@ -8,7 +8,7 @@ export const SingleImage: React.FC<SingleImageProps> = ({
     imageSrc,
     altText,
     caption,
-    cite
+    cite,
 }) => {
     return (
         <Figure caption={caption} cite={cite}>
