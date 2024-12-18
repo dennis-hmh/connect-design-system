@@ -1,3 +1,28 @@
+### v1.14.5 Release Notice
+
+### Release date: December 18, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Alert />`: Show/Hide close button with handleClick prop ,
+  - `<Figure />`: contain prop added,
+  - `<Image />`: contain prop added,
+  - `<SingleImage />`: contain prop added,
+  - `<Stack />`: direction prop updated with 'row-reverse' and 'column-reverse'
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.14.4 Release Notice
 
 ### Release date: December 12, 2024
@@ -8,6 +33,13 @@
 - Updated Component: N/A
 - Bug Fix: N/A
 - Other Updated: Font `@font-face` and font files added to design system
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
 
 ---
 
@@ -22,6 +54,11 @@
 - Bug Fix: N/A
 - Other Updated: Linted and Type checking errors resolved to satisfy Concourse tests.
 
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
 ---
 
 ### v1.14.2 Release Notice
@@ -34,6 +71,13 @@
 - Updated Component: N/A
 - Bug Fix: N/A
 - Other Updated: Vitest separated from Storybook to satisfy Concourse tests. Note: this version wasn't published.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
 
 ---
 
@@ -48,6 +92,13 @@
 - Bug Fix: N/A
 - Other Updated: N/A
 
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
 ---
 
 ### v1.14.0 Release Notice
@@ -60,6 +111,13 @@
 - Updated Component: `<Paper />`, `<Timer />`,
 - Bug Fix: N/A
 - Other Updated: Plankton support added to CSS. CSS has been trimmed. Stories added for Grid and Stack.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
 
 ---
 
