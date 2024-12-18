@@ -45,3 +45,17 @@ Default.args = {
   handleClick: () => console.log('Close button clicked'),
   gradeBand: GradeBand.G4_5,
 };
+
+export const NoCloseBtn: Story = Template.bind({});
+NoCloseBtn.args = {
+  iconId: 'info',
+  children: (
+    <>
+      <Typography element="h5" size="body-sm">
+        Alert Heading
+      </Typography>
+      <Typography element="p">This is an alert message.</Typography>
+    </>
+  ),
+  gradeBand: GradeBand.G4_5,
+};
