@@ -69,7 +69,7 @@ export const Alert: React.FC<AlertProps> = ({
           {children}
         </Stack>
 
-        <ButtonMenu iconId="close" iconSize="md" ariaLabel="Close" onClick={handleClick} />
+        {handleClick && <ButtonMenu iconId="close" iconSize="md" ariaLabel="Close" onClick={handleClick} />}
       </Stack>
     </Paper>
   );
