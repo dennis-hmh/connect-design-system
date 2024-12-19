@@ -21,6 +21,7 @@ export type GridProps = {
   className?: string;
   style?: string;
   dataTestId?: string;
+  tabIndex?: number;
 };
 
 export const Grid: React.FC<GridProps> = ({ 
@@ -33,7 +34,8 @@ export const Grid: React.FC<GridProps> = ({
   gap, 
   gutter, 
   className, 
-  dataTestId }) => {
+  dataTestId,
+  tabIndex }) => {
   // Supported gaps are our spacer sizes
   const gapSizes: { [key in GapSizes]: string } = {
     xs: 'var(--connect__spacer-xs)',
@@ -88,6 +90,7 @@ export const Grid: React.FC<GridProps> = ({
       className={`${className || ''} connect__grid ${breakpointClasses} ${additionalClassName}`}
       style={combinedStyle}
       data-testid={dataTestId}
+      tabIndex={tabIndex}
     >
       {children}
     </section>
