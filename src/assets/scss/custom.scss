@@ -1004,16 +1004,16 @@ Responsive Styles:
   &.connect__grid-xs {
     --connect__grid-align-content: var(--xs-alignContent);
     --connect__grid-align-items: var(--xs-alignItems);
-    --connect__justify-content: var(--xs-justifyContent);
-    --connect__justify-items: var(--xs-justifyItems);
+    --connect__grid-justify-content: var(--xs-justifyContent);
+    --connect__grid-justify-items: var(--xs-justifyItems);
   }
 
   @media (min-width: 30rem) {
     &.connect__grid-sm {
       --connect__grid-align-content: var(--sm-alignContent);
       --connect__grid-align-items: var(--sm-alignItems);
-      --connect__justify-content: var(--sm-justifyContent);
-      --connect__justify-items: var(--sm-justifyItems);
+      --connect__grid-justify-content: var(--sm-justifyContent);
+      --connect__grid-justify-items: var(--sm-justifyItems);
     }
   }
 
@@ -1021,8 +1021,8 @@ Responsive Styles:
     &.connect__grid-md {
       --connect__grid-align-content: var(--md-alignContent);
       --connect__grid-align-items: var(--md-alignItems);
-      --connect__justify-content: var(--md-justifyContent);
-      --connect__justify-items: var(--md-justifyItems);
+      --connect__grid-justify-content: var(--md-justifyContent);
+      --connect__grid-justify-items: var(--md-justifyItems);
     }
   }
 
@@ -1030,8 +1030,8 @@ Responsive Styles:
     &.connect__grid-lg {
       --connect__grid-align-content: var(--lg-alignContent);
       --connect__grid-align-items: var(--lg-alignItems);
-      --connect__justify-content: var(--lg-justifyContent);
-      --connect__justify-items: var(--lg-justifyItems);
+      --connect__grid-justify-content: var(--lg-justifyContent);
+      --connect__grid-justify-items: var(--lg-justifyItems);
     }
   }
 
@@ -1039,8 +1039,8 @@ Responsive Styles:
     &.connect__grid-xl {
       --connect__grid-align-content: var(--xl-alignContent);
       --connect__grid-align-items: var(--xl-alignItems);
-      --connect__justify-content: var(--xl-justifyContent);
-      --connect__justify-items: var(--xl-justifyItems);
+      --connect__grid-justify-content: var(--xl-justifyContent);
+      --connect__grid-justify-items: var(--xl-justifyItems);
     }
   }
 
