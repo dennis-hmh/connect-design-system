@@ -1,42 +1,50 @@
+/* stylelint-disable order/properties-alphabetical-order */
+
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url("fonts/sourcesans3vf-roman.ttf.woff2") format("woff2"),
-    url("fonts/sourcesans3vf-roman.ttf.woff") format("woff"),
-    url("fonts/sourcesans3vf-roman.ttf") format("truetype");
+  src:
+    url('fonts/sourcesans3vf-roman.ttf.woff2') format('woff2'),
+    url('fonts/sourcesans3vf-roman.ttf.woff') format('woff'),
+    url('fonts/sourcesans3vf-roman.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url("fonts/sourcesans3vf-italic.ttf.woff2") format("woff2"),
-    url("fonts/sourcesans3vf-italic.ttf.woff") format("woff"),
-    url("fonts/sourcesans3vf-italic.ttf") format("truetype");
+  src:
+    url('fonts/sourcesans3vf-italic.ttf.woff2') format('woff2'),
+    url('fonts/sourcesans3vf-italic.ttf.woff') format('woff'),
+    url('fonts/sourcesans3vf-italic.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Serif Pro";
+  font-family: 'Source Serif Pro';
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url("fonts/sourceserifvariable-roman.ttf.woff2") format("woff2"),
-    url("fonts/sourceserifvariable-roman.ttf.woff") format("woff"),
-    url("fonts/sourceserifvariable-roman.ttf") format("truetype");
+  src:
+    url('fonts/sourceserifvariable-roman.ttf.woff2') format('woff2'),
+    url('fonts/sourceserifvariable-roman.ttf.woff') format('woff'),
+    url('fonts/sourceserifvariable-roman.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Source Serif Pro";
+  font-family: 'Source Serif Pro';
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url("fonts/sourceserifvariable-italic.ttf.woff2") format("woff2"),
-    url("fonts/sourceserifvariable-italic.ttf.woff") format("woff"),
-    url("fonts/sourceserifvariable-italic.ttf") format("truetype");
+  src:
+    url('fonts/sourceserifvariable-italic.ttf.woff2') format('woff2'),
+    url('fonts/sourceserifvariable-italic.ttf.woff') format('woff'),
+    url('fonts/sourceserifvariable-italic.ttf') format('truetype');
 }
+
+/* stylelint-enable order/properties-alphabetical-order */
 
 .connect__g23 {
   --connect__heading-xl: 2.625rem;

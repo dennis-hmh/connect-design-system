@@ -7,12 +7,17 @@ export type FigureProps = {
   caption?: string;
   cite?: string;
   dataTestId?: string;
+  className?: string;
   gradeBand?: GradeBand;
 };
 
-export const Figure: React.FC<FigureProps> = ({ children, caption, cite, dataTestId }) => {
+export const Figure: React.FC<FigureProps> = ({ children, caption, cite, className, dataTestId }) => {
+  const classNames = ['connect__figure', className]
+  .filter(Boolean)
+  .join(' ');
+
   return (
-    <figure className="connect__figure" data-testid={dataTestId}>
+    <figure className={classNames} data-testid={dataTestId}>
       {children}
       {(caption || cite) && <FigCaption caption={caption} cite={cite} />}
     </figure>
