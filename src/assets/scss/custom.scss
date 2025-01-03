@@ -916,131 +916,87 @@ Breakout Section:
   }
 }
 
-/*
+/* 
 .connect__grid Component
 
-Variables related to theme/overrides:
-  --default-grid-gap: Default gap between grid items.
-  --connect__spacer-xl: Extra large spacer.
-  --gutter-width: Width of the gutter.
-  --grid-cols: Number of columns in the grid (default: 12).
+| Property         | Default Value        | Description                              |
+|------------------|----------------------|------------------------------------------|
+| Gap              | --connect__spacer-xl | Space between grid items                 |
+| Columns          | 12                   | Number of grid columns                   |
+| Align Content    | start                | Vertical alignment of grid content       |
+| Align Items      | start                | Vertical alignment of grid items         |
+| Justify Content  | start                | Horizontal alignment of grid content     |
+| Justify Items    | start                | Horizontal alignment of grid items       |
+| Width            | --connect__full-w    | Grid container width                     |
+| Gutter Padding Y | calc(spacer-xl * 2)  | Vertical padding when gutter enabled     |
+| Gutter Padding X | --gutter-width       | Horizontal padding when gutter enabled   |
 
-Grid Container Styles:
-  align-content: start;
-    - Aligns the content to the start of the grid container.
-  display: var(--connect__display-grid);
-    - Sets the display to grid.
-  gap: var(--theme__content-gap, var(--default-grid-gap));
-    - Sets the gap between grid items.
-  grid-auto-rows: auto;
-    - Automatically sizes rows based on content.
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-    - Defines the number of columns and their size.
-  grid-template-rows: max-content;
-    - Sets the row size to fit content.
-  position: relative;
-    - Positions the grid container relative to its normal position.
-  width: var(--theme__connect-grid-width, var(--connect__full-w));
-    - Sets the width of the grid container.
+Breakpoint Values:
 
-Gutter Styles:
-  &.connect__grid-gutter
-    padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
-      - Adds padding to the grid container with gutter class.
+| Property    | -xs          | -sm          | -md          | -lg          | -xl           |
+|-------------|--------------|--------------|--------------|--------------|---------------|
+| Start Column| -xs-start-col| -sm-start-col| -md-start-col| -lg-start-col| -xl-start-col |
+| Span Column | -xs-span-col | -sm-span-col | -md-span-col | -lg-span-col | -xl-span-col  |
+| Row Start   | -xs-row-start| -sm-row-start| -md-row-start| -lg-row-start| -xl-row-start |
+| Row Span    | -xs-row-span | -sm-row-span | -md-row-span | -lg-row-span | -xl-row-span  |
 
-Nested Grid Styles:
-  .connect__grid
-    display: var(--connect__display-grid);
-      - Sets the display to grid for nested grids.
-    grid-column: 1 / -1;
-      - Spans the entire width of the parent grid.
-    grid-template-columns: subgrid;
-      - Uses subgrid for nested grid columns.
-
-Grid Item Styles:
-  .connect__grid-item
-    grid-column: var(--start-col, 1) / span var(--span-col, 12);
-      - Defines the starting column and span for the grid item.
-    grid-row: var(--xs-row-start, auto) / span var(--xs-row-span, 1);
-      - Defines the starting row and span for the grid item.
-
-Responsive Styles:
-  @media (min-width: 30rem)
-    .connect__sm
-      grid-column: var(--sm-start-col) / span var(--sm-span-col);
-      grid-row: var(--sm-row-span, auto);
-
-  @media (min-width: 40.625rem)
-    .connect__md
-      grid-column: var(--md-start-col) / span var(--md-span-col);
-      grid-row: var(--md-row-span, auto);
-
-  @media (min-width: 55rem)
-    .connect__lg
-      grid-column: var(--lg-start-col) / span var(--lg-span-col);
-      grid-row: var(--lg-row-span, auto);
-
-  @media (min-width: 80rem)
-    .connect__xl
-      grid-column: var(--xl-start-col) / span var(--xl-span-col);
-      grid-row: var(--xl-row-span, auto);
 */
 
 .connect__grid {
-  --default-grid-gap: var(--connect__spacer-xl);
-  --grid-cols: var(--theme-col-amount, 12);
+  --connect__grid-gap: var(--connect__spacer-xl);
+  --connect__grid-cols: var(--theme-col-amount, 12);
   align-content: var(--connect__grid-align-content, start);
   align-items: var(--connect__grid-align-items, start);
   display: var(--connect__display-grid);
-  gap: var(--theme__content-gap, var(--default-grid-gap));
+  gap: var(--connect__grid-gap);
   grid-auto-rows: auto;
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-template-columns: repeat(var(--connect__grid-cols), 1fr);
   grid-template-rows: max-content;
   justify-content: var(--connect__grid-justify-content, start);
   justify-items: var(--connect__grid-justify-items, start);
   position: relative;
-  width: var(--theme__connect-grid-width, var(--connect__full-w));
+  width: var(--connect__full-w);
 
   &.connect__grid-xs {
-    --connect__grid-align-content: var(--xs-alignContent);
-    --connect__grid-align-items: var(--xs-alignItems);
-    --connect__grid-justify-content: var(--xs-justifyContent);
-    --connect__grid-justify-items: var(--xs-justifyItems);
+    --connect__grid-align-content: var(--connect__xs-alignContent);
+    --connect__grid-align-items: var(--connect__xs-alignItems);
+    --connect__grid-justify-content: var(--connect__xs-justifyContent);
+    --connect__grid-justify-items: var(--connect__xs-justifyItems);
   }
 
   @media (min-width: 30rem) {
     &.connect__grid-sm {
-      --connect__grid-align-content: var(--sm-alignContent);
-      --connect__grid-align-items: var(--sm-alignItems);
-      --connect__grid-justify-content: var(--sm-justifyContent);
-      --connect__grid-justify-items: var(--sm-justifyItems);
+      --connect__grid-align-content: var(--connect__sm-alignContent);
+      --connect__grid-align-items: var(--connect__sm-alignItems);
+      --connect__grid-justify-content: var(--connect__sm-justifyContent);
+      --connect__grid-justify-items: var(--connect__sm-justifyItems);
     }
   }
 
   @media (min-width: 40.625rem) {
     &.connect__grid-md {
-      --connect__grid-align-content: var(--md-alignContent);
-      --connect__grid-align-items: var(--md-alignItems);
-      --connect__grid-justify-content: var(--md-justifyContent);
-      --connect__grid-justify-items: var(--md-justifyItems);
+      --connect__grid-align-content: var(--connect__md-alignContent);
+      --connect__grid-align-items: var(--connect__md-alignItems);
+      --connect__grid-justify-content: var(--connect__md-justifyContent);
+      --connect__grid-justify-items: var(--connect__md-justifyItems);
     }
   }
 
   @media (min-width: 55rem) {
     &.connect__grid-lg {
-      --connect__grid-align-content: var(--lg-alignContent);
-      --connect__grid-align-items: var(--lg-alignItems);
-      --connect__grid-justify-content: var(--lg-justifyContent);
-      --connect__grid-justify-items: var(--lg-justifyItems);
+      --connect__grid-align-content: var(--connect__lg-alignContent);
+      --connect__grid-align-items: var(--connect__lg-alignItems);
+      --connect__grid-justify-content: var(--connect__lg-justifyContent);
+      --connect__grid-justify-items: var(--connect__lg-justifyItems);
     }
   }
 
   @media (min-width: 80rem) {
     &.connect__grid-xl {
-      --connect__grid-align-content: var(--xl-alignContent);
-      --connect__grid-align-items: var(--xl-alignItems);
-      --connect__grid-justify-content: var(--xl-justifyContent);
-      --connect__grid-justify-items: var(--xl-justifyItems);
+      --connect__grid-align-content: var(--connect__xl-alignContent);
+      --connect__grid-align-items: var(--connect__xl-alignItems);
+      --connect__grid-justify-content: var(--connect__xl-justifyContent);
+      --connect__grid-justify-items: var(--connect__xl-justifyItems);
     }
   }
 
@@ -1069,36 +1025,48 @@ Responsive Styles:
   }
 }
 
+
+/*
+.connect__grid-item Component
+
+| Property    | -xs          | -sm          | -md          | -lg          | -xl           |
+|-------------|--------------|--------------|--------------|--------------|---------------|
+| Start Column| -xs-start-col| -sm-start-col| -md-start-col| -lg-start-col| -xl-start-col |
+| Span Column | -xs-span-col | -sm-span-col | -md-span-col | -lg-span-col | -xl-span-col  |
+| Row Span    | -xs-row-span | -sm-row-span | -md-row-span | -lg-row-span | -xl-row-span  |
+
+*/
+
 .connect__grid-item {
-  grid-column: var(--start-col, 1) / span var(--span-col, 12);
-  grid-row: var(--xs-row-start, auto) / span var(--xs-row-span, 1);
+  grid-column: var(--connect__grid-item-xs-start-col, 1) / span var(--connect__grid-item-xs-span-col, 12);
+  grid-row: var(--connect__grid-item-xs-row-start, auto) / span var(--connect__grid-item-xs-row-span, 1);
 }
 
 @media (min-width: 30rem) {
-  .connect__sm {
-    grid-column: var(--sm-start-col) / span var(--sm-span-col);
-    grid-row: var(--sm-row-span, auto);
+  .connect__grid-item-sm {
+    grid-column: var(--connect__grid-item-sm-start-col) / span var(--connect__grid-item-sm-span-col);
+    grid-row: var(--connect__grid-item-sm-row-span, auto);
   }
 }
 
 @media (min-width: 40.625rem) {
-  .connect__md {
-    grid-column: var(--md-start-col) / span var(--md-span-col);
-    grid-row: var(--md-row-span, auto);
+  .connect__grid-item-md {
+    grid-column: var(--connect__grid-item-md-start-col) / span var(--connect__grid-item-md-span-col);
+    grid-row: var(--connect__grid-item-md-row-span, auto);
   }
 }
 
 @media (min-width: 55rem) {
-  .connect__lg {
-    grid-column: var(--lg-start-col) / span var(--lg-span-col);
-    grid-row: var(--lg-row-span, auto);
+  .connect__grid-item-lg {
+    grid-column: var(--connect__grid-item-lg-start-col) / span var(--connect__grid-item-lg-span-col);
+    grid-row: var(--connect__grid-item-lg-row-span, auto);
   }
 }
 
 @media (min-width: 80rem) {
-  .connect__xl {
-    grid-column: var(--xl-start-col) / span var(--xl-span-col);
-    grid-row: var(--xl-row-span, auto);
+  .connect__grid-item-xl {
+    grid-column: var(--connect__grid-item-xl-start-col) / span var(--connect__grid-item-xl-span-col);
+    grid-row: var(--connect__grid-item-xl-row-span, auto);
   }
 }
 
@@ -1929,8 +1897,8 @@ Divider can be vertical or horizontal
   );
 
   .connect__paper {
-      &:not(.connect__rounded-corners) {
-       border-radius: var(--connect__unset);
+    &:not(.connect__rounded-corners) {
+      border-radius: var(--connect__unset);
     }
   }
 }

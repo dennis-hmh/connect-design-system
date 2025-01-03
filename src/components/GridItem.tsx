@@ -17,6 +17,27 @@ interface GridItemProps {
   dataTestId?: string;
 }
 
+const generateGridItemStyles = (
+  breakpoint: string,
+  values: BreakpointValues,
+  previousValues: BreakpointValues,
+) => {
+  const startCol = values.startCol ?? previousValues.startCol ?? 1;
+  const spanCol = values.spanCol ?? previousValues.spanCol ?? 12;
+  const rowSpan = values.rowSpan ?? previousValues.rowSpan ?? null;
+
+  const styles: { [key: string]: any } = {
+    [`--connect__grid-item-${breakpoint}-start-col`]: startCol,
+    [`--connect__grid-item-${breakpoint}-span-col`]: spanCol,
+  };
+
+  if (rowSpan) {
+    styles[`--connect__grid-item-${breakpoint}-row-span`] = rowSpan;
+  }
+
+  return styles;
+};
+
 export const GridItem: React.FC<GridItemProps> = ({
   children,
   xs,
@@ -27,46 +48,23 @@ export const GridItem: React.FC<GridItemProps> = ({
   className,
   dataTestId,
 }) => {
-  // Helper function to inherit values
-  const getInheritedValue = (
-    currentSize: BreakpointValues | undefined,
-    previousSize: BreakpointValues,
-    property: keyof BreakpointValues,
-    defaultValue: any,
-  ) => {
-    return currentSize?.[property] ?? previousSize[property] ?? defaultValue;
-  };
-
   const style: { [key: string]: any } = {};
-
-  // Apply styles based on props for each breakpoint
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
 
+  // Apply styles based on props for each breakpoint
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {
     if (values) {
-      const startCol = getInheritedValue(values, previousBreakpoint, 'startCol', 1);
-      const spanCol = getInheritedValue(values, previousBreakpoint, 'spanCol', 12);
-      const rowSpan = getInheritedValue(values, previousBreakpoint, 'rowSpan', null); // Default to null if not specified
-
-      // Set CSS variables for start column, span, and row span
-      style[`--${breakpoint}-start-col`] = startCol;
-      style[`--${breakpoint}-span-col`] = spanCol;
-      if (rowSpan) {
-        style[`--${breakpoint}-row-span`] = rowSpan; // Apply row span if provided
-      }
-
-      previousBreakpoint = { startCol, spanCol, rowSpan }; // Update previousBreakpoint for inheritance
+      Object.assign(style, generateGridItemStyles(breakpoint, values, previousBreakpoint));
+      previousBreakpoint = { ...previousBreakpoint, ...values };
     }
   });
 
-  // Construct the class string based on the breakpoints provided
   const classes = `connect__grid-item ${className || ''} ${Object.keys(breakpoints)
     .filter((bp) => breakpoints[bp])
-    .map((bp) => `connect__${bp}`)
+    .map((bp) => `connect__grid-item-${bp}`)
     .join(' ')}`;
 
-  // Wrap children in a div and apply the styles and class
   return (
     <div className={classes} style={style} data-testid={dataTestId}>
       {children}
