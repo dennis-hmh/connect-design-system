@@ -36,10 +36,15 @@ Default.args = {
   iconId: 'info',
   children: (
     <>
-      <Typography element="h5" size="body-sm">
-        Alert Heading
+      <Typography element="h5" size="body-sm" weight={700}>
+        [Title] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Typography>
-      <Typography element="p">This is an alert message.</Typography>
+      <Typography element="p">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet lectus
+        vel lacinia. Proin in orci at ligula eleifend malesuada eu quis eros. Vivamus felis arcu,
+        faucibus vitae elit sit amet, convallis molestie libero. Phasellus vulputate semper porta.
+        Sed mollis sapien id dapibus luctus. Sed sodales enim a justo rutrum iaculis..
+      </Typography>
     </>
   ),
   handleClick: () => console.log('Close button clicked'),
@@ -54,7 +59,12 @@ NoCloseBtn.args = {
       <Typography element="h5" size="body-sm">
         Alert Heading
       </Typography>
-      <Typography element="p">This is an alert message.</Typography>
+      <Typography element="p">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet lectus
+        vel lacinia. Proin in orci at ligula eleifend malesuada eu quis eros. Vivamus felis arcu,
+        faucibus vitae elit sit amet, convallis molestie libero. Phasellus vulputate semper porta.
+        Sed mollis sapien id dapibus luctus. Sed sodales enim a justo rutrum iaculis..
+      </Typography>
     </>
   ),
   gradeBand: GradeBand.G4_5,

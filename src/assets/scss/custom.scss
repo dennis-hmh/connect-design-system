@@ -1076,6 +1076,7 @@ these styles are then open to breakpoint changes
 
 .connect__stack {
   align-items: var(--connect__stack-align, start);
+  align-self: var(--connect__stack-alignSelf, stretch);
   display: flex;
   flex-flow: var(--connect__stack-direction, column) var(--connect__stack-wrap, wrap);
   gap: var(--connect__stack-spacing, 0);
@@ -1083,60 +1084,70 @@ these styles are then open to breakpoint changes
   padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
 
   &.connect__stack-xs {
-    --connect__stack-spacing: var(--xs-spacing);
-    --connect__stack-direction: var(--xs-direction);
-    --connect__stack-align: var(--xs-alignItems);
-    --connect__stack-wrap: var(--xs-flexWrap);
-    --connect__justify-content: var(--sm-justifyContent);
-    --connect__paddingX: var(--xs-paddingX);
-    --connect__paddingY: var(--xs-paddingY);
+    --connect__stack-spacing: var(--connect__stack-xs-spacing);
+    --connect__stack-direction: var(--connect__stack-xs-direction);
+    --connect__stack-align: var(--connect__stack-xs-alignItems);
+    --connect__stack-alignSelf: var(--connect__stack-xs-alignSelf);
+    --connect__stack-wrap: var(--connect__stack-xs-flexWrap);
+    --connect__justify-content: var(--connect__stack-xs-justifyContent);
+    --connect__paddingX: var(--connect__stack-xs-paddingX);
+    --connect__paddingY: var(--connect__stack-xs-paddingY);
+    flex: var(--connect__stack-xs-flex, none);
   }
 
   @media (min-width: 30rem) {
     &.connect__stack-sm {
-      --connect__stack-spacing: var(--sm-spacing);
-      --connect__stack-direction: var(--sm-direction);
-      --connect__stack-align: var(--sm-alignItems);
-      --connect__stack-wrap: var(--sm-flexWrap);
-      --connect__justify-content: var(--sm-justifyContent);
-      --connect__paddingX: var(--sm-paddingX);
-      --connect__paddingY: var(--sm-paddingY);
+      --connect__stack-spacing: var(--connect__stack-sm-spacing);
+      --connect__stack-direction: var(--connect__stack-sm-direction);
+      --connect__stack-align: var(--connect__stack-sm-alignItems);
+      --connect__stack-alignSelf: var(--connect__stack-sm-alignSelf);
+      --connect__stack-wrap: var(--connect__stack-sm-flexWrap);
+      --connect__justify-content: var(--connect__stack-sm-justifyContent);
+      --connect__paddingX: var(--connect__stack-sm-paddingX);
+      --connect__paddingY: var(--connect__stack-sm-paddingY);
+      flex: var(--connect__stack-sm-flex, none);
     }
   }
 
   @media (min-width: 40.625rem) {
     &.connect__stack-md {
-      --connect__stack-spacing: var(--md-spacing);
-      --connect__stack-direction: var(--md-direction);
-      --connect__stack-align: var(--md-alignItems);
-      --connect__stack-wrap: var(--md-flexWrap);
-      --connect__justify-content: var(--md-justifyContent);
-      --connect__paddingX: var(--md-paddingX);
-      --connect__paddingY: var(--md-paddingY);
+      --connect__stack-spacing: var(--connect__stack-md-spacing);
+      --connect__stack-direction: var(--connect__stack-md-direction);
+      --connect__stack-align: var(--connect__stack-md-alignItems);
+      --connect__stack-alignSelf: var(--connect__stack-md-alignSelf);
+      --connect__stack-wrap: var(--connect__stack-md-flexWrap);
+      --connect__justify-content: var(--connect__stack-md-justifyContent);
+      --connect__paddingX: var(--connect__stack-md-paddingX);
+      --connect__paddingY: var(--connect__stack-md-paddingY);
+      flex: var(--connect__stack-md-flex, none);
     }
   }
 
   @media (min-width: 55rem) {
     &.connect__stack-lg {
-      --connect__stack-spacing: var(--lg-spacing);
-      --connect__stack-direction: var(--lg-direction);
-      --connect__stack-align: var(--lg-alignItems);
-      --connect__stack-wrap: var(--lg-flexWrap);
-      --connect__justify-content: var(--lg-justifyContent);
-      --connect__paddingX: var(--lg-paddingX);
-      --connect__paddingY: var(--lg-paddingY);
+      --connect__stack-spacing: var(--connect__stack-lg-spacing);
+      --connect__stack-direction: var(--connect__stack-lg-direction);
+      --connect__stack-align: var(--connect__stack-lg-alignItems);
+      --connect__stack-alignSelf: var(--connect__stack-lg-alignSelf);
+      --connect__stack-wrap: var(--connect__stack-lg-flexWrap);
+      --connect__justify-content: var(--connect__stack-lg-justifyContent);
+      --connect__paddingX: var(--connect__stack-lg-paddingX);
+      --connect__paddingY: var(--connect__stack-lg-paddingY);
+      flex: var(--connect__stack-lg-flex, none);
     }
   }
 
   @media (min-width: 80rem) {
     &.connect__stack-xl {
-      --connect__stack-spacing: var(--xl-spacing);
-      --connect__stack-direction: var(--xl-direction);
-      --connect__stack-align: var(--xl-alignItems);
-      --connect__stack-wrap: var(--xl-flexWrap);
-      --connect__justify-content: var(--xl-justifyContent);
-      --connect__paddingX: var(--xl-paddingX);
-      --connect__paddingY: var(--xl-paddingY);
+      --connect__stack-spacing: var(--connect__stack-xl-spacing);
+      --connect__stack-direction: var(--connect__stack-xl-direction);
+      --connect__stack-align: var(--connect__stack-xl-alignItems);
+      --connect__stack-alignSelf: var(--connect__stack-xl-alignSelf);
+      --connect__stack-wrap: var(--connect__stack-xl-flexWrap);
+      --connect__justify-content: var(--connect__stack-xl-justifyContent);
+      --connect__paddingX: var(--connect__stack-xl-paddingX);
+      --connect__paddingY: var(--connect__stack-xl-paddingY);
+      flex: var(--connect__stack-xl-flex, none);
     }
   }
 }
@@ -2096,4 +2107,15 @@ To be fleshed out / moved
   object-fit: contain;
   object-position: center center;
   width: auto;
+}
+
+.connect__alert {
+  .connect__button-menu {
+    --connect__btn-padding-y: var(--connect__spacer-xs);
+    --connect__btn-padding-x: var(--connect__spacer-xs);
+
+    &:hover {
+      box-shadow: var(--connect__shadow-null);
+    }
+  }
 }

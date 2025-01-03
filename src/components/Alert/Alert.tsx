@@ -4,7 +4,6 @@ import { Stack } from '../Stack/Stack';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
-import { Divider } from '../Divider/Divider';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { GradeBand } from 'src/enum/gradeband';
 
@@ -21,7 +20,7 @@ export type AlertProps = {
 export const Alert: React.FC<AlertProps> = ({
   children,
   iconId,
-  iconSize = 'md',
+  iconSize = 'sm',
   fill,
   handleClick,
   testId,
@@ -32,7 +31,8 @@ export const Alert: React.FC<AlertProps> = ({
         xs={{
           direction: 'row',
           spacing: 'md',
-          alignItems: 'stretch',
+          flexWrap: 'nowrap',
+          alignItems: 'center',
           justifyContent: 'start',
           paddingX: 'md',
           paddingY: 'sm',
@@ -44,6 +44,7 @@ export const Alert: React.FC<AlertProps> = ({
             flexWrap: 'nowrap',
             spacing: 'md',
             alignItems: 'center',
+            alignSelf: 'start',
             justifyContent: 'space-between',
             paddingX: 'zero',
             paddingY: 'zero',
@@ -52,11 +53,11 @@ export const Alert: React.FC<AlertProps> = ({
           {iconId && (
             <>
               <Icon id={iconId} size={iconSize} fill={fill} />
-              <Divider orientation="vertical" />
             </>
           )}
         </Stack>
         <Stack
+          flex="auto"
           xs={{
             direction: 'column',
             spacing: 'xs',
@@ -69,7 +70,22 @@ export const Alert: React.FC<AlertProps> = ({
           {children}
         </Stack>
 
-        {handleClick && <ButtonMenu iconId="close" iconSize="md" ariaLabel="Close" onClick={handleClick} />}
+        {handleClick && (
+          <Stack
+            xs={{
+              direction: 'row',
+              flexWrap: 'nowrap',
+              spacing: 'md',
+              alignItems: 'center',
+              alignSelf: 'start',
+              justifyContent: 'space-between',
+              paddingX: 'zero',
+              paddingY: 'zero',
+            }}
+          >
+            <ButtonMenu iconId="close" iconSize="sm" ariaLabel="Close" onClick={handleClick} />
+          </Stack>
+        )}
       </Stack>
     </Paper>
   );
