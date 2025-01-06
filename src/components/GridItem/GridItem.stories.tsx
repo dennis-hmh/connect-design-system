@@ -25,7 +25,7 @@ const Template: StoryFn<GridItemProps & { gradeBand: GradeBand }> = (args) => {
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Grid>
+        <Grid gap="sm" gutter={true}>
           <GridItem {...args} />
         </Grid>
       </div>
