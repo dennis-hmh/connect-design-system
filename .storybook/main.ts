@@ -32,6 +32,8 @@ const config: StorybookConfig = {
       button[id="removed-reveal"] {display: none; }
       .sidebar-item:has(button[id="buttons-button-rive"]) { display: none; }
       .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
+      div[id="poc"] > button:first-child::after { content: " 🚧 "; }
+      button[id="poc-table"]::after { content: " 🚧 "; }
     </style>
   `,
 
