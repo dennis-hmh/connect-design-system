@@ -30,7 +30,7 @@ export const Alert: React.FC<AlertProps> = ({
       <Stack
         xs={{
           direction: 'row',
-          spacing: 'md',
+          spacing: 'sm',
           flexWrap: 'nowrap',
           alignItems: 'center',
           justifyContent: 'start',
