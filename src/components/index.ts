@@ -35,6 +35,6 @@ export * from './Timer/Timer';
 export * from './Typography/Typography';
 export { ConnectTheme } from './ConnectTheme';
 export { Grid } from './Grid/Grid';
-export { GridItem } from './GridItem';
+export { GridItem } from './GridItem/GridItem';
 export { Stack } from './Stack/Stack';
 export { GradeBand } from '../enum/gradeband';

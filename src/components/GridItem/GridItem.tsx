@@ -1,12 +1,13 @@
 import React from 'react';
+import { GradeBand } from '../../enum/gradeband';
 
-interface BreakpointValues {
+export type BreakpointValues = {
   startCol?: number;
   spanCol?: number;
   rowSpan?: number;
-}
+};
 
-interface GridItemProps {
+export type GridItemProps = {
   children: React.ReactNode;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
@@ -15,7 +16,8 @@ interface GridItemProps {
   xl?: BreakpointValues;
   className?: string;
   dataTestId?: string;
-}
+  gradeBand?: GradeBand;
+};
 
 const generateGridItemStyles = (
   breakpoint: string,

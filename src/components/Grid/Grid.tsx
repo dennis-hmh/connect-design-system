@@ -1,4 +1,5 @@
 import React from 'react';
+import { GradeBand } from 'src/enum/gradeband';
 
 type GapSizes = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -34,8 +35,9 @@ export type GridProps = {
   gutter?: boolean;
   className?: string;
   style?: string;
-  dataTestId?: string;
   tabIndex?: number;
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 const generateBreakpointStyles = (
