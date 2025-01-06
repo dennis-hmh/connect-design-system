@@ -37,27 +37,22 @@ Default.args = {
   children: (
     <>
       <Typography element="h5" size="body-sm" weight={700}>
-        [Title] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Alert Heading
       </Typography>
-      <Typography element="p">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet lectus
-        vel lacinia. Proin in orci at ligula eleifend malesuada eu quis eros. Vivamus felis arcu,
-        faucibus vitae elit sit amet, convallis molestie libero. Phasellus vulputate semper porta.
-        Sed mollis sapien id dapibus luctus. Sed sodales enim a justo rutrum iaculis..
-      </Typography>
+      <Typography element="p">This is an alert message.</Typography>
     </>
   ),
   handleClick: () => console.log('Close button clicked'),
   gradeBand: GradeBand.G4_5,
 };
 
-export const NoCloseBtn: Story = Template.bind({});
-NoCloseBtn.args = {
-  iconId: 'info',
+export const LongAlert: Story = Template.bind({});
+LongAlert.args = {
+  ...Default.args,
   children: (
     <>
-      <Typography element="h5" size="body-sm">
-        Alert Heading
+      <Typography element="h5" size="body-sm" weight={700}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Typography>
       <Typography element="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt sit amet lectus
@@ -67,5 +62,10 @@ NoCloseBtn.args = {
       </Typography>
     </>
   ),
-  gradeBand: GradeBand.G4_5,
+};
+
+export const NoCloseBtn: Story = Template.bind({});
+NoCloseBtn.args = {
+  ...Default.args,
+  handleClick: undefined,
 };
