@@ -16,6 +16,7 @@ export type BreakpointValues = {
 
 export type StackProps = {
   children: React.ReactNode;
+  element?: 'section' | 'article' | 'main' | 'header' | 'footer' | 'div';
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -75,6 +76,7 @@ const generateFlexValue = (flex: StackProps['flex']): string | undefined => {
 
 export const Stack: React.FC<StackProps> = ({
   children,
+  element: Component = 'div',
   xs,
   sm,
   md,
@@ -111,8 +113,8 @@ export const Stack: React.FC<StackProps> = ({
   const classes = `connect__stack ${className || ''} ${breakpointClasses}`;
 
   return (
-    <div className={classes} style={style} data-testid={dataTestId}>
+    <Component className={classes} style={style} data-testid={dataTestId}>
       {children}
-    </div>
+    </Component>
   );
 };

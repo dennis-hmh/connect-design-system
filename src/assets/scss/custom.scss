@@ -1901,19 +1901,6 @@ Divider can be vertical or horizontal
   }
 }
 
-.connect__rounded-corners {
-  border-radius: var(
-    --theme__paper-radius,
-    var(--variant__paper-radius, var(--connect__border-radius))
-  );
-
-  .connect__paper {
-    &:not(.connect__rounded-corners) {
-      border-radius: var(--connect__unset);
-    }
-  }
-}
-
 /*
 .connect__paper Component
 
@@ -1936,15 +1923,33 @@ Divider can be vertical or horizontal
   &.connect__rounded-corners {
     --variant__paper-radius: var(--connect__border-radius);
 
-    .connect__image {
+    .connect__paper {
+      --variant__paper-radius: var(--connnect__unset);
+    }
+
+    .connect__paper:first-of-type {
+      --variant__paper-radius: var(--connnect__unset);
       border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
     }
 
-    .connect__image:only-child {
+    *:only-of-type .connect__image {
       border-radius: var(--connect__border-radius);
     }
   }
 }
+
+// .connect__rounded-corners {
+//   border-radius: var(
+//     --theme__paper-radius,
+//     var(--variant__paper-radius, var(--connect__border-radius))
+//   );
+
+//   .connect__paper {
+//     &:not(.connect__rounded-corners) {
+//       border-radius: var(--connect__unset);
+//     }
+//   }
+// }
 
 .connect__elevation--1 {
   box-shadow: var(--connect__shadow-lvl--1);
