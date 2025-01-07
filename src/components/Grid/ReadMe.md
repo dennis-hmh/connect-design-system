@@ -24,7 +24,7 @@ Here is an example of how to use the Grid component in your React application:
 ```tsx
 import React from 'react';
 import Grid from '@connect/connect-design-system/src/components/Grid/Grid';
-import GridItem from '@connect/connect-design-system/src/components/GridItem';
+import GridItem from '@connect/connect-design-system/src/components/GridItem/GridItem';
 
 const App = () => {
   return (

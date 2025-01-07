@@ -19,7 +19,7 @@ import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import { Grid } from './components/Grid/Grid';
-import GridItem from './components/GridItem';
+import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
@@ -37,7 +37,52 @@ const App: React.FC = () => {
         <Header>
           <h1>Welcome to My App</h1>
         </Header>
-
+        <div style={{ width: '100%', height: '1000px', background: 'lightgrey' }}>
+          <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+              <Stack
+                lg={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
+                <Button primary={true}>Button</Button>
+                <Button primary={false}>Button</Button>
+              </Stack>
+            </GridItem>
+            <GridItem lg={{ startCol: 7, spanCol: 6 }}>
+              <Stack>
+                <Typography element="h1">Grade k H1</Typography>
+                <Typography element="h2">h2</Typography>
+                <Typography element="h3">h3</Typography>
+                <Typography element="h4">h4</Typography>
+                <Typography element="p">I am a paragraph</Typography>
+                <Typography element="h2" size="heading-xl">
+                  h2 styled as h1
+                </Typography>
+                <Typography element="h3" size="heading-lg">
+                  h3 styled as h2
+                </Typography>
+                <Typography element="h4" size="heading-md">
+                  h4 styled as h3
+                </Typography>
+                <Stack
+                  lg={{
+                    direction: 'row',
+                    spacing: 'xs',
+                    alignItems: 'start',
+                    justifyContent: 'start',
+                  }}
+                >
+                  <Button primary={true}>Button</Button>
+                  <Button primary={false}>Button</Button>
+                </Stack>
+              </Stack>
+            </GridItem>
+          </Grid>
+        </div>
         <Grid gutter={true} gap="md">
           <GridItem>
             <Button primary iconId="mic">
