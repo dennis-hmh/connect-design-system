@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Grid, GridProps } from './Grid';
-import { GridItem, GridItemProps } from '../GridItem';
+import { GridItem } from '../GridItem/GridItem';
+import { Typography, TypograhyProps } from '../Typography/Typography';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -42,12 +43,18 @@ export const WithGridItems: Story = Template.bind({});
 WithGridItems.args = {
   children: (
     <>
-      <GridItem>Item 1</GridItem>
-      <GridItem>Item 2</GridItem>
-      <GridItem>Item 3</GridItem>
+      <GridItem sm={{ startCol: 1, spanCol: 4 }}>
+        <Typography element="div">Item 1</Typography>
+      </GridItem>
+      <GridItem sm={{ startCol: 5, spanCol: 4 }}>
+        <Typography element="div">Item 2</Typography>
+      </GridItem>
+      <GridItem sm={{ startCol: 9, spanCol: 4 }}>
+        <Typography element="div">Item 3</Typography>
+      </GridItem>
     </>
   ),
   gap: 'sm',
-  gutter: false,
+  gutter: true,
   gradeBand: GradeBand.G4_5,
 };

@@ -19,10 +19,11 @@ import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import { Grid } from './components/Grid/Grid';
-import GridItem from './components/GridItem';
+import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
+import { Alert } from './components/Alert/Alert';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
@@ -31,15 +32,228 @@ const App: React.FC = () => {
   const [animationState, setAnimationState] = useState(0);
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G2_3} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
         </Header>
-
+        <div style={{ width: '100%', height: '1000px', background: 'lightgrey' }}>
+          <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+              <Stack
+                lg={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
+                <Button primary={true}>Button</Button>
+                <Button primary={false}>Button</Button>
+              </Stack>
+            </GridItem>
+            <GridItem lg={{ startCol: 7, spanCol: 6 }}>
+              <Stack>
+                <Typography element="h1">Grade k H1</Typography>
+                <Typography element="h2">h2</Typography>
+                <Typography element="h3">h3</Typography>
+                <Typography element="h4">h4</Typography>
+                <Typography element="p">I am a paragraph</Typography>
+                <Typography element="h2" size="heading-xl">
+                  h2 styled as h1
+                </Typography>
+                <Typography element="h3" size="heading-lg">
+                  h3 styled as h2
+                </Typography>
+                <Typography element="h4" size="heading-md">
+                  h4 styled as h3
+                </Typography>
+                <Stack
+                  lg={{
+                    direction: 'row',
+                    spacing: 'xs',
+                    alignItems: 'start',
+                    justifyContent: 'start',
+                  }}
+                >
+                  <Button primary={true}>Button</Button>
+                  <Button primary={false}>Button</Button>
+                </Stack>
+              </Stack>
+            </GridItem>
+          </Grid>
+        </div>
         <Grid gutter={true} gap="md">
           <GridItem>
-            <Button primary iconId="mic">Hi there</Button>
+            <Button primary iconId="mic">
+              Hi there
+            </Button>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                />
+              </Figure>
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                />
+              </Figure>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                />
+              </Figure>
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                />
+              </Figure>
+            </div>
+          </GridItem>
+          <GridItem>
+            <Stack
+              md={{
+                direction: 'row',
+                spacing: 'md',
+                justifyContent: 'center',
+              }}
+              lg={{
+                justifyContent: 'start',
+                flexWrap: 'nowrap',
+              }}
+            >
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+            </Stack>
+          </GridItem>
+          <GridItem>
+            {/* eslint-disable-next-line no-console */}
+            <Alert iconId="info" handleClick={() => console.log('click')}>
+              Hi there
+            </Alert>
           </GridItem>
           <GridItem>
             {/* <RiveSimple
@@ -61,9 +275,8 @@ const App: React.FC = () => {
               descDefault="hi"
               hidePlayPause={true}
               autoplay={true}
-              inputs={{ animationState }} 
+              inputs={{ animationState }}
             />
-
           </GridItem>
           <GridItem>
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>

@@ -1,7 +1,7 @@
 import React, { useRef, CSSProperties } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Header, HeaderProps } from './Header';
-import GridItem from '../GridItem';
+import GridItem from '../GridItem/GridItem';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
