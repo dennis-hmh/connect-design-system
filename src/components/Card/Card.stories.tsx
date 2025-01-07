@@ -14,7 +14,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   tags: ['autodocs'],
   parameters: {
-    layout: 'center',
+    layout: 'fullscreen',
   },
 };
 
