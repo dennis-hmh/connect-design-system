@@ -1633,9 +1633,10 @@ Positioning int he pseudos is the total border / 2
 .connect__table-wrapper {
   --connect__table-bg: var(--theme__table-bg, var(--connect__white));
   --connect__thead-bg: var(--theme__thead-bg, var(--connect__gray-c10));
-  --connect__table-border-c: var(--theme__table-border-c, var(--connect__gray-c55));
-  --connect__tr-hover-bg: var(--theme__tr-hover-bg, var(--connect__gray-c10));
+  --connect__table-border-c: var(--theme__table-border-c, rgba(220, 220, 220));
+  --connect__tr-hover-bg: var(--theme__tr-hover-bg, var(--connect__gray-c5));
   --connect__table-border-w: var(--theme__table-border-w, 0.0625rem);
+  --connect__table-color: var(--theme__table-color, var(--connect__gray-c70));
   --connect__container-type: var(--theme__container-type, inline-size);
   --connect__container-name: var(--theme__container-name, table-container);
 
@@ -1648,25 +1649,50 @@ Positioning int he pseudos is the total border / 2
 
   .connect__table {
     background-color: var(--connect__table-bg);
-    border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+    border-radius: var(--connect__border-radius);
+    box-shadow: var(--connect__shadow-lvl-0);
     border-collapse: collapse;
+    border-spacing: 0;
+    color: var(--connect__table-color);
+    overflow: hidden;
     width: 100%;
+
+    thead {
+      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+
+      th:first-of-type {
+        border-top-left-radius: var(--connect__border-radius);
+      }
+      th:last-of-type {
+        border-top-right-radius: var(--connect__border-radius);
+      }
+    }
 
     &.connect__table-scrolling {
       overflow-x: auto;
     }
 
     &.connect__table-sticky-header {
-      // &:is(table) {
-      //   border-top: unset;
-      // }
+      &:is(table) {
+        overflow: unset;
+      }
 
       thead {
-        border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
-        border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
         position: sticky;
         top: -0.0625rem;
         z-index: 1;
+      }
+    }
+
+    &.connect__table-no-thead {
+      thead {
+        display: none;
+      }
+
+      tr:first-of-type {
+        td {
+          border-top: unset;
+        }
       }
     }
 
@@ -1678,11 +1704,26 @@ Positioning int he pseudos is the total border / 2
       text-align: left;
     }
 
+    th,
+    td {
+      border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+
+      &:first-of-type {
+        border-left: unset;
+      }
+      &:last-of-type {
+        border-right: unset;
+      }
+    }
+
     th {
       background-color: var(--connect__thead-bg);
+      border-top: unset;
       padding: var(--connect__spacer-sm);
+      overflow: hidden;
       text-align: left;
       &:is([scope='row']) {
+        background-color: var(--connect__tr-hover-bg);
         border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
         border-right: var(--connect__table-border-w) solid var(--connect__table-border-c);
         &:first-of-type {
@@ -1692,7 +1733,7 @@ Positioning int he pseudos is the total border / 2
     }
 
     td {
-      border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
+      border-bottom: unset;
       padding: var(--connect__spacer-sm);
     }
 

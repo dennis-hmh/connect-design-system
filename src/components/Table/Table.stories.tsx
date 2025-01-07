@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Table> = {
-  title: 'PoC/Table',
+  title: 'WIP/Table',
   component: Table,
   tags: ['autodocs'],
   parameters: {
@@ -13,7 +13,7 @@ const meta: Meta<typeof Table> = {
     docs: {
       description: {
         component:
-          '🚧 **This componenent is currently a Work In Progress (WIP) and part of a Proof of Concept (PoC). It is not ready for production use.** 🚧',
+          '🚧 **This componenent is currently a Work In Progress (WIP). It is not ready for production use.** 🚧',
       },
     },
   },
@@ -47,6 +47,8 @@ Default.args = {
     ['Row 5 - Col 1', 'Row 5 - Col 2', 'Row 5 - Col 3', 'Row 5 - Col 4'],
   ],
   caption: '',
+  scopeRow: false,
+  scopeCol: false,
   gradeBand: GradeBand.G4_5,
 };
 
@@ -70,6 +72,14 @@ ScopeRow.args = {
     ['Header 4 - Col 1', 'Row 4 - Col 2', 'Row 4 - Col 3', 'Row 4 - Col 4'],
     ['Header 5 - Col 1', 'Row 5 - Col 2', 'Row 5 - Col 3', 'Row 5 - Col 4'],
   ],
+};
+
+export const NoHeader = Template.bind({});
+NoHeader.args = {
+  ...Default.args,
+  caption: 'No Header',
+  headers: [],
+  className: 'connect__table-no-thead',
 };
 
 export const personalInfo = Template.bind({});
