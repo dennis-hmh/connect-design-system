@@ -25,10 +25,11 @@ export const Textarea: React.FC<TextareaProps> = ({
   characterLimit,
   dataTestId,
 }) => {
-  const inputStates = `${correct ? 'connect__input-correct' : ''} ${incorrect ? 'connect__input-incorrect' : ''} ${answerShown ? 'connect__input-shown' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
-
   const [text, setText] = useState(defaultText || '');
   const [charCount, setCharCount] = useState(defaultText?.length || 0);
+  const [isSelected, setIsSelected] = useState(false);
+
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   let inputAriaLabel = 'Input field';
   if (correct) {
@@ -50,11 +51,13 @@ export const Textarea: React.FC<TextareaProps> = ({
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <textarea
-        className={`connect__input connect__input-textarea ${inputStates}`}
+        className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
         value={text}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={handleTextChange}
+        onChange={(e) => handleTextChange(e)}
+        onMouseDown={() => setIsSelected(true)}
+        onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
@@ -67,7 +70,12 @@ export const Textarea: React.FC<TextareaProps> = ({
           }`}
         >
           <em>{charCount}</em>
-          {characterLimit ? ` / ${characterLimit}` : ''}
+          {characterLimit && (
+            <>
+              <span aria-hidden="true">/</span>
+              {characterLimit}
+            </>
+          )}
         </div>
       )}
     </label>

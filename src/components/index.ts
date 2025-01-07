@@ -1,5 +1,6 @@
 import '../assets/scss/custom.scss';
 
+export * from './Alert/Alert';
 export * from './Blockquote/Blockquote';
 export * from './Button/Button';
 export * from './ButtonMenu/ButtonMenu';
@@ -23,7 +24,7 @@ export * from './MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 export * from './Paper/Paper';
 export * from './Pill/Pill';
 export * from './ProgressBar/ProgressBar';
-export * from './RiveEngine/RiveEngine';
+export * from './RiveEngine';
 export * from './RiveSimple/RiveSimple';
 export * from './SelectBox/SelectBox';
 export * from './Sidebar/Sidebar';
@@ -34,6 +35,6 @@ export * from './Timer/Timer';
 export * from './Typography/Typography';
 export { ConnectTheme } from './ConnectTheme';
 export { Grid } from './Grid/Grid';
-export { default as GridItem } from './GridItem';
+export { GridItem } from './GridItem';
 export { Stack } from './Stack/Stack';
 export { GradeBand } from '../enum/gradeband';
