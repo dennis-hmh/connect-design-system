@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.15.0
+
+### Minor Changes
+
+- 825abfe: Rework RiveEngine component to better support rive inputs
+
 ## 1.14.4
 
 ### Patch Changes
