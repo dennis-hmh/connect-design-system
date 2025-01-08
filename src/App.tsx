@@ -25,12 +25,19 @@ import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
 import { Alert } from './components/Alert/Alert';
+import { useRive } from '@rive-app/react-canvas';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
 
   // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState(0);
+
+  const aiButton = useRive({
+    autoplay: true,
+    src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
+    stateMachines: 'State Machine 1',
+  });
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -53,25 +60,25 @@ const App: React.FC = () => {
           <GridItem>
             <Button primary iconId="add" iconPosition='before'>
               <Typography>Hi there</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+              <RiveEngine {...aiButton} sizeByHeight/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary disabled iconId="loader" iconPosition='before'>
               <Typography>Loading</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
               <Typography>Generate Summaries</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
-              <Typography styles={{opacity: 0}}>Generating</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+              <Typography opacity="0">Generating</Typography>
+              <RiveEngine {...aiButton} sizeByHeight/>
             </Button>
           </GridItem>
           <GridItem>
@@ -215,6 +222,9 @@ const App: React.FC = () => {
           </GridItem>
           <GridItem>
             <Stack
+              xs={{
+                justifyContent: 'space-between'
+              }}
               md={{
                 direction: 'row',
                 spacing: 'md',
@@ -251,7 +261,7 @@ const App: React.FC = () => {
               Hi there
             </Alert>
           </GridItem>
-          <GridItem>
+          <GridItem>Hi
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
@@ -269,7 +279,7 @@ const App: React.FC = () => {
                       {/* <GridItem>
             <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" />
           </GridItem> */}
-          <GridItem>
+          {/* <GridItem>
             <div style={{ height: "700px", width: "fit-content", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem" }}>
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" sizeByHeight/>
             </div>
@@ -288,7 +298,7 @@ const App: React.FC = () => {
             <div style={{ width: "500px", height: "700px", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem"  }}>
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" contain/>
             </div>
-          </GridItem>
+          </GridItem> */}
 
             {/* <RiveSimple
               srcDefault="/rive/timer.riv"

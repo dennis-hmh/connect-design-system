@@ -55,7 +55,7 @@ export const Typography: React.FC<TypographyProps> = ({
   className = '',
   dataTestId,
   ariaLive,
-  styles,
+  styles
 }) => {
   const typoProps: React.CSSProperties = {
     color: color ? `var(--connect__${color})` : undefined,
@@ -89,7 +89,6 @@ export const Typography: React.FC<TypographyProps> = ({
       className={`connect__typography ${className}`}
       data-testid={dataTestId}
       aria-live={ariaLive}
-      style={styles}
     >
       {children}
     </Component>
