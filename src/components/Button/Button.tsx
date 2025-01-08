@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
@@ -46,11 +47,10 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   dataTestId,
   additionalClass = '',
-  isLoading = false,
+  // isLoading = false,
   mediaButton = false,
-  isAnimationRunning = false,
+  // isAnimationRunning = false,
   text = '',
-
 }) => {
   const classNames = [
     'connect__button',
@@ -80,8 +80,8 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
-        <Typography>{text}</Typography>
-        {children}
+      <Typography>{text}</Typography>
+      {children}
       {iconPosition === 'after' && iconElement}
     </button>
   );

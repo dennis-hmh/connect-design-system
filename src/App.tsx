@@ -12,7 +12,7 @@ import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-import { RiveSimple } from './components/RiveSimple/RiveSimple';
+// import { RiveSimple } from './components/RiveSimple/RiveSimple';
 import { RiveEngine } from './components/RiveEngine/RiveEngine';
 import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
@@ -31,7 +31,7 @@ const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
 
   // State to manage the `animState` input for RiveSimple
-  const [animationState, setAnimationState] = useState(0);
+  const [animationState, setAnimationState] = useState<number>(0);
 
   const aiButton = useRive({
     autoplay: true,
@@ -48,41 +48,41 @@ const App: React.FC = () => {
 
         <Grid gutter={true} gap="md">
           <GridItem>
-            <Button primary iconId="add" iconPosition='before'>
+            <Button primary iconId="add" iconPosition="before">
               <Typography>Hi there</Typography>
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary iconId="add" iconPosition='after'>
+            <Button primary iconId="add" iconPosition="after">
               <Typography>Hi there</Typography>
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary iconId="add" iconPosition='before'>
+            <Button primary iconId="add" iconPosition="before">
               <Typography>Hi there</Typography>
-              <RiveEngine {...aiButton} sizeByHeight/>
+              <RiveEngine {...aiButton} sizeByHeight />
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary disabled iconId="loader" iconPosition='before'>
+            <Button primary disabled iconId="loader" iconPosition="before">
               <Typography>Loading</Typography>
-              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }} />
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
               <Typography>Generate Summaries</Typography>
-              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }} />
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
               <Typography opacity="0">Generating</Typography>
-              <RiveEngine {...aiButton} sizeByHeight/>
+              <RiveEngine {...aiButton} sizeByHeight />
             </Button>
           </GridItem>
           <GridItem>
-          <Button
+            <Button
               ariaLabel="Icon Button Right Arrow"
               iconId="arrowUp"
               iconSize="md"
@@ -223,7 +223,7 @@ const App: React.FC = () => {
           <GridItem>
             <Stack
               xs={{
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
               }}
               md={{
                 direction: 'row',
@@ -261,7 +261,8 @@ const App: React.FC = () => {
               Hi there
             </Alert>
           </GridItem>
-          <GridItem>Hi
+          <GridItem>
+            Hi
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
@@ -276,10 +277,10 @@ const App: React.FC = () => {
               hidePlayPause={true}
               autoplay={true}
             /> */}
-                      {/* <GridItem>
+            {/* <GridItem>
             <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" />
           </GridItem> */}
-          {/* <GridItem>
+            {/* <GridItem>
             <div style={{ height: "700px", width: "fit-content", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem" }}>
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" sizeByHeight/>
             </div>
@@ -299,7 +300,6 @@ const App: React.FC = () => {
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" contain/>
             </div>
           </GridItem> */}
-
             {/* <RiveSimple
               srcDefault="/rive/timer.riv"
               descDefault="hi"
@@ -307,7 +307,6 @@ const App: React.FC = () => {
               autoplay={true}
               inputs={{ animationState }} 
             /> */}
-
           </GridItem>
           <GridItem>
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
@@ -318,6 +317,9 @@ const App: React.FC = () => {
             <button onClick={() => setAnimationState(0)}>Set animState to 0</button>
             <button onClick={() => setAnimationState(1)}>Set animState to 1</button>
             <button onClick={() => setAnimationState(2)}>Set animState to 2</button>
+          </GridItem>
+          <GridItem>
+            <div>Current animation state: {animationState}</div>
           </GridItem>
           <GridItem>
             <ProgressBar value={30} />

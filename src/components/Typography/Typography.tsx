@@ -33,7 +33,6 @@ export interface TypographyProps {
   dataTestId?: string;
   ariaLive?: 'polite' | 'assertive' | 'off';
   gradeBand?: GradeBand;
-  styles?: React.CSSProperties;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -55,7 +54,6 @@ export const Typography: React.FC<TypographyProps> = ({
   className = '',
   dataTestId,
   ariaLive,
-  styles
 }) => {
   const typoProps: React.CSSProperties = {
     color: color ? `var(--connect__${color})` : undefined,
