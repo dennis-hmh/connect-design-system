@@ -1,6 +1,109 @@
+### v1.14.5 Release Notice
+
+### Release date: December 18, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Alert />`: Show/Hide close button with handleClick prop ,
+  - `<Figure />`: contain prop added,
+  - `<Image />`: contain prop added,
+  - `<SingleImage />`: contain prop added,
+  - `<Stack />`: direction prop updated with 'row-reverse' and 'column-reverse'
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.14.4 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Font `@font-face` and font files added to design system
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.14.3 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Linted and Type checking errors resolved to satisfy Concourse tests.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+---
+
+### v1.14.2 Release Notice
+
+### Release date: December 12, 2024
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other Updated: Vitest separated from Storybook to satisfy Concourse tests. Note: this version wasn't published.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.14.1 Release Notice
+
+### Release date: December 10, 2024
+
+#### Changelog:
+
+- New Component: `<Alert />`,
+- Updated Component: `<Incn />`, `<image />`, `<Paper />`, `<Stack />`, `<Typography />`
+- Bug Fix: N/A
+- Other Updated: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.14.0 Release Notice
 
-### Release date: November, 27, 2024
+### Release date: November 27, 2024
 
 #### Changelog:
 
@@ -9,11 +112,18 @@
 - Bug Fix: N/A
 - Other Updated: Plankton support added to CSS. CSS has been trimmed. Stories added for Grid and Stack.
 
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
 ---
 
 ### v1.13.5 Release Notice
 
-### Release date: November, 26, 2024
+### Release date: November 26, 2024
 
 #### Changelog:
 
@@ -33,7 +143,7 @@
 
 ### v1.13.4 Release Notice
 
-### Release date: November, 25, 2024
+### Release date: November 25, 2024
 
 #### Changelog:
 
@@ -53,7 +163,7 @@
 
 ### v1.13.3 Release Notice
 
-### Release date: November, 24, 2024
+### Release date: November 24, 2024
 
 #### Changelog:
 
@@ -73,7 +183,7 @@
 
 ### v1.13.2 Release Notice
 
-### Release date: November, 22, 2024
+### Release date: November 22, 2024
 
 #### Changelog:
 
@@ -93,7 +203,7 @@
 
 ### v1.13.1 Release Notice
 
-### Release date: November, 13, 2024
+### Release date: November 13, 2024
 
 #### Changelog:
 
@@ -113,7 +223,7 @@
 
 ### v1.13.0 Release Notice
 
-### Release date: November, 5, 2024
+### Release date: November 5, 2024
 
 #### Changelog:
 
@@ -133,7 +243,7 @@
 
 ### v1.12.2 Release Notice
 
-### Release date: October, 28, 2024
+### Release date: October 28, 2024
 
 #### Changelog:
 
@@ -151,11 +261,9 @@
 
 ---
 
-# <<<<<<< HEAD
-
 ### v1.12.1 Release Notice
 
-### Release date: October, 24, 2024
+### Release date: October 24, 2024
 
 #### Changelog:
 
@@ -173,11 +281,9 @@
 
 ---
 
-> > > > > > > v1.14.0
-
 ### v1.12.0 Release Notice
 
-### Release date: October, 21, 2024
+### Release date: October 21, 2024
 
 #### Changelog:
 
@@ -196,7 +302,7 @@
 
 ### v1.11.7 Release Notice
 
-### Release date: September, 25, 2024
+### Release date: September 25, 2024
 
 #### Changelog:
 
@@ -215,7 +321,7 @@
 
 ### v1.11.0 Release Notice
 
-### Release date: September, 9, 2024
+### Release date: September 9, 2024
 
 #### Changelog:
 
@@ -234,7 +340,7 @@
 
 ### v1.10.0 Release Notice
 
-### Release date: August, 15, 2024
+### Release date: August 15, 2024
 
 #### Changelog:
 
@@ -254,7 +360,7 @@
 
 ### v1.9.1 Release Notice
 
-### Release date: July, 18, 2024
+### Release date: July 18, 2024
 
 #### Changelog:
 
@@ -273,7 +379,7 @@
 
 ### v1.8.4 Release Notice
 
-### Release date: July, 9, 2024
+### Release date: July 9, 2024
 
 #### Changelog:
 
@@ -292,7 +398,7 @@
 
 ### v1.8.3 Release Notice
 
-### Release date: June, 10, 2024
+### Release date: June 10, 2024
 
 #### Changelog:
 
@@ -311,7 +417,7 @@
 
 ### v1.8.2 Release Notice
 
-### Release date: June, 06, 2024
+### Release date: June 06, 2024
 
 #### Changelog:
 
@@ -330,7 +436,7 @@
 
 ### v1.8.0 Release Notice
 
-### Release date: June, 04, 2024
+### Release date: June 04, 2024
 
 #### Changelog:
 
@@ -348,7 +454,7 @@
 
 ### v1.7.4 Release Notice
 
-### Release date: 28, May 2024
+### Release date: May 28, 2024
 
 #### Changelog:
 

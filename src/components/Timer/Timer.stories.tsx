@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { Timer, TimerProps, timerStates } from './Timer';
+import { Timer, TimerProps } from './Timer';
+import { timerStates } from './TimerUtils'
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 

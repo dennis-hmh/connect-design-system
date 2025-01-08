@@ -24,12 +24,20 @@ import GridItem from './components/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
+import { Alert } from './components/Alert/Alert';
+import { useRive } from '@rive-app/react-canvas';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
 
   // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState(0);
+
+  const aiButton = useRive({
+    autoplay: true,
+    src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
+    stateMachines: 'State Machine 1',
+  });
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -52,28 +60,208 @@ const App: React.FC = () => {
           <GridItem>
             <Button primary iconId="add" iconPosition='before'>
               <Typography>Hi there</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+              <RiveEngine {...aiButton} sizeByHeight/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary disabled iconId="loader" iconPosition='before'>
               <Typography>Loading</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
               <Typography>Generate Summaries</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight style={{ opacity: 0 }}/>
+              <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }}/>
             </Button>
           </GridItem>
           <GridItem>
             <Button primary>
-              <Typography styles={{opacity: 0}}>Generating</Typography>
-              <RiveEngine src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv" sizeByHeight/>
+              <Typography opacity="0">Generating</Typography>
+              <RiveEngine {...aiButton} sizeByHeight/>
             </Button>
           </GridItem>
           <GridItem>
+          <Button
+              ariaLabel="Icon Button Right Arrow"
+              iconId="arrowUp"
+              iconSize="md"
+              primary
+              submit="button"
+            >
+              Hi there
+            </Button>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                />
+              </Figure>
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                />
+              </Figure>
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
+            </div>
+          </GridItem>
+          <GridItem>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                />
+              </Figure>
+            </div>
+            <div
+              style={{
+                width: '500px',
+                height: '200px',
+                backgroundColor: 'lightgrey',
+                display: 'inline-block',
+                overflow: 'hidden',
+              }}
+            >
+              <Figure>
+                <Image
+                  imageSrc="https://picsum.photos/600/400"
+                  altText="A random picture from Lorem Picsum"
+                  contain
+                />
+              </Figure>
+            </div>
+          </GridItem>
+          <GridItem>
+            <Stack
+              xs={{
+                justifyContent: 'space-between'
+              }}
+              md={{
+                direction: 'row',
+                spacing: 'md',
+                justifyContent: 'center',
+              }}
+              lg={{
+                justifyContent: 'start',
+                flexWrap: 'nowrap',
+              }}
+            >
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+              <SingleImage
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                caption="A random picture chosen by Lorem Picsum"
+                cite="https://picsum.photos/"
+              />
+            </Stack>
+          </GridItem>
+          <GridItem>
+            {/* eslint-disable-next-line no-console */}
+            <Alert iconId="info" handleClick={() => console.log('click')}>
+              Hi there
+            </Alert>
+          </GridItem>
+          <GridItem>Hi
             {/* <RiveSimple
               srcDefault="https://chrisrooke-hmh.github.io/core-public/animations/boy.riv"
               descDefault="hi"
@@ -91,7 +279,7 @@ const App: React.FC = () => {
                       {/* <GridItem>
             <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" />
           </GridItem> */}
-          <GridItem>
+          {/* <GridItem>
             <div style={{ height: "700px", width: "fit-content", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem" }}>
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" sizeByHeight/>
             </div>
@@ -110,7 +298,7 @@ const App: React.FC = () => {
             <div style={{ width: "500px", height: "700px", maxWidth: "100%", background: "lightgrey", overflow: "hidden", marginTop: "2rem"  }}>
               <RiveEngine src="/rive/timer.riv" desc="stopwatch gently floating" contain/>
             </div>
-          </GridItem>
+          </GridItem> */}
 
             {/* <RiveSimple
               srcDefault="/rive/timer.riv"

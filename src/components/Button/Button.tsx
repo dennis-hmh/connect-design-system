@@ -23,6 +23,10 @@ export type ButtonProps = {
   dataTestId?: string;
   additionalClass?: string;
   gradeBand?: GradeBand;
+  isLoading?: boolean;
+  mediaButton?: boolean;
+  isAnimationRunning?: boolean;
+  text?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -42,6 +46,11 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   dataTestId,
   additionalClass = '',
+  isLoading = false,
+  mediaButton = false,
+  isAnimationRunning = false,
+  text = '',
+
 }) => {
   const classNames = [
     'connect__button',
@@ -49,6 +58,8 @@ export const Button: React.FC<ButtonProps> = ({
     !primary && 'connect__button-secondary',
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
+    mediaButton && 'connect__button-media',
+    disabled && 'connect__disabled',
     additionalClass,
   ]
     .filter(Boolean)
@@ -69,6 +80,7 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
+        <Typography>{text}</Typography>
         {children}
       {iconPosition === 'after' && iconElement}
     </button>
