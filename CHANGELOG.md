@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.15.2
+
+### Patch Changes
+
+- 41052a0: Button for Rive updated.
+
 ## 1.15.1
 
 ### Patch Changes
