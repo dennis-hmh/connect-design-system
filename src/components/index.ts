@@ -30,6 +30,7 @@ export * from './SelectBox/SelectBox';
 export * from './Sidebar/Sidebar';
 export * from './SingleBlockquote/SingleBlockquote';
 export * from './SingleImage/SingleImage';
+export * from './Table/Table';
 export * from './Textarea/Textarea';
 export * from './Timer/Timer';
 export * from './Typography/Typography';
