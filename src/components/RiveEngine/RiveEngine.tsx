@@ -21,6 +21,7 @@ export type RiveEngineProps = RiveState & {
   ignoreReducedMotion?: boolean;
   ignoreDarkMode?: boolean;
   debug?: boolean;
+  style?: React.CSSProperties;
 };
 
 export const RiveEngine: React.FC<RiveEngineProps> = ({
@@ -34,6 +35,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   ignoreReducedMotion = false,
   ignoreDarkMode = false,
   debug: DEBUG = false,
+  style
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const prefersDarkMode = usePrefersDarkMode();
@@ -139,7 +141,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   //TO-DO: check this in detail when there's more time! Recently brought over from Chris' branch, need to investigate how it works.
 
   const divRef = useRef<HTMLDivElement | null>(null);
-  const [calculatedHeight, setCalculatedHeight] = useState(0); // State to store the dynamic height
+  const [calculatedWidth, setcalculatedWidth] = useState(0); // State to store the dynamic height
   const [aspectRatio, setAspectRatio] = useState<number | null>(null); // Aspect ratio state
 
   function updateAspectRatio() {
@@ -154,7 +156,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     if (divRef.current && aspectRatio) {
       // Measure the height of the div
       const divHeight = divRef.current.offsetHeight;
-      setCalculatedHeight(divHeight * aspectRatio); // Calculate height based on aspect ratio
+      setcalculatedWidth(divHeight * aspectRatio); // Calculate height based on aspect ratio
     }
   }, [width, height, sizeByHeight, aspectRatio]); // Recalculate if sizeByHeight or aspect ratio changes
 
@@ -168,25 +170,26 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     rive?.pause();
   }
 
-  const widthToSet = width == undefined ? '100%' : width;
-  const heightToSet = height == undefined ? '100%' : height;
-  //...(sizeByHeight && aspectRatio && { width: calculatedHeight * aspectRatio })
+  // const widthToSet = width == undefined ? '100%' : width;
+  // const heightToSet = height == undefined ? '100%' : height;
+  //...(sizeByHeight && aspectRatio && { width: calculatedWidth * aspectRatio })
   /* TO-DO: try to get Chris' described sizing behaviour working when there's more time
     For now, just set a size for the container's width/height props like '500px'
   */
 
-  if (calculatedHeight) {
-    // To solve error: "is declared but its value is never read." Please fix accordenly
-    console.log('calculatedHeight:', calculatedHeight);
-  }
+  // if (calculatedWidth) {
+  //   // To solve error: "is declared but its value is never read." Please fix accordenly
+  //   console.log('calculatedWidth:', calculatedWidth);
+  // }
 
   return (
     <div
       ref={divRef}
       style={{
-        width: widthToSet,
-        height: heightToSet,
-      }}
+        height: '100%', 
+        ...(sizeByHeight && aspectRatio && { width: calculatedWidth }),
+        ...style
+        }}
     >
       <RiveComponent />
       <Typography element="p" ariaLive="polite">
