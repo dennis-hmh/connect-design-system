@@ -1,3 +1,93 @@
+### v1.16.0 Release Notice
+
+### Release date: January 8, 2025
+
+#### Changelog:
+
+- New Component:
+  - `<Card />`: New Card component
+  - `<Table />`: Still WIP, style changed still possible
+- Updated Component:
+  - `<Alert />`: With support for longer messages,
+  - `<Grid />`: Props updated, component simplified,
+  - `<GridItem />`: Moved into it's own dir/,
+  - `<Stack />`: Updated flexbox props,
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.15.2 Release Notice
+
+### Release date: January 8, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Button />`: Props added,
+  - `<RiveEngine />`: [calculatedHeight, setCalculatedHeight] updated
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.15.1 Release Notice
+
+### Release date: January 8, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Slack />`: Var updated
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.15.0 Release Notice
+
+### Release date: January 7, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<RiveEngine />`: N/A
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.14.5 Release Notice
 
 ### Release date: December 18, 2024
