@@ -46,7 +46,10 @@ export const Default: Story = Template.bind({});
 Default.args = {
   header: (
     <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
-      <Stack xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
+      <Stack
+        element="header"
+        xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}
+      >
         <Typography element="h4" size="heading-lg">
           Header
         </Typography>
