@@ -1040,6 +1040,7 @@ Breakpoint Values:
     var(--connect__grid-item-xs-span-col, 12);
   grid-row: var(--connect__grid-item-xs-row-start, auto) / span
     var(--connect__grid-item-xs-row-span, 1);
+  width: var(--connect__full-w);
 }
 
 @media (min-width: 30rem) {
