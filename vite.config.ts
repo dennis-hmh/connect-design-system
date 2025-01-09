@@ -8,6 +8,7 @@ import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
 // import css from 'rollup-plugin-css-only';
 
 export default defineConfig({
+  assetsInclude: ["**/*.riv"],
   css: {
     postcss: {
       plugins: [autoprefixer],

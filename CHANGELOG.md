@@ -1,5 +1,23 @@
 # @connect/connect-design-system
 
+## 1.15.2
+
+### Patch Changes
+
+- 41052a0: Button for Rive updated.
+
+## 1.15.1
+
+### Patch Changes
+
+- db4402a: CSS var updated
+
+## 1.15.0
+
+### Minor Changes
+
+- 825abfe: Rework RiveEngine component to better support rive inputs
+
 ## 1.14.4
 
 ### Patch Changes
