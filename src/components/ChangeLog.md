@@ -10,8 +10,52 @@
 - Updated Component:
   - `<Alert />`: With support for longer messages,
   - `<Grid />`: Props updated, component simplified,
-  - `<GridItem />`: Moved into dir/,
+  - `<GridItem />`: Moved into it's own dir/, Story added
+  - `<MultipleChoiceQuestion />`: Context and Provider added to keep track of MSQ state.
   - `<Stack />`: Updated flexbox props,
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.15.2 Release Notice
+
+### Release date: January 8, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Button />`: Props added,
+  - `<RiveEngine />`: [calculatedHeight, setCalculatedHeight] updated
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.15.1 Release Notice
+
+### Release date: January 8, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Slack />`: Var updated
 - Bug Fix: N/A
 - Other: N/A
 

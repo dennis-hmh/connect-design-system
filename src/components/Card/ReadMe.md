@@ -1,57 +1,89 @@
-# Description
+# Card Component
 
-The Card component from the @connect/connect-design-system library is designed to display content related to a single subject. It can be used to show a combination of text, links, images, and actions. The component is highly customizable through props.
+The `Card` component is a versatile UI element designed to display content in a structured and visually appealing way. It is implemented in TypeScript with React, ensuring type safety and ease of integration into your projects.
 
 ## Features
 
-- **TypeScript Support**: Leverages TypeScript for type safety and to define props clearly, making the component easy to use and integrate.
-- **Customizable**: Offers various props to customize the component's appearance.
+- **TypeScript Support**: Utilizes TypeScript for type safety and to define props clearly, making the component easy to use and integrate.
+- **Customizable**: Provides various props to customize the card's appearance and behavior, such as header, footer, and children.
 - **Easy to Use**: Designed with simplicity in mind, making it straightforward to integrate into any React project.
 
 ## Installation
 
-To use the `Card` component in your project, you need to install the `@connect/connect-design-system` package if you haven't already:
+To use the `Card` component in your project, follow these steps:
+
+1. Ensure you have React and TypeScript set up in your project.
+2. Copy the `Card.tsx` file into your project's component directory.
+3. Import the `Card` component where you need it:
 
 ```bash
-npm install @connect/connect-design-system@1.9.0
+npm install @connect/connect-design-system@latest
+
+import { Card } from '@connect/connect-design-system';
 ```
 
-## Peer Dependencies
+##Usage
 
-Make sure to have React and TypeScript installed in your project, as they are peer dependencies of this library.
+Here's a basic example of how to use the Card component:
 
-## Usage
-
-Here is an example of how to use the Card component in your project:
-
-```tsx
+```jsx
 import React from 'react';
 import { Card } from '@connect/connect-design-system';
-const Example = () => (
-  <Card
-    image={true}
-    imageSrc="path/to/image.jpg"
-    imageAlt="Description of image"
-    imageCaption="Image caption"
-    headerElement="h2"
-    headerContent="Card Header"
-    mainContent={<p>This is the main content of the card.</p>}
-    footerContent={<p>Footer content here.</p>}
-  />
-);
-export default Example;
+import { Typography } from '../Typography/Typography';
+import { Stack } from '../Stack/Stack';
+import { Button } from '../Button/Button';
+
+function App() {
+  return (
+    <Card
+      header={
+        <Stack
+          element="header"
+          xs={{ direction: 'column', spacing: 'sm', paddingX: 'zero', paddingY: 'zero' }}
+        >
+          <Typography element="h4" size="heading-lg">
+            Header
+          </Typography>
+        </Stack>
+      }
+      children={
+        <Typography element="p" size="body-md">
+          This is the content of the card.
+        </Typography>
+      }
+      footer={
+        <Stack
+          element="footer"
+          xs={{
+            alignItems: 'stretch',
+            direction: 'column',
+            spacing: 'sm',
+            paddingX: 'sm',
+            paddingY: 'sm',
+          }}
+          md={{ direction: 'row', justifyContent: 'end' }}
+        >
+          <Button primary={false}>Secondary</Button>
+          <Button primary={true}>Primary</Button>
+        </Stack>
+      }
+    ></Card>
+  );
+}
+
+export default App;
 ```
 
 ## Props
 
 The Card component accepts the following props:
 
-- `image` (boolean): Determines whether an image should be displayed in the card.
-- `imageSrc` (string, optional): The source URL of the image to be displayed. Required if `image` is `true`.
-- `imageAlt` (string, optional): The alt text for the image. Required if `image` is `true`.
-- `imageCaption` (string, optional): The caption for the image. Optional.
-- `headerElement` (keyof React.ReactHTML, optional): The HTML element to be used for the card header (e.g., 'h1', 'h2'). Defaults to 'div' if not provided.
-- `headerContent` (React.ReactNode, optional): The content to be displayed in the card header. Optional.
-- `mainContent` (React.ReactNode): The main content to be displayed in the card. This is a required prop.
-- `footerContent` (React.ReactNode, optional): The content to be displayed in the card footer. Optional.
-- `dataTestId` (string, optional): A test ID for the card, useful for testing purposes. Optional.
+- children (required): The content to be displayed within the card. This is a required prop and can be any valid React node.
+- header: Optional. ReactNode for specifying the header content of the card.
+- footer: Optional. ReactNode for specifying the footer content of the card.
+- dataTestId: Optional. String for specifying a test ID for testing purposes.
+- gradeBand: Optional. Enum for specifying the grade band.
+
+## Contributing
+
+Contributions to the Card component are welcome. Please ensure to follow the project's coding standards and submit your pull requests for review.

@@ -4,6 +4,7 @@ import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
 import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
 import { MultipleChoiceQuestionImage } from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
+import { MultipleChoiceQuestionProvider } from './context/MultipleChoiceQuestionProvider';
 import { InputText } from './components/InputText/InputText';
 import { SelectBox } from './components/SelectBox/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
@@ -20,7 +21,7 @@ import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
 import { Grid } from './components/Grid/Grid';
-import GridItem from './components/GridItem';
+import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Header } from './components/Header/Header';
@@ -45,7 +46,52 @@ const App: React.FC = () => {
         <Header>
           <h1>Welcome to My App</h1>
         </Header>
-
+        <div style={{ width: '100%', height: '1000px', background: 'lightgrey' }}>
+          <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+              <Stack
+                lg={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
+                <Button primary={true}>Button</Button>
+                <Button primary={false}>Button</Button>
+              </Stack>
+            </GridItem>
+            <GridItem lg={{ startCol: 7, spanCol: 6 }}>
+              <Stack>
+                <Typography element="h1">Grade k H1</Typography>
+                <Typography element="h2">h2</Typography>
+                <Typography element="h3">h3</Typography>
+                <Typography element="h4">h4</Typography>
+                <Typography element="p">I am a paragraph</Typography>
+                <Typography element="h2" size="heading-xl">
+                  h2 styled as h1
+                </Typography>
+                <Typography element="h3" size="heading-lg">
+                  h3 styled as h2
+                </Typography>
+                <Typography element="h4" size="heading-md">
+                  h4 styled as h3
+                </Typography>
+                <Stack
+                  lg={{
+                    direction: 'row',
+                    spacing: 'xs',
+                    alignItems: 'start',
+                    justifyContent: 'start',
+                  }}
+                >
+                  <Button primary={true}>Button</Button>
+                  <Button primary={false}>Button</Button>
+                </Stack>
+              </Stack>
+            </GridItem>
+          </Grid>
+        </div>
         <Grid gutter={true} gap="md">
           <GridItem>
             <Button primary iconId="add" iconPosition="before">
@@ -400,21 +446,23 @@ const App: React.FC = () => {
             <br />
             <br />
             <br />
-            <InputBox type={'radio'} id={'text-id-2'} name={'radio-name'}>
-              The mouse rides a bike 1
-            </InputBox>
-            <br />
-            <InputBox type={'radio'} id={'text-id-3'} name={'radio-name'}>
-              The mouse rides a bike 2
-            </InputBox>
-            <br />
-            <InputBox type={'radio'} id={'text-id-4'} name={'radio-name'}>
-              The mouse rides a bike 3
-            </InputBox>
-            <br />
-            <InputBox type={'radio'} id={'text-id-5'} name={'radio-name'}>
-              The mouse rides a bike 4
-            </InputBox>
+            <MultipleChoiceQuestionProvider>
+              <InputBox type={'radio'} id={'text-id-2'} name={'radio-name'}>
+                The mouse rides a bike 1
+              </InputBox>
+              <br />
+              <InputBox type={'radio'} id={'text-id-3'} name={'radio-name'}>
+                The mouse rides a bike 2
+              </InputBox>
+              <br />
+              <InputBox type={'radio'} id={'text-id-4'} name={'radio-name'}>
+                The mouse rides a bike 3
+              </InputBox>
+              <br />
+              <InputBox type={'radio'} id={'text-id-5'} name={'radio-name'}>
+                The mouse rides a bike 4
+              </InputBox>
+            </MultipleChoiceQuestionProvider>
             <br />
             <br />
             <br />
@@ -433,26 +481,28 @@ const App: React.FC = () => {
             <br />
             <br />
             <br /> */}
-            <MultipleChoiceQuestion type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
-              The mouse rides a bike
-            </MultipleChoiceQuestion>
-            <MultipleChoiceQuestion
-              type={'checkbox'}
-              id={'msq-id-2'}
-              name={'mcq-name'}
-              correct={true}
-            >
-              The mouse rides a bike
-            </MultipleChoiceQuestion>
-            <br />
-            <MultipleChoiceQuestionImage
-              type={'checkbox'}
-              id={'msq-id-3'}
-              name={'mcq-name'}
-              correct={true}
-            >
-              <Image imageSrc="" altText="This is alt text" />
-            </MultipleChoiceQuestionImage>
+            <MultipleChoiceQuestionProvider>
+              <MultipleChoiceQuestion type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
+                The mouse rides a bike
+              </MultipleChoiceQuestion>
+              <MultipleChoiceQuestion
+                type={'checkbox'}
+                id={'msq-id-2'}
+                name={'mcq-name'}
+                correct={true}
+              >
+                The mouse rides a bike
+              </MultipleChoiceQuestion>
+              <br />
+              <MultipleChoiceQuestionImage
+                type={'checkbox'}
+                id={'msq-id-3'}
+                name={'mcq-name'}
+                correct={true}
+              >
+                <Image imageSrc="" altText="This is alt text" />
+              </MultipleChoiceQuestionImage>
+            </MultipleChoiceQuestionProvider>
             <br />
             <br />
             <Stack

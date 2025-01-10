@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.16.0
+
+### Minor Changes
+
+- 71304e4: Card and Table components added; Alert Grid GridItem MultipleChoiceQuestion and Stack updated.
+
 ## 1.15.2
 
 ### Patch Changes

@@ -12,7 +12,7 @@ import FigCaption from './components/FigCaption/FigCaption';
 import Figure from './components/Figure/Figure';
 import Footer from './components/Footer/Footer';
 import Grid from './components/Grid/Grid';
-import GridItem from './components/GridItem';
+import GridItem from './components/GridItem/GridItem';
 import Header from './components/Header/Header';
 import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';

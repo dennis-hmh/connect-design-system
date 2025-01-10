@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useMultipleChoiceQuestion } from '../../context/MultipleChoiceQuestionHook';
 import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionProp = {
@@ -13,9 +14,29 @@ export type MultipleChoiceQuestionProp = {
   incorrect?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function MultipleChoiceQuestion({
+const getClassNames = ({
+  correct,
+  incorrect,
+  answerShown,
+  isChecked,
+  disabled,
+}: {
+  correct?: boolean;
+  incorrect?: boolean;
+  answerShown?: boolean;
+  isChecked: boolean;
+  disabled?: boolean;
+}) => {
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
+  const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  return { choiceClass, labelClass };
+};
+
+export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProp> = ({
   type,
   id,
   name,
@@ -26,18 +47,30 @@ export function MultipleChoiceQuestion({
   incorrect,
   answerShown,
   dataTestId,
-}: MultipleChoiceQuestionProp) {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
-
+  onChange,
+}) => {
+  const { selectedValue, setSelectedValue } = useMultipleChoiceQuestion();
   const checkRef = useRef<HTMLInputElement>(null);
   const [isChecked, setIsChecked] = useState(checked || false);
-  const handleChange = () => {
-    setIsChecked(checkRef.current?.checked ?? false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (type === 'radio') {
+      setSelectedValue(id);
+    } else {
+      setIsChecked(event.target.checked);
+    }
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   useEffect(() => {
-    setIsChecked(checked || false);
-  }, [checked]);
+    if (type === 'radio') {
+      setIsChecked(selectedValue === id);
+    } else {
+      setIsChecked(checked || false);
+    }
+  }, [checked, id, selectedValue, type]);
 
   let inputAriaLabel = 'Multiple Choice Question';
   if (correct) {
@@ -48,13 +81,21 @@ export function MultipleChoiceQuestion({
     inputAriaLabel += ', answer shown';
   }
 
+  const { choiceClass, labelClass } = getClassNames({
+    correct,
+    incorrect,
+    answerShown,
+    isChecked,
+    disabled,
+  });
+
   return (
     <div className="connect__choice-label-wrapper">
       <input
         ref={checkRef}
         type={type}
         id={id}
-        className={`connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+        className={choiceClass}
         name={name}
         checked={isChecked}
         onChange={handleChange}
@@ -62,12 +103,9 @@ export function MultipleChoiceQuestion({
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      <label
-        className={`connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
-        htmlFor={id}
-      >
+      <label htmlFor={id} className={labelClass}>
         {children}
       </label>
     </div>
   );
-}
+};

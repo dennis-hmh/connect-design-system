@@ -3,6 +3,7 @@ import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { MultipleChoiceQuestion, MultipleChoiceQuestionProp } from './MultipleChoiceQuestion';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
+import { MultipleChoiceQuestionProvider } from '../../context/MultipleChoiceQuestionProvider';
 
 const meta: Meta<typeof MultipleChoiceQuestion> = {
   component: MultipleChoiceQuestion,
@@ -11,6 +12,15 @@ const meta: Meta<typeof MultipleChoiceQuestion> = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => {
+      return (
+        <MultipleChoiceQuestionProvider>
+          <Story />
+        </MultipleChoiceQuestionProvider>
+      );
+    },
+  ],
 };
 
 export default meta;
