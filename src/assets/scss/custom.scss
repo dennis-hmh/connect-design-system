@@ -111,7 +111,6 @@ Buttons take variables in the following format
     var(--state-based-icon-fill, var(--connect__icon-fill))
   );
 
-  align-items: var(--theme__btn-align, var(--variant__btn-align, center));
   background-color: var(
     --theme__btn-bg,
     var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
@@ -125,16 +124,18 @@ Buttons take variables in the following format
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, pointer);
-  display: inline-flex;
-  flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
+  display: grid;
+  // flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
   font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
   font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
   gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  grid-auto-columns: max-content;
   height: var(--connect__btn-h, auto);
-  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, start));
+  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
   line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
+  place-items: var(--theme__btn-align, var(--variant__btn-align, center)) center;
   text-transform: var(--connect__btn-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
@@ -155,6 +156,40 @@ Buttons take variables in the following format
     }
   }
 
+  * {
+    grid-row: 1;
+
+    &:not(svg):not(span) {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  span {
+    grid-column: 1 / span 2;
+  }
+  svg:first-child:last-child {
+    grid-column: 1 / span 2;
+  }
+  &:has(svg:first-child) {
+    svg {
+      grid-column: 1;
+      justify-self: end;
+    }
+    span {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+  &:has(svg:last-child) {
+    svg {
+      grid-column: 2;
+      justify-self: start;
+    }
+    span {
+      grid-column: 1;
+      justify-self: end;
+    }
+  }
   .connect__icon {
     --connect__icon-fill-color: var(
       --variant__icon-fill,
