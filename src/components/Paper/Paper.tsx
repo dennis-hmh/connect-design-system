@@ -28,8 +28,8 @@ export const Paper: React.FC<PaperProps> = ({
     'connect__paper',
     elevation !== undefined ? `connect__elevation-${elevation}` : '',
     roundedCorner ? 'connect__rounded-corners' : '',
-    className ? className : '',
     fullWidth ? 'connect__full-width' : '',
+    className ? className : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -38,7 +38,7 @@ export const Paper: React.FC<PaperProps> = ({
 
   if (backgroundColor) {
     paperProps = {
-      '--connect__paper-bg': `var(${backgroundColor})`,
+      '--connect__paper-bg': `var(--connect__${backgroundColor})`,
     } as React.CSSProperties;
   }
 

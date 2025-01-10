@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
-  correct: boolean;
+  correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
