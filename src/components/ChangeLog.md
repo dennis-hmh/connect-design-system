@@ -10,7 +10,8 @@
 - Updated Component:
   - `<Alert />`: With support for longer messages,
   - `<Grid />`: Props updated, component simplified,
-  - `<GridItem />`: Moved into it's own dir/,
+  - `<GridItem />`: Moved into it's own dir/, Story added
+  - `<MultipleChoiceQuestion />`: Context and Provider added to keep track of MSQ state.
   - `<Stack />`: Updated flexbox props,
 - Bug Fix: N/A
 - Other: N/A
