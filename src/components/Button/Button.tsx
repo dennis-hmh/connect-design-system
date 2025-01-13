@@ -7,7 +7,7 @@ import { GradeBand } from 'src/enum/gradeband';
 import { Typography } from '../Typography/Typography';
 
 export type ButtonProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   primary: boolean;
   title?: string;
   disabled?: boolean;

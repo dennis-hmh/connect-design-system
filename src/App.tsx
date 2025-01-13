@@ -59,6 +59,7 @@ const App: React.FC = () => {
               >
                 <Button primary={true}>Button</Button>
                 <Button primary={false}>Button</Button>
+                <Button primary={false} iconId="add" text="Button"></Button>
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
