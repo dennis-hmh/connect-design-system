@@ -1990,7 +1990,7 @@ Divider can be vertical or horizontal
 
 | Property         | Theme                     | Variant                     | Fallback / Default             |
 |------------------|---------------------------|-----------------------------|--------------------------------|
-| Background color | --theme__divider-bg       | --variant__divider-bg       | --connect__gray-c10            |
+| Background color | --theme__divider-bg       | --variant__divider-bg       | --connect__surface-pale        |
 | Height           | --theme__divider-h        | --variant__divider-h        | --connect__effects-inner-edge  |
 | Width            | --theme__divider-w        | --variant__divider-w        | --connect__full-w              |
 | Radius           | --theme__divider-br       | --variant__divider-br       | --connect__border-radius       |         
@@ -1999,29 +1999,38 @@ Divider can be vertical or horizontal
 */
 
 .connect__divider {
-  --connect__divider-margin-y: var(
-    --theme__divider-margin-y,
-    var(--variant__divider-margin-y, var(--connect__spacer-zero))
-  );
+  /* Define horizontal margin variables */
   --connect__divider-margin-x: var(
     --theme__divider-margin-x,
     var(--variant__divider-margin-x, var(--connect__spacer-zero))
   );
+  --connect__divider-margin-y: var(
+    --theme__divider-margin-y,
+    var(--variant__divider-margin-y, var(--connect__spacer-zero))
+  );
 
-  background-color: var(--theme__divider-bg, var(--variant__divider-bg, var(--connect__gray-c10)));
-  border: 0;
-  border-radius: var(
+  --connect__divider-bg: var(
+    --theme__divider-bg,
+    var(--variant__divider-bg, var(--connect__surface-pale))
+  );
+  --connect__divider-br: var(
     --theme__divider-br,
     var(--variant__divider-br, var(--connect__border-radius))
   );
-  height: var(--theme__divider-h, var(--variant__divider-h, var(--connect__effects-inner-edge)));
+  --connect__divider-h: var(
+    --theme__divider-h,
+    var(--variant__divider-h, var(--connect__effects-inner-edge))
+  );
+  --connect__divider-w: var(--theme__divider-w, var(--variant__divider-w, var(--connect__full-w)));
+
+  background-color: var(--connect__divider-bg);
+  border: 0;
+  border-radius: var(--connect__divider-br);
+  height: var(--connect__divider-h);
   margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
   position: relative;
-  width: calc(
-    var(--theme__divider-w, var(--variant__divider-w, var(--connect__full-w))) -
-      (var(--connect__divider-margin-x) * 2)
-  );
+  width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
 
   &[aria-orientation='vertical'] {
     --variant__divider-margin-x: var(--connect__spacer-zero);

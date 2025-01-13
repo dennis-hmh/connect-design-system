@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.16.2
+
+### Patch Changes
+
+- 68524c8: Removed {text} prop from Button, updated {children} prop.
+
+## 1.16.1
+
+### Patch Changes
+
+- 8772ab8: Updated cacl to pass xDS postcss test.
+
 ## 1.16.0
 
 ### Minor Changes
