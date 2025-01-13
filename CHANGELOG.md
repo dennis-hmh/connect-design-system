@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.16.1
+
+### Patch Changes
+
+- 8772ab8: Updated cacl to pass xDS postcss test.
+
 ## 1.16.0
 
 ### Minor Changes
