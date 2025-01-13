@@ -2033,12 +2033,9 @@ Divider can be vertical or horizontal
   width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
 
   &[aria-orientation='vertical'] {
-    --connect__divider-margin-x: var(--connect__spacer-zero);
-    --connect__divider-h: var(--connect__full-h);
-    --connect__divider-w: var(--connect__effects-inner-edge);
-
-    height: var(--connect__divider-h);
-    width: var(--connect__divider-w);
+    --variant__divider-margin-x: var(--connect__spacer-zero);
+    --variant__divider-h: var(--connect__full-h);
+    --variant__divider-w: var(--connect__effects-inner-edge);
   }
 }
 
