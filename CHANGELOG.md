@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.16.2
+
+### Patch Changes
+
+- 68524c8: Removed {text} prop from Button, updated {children} prop.
+
 ## 1.16.1
 
 ### Patch Changes
