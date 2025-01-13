@@ -50,7 +50,8 @@ export const Button: React.FC<ButtonProps> = ({
   // isLoading = false,
   mediaButton = false,
   // isAnimationRunning = false,
-  text = '',
+  text,
+
 }) => {
   const classNames = [
     'connect__button',
@@ -80,8 +81,8 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
-      <Typography>{text}</Typography>
-      {children}
+        {text && <Typography>{text}</Typography>}
+        {children}
       {iconPosition === 'after' && iconElement}
     </button>
   );
