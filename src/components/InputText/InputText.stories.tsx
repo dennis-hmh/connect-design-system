@@ -43,7 +43,6 @@ export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 export const Number: Story = Template.bind({});
-export const OnClear: Story = Template.bind({});
 
 Default.args = {
   defaultText: '',
@@ -67,7 +66,8 @@ DefaultText.args = {
   defaultText: 'This is default text',
 };
 
-OnClear.args = {
+export const OnClearWIP: Story = Template.bind({});
+OnClearWIP.args = {
   ...Default.args,
   defaultText: 'This is default text',
   onClear: () => {
