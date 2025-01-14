@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Paper } from '../Paper/Paper';
 import { Stack } from '../Stack/Stack';
 import { Icon } from '../Icon/Icon';
@@ -10,70 +10,89 @@ import { Typography } from '../Typography/Typography';
 export type DialogProps = {
   children: React.ReactNode;
   id?: string;
-  dataTestId?: string;
-  gradeBand?: GradeBand;
+  heading: string;
+  elevation?: -2 | 0 | 2 | 4 | 6;
+  roundedCorner?: boolean;
+  fullWidth?: boolean;
+  iconId?: IconId;
   expand?: boolean;
   collapse?: boolean;
-  iconId?: IconId;
-  heading: string;
+  className?: string;
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
-export const Dialog: React.FC<DialogProps> = ({
-  children,
-  id,
-  dataTestId,
-  expand,
-  collapse,
-  iconId,
-  heading,
-}) => {
-  return (
-    <Paper
-      id={id}
-      dataTestId={dataTestId}
-      elevation={4}
-      roundedCorner={true}
-      backgroundColor="white"
-      element="dialog"
-      className="connect__dialog"
-    >
-      <Paper backgroundColor="brand-pale-magenta">
-        <Stack
-          element="header"
-          xs={{ direction: 'row', justifyContent: 'space-between', alignItems: 'center' }}
-        >
+export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, DialogProps>(
+  (
+    {
+      children,
+      id,
+      heading,
+      elevation,
+      roundedCorner,
+      fullWidth,
+      iconId,
+      expand,
+      collapse,
+      className,
+      dataTestId,
+    },
+    ref,
+  ) => {
+    const dialogClassName = [
+      'connect__dialog',
+      elevation !== undefined ? `connect__elevation-${elevation}` : '',
+      roundedCorner ? 'connect__rounded-corners' : '',
+      fullWidth ? 'connect__full-width' : '',
+      className ? className : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
+
+    return (
+      <dialog ref={ref} id={id} className={dialogClassName} data-testid={dataTestId}>
+        <Paper backgroundColor="brand-pale-magenta">
           <Stack
-            xs={{
-              direction: 'row',
-              spacing: 'sm',
-              paddingX: 'sm',
-              paddingY: 'xs',
-              alignItems: 'center',
-            }}
+            element="header"
+            xs={{ direction: 'row', justifyContent: 'space-between', alignItems: 'center' }}
           >
-            {iconId && <Icon id="add" size="xs"></Icon>}
-            <Typography element="h6" size="body-sm" weight={600}>
-              {heading}
-            </Typography>
+            <Stack
+              xs={{
+                direction: 'row',
+                spacing: 'sm',
+                paddingX: 'sm',
+                paddingY: 'xs',
+                alignItems: 'center',
+              }}
+            >
+              {iconId && <Icon id="add" size="xs"></Icon>}
+              <Typography element="h6" size="body-sm" weight={600}>
+                {heading}
+              </Typography>
+            </Stack>
+            <Stack
+              xs={{
+                direction: 'row',
+                spacing: 'xs',
+                paddingX: 'sm',
+                paddingY: 'xs',
+                alignItems: 'center',
+              }}
+            >
+              {expand && <ButtonMenu iconId="expand" iconSize="sm"></ButtonMenu>}
+              {collapse && <ButtonMenu iconId="collapse" iconSize="sm"></ButtonMenu>}
+              <ButtonMenu
+                iconId="close"
+                iconSize="sm"
+                onClick={() => (ref as React.RefObject<HTMLDialogElement>).current?.close()}
+              ></ButtonMenu>
+            </Stack>
           </Stack>
-          <Stack
-            xs={{
-              direction: 'row',
-              spacing: 'xs',
-              paddingX: 'sm',
-              paddingY: 'xs',
-              alignItems: 'center',
-            }}
-          >
-            {expand && <ButtonMenu iconId="expand" iconSize="sm"></ButtonMenu>}
-            {collapse && <ButtonMenu iconId="collapse" iconSize="sm"></ButtonMenu>}
-            <ButtonMenu iconId="close" iconSize="sm"></ButtonMenu>
-          </Stack>
+        </Paper>
+        <Stack element="main" xs={{ paddingX: 'sm', paddingY: 'xs' }}>
+          {children}
         </Stack>
-      </Paper>
-      <Stack element="main" xs={{ paddingX: 'sm', paddingY: 'xs' }}>
-        {children}
-      </Stack>
-    </Paper>
-  );
-};
+      </dialog>
+    );
+  },
+);

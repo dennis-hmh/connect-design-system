@@ -31,6 +31,7 @@ import { useRive } from '@rive-app/react-canvas';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
+  const dialogRef = useRef(null);
 
   // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState<number>(0);
@@ -103,7 +104,7 @@ const App: React.FC = () => {
               <Button primary={true} clickHandler={handleDialogClick}>
                 Activate Dialog
               </Button>
-              <Dialog iconId="add" heading="test dialog" dataTestId="dialogTest">
+              <Dialog ref={dialogRef} iconId="add" heading="test dialog" dataTestId="dialogTest">
                 hi there
               </Dialog>
             </GridItem>

@@ -20,9 +20,10 @@ type Story = StoryObj<typeof Dialog>;
 
 const Template: StoryFn<DialogProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleOpenDialog = () => {
-    document.querySelector<HTMLDialogElement>('[id="dialog-test"]')?.showModal();
+    dialogRef.current?.showModal();
   };
 
   return (
@@ -31,7 +32,7 @@ const Template: StoryFn<DialogProps> = (args) => {
         <Button primary clickHandler={handleOpenDialog}>
           Open Dialog
         </Button>
-        <Dialog {...args} />
+        <Dialog {...args} ref={dialogRef} />
       </div>
     </ConnectTheme>
   );
@@ -42,6 +43,8 @@ Default.args = {
   children: 'Dialog Text',
   id: 'dialog-test',
   heading: 'Dialog Heading',
+  elevation: 4,
+  roundedCorner: true,
   expand: true,
   collapse: true,
   gradeBand: GradeBand.G4_5,
