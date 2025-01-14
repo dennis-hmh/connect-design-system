@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.16.3
+
+### Patch Changes
+
+- 48230c9: Fix CSS selector wildcards to properly handle multiple classnames with connect** prefix. Updates [class^='connect**'] to [class*='connect__'] for better compatibility with CSS modules and multiple classes
+
 ## 1.16.2
 
 ### Patch Changes
