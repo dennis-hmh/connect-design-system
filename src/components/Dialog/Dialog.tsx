@@ -18,16 +18,8 @@ export type DialogProps = {
 };
 
 export const Dialog: React.FC<DialogProps> = ({ children, dataTestId, expand, collapse, iconId, heading }) => {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-  
-    const handleClose = () => {
-      if (dialogRef.current) {
-        dialogRef.current.close();
-      }
-    };
-    return (
-        <dialog ref={dialogRef} data-testId={dataTestId}>
-    <Paper  elevation={4} roundedCorner={true} backgroundColor='white' className='connect__dialog'>
+  return (
+    <Paper dataTestId={dataTestId} elevation={4} roundedCorner={true} backgroundColor='white' element='dialog' className='connect__dialog'>
       <Paper backgroundColor='brand-pale-magenta'>
         <Stack element='header' xs={{direction:'row', justifyContent:'space-between', alignItems:'center'}}>
             <Stack xs={{direction:'row', spacing:'sm', paddingX:'sm', paddingY:'xs', alignItems:'center'}}>
@@ -37,7 +29,7 @@ export const Dialog: React.FC<DialogProps> = ({ children, dataTestId, expand, co
             <Stack xs={{direction:'row', spacing:'xs', paddingX:'sm', paddingY:'xs', alignItems:'center'}}>
                 {expand && <ButtonMenu iconId='expand' iconSize='sm'></ButtonMenu>}
                 {collapse && <ButtonMenu iconId='collapse' iconSize='sm'></ButtonMenu>}
-                <ButtonMenu iconId='close' iconSize='sm' onClick={handleClose}></ButtonMenu>
+                <ButtonMenu iconId='close' iconSize='sm'></ButtonMenu>
             </Stack>
         </Stack>
       </Paper>
@@ -45,6 +37,5 @@ export const Dialog: React.FC<DialogProps> = ({ children, dataTestId, expand, co
         {children}
       </Stack>
     </Paper>
-    </dialog>
   );
 };
