@@ -65,7 +65,7 @@ export function InputText({
   };
 
   return (
-    <label className={`connect__icon-wrapper ${inputStates} }`}>
+    <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
         className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
