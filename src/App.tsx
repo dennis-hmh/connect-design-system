@@ -43,12 +43,10 @@ const App: React.FC = () => {
 
   const handleDialogClick = () => {
     // Open the dialog on button click
-    document.querySelector('[data-testid="dialogTest"]').showModal();
+    document.querySelector<HTMLDialogElement>('[data-testid="dialogTest"]')?.showModal();
   };
 
-
   return (
-    
     <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
@@ -67,7 +65,9 @@ const App: React.FC = () => {
               >
                 <Button primary={true}>Button</Button>
                 <Button primary={false}>Button</Button>
-                <Button primary={false} iconId="add">Button</Button>
+                <Button primary={false} iconId="add">
+                  Button
+                </Button>
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
@@ -100,8 +100,12 @@ const App: React.FC = () => {
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-                  <Button primary={true} clickHandler={handleDialogClick}>Activate Dialog</Button>
-                  <Dialog iconId='add' heading='test dialog' dataTestId='dialogTest'>hi there</Dialog>
+              <Button primary={true} clickHandler={handleDialogClick}>
+                Activate Dialog
+              </Button>
+              <Dialog iconId="add" heading="test dialog" dataTestId="dialogTest">
+                hi there
+              </Dialog>
             </GridItem>
           </Grid>
         </div>

@@ -5,18 +5,20 @@ import { Color } from '../../utils/colors';
 export type PaperProps = {
   children: React.ReactNode;
   element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog';
+  id?: string;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: boolean;
   backgroundColor?: Color;
   className?: string;
   fullWidth?: boolean;
   dataTestId?: string;
-  gradeBand?: GradeBand; 
+  gradeBand?: GradeBand;
 };
 
 export const Paper: React.FC<PaperProps> = ({
   children,
   element: Component = 'div',
+  id,
   elevation,
   roundedCorner = false,
   backgroundColor = '--connect__white',
@@ -43,7 +45,7 @@ export const Paper: React.FC<PaperProps> = ({
   }
 
   return (
-    <Component className={paperClassName} data-testid={dataTestId} style={paperProps}>
+    <Component id={id} className={paperClassName} data-testid={dataTestId} style={paperProps}>
       {children}
     </Component>
   );
