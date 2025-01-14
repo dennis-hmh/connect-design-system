@@ -11,7 +11,7 @@ export type PaperProps = {
   className?: string;
   fullWidth?: boolean;
   dataTestId?: string;
-  gradeBand?: GradeBand;
+  gradeBand?: GradeBand; 
 };
 
 export const Paper: React.FC<PaperProps> = ({

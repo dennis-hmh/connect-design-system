@@ -16,7 +16,7 @@ export type DialogProps = {
 
 export const Dialog: React.FC<DialogProps> = ({ children, dataTestId }) => {
   return (
-    <Paper dataTestId={dataTestId} elevation={4} roundedCorner={true} backgroundColor='white' element='dialog'>
+    <Paper dataTestId={dataTestId} elevation={4} roundedCorner={true} backgroundColor='white' element='dialog' className='connect__dialog'>
       <Paper backgroundColor='brand-pale-magenta'>
         <Stack element='header' xs={{direction:'row', justifyContent:'space-between', alignItems:'center'}}>
             <Stack xs={{direction:'row', spacing:'sm', paddingX:'sm', paddingY:'xs', alignItems:'center'}}>

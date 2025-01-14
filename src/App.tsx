@@ -41,7 +41,14 @@ const App: React.FC = () => {
     stateMachines: 'State Machine 1',
   });
 
+  const handleDialogClick = () => {
+    // Open the dialog on button click
+    document.querySelector('[data-testid="dialogTest"]').showModal();
+  };
+
+
   return (
+    
     <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
@@ -93,7 +100,8 @@ const App: React.FC = () => {
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-                  <Dialog>hi there</Dialog>
+                  <Button primary={true} clickHandler={handleDialogClick}>Activate Dialog</Button>
+                  <Dialog dataTestId='dialogTest'>hi there</Dialog>
             </GridItem>
           </Grid>
         </div>
