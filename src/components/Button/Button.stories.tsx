@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 import { Grid } from '../Grid/Grid';
-import { GridItem } from '../GridItem';
+import { GridItem } from '../GridItem/GridItem';
 import { Typography } from '../Typography/Typography';
 import { RiveEngine } from '../RiveEngine/RiveEngine';
 import { ConnectTheme } from '../ConnectTheme';
@@ -82,38 +82,39 @@ Loading.args = {
   additionalClass: 'connect__button-loading',
 };
 
-export const RiveLoading: Story = Template.bind({});
-RiveLoading.args = {
-  children: (
-    <>
-      <Typography>Loading</Typography>
-      <RiveEngine
-        src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
-        sizeByHeight
-        style={{ opacity: 0 }}
-      />
-    </>
-  ),
-  primary: true,
-  disabled: true,
-  iconId: 'loader',
-  iconPosition: 'before',
-  ariaLabel: 'Rive Button Loading',
-  gradeBand: GradeBand.G4_5,
-};
+// Rive Button Stories broken, thus commented out
+// export const RiveLoading: Story = Template.bind({});
+// RiveLoading.args = {
+//   children: (
+//     <>
+//       <Typography>Loading</Typography>
+//       <RiveEngine
+//         src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
+//         sizeByHeight
+//         style={{ opacity: 0 }}
+//       />
+//     </>
+//   ),
+//   primary: true,
+//   disabled: true,
+//   iconId: 'loader',
+//   iconPosition: 'before',
+//   ariaLabel: 'Rive Button Loading',
+//   gradeBand: GradeBand.G4_5,
+// };
 
-export const RiveGenerating: Story = Template.bind({});
-RiveGenerating.args = {
-  children: (
-    <>
-      <Typography styles={{ opacity: 0 }}>Generating</Typography>
-      <RiveEngine
-        src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
-        sizeByHeight
-      />
-    </>
-  ),
-  primary: true,
-  ariaLabel: 'Rive Button Generating',
-  gradeBand: GradeBand.G4_5,
-};
+// export const RiveGenerating: Story = Template.bind({});
+// RiveGenerating.args = {
+//   children: (
+//     <>
+//       <Typography styles={{ opacity: 0 }}>Generating</Typography>
+//       <RiveEngine
+//         src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
+//         sizeByHeight
+//       />
+//     </>
+//   ),
+//   primary: true,
+//   ariaLabel: 'Rive Button Generating',
+//   gradeBand: GradeBand.G4_5,
+// };

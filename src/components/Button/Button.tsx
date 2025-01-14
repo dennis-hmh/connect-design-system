@@ -27,7 +27,6 @@ export type ButtonProps = {
   isLoading?: boolean;
   mediaButton?: boolean;
   isAnimationRunning?: boolean;
-  text?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -50,7 +49,6 @@ export const Button: React.FC<ButtonProps> = ({
   // isLoading = false,
   mediaButton = false,
   // isAnimationRunning = false,
-  text = '',
 }) => {
   const classNames = [
     'connect__button',
@@ -80,8 +78,11 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
-      <Typography>{text}</Typography>
-      {children}
+        {typeof children === 'string' ? (
+          <Typography>{children}</Typography>
+        ) : (
+          children
+        )}
       {iconPosition === 'after' && iconElement}
     </button>
   );

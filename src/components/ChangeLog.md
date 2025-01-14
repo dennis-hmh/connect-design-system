@@ -1,3 +1,43 @@
+### v1.16.2 Release Notice
+
+### Release date: January 13, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Button />`: Updated {children} props.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.16.1 Release Notice
+
+### Release date: January 13, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Fixed broken PostCSS Cacl() function.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.16.0 Release Notice
 
 ### Release date: January 8, 2025
