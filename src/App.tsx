@@ -20,6 +20,7 @@ import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
+import { Dialog } from './components/Dialog/Dialog';
 import { Grid } from './components/Grid/Grid';
 import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
@@ -41,7 +42,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
@@ -90,6 +91,9 @@ const App: React.FC = () => {
                   <Button primary={false}>Button</Button>
                 </Stack>
               </Stack>
+            </GridItem>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+                  <Dialog>hi there</Dialog>
             </GridItem>
           </Grid>
         </div>
