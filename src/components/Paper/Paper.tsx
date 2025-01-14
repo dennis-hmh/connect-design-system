@@ -4,7 +4,7 @@ import { Color } from '../../utils/colors';
 
 export type PaperProps = {
   children: React.ReactNode;
-  element?: 'section' | 'article' | 'main' | 'aside' | 'div';
+  element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog';
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: boolean;
   backgroundColor?: Color;
