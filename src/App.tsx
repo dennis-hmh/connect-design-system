@@ -101,7 +101,7 @@ const App: React.FC = () => {
             </GridItem>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
                   <Button primary={true} clickHandler={handleDialogClick}>Activate Dialog</Button>
-                  <Dialog dataTestId='dialogTest'>hi there</Dialog>
+                  <Dialog iconId='add' heading='test dialog' dataTestId='dialogTest'>hi there</Dialog>
             </GridItem>
           </Grid>
         </div>
