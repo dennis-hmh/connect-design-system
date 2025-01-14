@@ -344,7 +344,7 @@ Buttons take variables in the following format
   border: var(--connect__input-border-w) solid
     var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
   border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   caret-color: var(--connect__primary-mid);
   color: var(--theme__input-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, text);
@@ -362,7 +362,7 @@ Buttons take variables in the following format
 
   &:not(:disabled):not(.connect__selected) {
     &:hover {
-      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--4);
     }
   }
 
@@ -421,7 +421,7 @@ Buttons take variables in the following format
   background-size: var(--connect__icon-md);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
   border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
@@ -436,7 +436,7 @@ Buttons take variables in the following format
   &:not(:disabled) {
     &:hover,
     &:active {
-      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--4);
     }
   }
 
@@ -2123,53 +2123,43 @@ Divider can be vertical or horizontal
   );
 
   &.connect__rounded-corners {
-    --variant__paper-radius: var(--connect__border-radius);
-
-    .connect__paper {
-      --variant__paper-radius: var(--connnect__unset);
-    }
-
     .connect__paper:first-of-type {
-      --variant__paper-radius: var(--connnect__unset);
       border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
     }
 
     *:only-of-type .connect__image {
-      border-radius: var(--connect__border-radius);
+      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
     }
   }
 }
 
-// .connect__rounded-corners {
-//   border-radius: var(
-//     --theme__paper-radius,
-//     var(--variant__paper-radius, var(--connect__border-radius))
-//   );
+.connect__rounded-corners {
+  --variant__paper-radius: var(--connect__border-radius);
 
-//   .connect__paper {
-//     &:not(.connect__rounded-corners) {
-//       border-radius: var(--connect__unset);
-//     }
-//   }
-// }
+  .connect__paper {
+    &:not(.connect__rounded-corners) {
+      border-radius: var(--connect__spacer-zero);
+    }
+  }
+}
 
-.connect__elevation--1 {
-  box-shadow: var(--connect__shadow-lvl--1);
+.connect__elevation--2 {
+  box-shadow: var(--connect__shadow-lvl--2);
 }
 
 .connect__elevation-0 {
   box-shadow: var(--connect__shadow-lvl-0);
 }
 
-.connect__elevation-1 {
+.connect__elevation-2 {
   box-shadow: var(--connect__shadow-lvl-2);
 }
 
-.connect__elevation-2 {
+.connect__elevation-4 {
   box-shadow: var(--connect__shadow-lvl-4);
 }
 
-.connect__elevation-3 {
+.connect__elevation-6 {
   box-shadow: var(--connect__shadow-lvl-6);
 }
 

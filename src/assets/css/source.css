@@ -987,15 +987,35 @@
   --connect__long-shadow-spread-level-6: 0rem 0.3125rem 0.3125rem -0.1875rem;
   --connect__long-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.125rem;
 
+  --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-1) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-1) var(--connect__shadow-long) inset;
+
   --connect__shadow-lvl--2: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl--3: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-3) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-3) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-3) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl--4: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
     var(--connect__short-shadow-spread-level-4) var(--connect__shadow-short) inset,
     var(--connect__mid-shadow-spread-level-4) var(--connect__shadow-mid) inset,
     var(--connect__long-shadow-spread-level-4) var(--connect__shadow-long) inset;
 
-  --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
-    var(--connect__short-shadow-spread-level-2) var(--connect__shadow-short) inset,
-    var(--connect__mid-shadow-spread-level-2) var(--connect__shadow-mid) inset,
-    var(--connect__long-shadow-spread-level-2) var(--connect__shadow-long) inset;
+  --connect__shadow-lvl--5: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-5) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-5) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-5) var(--connect__shadow-long) inset;
+
+  --connect__shadow-lvl--6: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
+    var(--connect__short-shadow-spread-level-6) var(--connect__shadow-short) inset,
+    var(--connect__mid-shadow-spread-level-6) var(--connect__shadow-mid) inset,
+    var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long) inset;
 
   --connect__shadow-lvl-0: var(--connect__definer-level-1) var(--connect__shadow-definer),
     var(--connect__short-shadow-spread-level-0) var(--connect__shadow-short),
@@ -1036,7 +1056,8 @@
     5: Motion
     5.1: Easing
     5.2: Speeds
-  */ /* 5.1: Easing */
+  */
+  /* 5.1: Easing */
   --connect__linear: cubic-bezier(0, 0, 1, 1);
   --connect__ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
   --connect__ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
@@ -1099,18 +1120,12 @@
 }
 
 :where([class^='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
+  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1137,9 +1152,7 @@
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
 
   /* Input Dimensions */
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 }
 
 /* A connect reset starter kit
