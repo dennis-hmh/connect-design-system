@@ -390,6 +390,36 @@ Buttons take variables in the following format
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
     }
   }
+
+  &.connect__input-clear {
+    + .connect__input-clear-button {
+      --connect__input-clear-button-bg: transparent;
+      --connect__icon-fill-color: var(--connect__white);
+
+      align-items: center;
+      background-color: var(--connect__input-clear-button-bg);
+      border: var(--connect__spacer-zero) solid var(--connect__surface-null);
+      border-radius: 50%;
+      cursor: pointer;
+      display: var(--connect__display-flex, flex);
+      height: var(--connect__input-clear-button-size, --connect__unset);
+      justify-content: center;
+      margin-right: var(--connect__spacer-sm);
+      margin-top: var(--connect__spacer-sm);
+      position: absolute;
+      opacity: var(--connect__input-clear-button-opacity, var(--connect__opacity-zero));
+      transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
+      width: var(--connect__input-clear-button-size, --connect__unset);
+
+      &.connect__input-clear-button-visible {
+        --connect__input-clear-button-bg: var(--connect__gray-c35);
+        --connect__input-clear-button-size: calc(var(--connect__spacer-lg) * 1.25);
+        --connect__input-clear-button-opacity: calc(var(--connect__opacity-one) * 0.75);
+
+        transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
+      }
+    }
+  }
 }
 
 /* 
@@ -1326,6 +1356,12 @@ these styles are then open to breakpoint changes
     top: 0;
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
+  }
+
+  &.connect__input-clear {
+    align-items: var(--connect__input-clear-align-items, flex-start);
+    flex-direction: var(--connect__input-clear-flex-direction, row);
+    justify-content: var(--connect__input-clear-justify-content, flex-end);
   }
 }
 

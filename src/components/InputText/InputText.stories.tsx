@@ -65,6 +65,15 @@ DefaultText.args = {
   defaultText: 'This is default text',
 };
 
+export const OnClearWIP: Story = Template.bind({});
+OnClearWIP.args = {
+  ...Default.args,
+  defaultText: 'This is default text',
+  onClear: () => {
+    console.log('Clearing text');
+  },
+};
+
 CharacterCounter.args = {
   ...Default.args,
   defaultText: 'This is some default text',
