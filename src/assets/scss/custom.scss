@@ -394,6 +394,7 @@ Buttons take variables in the following format
   &.connect__input-clear {
     + .connect__input-clear-button {
       --connect__input-clear-button-bg: transparent;
+      --connect__icon-fill-color: var(--connect__white);
 
       align-items: center;
       background-color: var(--connect__input-clear-button-bg);
@@ -406,11 +407,16 @@ Buttons take variables in the following format
       margin-right: var(--connect__spacer-sm);
       margin-top: var(--connect__spacer-sm);
       position: absolute;
+      opacity: var(--connect__input-clear-button-opacity, var(--connect__opacity-zero));
+      transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
       width: var(--connect__input-clear-button-size, --connect__unset);
 
       &.connect__input-clear-button-visible {
         --connect__input-clear-button-bg: var(--connect__gray-c35);
         --connect__input-clear-button-size: calc(var(--connect__spacer-lg) * 1.25);
+        --connect__input-clear-button-opacity: calc(var(--connect__opacity-one) * 0.75);
+
+        transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
       }
     }
   }
