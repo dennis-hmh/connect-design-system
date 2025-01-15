@@ -26,7 +26,7 @@ export const Alert: React.FC<AlertProps> = ({
   testId,
 }) => {
   return (
-    <Paper elevation={4} roundedCorner={true} className="connect__alert" data-testid={testId}>
+    <Paper elevation={6} roundedCorner={true} className="connect__alert" data-testid={testId}>
       <Stack
         xs={{
           direction: 'row',
