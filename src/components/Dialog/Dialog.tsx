@@ -22,13 +22,14 @@ export type DialogProps = {
   gradeBand?: GradeBand;
 };
 
-export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, DialogProps>(
+const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
   (
     {
       children,
       id,
       heading,
       elevation = 4,
+      roundedCorner = true,
       fullWidth,
       iconId,
       expand,
@@ -39,8 +40,9 @@ export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, Dialo
     ref,
   ) => {
     const dialogClassName = [
-      'connect__dialog connect__rounded-corners',
+      'connect__dialog',
       elevation !== undefined ? `connect__elevation-${elevation}` : '',
+      roundedCorner ? 'connect__rounded-corners' : '',
       fullWidth ? 'connect__full-width' : '',
       className ? className : '',
     ]
@@ -94,3 +96,7 @@ export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, Dialo
     );
   },
 );
+
+Dialog.displayName = 'Dialog';
+
+export { Dialog };

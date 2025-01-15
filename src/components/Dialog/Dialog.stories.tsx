@@ -43,8 +43,6 @@ Default.args = {
   children: 'Dialog Text',
   id: 'dialog-test',
   heading: 'Dialog Heading',
-  elevation: 4,
-  roundedCorner: true,
   expand: true,
   collapse: true,
   gradeBand: GradeBand.G4_5,
