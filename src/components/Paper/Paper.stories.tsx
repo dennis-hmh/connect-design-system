@@ -53,7 +53,7 @@ Aside.args = {
   ...Default.args,
   children: 'Aside',
   element: 'aside',
-  elevation: 6,
+  elevation: 4,
   className: 'connect__aside',
   fullWidth: false,
 };
