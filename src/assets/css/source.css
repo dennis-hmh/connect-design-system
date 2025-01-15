@@ -1179,7 +1179,7 @@ A modern 2024 take on the reset
 :where([class^='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__spacer-zero) var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class^='connect__']) img,
