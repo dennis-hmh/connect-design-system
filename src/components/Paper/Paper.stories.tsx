@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, Figure, Image, Button, Icon } from '../index';
+import { Stack, Figure, Image, Button, Icon, Typography } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -11,7 +11,7 @@ const meta: Meta<typeof Paper> = {
   title: 'Layout/Paper',
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 };
 
@@ -53,7 +53,7 @@ Aside.args = {
   ...Default.args,
   children: 'Aside',
   element: 'aside',
-  elevation: 2,
+  elevation: 6,
   className: 'connect__aside',
   fullWidth: false,
 };
@@ -68,10 +68,6 @@ FullWidth.args = {
   fullWidth: true,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
-};
-
-Aside.parameters = {
-  layout: 'fullscreen',
 };
 
 export const Card: Story = Template.bind({});
@@ -104,13 +100,18 @@ Card.args = {
           Cancel
         </Button>
         <Button primary={true}>
-          <Icon id="check" size="sm" /> Save
+          <Icon id="check" size="sm" />
+          <Typography>Save</Typography>
         </Button>
       </Stack>
     </Stack>
   ),
   element: 'section',
-  elevation: 2,
+  elevation: 4,
   roundedCorner: true,
   className: '',
+};
+
+Card.parameters = {
+  layout: 'centered',
 };
