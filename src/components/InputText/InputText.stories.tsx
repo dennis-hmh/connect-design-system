@@ -3,7 +3,6 @@ import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { InputText, InputTextProps } from './InputText';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { on } from 'events';
 
 const meta: Meta<typeof InputText> = {
   component: InputText,
