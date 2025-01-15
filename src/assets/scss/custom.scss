@@ -2168,6 +2168,42 @@ Divider can be vertical or horizontal
   margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
 }
 
+/*
+.connect__dialog Component
+
+| Property   | Theme                  | Variants                 | Fallback / Default         |
+|------------|------------------------|--------------------------|----------------------------|
+| BG Color   | --theme__dialog-bg     | --variant_dialog-bg      | --connect__white           |
+|------------|------------------------|--------------------------|----------------------------|
+| Radius     | --theme__dialog-radius | --variant__dialog-radius | --connect__spacer-zero     |
+|------------|------------------------|--------------------------|----------------------------|
+| Elevation-levels 
+*/
+
+.connect__dialog {
+  --connect__dialog-bg: var(--theme__dialog-bg, var(--connect__white));
+  --connect__horizontal-margin: auto;
+  --connect__vertical-margin: auto;
+
+  background-color: var(--connect__dialog-bg);
+  border: 0;
+  border-radius: var(
+    --theme__dialog-radius,
+    var(--variant__dialog-radius, var(--connect__spacer-zero))
+  );
+  padding: 0;
+}
+
+.connect__rounded-corners {
+  --variant__dialog-radius: var(--connect__border-radius);
+
+  .connect__dialog {
+    &:not(.connect__rounded-corners) {
+      border-radius: var(--connect__spacer-zero);
+    }
+  }
+}
+
 /* 
 .connect__figcaption
 
@@ -2327,30 +2363,6 @@ To be fleshed out / moved
 
     &:hover {
       box-shadow: var(--connect__shadow-null);
-    }
-  }
-}
-
-.connect__dialog {
-  --connect__dialog-bg: var(--theme__dialog-bg, var(--connect__white));
-
-  background-color: var(--connect__dialog-bg);
-  border: 0; // user agent override
-  border-radius: var(
-    --theme__dialog-radius,
-    var(--variant__dialog-radius, var(--connect__spacer-zero))
-  );
-  padding: 0; // user agent override
-  --connect__horizontal-margin: auto;
-  --connect__vertical-margin: auto;
-}
-
-.connect__rounded-corners {
-  --variant__dialog-radius: var(--connect__border-radius);
-
-  .connect__dialog {
-    &:not(.connect__rounded-corners) {
-      border-radius: var(--connect__spacer-zero);
     }
   }
 }
