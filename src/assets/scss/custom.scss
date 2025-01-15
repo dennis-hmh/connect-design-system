@@ -2341,6 +2341,7 @@ To be fleshed out / moved
     var(--variant__dialog-radius, var(--connect__spacer-zero))
   );
   padding: 0; // user agent override
+  --connect__horizontal-margin: auto;
 }
 
 .connect__rounded-corners {
