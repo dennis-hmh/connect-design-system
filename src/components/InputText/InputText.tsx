@@ -3,7 +3,7 @@ import React, { useState } from 'react'; // eslint-disable-line @typescript-esli
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
-  correct: boolean;
+  correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   number?: boolean;
