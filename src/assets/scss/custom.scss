@@ -2340,3 +2340,19 @@ To be fleshed out / moved
     }
   }
 }
+
+.connect__hint {
+  background-color: var(--connect__surface-white);
+  border-radius: var(--connect__inner-radius);
+  color: var(--connect__hint-mid);
+  font-family: var(--connect__font-sans);
+  font-size: var(--connect__credits);
+  font-style: italic;
+  font-weight: var(--connect__fw-regular);
+  left: calc(var(--connect__spacer-sm) - var(--connect__effects-inner-edge));
+  line-height: var(--connect__credits-lheight);
+  padding: 0 var(--connect__effects-inner-edge);
+  position: absolute;
+  top: 0;
+  transform: translateY(calc(-2 * var(--connect__spacer-xs)));
+}
