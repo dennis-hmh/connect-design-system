@@ -20,6 +20,7 @@ import { Image } from './components/Image/Image';
 import { Blockquote } from './components/Blockquote/Blockquote';
 import { SingleImage } from './components/SingleImage/SingleImage';
 import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
+import { Dialog } from './components/Dialog/Dialog';
 import { Grid } from './components/Grid/Grid';
 import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
@@ -30,6 +31,7 @@ import { useRive } from '@rive-app/react-canvas';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
+  const dialogRef = useRef(null);
 
   // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState<number>(0);
@@ -40,8 +42,13 @@ const App: React.FC = () => {
     stateMachines: 'State Machine 1',
   });
 
+  const handleDialogClick = () => {
+    // Open the dialog on button click
+    document.querySelector<HTMLDialogElement>('[data-testid="dialogTest"]')?.showModal();
+  };
+
   return (
-    <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <Header>
           <h1>Welcome to My App</h1>
@@ -59,7 +66,9 @@ const App: React.FC = () => {
               >
                 <Button primary={true}>Button</Button>
                 <Button primary={false}>Button</Button>
-                <Button primary={false} iconId="add">Button</Button>
+                <Button primary={false} iconId="add">
+                  Button
+                </Button>
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
@@ -90,6 +99,14 @@ const App: React.FC = () => {
                   <Button primary={false}>Button</Button>
                 </Stack>
               </Stack>
+            </GridItem>
+            <GridItem lg={{ startCol: 1, spanCol: 6 }}>
+              <Button primary={true} clickHandler={handleDialogClick}>
+                Activate Dialog
+              </Button>
+              <Dialog ref={dialogRef} iconId="add" heading="test dialog" dataTestId="dialogTest">
+                hi there
+              </Dialog>
             </GridItem>
           </Grid>
         </div>

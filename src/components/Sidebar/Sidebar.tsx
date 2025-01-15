@@ -12,7 +12,7 @@ export type SidebarProps = {
 export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   return (
     <ButtonMenuProvider>
-      <Paper element="aside" elevation={2} className="connect__aside">
+      <Paper element="aside" elevation={4} className="connect__aside">
         {children}
       </Paper>
     </ButtonMenuProvider>
