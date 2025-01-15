@@ -28,8 +28,7 @@ export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, Dialo
       children,
       id,
       heading,
-      elevation,
-      roundedCorner,
+      elevation = 4,
       fullWidth,
       iconId,
       expand,
@@ -40,9 +39,8 @@ export const Dialog: React.FC<DialogProps> = forwardRef<HTMLDialogElement, Dialo
     ref,
   ) => {
     const dialogClassName = [
-      'connect__dialog',
+      'connect__dialog connect__rounded-corners',
       elevation !== undefined ? `connect__elevation-${elevation}` : '',
-      roundedCorner ? 'connect__rounded-corners' : '',
       fullWidth ? 'connect__full-width' : '',
       className ? className : '',
     ]
