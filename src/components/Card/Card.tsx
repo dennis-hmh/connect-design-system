@@ -12,7 +12,7 @@ export type CardProps = {
 
 export const Card: React.FC<CardProps> = ({ children, header, footer, dataTestId }) => {
   return (
-    <Paper dataTestId={dataTestId} elevation={2} roundedCorner={true}>
+    <Paper dataTestId={dataTestId} elevation={4} roundedCorner={true}>
       {header && header}
       {children}
       {footer && footer}

@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.17.0
+
+### Minor Changes
+
+- 8ade258: <Dialog component added, InputText onClear prop added, Paper elevation numbers updated to match Figma.
+
 ## 1.16.3
 
 ### Patch Changes

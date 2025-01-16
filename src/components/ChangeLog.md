@@ -1,3 +1,43 @@
+### v1.17.0 Release Notice
+
+### Release date: January 15, 2025
+
+#### Changelog:
+
+- New Component: `<Dialog />`: New component added
+- Updated Component: `<InputText />`: onClear prop/button added
+- Bug Fix: N/A
+- Other: CSS elevations updated
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.16.3 Release Notice
+
+### Release date: January 14, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: CSS fix for selector connect\_\_ prefix
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.16.2 Release Notice
 
 ### Release date: January 13, 2025
