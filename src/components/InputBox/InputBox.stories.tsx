@@ -42,7 +42,6 @@ export const Checked: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
-export const NoShadow: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
