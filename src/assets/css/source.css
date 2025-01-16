@@ -739,6 +739,7 @@
 
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
+  --connect__hint-size: var(--connect__spacer-xs);
 }
 
 .connect__g68,
@@ -756,6 +757,8 @@
   --connect__incorrect-pale: var(--connect__red-s15);
   --checked-incorrect-bg: var(--connect__incorrect-mid);
   --color-incorrect-bg: var(--connect__incorrect-pale);
+
+  --connect__hint-size: var(--connect__spacer-sm);
 }
 
 :root {
@@ -1121,18 +1124,12 @@
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
+  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1159,9 +1156,7 @@
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
 
   /* Input Dimensions */
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 }
 
 *[class*='connect__'],
@@ -1174,8 +1169,7 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
-    var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,
