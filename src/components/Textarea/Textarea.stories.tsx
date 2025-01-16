@@ -40,6 +40,7 @@ export const CharacterLimit: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
+export const Toolbar: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
@@ -74,6 +75,14 @@ CharacterLimit.args = {
   ...Default.args,
   characterCount: true,
   characterLimit: 100,
+};
+
+Toolbar.args = {
+  ...Default.args,
+  placeholderText: 'Input your response',
+  toolbar: true,
+  characterCount: true,
+  characterLimit: 500,
 };
 
 Correct.args = {

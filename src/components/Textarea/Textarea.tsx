@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Stack } from '../Stack/Stack';
+import { Button } from '../Button/Button';
+import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
@@ -10,6 +13,7 @@ export type TextareaProps = {
   characterCount?: boolean;
   placeholderText?: string | undefined;
   characterLimit?: number;
+  toobar?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -22,6 +26,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   defaultText,
   characterCount,
   placeholderText,
+  toolbar,
   characterLimit,
   dataTestId,
 }) => {
@@ -29,9 +34,19 @@ export const Textarea: React.FC<TextareaProps> = ({
   const [charCount, setCharCount] = useState(defaultText?.length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+  const inputStates = [
+    correct && 'connect__feedback-correct',
+    incorrect && 'connect__feedback-incorrect',
+    answerShown && 'connect__feedback-shown',
+    isSelected && 'connect__selected',
+    characterCount && 'connect__input-character-count',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  let inputAriaLabel = 'Input field';
+  // const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+
+  let inputAriaLabel = 'Textarea';
   if (correct) {
     inputAriaLabel += ', marked as correct';
   } else if (incorrect) {
@@ -49,7 +64,22 @@ export const Textarea: React.FC<TextareaProps> = ({
   };
 
   return (
-    <label className={`connect__icon-wrapper ${inputStates}`}>
+    <div className={`connect__icon-wrapper ${inputStates}`}>
+      {toolbar && (
+        <Stack
+          element="header"
+          xs={{
+            justifyContent: 'space-between',
+            direction: 'row',
+            paddingX: 'md',
+            paddingY: 'sm',
+          }}
+          className="connect__toolbar"
+        >
+          <ButtonMenu iconId="add" />
+          <Button primary iconId="mic" />
+        </Stack>
+      )}
       <textarea
         className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
@@ -78,6 +108,6 @@ export const Textarea: React.FC<TextareaProps> = ({
           )}
         </div>
       )}
-    </label>
+    </div>
   );
 };
