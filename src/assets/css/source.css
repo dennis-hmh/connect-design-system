@@ -810,6 +810,15 @@
   --connect__text-left: left;
   --connect__text-center: left;
 
+  /* 2.4 Typography helpers */
+  --connect__style-normal: normal;
+  --connect__style-italic: italic;
+
+  --connect__text-capitalize: capitalize;
+  --connect__text-uppercase: uppercase;
+  --connect__text-lowercase: lowercase;
+
+
   /*
     3: Palette
     3.1: Connect Default Palette
@@ -1101,7 +1110,6 @@
   --connect__full-w: 100%;
   --connect__full-h: 100%;
   --connect__auto-h: auto;
-  --connect__text-capitalize: capitalize;
   --connect__half-radius: 50%;
 }
 
@@ -1181,7 +1189,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__']) > img {
+:where([class*='connect__'])>img {
   height: auto;
   max-height: 100%;
 }

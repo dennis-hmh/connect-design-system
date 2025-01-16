@@ -372,7 +372,7 @@ Buttons take variables in the following format
 
   &::placeholder {
     color: var(--connect__surface-mid);
-    font-style: italic;
+    font-style: var(--connect__style-italic);
   }
 
   &-resize {
@@ -620,7 +620,7 @@ Variables related to theme/overrides:
 */
 .connect__blockquote {
   font-size: var(--connect__blockquote-fs, var(--connect__body-md));
-  font-style: var(--connect__blockquote-font-style, normal);
+  font-style: var(--connect__blockquote-font-style, var(--connect__style-normal));
   margin: var(--connect__blockquote-margin, 0);
   padding-bottom: var(--connect__blockquote-padding-bottom, var(--connect__spacer-sm));
   padding-left: var(--connect__blockquote-padding-left, var(--connect__spacer-md));
@@ -1923,7 +1923,7 @@ Usage:
   );
 
   > em {
-    font-style: normal;
+    font-style: var(--connect__style-normal);
     font-weight: var(
       --theme__character-fw,
       var(--variant__character-fw, var(--connect__fw-regular))
@@ -2404,17 +2404,21 @@ To be fleshed out / moved
 }
 
 .connect__hint {
+  --connect__hint-spacing: calc(-1 * var(--connect__spacer-xs));
+  --connect__hint-y-offset: calc(var(--connect__hint-spacing) - var(--connect__hint-size));
+  --connect__hint-x-offset: var(--connect__spacer-sm);
+
   background-color: var(--connect__surface-white);
   border-radius: var(--connect__inner-radius);
   color: var(--connect__hint-mid);
   font-family: var(--connect__font-sans);
   font-size: var(--connect__credits);
-  font-style: italic;
+  font-style: var(--connect__style-italic);
   font-weight: var(--connect__fw-regular);
-  left: calc(var(--connect__spacer-sm) - var(--connect__effects-inner-edge));
+  left: 0;
   line-height: var(--connect__credits-lheight);
   padding: 0 var(--connect__effects-inner-edge);
   position: absolute;
   top: 0;
-  transform: translateY(calc(-2 * var(--connect__spacer-xs)));
+  transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
 }
