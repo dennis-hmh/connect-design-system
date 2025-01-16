@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { InputBox, InputBoxProps } from './InputBox';
 import { ConnectTheme } from '../ConnectTheme';
@@ -27,6 +27,10 @@ const Template: StoryFn<InputBoxProps> = (args) => {
     setChecked(event.target.checked);
     args.onChange(event);
   };
+
+  useEffect(() => {
+    setChecked(args.checked);
+  }, [args.checked]);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
