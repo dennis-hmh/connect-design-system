@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { Stack } from '../Stack/Stack';
-import { Button } from '../Button/Button';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
@@ -13,7 +10,7 @@ export type TextareaProps = {
   characterCount?: boolean;
   placeholderText?: string | undefined;
   characterLimit?: number;
-  toobar?: boolean;
+  toobar?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -65,21 +62,7 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   return (
     <div className={`connect__icon-wrapper ${inputStates}`}>
-      {toolbar && (
-        <Stack
-          element="header"
-          xs={{
-            justifyContent: 'space-between',
-            direction: 'row',
-            paddingX: 'md',
-            paddingY: 'sm',
-          }}
-          className="connect__toolbar"
-        >
-          <ButtonMenu iconId="add" />
-          <Button primary iconId="mic" />
-        </Stack>
-      )}
+      {toolbar && toolbar}
       <textarea
         className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
