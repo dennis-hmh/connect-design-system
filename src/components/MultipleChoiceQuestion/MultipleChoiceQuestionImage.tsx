@@ -1,5 +1,4 @@
 import React from 'react';
-import { Figure } from '../Figure/Figure';
 import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionImageProp = {
@@ -79,8 +78,8 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={labelClass}>
-        <Figure>{children}</Figure>
+      <label htmlFor={id} className={`connect__mcq-card ${labelClass}`}>
+        {children}
       </label>
     </div>
   );
