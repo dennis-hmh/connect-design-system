@@ -296,23 +296,42 @@ ShortAnswer.args = {
 export const SpeechToText: Story = Template.bind({});
 SpeechToText.args = {
   ...ShortAnswer.args,
-  header: (
-    <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
-      <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
-        <Typography element="h4" size="heading-md">
-          Speech To Text Question
-        </Typography>
-      </Stack>
-    </Paper>
-  ),
+  header: null,
   children: (
     <Stack
       element="article"
       xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
     >
-      <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-        What is the capital of France?
-      </Typography>
+      <Stack
+        element="header"
+        xs={{
+          direction: 'row',
+          justifyContent: 'start',
+          flexWrap: 'nowrap',
+          paddingX: 'zero',
+          paddingY: 'zero',
+        }}
+      >
+        <Typography
+          element="span"
+          size="body-lg"
+          spacer={true}
+          spacerSize="body-md"
+          color="brand-deep-magenta"
+          weight={600}
+        >
+          A.
+        </Typography>
+        <Typography
+          element="h5"
+          size="body-lg"
+          spacer={true}
+          spacerSize="body-md"
+          textWrap="pretty"
+        >
+          Prompt text. Body-large size text. Body-large size text. Body-large size text.
+        </Typography>
+      </Stack>
       <Textarea
         characterCount
         characterLimit={500}
