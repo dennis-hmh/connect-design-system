@@ -788,6 +788,7 @@
       600: Semi-Bold
       700: Bold
     2.3: Text align / wrap  
+    2.4: Font Styles
   */
 
   /* 2.1: Font Families */
@@ -806,6 +807,11 @@
   --connect__text-balance: balance;
   --connect__text-left: left;
   --connect__text-center: left;
+
+  /* 2.4: Font Styles */
+  --connect__fs-normal: normal;
+  --connect__fs-italic: italic;
+  --connect__fs-oblique: oblique;
 
   /*
     3: Palette
