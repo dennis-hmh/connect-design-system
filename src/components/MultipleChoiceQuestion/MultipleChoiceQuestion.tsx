@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useMultipleChoiceQuestion } from '../../context/MultipleChoiceQuestionHook';
+import React from 'react';
 import { GradeBand } from '../../enum/gradeband';
 
 export type MultipleChoiceQuestionProp = {
@@ -8,13 +7,13 @@ export type MultipleChoiceQuestionProp = {
   name: string;
   children: React.ReactNode;
   checked?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   answerShown?: boolean;
   correct?: boolean;
   incorrect?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const getClassNames = ({
@@ -42,35 +41,20 @@ export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProp> = ({
   name,
   children,
   checked,
+  onChange,
   disabled,
   correct,
   incorrect,
   answerShown,
   dataTestId,
-  onChange,
 }) => {
-  const { selectedValue, setSelectedValue } = useMultipleChoiceQuestion();
-  const checkRef = useRef<HTMLInputElement>(null);
-  const [isChecked, setIsChecked] = useState(checked || false);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (type === 'radio') {
-      setSelectedValue(id);
-    } else {
-      setIsChecked(event.target.checked);
-    }
-    if (onChange) {
-      onChange(event);
-    }
-  };
-
-  useEffect(() => {
-    if (type === 'radio') {
-      setIsChecked(selectedValue === id);
-    } else {
-      setIsChecked(checked || false);
-    }
-  }, [checked, id, selectedValue, type]);
+  const { choiceClass, labelClass } = getClassNames({
+    correct,
+    incorrect,
+    answerShown,
+    isChecked: checked,
+    disabled,
+  });
 
   let inputAriaLabel = 'Multiple Choice Question';
   if (correct) {
@@ -81,24 +65,15 @@ export const MultipleChoiceQuestion: React.FC<MultipleChoiceQuestionProp> = ({
     inputAriaLabel += ', answer shown';
   }
 
-  const { choiceClass, labelClass } = getClassNames({
-    correct,
-    incorrect,
-    answerShown,
-    isChecked,
-    disabled,
-  });
-
   return (
     <div className="connect__choice-label-wrapper">
       <input
-        ref={checkRef}
         type={type}
         id={id}
         className={choiceClass}
         name={name}
-        checked={isChecked}
-        onChange={handleChange}
+        checked={checked}
+        onChange={onChange}
         disabled={disabled}
         aria-label={inputAriaLabel}
         data-testid={dataTestId}

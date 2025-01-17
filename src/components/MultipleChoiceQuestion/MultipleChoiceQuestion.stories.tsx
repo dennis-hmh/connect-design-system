@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { MultipleChoiceQuestion, MultipleChoiceQuestionProp } from './MultipleChoiceQuestion';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { MultipleChoiceQuestionProvider } from '../../context/MultipleChoiceQuestionProvider';
 
 const meta: Meta<typeof MultipleChoiceQuestion> = {
   component: MultipleChoiceQuestion,
@@ -12,29 +11,32 @@ const meta: Meta<typeof MultipleChoiceQuestion> = {
   parameters: {
     layout: 'centered',
   },
-  decorators: [
-    (Story) => {
-      return (
-        <MultipleChoiceQuestionProvider>
-          <Story />
-        </MultipleChoiceQuestionProvider>
-      );
-    },
-  ],
+  argTypes: {
+    onChange: { action: 'changed' },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof MultipleChoiceQuestion>;
 
 const Template: StoryFn<MultipleChoiceQuestionProp> = (args) => {
+  const [checked, setChecked] = useState(args.checked);
   const themeWrapperRef = useRef<HTMLDivElement>(null);
-
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+    args.onChange(event);
+  };
+
+  useEffect(() => {
+    setChecked(args.checked);
+  }, [args.checked]);
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <MultipleChoiceQuestion {...args} />
+        <MultipleChoiceQuestion {...args} checked={checked} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );
