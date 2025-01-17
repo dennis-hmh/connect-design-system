@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputBoxProps = {
@@ -59,7 +59,6 @@ export const InputBox: React.FC<InputBoxProp> = ({
   return (
     <div className="connect__choice-label-wrapper">
       <input
-        ref={useRef<HTMLInputElement>(null)}
         type={type}
         id={id}
         className={choiceClass}
