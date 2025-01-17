@@ -1923,7 +1923,7 @@ Usage:
   );
 
   > em {
-    font-style: normal;
+    font-style: var(--theme__character-fs, var(--variant__character-fs, var(--connect__fs-normal)));
     font-weight: var(
       --theme__character-fw,
       var(--variant__character-fw, var(--connect__fw-regular))
@@ -1932,6 +1932,7 @@ Usage:
 
   &-limit-reached {
     em {
+      --variant__character-fs: italic;
       --variant__character-fw: 700;
     }
   }
