@@ -9,7 +9,6 @@ import { Button } from '../Button/Button';
 import { Typography } from '../Typography/Typography';
 import { Image } from '../Image/Image';
 import { MultipleChoiceQuestion } from '../MultipleChoiceQuestion/MultipleChoiceQuestion';
-import { MultipleChoiceQuestionProvider } from '../../context/MultipleChoiceQuestionProvider';
 import { Textarea } from '../Textarea/Textarea';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
@@ -179,20 +178,18 @@ MCQRadio.args = {
       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
         What is the capital of France?
       </Typography>
-      <MultipleChoiceQuestionProvider>
-        <MultipleChoiceQuestion id="paris" type="radio" name="capital">
-          Paris
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="london" type="radio" name="capital">
-          London
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="berlin" type="radio" name="capital">
-          Berlin
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="rome" type="radio" name="capital">
-          Rome
-        </MultipleChoiceQuestion>
-      </MultipleChoiceQuestionProvider>
+      <MultipleChoiceQuestion id="paris" type="radio" name="capital">
+        Paris
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="london" type="radio" name="capital">
+        London
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="berlin" type="radio" name="capital">
+        Berlin
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="rome" type="radio" name="capital">
+        Rome
+      </MultipleChoiceQuestion>
     </Stack>
   ),
   footer: (
@@ -228,20 +225,18 @@ MCQCheckbox.args = {
       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
         What is the capital of France?
       </Typography>
-      <MultipleChoiceQuestionProvider>
-        <MultipleChoiceQuestion id="paris" type="checkbox" name="capital">
-          Paris
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="london" type="checkbox" name="capital">
-          London
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="berlin" type="checkbox" name="capital">
-          Berlin
-        </MultipleChoiceQuestion>
-        <MultipleChoiceQuestion id="rome" type="checkbox" name="capital">
-          Rome
-        </MultipleChoiceQuestion>
-      </MultipleChoiceQuestionProvider>
+      <MultipleChoiceQuestion id="paris" type="checkbox" name="capital">
+        Paris
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="london" type="checkbox" name="capital">
+        London
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="berlin" type="checkbox" name="capital">
+        Berlin
+      </MultipleChoiceQuestion>
+      <MultipleChoiceQuestion id="rome" type="checkbox" name="capital">
+        Rome
+      </MultipleChoiceQuestion>
     </Stack>
   ),
 };
