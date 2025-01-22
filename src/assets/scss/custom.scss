@@ -2404,7 +2404,7 @@ To be fleshed out / moved
 }
 
 .connect__hint {
-  --connect__hint-spacing: calc(-1 * var(--connect__spacer-xs));
+  --connect__hint-spacing: calc(-1.75 * var(--connect__spacer-xs));
   --connect__hint-y-offset: calc(var(--connect__hint-spacing) - var(--connect__hint-size));
   --connect__hint-x-offset: var(--connect__spacer-sm);
 
@@ -2452,7 +2452,7 @@ To be fleshed out / moved
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: relative;
   text-overflow: ellipsis;
-  // width: var(--connect__full-w);
+  width: var(--connect__full-w);
 
   display: flex;
   flex-grow: 1;
@@ -2553,6 +2553,7 @@ To be fleshed out / moved
 .connect__dropdown-list-menu {
   display: var(--connect__display-flex);
   flex-flow: row wrap;
+  flex-flow: column nowrap;
   font-family: var(--connect__font-sans);
   gap: var(--connect__spacer-xs);
   max-height: var(--connect__dropdown-max-h);
