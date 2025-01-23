@@ -11,6 +11,8 @@ import { Image } from '../Image/Image';
 import { MultipleChoiceQuestion } from '../MultipleChoiceQuestion/MultipleChoiceQuestion';
 import { MultipleChoiceQuestionProvider } from '../../context/MultipleChoiceQuestionProvider';
 import { Textarea } from '../Textarea/Textarea';
+import { Icon } from '../Icon/Icon';
+import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -287,6 +289,88 @@ ShortAnswer.args = {
       <Button primary={true} disabled={true}>
         Submit
       </Button>
+    </Stack>
+  ),
+};
+
+export const SpeechToText: Story = Template.bind({});
+SpeechToText.args = {
+  ...ShortAnswer.args,
+  header: null,
+  children: (
+    <Stack
+      element="article"
+      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+    >
+      <Stack
+        element="header"
+        xs={{
+          direction: 'row',
+          justifyContent: 'start',
+          flexWrap: 'nowrap',
+          paddingX: 'zero',
+          paddingY: 'zero',
+        }}
+      >
+        <Typography
+          element="span"
+          size="body-lg"
+          spacer={true}
+          spacerSize="body-md"
+          color="brand-deep-magenta"
+          weight={600}
+        >
+          A.
+        </Typography>
+        <Typography
+          element="h5"
+          size="body-lg"
+          spacer={true}
+          spacerSize="body-md"
+          textWrap="pretty"
+        >
+          Prompt text. Body-large size text. Body-large size text. Body-large size text.
+        </Typography>
+      </Stack>
+      <Textarea
+        characterCount
+        characterLimit={500}
+        toolbar={
+          <Stack
+            element="header"
+            className="connect__toolbar"
+            xs={{
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              direction: 'row',
+              flexWrap: 'nowrap',
+              paddingX: 'md',
+              paddingY: 'sm',
+            }}
+          >
+            <ButtonMenu iconId="add" />
+            <ButtonMenu iconId="mic" backgroundColor="connect__blue-s50" fill="white" />
+          </Stack>
+        }
+      />
+    </Stack>
+  ),
+  footer: (
+    <Stack
+      element="footer"
+      xs={{
+        alignItems: 'stretch',
+        direction: 'column',
+        spacing: 'md',
+        paddingX: 'md',
+        paddingY: 'md',
+      }}
+      md={{
+        direction: 'row',
+        justifyContent: 'end',
+      }}
+    >
+      <Button primary={true}>Save</Button>
     </Stack>
   ),
 };

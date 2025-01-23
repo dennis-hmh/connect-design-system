@@ -1923,7 +1923,7 @@ Usage:
   );
 
   > em {
-    font-style: normal;
+    font-style: var(--theme__character-fs, var(--variant__character-fs, var(--connect__fs-normal)));
     font-weight: var(
       --theme__character-fw,
       var(--variant__character-fw, var(--connect__fw-regular))
@@ -1932,6 +1932,7 @@ Usage:
 
   &-limit-reached {
     em {
+      --variant__character-fs: italic;
       --variant__character-fw: 700;
     }
   }
@@ -2400,5 +2401,21 @@ To be fleshed out / moved
     &:hover {
       box-shadow: var(--connect__shadow-null);
     }
+  }
+}
+
+/*
+connect__toolbar 
+*/
+
+.connect__toolbar {
+  background-color: var(--theme__toolbar-bg, var(--variant__toolbar-bg, var(--connect__gray-c10)));
+  border: var(--connect__input-border-w) solid
+    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+
+  + .connect__input-textarea {
+    border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
 }
