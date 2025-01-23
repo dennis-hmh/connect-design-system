@@ -2572,5 +2572,10 @@ To be fleshed out / moved
 
   &.connect__selected {
     --connect__inner-status-color: var(--connect__primary-mid);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+
+    &:focus-visible {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
+    }
   }
 }
