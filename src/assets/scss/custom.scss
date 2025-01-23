@@ -2418,7 +2418,7 @@ To be fleshed out / moved
   left: 0;
   line-height: var(--connect__credits-lheight);
   padding: 0 var(--connect__effects-inner-edge);
-  position: absolute;
+  position: var(--connect__absolute);
   top: 0;
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
   z-index: 2;
@@ -2442,7 +2442,7 @@ To be fleshed out / moved
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
-  display: inline-flex;
+  display: var(--connect__display-flex);
   font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
   font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
   line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
@@ -2450,12 +2450,9 @@ To be fleshed out / moved
   max-width: var(--connect__dropdown-max-w);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
-  position: relative;
-  text-overflow: ellipsis;
+  position: var(--connect__relative);
+  text-overflow: var(--connect__text-ellipsis);
   width: var(--connect__full-w);
-
-  display: flex;
-  flex-grow: 1;
 
   &:not(:disabled) {
     &:hover,
@@ -2478,28 +2475,16 @@ To be fleshed out / moved
     background-size: contain;
     display: var(--variant__feedback-display, var(--connect__display-none));
     height: var(--connect__icon-size, var(--connect__icon-md));
-    position: absolute;
+    position: var(--connect__absolute);
     right: 0;
     top: 0;
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
     width: var(--connect__icon-size, var(--connect__icon-md));
   }
 
-  &.connect__feedback-correct {
-    --state-icon: var(--icon-correct);
-  }
+  &:where([class*='connect__feedback']) {
+    --variant__dropdown-bg: var(--connect__surface-white);
 
-  &.connect__feedback-incorrect {
-    --state-icon: var(--icon-incorrect);
-  }
-
-  &.connect__feedback-shown {
-    --state-icon: var(--icon-shown);
-  }
-
-  &.connect__feedback-correct,
-  &.connect__feedback-incorrect,
-  &.connect__feedback-shown {
     .connect__feedback-stamp {
       --variant__feedback-display: var(--connect__display-block);
     }
@@ -2531,10 +2516,12 @@ To be fleshed out / moved
   font-family: var(--connect__font-sans);
   font-size: var(--connect__body-sm);
   line-height: var(--connect__body-sm-lheight);
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: var(--connect__full-w);
+  overflow: var(--connect__overflow-hidden);
+  display: var(--connect__display-block);
+  padding-left: var(--connect__spacer-xs);
+  text-overflow: var(--connect__text-ellipsis);
+  white-space: var(--connect__white-space-nowrap);
   z-index: 2;
 }
 
@@ -2552,8 +2539,7 @@ To be fleshed out / moved
 
 .connect__dropdown-list-menu {
   display: var(--connect__display-flex);
-  flex-flow: row wrap;
-  flex-flow: column nowrap;
+  flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
   font-family: var(--connect__font-sans);
   gap: var(--connect__spacer-xs);
   max-height: var(--connect__dropdown-max-h);
@@ -2572,29 +2558,17 @@ To be fleshed out / moved
   font-family: var(--connect__font-sans);
   font-size: var(--connect__body-sm);
   line-height: var(--connect__body-sm-lheight);
-  overflow: hidden;
+  overflow: var(--connect__overflow-hidden);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-overflow: var(--connect__text-ellipsis);
+  white-space: var(-connect__white-space-nowrap);
 
-  &:not(.connect__disabled):not(.connect__selected) {
-    &:focus,
-    &:hover {
-      background-color: var(--connect__surface-pale);
-    }
+  &:active {
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-0);
+  }
 
-    &:active {
-      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-0);
-    }
-
-    &:hover {
-      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-2);
-    }
-
-    &:focus-visible,
-    &:focus {
-      background-color: var(--connect__surface-white);
-    }
+  &:hover {
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-2);
   }
 
   &:not(.connect__disabled) {
@@ -2604,10 +2578,7 @@ To be fleshed out / moved
   }
 
   &.connect__selected {
-    background-color: var(--connect__primary-light);
-
-    &.connect__disabled {
-      background-color: var(--connect__disabled-pale);
-    }
+    --connect__inner-status-color: var(--connect__primary-mid);
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   }
 }

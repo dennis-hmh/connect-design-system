@@ -67,6 +67,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <span id="connect__selected-text-id" className="connect__selected-text">
         {selectedValue || children}
       </span>
+      <div className='connect__feedback-stamp'></div>
       {hint && <Hint>{hint}</Hint>}
       {open && (
         <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
