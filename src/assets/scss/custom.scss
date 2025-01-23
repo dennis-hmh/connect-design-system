@@ -2407,20 +2407,26 @@ To be fleshed out / moved
   --connect__hint-spacing: calc(-1.75 * var(--connect__spacer-xs));
   --connect__hint-y-offset: calc(var(--connect__hint-spacing) - var(--connect__hint-size));
   --connect__hint-x-offset: var(--connect__spacer-sm);
+  --connect__hint-max-w: calc(var(--connect__dropdown-max-w) - var(--connect__hint-x-offset));
 
   background-color: var(--connect__surface-white);
   border-radius: var(--connect__inner-radius);
   color: var(--connect__hint-mid);
+  display: var(--variant__hint-display, var(--connect__display-block));
   font-family: var(--connect__font-sans);
   font-size: var(--connect__credits);
   font-style: var(--connect__style-italic);
   font-weight: var(--connect__fw-regular);
   left: 0;
   line-height: var(--connect__credits-lheight);
+  max-width: var(--connect__hint-max-w);
+  overflow: var(--connect__overflow-hidden);
   padding: 0 var(--connect__effects-inner-edge);
   position: var(--connect__absolute);
+  text-overflow: var(--connect__text-ellipsis);
   top: 0;
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
+  white-space: var(--connect__white-space-nowrap);
   z-index: 2;
 }
 
@@ -2446,8 +2452,8 @@ To be fleshed out / moved
   font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
   font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
   line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
-  min-width: var(--connect__dropdown-min-w);
   max-width: var(--connect__dropdown-max-w);
+  min-width: var(--connect__dropdown-min-w);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: var(--connect__relative);
@@ -2483,41 +2489,30 @@ To be fleshed out / moved
 
   &:where([class*='connect__feedback']) {
     --variant__dropdown-bg: var(--connect__surface-white);
-
-    .connect__feedback-stamp {
-      --variant__feedback-display: var(--connect__display-block);
-    }
-
-    .connect__hint {
-      --variant__hint-display: var(--connect__display-none);
-    }
+    --variant__feedback-display: var(--connect__display-block);
+    --variant__hint-display: var(--connect__display-none);
   }
 
   &.connect__disabled {
-    .connect__hint {
-      --variant__hint-display: var(--connect__display-none);
-    }
+    --variant__hint-display: var(--connect__display-none);
   }
+}
 
-  &.connect__dropdown-open {
-    --variant-menu-display: var(--connect__display-block);
-
-    --variant__dropdown-icon: var(--connect__dropdown-icon-open);
-  }
+.connect__dropdown-open {
+  --variant-menu-display: var(--connect__display-block);
+  --variant__dropdown-icon: var(--connect__dropdown-icon-open);
 }
 
 .connect__selected-text {
   color: var(--active-color, var(--connect__surface-dark));
+  display: var(--connect__display-block);
   font-family: var(--connect__font-sans);
   font-size: var(--connect__body-sm);
   line-height: var(--connect__body-sm-lheight);
-  // max-width: var(--connect__full-w);
-  min-width: var(--connect__dropdown-min-w);
   max-width: var(--connect__dropdown-max-w);
-
+  min-width: var(--connect__dropdown-min-w);
   overflow: var(--connect__overflow-hidden);
-  display: var(--connect__display-block);
-  padding-left: var(--connect__spacer-xs);
+  padding: 0 var(--connect__spacer-xs);
   text-overflow: var(--connect__text-ellipsis);
   white-space: var(--connect__white-space-nowrap);
   z-index: 2;
@@ -2562,15 +2557,15 @@ To be fleshed out / moved
   text-overflow: var(--connect__text-ellipsis);
   white-space: var(--connect__white-space-nowrap);
 
-  &:active {
-    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-0);
-  }
-
-  &:hover {
-    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-2);
-  }
-
   &:where(:not(.connect__disabled)) {
+    &:active {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-0);
+    }
+
+    &:hover {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-2);
+    }
+
     &:focus-visible {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
     }

@@ -79,7 +79,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
 };
 
 export type DropdownMenuProps = {
-  data: { label: string; className: string | null; ariaSelected: boolean; value: string }[];
+  data: {
+    label: string;
+    className: string | null;
+    ariaSelected: boolean;
+    value: string;
+    disabled?: boolean;
+  }[];
   onItemClick: (label: string) => void;
   selectedValue: string | null;
 };
@@ -90,10 +96,15 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick, s
       {data.map((item, index) => (
         <li
           key={`connect__menu-item-${index}`}
-          className={`connect__dropdown-item ${selectedValue === item.label ? 'connect__selected' : ''}`}
+          className={`connect__dropdown-item ${item.disabled ? 'connect__disabled' : ''} ${selectedValue === item.label ? 'connect__selected' : ''}`}
           role="option"
-          aria-selected={item.ariaSelected || false}
-          onClick={() => onItemClick(item.label)}
+          aria-selected={item.label === selectedValue}
+          aria-disabled={item.disabled || false}
+          onClick={() => {
+            if (!item.disabled) {
+              onItemClick(item.label);
+            }
+          }}
         >
           {item.label}
         </li>
