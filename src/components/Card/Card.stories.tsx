@@ -8,7 +8,7 @@ import { Stack } from '../Stack/Stack';
 import { Button } from '../Button/Button';
 import { Typography } from '../Typography/Typography';
 import { Image } from '../Image/Image';
-import { MultipleChoiceQuestion } from '../MultipleChoiceQuestion/MultipleChoiceQuestion';
+import { InputBox } from '../InputBox/InputBox';
 import { Textarea } from '../Textarea/Textarea';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
@@ -178,18 +178,18 @@ MCQRadio.args = {
       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
         What is the capital of France?
       </Typography>
-      <MultipleChoiceQuestion id="paris" type="radio" name="capital">
+      <InputBox id="paris" type="radio" name="capital">
         Paris
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="london" type="radio" name="capital">
+      </InputBox>
+      <InputBox id="london" type="radio" name="capital">
         London
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="berlin" type="radio" name="capital">
+      </InputBox>
+      <InputBox id="berlin" type="radio" name="capital">
         Berlin
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="rome" type="radio" name="capital">
+      </InputBox>
+      <InputBox id="rome" type="radio" name="capital">
         Rome
-      </MultipleChoiceQuestion>
+      </InputBox>
     </Stack>
   ),
   footer: (
@@ -225,18 +225,18 @@ MCQCheckbox.args = {
       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
         What is the capital of France?
       </Typography>
-      <MultipleChoiceQuestion id="paris" type="checkbox" name="capital">
+      <InputBox id="paris" type="checkbox" name="capital">
         Paris
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="london" type="checkbox" name="capital">
+      </InputBox>
+      <InputBox id="london" type="checkbox" name="capital">
         London
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="berlin" type="checkbox" name="capital">
+      </InputBox>
+      <InputBox id="berlin" type="checkbox" name="capital">
         Berlin
-      </MultipleChoiceQuestion>
-      <MultipleChoiceQuestion id="rome" type="checkbox" name="capital">
+      </InputBox>
+      <InputBox id="rome" type="checkbox" name="capital">
         Rome
-      </MultipleChoiceQuestion>
+      </InputBox>
     </Stack>
   ),
 };
