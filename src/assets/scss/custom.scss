@@ -2404,7 +2404,7 @@ To be fleshed out / moved
 }
 
 .connect__hint {
-  --connect__hint-spacing: calc(-1.75 * var(--connect__spacer-xs));
+  --connect__hint-spacing: calc(-1 * var(--connect__spacer-sm));
   --connect__hint-y-offset: calc(var(--connect__hint-spacing) - var(--connect__hint-size));
   --connect__hint-x-offset: var(--connect__spacer-sm);
   --connect__hint-max-w: calc(var(--connect__dropdown-max-w) - var(--connect__hint-x-offset));
