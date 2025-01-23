@@ -1,5 +1,18 @@
 # @connect/connect-design-system
 
+## 1.18.0
+
+### Minor Changes
+
+- 7c8ff02: - New Component: `<Dropbox />`, `<Hint />`
+  - Updated Component:
+    - `<Checkbox />`: Updated to be controlled by parent.
+    - `<InputBox />`: Updated to be controlled by parent.
+    - `<MultipleChoiceQuestionImage />`: Updated to be controlled by parent.
+    - `<Textarea />`: Updated with Toolbar prop.
+  - Bug Fix: N/A
+  - Other: `<MultipleChoiceQuestion />` has been removed. Use `<InputBox />` instead. Props are identical.
+
 ## 1.17.1
 
 ### Patch Changes
