@@ -2410,9 +2410,9 @@ connect__toolbar
 
 .connect__toolbar {
   background-color: var(--theme__toolbar-bg, var(--variant__toolbar-bg, var(--connect__gray-c10)));
-  border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
   border: var(--connect__input-border-w) solid
     var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
 
   + .connect__input-textarea {
