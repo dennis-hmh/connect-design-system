@@ -1,3 +1,47 @@
+### v1.18.0 Release Notice
+
+### Release date: January 23, 2025
+
+#### Changelog:
+
+- New Component: `<Dropbox />`, `<Hint />`
+- Updated Component:
+  - `<Checkbox />`: Updated to be controlled by parent.
+  - `<InputBox />`: Updated to be controlled by parent.
+  - `<MultipleChoiceQuestionImage />`: Updated to be controlled by parent.
+  - `<Textarea />`: Updated with Toolbar prop.
+- Bug Fix: N/A
+- Other: `<MultipleChoiceQuestion />` has been removed. Use `<InputBox />` instead. Props are identical.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.17.1 Release Notice
+
+### Release date: January 20, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Fix CSS selector wildcards to properly handle multiple classnames with connect\*\* prefix.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.17.0 Release Notice
 
 ### Release date: January 15, 2025
