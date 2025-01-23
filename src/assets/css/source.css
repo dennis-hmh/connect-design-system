@@ -47,683 +47,683 @@
 /* stylelint-enable order/properties-alphabetical-order */
 
 .connect__g23 {
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 6.75rem;
-  --connect__heading-lg: 2.375rem;
-  --connect__heading-lg-lheight: 3rem;
-  --connect__heading-lg-spacer: 5.625rem;
-  --connect__heading-md: 1.875rem;
-  --connect__heading-md-lheight: 2.375rem;
+  --connect__heading-xl: 42px;
+  --connect__heading-xl-lheight: 48px;
+  --connect__heading-xl-spacer: 108px;
+  --connect__heading-lg: 38px;
+  --connect__heading-lg-lheight: 48px;
+  --connect__heading-lg-spacer: 90px;
+  --connect__heading-md: 30px;
+  --connect__heading-md-lheight: 38px;
   --connect__heading-md-spacer: ;
-  --connect__heading-sm: 1.875rem;
-  --connect__heading-sm-lheight: 2.375rem;
-  --connect__heading-sm-spacer: 3.375rem;
-  --connect__body-lg: 1.5rem;
-  --connect__body-lg-lheight: 2.25rem;
-  --connect__body-lg-spacer: 2.25rem;
-  --connect__body-lg-head-lheight: 1.875rem;
-  --connect__body-md: 1.375rem;
-  --connect__body-md-lheight: 2.125rem;
-  --connect__body-md-spacer: 1.125rem;
-  --connect__body-md-head-lheight: 1.75rem;
-  --connect__body-sm: 1.3125rem;
-  --connect__body-sm-lheight: 2rem;
-  --connect__body-sm-spacer: 2.25rem;
-  --connect__caption: 1.25rem;
-  --connect__caption-lheight: 1.875rem;
-  --connect__caption-spacer: 2.25rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: 1.125rem;
+  --connect__heading-sm: 30px;
+  --connect__heading-sm-lheight: 38px;
+  --connect__heading-sm-spacer: 54px;
+  --connect__body-lg: 24px;
+  --connect__body-lg-lheight: 36px;
+  --connect__body-lg-spacer: 36px;
+  --connect__body-lg-head-lheight: 30px;
+  --connect__body-md: 22px;
+  --connect__body-md-lheight: 34px;
+  --connect__body-md-spacer: 18px;
+  --connect__body-md-head-lheight: 28px;
+  --connect__body-sm: 21px;
+  --connect__body-sm-lheight: 32px;
+  --connect__body-sm-spacer: 36px;
+  --connect__caption: 20px;
+  --connect__caption-lheight: 30px;
+  --connect__caption-spacer: 36px;
+  --connect__credits: 14px;
+  --connect__credits-lheight: 22px;
+  --connect__credits-spacer: 18px;
 
-  --connect__spacer-xxl: 4.25rem;
-  --connect__spacer-xl: 2.125rem;
-  --connect__spacer-lg: 1.625rem;
-  --connect__spacer-md: 1.0625rem;
-  --connect__spacer-sm: 0.5625rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 68px;
+  --connect__spacer-xl: 34px;
+  --connect__spacer-lg: 26px;
+  --connect__spacer-md: 17px;
+  --connect__spacer-sm: 9px;
+  --connect__spacer-xs: 4px;
 
-  --connect__icon-xs: 1.875rem;
-  --connect__icon-sm: 1.875rem;
-  --connect__icon-md: 2.5rem;
-  --connect__icon-lg: 2.5rem;
-  --connect__icon-xl: 2.5rem;
+  --connect__icon-xs: 30px;
+  --connect__icon-sm: 30px;
+  --connect__icon-md: 40px;
+  --connect__icon-lg: 40px;
+  --connect__icon-xl: 40px;
 
-  --connect__total-border: 0.625rem;
-  --connect__border-radius: 0.875rem;
-  --connect__mcq-border-w: 0.1563rem;
-  --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: 0.375rem;
-  --connect__inner-status: 0.5rem;
-  --connect__inner-divider-width: 0.625rem;
+  --connect__total-border: 10px;
+  --connect__border-radius: 14px;
+  --connect__mcq-border-w: 2.5008px;
+  --connect__effects-inner-edge: 3px;
+  --connect__inner-radius: 6px;
+  --connect__inner-status: 8px;
+  --connect__inner-divider-width: 10px;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__g23 {
-    --connect__heading-xl: 3.75rem;
-    --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 7.5rem;
-    --connect__heading-lg: 3rem;
-    --connect__heading-lg-lheight: 3.75rem;
-    --connect__heading-lg-spacer: 6.25rem;
-    --connect__heading-md: 2.25rem;
-    --connect__heading-md-lheight: 2.875rem;
+    --connect__heading-xl: 60px;
+    --connect__heading-xl-lheight: 68px;
+    --connect__heading-xl-spacer: 120px;
+    --connect__heading-lg: 48px;
+    --connect__heading-lg-lheight: 60px;
+    --connect__heading-lg-spacer: 100px;
+    --connect__heading-md: 36px;
+    --connect__heading-md-lheight: 46px;
     --connect__heading-md-spacer: ;
-    --connect__heading-sm: 2.25rem;
-    --connect__heading-sm-lheight: 2.875rem;
-    --connect__heading-sm-spacer: 3.75rem;
-    --connect__body-lg: 1.625rem;
-    --connect__body-lg-lheight: 2.5rem;
-    --connect__body-lg-spacer: 2.5rem;
-    --connect__body-lg-head-lheight: 2.125rem;
-    --connect__body-md: 1.5rem;
-    --connect__body-md-lheight: 2.25rem;
-    --connect__body-md-spacer: 1.25rem;
-    --connect__body-md-head-lheight: 1.875rem;
-    --connect__body-sm: 1.375rem;
-    --connect__body-sm-lheight: 2.125rem;
-    --connect__body-sm-spacer: 2.5rem;
-    --connect__caption: 1.3125rem;
-    --connect__caption-lheight: 2rem;
-    --connect__caption-spacer: 2.5rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1.25rem;
+    --connect__heading-sm: 36px;
+    --connect__heading-sm-lheight: 46px;
+    --connect__heading-sm-spacer: 60px;
+    --connect__body-lg: 26px;
+    --connect__body-lg-lheight: 40px;
+    --connect__body-lg-spacer: 40px;
+    --connect__body-lg-head-lheight: 34px;
+    --connect__body-md: 24px;
+    --connect__body-md-lheight: 36px;
+    --connect__body-md-spacer: 20px;
+    --connect__body-md-head-lheight: 30px;
+    --connect__body-sm: 22px;
+    --connect__body-sm-lheight: 34px;
+    --connect__body-sm-spacer: 40px;
+    --connect__caption: 21px;
+    --connect__caption-lheight: 32px;
+    --connect__caption-spacer: 40px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 20px;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
+    --connect__spacer-xxl: 72px;
+    --connect__spacer-xl: 36px;
+    --connect__spacer-lg: 27px;
+    --connect__spacer-md: 18px;
 
-    --connect__icon-sm: 2.5rem;
-    --connect__icon-md: 3.125rem;
-    --connect__icon-lg: 3.125rem;
-    --connect__icon-xl: 3.75rem;
+    --connect__icon-sm: 40px;
+    --connect__icon-md: 50px;
+    --connect__icon-lg: 50px;
+    --connect__icon-xl: 60px;
 
-    --connect__border-radius: 1rem;
-    --connect__inner-radius: 0.5rem;
+    --connect__border-radius: 16px;
+    --connect__inner-radius: 8px;
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect__g23 {
-    --connect__heading-xl: 5.75rem;
-    --connect__heading-xl-lheight: 6.5rem;
-    --connect__heading-xl-spacer: 8.625rem;
-    --connect__heading-lg: 4rem;
-    --connect__heading-lg-lheight: 5rem;
-    --connect__heading-lg-spacer: 7.1875rem;
-    --connect__heading-md: 2.75rem;
-    --connect__heading-md-lheight: 3.5rem;
+    --connect__heading-xl: 92px;
+    --connect__heading-xl-lheight: 104px;
+    --connect__heading-xl-spacer: 138px;
+    --connect__heading-lg: 64px;
+    --connect__heading-lg-lheight: 80px;
+    --connect__heading-lg-spacer: 115px;
+    --connect__heading-md: 44px;
+    --connect__heading-md-lheight: 56px;
     --connect__heading-md-spacer: ;
-    --connect__heading-sm: 2.75rem;
-    --connect__heading-sm-lheight: 3.5rem;
-    --connect__heading-sm-spacer: 4.3125rem;
-    --connect__body-lg: 1.875rem;
-    --connect__body-lg-lheight: 2.875rem;
-    --connect__body-lg-spacer: 2.875rem;
-    --connect__body-lg-head-lheight: 2.375rem;
-    --connect__body-md: 1.6875rem;
-    --connect__body-md-lheight: 2.625rem;
-    --connect__body-md-spacer: 1.4375rem;
-    --connect__body-md-head-lheight: 2.125rem;
-    --connect__body-sm: 1.5rem;
-    --connect__body-sm-lheight: 2.25rem;
-    --connect__body-sm-spacer: 2.875rem;
-    --connect__caption: 1.375rem;
-    --connect__caption-lheight: 2.125rem;
-    --connect__caption-spacer: 2.875rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1.4375rem;
+    --connect__heading-sm: 44px;
+    --connect__heading-sm-lheight: 56px;
+    --connect__heading-sm-spacer: 69px;
+    --connect__body-lg: 30px;
+    --connect__body-lg-lheight: 46px;
+    --connect__body-lg-spacer: 46px;
+    --connect__body-lg-head-lheight: 38px;
+    --connect__body-md: 27px;
+    --connect__body-md-lheight: 42px;
+    --connect__body-md-spacer: 23px;
+    --connect__body-md-head-lheight: 34px;
+    --connect__body-sm: 24px;
+    --connect__body-sm-lheight: 36px;
+    --connect__body-sm-spacer: 46px;
+    --connect__caption: 22px;
+    --connect__caption-lheight: 34px;
+    --connect__caption-spacer: 46px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 23px;
 
-    --connect__spacer-xxl: 5.25rem;
-    --connect__spacer-xl: 2.625rem;
-    --connect__spacer-lg: 2rem;
-    --connect__spacer-md: 1.3125rem;
-    --connect__spacer-sm: 0.6875rem;
-    --connect__spacer-xs: 0.3125rem;
+    --connect__spacer-xxl: 84px;
+    --connect__spacer-xl: 42px;
+    --connect__spacer-lg: 32px;
+    --connect__spacer-md: 21px;
+    --connect__spacer-sm: 11px;
+    --connect__spacer-xs: 5px;
 
-    --connect__icon-lg: 3.75rem;
-    --connect__icon-xl: 4.375rem;
+    --connect__icon-lg: 60px;
+    --connect__icon-xl: 70px;
 
-    --connect__border-radius: 1.125rem;
-    --connect__inner-radius: 0.625rem;
+    --connect__border-radius: 18px;
+    --connect__inner-radius: 10px;
   }
 }
 
 .connect__g45 {
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 6rem;
-  --connect__heading-lg: 2.375rem;
-  --connect__heading-lg-lheight: 3rem;
-  --connect__heading-lg-spacer: 5rem;
-  --connect__heading-md: 2.125rem;
-  --connect__heading-md-lheight: 2.625rem;
-  --connect__heading-md-spacer: 4rem;
-  --connect__heading-sm: 1.625rem;
-  --connect__heading-sm-lheight: 2.125rem;
-  --connect__heading-sm-spacer: 3rem;
-  --connect__body-lg: 1.375rem;
-  --connect__body-lg-lheight: 2.125rem;
-  --connect__body-lg-spacer: 2rem;
-  --connect__body-lg-head-lheight: 1.75rem;
-  --connect__body-md: 1.3125rem;
-  --connect__body-md-lheight: 2rem;
-  --connect__body-md-spacer: 1rem;
-  --connect__body-md-head-lheight: 2rem;
-  --connect__body-sm: 1.25rem;
-  --connect__body-sm-lheight: 1.875rem;
-  --connect__body-sm-spacer: 2rem;
-  --connect__caption: 1.1875rem;
-  --connect__caption-lheight: 1.875rem;
-  --connect__caption-spacer: 2rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: 2rem;
+  --connect__heading-xl: 42px;
+  --connect__heading-xl-lheight: 48px;
+  --connect__heading-xl-spacer: 96px;
+  --connect__heading-lg: 38px;
+  --connect__heading-lg-lheight: 48px;
+  --connect__heading-lg-spacer: 80px;
+  --connect__heading-md: 34px;
+  --connect__heading-md-lheight: 42px;
+  --connect__heading-md-spacer: 64px;
+  --connect__heading-sm: 26px;
+  --connect__heading-sm-lheight: 34px;
+  --connect__heading-sm-spacer: 48px;
+  --connect__body-lg: 22px;
+  --connect__body-lg-lheight: 34px;
+  --connect__body-lg-spacer: 32px;
+  --connect__body-lg-head-lheight: 28px;
+  --connect__body-md: 21px;
+  --connect__body-md-lheight: 32px;
+  --connect__body-md-spacer: 16px;
+  --connect__body-md-head-lheight: 32px;
+  --connect__body-sm: 20px;
+  --connect__body-sm-lheight: 30px;
+  --connect__body-sm-spacer: 32px;
+  --connect__caption: 19px;
+  --connect__caption-lheight: 30px;
+  --connect__caption-spacer: 32px;
+  --connect__credits: 14px;
+  --connect__credits-lheight: 22px;
+  --connect__credits-spacer: 32px;
 
-  --connect__spacer-xxl: 4rem;
-  --connect__spacer-xl: 2rem;
-  --connect__spacer-lg: 1.5rem;
-  --connect__spacer-md: 1rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 64px;
+  --connect__spacer-xl: 32px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
 
-  --connect__icon-xs: 1.875rem;
-  --connect__icon-sm: 1.875rem;
-  --connect__icon-md: 1.875rem;
-  --connect__icon-lg: 2.5rem;
-  --connect__icon-xl: 3.125rem;
+  --connect__icon-xs: 30px;
+  --connect__icon-sm: 30px;
+  --connect__icon-md: 30px;
+  --connect__icon-lg: 40px;
+  --connect__icon-xl: 50px;
 
-  --connect__total-border: 0.5rem;
-  --connect__border-radius: 0.75rem;
-  --connect__mcq-border-w: 0.1563rem;
-  --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: 0.25rem;
-  --connect__inner-status: 0.4375rem;
-  --connect__inner-divider-width: 0.5rem;
+  --connect__total-border: 8px;
+  --connect__border-radius: 12px;
+  --connect__mcq-border-w: 2.5008px;
+  --connect__effects-inner-edge: 3px;
+  --connect__inner-radius: 4px;
+  --connect__inner-status: 7px;
+  --connect__inner-divider-width: 8px;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__g45 {
-    --connect__heading-xl: 3.75rem;
-    --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 6.375rem;
-    --connect__heading-lg: 3rem;
-    --connect__heading-lg-lheight: 3.75rem;
-    --connect__heading-lg-spacer: 5.3125rem;
-    --connect__heading-md: 2.625rem;
-    --connect__heading-md-lheight: 3.25rem;
-    --connect__heading-md-spacer: 4.25rem;
-    --connect__heading-sm: 1.875rem;
-    --connect__heading-sm-lheight: 2.375rem;
-    --connect__heading-sm-spacer: 3.1875rem;
-    --connect__body-lg: 1.5rem;
-    --connect__body-lg-lheight: 2.25rem;
-    --connect__body-lg-spacer: 2.125rem;
-    --connect__body-lg-head-lheight: 1.875rem;
-    --connect__body-md: 1.375rem;
-    --connect__body-md-lheight: 2.125rem;
-    --connect__body-md-spacer: 1.0625rem;
-    --connect__body-md-head-lheight: 2.125rem;
-    --connect__body-sm: 1.3125rem;
-    --connect__body-sm-lheight: 2rem;
-    --connect__body-sm-spacer: 2.125rem;
-    --connect__caption: 1.25rem;
-    --connect__caption-lheight: 1.875rem;
-    --connect__caption-spacer: 2.125rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1.0625rem;
+    --connect__heading-xl: 60px;
+    --connect__heading-xl-lheight: 68px;
+    --connect__heading-xl-spacer: 102px;
+    --connect__heading-lg: 48px;
+    --connect__heading-lg-lheight: 60px;
+    --connect__heading-lg-spacer: 85px;
+    --connect__heading-md: 42px;
+    --connect__heading-md-lheight: 52px;
+    --connect__heading-md-spacer: 68px;
+    --connect__heading-sm: 30px;
+    --connect__heading-sm-lheight: 38px;
+    --connect__heading-sm-spacer: 51px;
+    --connect__body-lg: 24px;
+    --connect__body-lg-lheight: 36px;
+    --connect__body-lg-spacer: 34px;
+    --connect__body-lg-head-lheight: 30px;
+    --connect__body-md: 22px;
+    --connect__body-md-lheight: 34px;
+    --connect__body-md-spacer: 17px;
+    --connect__body-md-head-lheight: 34px;
+    --connect__body-sm: 21px;
+    --connect__body-sm-lheight: 32px;
+    --connect__body-sm-spacer: 34px;
+    --connect__caption: 20px;
+    --connect__caption-lheight: 30px;
+    --connect__caption-spacer: 34px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 17px;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
+    --connect__spacer-xxl: 68px;
+    --connect__spacer-xl: 34px;
+    --connect__spacer-lg: 26px;
+    --connect__spacer-md: 17px;
+    --connect__spacer-sm: 9px;
+    --connect__spacer-xs: 4px;
 
-    --connect__icon-xl: 3.75rem;
+    --connect__icon-xl: 60px;
 
-    --connect__border-radius: 0.875rem;
-    --connect__inner-radius: 0.375rem;
+    --connect__border-radius: 14px;
+    --connect__inner-radius: 6px;
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect__g45 {
-    --connect__heading-xl: 5.75rem;
-    --connect__heading-xl-lheight: 6.5rem;
-    --connect__heading-xl-spacer: 6.75rem;
-    --connect__heading-lg: 4rem;
-    --connect__heading-lg-lheight: 5rem;
-    --connect__heading-lg-spacer: 5.625rem;
-    --connect__heading-md: 3.25rem;
-    --connect__heading-md-lheight: 4.125rem;
-    --connect__heading-md-spacer: 4.5rem;
-    --connect__heading-sm: 2.25rem;
-    --connect__heading-sm-lheight: 2.875rem;
-    --connect__heading-sm-spacer: 3.375rem;
-    --connect__body-lg: 1.6875rem;
-    --connect__body-lg-lheight: 2.625rem;
-    --connect__body-lg-spacer: 2.25rem;
-    --connect__body-lg-head-lheight: 2.125rem;
-    --connect__body-md: 1.5rem;
-    --connect__body-md-lheight: 2.25rem;
-    --connect__body-md-spacer: 1.125rem;
-    --connect__body-md-head-lheight: 2.25rem;
-    --connect__body-sm: 1.375rem;
-    --connect__body-sm-lheight: 2.125rem;
-    --connect__body-sm-spacer: 2.25rem;
-    --connect__caption: 1.25rem;
-    --connect__caption-lheight: 1.875rem;
-    --connect__caption-spacer: 2.25rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1.125rem;
+    --connect__heading-xl: 92px;
+    --connect__heading-xl-lheight: 104px;
+    --connect__heading-xl-spacer: 108px;
+    --connect__heading-lg: 64px;
+    --connect__heading-lg-lheight: 80px;
+    --connect__heading-lg-spacer: 90px;
+    --connect__heading-md: 52px;
+    --connect__heading-md-lheight: 66px;
+    --connect__heading-md-spacer: 72px;
+    --connect__heading-sm: 36px;
+    --connect__heading-sm-lheight: 46px;
+    --connect__heading-sm-spacer: 54px;
+    --connect__body-lg: 27px;
+    --connect__body-lg-lheight: 42px;
+    --connect__body-lg-spacer: 36px;
+    --connect__body-lg-head-lheight: 34px;
+    --connect__body-md: 24px;
+    --connect__body-md-lheight: 36px;
+    --connect__body-md-spacer: 18px;
+    --connect__body-md-head-lheight: 36px;
+    --connect__body-sm: 22px;
+    --connect__body-sm-lheight: 34px;
+    --connect__body-sm-spacer: 36px;
+    --connect__caption: 20px;
+    --connect__caption-lheight: 30px;
+    --connect__caption-spacer: 36px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 18px;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.3125rem;
-    --connect__icon-lg: 3.125rem;
+    --connect__spacer-xxl: 72px;
+    --connect__spacer-xl: 36px;
+    --connect__spacer-lg: 27px;
+    --connect__spacer-md: 18px;
+    --connect__spacer-sm: 9px;
+    --connect__spacer-xs: 5px;
+    --connect__icon-lg: 50px;
 
-    --connect__border-radius: 1rem;
-    --connect__inner-radius: 0.5rem;
+    --connect__border-radius: 16px;
+    --connect__inner-radius: 8px;
   }
 }
 
 .connect__g68 {
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 5.625rem;
-  --connect__heading-lg: 2.375rem;
-  --connect__heading-lg-lheight: 3rem;
-  --connect__heading-lg-spacer: 4.6875rem;
-  --connect__heading-md: 1.875rem;
-  --connect__heading-md-lheight: 2.375rem;
-  --connect__heading-md-spacer: 3.75rem;
-  --connect__heading-sm: 1.5rem;
-  --connect__heading-sm-lheight: 1.875rem;
-  --connect__heading-sm-spacer: 2.8125rem;
-  --connect__body-lg: 1.3125rem;
-  --connect__body-lg-lheight: 2rem;
-  --connect__body-lg-spacer: 1.875rem;
-  --connect__body-lg-head-lheight: 2rem;
-  --connect__body-md: 1.25rem;
-  --connect__body-md-lheight: 1.875rem;
-  --connect__body-md-spacer: 0.9375rem;
-  --connect__body-md-head-lheight: 1.875rem;
-  --connect__body-sm: 1.1875rem;
-  --connect__body-sm-lheight: 1.875rem;
-  --connect__body-sm-spacer: 1.875rem;
-  --connect__caption: 1.0625rem;
-  --connect__caption-lheight: 1.625rem;
-  --connect__caption-spacer: 1.875rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: 0.9375rem;
+  --connect__heading-xl: 42px;
+  --connect__heading-xl-lheight: 48px;
+  --connect__heading-xl-spacer: 90px;
+  --connect__heading-lg: 38px;
+  --connect__heading-lg-lheight: 48px;
+  --connect__heading-lg-spacer: 75px;
+  --connect__heading-md: 30px;
+  --connect__heading-md-lheight: 38px;
+  --connect__heading-md-spacer: 60px;
+  --connect__heading-sm: 24px;
+  --connect__heading-sm-lheight: 30px;
+  --connect__heading-sm-spacer: 45px;
+  --connect__body-lg: 21px;
+  --connect__body-lg-lheight: 32px;
+  --connect__body-lg-spacer: 30px;
+  --connect__body-lg-head-lheight: 32px;
+  --connect__body-md: 20px;
+  --connect__body-md-lheight: 30px;
+  --connect__body-md-spacer: 15px;
+  --connect__body-md-head-lheight: 30px;
+  --connect__body-sm: 19px;
+  --connect__body-sm-lheight: 30px;
+  --connect__body-sm-spacer: 30px;
+  --connect__caption: 17px;
+  --connect__caption-lheight: 26px;
+  --connect__caption-spacer: 30px;
+  --connect__credits: 14px;
+  --connect__credits-lheight: 22px;
+  --connect__credits-spacer: 15px;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 60px;
+  --connect__spacer-xl: 30px;
+  --connect__spacer-lg: 23px;
+  --connect__spacer-md: 15px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
 
-  --connect__icon-xs: 1.25rem;
-  --connect__icon-sm: 1.25rem;
-  --connect__icon-md: 1.875rem;
-  --connect__icon-lg: 1.875rem;
-  --connect__icon-xl: 2.5rem;
+  --connect__icon-xs: 20px;
+  --connect__icon-sm: 20px;
+  --connect__icon-md: 30px;
+  --connect__icon-lg: 30px;
+  --connect__icon-xl: 40px;
 
-  --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.625rem;
-  --connect__mcq-border-w: 0.1563rem;
-  --connect__effects-inner-edge: 0.125rem;
-  --connect__inner-status: 0.25rem;
-  --connect__inner-radius: 0.25rem;
-  --connect__inner-divider-width: 0.375rem;
+  --connect__total-border: 6px;
+  --connect__border-radius: 10px;
+  --connect__mcq-border-w: 2.5008px;
+  --connect__effects-inner-edge: 2px;
+  --connect__inner-status: 4px;
+  --connect__inner-radius: 4px;
+  --connect__inner-divider-width: 6px;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__g68 {
-    --connect__heading-xl: 3.75rem;
-    --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 6rem;
-    --connect__heading-lg: 3rem;
-    --connect__heading-lg-lheight: 3.75rem;
-    --connect__heading-lg-spacer: 5rem;
-    --connect__heading-md: 2.25rem;
-    --connect__heading-md-lheight: 2.875rem;
-    --connect__heading-md-spacer: 4rem;
-    --connect__heading-sm: 1.625rem;
-    --connect__heading-sm-lheight: 2.125rem;
-    --connect__heading-sm-spacer: 3rem;
-    --connect__body-lg: 1.375rem;
-    --connect__body-lg-lheight: 2.125rem;
-    --connect__body-lg-spacer: 2rem;
-    --connect__body-lg-head-lheight: 2.125rem;
-    --connect__body-md: 1.3125rem;
-    --connect__body-md-lheight: 2rem;
-    --connect__body-md-spacer: 1rem;
-    --connect__body-md-head-lheight: 2rem;
-    --connect__body-sm: 1.25rem;
-    --connect__body-sm-lheight: 1.875rem;
-    --connect__body-sm-spacer: 2rem;
-    --connect__caption: 1.125rem;
-    --connect__caption-lheight: 1.75rem;
-    --connect__caption-spacer: 2rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1rem;
+    --connect__heading-xl: 60px;
+    --connect__heading-xl-lheight: 68px;
+    --connect__heading-xl-spacer: 96px;
+    --connect__heading-lg: 48px;
+    --connect__heading-lg-lheight: 60px;
+    --connect__heading-lg-spacer: 80px;
+    --connect__heading-md: 36px;
+    --connect__heading-md-lheight: 46px;
+    --connect__heading-md-spacer: 64px;
+    --connect__heading-sm: 26px;
+    --connect__heading-sm-lheight: 34px;
+    --connect__heading-sm-spacer: 48px;
+    --connect__body-lg: 22px;
+    --connect__body-lg-lheight: 34px;
+    --connect__body-lg-spacer: 32px;
+    --connect__body-lg-head-lheight: 34px;
+    --connect__body-md: 21px;
+    --connect__body-md-lheight: 32px;
+    --connect__body-md-spacer: 16px;
+    --connect__body-md-head-lheight: 32px;
+    --connect__body-sm: 20px;
+    --connect__body-sm-lheight: 30px;
+    --connect__body-sm-spacer: 32px;
+    --connect__caption: 18px;
+    --connect__caption-lheight: 28px;
+    --connect__caption-spacer: 32px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 16px;
 
-    --connect__spacer-xxl: 4rem;
-    --connect__spacer-xl: 2rem;
-    --connect__spacer-lg: 1.5rem;
-    --connect__spacer-md: 1rem;
-    --connect__spacer-sm: 0.5rem;
-    --connect__spacer-xs: 0.25rem;
+    --connect__spacer-xxl: 64px;
+    --connect__spacer-xl: 32px;
+    --connect__spacer-lg: 24px;
+    --connect__spacer-md: 16px;
+    --connect__spacer-sm: 8px;
+    --connect__spacer-xs: 4px;
 
-    --connect__icon-lg: 2.5rem;
-    --connect__icon-xl: 3.75rem;
+    --connect__icon-lg: 40px;
+    --connect__icon-xl: 60px;
 
-    --connect__border-radius: 0.75rem;
-    --connect__inner-radius: 0.375rem;
+    --connect__border-radius: 12px;
+    --connect__inner-radius: 6px;
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect__g68 {
-    --connect__heading-xl: 5.75rem;
-    --connect__heading-xl-lheight: 6.5rem;
-    --connect__heading-xl-spacer: 6.375rem;
-    --connect__heading-lg: 4rem;
-    --connect__heading-lg-lheight: 5rem;
-    --connect__heading-lg-spacer: 5.3125rem;
-    --connect__heading-md: 2.75rem;
-    --connect__heading-md-lheight: 3.5rem;
-    --connect__heading-md-spacer: 4.25rem;
-    --connect__heading-sm: 1.875rem;
-    --connect__heading-sm-lheight: 2.375rem;
-    --connect__heading-sm-spacer: 3.1875rem;
-    --connect__body-lg: 1.5rem;
-    --connect__body-lg-lheight: 2.25rem;
-    --connect__body-lg-spacer: 2.125rem;
-    --connect__body-lg-head-lheight: 2.25rem;
-    --connect__body-md: 1.375rem;
-    --connect__body-md-lheight: 2.125rem;
-    --connect__body-md-spacer: 1.0625rem;
-    --connect__body-md-head-lheight: 2.125rem;
-    --connect__body-sm: 1.25rem;
-    --connect__body-sm-lheight: 1.875rem;
-    --connect__body-sm-spacer: 2.125rem;
-    --connect__caption: 1.125rem;
-    --connect__caption-lheight: 1.75rem;
-    --connect__caption-spacer: 2.125rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: 1.0625rem;
+    --connect__heading-xl: 92px;
+    --connect__heading-xl-lheight: 104px;
+    --connect__heading-xl-spacer: 102px;
+    --connect__heading-lg: 64px;
+    --connect__heading-lg-lheight: 80px;
+    --connect__heading-lg-spacer: 85px;
+    --connect__heading-md: 44px;
+    --connect__heading-md-lheight: 56px;
+    --connect__heading-md-spacer: 68px;
+    --connect__heading-sm: 30px;
+    --connect__heading-sm-lheight: 38px;
+    --connect__heading-sm-spacer: 51px;
+    --connect__body-lg: 24px;
+    --connect__body-lg-lheight: 36px;
+    --connect__body-lg-spacer: 34px;
+    --connect__body-lg-head-lheight: 36px;
+    --connect__body-md: 22px;
+    --connect__body-md-lheight: 34px;
+    --connect__body-md-spacer: 17px;
+    --connect__body-md-head-lheight: 34px;
+    --connect__body-sm: 20px;
+    --connect__body-sm-lheight: 30px;
+    --connect__body-sm-spacer: 34px;
+    --connect__caption: 18px;
+    --connect__caption-lheight: 28px;
+    --connect__caption-spacer: 34px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
+    --connect__credits-spacer: 17px;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
+    --connect__spacer-xxl: 68px;
+    --connect__spacer-xl: 34px;
+    --connect__spacer-lg: 26px;
+    --connect__spacer-md: 17px;
+    --connect__spacer-sm: 9px;
+    --connect__spacer-xs: 4px;
 
-    --connect__icon-lg: 3.125rem;
+    --connect__icon-lg: 50px;
 
-    --connect__border-radius: 0.875rem;
-    --connect__inner-radius: 0.5rem;
+    --connect__border-radius: 14px;
+    --connect__inner-radius: 8px;
   }
 }
 
 .connect__g912 {
-  --connect__heading-xl: 2.625rem;
-  --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 5.625rem;
-  --connect__heading-lg: 2.125rem;
-  --connect__heading-lg-lheight: 2.625rem;
-  --connect__heading-lg-spacer: 4.6875rem;
-  --connect__heading-md: 1.875rem;
-  --connect__heading-md-lheight: 2.375rem;
-  --connect__heading-md-spacer: 3.75rem;
-  --connect__heading-sm: 1.5rem;
-  --connect__heading-sm-lheight: 1.875rem;
-  --connect__heading-sm-spacer: 2.8125rem;
-  --connect__body-lg: 1.3125rem;
-  --connect__body-lg-lheight: 2rem;
-  --connect__body-lg-spacer: 1.875rem;
-  --connect__body-lg-head-lheight: 2rem;
-  --connect__body-md: 1.1875rem;
-  --connect__body-md-lheight: 1.875rem;
-  --connect__body-md-spacer: 0.9375rem;
-  --connect__body-md-head-lheight: 1.875rem;
-  --connect__body-sm: 1.0625rem;
-  --connect__body-sm-lheight: 1.625rem;
-  --connect__body-sm-spacer: 1.875rem;
-  --connect__caption: 1rem;
-  --connect__caption-lheight: 1.5rem;
-  --connect__caption-spacer: 1.875rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: 0.9375rem;
+  --connect__heading-xl: 42px;
+  --connect__heading-xl-lheight: 48px;
+  --connect__heading-xl-spacer: 90px;
+  --connect__heading-lg: 34px;
+  --connect__heading-lg-lheight: 42px;
+  --connect__heading-lg-spacer: 75px;
+  --connect__heading-md: 30px;
+  --connect__heading-md-lheight: 38px;
+  --connect__heading-md-spacer: 60px;
+  --connect__heading-sm: 24px;
+  --connect__heading-sm-lheight: 30px;
+  --connect__heading-sm-spacer: 45px;
+  --connect__body-lg: 21px;
+  --connect__body-lg-lheight: 32px;
+  --connect__body-lg-spacer: 30px;
+  --connect__body-lg-head-lheight: 32px;
+  --connect__body-md: 19px;
+  --connect__body-md-lheight: 30px;
+  --connect__body-md-spacer: 15px;
+  --connect__body-md-head-lheight: 30px;
+  --connect__body-sm: 17px;
+  --connect__body-sm-lheight: 26px;
+  --connect__body-sm-spacer: 30px;
+  --connect__caption: 16px;
+  --connect__caption-lheight: 24px;
+  --connect__caption-spacer: 30px;
+  --connect__credits: 14px;
+  --connect__credits-lheight: 22px;
+  --connect__credits-spacer: 15px;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 60px;
+  --connect__spacer-xl: 30px;
+  --connect__spacer-lg: 23px;
+  --connect__spacer-md: 15px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
 
-  --connect__icon-xs: 1.25rem;
-  --connect__icon-sm: 1.25rem;
-  --connect__icon-md: 1.875rem;
-  --connect__icon-lg: 1.875rem;
-  --connect__icon-xl: 2.5rem;
+  --connect__icon-xs: 20px;
+  --connect__icon-sm: 20px;
+  --connect__icon-md: 30px;
+  --connect__icon-lg: 30px;
+  --connect__icon-xl: 40px;
 
-  --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.5rem;
-  --connect__mcq-border-w: 0.125rem;
-  --connect__effects-inner-edge: 0.125rem;
-  --connect__inner-status: 0.25rem;
-  --connect__inner-radius: 0.125rem;
-  --connect__inner-divider-width: 0.375rem;
+  --connect__total-border: 6px;
+  --connect__border-radius: 8px;
+  --connect__mcq-border-w: 2px;
+  --connect__effects-inner-edge: 2px;
+  --connect__inner-status: 4px;
+  --connect__inner-radius: 2px;
+  --connect__inner-divider-width: 6px;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__g912 {
-    --connect__heading-xl: 3.375rem;
-    --connect__heading-xl-lheight: 3.875rem;
-    --connect__heading-lg: 2.625rem;
-    --connect__heading-lg-lheight: 3.25rem;
-    --connect__heading-md: 2.25rem;
-    --connect__heading-md-lheight: 2.875rem;
-    --connect__heading-sm: 1.625rem;
-    --connect__heading-sm-lheight: 2.125rem;
-    --connect__body-lg: 1.375rem;
-    --connect__body-lg-lheight: 2.125rem;
-    --connect__body-lg-head-lheight: 2.125rem;
-    --connect__body-md: 1.25rem;
-    --connect__body-md-lheight: 1.875rem;
-    --connect__body-md-head-lheight: 1.875rem;
-    --connect__body-sm: 1.125rem;
-    --connect__body-sm-lheight: 1.75rem;
-    --connect__caption: 1rem;
-    --connect__caption-lheight: 1.5rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
+    --connect__heading-xl: 54px;
+    --connect__heading-xl-lheight: 62px;
+    --connect__heading-lg: 42px;
+    --connect__heading-lg-lheight: 52px;
+    --connect__heading-md: 36px;
+    --connect__heading-md-lheight: 46px;
+    --connect__heading-sm: 26px;
+    --connect__heading-sm-lheight: 34px;
+    --connect__body-lg: 22px;
+    --connect__body-lg-lheight: 34px;
+    --connect__body-lg-head-lheight: 34px;
+    --connect__body-md: 20px;
+    --connect__body-md-lheight: 30px;
+    --connect__body-md-head-lheight: 30px;
+    --connect__body-sm: 18px;
+    --connect__body-sm-lheight: 28px;
+    --connect__caption: 16px;
+    --connect__caption-lheight: 24px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
 
-    --connect__spacer-xxl: 3.75rem;
-    --connect__spacer-xl: 1.875rem;
-    --connect__spacer-lg: 1.4375rem;
-    --connect__spacer-md: 0.9375rem;
-    --connect__spacer-sm: 0.5rem;
-    --connect__spacer-xs: 0.25rem;
-    --connect__icon-lg: 2.5rem;
-    --connect__icon-xl: 3.125rem;
+    --connect__spacer-xxl: 60px;
+    --connect__spacer-xl: 30px;
+    --connect__spacer-lg: 23px;
+    --connect__spacer-md: 15px;
+    --connect__spacer-sm: 8px;
+    --connect__spacer-xs: 4px;
+    --connect__icon-lg: 40px;
+    --connect__icon-xl: 50px;
 
-    --connect__border-radius: 0.625rem;
-    --connect__inner-radius: 0.25rem;
+    --connect__border-radius: 10px;
+    --connect__inner-radius: 4px;
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect__g912 {
-    --connect__heading-xl: 4.75rem;
-    --connect__heading-xl-lheight: 5.375rem;
-    --connect__heading-lg: 3.25rem;
-    --connect__heading-lg-lheight: 4.125rem;
-    --connect__heading-md: 2.75rem;
-    --connect__heading-md-lheight: 3.5rem;
-    --connect__heading-sm: 1.875rem;
-    --connect__heading-sm-lheight: 2.375rem;
-    --connect__body-lg: 1.5rem;
-    --connect__body-lg-lheight: 2.25rem;
-    --connect__body-lg-head-lheight: 2.25rem;
-    --connect__body-md: 1.25rem;
-    --connect__body-md-lheight: 1.875rem;
-    --connect__body-md-head-lheight: 1.875rem;
-    --connect__body-sm: 1.125rem;
-    --connect__body-sm-lheight: 1.75rem;
-    --connect__caption: 1rem;
-    --connect__caption-lheight: 1.5rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
+    --connect__heading-xl: 76px;
+    --connect__heading-xl-lheight: 86px;
+    --connect__heading-lg: 52px;
+    --connect__heading-lg-lheight: 66px;
+    --connect__heading-md: 44px;
+    --connect__heading-md-lheight: 56px;
+    --connect__heading-sm: 30px;
+    --connect__heading-sm-lheight: 38px;
+    --connect__body-lg: 24px;
+    --connect__body-lg-lheight: 36px;
+    --connect__body-lg-head-lheight: 36px;
+    --connect__body-md: 20px;
+    --connect__body-md-lheight: 30px;
+    --connect__body-md-head-lheight: 30px;
+    --connect__body-sm: 18px;
+    --connect__body-sm-lheight: 28px;
+    --connect__caption: 16px;
+    --connect__caption-lheight: 24px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
 
-    --connect__spacer-xxl: 3.75rem;
-    --connect__spacer-xl: 1.875rem;
-    --connect__spacer-lg: 1.4375rem;
-    --connect__spacer-md: 0.9375rem;
-    --connect__spacer-sm: 0.5rem;
-    --connect__spacer-xs: 0.25rem;
+    --connect__spacer-xxl: 60px;
+    --connect__spacer-xl: 30px;
+    --connect__spacer-lg: 23px;
+    --connect__spacer-md: 15px;
+    --connect__spacer-sm: 8px;
+    --connect__spacer-xs: 4px;
 
-    --connect__icon-xs: 1.25rem;
-    --connect__icon-lg: 3.75rem;
-    --connect__icon-xl: 3.125rem;
+    --connect__icon-xs: 20px;
+    --connect__icon-lg: 60px;
+    --connect__icon-xl: 50px;
 
-    --connect__border-radius: 0.75rem;
-    --connect__inner-radius: 0.375rem;
+    --connect__border-radius: 12px;
+    --connect__inner-radius: 6px;
   }
 }
 
 .connect__teach {
-  --connect__heading-xl: 1.875rem;
-  --connect__heading-xl-lheight: 2.375rem;
-  --connect__heading-lg: 1.625rem;
-  --connect__heading-lg-lheight: 2.125rem;
-  --connect__heading-md: 1.3125rem;
-  --connect__heading-md-lheight: 2rem;
-  --connect__heading-sm: 1.25rem;
-  --connect__heading-sm-lheight: 1.875rem;
-  --connect__body-lg: 1.1875rem;
-  --connect__body-lg-lheight: 1.875rem;
-  --connect__body-lg-head-lheight: 1.875rem;
-  --connect__body-md: 1.0625rem;
-  --connect__body-md-lheight: 1.625rem;
-  --connect__body-md-head-lheight: 1.625rem;
-  --connect__body-sm: 1rem;
-  --connect__body-sm-lheight: 1.5rem;
-  --connect__caption: 0.875rem;
-  --connect__caption-lheight: 1.375rem;
-  --connect__credits: 0.875rem;
-  --connect__credits-lheight: 1.375rem;
+  --connect__heading-xl: 30px;
+  --connect__heading-xl-lheight: 38px;
+  --connect__heading-lg: 26px;
+  --connect__heading-lg-lheight: 34px;
+  --connect__heading-md: 21px;
+  --connect__heading-md-lheight: 32px;
+  --connect__heading-sm: 20px;
+  --connect__heading-sm-lheight: 30px;
+  --connect__body-lg: 19px;
+  --connect__body-lg-lheight: 30px;
+  --connect__body-lg-head-lheight: 30px;
+  --connect__body-md: 17px;
+  --connect__body-md-lheight: 26px;
+  --connect__body-md-head-lheight: 26px;
+  --connect__body-sm: 16px;
+  --connect__body-sm-lheight: 24px;
+  --connect__caption: 14px;
+  --connect__caption-lheight: 22px;
+  --connect__credits: 14px;
+  --connect__credits-lheight: 22px;
 
-  --connect__spacer-xxl: 3.25rem;
-  --connect__spacer-xl: 1.625rem;
-  --connect__spacer-lg: 1.25rem;
-  --connect__spacer-md: 0.8125rem;
-  --connect__spacer-sm: 0.4063rem;
-  --connect__spacer-xs: 0.2031rem;
+  --connect__spacer-xxl: 52px;
+  --connect__spacer-xl: 26px;
+  --connect__spacer-lg: 20px;
+  --connect__spacer-md: 13px;
+  --connect__spacer-sm: 6.5008px;
+  --connect__spacer-xs: 3.2496px;
 
-  --connect__icon-xs: 1.25rem;
-  --connect__icon-sm: 1.25rem;
-  --connect__icon-md: 1.875rem;
-  --connect__icon-lg: 1.875rem;
-  --connect__icon-xl: 1.875rem;
+  --connect__icon-xs: 20px;
+  --connect__icon-sm: 20px;
+  --connect__icon-md: 30px;
+  --connect__icon-lg: 30px;
+  --connect__icon-xl: 30px;
 
-  --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.5rem;
-  --connect__mcq-border-w: 0.125rem;
-  --connect__inner-radius: 0.125rem;
-  --connect__effects-inner-edge: 0.125rem;
-  --connect__inner-status: 0.25rem;
-  --connect__inner-divider-width: 0.375rem;
+  --connect__total-border: 6px;
+  --connect__border-radius: 8px;
+  --connect__mcq-border-w: 2px;
+  --connect__inner-radius: 2px;
+  --connect__effects-inner-edge: 2px;
+  --connect__inner-status: 4px;
+  --connect__inner-divider-width: 6px;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__teach {
-    --connect__heading-xl: 2.25rem;
-    --connect__heading-xl-lheight: 2.875rem;
-    --connect__heading-lg: 1.875rem;
-    --connect__heading-lg-lheight: 2.375rem;
-    --connect__heading-md: 1.375rem;
-    --connect__heading-md-lheight: 2.125rem;
-    --connect__heading-sm: 1.3125rem;
-    --connect__heading-sm-lheight: 2rem;
-    --connect__body-lg: 1.25rem;
-    --connect__body-lg-lheight: 1.875rem;
-    --connect__body-lg-head-lheight: 1.875rem;
-    --connect__body-md: 1.125rem;
-    --connect__body-md-lheight: 1.75rem;
-    --connect__body-md-head-lheight: 1.75rem;
-    --connect__body-sm: 1rem;
-    --connect__body-sm-lheight: 1.5rem;
-    --connect__caption: 0.875rem;
-    --connect__caption-lheight: 1.375rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
+    --connect__heading-xl: 36px;
+    --connect__heading-xl-lheight: 46px;
+    --connect__heading-lg: 30px;
+    --connect__heading-lg-lheight: 38px;
+    --connect__heading-md: 22px;
+    --connect__heading-md-lheight: 34px;
+    --connect__heading-sm: 21px;
+    --connect__heading-sm-lheight: 32px;
+    --connect__body-lg: 20px;
+    --connect__body-lg-lheight: 30px;
+    --connect__body-lg-head-lheight: 30px;
+    --connect__body-md: 18px;
+    --connect__body-md-lheight: 28px;
+    --connect__body-md-head-lheight: 28px;
+    --connect__body-sm: 16px;
+    --connect__body-sm-lheight: 24px;
+    --connect__caption: 14px;
+    --connect__caption-lheight: 22px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
 
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
+    --connect__spacer-xxl: 56px;
+    --connect__spacer-xl: 28px;
+    --connect__spacer-lg: 21px;
+    --connect__spacer-md: 14px;
+    --connect__spacer-sm: 7px;
+    --connect__spacer-xs: 3.5008px;
 
-    --connect__border-radius: 0.5rem;
-    --connect__inner-radius: 0.125rem;
+    --connect__border-radius: 8px;
+    --connect__inner-radius: 2px;
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   .connect__teach {
-    --connect__heading-xl: 2.75rem;
-    --connect__heading-xl-lheight: 3.5rem;
-    --connect__heading-lg: 2.25rem;
-    --connect__heading-lg-lheight: 2.875rem;
-    --connect__heading-md: 1.5rem;
-    --connect__heading-md-lheight: 2.25rem;
-    --connect__heading-sm: 1.375rem;
-    --connect__heading-sm-lheight: 2.125rem;
-    --connect__body-lg: 1.25rem;
-    --connect__body-lg-lheight: 1.875rem;
-    --connect__body-lg-head-lheight: 1.875rem;
-    --connect__body-md: 1.125rem;
-    --connect__body-md-lheight: 1.75rem;
-    --connect__body-md-head-lheight: 1.75rem;
-    --connect__body-sm: 1rem;
-    --connect__body-sm-lheight: 1.5rem;
-    --connect__caption: 0.875rem;
-    --connect__caption-lheight: 1.375rem;
-    --connect__credits: 0.875rem;
-    --connect__credits-lheight: 1.375rem;
+    --connect__heading-xl: 44px;
+    --connect__heading-xl-lheight: 56px;
+    --connect__heading-lg: 36px;
+    --connect__heading-lg-lheight: 46px;
+    --connect__heading-md: 24px;
+    --connect__heading-md-lheight: 36px;
+    --connect__heading-sm: 22px;
+    --connect__heading-sm-lheight: 34px;
+    --connect__body-lg: 20px;
+    --connect__body-lg-lheight: 30px;
+    --connect__body-lg-head-lheight: 30px;
+    --connect__body-md: 18px;
+    --connect__body-md-lheight: 28px;
+    --connect__body-md-head-lheight: 28px;
+    --connect__body-sm: 16px;
+    --connect__body-sm-lheight: 24px;
+    --connect__caption: 14px;
+    --connect__caption-lheight: 22px;
+    --connect__credits: 14px;
+    --connect__credits-lheight: 22px;
 
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
-    --connect__icon-xl: 2.5rem;
+    --connect__spacer-xxl: 56px;
+    --connect__spacer-xl: 28px;
+    --connect__spacer-lg: 21px;
+    --connect__spacer-md: 14px;
+    --connect__spacer-sm: 7px;
+    --connect__spacer-xs: 3.5008px;
+    --connect__icon-xl: 40px;
 
-    --connect__border-radius: 0.625rem;
-    --connect__inner-radius: 0.25rem;
+    --connect__border-radius: 10px;
+    --connect__inner-radius: 4px;
   }
 }
 
@@ -739,6 +739,7 @@
 
   --checked-correct: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M15.8284 2 18 4.19383C15.7166 6.50054 12.7845 10.4477 9.23543 16.012L7.96739 18 6.6675 16.0331C5.30261 13.9678 3.74716 12.535 2 11.7022l1.31048-2.8059c1.68248.80193 3.19637 2.0004 4.54119 3.5823C10.982 7.70473 13.6335 4.21734 15.8284 2Z'/%3E%3C/svg%3E");
   --checked-incorrect: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='m14.0007 14.4844-2.187 1.7496c-.6199-.775-1.4294-2.0423-2.43608-3.8125l-4.39723 4.3972L3 14.8383l4.9728-4.97278c-.85583-1.60164-1.81767-3.47131-2.88853-5.61301L7.58929 3c.89682 1.79363 1.71585 3.39244 2.45521 4.79385l4.6884-4.68847 1.9804 1.98039-5.2791 5.27913c1.11 1.9948 1.969 3.3726 2.5665 4.1195Z'/%3E%3C/svg%3E");
+  --connect__hint-size: var(--connect__spacer-xs);
 }
 
 .connect__g68,
@@ -756,6 +757,41 @@
   --connect__incorrect-pale: var(--connect__red-s15);
   --checked-incorrect-bg: var(--connect__incorrect-mid);
   --color-incorrect-bg: var(--connect__incorrect-pale);
+
+  --connect__hint-size: var(--connect__spacer-sm);
+}
+
+/* .connect__g23,
+.connect__g45,
+.connect__g68,
+.connect__g912,
+.connect__teach {
+  --connect__dropdown-max-w: 230px;
+  --connect__input-max-w: 230px;
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
+
+  @media (min-width: 650px) {
+    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
+    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
+  }
+} */
+
+.connect__g23,
+.connect__g45,
+.connect__g68,
+.connect__g912,
+.connect__teach {
+  /* 230px all grades */
+  --connect__dropdown-max-w: 230px;
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__input-max-w: 230px;
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
+
+  @media (min-width: 650px) {
+    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
+    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 7));
+  }
 }
 
 :root {
@@ -774,10 +810,10 @@
   /*
     1.1: Source grid properties
   */
-  --base-lheight: 2rem;
-  --half-lheight: 1rem;
-  --col-width: calc((100vw - 2rem) / 12);
-  --gutter-width: 1rem;
+  --base-lheight: 32px;
+  --half-lheight: 16px;
+  --col-width: calc((100vw - 32px) / 12);
+  --gutter-width: 16px;
 
   /*
     2: TYPOGRAPHY
@@ -808,10 +844,24 @@
   --connect__text-left: left;
   --connect__text-center: left;
 
+ 
   /* 2.4: Font Styles */
   --connect__fs-normal: normal;
   --connect__fs-italic: italic;
   --connect__fs-oblique: oblique;
+  
+  /* 2.5 Typography helpers */
+  --connect__style-normal: normal;
+  --connect__style-italic: italic;
+
+  --connect__text-capitalize: capitalize;
+  --connect__text-uppercase: uppercase;
+  --connect__text-lowercase: lowercase;
+
+  --connect__text-ellipsis: ellipsis;
+
+  --connect__white-space-normal: normal;
+  --connect__white-space-nowrap: nowrap;
 
   /*
     3: Palette
@@ -962,36 +1012,36 @@
     interactive shadows
 
   */
-  --connect__shadow-reset: 0rem 0rem 0rem;
-  --connect__definer-level-1: 0rem 0rem 0rem 0.0625rem;
-  --connect__definer-level-0: 0rem 0rem 0rem 0rem;
+  --connect__shadow-reset: 0px 0px 0px;
+  --connect__definer-level-1: 0px 0px 0px 1px;
+  --connect__definer-level-0: 0px 0px 0px 0px;
 
-  --connect__short-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__short-shadow-spread-level-1: 0rem 0.0625rem 0.1875rem 0rem;
-  --connect__short-shadow-spread-level-2: 0rem 0.0625rem 0.3125rem 0rem;
-  --connect__short-shadow-spread-level-3: 0rem 0.0625rem 0.5rem 0rem;
-  --connect__short-shadow-spread-level-4: 0rem 0.0625rem 0.625rem 0rem;
-  --connect__short-shadow-spread-level-5: 0rem 0.0625rem 1.125rem 0rem;
-  --connect__short-shadow-spread-level-6: 0rem 0.1875rem 0.875rem 0.125rem;
-  --connect__short-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.0625rem;
+  --connect__short-shadow-spread-level-0: 0px 0px 0px 0px;
+  --connect__short-shadow-spread-level-1: 0px 1px 3px 0px;
+  --connect__short-shadow-spread-level-2: 0px 1px 5px 0px;
+  --connect__short-shadow-spread-level-3: 0px 1px 8px 0px;
+  --connect__short-shadow-spread-level-4: 0px 1px 10px 0px;
+  --connect__short-shadow-spread-level-5: 0px 1px 18px 0px;
+  --connect__short-shadow-spread-level-6: 0px 3px 14px 2px;
+  --connect__short-shadow-spread-level-f: 0px 1px 0px 1px;
 
-  --connect__mid-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__mid-shadow-spread-level-1: 0rem 0.0625rem 0.0625rem 0rem;
-  --connect__mid-shadow-spread-level-2: 0rem 0.125rem 0.125rem 0rem;
-  --connect__mid-shadow-spread-level-3: 0rem 0.1875rem 0.25rem 0rem;
-  --connect__mid-shadow-spread-level-4: 0rem 0.25rem 0.3125rem 0rem;
-  --connect__mid-shadow-spread-level-5: 0rem 0.375rem 0.625rem 0rem;
-  --connect__mid-shadow-spread-level-6: 0rem 0.5rem 0.625rem 0.0625rem;
-  --connect__mid-shadow-spread-level-f: 0rem 0rem 0rem 0.125rem;
+  --connect__mid-shadow-spread-level-0: 0px 0px 0px 0px;
+  --connect__mid-shadow-spread-level-1: 0px 1px 1px 0px;
+  --connect__mid-shadow-spread-level-2: 0px 2px 2px 0px;
+  --connect__mid-shadow-spread-level-3: 0px 3px 4px 0px;
+  --connect__mid-shadow-spread-level-4: 0px 4px 5px 0px;
+  --connect__mid-shadow-spread-level-5: 0px 6px 10px 0px;
+  --connect__mid-shadow-spread-level-6: 0px 8px 10px 1px;
+  --connect__mid-shadow-spread-level-f: 0px 0px 0px 2px;
 
-  --connect__long-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__long-shadow-spread-level-1: 0rem 0.125rem 0.0625rem -0.0625rem;
-  --connect__long-shadow-spread-level-2: 0rem 0.1875rem 0.0625rem -0.125rem;
-  --connect__long-shadow-spread-level-3: 0rem 0.1875rem 0.1875rem -0.125rem;
-  --connect__long-shadow-spread-level-4: 0rem 0.125rem 0.25rem -0.0625rem;
-  --connect__long-shadow-spread-level-5: 0rem 0.1875rem 0.3125rem -0.0625rem;
-  --connect__long-shadow-spread-level-6: 0rem 0.3125rem 0.3125rem -0.1875rem;
-  --connect__long-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.125rem;
+  --connect__long-shadow-spread-level-0: 0px 0px 0px 0px;
+  --connect__long-shadow-spread-level-1: 0px 2px 1px -1px;
+  --connect__long-shadow-spread-level-2: 0px 3px 1px -2px;
+  --connect__long-shadow-spread-level-3: 0px 3px 3px -2px;
+  --connect__long-shadow-spread-level-4: 0px 2px 4px -1px;
+  --connect__long-shadow-spread-level-5: 0px 3px 5px -1px;
+  --connect__long-shadow-spread-level-6: 0px 5px 5px -3px;
+  --connect__long-shadow-spread-level-f: 0px 1px 0px 2px;
 
   --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
     var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short) inset,
@@ -1090,8 +1140,13 @@
   --connect__display-grid: grid;
   --connect__display-flex: flex;
 
+  --connect__flow-row: row;
+  --connect__flow-column: column;
+  --connect__flex-wrap: wrap;
+  --connect__flex-nowrap: nowrap;
+
   /* 6.2: Resets */
-  --connect__spacer-zero: 0rem;
+  --connect__spacer-zero: 0px;
   --connect__opacity-zero: 0;
   --connect__opacity-one: 1;
   --connect__overflow-hidden: hidden;
@@ -1104,44 +1159,37 @@
   --connect__full-w: 100%;
   --connect__full-h: 100%;
   --connect__auto-h: auto;
-  --connect__text-capitalize: capitalize;
   --connect__half-radius: 50%;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   :root {
-    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
-    --base-lheight: 2.125rem;
-    --half-lheight: 1.0625rem;
-    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
-    --gutter-width: max(calc(4.875rem - var(--half-lheight)), calc((100vw - 80rem) / 2));
+    --col-width: calc((100vw - (156px - var(--base-lheight))) / 12);
+    --base-lheight: 34px;
+    --half-lheight: 17px;
+    --col-width: calc((100vw - (156px - var(--base-lheight))) / 12);
+    --gutter-width: max(calc(78px - var(--half-lheight)), calc((100vw - 1280px) / 2));
   }
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 1280px) {
   :root {
-    --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
-    --base-lheight: 2.25rem;
-    --half-lheight: 1.125rem;
+    --col-width: calc((100vw - (156px - var(--base-lheight))) / 12);
+    --base-lheight: 36px;
+    --half-lheight: 18px;
   }
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
-    0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
+  --connect__effects-shadow: 0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0px 0px 0px var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
+    0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
-    0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
-    0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
-    0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
+    0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-status) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
   --connect__shadow-null: var(--connect__definer-level-0) var(--connect__surface-null),
     var(--connect__definer-level-0) var(--connect__shadow-short),
@@ -1154,21 +1202,22 @@
     var(--connect__long-shadow-spread-level-f) var(--connect__surface-white);
 
   --connect__shadow-lvl-active: var(--connect__definer-level-1) var(--connect__primary-mid),
-    0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
-    0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
-    0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
+    0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-status) var(--connect__surface-null) inset,
+    0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
   --connect__feedback-translateY: calc(var(--connect__icon-size, var(--connect__icon-md)) / -3.75);
   --connect__feedback-translateX: calc(var(--connect__icon-size, var(--connect__icon-md)) / 2.5);
   --connect__dropdown-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5083 14.8709 11.4 14.8 11.3 14.7L6.69999 10.1C6.51665 9.91672 6.42499 9.68338 6.42499 9.40005C6.42499 9.11672 6.51665 8.88338 6.69999 8.70005C6.88332 8.51672 7.11665 8.42505 7.39999 8.42505C7.68332 8.42505 7.91665 8.51672 8.09999 8.70005L12 12.6L15.9 8.70005C16.0833 8.51672 16.3167 8.42505 16.6 8.42505C16.8833 8.42505 17.1167 8.51672 17.3 8.70005C17.4833 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4833 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2583 14.9542 12.1333 14.975 12 14.975Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --connect__dropdown-icon-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 10.8L8.09999 14.7C7.91665 14.8834 7.68332 14.975 7.39999 14.975C7.11665 14.975 6.88332 14.8834 6.69999 14.7C6.51665 14.5167 6.42499 14.2834 6.42499 14C6.42499 13.7167 6.51665 13.4834 6.69999 13.3L11.3 8.70002C11.5 8.50002 11.7333 8.40002 12 8.40002C12.2667 8.40002 12.5 8.50002 12.7 8.70002L17.3 13.3C17.4833 13.4834 17.575 13.7167 17.575 14C17.575 14.2834 17.4833 14.5167 17.3 14.7C17.1167 14.8834 16.8833 14.975 16.6 14.975C16.3167 14.975 16.0833 14.8834 15.9 14.7L12 10.8Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
-
-  /* Input Dimensions */
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
 }
+
+/* Input Dimensions */
+
+/* --connect__dropdown-line-multiplier: 4.5;
+  --connect__dropdown-space-multiplier: 12;
+  --connect__dropdown-max-h: calc((var(--connect__dropdown-line-multiplier) * var(--connect__body-sm-lheight)) + (var(--connect__dropdown-space-multiplier) * var(--connect__spacer-xs))); */
 
 *[class*='connect__'],
 *[class*='connect__'] *,
@@ -1180,8 +1229,7 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
-    var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,
@@ -1218,13 +1266,13 @@
   outline: 0;
 }
 
-@media (min-width: 40.625rem) {
+@media (min-width: 650px) {
   .connect__dual-column {
     columns: 2;
   }
 }
 
-@media (min-width: 55rem) {
+@media (min-width: 880px) {
   .connect__triple-column {
     columns: 3;
   }
