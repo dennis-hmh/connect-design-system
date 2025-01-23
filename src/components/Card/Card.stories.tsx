@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Card, CardProps } from './Card';
 import { Grid } from '../Grid/Grid';
@@ -158,9 +158,83 @@ ImageTop.args = {
   ),
 };
 
-export const MCQRadio: Story = Template.bind({});
+export const MCQRadio: Story = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.id);
+  };
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Grid gap="sm" gutter={true}>
+          <GridItem xs={{ startCol: 1, spanCol: 12 }}>
+            <Card {...args} />
+          </GridItem>
+        </Grid>
+      </div>
+    </ConnectTheme>
+  );
+};
+
+const MCQRadioComponent: React.FC = () => {
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.id);
+  };
+
+  return (
+    <Stack
+      element="article"
+      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+    >
+      <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
+        What is the capital of France?
+      </Typography>
+      <InputBox
+        id="paris"
+        type="radio"
+        name="capital"
+        checked={selectedValue === 'paris'}
+        onChange={handleChange}
+      >
+        Paris
+      </InputBox>
+      <InputBox
+        id="london"
+        type="radio"
+        name="capital"
+        checked={selectedValue === 'london'}
+        onChange={handleChange}
+      >
+        London
+      </InputBox>
+      <InputBox
+        id="berlin"
+        type="radio"
+        name="capital"
+        checked={selectedValue === 'berlin'}
+        onChange={handleChange}
+      >
+        Berlin
+      </InputBox>
+      <InputBox
+        id="rome"
+        type="radio"
+        name="capital"
+        checked={selectedValue === 'rome'}
+        onChange={handleChange}
+      >
+        Rome
+      </InputBox>
+    </Stack>
+  );
+};
+
 MCQRadio.args = {
-  ...Default.args,
   header: (
     <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
       <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
@@ -170,28 +244,7 @@ MCQRadio.args = {
       </Stack>
     </Paper>
   ),
-  children: (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-    >
-      <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-        What is the capital of France?
-      </Typography>
-      <InputBox id="paris" type="radio" name="capital">
-        Paris
-      </InputBox>
-      <InputBox id="london" type="radio" name="capital">
-        London
-      </InputBox>
-      <InputBox id="berlin" type="radio" name="capital">
-        Berlin
-      </InputBox>
-      <InputBox id="rome" type="radio" name="capital">
-        Rome
-      </InputBox>
-    </Stack>
-  ),
+  children: <MCQRadioComponent />,
   footer: (
     <Stack
       element="footer"
@@ -212,34 +265,139 @@ MCQRadio.args = {
       </Button>
     </Stack>
   ),
+  gradeBand: GradeBand.G4_5,
 };
 
-export const MCQCheckbox: Story = Template.bind({});
-MCQCheckbox.args = {
-  ...MCQRadio.args,
-  children: (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-    >
-      <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-        What is the capital of France?
-      </Typography>
-      <InputBox id="paris" type="checkbox" name="capital">
-        Paris
-      </InputBox>
-      <InputBox id="london" type="checkbox" name="capital">
-        London
-      </InputBox>
-      <InputBox id="berlin" type="checkbox" name="capital">
-        Berlin
-      </InputBox>
-      <InputBox id="rome" type="checkbox" name="capital">
-        Rome
-      </InputBox>
-    </Stack>
-  ),
+export const MCQCheckbox: Story = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [checkedValues, setCheckedValues] = useState({
+    paris: false,
+    london: false,
+    berlin: false,
+    rome: false,
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = event.target;
+    setCheckedValues((prevValues) => ({
+      ...prevValues,
+      [id]: checked,
+    }));
+  };
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Grid gap="sm" gutter={true}>
+          <GridItem xs={{ startCol: 1, spanCol: 12 }}>
+            <Card {...args}>
+              <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+                <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
+                  <Typography element="h4" size="heading-md">
+                    Multiple Choice Question
+                  </Typography>
+                </Stack>
+              </Paper>
+              <Stack
+                element="article"
+                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+              >
+                <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
+                  What is the capital of France?
+                </Typography>
+                <InputBox
+                  id="paris"
+                  type="checkbox"
+                  name="capital"
+                  checked={checkedValues.paris}
+                  onChange={handleChange}
+                >
+                  Paris
+                </InputBox>
+                <InputBox
+                  id="london"
+                  type="checkbox"
+                  name="capital"
+                  checked={checkedValues.london}
+                  onChange={handleChange}
+                >
+                  London
+                </InputBox>
+                <InputBox
+                  id="berlin"
+                  type="checkbox"
+                  name="capital"
+                  checked={checkedValues.berlin}
+                  onChange={handleChange}
+                >
+                  Berlin
+                </InputBox>
+                <InputBox
+                  id="rome"
+                  type="checkbox"
+                  name="capital"
+                  checked={checkedValues.rome}
+                  onChange={handleChange}
+                >
+                  Rome
+                </InputBox>
+              </Stack>
+              <Stack
+                element="footer"
+                xs={{
+                  alignItems: 'stretch',
+                  direction: 'column',
+                  spacing: 'sm',
+                  paddingX: 'sm',
+                  paddingY: 'sm',
+                }}
+                md={{
+                  direction: 'row',
+                  justifyContent: 'end',
+                }}
+              >
+                <Button primary={true} disabled={true}>
+                  Submit
+                </Button>
+              </Stack>
+            </Card>
+          </GridItem>
+        </Grid>
+      </div>
+    </ConnectTheme>
+  );
 };
+
+MCQCheckbox.args = {
+  gradeBand: GradeBand.G4_5,
+};
+
+// export const MCQCheckbox: Story = Template.bind({});
+// MCQCheckbox.args = {
+//   ...MCQRadio.args,
+//   children: (
+//     <Stack
+//       element="article"
+//       xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+//     >
+//       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
+//         What is the capital of France?
+//       </Typography>
+//       <InputBox id="paris" type="checkbox" name="capital">
+//         Paris
+//       </InputBox>
+//       <InputBox id="london" type="checkbox" name="capital">
+//         London
+//       </InputBox>
+//       <InputBox id="berlin" type="checkbox" name="capital">
+//         Berlin
+//       </InputBox>
+//       <InputBox id="rome" type="checkbox" name="capital">
+//         Rome
+//       </InputBox>
+//     </Stack>
+//   ),
+// };
 
 export const ShortAnswer: Story = Template.bind({});
 ShortAnswer.args = {
