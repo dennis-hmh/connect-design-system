@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import {
   MultipleChoiceQuestionImage,
@@ -16,20 +16,32 @@ const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    onChange: { action: 'changed' },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof MultipleChoiceQuestionImage>;
 
 const Template: StoryFn<MultipleChoiceQuestionImageProp> = (args) => {
+  const [checked, setChecked] = useState(args.checked);
   const themeWrapperRef = useRef<HTMLDivElement>(null);
-
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+    args.onChange(event);
+  };
+
+  useEffect(() => {
+    setChecked(args.checked);
+  }, [args.checked]);
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <MultipleChoiceQuestionImage {...args} />
+        <MultipleChoiceQuestionImage {...args} checked={checked} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );

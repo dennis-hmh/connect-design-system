@@ -20,7 +20,6 @@ export * from './Image/Image';
 export * from './InputBox/InputBox';
 export * from './InputText/InputText';
 export * from './List/List';
-export * from './MultipleChoiceQuestion/MultipleChoiceQuestion';
 export * from './MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 export * from './Paper/Paper';
 export * from './Pill/Pill';

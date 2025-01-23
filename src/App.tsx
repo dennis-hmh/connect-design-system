@@ -2,9 +2,7 @@
 import React, { useRef, useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { Button } from './components/Button/Button';
 import { InputBox } from './components/InputBox/InputBox';
-import { MultipleChoiceQuestion } from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
 import { MultipleChoiceQuestionImage } from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
-import { MultipleChoiceQuestionProvider } from './context/MultipleChoiceQuestionProvider';
 import { InputText } from './components/InputText/InputText';
 import { SelectBox } from './components/SelectBox/SelectBox';
 import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
@@ -458,29 +456,53 @@ const App: React.FC = () => {
               disabled={false}
               correct={false}
               incorrect={false}
+              checked={false}
+              onChange={() => {}}
             >
               The mouse rides a bike'
             </InputBox>
             <br />
             <br />
             <br />
-            <MultipleChoiceQuestionProvider>
-              <InputBox type={'radio'} id={'text-id-2'} name={'radio-name'}>
-                The mouse rides a bike 1
-              </InputBox>
-              <br />
-              <InputBox type={'radio'} id={'text-id-3'} name={'radio-name'}>
-                The mouse rides a bike 2
-              </InputBox>
-              <br />
-              <InputBox type={'radio'} id={'text-id-4'} name={'radio-name'}>
-                The mouse rides a bike 3
-              </InputBox>
-              <br />
-              <InputBox type={'radio'} id={'text-id-5'} name={'radio-name'}>
-                The mouse rides a bike 4
-              </InputBox>
-            </MultipleChoiceQuestionProvider>
+            <InputBox
+              type={'radio'}
+              id={'text-id-2'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike 1
+            </InputBox>
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-3'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike 2
+            </InputBox>
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-4'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike 3
+            </InputBox>
+            <br />
+            <InputBox
+              type={'radio'}
+              id={'text-id-5'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike 4
+            </InputBox>
             <br />
             <br />
             <br />
@@ -499,28 +521,36 @@ const App: React.FC = () => {
             <br />
             <br />
             <br /> */}
-            <MultipleChoiceQuestionProvider>
-              <MultipleChoiceQuestion type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
-                The mouse rides a bike
-              </MultipleChoiceQuestion>
-              <MultipleChoiceQuestion
-                type={'checkbox'}
-                id={'msq-id-2'}
-                name={'mcq-name'}
-                correct={true}
-              >
-                The mouse rides a bike
-              </MultipleChoiceQuestion>
-              <br />
-              <MultipleChoiceQuestionImage
-                type={'checkbox'}
-                id={'msq-id-3'}
-                name={'mcq-name'}
-                correct={true}
-              >
-                <Image imageSrc="" altText="This is alt text" />
-              </MultipleChoiceQuestionImage>
-            </MultipleChoiceQuestionProvider>
+            <InputBox
+              type={'checkbox'}
+              id={'msq-id-1'}
+              name={'mcq-name'}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike
+            </InputBox>
+            <InputBox
+              type={'checkbox'}
+              id={'msq-id-2'}
+              name={'mcq-name'}
+              correct={true}
+              checked={false}
+              onChange={() => {}}
+            >
+              The mouse rides a bike
+            </InputBox>
+            <br />
+            <MultipleChoiceQuestionImage
+              type={'checkbox'}
+              id={'msq-id-3'}
+              name={'mcq-name'}
+              correct={true}
+              checked={false}
+              onChange={() => {}}
+            >
+              <Image imageSrc="" altText="This is alt text" />
+            </MultipleChoiceQuestionImage>
             <br />
             <br />
             <Stack

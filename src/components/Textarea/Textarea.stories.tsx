@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Textarea, TextareaProps } from './Textarea';
+import { Stack } from '../Stack/Stack';
+import { Icon } from '../Icon/Icon';
+import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -40,6 +43,7 @@ export const CharacterLimit: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
+export const Toolbar: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
@@ -74,6 +78,30 @@ CharacterLimit.args = {
   ...Default.args,
   characterCount: true,
   characterLimit: 100,
+};
+
+Toolbar.args = {
+  ...Default.args,
+  toolbar: (
+    <Stack
+      element="header"
+      className="connect__toolbar"
+      xs={{
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        direction: 'row',
+        flexWrap: 'nowrap',
+        paddingX: 'md',
+        paddingY: 'sm',
+      }}
+    >
+      <ButtonMenu iconId="add" />
+      <ButtonMenu iconId="mic" backgroundColor="connect__blue-s50" fill="white" />
+    </Stack>
+  ),
+  placeholderText: 'Input your response',
+  characterCount: true,
+  characterLimit: 500,
 };
 
 Correct.args = {
