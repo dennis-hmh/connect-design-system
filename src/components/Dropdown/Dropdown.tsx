@@ -51,13 +51,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div
       id="connect__dropdown-button"
-      className={`connect__dropdown ${feedbackStates} ${open ? 'connect__dropdown-open' : ''}`}
+      className={`connect__dropdown ${feedbackStates} ${open ? 'connect__dropdown-open' : ''}${disabled ? 'connect__disabled' : ''}`}
       role="button"
+      aria-disabled={disabled}
       aria-haspopup="listbox"
       aria-labelledby="connect__dropdown-label"
       aria-expanded={open}
       onClick={handleClick}
-      disabled={disabled}
       tabIndex={0}
       data-testid={dataTestId}
     >
@@ -67,11 +67,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <span id="connect__selected-text-id" className="connect__selected-text">
         {selectedValue || children}
       </span>
-      <div className='connect__feedback-stamp'></div>
+      <div className="connect__feedback-stamp"></div>
       {hint && <Hint>{hint}</Hint>}
       {open && (
         <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
-          <DropdownMenu data={data} onItemClick={handleItemClick} />
+          <DropdownMenu data={data} onItemClick={handleItemClick} selectedValue={selectedValue} />
         </div>
       )}
     </div>
@@ -81,15 +81,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
 export type DropdownMenuProps = {
   data: { label: string; className: string | null; ariaSelected: boolean; value: string }[];
   onItemClick: (label: string) => void;
+  selectedValue: string | null;
 };
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick }) => {
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick, selectedValue }) => {
   return (
     <ul className="connect__dropdown-list-menu" role="listbox">
       {data.map((item, index) => (
         <li
           key={`connect__menu-item-${index}`}
-          className={`connect__dropdown-item ${item.className}`}
+          className={`connect__dropdown-item ${selectedValue === item.label ? 'connect__selected' : ''}`}
           role="option"
           aria-selected={item.ariaSelected || false}
           onClick={() => onItemClick(item.label)}

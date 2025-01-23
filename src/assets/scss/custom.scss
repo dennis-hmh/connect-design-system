@@ -2454,19 +2454,18 @@ To be fleshed out / moved
   text-overflow: var(--connect__text-ellipsis);
   width: var(--connect__full-w);
 
-  &:not(:disabled) {
-    &:hover,
-    &:active {
+  &:where(:not(.connect__disabled)) {
+    &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+    }
+
+    &:active {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
     }
   }
 
-  &:focus-visible:not(:active) {
+  &:where(:focus-visible:not(:active)) {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
-  }
-
-  &:active:not(:disabled) {
-    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
   }
 
   .connect__feedback-stamp {
@@ -2501,13 +2500,9 @@ To be fleshed out / moved
   }
 
   &.connect__dropdown-open {
-    --variant__dropdown-icon: var(--connect__dropdown-icon-open);
-  }
-}
-
-.connect__dropdown-open {
-  .connect__dropdown-menu {
     --variant-menu-display: var(--connect__display-block);
+
+    --variant__dropdown-icon: var(--connect__dropdown-icon-open);
   }
 }
 
@@ -2516,7 +2511,10 @@ To be fleshed out / moved
   font-family: var(--connect__font-sans);
   font-size: var(--connect__body-sm);
   line-height: var(--connect__body-sm-lheight);
-  max-width: var(--connect__full-w);
+  // max-width: var(--connect__full-w);
+  min-width: var(--connect__dropdown-min-w);
+  max-width: var(--connect__dropdown-max-w);
+
   overflow: var(--connect__overflow-hidden);
   display: var(--connect__display-block);
   padding-left: var(--connect__spacer-xs);
@@ -2535,6 +2533,7 @@ To be fleshed out / moved
   overflow: var(--connect__overflow-hidden);
   position: var(--connect__absolute);
   top: calc(100% + var(--connect__spacer-xs));
+  width: var(--connect__full-w);
 }
 
 .connect__dropdown-list-menu {
@@ -2561,7 +2560,7 @@ To be fleshed out / moved
   overflow: var(--connect__overflow-hidden);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   text-overflow: var(--connect__text-ellipsis);
-  white-space: var(-connect__white-space-nowrap);
+  white-space: var(--connect__white-space-nowrap);
 
   &:active {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-0);
@@ -2571,7 +2570,7 @@ To be fleshed out / moved
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-2);
   }
 
-  &:not(.connect__disabled) {
+  &:where(:not(.connect__disabled)) {
     &:focus-visible {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
     }
