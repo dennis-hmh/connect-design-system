@@ -95,7 +95,7 @@ Toolbar.args = {
         paddingY: 'sm',
       }}
     >
-      <Icon ud="add" />
+      <ButtonMenu iconId="add" />
       <ButtonMenu iconId="mic" backgroundColor="connect__blue-s50" fill="white" />
     </Stack>
   ),
