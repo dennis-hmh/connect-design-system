@@ -783,18 +783,10 @@
 .connect__teach {
   /* 230px all grades */
   --connect__dropdown-max-w: 230px;
-  --connect__dropdown-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
   --connect__input-max-w: 230px;
-  --connect__input-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 
   @media (min-width: 650px) {
     --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
@@ -858,6 +850,11 @@
   --connect__text-capitalize: capitalize;
   --connect__text-uppercase: uppercase;
   --connect__text-lowercase: lowercase;
+
+  --connect__text-ellipsis: ellipsis;
+
+  --connect__white-space-normal: normal;
+  --connect__white-space-nowrap: nowrap;
 
   /*
     3: Palette
@@ -1136,6 +1133,11 @@
   --connect__display-grid: grid;
   --connect__display-flex: flex;
 
+  --connect__flow-row: row;
+  --connect__flow-column: column;
+  --connect__flex-wrap: wrap;
+  --connect__flex-nowrap: nowrap;
+
   /* 6.2: Resets */
   --connect__spacer-zero: 0px;
   --connect__opacity-zero: 0;
@@ -1172,18 +1174,12 @@
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0px 0px 0px var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0px 0px 0px var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
+  --connect__effects-shadow: 0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0px 0px 0px var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
     0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
     0px 0px 0px var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0px 0px 0px var(--connect__inner-status) var(--connect__surface-null) inset,
     0px 0px 0px var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1226,8 +1222,7 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
-    var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,

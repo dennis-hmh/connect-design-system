@@ -33,16 +33,55 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: 'Select an option',
   data: [
-    { label: 'Option 1', className: null, ariaSelected: false, value: 'option1' },
-    { label: 'Option 2', className: null, ariaSelected: false, value: 'option2' },
-    { label: 'Option 3', className: 'is-focused', ariaSelected: true, value: 'option3' },
-    { label: 'Option 4', className: null, ariaSelected: false, value: 'option4' },
-    { label: 'Option 5', className: null, ariaSelected: false, value: 'option5' },
-    { label: 'Option 6', className: null, ariaSelected: false, value: 'option6' },
-    { label: 'Option 7', className: 'connect__disabled', ariaSelected: false, value: 'option7' },
+    { label: 'Option 1', value: 'Default' },
+    { label: 'Option 2', value: 'Default' },
+    { label: 'Option 3', value: 'Default' },
+    { label: 'Option 4', value: 'Default' },
+    { label: 'Option 5', value: 'Default' },
+    { label: 'Option 6', value: 'Default' },
+    { label: 'Option 7', value: 'Default' },
   ],
   disabled: false,
   gradeBand: GradeBand.G4_5,
+};
+
+export const DropdownStates: Story = Template.bind({});
+DropdownStates.args = {
+  children: 'Select an option',
+  data: [
+    { label: 'Option 1', className: null, ariaSelected: false, value: 'Default' },
+    {
+      label: 'Disabled Option 2',
+      className: null,
+      ariaSelected: false,
+      value: 'Disabled',
+      disabled: true,
+    },
+    {
+      label: 'Disabled Selected',
+      className: 'connect__selected',
+      ariaSelected: true,
+      value: 'Disabled Selected',
+      disabled: true,
+    },
+    { label: 'Option 4', className: null, ariaSelected: false, value: 'Default' },
+    {
+      label: 'Option 5 is going to be very long',
+      className: null,
+      ariaSelected: false,
+      value: 'Default',
+    },
+    { label: 'Option 6', className: null, ariaSelected: false, value: 'Default' },
+    { label: 'Option 7', className: null, ariaSelected: false, value: 'Default' },
+  ],
+  disabled: false,
+  gradeBand: GradeBand.G4_5,
+};
+
+export const Disabled: Story = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  disabled: true,
 };
 
 export const Hint: Story = Template.bind({});
