@@ -18,7 +18,7 @@ const getClassNames = ({ isChecked, disabled }: { isChecked: boolean; disabled?:
   return { choiceClass, labelClass };
 };
 
-export const Checkbox: React.FC<CheckboxProp> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   name,
   children,
@@ -28,7 +28,7 @@ export const Checkbox: React.FC<CheckboxProp> = ({
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
-    isChecked: checked,
+    isChecked: true,
     disabled,
   });
   return (

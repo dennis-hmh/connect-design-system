@@ -456,25 +456,51 @@ const App: React.FC = () => {
               disabled={false}
               correct={false}
               incorrect={false}
+              checked={false}
+              onChange={() => {}}
             >
               The mouse rides a bike'
             </InputBox>
             <br />
             <br />
             <br />
-            <InputBox type={'radio'} id={'text-id-2'} name={'radio-name'}>
+            <InputBox
+              type={'radio'}
+              id={'text-id-2'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike 1
             </InputBox>
             <br />
-            <InputBox type={'radio'} id={'text-id-3'} name={'radio-name'}>
+            <InputBox
+              type={'radio'}
+              id={'text-id-3'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike 2
             </InputBox>
             <br />
-            <InputBox type={'radio'} id={'text-id-4'} name={'radio-name'}>
+            <InputBox
+              type={'radio'}
+              id={'text-id-4'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike 3
             </InputBox>
             <br />
-            <InputBox type={'radio'} id={'text-id-5'} name={'radio-name'}>
+            <InputBox
+              type={'radio'}
+              id={'text-id-5'}
+              name={'radio-name'}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike 4
             </InputBox>
             <br />
@@ -495,10 +521,23 @@ const App: React.FC = () => {
             <br />
             <br />
             <br /> */}
-            <InputBox type={'checkbox'} id={'msq-id-1'} name={'mcq-name'}>
+            <InputBox
+              type={'checkbox'}
+              id={'msq-id-1'}
+              name={'mcq-name'}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike
             </InputBox>
-            <InputBox type={'checkbox'} id={'msq-id-2'} name={'mcq-name'} correct={true}>
+            <InputBox
+              type={'checkbox'}
+              id={'msq-id-2'}
+              name={'mcq-name'}
+              correct={true}
+              checked={false}
+              onChange={() => {}}
+            >
               The mouse rides a bike
             </InputBox>
             <br />
@@ -507,6 +546,8 @@ const App: React.FC = () => {
               id={'msq-id-3'}
               name={'mcq-name'}
               correct={true}
+              checked={false}
+              onChange={() => {}}
             >
               <Image imageSrc="" altText="This is alt text" />
             </MultipleChoiceQuestionImage>

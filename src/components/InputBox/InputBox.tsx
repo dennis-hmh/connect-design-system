@@ -35,7 +35,7 @@ const getClassNames = ({
   return { choiceClass, labelClass };
 };
 
-export const InputBox: React.FC<InputBoxProp> = ({
+export const InputBox: React.FC<InputBoxProps> = ({
   type,
   id,
   name,

@@ -10,7 +10,7 @@ export type TextareaProps = {
   characterCount?: boolean;
   placeholderText?: string | undefined;
   characterLimit?: number;
-  toobar?: React.ReactNode;
+  toolbar?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -40,8 +40,6 @@ export const Textarea: React.FC<TextareaProps> = ({
   ]
     .filter(Boolean)
     .join(' ');
-
-  // const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
 
   let inputAriaLabel = 'Textarea';
   if (correct) {

@@ -50,6 +50,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setOpen(false);
   };
 
+  const transformedData = data.map((item) => ({
+    ...item,
+    className: null,
+    ariaSelected: selectedValue === item.label,
+    value: item.label,
+  }));
+
   return (
     <div
       id="connect__dropdown-button"
@@ -73,7 +80,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
       {hint && <Hint>{hint}</Hint>}
       {open && (
         <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
-          <DropdownMenu data={data} onItemClick={handleItemClick} selectedValue={selectedValue} />
+          <DropdownMenu
+            data={transformedData}
+            onItemClick={handleItemClick}
+            selectedValue={selectedValue}
+          />
         </div>
       )}
     </div>

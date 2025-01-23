@@ -52,7 +52,7 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
     correct,
     incorrect,
     answerShown,
-    isChecked: checked,
+    isChecked: true,
     disabled,
   });
 
