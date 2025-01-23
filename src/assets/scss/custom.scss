@@ -2488,7 +2488,6 @@ To be fleshed out / moved
   }
 
   &:where([class*='connect__feedback']) {
-    --variant__dropdown-bg: var(--connect__surface-white);
     --variant__feedback-display: var(--connect__display-block);
     --variant__hint-display: var(--connect__display-none);
   }
