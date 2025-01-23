@@ -33,6 +33,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
+    open && 'connect__dropdown-open',
+    disabled && 'connect__disabled',
   ]
     .filter(Boolean)
     .join(' ');
@@ -51,7 +53,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div
       id="connect__dropdown-button"
-      className={`connect__dropdown ${feedbackStates} ${open ? 'connect__dropdown-open' : ''}${disabled ? 'connect__disabled' : ''}`}
+      className={`connect__dropdown ${feedbackStates}`}
       role="button"
       aria-disabled={disabled}
       aria-haspopup="listbox"
