@@ -19,7 +19,6 @@ import Image from './components/Image/Image';
 import InputBox from './components/InputBox/InputBox';
 import InputText from './components/InputText/InputText';
 import List from './components/List/List';
-import MultipleChoiceQuestion from './components/MultipleChoiceQuestion/MultipleChoiceQuestion';
 import MultipleChoiceQuestionImage from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 import Paper from './components/Paper/Paper';
 import Pill from './components/Pill/Pill';
