@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Checkbox, CheckboxProps } from './Checkbox';
 import { ConnectTheme } from '../ConnectTheme';
@@ -10,10 +10,9 @@ const meta: Meta<typeof Checkbox> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    design: {
-      type: 'figma',
-      url: '',
-    },
+  },
+  argTypes: {
+    onChange: { action: 'changed' },
   },
 };
 
@@ -21,12 +20,22 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 const Template: StoryFn<CheckboxProps> = (args) => {
+  const [checked, setChecked] = useState(args.checked);
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+    args.onChange(event);
+  };
+
+  useEffect(() => {
+    setChecked(args.checked);
+  }, [args.checked]);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Checkbox {...args} />
+        <Checkbox {...args} checked={checked} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );

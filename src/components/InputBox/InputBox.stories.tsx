@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { InputBox, InputBoxProps } from './InputBox';
 import { ConnectTheme } from '../ConnectTheme';
@@ -11,18 +11,31 @@ const meta: Meta<typeof InputBox> = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    onChange: { action: 'changed' },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof InputBox>;
 
 const Template: StoryFn<InputBoxProps> = (args) => {
+  const [checked, setChecked] = useState(args.checked);
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+    args.onChange(event);
+  };
+
+  useEffect(() => {
+    setChecked(args.checked);
+  }, [args.checked]);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <InputBox {...args} />
+        <InputBox {...args} checked={checked} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );
@@ -33,7 +46,6 @@ export const Checked: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
-export const NoShadow: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
@@ -44,7 +56,6 @@ Default.args = {
   correct: false,
   incorrect: false,
   answerShown: false,
-  noShadow: false,
   disabled: false,
   children: 'The mouse rides a bike',
   gradeBand: GradeBand.G4_5,
@@ -71,12 +82,6 @@ AnswerShown.args = {
   ...Default.args,
   checked: true,
   answerShown: true,
-};
-
-NoShadow.args = {
-  ...Default.args,
-  checkbox: true,
-  noShadow: true,
 };
 
 Disabled.args = {

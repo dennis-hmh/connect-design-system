@@ -10,6 +10,7 @@ export type TextareaProps = {
   characterCount?: boolean;
   placeholderText?: string | undefined;
   characterLimit?: number;
+  toobar?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -22,6 +23,7 @@ export const Textarea: React.FC<TextareaProps> = ({
   defaultText,
   characterCount,
   placeholderText,
+  toolbar,
   characterLimit,
   dataTestId,
 }) => {
@@ -29,9 +31,19 @@ export const Textarea: React.FC<TextareaProps> = ({
   const [charCount, setCharCount] = useState(defaultText?.length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+  const inputStates = [
+    correct && 'connect__feedback-correct',
+    incorrect && 'connect__feedback-incorrect',
+    answerShown && 'connect__feedback-shown',
+    isSelected && 'connect__selected',
+    characterCount && 'connect__input-character-count',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  let inputAriaLabel = 'Input field';
+  // const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''} ${isSelected ? 'connect__selected' : ''} ${characterCount ? 'connect__input-character-count' : ''}`;
+
+  let inputAriaLabel = 'Textarea';
   if (correct) {
     inputAriaLabel += ', marked as correct';
   } else if (incorrect) {
@@ -49,7 +61,8 @@ export const Textarea: React.FC<TextareaProps> = ({
   };
 
   return (
-    <label className={`connect__icon-wrapper ${inputStates}`}>
+    <div className={`connect__icon-wrapper ${inputStates}`}>
+      {toolbar && toolbar}
       <textarea
         className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
@@ -78,6 +91,6 @@ export const Textarea: React.FC<TextareaProps> = ({
           )}
         </div>
       )}
-    </label>
+    </div>
   );
 };

@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.17.1
+
+### Patch Changes
+
+- 532bae3: !7.0 Removed wildcard to allow shadows work on multi class elements, 17.0.1 adds this back"
+
 ## 1.17.0
 
 ### Minor Changes
