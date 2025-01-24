@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.1
+
+### Patch Changes
+
+- 99115ad: added individual radius options to paper and image, top bottom left right all and none for finer control"
+
 ## 1.18.0
 
 ### Minor Changes

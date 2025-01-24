@@ -46,7 +46,15 @@ const Template: StoryFn<CardProps & { gradeBand: GradeBand }> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   header: (
-    <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+    <Paper
+      elevation={0}
+      fullWidth={true}
+      backgroundColor="gray-c10"
+      roundedCorner={{
+        topLeft: true,
+        topRight: true,
+      }}
+    >
       <Stack
         element="header"
         xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}
@@ -122,7 +130,7 @@ ImageOnly.args = {
       element="article"
       xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'sm' }}
     >
-      <Image imageSrc="" altText="placeholder" />
+      <Image imageSrc="" altText="placeholder" roundedCorners={true} />
     </Stack>
   ),
   footer: null,
@@ -136,7 +144,13 @@ ImageTop.args = {
       element="header"
       xs={{ direction: 'column', spacing: 'sm', paddingX: 'zero', paddingY: 'zero' }}
     >
-      <Image imageSrc="" altText="placeholder" />
+      <Image
+        imageSrc=""
+        altText="placeholder"
+        roundedCorners={{
+          topAll: true,
+        }}
+      />
     </Stack>
   ),
   footer: (
@@ -238,7 +252,15 @@ const MCQRadioComponent: React.FC = () => {
 
 MCQRadio.args = {
   header: (
-    <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+    <Paper
+      elevation={0}
+      fullWidth={true}
+      backgroundColor="gray-c10"
+      roundedCorner={{
+        topLeft: true,
+        topRight: true,
+      }}
+    >
       <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
         <Typography element="h4" size="heading-md">
           Multiple Choice Question
@@ -293,7 +315,15 @@ export const MCQCheckbox: Story = (args) => {
         <Grid gap="sm" gutter={true}>
           <GridItem xs={{ startCol: 1, spanCol: 12 }}>
             <Card {...args}>
-              <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+              <Paper
+                elevation={0}
+                fullWidth={true}
+                backgroundColor="gray-c10"
+                roundedCorner={{
+                  topLeft: true,
+                  topRight: true,
+                }}
+              >
                 <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
                   <Typography element="h4" size="heading-md">
                     Multiple Choice Question
@@ -374,38 +404,19 @@ MCQCheckbox.args = {
   gradeBand: GradeBand.G4_5,
 };
 
-// export const MCQCheckbox: Story = Template.bind({});
-// MCQCheckbox.args = {
-//   ...MCQRadio.args,
-//   children: (
-//     <Stack
-//       element="article"
-//       xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-//     >
-//       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-//         What is the capital of France?
-//       </Typography>
-//       <InputBox id="paris" type="checkbox" name="capital">
-//         Paris
-//       </InputBox>
-//       <InputBox id="london" type="checkbox" name="capital">
-//         London
-//       </InputBox>
-//       <InputBox id="berlin" type="checkbox" name="capital">
-//         Berlin
-//       </InputBox>
-//       <InputBox id="rome" type="checkbox" name="capital">
-//         Rome
-//       </InputBox>
-//     </Stack>
-//   ),
-// };
-
 export const ShortAnswer: Story = Template.bind({});
 ShortAnswer.args = {
   ...Default.args,
   header: (
-    <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+    <Paper
+      elevation={0}
+      fullWidth={true}
+      backgroundColor="gray-c10"
+      roundedCorner={{
+        topLeft: true,
+        topRight: true,
+      }}
+    >
       <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
         <Typography element="h4" size="heading-md">
           Short Answer Question

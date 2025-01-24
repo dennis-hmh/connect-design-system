@@ -82,14 +82,16 @@ Card.args = {
         justifyContent: 'start',
         flexWrap: `wrap`,
       }}
-      md={{
-        direction: `row`,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
     >
       <Figure caption="This is a caption">
-        <Image imageSrc="" altText={'This is Alt Text'} />
+        <Image
+          imageSrc=""
+          roundedCorners={{
+            topLeft: true,
+            topRight: true,
+          }}
+          altText={'This is Alt Text'}
+        />
       </Figure>
 
       <Stack
