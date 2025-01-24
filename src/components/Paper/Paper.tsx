@@ -22,7 +22,7 @@ export const Paper: React.FC<PaperProps> = ({
   id,
   elevation,
   roundedCorner = false,
-  backgroundColor = '--connect__white',
+  backgroundColor = 'connect__white',
   className,
   fullWidth = false,
   dataTestId,
@@ -65,7 +65,7 @@ export const Paper: React.FC<PaperProps> = ({
 
   if (backgroundColor) {
     paperProps = {
-      '--connect__paper-bg': `var(${backgroundColor})`,
+      '--connect__paper-bg': `var(--connect__${backgroundColor})`,
     } as React.CSSProperties;
   }
 
