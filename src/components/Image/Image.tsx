@@ -34,10 +34,19 @@ export const Image: React.FC<ImageProps> = ({
 
     const classes: string[] = [];
 
-    if (roundedCorners.topLeft) classes.push('connect__rounded-top-left');
-    if (roundedCorners.topRight) classes.push('connect__rounded-top-right');
-    if (roundedCorners.bottomLeft) classes.push('connect__rounded-bottom-left');
-    if (roundedCorners.bottomRight) classes.push('connect__rounded-bottom-right');
+    if (roundedCorners.topAll) {
+      classes.push('connect__rounded-top');
+    } else {
+      if (roundedCorners.topLeft) classes.push('connect__rounded-top-left');
+      if (roundedCorners.topRight) classes.push('connect__rounded-top-right');
+    }
+
+    if (roundedCorners.bottomAll) {
+      classes.push('connect__rounded-bottom');
+    } else {
+      if (roundedCorners.bottomLeft) classes.push('connect__rounded-bottom-left');
+      if (roundedCorners.bottomRight) classes.push('connect__rounded-bottom-right');
+    }
 
     return classes.join(' ');
   };

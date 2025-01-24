@@ -2195,6 +2195,14 @@ Divider can be vertical or horizontal
   );
 }
 
+.connect__rounded-top {
+  border-radius: var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
+}
+
+.connect__rounded-bottom {
+  border-radius: 0 0 var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
+}
+
 .connect__elevation--2 {
   box-shadow: var(--connect__shadow-lvl--2);
 }

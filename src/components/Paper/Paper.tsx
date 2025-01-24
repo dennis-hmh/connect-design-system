@@ -34,10 +34,19 @@ export const Paper: React.FC<PaperProps> = ({
 
     const classes: string[] = [];
 
-    if (roundedCorner.topLeft) classes.push('connect__rounded-top-left');
-    if (roundedCorner.topRight) classes.push('connect__rounded-top-right');
-    if (roundedCorner.bottomLeft) classes.push('connect__rounded-bottom-left');
-    if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
+    if (roundedCorner.topAll) {
+      classes.push('connect__rounded-top');
+    } else {
+      if (roundedCorner.topLeft) classes.push('connect__rounded-top-left');
+      if (roundedCorner.topRight) classes.push('connect__rounded-top-right');
+    }
+
+    if (roundedCorner.bottomAll) {
+      classes.push('connect__rounded-bottom');
+    } else {
+      if (roundedCorner.bottomLeft) classes.push('connect__rounded-bottom-left');
+      if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
+    }
 
     return classes.length ? classes.join(' ') : 'connect__rounded-reset';
   };

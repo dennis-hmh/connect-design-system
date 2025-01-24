@@ -156,8 +156,7 @@ ImageTop.args = {
         imageSrc=""
         altText="placeholder"
         roundedCorners={{
-          topLeft: true,
-          topRight: true,
+          topAll: true,
         }}
       />
     </Stack>

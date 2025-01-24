@@ -3,6 +3,8 @@ export type RoundedCorners = {
   topRight?: boolean;
   bottomLeft?: boolean;
   bottomRight?: boolean;
+  topAll?: boolean;
+  bottomAll?: boolean;
 };
 
 export type RoundedCorner = boolean | RoundedCorners;
