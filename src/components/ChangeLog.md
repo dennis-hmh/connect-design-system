@@ -1,3 +1,45 @@
+### v1.18.2 Release Notice
+
+### Release date: January 24, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Update to Storybook v8.5.1
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.1 Release Notice
+
+### Release date: January 24, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Paper />`: Removed --connect prefix from background prop, Added new border radius values.
+  - `<Image />`: Added new border radius values.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.0 Release Notice
 
 ### Release date: January 23, 2025
