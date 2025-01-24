@@ -110,7 +110,7 @@ SubHead.args = {
           Header
         </Typography>
       </Stack>
-      <Paper elevation={0} fullWidth={true} backgroundColor={'--connect__gray-c10'}>
+      <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
         <Stack xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
           <Typography element="h5" size="heading-sm">
             Subheader
@@ -255,7 +255,7 @@ MCQRadio.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="--connect__gray-c10"
+      backgroundColor="gray-c10"
       roundedCorner={{
         topLeft: true,
         topRight: true,
@@ -318,7 +318,7 @@ export const MCQCheckbox: Story = (args) => {
               <Paper
                 elevation={0}
                 fullWidth={true}
-                backgroundColor="--connect__gray-c10"
+                backgroundColor="gray-c10"
                 roundedCorner={{
                   topLeft: true,
                   topRight: true,
@@ -411,7 +411,7 @@ ShortAnswer.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="--connect__gray-c10"
+      backgroundColor="gray-c10"
       roundedCorner={{
         topLeft: true,
         topRight: true,

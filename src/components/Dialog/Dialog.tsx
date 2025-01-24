@@ -51,7 +51,7 @@ const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
 
     return (
       <dialog ref={ref} id={id} className={dialogClassName} data-testid={dataTestId}>
-        <Paper backgroundColor="--connect__brand-pale-magenta">
+        <Paper backgroundColor="brand-pale-magenta">
           <Stack
             element="header"
             xs={{ direction: 'row', justifyContent: 'space-between', alignItems: 'center' }}
