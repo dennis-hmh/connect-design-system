@@ -56,7 +56,7 @@ export const Disabled: Story = Template.bind({});
 
 Default.args = {
   type: 'checkbox',
-  children: <Image imageSrc="" altText="The mouse rides a bike" />,
+  children: <Image roundedCorners={true} imageSrc="" altText="The mouse rides a bike" />,
   id: 'answer',
   name: 'mcq',
   checked: false,
