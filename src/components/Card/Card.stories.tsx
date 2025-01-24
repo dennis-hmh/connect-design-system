@@ -110,15 +110,7 @@ SubHead.args = {
           Header
         </Typography>
       </Stack>
-      <Paper
-        elevation={0}
-        roundedCorner={{
-          topLeft: true,
-          topRight: true,
-        }}
-        fullWidth={true}
-        backgroundColor="gray-c10"
-      >
+      <Paper elevation={0} fullWidth={true} backgroundColor={'--connect__gray-c10'}>
         <Stack xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
           <Typography element="h5" size="heading-sm">
             Subheader
@@ -263,7 +255,7 @@ MCQRadio.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="gray-c10"
+      backgroundColor="--connect__gray-c10"
       roundedCorner={{
         topLeft: true,
         topRight: true,
@@ -326,7 +318,7 @@ export const MCQCheckbox: Story = (args) => {
               <Paper
                 elevation={0}
                 fullWidth={true}
-                backgroundColor="gray-c10"
+                backgroundColor="--connect__gray-c10"
                 roundedCorner={{
                   topLeft: true,
                   topRight: true,
@@ -412,33 +404,6 @@ MCQCheckbox.args = {
   gradeBand: GradeBand.G4_5,
 };
 
-// export const MCQCheckbox: Story = Template.bind({});
-// MCQCheckbox.args = {
-//   ...MCQRadio.args,
-//   children: (
-//     <Stack
-//       element="article"
-//       xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-//     >
-//       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-//         What is the capital of France?
-//       </Typography>
-//       <InputBox id="paris" type="checkbox" name="capital">
-//         Paris
-//       </InputBox>
-//       <InputBox id="london" type="checkbox" name="capital">
-//         London
-//       </InputBox>
-//       <InputBox id="berlin" type="checkbox" name="capital">
-//         Berlin
-//       </InputBox>
-//       <InputBox id="rome" type="checkbox" name="capital">
-//         Rome
-//       </InputBox>
-//     </Stack>
-//   ),
-// };
-
 export const ShortAnswer: Story = Template.bind({});
 ShortAnswer.args = {
   ...Default.args,
@@ -446,7 +411,7 @@ ShortAnswer.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="gray-c10"
+      backgroundColor="--connect__gray-c10"
       roundedCorner={{
         topLeft: true,
         topRight: true,
