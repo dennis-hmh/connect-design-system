@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.2
+
+### Patch Changes
+
+- e8b18df: Updated Storybook from 8.4.7 to 8.5.1
+
 ## 1.18.1
 
 ### Patch Changes
