@@ -22,7 +22,7 @@ export const Paper: React.FC<PaperProps> = ({
   id,
   elevation,
   roundedCorner = false,
-  backgroundColor = 'connect__white',
+  backgroundColor = 'white',
   className,
   fullWidth = false,
   dataTestId,
