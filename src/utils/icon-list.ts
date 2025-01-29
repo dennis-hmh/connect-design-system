@@ -1,50 +1,54 @@
-export type IconId = 
-  'add'|
-  'arrowDown'|
-  'arrowUp'|
-  'check'|
-  'close'|
-  'collapse'|
-  'color'|
-  'counter'|
-  'desmos'|
-  'drawSizeLg'|
-  'drawSizeMd'|
-  'drawSizeXs'|
-  'drawToolOutline'|
-  'expand'|
-  'flag'|
-  'groupActivity'|
-  'groupActivityVariant'|
-  'info'|
-  'lineArrow'|
-  'lineDashed'|
-  'lineSolid'|
-  'loader'|
-  'mic'|
-  'pause'|
-  'placeholder'|
-  'play'|
-  'redo'|
-  'reduce'|
-  'renew'|
-  'shapes'|
-  'shapesCircleOutline'|
-  'shapesCircleSolid'|
-  'shapesRectangleOutline'|
-  'shapesRectangleSolid'|
-  'shapesTriangleOutline'|
-  'shapesTriangleSolid'|
-  'soundMeter'|
-  'specialShapesHexagon'|
-  'specialShapesPentagon'|
-  'stampsCounterOutline'|
-  'stampsMeasureOutline'|
-  'stampsSpecialShapesOutline'|
-  'stop'|
-  'stopwatch'|
-  'studentPicker'|
-  'timer'|
-  'undo'
-;
- // To generate lists run 'Node src/utils/sprite-ids.js'
+export type IconId =
+  'add' |
+  'arrowDown' |
+  'arrowUp' |
+  'check' |
+  'close' |
+  'collapse' |
+  'color' |
+  'counter' |
+  'desmos' |
+  'drawSizeLg' |
+  'drawSizeMd' |
+  'drawSizeXs' |
+  'drawToolOutline' |
+  'expand' |
+  'flag' |
+  'groupActivity' |
+  'groupActivityVariant' |
+  'info' |
+  'lineArrow' |
+  'lineDashed' |
+  'lineSolid' |
+  'loader' |
+  'mic' |
+  'pause' |
+  'placeholder' |
+  'play' |
+  'redo' |
+  'reduce' |
+  'renew' |
+  'shapes' |
+  'shapesCircleOutline' |
+  'shapesCircleSolid' |
+  'shapesRectangleOutline' |
+  'shapesRectangleSolid' |
+  'shapesTriangleOutline' |
+  'shapesTriangleSolid' |
+  'soundMeter' |
+  'specialShapesHexagon' |
+  'specialShapesPentagon' |
+  'stampsCounterOutline' |
+  'stampsMeasureOutline' |
+  'stampsSpecialShapesOutline' |
+  'stop' |
+  'stopwatch' |
+  'studentPicker' |
+  'timer' |
+  'undo' |
+  'commonError' |
+  'syl' |
+  'udl' |
+  'ml'
+  ;
+// To generate lists run 'Node src/utils/sprite-ids.js'

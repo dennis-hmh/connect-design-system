@@ -117,3 +117,99 @@ Card.args = {
 Card.parameters = {
   layout: 'centered',
 };
+
+export const WithOutline: Story = Template.bind({});
+WithOutline.args = {
+  children: (
+    <>
+      <Paper
+        fullWidth={true}
+        backgroundColor="brand-light-magenta"
+        roundedCorner={{
+          topAll: true,
+        }}
+      >
+        <Stack
+          xs={{
+            direction: 'row',
+            spacing: 'sm',
+            flexWrap: 'nowrap',
+            alignItems: 'center',
+            justifyContent: 'start',
+            paddingX: 'md',
+            paddingY: 'sm',
+          }}
+        >
+          <Stack
+            xs={{
+              direction: 'row',
+              flexWrap: 'nowrap',
+              spacing: 'md',
+              alignItems: 'center',
+              alignSelf: 'start',
+              justifyContent: 'space-between',
+              paddingX: 'zero',
+              paddingY: 'zero',
+            }}
+          >
+            <Icon id="syl" size="xl" />
+          </Stack>
+          <Stack
+            flex="auto"
+            xs={{
+              direction: 'column',
+              spacing: 'xs',
+              alignItems: 'start',
+              justifyContent: 'center',
+              paddingX: 'zero',
+              paddingY: 'zero',
+            }}
+          >
+            <Typography element="p" size="body-sm" color="gray-c70">
+              Teaching Support
+            </Typography>
+
+            <Typography element="h1" size="body-lg" color="gray-c70" weight={700}>
+              Spark Discussions
+            </Typography>
+          </Stack>
+        </Stack>
+      </Paper>
+      <Paper
+        fullWidth={true}
+        backgroundColor="transparent"
+        roundedCorner={{
+          bottomAll: true,
+        }}
+      >
+        <Stack xs={{ direction: 'column', spacing: 'sm', paddingX: 'lg', paddingY: 'md' }}>
+          <Typography element="p" size="body-md" color="gray-c70">
+            Students might incorrectly read integers such as +3 and –3 as "plus 3" and "minus 3."
+          </Typography>
+
+          <Typography element="p" size="body-sm" color="gray-c70">
+            • Bullet List item 1: Body Small
+          </Typography>
+
+          <Typography element="p" size="body-sm" color="blue-s50">
+            • Bullet List item 2: Body Small
+          </Typography>
+        </Stack>
+      </Paper>
+    </>
+  ),
+  element: 'div',
+  elevation: 0,
+  roundedCorner: true,
+  outline: 'brand-light-magenta',
+  fullWidth: false,
+  dataTestId: '',
+  gradeBand: GradeBand.G4_5,
+};
+
+WithOutline.parameters = {
+  layout: 'centered',
+  backgrounds: {
+    default: 'light',
+  },
+};
