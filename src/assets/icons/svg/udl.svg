@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" fill="none" id="udl">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" id="udl">
     <g clip-path="url(#a)">
         <path fill="#CC00C0"
             d="M20 40.5c11.046 0 20-8.954 20-20S31.046.5 20 .5 0 9.454 0 20.5s8.954 20 20 20Z" />
-        <mask id="b" width="40" height="41" x="0" y="0" maskUnits="userSpaceOnUse"
+        <mask id="b" width="40" height="40" x="0" y="0" maskUnits="userSpaceOnUse"
             style="mask-type:luminance">
             <path fill="#fff" d="M40 .5H0v40h40V.5Z" />
         </mask>
