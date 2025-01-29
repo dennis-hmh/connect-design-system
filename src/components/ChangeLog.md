@@ -1,3 +1,23 @@
+### v1.18.3 Release Notice
+
+### Release date: January 29, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Icon />`: Added type to useState hook
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.2 Release Notice
 
 ### Release date: January 24, 2025
