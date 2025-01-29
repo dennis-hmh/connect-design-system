@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.3
+
+### Patch Changes
+
+- 81d3288: Added type to useState in Icon component.
+
 ## 1.18.2
 
 ### Patch Changes
