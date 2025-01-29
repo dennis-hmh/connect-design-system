@@ -26,7 +26,7 @@ export const Icon: React.FC<IconProps> = ({
   className,
   dataTestId,
 }) => {
-  const [symbolContent, setSymbolContent] = useState('');
+  const [symbolContent, setSymbolContent] = useState<string>('');
 
   useEffect(() => {
     const loadIcon = async () => {
