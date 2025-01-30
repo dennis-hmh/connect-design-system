@@ -96,7 +96,7 @@ Toolbar.args = {
       }}
     >
       <ButtonMenu iconId="add" />
-      <ButtonMenu iconId="mic" backgroundColor="connect__blue-s50" fill="white" />
+      <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
     </Stack>
   ),
   placeholderText: 'Input your response',

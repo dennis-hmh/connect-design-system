@@ -2090,7 +2090,7 @@ Divider can be vertical or horizontal
 
 .connect__list {
   list-style-type: var(--variant__list-style-type, none);
-  padding-inline: 0;
+  padding-inline: inherit;
 }
 
 .connect__list-item {
@@ -2156,6 +2156,10 @@ Divider can be vertical or horizontal
   background-color: var(--connect__paper-bg);
 }
 
+.connect__paper-outlined {
+  padding: var(--connect__effects-inner-edge);
+}
+
 .connect__rounded-corners {
   border-radius: var(
     --theme__rounded-radius,
@@ -2196,31 +2200,37 @@ Divider can be vertical or horizontal
 }
 
 .connect__rounded-top {
-  border-radius: var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
+  border-radius: var(
+      --theme__rounded-radius,
+      var(--variant__rounded-radius, var(--connect__border-radius))
+    )
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
 }
 
 .connect__rounded-bottom {
-  border-radius: 0 0 var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
+  border-radius: 0 0
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
 }
 
 .connect__elevation--2 {
-  box-shadow: var(--connect__shadow-lvl--2);
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl--2);
 }
 
 .connect__elevation-0 {
-  box-shadow: var(--connect__shadow-lvl-0);
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-0);
 }
 
 .connect__elevation-2 {
-  box-shadow: var(--connect__shadow-lvl-2);
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-2);
 }
 
 .connect__elevation-4 {
-  box-shadow: var(--connect__shadow-lvl-4);
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-4);
 }
 
 .connect__elevation-6 {
-  box-shadow: var(--connect__shadow-lvl-6);
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
 }
 
 .connect__figure {
@@ -2248,16 +2258,6 @@ Divider can be vertical or horizontal
   background-color: var(--connect__dialog-bg);
   border: 0;
   padding: 0;
-}
-
-.connect__rounded-corners {
-  --variant__rounded-radius: var(--connect__border-radius);
-
-  .connect__dialog {
-    &:not(.connect__rounded-corners) {
-      border-radius: var(--connect__spacer-zero);
-    }
-  }
 }
 
 /* 
