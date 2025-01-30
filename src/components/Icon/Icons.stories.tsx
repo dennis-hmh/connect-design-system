@@ -64,6 +64,12 @@ const iconIds = [
   'stopwatch',
   'studentPicker',
   'timer',
+  'syl',
+  'commonError',
+  'udl',
+  'ml',
+  'collapseLeftOutline',
+  'expandRightOutline',
 ];
 
 const Template: StoryFn<IconProps> = (args) => {

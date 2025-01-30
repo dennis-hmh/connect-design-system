@@ -936,18 +936,14 @@
       3.3: Connect IO's Palette
   */
 
-  --connect__i-purple: var(--connect__cc-purple);
-  --connect__i-teal: var(--connect__aqua-m40);
-  --connect__i-magenta: #c6168d;
-  --connect__blue-1: #3858de;
-  --connect__blue-2: var(--connect__blue-c50);
-  --connect__i-red: var(--connect__red-c50);
-  --connect__purple: var(--connect__purple-c50); 
-  --connect__green: var(--connect__green-c50);
-  --connect__cerise: var(--connect__cerise-c50);
-
-
-
+  --connect__essential-guide-teal: var(--connect__aqua-m40);
+  --connect__essential-guide-magenta: rgb(198, 22, 141);
+  --connect__essential-guide-blue-light: var(--connect__blue-c50);
+  --connect__essential-guide-blue-dark: rgb(56, 88, 222);
+  --connect__essential-guide-red: var(--connect__red-c50);
+  --connect__essential-guide-purple: var(--connect__cc-purple);
+  --connect__essential-guide-green: var(--connect__green-c50);
+  --connect__essential-guide-cerise: var(--connect__cerise-c50);
   /*
     3.4: Connect Neutral Palette
   */

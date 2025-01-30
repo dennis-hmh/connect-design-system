@@ -152,7 +152,7 @@ WithOutline.args = {
               paddingY: 'zero',
             }}
           >
-            <Icon id="syl" size="xl" />
+            <Icon id="syl" fill="brand-deep-magenta" size="xl" />
           </Stack>
           <Stack
             flex="auto"
