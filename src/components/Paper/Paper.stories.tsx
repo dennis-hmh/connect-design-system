@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, Figure, Image, Button, Icon, Typography } from '../index';
+import { Stack, Figure, Image, Button, Icon, Typography, List } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -124,7 +124,7 @@ WithOutline.args = {
     <>
       <Paper
         fullWidth={true}
-        backgroundColor="brand-light-magenta"
+        backgroundColor="primary-mid"
         roundedCorner={{
           topAll: true,
         }}
@@ -152,7 +152,7 @@ WithOutline.args = {
               paddingY: 'zero',
             }}
           >
-            <Icon id="syl" fill="brand-deep-magenta" size="xl" />
+            <Icon id="syl" fill="primary-dark" size="xl" />
           </Stack>
           <Stack
             flex="auto"
@@ -165,11 +165,11 @@ WithOutline.args = {
               paddingY: 'zero',
             }}
           >
-            <Typography element="p" size="body-sm" color="gray-c70">
+            <Typography element="p" size="body-sm" color="surface-dark">
               Teaching Support
             </Typography>
 
-            <Typography element="h1" size="body-lg" color="gray-c70" weight={700}>
+            <Typography element="h1" size="body-lg" color="surface-dark" weight={700}>
               Spark Discussions
             </Typography>
           </Stack>
@@ -183,17 +183,30 @@ WithOutline.args = {
         }}
       >
         <Stack xs={{ direction: 'column', spacing: 'sm', paddingX: 'lg', paddingY: 'md' }}>
-          <Typography element="p" size="body-md" color="gray-c70">
+          <Typography element="p" size="body-md" color="surface-dark">
             Students might incorrectly read integers such as +3 and –3 as "plus 3" and "minus 3."
           </Typography>
 
-          <Typography element="p" size="body-sm" color="gray-c70">
-            • Bullet List item 1: Body Small
-          </Typography>
-
-          <Typography element="p" size="body-sm" color="blue-s50">
-            • Bullet List item 2: Body Small
-          </Typography>
+          <List
+            data={[
+              {
+                content: (
+                  <Typography size="body-sm" color="surface-dark">
+                    Bullet List item 1: Body Small
+                  </Typography>
+                ),
+              },
+              {
+                content: (
+                  <Typography size="body-sm" color="primary-mid">
+                    Bullet List item 2: Body Small
+                  </Typography>
+                ),
+              },
+            ]}
+            listType="unordered"
+            variants="disc"
+          />
         </Stack>
       </Paper>
     </>
@@ -201,7 +214,7 @@ WithOutline.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: true,
-  outline: 'brand-light-magenta',
+  outline: 'primary-mid',
   fullWidth: false,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,

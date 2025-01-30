@@ -4,8 +4,6 @@ import Colors, { Color } from '../utils/colors';
 import { Stack } from '../components/Stack/Stack';
 import { Typography } from '../components/Typography/Typography';
 import { Paper } from './Paper/Paper';
-import { Grid } from '../components/Grid/Grid';
-import { GridItem } from '../components/GridItem/GridItem';
 import { ConnectTheme } from './ConnectTheme';
 import { GradeBand } from '../enum/gradeband';
 
@@ -31,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue: string }) => (
-  <Paper elevation={2} roundedCorner={true} backgroundColor="white">
+  <Paper elevation={2} roundedCorner={true} backgroundColor="white" fullWidth={true}>
     <Stack
       xs={{
         direction: 'column',
@@ -70,28 +68,45 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
     </Stack>
   </Paper>
 );
+
 const groupColors = (colors: Record<string, string>) => {
   const groups: Record<string, Record<string, Record<string, string>>> = {
     'Surface Colors': {
       Surface: {},
     },
-    'State Colors': {
+    Feedback: {
       Correct: {},
-      Error: {},
       Incorrect: {},
-      Primary: {},
-      Focus: {},
-      Hint: {},
-      Disabled: {},
+      Shown: {},
     },
-    'Brand Colors': {
+    States: {
+      Success: {},
+      Error: {},
+    },
+    Primary: {
+      Primary: {},
+    },
+    Hint: {
+      Hint: {},
+    },
+    Focus: {
+      Focus: {},
+    },
+    Brand: {
       Brand: {},
     },
-    'Essential Guide Colors': {
+    'Essential Guides': {
       'Essential Guide': {},
     },
-    'Special Values': {
-      Special: {},
+    Deprecated: {
+      Gray: {},
+      Red: {},
+      Cerise: {},
+      Purple: {},
+      Blue: {},
+      Aqua: {},
+      Apple: {},
+      Green: {},
     },
   };
 
@@ -99,25 +114,41 @@ const groupColors = (colors: Record<string, string>) => {
     if (name.startsWith('surface-')) {
       groups['Surface Colors']['Surface'][name] = value;
     } else if (name.startsWith('correct-')) {
-      groups['State Colors']['Correct'][name] = value;
-    } else if (name.startsWith('error-')) {
-      groups['State Colors']['Error'][name] = value;
+      groups['Feedback']['Correct'][name] = value;
     } else if (name.startsWith('incorrect-')) {
-      groups['State Colors']['Incorrect'][name] = value;
+      groups['Feedback']['Incorrect'][name] = value;
+    } else if (name.startsWith('shown-')) {
+      groups['Feedback']['Shown'][name] = value;
+    } else if (name.startsWith('success-')) {
+      groups['States']['Success'][name] = value;
+    } else if (name.startsWith('error-')) {
+      groups['States']['Error'][name] = value;
     } else if (name.startsWith('primary-')) {
-      groups['State Colors']['Primary'][name] = value;
-    } else if (name.startsWith('focus-')) {
-      groups['State Colors']['Focus'][name] = value;
+      groups['Primary']['Primary'][name] = value;
     } else if (name.startsWith('hint-')) {
-      groups['State Colors']['Hint'][name] = value;
-    } else if (name.startsWith('disabled-')) {
-      groups['State Colors']['Disabled'][name] = value;
-    } else if (name.startsWith('brand-') || name === 'cc-purple') {
-      groups['Brand Colors']['Brand'][name] = value;
+      groups['Hint']['Hint'][name] = value;
+    } else if (name.startsWith('focus-')) {
+      groups['Focus']['Focus'][name] = value;
+    } else if (name.startsWith('cc-purple') || name.startsWith('brand-')) {
+      groups['Brand']['Brand'][name] = value;
     } else if (name.startsWith('essential-guide-')) {
-      groups['Essential Guide Colors']['Essential Guide'][name] = value;
-    } else {
-      groups['Special Values']['Special'][name] = value;
+      groups['Essential Guides']['Essential Guide'][name] = value;
+    } else if (name.startsWith('gray-')) {
+      groups['Deprecated']['Gray'][name] = value;
+    } else if (name.startsWith('red-')) {
+      groups['Deprecated']['Red'][name] = value;
+    } else if (name.startsWith('cerise-')) {
+      groups['Deprecated']['Cerise'][name] = value;
+    } else if (name.startsWith('purple-')) {
+      groups['Deprecated']['Purple'][name] = value;
+    } else if (name.startsWith('blue-')) {
+      groups['Deprecated']['Blue'][name] = value;
+    } else if (name.startsWith('aqua-')) {
+      groups['Deprecated']['Aqua'][name] = value;
+    } else if (name.startsWith('apple-')) {
+      groups['Deprecated']['Apple'][name] = value;
+    } else if (name.startsWith('green-')) {
+      groups['Deprecated']['Green'][name] = value;
     }
   });
 
@@ -138,9 +169,25 @@ export const ColorPalette: Story = {
               alignItems: 'stretch',
               justifyContent: 'start',
               paddingX: 'md',
+              paddingY: 'lg',
               spacing: 'xl',
             }}
           >
+            <Stack
+              xs={{
+                direction: 'column',
+                alignItems: 'stretch',
+                justifyContent: 'start',
+                paddingX: 'zero',
+                paddingY: 'zero',
+                spacing: 'sm',
+              }}
+            >
+              <Typography element="h1">Color palette</Typography>
+              <Typography element="p">
+                This page outlines the color palette available in the Connect design system.
+              </Typography>
+            </Stack>
             {Object.entries(colorGroups).map(([groupName, subGroups]) => (
               <Stack
                 key={groupName}
@@ -148,36 +195,92 @@ export const ColorPalette: Story = {
                   direction: 'column',
                   alignItems: 'stretch',
                   justifyContent: 'start',
-                  paddingX: 'md',
+                  paddingX: 'zero',
+                  paddingY: 'zero',
                   spacing: 'xl',
                 }}
               >
+                <Stack
+                  key={groupName}
+                  xs={{
+                    direction: 'column',
+                    alignItems: 'start',
+                    justifyContent: 'start',
+                    paddingX: 'zero',
+                    paddingY: 'zero',
+                    spacing: 'xs',
+                  }}
+                >
+                  <Typography element="h2" size="heading-sm">
+                    {groupName}
+                  </Typography>
+                  {groupName === 'Surface Colors' && (
+                    <Typography element="p">
+                      Surface colors are used as the background for various UI components, providing
+                      a base for other elements and helping to create a visual hierarchy.
+                    </Typography>
+                  )}
+                  {groupName === 'Feedback' && (
+                    <Typography element="p">
+                      Feedback colors indicate the status of UI elements, such as success (correct),
+                      error (incorrect), and shown states.
+                    </Typography>
+                  )}
+                  {groupName === 'States' && (
+                    <Typography element="p">
+                      State colors indicate the success or error of actions taken by the user.
+                    </Typography>
+                  )}
+                  {groupName === 'Primary' && (
+                    <Typography element="p">
+                      Primary colors are used for key interactive elements in the UI.
+                    </Typography>
+                  )}
+                  {groupName === 'Hint' && (
+                    <Typography element="p">
+                      Hint colors provide additional context or guidance to users.
+                    </Typography>
+                  )}
+                  {groupName === 'Focus' && (
+                    <Typography element="p">
+                      Focus colors are used to indicate elements that are currently focused.
+                    </Typography>
+                  )}
+                  {groupName === 'Brand' && (
+                    <Typography element="p">
+                      Brand colors represent the brand identity and are applied to key components.
+                    </Typography>
+                  )}
+                  {groupName === 'Essential Guides' && (
+                    <Typography element="p">
+                      Essential guide colors provide additional context or guidance to users, often
+                      used in instructional elements.
+                    </Typography>
+                  )}
+                  {groupName === 'Deprecated' && (
+                    <Typography element="p">
+                      These colors are used to make up the colors listed above and should not be
+                      passed directly. By using the colors above we can support theming in the
+                      future.
+                    </Typography>
+                  )}
+                </Stack>
                 {Object.entries(subGroups).map(([subGroupName, colors]) => (
                   <Stack
                     key={subGroupName}
                     xs={{
-                      direction: 'column',
-                      alignItems: 'stretch',
+                      direction: 'row',
+                      alignItems: 'start',
                       justifyContent: 'start',
-                      spacing: 'md',
+                      flexWrap: 'wrap',
+                      spacing: 'lg',
                     }}
                   >
-                    <Typography element="h3" size="heading-sm">
-                      {subGroupName}
-                    </Typography>
-                    <Stack
-                      xs={{
-                        direction: 'row',
-                        alignItems: 'stretch',
-                        justifyContent: 'start',
-                        flexWrap: 'wrap',
-                        spacing: 'xs',
-                      }}
-                    >
-                      {Object.entries(colors).map(([name, value]) => (
-                        <ColorSwatch key={name} colorName={name} colorValue={value} />
-                      ))}
-                    </Stack>
+                    {Object.entries(colors).map(([name, value]) => (
+                      <Stack flex="shrink" key={name}>
+                        <ColorSwatch colorName={name} colorValue={value} />
+                      </Stack>
+                    ))}
                   </Stack>
                 ))}
               </Stack>

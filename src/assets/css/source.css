@@ -983,10 +983,20 @@
   --connect__error-light: var(--connect__red-s25);
   --connect__error-pale: var(--connect__red-s15);
 
+  --connect__success-dark: var(--connect__green-c55);
+  --connect__success-mid: var(--connect__green-s40);
+  --connect__success-light: var(--connect__green-c25);
+  --connect__success-pale: #cbffa3;
+
   --connect__incorrect-dark: rgb(115, 130, 143);
   --connect__incorrect-mid: rgb(158, 195, 228);
   --connect__incorrect-light: rgb(200, 221, 237);
   --connect__incorrect-pale: rgb(215, 231, 241);
+
+  --connect__shown-dark: var(--connect__gray-c70);
+  --connect__shown-mid: var(--connect__gray-c55);
+  --connect__shown-light: var(--connect__gray-c40);
+  --connect__shown-pale: var(--connect__gray-c10);
 
   --connect__primary-dark: var(--connect__blue-c60);
   --connect__primary-mid: var(--connect__blue-s50);
@@ -1270,7 +1280,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__']) > img {
+:where([class*='connect__'])>img {
   height: auto;
   max-height: 100%;
 }

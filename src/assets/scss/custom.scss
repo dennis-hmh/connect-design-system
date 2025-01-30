@@ -2090,7 +2090,7 @@ Divider can be vertical or horizontal
 
 .connect__list {
   list-style-type: var(--variant__list-style-type, none);
-  padding-inline: 0;
+  padding-inline: inherit;
 }
 
 .connect__list-item {
@@ -2259,7 +2259,6 @@ Divider can be vertical or horizontal
   border: 0;
   padding: 0;
 }
-
 
 /* 
 .connect__figcaption

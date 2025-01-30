@@ -49,7 +49,7 @@ import { ProgressBar } from '@connect/connect-design-system';
 function App() {
   return (
     <div>
-      <ProgressBar value={50} max={100} barColor="golden-c30" backgroundColor="purple-s50" />
+      <ProgressBar value={50} max={100} barColor="surface-light" backgroundColor="purple-s50" />
     </div>
   );
 }
@@ -75,8 +75,8 @@ function App() {
       <ProgressBar
         value={75}
         max={100}
-        barColor="blue-s50"
-        backgroundColor="gray-c10"
+        barcolor="primary-mid"
+        backgroundColor="surface-pale"
         ariaLabel="File upload progress"
         style={customStyles}
         aria-valuenow={value}
