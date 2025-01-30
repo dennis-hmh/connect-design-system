@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Colors, { Color } from '../utils/colors';
-import { Stack } from '../components/Stack/Stack';
-import { Typography } from '../components/Typography/Typography';
-import { Paper } from './Paper/Paper';
-import { ConnectTheme } from './ConnectTheme';
-import { GradeBand } from '../enum/gradeband';
+import Colors, { Color } from '../../utils/colors';
+import { Stack } from '../Stack/Stack';
+import { Typography } from '../Typography/Typography';
+import { Paper } from '../Paper/Paper';
+import { ConnectTheme } from '../ConnectTheme';
+import { GradeBand } from '../../enum/gradeband';
 
 type StoryProps = {
   gradeBand?: GradeBand;
