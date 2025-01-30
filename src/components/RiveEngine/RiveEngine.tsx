@@ -13,7 +13,6 @@ export type RiveEngineProps = RiveState & {
   disableTouchScroll?: boolean;
   width?: string;
   height?: string;
-  contain?: boolean;
   sizeByHeight?: boolean;
   gradeBand?: GradeBand;
   playState?: 'playing' | 'paused' | 'stopped';

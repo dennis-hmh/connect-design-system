@@ -38,7 +38,18 @@ const App: React.FC = () => {
     autoplay: true,
     src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
+
+  const studentPicker = useRive({
+    autoplay: true,
+    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
+    stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
+  });
+
 
   return (
     <ConnectTheme gradeBand={GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
@@ -142,21 +153,24 @@ const App: React.FC = () => {
           <GridItem>
             <div
               style={{
-                width: '500px',
-                height: '200px',
+                width: '700px',
+                height: '300px',
                 backgroundColor: 'lightgrey',
                 display: 'inline-block',
               }}
             >
-              <Image
+
+              {/* <Image
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
-              />
+              /> */}
+              <RiveEngine sizeByHeight {...studentPicker} />
+
             </div>
-            <div
+            {/* <div
               style={{
                 width: '500px',
-                height: '200px',
+                // height: '200px',
                 backgroundColor: 'lightgrey',
                 display: 'inline-block',
                 overflow: 'hidden',
@@ -166,7 +180,7 @@ const App: React.FC = () => {
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
               />
-            </div>
+            </div> */}
           </GridItem>
           <GridItem>
             <div

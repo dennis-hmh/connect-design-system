@@ -35,6 +35,8 @@ const Template: StoryFn<RiveEngineProps> = (args) => {
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
 
   return <RiveEngine {...args} {...riveState} />;
@@ -48,7 +50,6 @@ export const Default: Story = Template.bind({});
 Default.args = {
   width: '500px',
   height: '500px',
-  contain: true,
   debug: true,
 };
 
@@ -71,7 +72,9 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
   const gradeBand = args.gradeBand;
   const src = getGradeBandFile_timer(gradeBand);
 
-  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' });
+  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' }, {
+    fitCanvasToArtboardHeight: true
+  });
   useReactStateMachineInput(
     riveState.rive,
     'State Machine 1',
@@ -234,6 +237,8 @@ const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
   const pickStudent = useReactStateMachineInput(riveState.rive, 'State Machine 1', 'pickStudent');
   const pickRandomStudentClicked = () => pickStudent?.fire();
@@ -268,6 +273,8 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
   const [ratingValue, setRatingValue] = useState(0);
   useReactStateMachineInput(
