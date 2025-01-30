@@ -71,33 +71,53 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
   </Paper>
 );
 const groupColors = (colors: Record<string, string>) => {
-  const groups: Record<string, Record<string, string>> = {
-    'Surface Colors': {},
-    'State Colors': {},
-    'Brand Colors': {},
-    'Essential Guide Colors': {},
-    'Special Values': {},
+  const groups: Record<string, Record<string, Record<string, string>>> = {
+    'Surface Colors': {
+      Surface: {},
+    },
+    'State Colors': {
+      Correct: {},
+      Error: {},
+      Incorrect: {},
+      Primary: {},
+      Focus: {},
+      Hint: {},
+      Disabled: {},
+    },
+    'Brand Colors': {
+      Brand: {},
+    },
+    'Essential Guide Colors': {
+      'Essential Guide': {},
+    },
+    'Special Values': {
+      Special: {},
+    },
   };
 
   Object.entries(colors).forEach(([name, value]) => {
     if (name.startsWith('surface-')) {
-      groups['Surface Colors'][name] = value;
-    } else if (
-      name.startsWith('correct-') ||
-      name.startsWith('error-') ||
-      name.startsWith('incorrect-') ||
-      name.startsWith('primary-') ||
-      name.startsWith('focus-') ||
-      name.startsWith('hint-') ||
-      name.startsWith('disabled-')
-    ) {
-      groups['State Colors'][name] = value;
+      groups['Surface Colors']['Surface'][name] = value;
+    } else if (name.startsWith('correct-')) {
+      groups['State Colors']['Correct'][name] = value;
+    } else if (name.startsWith('error-')) {
+      groups['State Colors']['Error'][name] = value;
+    } else if (name.startsWith('incorrect-')) {
+      groups['State Colors']['Incorrect'][name] = value;
+    } else if (name.startsWith('primary-')) {
+      groups['State Colors']['Primary'][name] = value;
+    } else if (name.startsWith('focus-')) {
+      groups['State Colors']['Focus'][name] = value;
+    } else if (name.startsWith('hint-')) {
+      groups['State Colors']['Hint'][name] = value;
+    } else if (name.startsWith('disabled-')) {
+      groups['State Colors']['Disabled'][name] = value;
     } else if (name.startsWith('brand-') || name === 'cc-purple') {
-      groups['Brand Colors'][name] = value;
+      groups['Brand Colors']['Brand'][name] = value;
     } else if (name.startsWith('essential-guide-')) {
-      groups['Essential Guide Colors'][name] = value;
+      groups['Essential Guide Colors']['Essential Guide'][name] = value;
     } else {
-      groups['Special Values'][name] = value;
+      groups['Special Values']['Special'][name] = value;
     }
   });
 
@@ -112,32 +132,57 @@ export const ColorPalette: Story = {
     return (
       <ConnectTheme gradeBand={args.gradeBand ?? GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
         <div ref={themeWrapperRef}>
-          {Object.entries(colorGroups).map(([groupName, colors]) => (
-            <Stack
-              key={groupName}
-              xs={{
-                direction: 'column',
-                alignItems: 'stretch',
-                justifyContent: 'start',
-                spacing: 'md',
-              }}
-            >
-              <Typography element="h2">{groupName}</Typography>
+          <Stack
+            xs={{
+              direction: 'column',
+              alignItems: 'stretch',
+              justifyContent: 'start',
+              paddingX: 'md',
+              spacing: 'xl',
+            }}
+          >
+            {Object.entries(colorGroups).map(([groupName, subGroups]) => (
               <Stack
-              key={groupName}
-              xs={{
-                direction: 'row',
-                alignItems: 'stretch',
-                justifyContent: 'start',
-                spacing: 'md',
-              }}
-            >
-                {Object.entries(colors).map(([name, value]) => (
-                    <ColorSwatch colorName={name} colorValue={value} />
+                key={groupName}
+                xs={{
+                  direction: 'column',
+                  alignItems: 'stretch',
+                  justifyContent: 'start',
+                  paddingX: 'md',
+                  spacing: 'xl',
+                }}
+              >
+                {Object.entries(subGroups).map(([subGroupName, colors]) => (
+                  <Stack
+                    key={subGroupName}
+                    xs={{
+                      direction: 'column',
+                      alignItems: 'stretch',
+                      justifyContent: 'start',
+                      spacing: 'md',
+                    }}
+                  >
+                    <Typography element="h3" size="heading-sm">
+                      {subGroupName}
+                    </Typography>
+                    <Stack
+                      xs={{
+                        direction: 'row',
+                        alignItems: 'stretch',
+                        justifyContent: 'start',
+                        flexWrap: 'wrap',
+                        spacing: 'xs',
+                      }}
+                    >
+                      {Object.entries(colors).map(([name, value]) => (
+                        <ColorSwatch key={name} colorName={name} colorValue={value} />
+                      ))}
+                    </Stack>
+                  </Stack>
                 ))}
               </Stack>
-            </Stack>
-          ))}
+            ))}
+          </Stack>
         </div>
       </ConnectTheme>
     );
