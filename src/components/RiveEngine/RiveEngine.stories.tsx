@@ -244,7 +244,7 @@ const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand
   const pickRandomStudentClicked = () => pickStudent?.fire();
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px', height: '400px' }}>
+    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}>
       <RiveEngine {...riveState} />
       <Button primary clickHandler={pickRandomStudentClicked} additionalClass={'connect__g68'}>
         Pick Random Student
@@ -286,7 +286,7 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   );
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px', height: '400px' }}>
+    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}>
       <Typography element="h1" family="sans" size="heading-lg" style="normal">
         <span style={{ fontSize: 'x-large' }}>{ratingValue}</span>
       </Typography>
