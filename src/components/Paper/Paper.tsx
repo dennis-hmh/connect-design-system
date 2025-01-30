@@ -22,7 +22,7 @@ export const Paper: React.FC<PaperProps> = ({
   element: Component = 'div',
   id,
   elevation,
-  roundedCorner = false,
+  roundedCorner,
   outline = 'transparent',
   backgroundColor = 'white',
   className,
@@ -30,6 +30,10 @@ export const Paper: React.FC<PaperProps> = ({
   dataTestId,
 }) => {
   const getRoundedClasses = (): string => {
+    if (roundedCorner === undefined) {
+      return '';
+    }
+
     if (typeof roundedCorner === 'boolean') {
       return roundedCorner ? 'connect__rounded-corners' : 'connect__rounded-reset';
     }
@@ -50,7 +54,7 @@ export const Paper: React.FC<PaperProps> = ({
       if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
     }
 
-    return classes.length ? classes.join(' ') : 'connect__rounded-reset';
+     return classes.join(' ') || 'connect__rounded-reset';
   };
 
   const paperClassName = [
