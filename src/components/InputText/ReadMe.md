@@ -16,7 +16,7 @@ To use the `InputText` component in your project, ensure you have React and Type
 1. Copy the `InputText.tsx` file into your project's component directory.
 
 ```bash
-npm install @connect/connect-design-system@1.9.0
+npm install @connect/connect-design-system@latest
 ```
 
 2. Import the `InputText` component where you need it:
@@ -52,18 +52,19 @@ function App() {
 
 The InputText component accepts the following props:
 
-- `correct`**requiredt**: Boolean indicating whether the input is marked as correct.
+- `correct`: Optional. Boolean indicating whether the input is marked as correct.
 - `incorrect`: Optional. Boolean indicating whether the input is marked as incorrect.
 - `answerShown`: Optional. Boolean indicating whether the answer is shown.
 - `number`: Optional. Boolean indicating if the input should accept only numeric values.
 - `disabled`: Optional. Boolean indicating if the input should be disabled.
-- `defaultText`: Optional. String for specifying a default value for the input field.
+- `defaultText`: Optional. String or number for specifying a default value for the input field.
+- `characterCount`: Optional. Boolean indicating whether to show a character count.
+- `characterLimit`: Optional. Number specifying the character limit for the input field.
+- `placeholderText`: Optional. String for specifying the placeholder text for the input field.
+- `onClear`: Optional. Function to handle the clear action for the input field.
 - `dataTestId`: Optional. String for specifying a test ID for testing purposes.
+- `gradeBand`: Optional. Enum for specifying the grade band.
 
 ## Contributing
 
 Contributions to the InputText component are welcome. Please ensure to follow the project's coding standards and submit your pull requests for review.
-
-## License
-
-This component is open source and available under the MIT License.

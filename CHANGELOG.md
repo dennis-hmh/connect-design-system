@@ -1,5 +1,66 @@
 # @connect/connect-design-system
 
+## 1.18.3
+
+### Patch Changes
+
+- 81d3288: Added type to useState in Icon component.
+
+## 1.18.2
+
+### Patch Changes
+
+- e8b18df: Updated Storybook from 8.4.7 to 8.5.1
+
+## 1.18.1
+
+### Patch Changes
+
+- 99115ad: added individual radius options to paper and image, top bottom left right all and none for finer control"
+
+## 1.18.0
+
+### Minor Changes
+
+- 7c8ff02: - New Component: `<Dropbox />`, `<Hint />`
+  - Updated Component:
+    - `<Checkbox />`: Updated to be controlled by parent.
+    - `<InputBox />`: Updated to be controlled by parent.
+    - `<MultipleChoiceQuestionImage />`: Updated to be controlled by parent.
+    - `<Textarea />`: Updated with Toolbar prop.
+  - Bug Fix: N/A
+  - Other: `<MultipleChoiceQuestion />` has been removed. Use `<InputBox />` instead. Props are identical.
+
+## 1.17.1
+
+### Patch Changes
+
+- 532bae3: !7.0 Removed wildcard to allow shadows work on multi class elements, 17.0.1 adds this back"
+
+## 1.17.0
+
+### Minor Changes
+
+- 8ade258: <Dialog component added, InputText onClear prop added, Paper elevation numbers updated to match Figma.
+
+## 1.16.3
+
+### Patch Changes
+
+- 48230c9: Fix CSS selector wildcards to properly handle multiple classnames with connect** prefix. Updates [class^='connect**'] to [class*='connect__'] for better compatibility with CSS modules and multiple classes
+
+## 1.16.2
+
+### Patch Changes
+
+- 68524c8: Removed {text} prop from Button, updated {children} prop.
+
+## 1.16.1
+
+### Patch Changes
+
+- 8772ab8: Updated cacl to pass xDS postcss test.
+
 ## 1.16.0
 
 ### Minor Changes

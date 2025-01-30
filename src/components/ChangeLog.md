@@ -1,3 +1,149 @@
+### v1.18.3 Release Notice
+
+### Release date: January 29, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Icon />`: Added type to useState hook
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.2 Release Notice
+
+### Release date: January 24, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Update to Storybook v8.5.1
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.1 Release Notice
+
+### Release date: January 24, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Paper />`: Removed --connect prefix from background prop, Added new border radius values.
+  - `<Image />`: Added new border radius values.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.0 Release Notice
+
+### Release date: January 23, 2025
+
+#### Changelog:
+
+- New Component: `<Dropbox />`, `<Hint />`
+- Updated Component:
+  - `<Checkbox />`: Updated to be controlled by parent.
+  - `<InputBox />`: Updated to be controlled by parent.
+  - `<MultipleChoiceQuestionImage />`: Updated to be controlled by parent.
+  - `<Textarea />`: Updated with Toolbar prop.
+- Bug Fix: N/A
+- Other: `<MultipleChoiceQuestion />` has been removed. Use `<InputBox />` instead. Props are identical.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.17.1 Release Notice
+
+### Release date: January 20, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Fix CSS selector wildcards to properly handle multiple classnames with connect\*\* prefix.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.17.0 Release Notice
+
+### Release date: January 15, 2025
+
+#### Changelog:
+
+- New Component: `<Dialog />`: New component added
+- Updated Component: `<InputText />`: onClear prop/button added
+- Bug Fix: N/A
+- Other: CSS elevations updated
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.16.3 Release Notice
+
+### Release date: January 14, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: CSS fix for selector connect\_\_ prefix
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.16.2 Release Notice
 
 ### Release date: January 13, 2025

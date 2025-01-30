@@ -1,10 +1,11 @@
 import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
+import { RoundedCorner } from '../../utils/radius';
 
 export type ImageProps = {
   imageSrc: string;
   altText: string;
-  roundedCorners?: boolean;
+  roundedCorners?: RoundedCorner;
   contain?: boolean;
   className?: string;
   dataTestId?: string;
@@ -21,12 +22,41 @@ const defaultImageSrc =
 export const Image: React.FC<ImageProps> = ({
   imageSrc,
   altText,
-  roundedCorners,
+  roundedCorners = false,
   contain,
   className,
   dataTestId,
 }) => {
-  const classNames = ['connect__image', roundedCorners && 'connect__rounded-corners', contain && 'connect__contain', className]
+  const getRoundedClasses = (): string => {
+    if (typeof roundedCorners === 'boolean') {
+      return roundedCorners ? 'connect__rounded-corners' : '';
+    }
+
+    const classes: string[] = [];
+
+    if (roundedCorners.topAll) {
+      classes.push('connect__rounded-top');
+    } else {
+      if (roundedCorners.topLeft) classes.push('connect__rounded-top-left');
+      if (roundedCorners.topRight) classes.push('connect__rounded-top-right');
+    }
+
+    if (roundedCorners.bottomAll) {
+      classes.push('connect__rounded-bottom');
+    } else {
+      if (roundedCorners.bottomLeft) classes.push('connect__rounded-bottom-left');
+      if (roundedCorners.bottomRight) classes.push('connect__rounded-bottom-right');
+    }
+
+    return classes.join(' ');
+  };
+
+  const classNames = [
+    'connect__image',
+    getRoundedClasses(),
+    contain && 'connect__contain',
+    className,
+  ]
     .filter(Boolean)
     .join(' ');
 

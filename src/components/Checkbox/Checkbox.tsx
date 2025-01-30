@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type CheckboxProps = {
@@ -6,41 +6,49 @@ export type CheckboxProps = {
   name: string;
   children: React.ReactNode;
   checked?: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export function Checkbox({ id, name, children, checked, disabled, dataTestId }: CheckboxProps) {
-  const checkRef = useRef<HTMLInputElement>(null);
-  const [isChecked, setIsChecked] = useState(checked || false);
-  const handleChange = () => {
-    setIsChecked(checkRef.current?.checked ?? false);
-  };
+const getClassNames = ({ isChecked, disabled }: { isChecked: boolean; disabled?: boolean }) => {
+  const choiceClass = `connect__choice ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  const labelClass = `connect__choice-label ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  return { choiceClass, labelClass };
+};
 
-  useEffect(() => {
-    setIsChecked(checked || false);
-  }, [checked]);
-
+export const Checkbox: React.FC<CheckboxProps> = ({
+  id,
+  name,
+  children,
+  checked,
+  onChange,
+  disabled,
+  dataTestId,
+}) => {
+  const { choiceClass, labelClass } = getClassNames({
+    isChecked: true,
+    disabled,
+  });
   return (
     <div className="connect__choice-label-wrapper">
       <input
-        ref={checkRef}
         type="checkbox"
         id={id}
-        className={`connect__choice ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+        className={`connect__choice ${choiceClass}`}
         name={name}
-        checked={isChecked}
-        onChange={handleChange}
+        checked={checked}
+        onChange={onChange}
         disabled={disabled}
         data-testid={dataTestId}
       />
       <label
         htmlFor={id}
-        className={`connect__choice-label connect__input-no-shadow ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`}
+        className={`connect__choice-label connect__input-no-shadow ${labelClass}`}
       >
         {children}
       </label>
     </div>
   );
-}
+};
