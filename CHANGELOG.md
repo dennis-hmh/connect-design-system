@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.5
+
+### Patch Changes
+
+- 6288e3d: Fix Lift TypeError for Button Icons.
+
 ## 1.18.4
 
 ### Patch Changes
