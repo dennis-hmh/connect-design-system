@@ -64,7 +64,7 @@ Correct.args = {
 export const Icon: Story = Template.bind({});
 Icon.args = {
   ...Primary.args,
-  children: '',
+  children: null,
   iconId: 'arrowUp',
   iconSize: 'md',
   ariaLabel: 'Icon Button Right Arrow',
