@@ -67,7 +67,7 @@ Icon.args = {
   children: null,
   iconId: 'arrowUp',
   iconSize: 'md',
-  ariaLabel: 'Icon Button Right Arrow',
+  ariaLabel: 'Icon Button Up Arrow',
 };
 
 export const Loading: Story = Template.bind({});
