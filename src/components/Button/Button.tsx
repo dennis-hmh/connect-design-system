@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
@@ -8,7 +7,7 @@ import { Typography } from '../Typography/Typography';
 
 export type ButtonProps = {
   children: React.ReactNode;
-  primary: boolean;
+  primary?: boolean;
   title?: string;
   disabled?: boolean;
   correct?: boolean;
@@ -21,12 +20,12 @@ export type ButtonProps = {
   iconPosition?: 'before' | 'after';
   iconOpacity?: number | undefined;
   ariaLabel?: string;
-  dataTestId?: string;
   additionalClass?: string;
-  gradeBand?: GradeBand;
-  isLoading?: boolean;
   mediaButton?: boolean;
-  isAnimationRunning?: boolean;
+  // isLoading?: boolean;
+  // isAnimationRunning?: boolean;
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -44,11 +43,11 @@ export const Button: React.FC<ButtonProps> = ({
   iconPosition = 'before',
   iconOpacity,
   ariaLabel,
-  dataTestId,
   additionalClass = '',
-  // isLoading = false,
   mediaButton = false,
+  // isLoading = false,
   // isAnimationRunning = false,
+  dataTestId,
 }) => {
   const classNames = [
     'connect__button',
@@ -65,7 +64,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   const iconElement = iconId ? (
     <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
-  ) : null;
+  ) : (
+    ''
+  );
 
   return (
     <button
@@ -78,11 +79,7 @@ export const Button: React.FC<ButtonProps> = ({
       title={title ? title : ariaLabel}
     >
       {iconPosition === 'before' && iconElement}
-        {typeof children === 'string' ? (
-          <Typography>{children}</Typography>
-        ) : (
-          children
-        )}
+      {typeof children === 'string' ? <Typography>{children}</Typography> : children}
       {iconPosition === 'after' && iconElement}
     </button>
   );
