@@ -9,6 +9,7 @@ export type PaperProps = {
   id?: string;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: RoundedCorner;
+  outline?: Color;
   backgroundColor?: Color;
   className?: string;
   fullWidth?: boolean;
@@ -21,13 +22,18 @@ export const Paper: React.FC<PaperProps> = ({
   element: Component = 'div',
   id,
   elevation,
-  roundedCorner = false,
+  roundedCorner,
+  outline = 'transparent',
   backgroundColor = 'white',
   className,
   fullWidth = false,
   dataTestId,
 }) => {
   const getRoundedClasses = (): string => {
+    if (roundedCorner === undefined) {
+      return '';
+    }
+
     if (typeof roundedCorner === 'boolean') {
       return roundedCorner ? 'connect__rounded-corners' : 'connect__rounded-reset';
     }
@@ -48,13 +54,14 @@ export const Paper: React.FC<PaperProps> = ({
       if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
     }
 
-    return classes.length ? classes.join(' ') : 'connect__rounded-reset';
+     return classes.join(' ') || 'connect__rounded-reset';
   };
 
   const paperClassName = [
     'connect__paper',
     elevation !== undefined ? `connect__elevation-${elevation}` : '',
     getRoundedClasses(),
+    outline !== 'transparent' ? 'connect__paper-outlined' : '',
     fullWidth ? 'connect__full-width' : '',
     className || '',
   ]
@@ -66,6 +73,7 @@ export const Paper: React.FC<PaperProps> = ({
   if (backgroundColor) {
     paperProps = {
       '--connect__paper-bg': `var(--connect__${backgroundColor})`,
+      '--connect__inner-status-paper-color': `var(--connect__${outline})`,
     } as React.CSSProperties;
   }
 
