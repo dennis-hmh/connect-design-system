@@ -944,7 +944,7 @@
   --connect__essential-guide-purple: var(--connect__cc-purple);
   --connect__essential-guide-green: var(--connect__green-c50);
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
-  
+
   /*
     3.4: Connect Neutral Palette
   */
@@ -1196,6 +1196,23 @@
   --connect__full-h: 100%;
   --connect__auto-h: auto;
   --connect__half-radius: 50%;
+
+  --connect__align-normal: normal;
+  --connect__align-stretch: stretch;
+  --connect__align-center: center;
+  --connect__align-flex-start: flex-start;
+  --connect__align-flex-end: flex-end;
+  --connect__align-baseline: baseline;
+
+  --connect__justify-center: center;
+  --connect__justify-start: start;
+  --connect__justify-flex-start: flex-start;
+  --connect__justify-flex-end: flex-end;
+  --connect__justify-normal: normal;
+  --connect__justify-space-between: space-between;
+  --connect__justify-space-around: space-around;
+  --connect__justify-space-evenly: space-evenly;
+  --connect__justify-stretch: stretch;
 }
 
 @media (min-width: 40.625rem) {
@@ -1281,7 +1298,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__'])>img {
+:where([class*='connect__']) > img {
   height: auto;
   max-height: 100%;
 }

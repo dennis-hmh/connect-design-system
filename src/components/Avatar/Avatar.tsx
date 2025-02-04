@@ -42,6 +42,8 @@ export const Avatar: React.FC<AvatarProps> = ({
     return alt || 'Avatar';
   };
 
+  // Dunno if this is the best way to do it, we also def don't need all these right now
+  // But with ED we absolutely do
   const getShapeClass = () => {
     switch (shape) {
       case 'circle':
@@ -115,6 +117,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     return children;
   };
 
+  // Design is working through the type sizes, will prob be removed!!
   const getDefaultTypographySize = (avatarSize: string) => {
     switch (avatarSize) {
       case 'xs':
