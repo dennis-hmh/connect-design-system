@@ -2639,10 +2639,6 @@ connect__toolbar
   width: var(--connect__full-w);
 }
 
-.connect__avatar-group {
-  display: var(--connect__display-flex);
-}
-
 .connect__avatar-group-negative-xs > *:not(:first-child) {
   margin-right: calc(var(--connect__spacer-xs) * -1);
 }
