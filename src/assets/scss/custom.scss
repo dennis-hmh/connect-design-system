@@ -1388,30 +1388,25 @@ these styles are then open to breakpoint changes
     fill: var(--connect__icon-fill-color, var(--connect__surface-dark));
     stroke: var(--connect__icon-stroke-color);
   }
+}
 
-  &-xs {
-    --connect__icon-size: var(--connect__icon-xs);
-  }
-
-  &-sm {
-    --connect__icon-size: var(--connect__icon-sm);
-  }
-
-  &-md {
-    --connect__icon-size: var(--connect__icon-md);
-  }
-
-  &-lg {
-    --connect__icon-size: var(--connect__icon-lg);
-  }
-
-  &-xl {
-    --connect__icon-size: var(--connect__icon-xl);
-  }
-
-  &-xxl {
-    --connect__icon-size: var(--connect__icon-xxl);
-  }
+.connect__icon-xs {
+  --connect__icon-size: var(--connect__icon-xs);
+}
+.connect__icon-sm {
+  --connect__icon-size: var(--connect__icon-sm);
+}
+.connect__icon-md {
+  --connect__icon-size: var(--connect__icon-md);
+}
+.connect__icon-lg {
+  --connect__icon-size: var(--connect__icon-lg);
+}
+.connect__icon-xl {
+  --connect__icon-size: var(--connect__icon-xl);
+}
+.connect__icon-xxl {
+  --connect__icon-size: var(--connect__icon-xxl);
 }
 
 /*
