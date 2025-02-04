@@ -2673,7 +2673,7 @@ connect__toolbar
   align-items: var(--connect__align-center);
   background-color: var(--connect__badge-bg);
   border-radius: var(--connect__inner-radius);
-  display: var(--connect__display-flex);
+  display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
   justify-content: var(--connect__align-center);
   min-height: var(--connect__spacer-md);
@@ -2683,12 +2683,8 @@ connect__toolbar
   transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1;
 
-  // Ensure text content is properly centered and spaced
   .connect__typography {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    white-space: nowrap;
+    white-space: var(--connect__white-space-nowrap);
   }
 }
 
@@ -2697,10 +2693,6 @@ connect__toolbar
   min-height: var(--connect__spacer-sm);
   min-width: var(--connect__spacer-sm);
   padding: 0;
-
-  .connect__typography {
-    display: none;
-  }
 }
 
 /* Positioning */
@@ -2732,15 +2724,7 @@ connect__toolbar
   transform-origin: 0% 100%;
 }
 
-/* When badge contains an Avatar */
-.connect__badge .connect__avatar {
-  height: 16px;
-  margin: 0;
-  padding: 0;
-  width: 16px;
-}
-
 /* Invisible variant */
 .connect__badge-invisible {
-  display: none;
+  --variant-badge-display: var(--connect__display-none);
 }

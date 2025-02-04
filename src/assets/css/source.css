@@ -761,21 +761,6 @@
   --connect__hint-size: var(--connect__spacer-sm);
 }
 
-/* .connect__g23,
-.connect__g45,
-.connect__g68,
-.connect__g912,
-.connect__teach {
-  --connect__dropdown-max-w: 14.375rem;
-  --connect__input-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-
-  @media (min-width: 40.625rem) {
-    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-  }
-} */
-
 .connect__g23,
 .connect__g45,
 .connect__g68,
