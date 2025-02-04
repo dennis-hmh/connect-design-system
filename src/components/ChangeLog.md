@@ -1,13 +1,15 @@
 ### v1.18.6 Release Notice
 
-### Release date: January 31, 2025
+### Release date: February 4, 2025
 
 #### Changelog:
 
 - New Component: N/A
-- Updated Component: -`<Button />`: Fix Lifts' TypeError -`<Icon />`: Fix Lifts' TypeError
-- Bug Fix: N/A
-- Other: Update react, react-dom to peerDepencies in `package.json`.
+- Updated Component:
+  - `<Button />`: Fix Lifts' TypeError
+  - `<Icon />`: Fix Lifts' TypeError
+- Bug Fix: Update react, react-dom to peerDepencies in `package.json`. Downgraded to React 18.2.0
+- Other: N/A
 
 #### Repo:
 
