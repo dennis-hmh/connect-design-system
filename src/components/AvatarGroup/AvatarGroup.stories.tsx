@@ -6,7 +6,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof AvatarGroup> = {
-  title: 'Components/AvatarGroup',
+  title: 'Data Display/AvatarGroup',
   component: AvatarGroup,
   tags: ['autodocs'],
   parameters: {
@@ -88,7 +88,7 @@ export const CustomSurplus: Story = Template.bind({});
 CustomSurplus.args = {
   ...Default.args,
   max: 3,
-  children: [...avatars, ...imageAvatars], 
+  children: [...avatars, ...imageAvatars],
   renderSurplus: (surplus: number) => (
     <Avatar alt={`+${surplus} users`} backgroundColor="primary-mid" shape="circle" size="md">
       +{surplus}
