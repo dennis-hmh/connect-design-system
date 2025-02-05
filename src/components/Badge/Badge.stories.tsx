@@ -114,12 +114,7 @@ AvatarBadge.args = {
   variant: 'standard',
   color: 'transparent',
   badgeContent: (
-    <Avatar
-      src="/images/pixton-avatar-headshot.png"
-      alt="Collaborator avatar"
-      size="xs"
-      shape="circle"
-    />
+    <Avatar src="/images/zelda.jpg" alt="Collaborator avatar" size="xs" shape="circle" />
   ),
   anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
   'aria-label': 'Collaborator avatar',
@@ -133,12 +128,7 @@ CombinedBadges.args = {
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       color="transparent"
       badgeContent={
-        <Avatar
-          src="/images/pixton-avatar-headshot.png"
-          alt="Collaborator avatar"
-          size="xs"
-          shape="circle"
-        />
+        <Avatar src="/images/zelda.jpg" alt="Collaborator avatar" size="xs" shape="circle" />
       }
       variant="standard"
     >
