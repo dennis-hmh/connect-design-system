@@ -5,7 +5,7 @@ import { RoundedCorner } from '../../utils/radius';
 
 export type PaperProps = {
   children: React.ReactNode;
-  element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog';
+  element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog' | 'nav';
   id?: string;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: RoundedCorner;
@@ -54,7 +54,7 @@ export const Paper: React.FC<PaperProps> = ({
       if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
     }
 
-     return classes.join(' ') || 'connect__rounded-reset';
+    return classes.join(' ') || 'connect__rounded-reset';
   };
 
   const paperClassName = [
