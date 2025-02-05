@@ -2611,14 +2611,23 @@ connect__toolbar
   }
 }
 
+/*
+|---------------|---------------------------------|--------------------------------|
+ Avatar Avatar Group & Badge Styles to come these values may change slightly 
+|---------------|---------------------------------|--------------------------------|
+*/
+
+/*
+Connect Avatars
+*/
+
 .connect__avatar {
-  align-items: center;
+  align-items: var(--connect__align-center);
   background-color: var(--connect__avatar-bg);
   border-radius: (var(--connect__avatar-radius));
-  color: white;
   display: var(--connect__display-flex);
-  justify-content: center;
-  overflow: hidden;
+  justify-content: var(--connect__justify-center);
+  overflow: var(--connect__overflow-hidden);
 }
 
 .connect__avatar-circle {
@@ -2639,31 +2648,51 @@ connect__toolbar
   width: var(--connect__full-w);
 }
 
-.connect__avatar-group-negative-xs > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-xs) * -1);
+/* 
+  Negative spacing for avatar groups
+  This will remove the margin all direct children except the first child 
+
+  :where keeps the specificity of the selector low
+  the rule expects a --connect__spacer-size
+
+  --connect__spacer-size is then set to the spacer value for that class
+
+  e.g 
+  connect__avatar-group-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
+*/
+
+:where([class*='connect__avatar-group-negative-']) > *:not(:first-child) {
+  margin-right: calc(var(--connect__spacer-size) * -1);
 }
 
-.connect__avatar-group-negative-sm > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-sm) * -1);
+.connect__avatar-group-negative-xs {
+  --connect__spacer-size: var(--connect__spacer-xs);
 }
 
-.connect__avatar-group-negative-md > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-md) * -1);
+.connect__avatar-group-negative-sm {
+  --connect__spacer-size: var(--connect__spacer-sm);
 }
 
-.connect__avatar-group-negative-lg > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-lg) * -1);
+.connect__avatar-group-negative-md {
+  --connect__spacer-size: var(--connect__spacer-md);
 }
 
-.connect__avatar-group-negative-xl > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-xl) * -1);
+.connect__avatar-group-negative-lg {
+  --connect__spacer-size: var(--connect__spacer-lg);
+}
+
+.connect__avatar-group-negative-xl {
+  --connect__spacer-size: var(--connect__spacer-xl);
 }
 
 .connect__badge-container {
-  display: inline-flex;
+  display: var(--connect__display-flex);
   position: var(--connect__relative);
-  vertical-align: middle;
 }
+
+/* 
+  Badge component
+*/
 
 .connect__badge {
   align-items: var(--connect__align-center);
