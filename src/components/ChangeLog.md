@@ -1,3 +1,45 @@
+### v1.18.4 Release Notice
+
+### Release date: January 31, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Button />`: Fix Lifts' TypeError
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.4 Release Notice
+
+### Release date: January 30, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Icon />`: collapes-left-outline, commonError, expand-right-outline, ml, syl, and udl Icons added
+  - `<Paper />`: Outline prop added
+- Bug Fix: N/A
+- Other: Colors unified with new name, Stories updated with new color names.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.3 Release Notice
 
 ### Release date: January 29, 2025

@@ -49,7 +49,7 @@ Default.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="gray-c10"
+      backgroundColor="surface-pale"
       roundedCorner={{
         topLeft: true,
         topRight: true,
@@ -110,7 +110,7 @@ SubHead.args = {
           Header
         </Typography>
       </Stack>
-      <Paper elevation={0} fullWidth={true} backgroundColor="gray-c10">
+      <Paper elevation={0} fullWidth={true} backgroundColor="surface-pale">
         <Stack xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
           <Typography element="h5" size="heading-sm">
             Subheader
@@ -255,7 +255,7 @@ MCQRadio.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="gray-c10"
+      backgroundColor="surface-pale"
       roundedCorner={{
         topLeft: true,
         topRight: true,
@@ -318,7 +318,7 @@ export const MCQCheckbox: Story = (args) => {
               <Paper
                 elevation={0}
                 fullWidth={true}
-                backgroundColor="gray-c10"
+                backgroundColor="surface-pale"
                 roundedCorner={{
                   topLeft: true,
                   topRight: true,
@@ -411,7 +411,7 @@ ShortAnswer.args = {
     <Paper
       elevation={0}
       fullWidth={true}
-      backgroundColor="gray-c10"
+      backgroundColor="surface-pale"
       roundedCorner={{
         topLeft: true,
         topRight: true,
@@ -513,7 +513,7 @@ SpeechToText.args = {
             }}
           >
             <ButtonMenu iconId="add" />
-            <ButtonMenu iconId="mic" backgroundColor="connect__blue-s50" fill="white" />
+            <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
           </Stack>
         }
       />

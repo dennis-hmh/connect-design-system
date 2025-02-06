@@ -1,5 +1,22 @@
 # @connect/connect-design-system
 
+## 1.18.5
+
+### Patch Changes
+
+- 6288e3d: Fix Lift TypeError for Button Icons.
+
+## 1.18.4
+
+### Patch Changes
+
+- 03d51d0: - New Component: N/A
+  - Updated Component:
+    - `<Icon />`: collapes-left-outline, commonError, expand-right-outline, ml, syl, and udl Icons added
+    - `<Paper />`: Outline prop added
+  - Bug Fix: N/A
+  - Other: Colors unified with new name, Stories updated with new color names.
+
 ## 1.18.3
 
 ### Patch Changes
