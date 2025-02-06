@@ -10,6 +10,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import tsProject from "./tsconfig.json";
+import tsProjectNode from "./tsconfig.node.json";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -62,13 +65,13 @@ export default [
           jsx: true,
         },
 
-        project: './tsconfig.json',
+        project: [tsProject, tsProjectNode],
       },
     },
 
     settings: {
       react: {
-        version: '18.2',
+        version: 'detect',
       },
 
       'import/resolver': {

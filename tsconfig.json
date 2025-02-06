@@ -47,7 +47,7 @@
     "src/App.tsx",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    "vite.config.ts",
+    "vite.config.mts",
     "vitest.config.ts",
     "vitest.storybook.config.ts"
   ],
