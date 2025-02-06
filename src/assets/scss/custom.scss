@@ -2615,3 +2615,14 @@ connect__toolbar
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
 }
+
+
+
+/*
+utilities 
+*/
+
+.connect__visually-hidden {
+  position: absolute;
+  left: -9999px;
+}

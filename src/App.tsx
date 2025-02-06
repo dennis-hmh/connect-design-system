@@ -178,7 +178,7 @@ const App: React.FC = () => {
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
               /> */}
-              <RiveEngine sizeByHeight {...studentPicker} />
+              <RiveEngine sizeByHeight {...studentPicker} desc="student picker animation"/>
 
             </div>
             {/* <div

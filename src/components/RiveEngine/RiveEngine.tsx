@@ -191,7 +191,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
         }}
     >
       <RiveComponent />
-      <Typography element="p" ariaLive="polite">
+      <Typography element="p" ariaLive="polite" className='connect__visually-hidden'>
         {desc}
       </Typography>
     </div>
