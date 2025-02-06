@@ -2472,8 +2472,6 @@ To be fleshed out / moved
   font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
   font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
   line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
-  max-width: var(--connect__dropdown-max-w);
-  min-width: var(--connect__dropdown-min-w);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: var(--connect__relative);
@@ -2492,6 +2490,11 @@ To be fleshed out / moved
 
   &:where(:focus-visible:not(:active)) {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
+  }
+
+  &.connect__fixed-dimensions {
+    max-width: var(--connect__dropdown-max-w);
+    min-width: var(--connect__dropdown-min-w);
   }
 
   .connect__feedback-stamp {

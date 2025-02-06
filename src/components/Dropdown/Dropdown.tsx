@@ -11,6 +11,7 @@ export type DropdownProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
+  FixedWidth?: boolean; // CC Michael
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -25,6 +26,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   answerShown,
   disabled = false,
   dataTestId,
+  fixedWidth = false, // Added this Michael
 }) => {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
@@ -60,7 +62,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div
       id="connect__dropdown-button"
-      className={`connect__dropdown ${feedbackStates}`}
+      className={`connect__dropdown ${feedbackStates} ${fixedWidth ? 'connect__fixed-dimensions' : ''}`} // Add the class CC Michael
       role="button"
       aria-disabled={disabled}
       aria-haspopup="listbox"
