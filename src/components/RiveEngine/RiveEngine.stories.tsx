@@ -39,7 +39,7 @@ const Template: StoryFn<RiveEngineProps> = (args) => {
     fitCanvasToArtboardHeight: true
   });
 
-  return <RiveEngine {...args} {...riveState} />;
+  return (<div style={{width: '500px'}} ><RiveEngine {...args} {...riveState} /></div>);
 };
 
 /** An example of showing a Rive animation! One special thing to note about this example is that it automatically responds to changes in the "Reduced Motion" and "Dark Mode" system preferences.
@@ -169,7 +169,7 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
           <RiveEngine volume={0.5} width="400px" height="400px" {...riveState} />
         </div>
 
-        <div style={{ width: '220px', textAlign: 'center', justifySelf: 'center' }}>
+        <div style={{ width: '300px', textAlign: 'center', justifySelf: 'center' }}>
           <Timer
             time={countdownLength}
             onTimeUp={handleTimerFinish}
@@ -286,7 +286,7 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   );
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}>
+    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px', height: ' 400px' }}>
       <Typography element="h1" family="sans" size="heading-lg" style="normal">
         <span style={{ fontSize: 'x-large' }}>{ratingValue}</span>
       </Typography>

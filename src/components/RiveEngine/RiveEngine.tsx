@@ -186,7 +186,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
       ref={divRef}
       style={{
         height: '100%', 
-        ...(sizeByHeight && aspectRatio && { width: calculatedWidth }),
+        ...(sizeByHeight && aspectRatio ? { width: calculatedWidth } : { width: '100%' }),
         ...style
         }}
     >
