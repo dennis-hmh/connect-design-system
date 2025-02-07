@@ -11,7 +11,7 @@ export type DropdownProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
-  FixedWidth?: boolean; // CC Michael
+  fixedWidth?: boolean; // CC Michael
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
