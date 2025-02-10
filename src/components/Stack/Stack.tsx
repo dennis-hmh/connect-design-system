@@ -62,10 +62,35 @@ const setStackVariables = (
 ): Record<string, string> => {
   if (!values) return {};
 
-  // Here now i have the object that will take the variable and value
   const variables: Record<string, string> = {};
 
-  if (values.direction) variables[`--connect__stack${prefix}-direction`] = values.direction;
+  // The following is how mui does this, the CC team have expressed a desire to have this
+
+  // Set direction and its associated defaults
+  if (values.direction) {
+    variables[`--connect__stack${prefix}-direction`] = values.direction;
+    const isRow = values.direction.includes('row');
+
+    // Set row-specific defaults
+    if (isRow) {
+      // Set default flexWrap for row
+      if (!values.flexWrap) {
+        variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
+      }
+
+      // Set default justifyContent for row if not specified
+      if (!values.justifyContent) {
+        variables[`--connect__stack${prefix}-justify-content`] = 'start'; // equivalent to flex-start
+      }
+
+      // Set default alignItems for row if not specified
+      if (!values.alignItems) {
+        variables[`--connect__stack${prefix}-align-items`] = 'stretch';
+      }
+    }
+  }
+
+  // Override defaults with explicitly provided values
   if (values.spacing)
     variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
   if (values.alignItems) variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
