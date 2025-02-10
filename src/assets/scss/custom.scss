@@ -1168,7 +1168,7 @@ these styles are then open to breakpoint changes
   align-items: var(--connect__stack-align-items, start);
   align-self: var(--connect__stack-align-self, auto);
   display: var(--connect__display-flex);
-  flex: var(--connect__stack-flex, none);
+  flex: var(--connect__stack-flex);
   flex-direction: var(--connect__stack-direction, row);
   flex-wrap: var(--connect__stack-flex-wrap, nowrap);
   gap: var(--connect__stack-spacing, 0);
