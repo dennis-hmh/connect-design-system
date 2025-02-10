@@ -1,6 +1,6 @@
 ### v1.18.6 Release Notice
 
-### Release date: February 4, 2025
+### Release date: February 10, 2025
 
 #### Changelog:
 
