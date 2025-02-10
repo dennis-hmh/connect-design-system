@@ -1156,79 +1156,111 @@ these styles are then open to breakpoint changes
 */
 
 .connect__stack {
-  align-items: var(--connect__stack-align, start);
-  align-self: var(--connect__stack-alignSelf, stretch);
   display: flex;
-  flex-flow: var(--connect__stack-direction, column) var(--connect__stack-wrap, wrap);
-  gap: var(--connect__stack-spacing, 0);
-  justify-content: var(--connect__justify-content, start);
-  padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
 
-  &.connect__stack-xs {
-    --connect__stack-spacing: var(--connect__stack-xs-spacing);
-    --connect__stack-direction: var(--connect__stack-xs-direction);
-    --connect__stack-align: var(--connect__stack-xs-alignItems);
-    --connect__stack-alignSelf: var(--connect__stack-xs-alignSelf);
-    --connect__stack-wrap: var(--connect__stack-xs-flexWrap);
-    --connect__justify-content: var(--connect__stack-xs-justifyContent);
-    --connect__paddingX: var(--connect__stack-xs-paddingX);
-    --connect__paddingY: var(--connect__stack-xs-paddingY);
-    flex: var(--connect__stack-xs-flex, none);
-  }
+  &[data-stack-id] {
+    // Reset all variables to prevent inheritance
+    --connect__stack-direction: initial;
+    --connect__stack-spacing: initial;
+    --connect__stack-align-items: initial;
+    --connect__stack-align-self: initial;
+    --connect__stack-justify-content: initial;
+    --connect__stack-flex-wrap: initial;
+    --connect__stack-padding-x: initial;
+    --connect__stack-padding-y: initial;
+    --connect__stack-flex: initial;
 
-  @media (min-width: 30rem) {
-    &.connect__stack-sm {
-      --connect__stack-spacing: var(--connect__stack-sm-spacing);
-      --connect__stack-direction: var(--connect__stack-sm-direction);
-      --connect__stack-align: var(--connect__stack-sm-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-sm-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-sm-flexWrap);
-      --connect__justify-content: var(--connect__stack-sm-justifyContent);
-      --connect__paddingX: var(--connect__stack-sm-paddingX);
-      --connect__paddingY: var(--connect__stack-sm-paddingY);
-      flex: var(--connect__stack-sm-flex, none);
+    // Base styles with fallbacks
+    align-items: var(--connect__stack-align-items, start);
+    align-self: var(--connect__stack-align-self, auto);
+    flex-direction: var(--connect__stack-direction, row);
+    flex-wrap: var(--connect__stack-flex-wrap, nowrap);
+    gap: var(--connect__stack-spacing, 0);
+    justify-content: var(--connect__stack-justify-content, start);
+    padding: var(--connect__stack-padding-y, 0) var(--connect__stack-padding-x, 0);
+    flex: var(--connect__stack-flex, none);
+
+    &.connect__stack-xs {
+      align-items: var(--connect__stack-xs-align-items, var(--connect__stack-align-items));
+      align-self: var(--connect__stack-xs-align-self, var(--connect__stack-align-self));
+      flex-direction: var(--connect__stack-xs-direction, var(--connect__stack-direction));
+      flex-wrap: var(--connect__stack-xs-flex-wrap, var(--connect__stack-flex-wrap));
+      gap: var(--connect__stack-xs-spacing, var(--connect__stack-spacing));
+      justify-content: var(
+        --connect__stack-xs-justify-content,
+        var(--connect__stack-justify-content)
+      );
+      padding: var(--connect__stack-xs-padding-y, var(--connect__stack-padding-y))
+        var(--connect__stack-xs-padding-x, var(--connect__stack-padding-x));
+      flex: var(--connect__stack-xs-flex, var(--connect__stack-flex));
     }
-  }
 
-  @media (min-width: 40.625rem) {
-    &.connect__stack-md {
-      --connect__stack-spacing: var(--connect__stack-md-spacing);
-      --connect__stack-direction: var(--connect__stack-md-direction);
-      --connect__stack-align: var(--connect__stack-md-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-md-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-md-flexWrap);
-      --connect__justify-content: var(--connect__stack-md-justifyContent);
-      --connect__paddingX: var(--connect__stack-md-paddingX);
-      --connect__paddingY: var(--connect__stack-md-paddingY);
-      flex: var(--connect__stack-md-flex, none);
+    @media (min-width: 30rem) {
+      &.connect__stack-sm {
+        align-items: var(--connect__stack-sm-align-items, var(--connect__stack-align-items));
+        align-self: var(--connect__stack-sm-align-self, var(--connect__stack-align-self));
+        flex-direction: var(--connect__stack-sm-direction, var(--connect__stack-direction));
+        flex-wrap: var(--connect__stack-sm-flex-wrap, var(--connect__stack-flex-wrap));
+        gap: var(--connect__stack-sm-spacing, var(--connect__stack-spacing));
+        justify-content: var(
+          --connect__stack-sm-justify-content,
+          var(--connect__stack-justify-content)
+        );
+        padding: var(--connect__stack-sm-padding-y, var(--connect__stack-padding-y))
+          var(--connect__stack-sm-padding-x, var(--connect__stack-padding-x));
+        flex: var(--connect__stack-sm-flex, var(--connect__stack-flex));
+      }
     }
-  }
 
-  @media (min-width: 55rem) {
-    &.connect__stack-lg {
-      --connect__stack-spacing: var(--connect__stack-lg-spacing);
-      --connect__stack-direction: var(--connect__stack-lg-direction);
-      --connect__stack-align: var(--connect__stack-lg-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-lg-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-lg-flexWrap);
-      --connect__justify-content: var(--connect__stack-lg-justifyContent);
-      --connect__paddingX: var(--connect__stack-lg-paddingX);
-      --connect__paddingY: var(--connect__stack-lg-paddingY);
-      flex: var(--connect__stack-lg-flex, none);
+    @media (min-width: 48rem) {
+      &.connect__stack-md {
+        align-items: var(--connect__stack-md-align-items, var(--connect__stack-align-items));
+        align-self: var(--connect__stack-md-align-self, var(--connect__stack-align-self));
+        flex-direction: var(--connect__stack-md-direction, var(--connect__stack-direction));
+        flex-wrap: var(--connect__stack-md-flex-wrap, var(--connect__stack-flex-wrap));
+        gap: var(--connect__stack-md-spacing, var(--connect__stack-spacing));
+        justify-content: var(
+          --connect__stack-md-justify-content,
+          var(--connect__stack-justify-content)
+        );
+        padding: var(--connect__stack-md-padding-y, var(--connect__stack-padding-y))
+          var(--connect__stack-md-padding-x, var(--connect__stack-padding-x));
+        flex: var(--connect__stack-md-flex, var(--connect__stack-flex));
+      }
     }
-  }
 
-  @media (min-width: 80rem) {
-    &.connect__stack-xl {
-      --connect__stack-spacing: var(--connect__stack-xl-spacing);
-      --connect__stack-direction: var(--connect__stack-xl-direction);
-      --connect__stack-align: var(--connect__stack-xl-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-xl-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-xl-flexWrap);
-      --connect__justify-content: var(--connect__stack-xl-justifyContent);
-      --connect__paddingX: var(--connect__stack-xl-paddingX);
-      --connect__paddingY: var(--connect__stack-xl-paddingY);
-      flex: var(--connect__stack-xl-flex, none);
+    @media (min-width: 64rem) {
+      &.connect__stack-lg {
+        align-items: var(--connect__stack-lg-align-items, var(--connect__stack-align-items));
+        align-self: var(--connect__stack-lg-align-self, var(--connect__stack-align-self));
+        flex-direction: var(--connect__stack-lg-direction, var(--connect__stack-direction));
+        flex-wrap: var(--connect__stack-lg-flex-wrap, var(--connect__stack-flex-wrap));
+        gap: var(--connect__stack-lg-spacing, var(--connect__stack-spacing));
+        justify-content: var(
+          --connect__stack-lg-justify-content,
+          var(--connect__stack-justify-content)
+        );
+        padding: var(--connect__stack-lg-padding-y, var(--connect__stack-padding-y))
+          var(--connect__stack-lg-padding-x, var(--connect__stack-padding-x));
+        flex: var(--connect__stack-lg-flex, var(--connect__stack-flex));
+      }
+    }
+
+    @media (min-width: 80rem) {
+      &.connect__stack-xl {
+        align-items: var(--connect__stack-xl-align-items, var(--connect__stack-align-items));
+        align-self: var(--connect__stack-xl-align-self, var(--connect__stack-align-self));
+        flex-direction: var(--connect__stack-xl-direction, var(--connect__stack-direction));
+        flex-wrap: var(--connect__stack-xl-flex-wrap, var(--connect__stack-flex-wrap));
+        gap: var(--connect__stack-xl-spacing, var(--connect__stack-spacing));
+        justify-content: var(
+          --connect__stack-xl-justify-content,
+          var(--connect__stack-justify-content)
+        );
+        padding: var(--connect__stack-xl-padding-y, var(--connect__stack-padding-y))
+          var(--connect__stack-xl-padding-x, var(--connect__stack-padding-x));
+        flex: var(--connect__stack-xl-flex, var(--connect__stack-flex));
+      }
     }
   }
 }
