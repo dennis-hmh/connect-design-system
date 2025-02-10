@@ -1207,7 +1207,7 @@ these styles are then open to breakpoint changes
     }
   }
 
-  @media (min-width: 48rem) {
+  @media (min-width: 40.625rem) {
     &.connect__stack-md {
       align-items: var(--connect__stack-md-align-items, var(--connect__stack-align-items));
       align-self: var(--connect__stack-md-align-self, var(--connect__stack-align-self));
@@ -1224,7 +1224,7 @@ these styles are then open to breakpoint changes
     }
   }
 
-  @media (min-width: 64rem) {
+  @media (min-width: 55rem) {
     &.connect__stack-lg {
       align-items: var(--connect__stack-lg-align-items, var(--connect__stack-align-items));
       align-self: var(--connect__stack-lg-align-self, var(--connect__stack-align-self));
