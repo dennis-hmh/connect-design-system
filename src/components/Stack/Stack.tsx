@@ -5,16 +5,6 @@ import type { CSSProperties } from 'react';
 
 type SpacingSizes = 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-// Will tidy up comments after code review
-// Here the idea is we add a stack id to the stack element
-// This is used to generate the CSS variables for the stack
-// We then use the stack id to target the stack in the CSS
-// similar to the uuid in habitat, we also get to use the css and not bloat with styled components
-const generateStackId = (() => {
-  let id = 0;
-  return () => `stack-${id++}`;
-})();
-
 export type BreakpointValues = {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   spacing?: SpacingSizes;
@@ -113,9 +103,6 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
     ...other
   } = props;
 
-  // Generate unique ID for this Stack instance
-  const stackId = React.useMemo(() => generateStackId(), []);
-
   // Generate CSS variables for each breakpoint
   // I think the memo is ideal hereto prevent re-renders.
   // The base styles are the ones that are always there
@@ -161,13 +148,7 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
   );
 
   return (
-    <Component
-      className={stackClasses}
-      style={combinedStyle}
-      data-stack-id={stackId}
-      data-testid={dataTestId}
-      {...other}
-    >
+    <Component className={stackClasses} style={combinedStyle} data-testid={dataTestId} {...other}>
       {children}
     </Component>
   );
