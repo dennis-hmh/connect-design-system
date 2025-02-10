@@ -1,5 +1,4 @@
-import React from 'react';
-import type { CSSProperties } from 'react';
+import React, { useMemo } from 'react';
 
 // I think we should move this outside the file in next iteration
 
@@ -32,7 +31,7 @@ export type StackProps = {
   className?: string;
   dataTestId?: string;
   flex?: 'auto' | 'grow' | 'shrink' | 'none' | 'fill' | number | boolean;
-  style?: CSSProperties;
+  customStyle?: React.CSSProperties;
 };
 
 const generateFlexValue = (flex: StackProps['flex']): string => {
@@ -124,7 +123,7 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
     className,
     dataTestId,
     flex,
-    style: customStyle,
+    customStyle,
     ...other
   } = props;
 
@@ -132,7 +131,7 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
   // I think the memo is ideal hereto prevent re-renders.
   // The base styles are the ones that are always there
   // The breakpoint styles are the ones that are only there if the breakpoint is defined
-  const cssVariables = React.useMemo(() => {
+  const cssVariables = useMemo(() => {
     const baseStyles = {
       ...setStackVariables(xs),
       ...(flex && { '--connect__stack-flex': generateFlexValue(flex) }),
@@ -150,10 +149,10 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
     return {
       ...baseStyles,
       ...breakpointStyles,
-    } as CSSProperties;
+    } as React.CSSProperties;
   }, [xs, sm, md, lg, xl, flex]);
 
-  const stackClasses = React.useMemo(() => {
+  const stackClasses = useMemo(() => {
     const classes = ['connect__stack'];
     if (xs) classes.push('connect__stack-xs');
     if (sm) classes.push('connect__stack-sm');
@@ -164,7 +163,7 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
     return classes.join(' ');
   }, [className, xs, sm, md, lg, xl]);
 
-  const combinedStyle = React.useMemo(
+  const combinedStyle = useMemo(
     () => ({
       ...cssVariables,
       ...customStyle,
