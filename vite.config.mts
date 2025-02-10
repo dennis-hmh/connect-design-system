@@ -1,14 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
 import autoprefixer from 'autoprefixer';
 import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
-// import css from 'rollup-plugin-css-only';
 
 export default defineConfig({
-  assetsInclude: ["**/*.riv"],
+  assetsInclude: ['**/*.riv'],
   css: {
     postcss: {
       plugins: [autoprefixer],
@@ -22,26 +21,16 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
+      output: { interop: "auto" },
     },
-    assetsInlineLimit: 0,
     sourcemap: true,
     emptyOutDir: true,
   },
   plugins: [
-    libInjectCss(),
     dts({
       include: ['src/components/'],
     }),
-    react({
-      jsxRuntime: 'automatic',
-    }),
-    // css({ output: 'button.css' }),
+    react(),
     ViteSvgSpriteWrapper({
       icons: './src/assets/icons/svg/*.svg',
       outputDir: './public/svg/',
@@ -73,6 +62,7 @@ export default defineConfig({
         },
       },
     }),
+    libInjectCss(),
   ],
   resolve: {
     alias: {

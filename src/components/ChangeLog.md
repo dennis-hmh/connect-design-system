@@ -1,4 +1,26 @@
-### v1.18.4 Release Notice
+### v1.18.6 Release Notice
+
+### Release date: February 10, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Button />`: Fix Lifts' TypeError
+  - `<Icon />`: Fix Lifts' TypeError
+- Bug Fix: Update react, react-dom to peerDepencies in `package.json`. Downgraded to React 18.2.0
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.5 Release Notice
 
 ### Release date: January 31, 2025
 
