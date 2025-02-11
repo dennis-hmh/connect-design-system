@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.7
+
+### Patch Changes
+
+- 2d0ef17: Add scoping to Stack css, change element type to React.ElementType,add custom style prop"
+
 ## 1.18.6
 
 ### Patch Changes
