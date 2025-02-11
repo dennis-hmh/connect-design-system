@@ -1,11 +1,14 @@
 import React from 'react';
 import { GradeBand } from '../../enum/gradeband';
 
-export type BreakpointValues = {
-  startCol?: number;
-  spanCol?: number;
-  rowSpan?: number;
-};
+// Update BreakpointValues to handle both styles
+export type BreakpointValues =
+  | {
+      startCol?: number;
+      spanCol?: number;
+      rowSpan?: number;
+    }
+  | number; // Add support for MUI-style numeric values
 
 export type GridItemProps = {
   children: React.ReactNode;
@@ -14,19 +17,34 @@ export type GridItemProps = {
   md?: BreakpointValues;
   lg?: BreakpointValues;
   xl?: BreakpointValues;
+  rowSpan?: number; // Add base rowSpan prop
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-const generateGridItemStyles = (
+const processBreakpointValue = (
   breakpoint: string,
   values: BreakpointValues,
   previousValues: BreakpointValues,
-) => {
-  const startCol = values.startCol ?? previousValues.startCol ?? 1;
-  const spanCol = values.spanCol ?? previousValues.spanCol ?? 12;
-  const rowSpan = values.rowSpan ?? previousValues.rowSpan ?? null;
+): { [key: string]: any } => {
+  // If value is a number, treat it as MUI-style column span
+  if (typeof values === 'number') {
+    return {
+      [`--connect__grid-item-${breakpoint}-start-col`]: 1,
+      [`--connect__grid-item-${breakpoint}-span-col`]: values,
+    };
+  }
+
+  // Otherwise, process as before
+  const startCol =
+    values.startCol ?? (typeof previousValues === 'number' ? 1 : previousValues.startCol) ?? 1;
+  const spanCol =
+    values.spanCol ??
+    (typeof previousValues === 'number' ? previousValues : previousValues.spanCol) ??
+    12;
+  const rowSpan =
+    values.rowSpan ?? (typeof previousValues === 'number' ? null : previousValues.rowSpan) ?? null;
 
   const styles: { [key: string]: any } = {
     [`--connect__grid-item-${breakpoint}-start-col`]: startCol,
@@ -47,6 +65,7 @@ export const GridItem: React.FC<GridItemProps> = ({
   md,
   lg,
   xl,
+  rowSpan, // Add rowSpan to destructuring
   className,
   dataTestId,
 }) => {
@@ -54,11 +73,16 @@ export const GridItem: React.FC<GridItemProps> = ({
   const breakpoints = { xs, sm, md, lg, xl };
   let previousBreakpoint: BreakpointValues = {};
 
+  // Set base rowSpan if provided
+  if (rowSpan !== undefined) {
+    style['--connect__grid-item-row-span'] = rowSpan;
+  }
+
   // Apply styles based on props for each breakpoint
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {
     if (values) {
-      Object.assign(style, generateGridItemStyles(breakpoint, values, previousBreakpoint));
-      previousBreakpoint = { ...previousBreakpoint, ...values };
+      Object.assign(style, processBreakpointValue(breakpoint, values, previousBreakpoint));
+      previousBreakpoint = values;
     }
   });
 

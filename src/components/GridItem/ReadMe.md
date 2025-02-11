@@ -1,17 +1,17 @@
 # GridItem Component
 
-The `GridItem` component is a flexible and customizable layout component designed to be used within a `Grid` component. It helps you create responsive grid layouts in your React applications.
+The `GridItem` component is designed to be used within the `Grid` component, allowing for flexible and customizable grid item layouts. It supports responsive design through customizable breakpoints and properties for controlling the grid item's position and size.
 
 ## Features
 
-- **TypeScript Support**: Utilizes TypeScript for type safety and to define props clearly, making the component easy to use and integrate.
-- **Responsive Layout**: Supports responsive design with customizable column spans and start positions for different screen sizes.
-- **Customizable**: Provides various props to customize the grid item's appearance and behavior, such as column spans, start positions, and additional classes.
-- **Easy to Use**: Designed with simplicity in mind, making it straightforward to integrate into any React project.
+- **Responsive Design**: Easily create responsive grid item layouts with customizable breakpoints.
+- **Customizable Positioning**: Control the starting column and span of each grid item.
+- **Row Span Support**: Specify how many rows a grid item should span.
+- **TypeScript Support**: Leverages TypeScript for type safety and to define props clearly.
 
 ## Installation
 
-To use the `GridItem` component in your project, ensure you have the `@connect/connect-design-system` library installed:
+To use the `GridItem` component, ensure you have the `@connect/connect-design-system` library installed:
 
 ```bash
 npm install @connect/connect-design-system@latest
@@ -19,23 +19,22 @@ npm install @connect/connect-design-system@latest
 
 ## Usage
 
-Here's a basic example of how to use the GridItem component within a Grid component:
+Here is an example of how to use the `GridItem` component within a `Grid`:
 
-```jsx
+```tsx
 import React from 'react';
-import { Grid } from '@connect/connect-design-system';
-import { GridItem } from '@connect/connect-design-system';
+import { Grid, GridItem } from '@connect/connect-design-system';
 
 const App = () => {
   return (
-    <Grid gap="md" gutter={true}>
-      <GridItem xs={{ startCol: 1, spanCol: 4 }}>
+    <Grid gap="lg" gutter={true}>
+      <GridItem xs={12} md={6} rowSpan={2} lg={{ spanCol: 4, rowSpan: 3 }}>
         <div>Item 1</div>
       </GridItem>
-      <GridItem xs={{ startCol: 5, spanCol: 4 }}>
+      <GridItem xs={12} md={6} lg={{ spanCol: 4 }}>
         <div>Item 2</div>
       </GridItem>
-      <GridItem xs={{ startCol: 9, spanCol: 4 }}>
+      <GridItem xs={12} lg={{ spanCol: 4 }}>
         <div>Item 3</div>
       </GridItem>
     </Grid>
@@ -45,28 +44,73 @@ const App = () => {
 export default App;
 ```
 
-## Workspace
+## Props
 
-Collecting workspace information
-
-Sure! Here is a README.md file for the GridItem component:
-
-README.md
-Usage
-Here's a basic example of how to use the GridItem component within a Grid component:
-
-Props
 The GridItem component accepts the following props:
 
-- children (**required**): The content to be displayed within the grid item. This is a required prop and can be any valid React node.
-- xs (optional): An object specifying the column span and start position for extra-small screens. Example: { startCol: 1, spanCol: 4 }.
-- sm (optional): An object specifying the column span and start position for small screens. Example: { startCol: 1, spanCol: 4 }.
-- md (optional): An object specifying the column span and start position for medium screens. Example: { startCol: 1, spanCol: 4 }.
-- lg (optional): An object specifying the column span and start position for large screens. Example: { startCol: 1, spanCol: 4 }.
-- xl (optional): An object specifying the column span and start position for extra-large screens. Example: { startCol: 1, spanCol: 4 }.
-- className (optional): A string representing additional CSS classes to apply to the grid item.
-- dataTestId (optional): A string for the data-testid attribute, useful for testing.
+### children
 
-## Contributing
+- Type: React.ReactNode
+- Required: Yes
+- Description: The content to be rendered inside the grid item.
 
-Contributions to the GridItem component are welcome. Please ensure to follow the project's coding standards and submit your pull requests for review.
+### xs, sm, md, lg, xl
+
+- Type: BreakpointValues
+- Required: No
+- Description: Specifies the layout behavior at different screen sizes (breakpoints). Each of these props can accept an object of type BreakpointValues, which can define several properties to control the layout, such as `startCol`, `spanCol`, and `rowSpan`.
+
+### rowSpan
+
+- Type: number
+- Required: No
+- Description: Specifies how many rows the grid item should span. This can be set as a base prop or overridden at different breakpoints.
+
+### className
+
+- Type: string
+- Required: No
+- Description: Additional CSS class names to apply to the grid item.
+
+### dataTestId
+
+- Type: string
+- Required: No
+- Description: A test ID for the grid item, useful for testing purposes.
+
+### gradeBand
+
+- Type: GradeBand
+- Required: No
+- Description: Specifies the grade band for the grid item.
+
+## Example
+
+Here is a more detailed example demonstrating the usage of the GridItem component with different props:
+
+```tsx
+import React from 'react';
+import { Grid, GridItem } from '@connect/connect-design-system';
+
+const Example = () => {
+  return (
+    <Grid gap="lg" gutter={true}>
+      <GridItem xs={12} md={6} rowSpan={2} lg={{ spanCol: 4, rowSpan: 3 }}>
+        <div>Item 1</div>
+      </GridItem>
+      <GridItem xs={12} md={6} lg={{ spanCol: 4 }}>
+        <div>Item 2</div>
+      </GridItem>
+      <GridItem xs={12} lg={{ spanCol: 4 }}>
+        <div>Item 3</div>
+      </GridItem>
+    </Grid>
+  );
+};
+
+export default Example;
+```
+
+## Conclusion
+
+The `GridItem` component provides a powerful and flexible way to create responsive grid layouts in your React applications. With customizable positioning, row span support, and responsive breakpoints, it allows for fine-tuned control over the layout of your components.
