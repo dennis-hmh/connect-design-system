@@ -43,12 +43,6 @@ const generateFlexValue = (flex: StackProps['flex']): string => {
   return flex ? flexPresets[flex] : 'none';
 };
 
-// Record<string, string> => {
-//   [key: string]: string;
-// }
-// The function returns an object where all keys and values are strings
-// This is so we can use the object in the css variables
-
 const setStackVariables = (
   values: BreakpointValues | undefined,
   prefix: string = '',
@@ -57,64 +51,65 @@ const setStackVariables = (
 
   const variables: Record<string, string> = {};
 
-
-  // Set direction and its associated defaults
   if (values.direction) {
     variables[`--connect__stack${prefix}-direction`] = values.direction;
     const isRow = values.direction.includes('row');
 
-    // Set row-specific defaults
     if (isRow) {
-      // Set default flexWrap for row
       if (!values.flexWrap) {
         variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
       }
-
-      // Set default justifyContent for row if not specified
       if (!values.justifyContent) {
-        variables[`--connect__stack${prefix}-justify-content`] = 'start'; // equivalent to flex-start
+        variables[`--connect__stack${prefix}-justify-content`] = 'start';
       }
-
-      // Set default alignItems for row if not specified
       if (!values.alignItems) {
         variables[`--connect__stack${prefix}-align-items`] = 'stretch';
       }
     }
   }
 
-  // Override defaults with explicitly provided values
-  if (values.spacing)
+  if (values.spacing) {
     variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
-  if (values.alignItems) variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
-  if (values.alignSelf) variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
-  if (values.justifyContent)
+  }
+  if (values.alignItems) {
+    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
+  }
+  if (values.alignSelf) {
+    variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
+  }
+  if (values.justifyContent) {
     variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
-  if (values.flexWrap) variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
-  if (values.paddingX)
+  }
+  if (values.flexWrap) {
+    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
+  }
+  if (values.paddingX) {
     variables[`--connect__stack${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
-  if (values.paddingY)
+  }
+  if (values.paddingY) {
     variables[`--connect__stack${prefix}-padding-y`] = `var(--connect__spacer-${values.paddingY})`;
-  if (values.flex) variables[`--connect__stack${prefix}-flex`] = values.flex;
+  }
+  if (values.flex) {
+    variables[`--connect__stack${prefix}-flex`] = values.flex;
+  }
 
   return variables;
 };
 
-export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>((props) => {
-  const {
-    children,
-    element: Component = 'div',
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    className,
-    dataTestId,
-    flex,
-    customStyle,
-    ...other
-  } = props;
-
+export const Stack: React.FC<StackProps> = ({
+  children,
+  element: Component = 'div',
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  className,
+  dataTestId,
+  flex,
+  customStyle,
+  ...other
+}) => {
   const cssVariables = useMemo(() => {
     const baseStyles = {
       ...setStackVariables(xs),
@@ -128,7 +123,6 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
       ...setStackVariables(xl, '-xl'),
     };
 
-    // Return base styles in our case mobile first then add the BP over it
     return {
       ...baseStyles,
       ...breakpointStyles,
@@ -159,4 +153,4 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
       {children}
     </Component>
   );
-});
+};
