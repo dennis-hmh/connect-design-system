@@ -135,6 +135,7 @@ export const Grid = React.forwardRef<HTMLElement, GridProps>((props) => {
   const cssVariables = useMemo(() => {
     const baseStyles = {
       '--connect__grid-template-columns': gridTemplateColumns,
+      '--connect__grid-template-rows': gridTemplateRows,
       // Michael, here i am proposing the base gaps, e.g non breakpoint gaps are lowest priority and if there is a breakpoint gap, it will override the base gap
       ...(gap && { '--connect__grid-gap': gapSizes[gap] }),
       ...(columnGap && { '--connect__grid-column-gap': gapSizes[columnGap] }),
@@ -168,7 +169,7 @@ export const Grid = React.forwardRef<HTMLElement, GridProps>((props) => {
     return classes.join(' ');
   }, [className, xs, sm, md, lg, xl, gutter]);
 
-  const combinedStyle = useMemo ( 
+  const combinedStyle = useMemo(
     () => ({
       ...cssVariables,
       ...customStyle,
