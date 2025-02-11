@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 type SpacingSizes = 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -16,7 +16,7 @@ export type BreakpointValues = {
 
 export type StackProps = {
   children: React.ReactNode;
-  element?: 'section' | 'article' | 'main' | 'header' | 'footer' | 'div';
+  element?: React.ElementType;
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -25,42 +25,14 @@ export type StackProps = {
   className?: string;
   dataTestId?: string;
   flex?: 'auto' | 'grow' | 'shrink' | 'none' | 'fill' | number | boolean;
+  customStyle?: React.CSSProperties;
 };
 
-const generateBreakpointStyles = (
-  breakpoint: string,
-  values: BreakpointValues,
-  previousValues: BreakpointValues,
-) => {
-  const direction = values.direction ?? previousValues.direction ?? 'column';
-  const spacing = values.spacing ?? previousValues.spacing ?? 'xs';
-  const alignItems = values.alignItems ?? previousValues.alignItems ?? 'stretch';
-  const alignSelf = values.alignSelf ?? previousValues.alignSelf ?? 'stretch';
-  const justifyContent = values.justifyContent ?? previousValues.justifyContent ?? 'start';
-  const flexWrap = values.flexWrap ?? previousValues.flexWrap ?? 'wrap';
-  const paddingX = values.paddingX ?? previousValues.paddingX ?? '';
-  const paddingY = values.paddingY ?? previousValues.paddingY ?? '';
-  const flex = values.flex ?? previousValues.flex ?? '';
+const generateFlexValue = (flex: StackProps['flex']): string => {
+  if (typeof flex === 'boolean') return flex ? '1' : 'none';
+  if (typeof flex === 'number') return `${flex}`;
 
-  return {
-    [`--connect__stack-${breakpoint}-direction`]: direction,
-    [`--connect__stack-${breakpoint}-spacing`]: `var(--connect__spacer-${spacing})`,
-    [`--connect__stack-${breakpoint}-alignItems`]: alignItems,
-    [`--connect__stack-${breakpoint}-alignSelf`]: alignSelf,
-    [`--connect__stack-${breakpoint}-justifyContent`]: justifyContent,
-    [`--connect__stack-${breakpoint}-flexWrap`]: flexWrap,
-    [`--connect__stack-${breakpoint}-paddingX`]: paddingX
-      ? `var(--connect__spacer-${paddingX})`
-      : '',
-    [`--connect__stack-${breakpoint}-paddingY`]: paddingY
-      ? `var(--connect__spacer-${paddingY})`
-      : '',
-    [`--connect__stack-${breakpoint}-flex`]: flex,
-  };
-};
-
-const generateFlexValue = (flex: StackProps['flex']): string | undefined => {
-  const flexPresets = {
+  const flexPresets: Record<NonNullable<typeof flex>, string> = {
     auto: '1 1 auto',
     grow: '1 0 auto',
     shrink: '0 1 auto',
@@ -68,53 +40,123 @@ const generateFlexValue = (flex: StackProps['flex']): string | undefined => {
     fill: '1 1 100%',
   };
 
-  if (typeof flex === 'boolean') return flex ? '1' : undefined;
-  if (typeof flex === 'number') return `${flex}`;
-  if (typeof flex === 'string') return flexPresets[flex] || flex;
-  return undefined;
+  return flex ? flexPresets[flex] : 'none';
 };
 
-export const Stack: React.FC<StackProps> = ({
-  children,
-  element: Component = 'div',
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  className,
-  dataTestId,
-  flex,
-}) => {
-  const style: React.CSSProperties = {};
-  const breakpoints = {
-    xs: flex ? { ...xs, flex: generateFlexValue(flex) } : xs,
+// Record<string, string> => {
+//   [key: string]: string;
+// }
+// The function returns an object where all keys and values are strings
+// This is so we can use the object in the css variables
+
+const setStackVariables = (
+  values: BreakpointValues | undefined,
+  prefix: string = '',
+): Record<string, string> => {
+  if (!values) return {};
+
+  const variables: Record<string, string> = {};
+
+
+  // Set direction and its associated defaults
+  if (values.direction) {
+    variables[`--connect__stack${prefix}-direction`] = values.direction;
+    const isRow = values.direction.includes('row');
+
+    // Set row-specific defaults
+    if (isRow) {
+      // Set default flexWrap for row
+      if (!values.flexWrap) {
+        variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
+      }
+
+      // Set default justifyContent for row if not specified
+      if (!values.justifyContent) {
+        variables[`--connect__stack${prefix}-justify-content`] = 'start'; // equivalent to flex-start
+      }
+
+      // Set default alignItems for row if not specified
+      if (!values.alignItems) {
+        variables[`--connect__stack${prefix}-align-items`] = 'stretch';
+      }
+    }
+  }
+
+  // Override defaults with explicitly provided values
+  if (values.spacing)
+    variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
+  if (values.alignItems) variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
+  if (values.alignSelf) variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
+  if (values.justifyContent)
+    variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
+  if (values.flexWrap) variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
+  if (values.paddingX)
+    variables[`--connect__stack${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
+  if (values.paddingY)
+    variables[`--connect__stack${prefix}-padding-y`] = `var(--connect__spacer-${values.paddingY})`;
+  if (values.flex) variables[`--connect__stack${prefix}-flex`] = values.flex;
+
+  return variables;
+};
+
+export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>((props) => {
+  const {
+    children,
+    element: Component = 'div',
+    xs,
     sm,
     md,
     lg,
     xl,
-  };
-  let previousBreakpoint: BreakpointValues = {};
+    className,
+    dataTestId,
+    flex,
+    customStyle,
+    ...other
+  } = props;
 
-  // Add dynamic styles for breakpoints
-  Object.entries(breakpoints).forEach(([breakpoint, values]) => {
-    if (values) {
-      Object.assign(style, generateBreakpointStyles(breakpoint, values, previousBreakpoint));
-      previousBreakpoint = { ...previousBreakpoint, ...values };
-    }
-  });
+  const cssVariables = useMemo(() => {
+    const baseStyles = {
+      ...setStackVariables(xs),
+      ...(flex && { '--connect__stack-flex': generateFlexValue(flex) }),
+    };
 
-  // Construct classes
-  const breakpointClasses = Object.keys(breakpoints)
-    .filter((bp) => breakpoints[bp as keyof typeof breakpoints])
-    .map((bp) => `connect__stack-${bp}`)
-    .join(' ');
+    const breakpointStyles = {
+      ...setStackVariables(sm, '-sm'),
+      ...setStackVariables(md, '-md'),
+      ...setStackVariables(lg, '-lg'),
+      ...setStackVariables(xl, '-xl'),
+    };
 
-  const classes = `connect__stack ${className || ''} ${breakpointClasses}`;
+    // Return base styles in our case mobile first then add the BP over it
+    return {
+      ...baseStyles,
+      ...breakpointStyles,
+    } as React.CSSProperties;
+  }, [xs, sm, md, lg, xl, flex]);
+
+  const stackClasses = useMemo(() => {
+    const classes = ['connect__stack'];
+    if (xs) classes.push('connect__stack-xs');
+    if (sm) classes.push('connect__stack-sm');
+    if (md) classes.push('connect__stack-md');
+    if (lg) classes.push('connect__stack-lg');
+    if (xl) classes.push('connect__stack-xl');
+    if (className) classes.push(className);
+    return classes.join(' ');
+  }, [className, xs, sm, md, lg, xl]);
+
+  const combinedStyle = useMemo(
+    () => ({
+      ...cssVariables,
+      ...customStyle,
+    }),
+    [cssVariables, customStyle],
+  );
 
   return (
-    <Component className={classes} style={style} data-testid={dataTestId}>
+    <Component className={stackClasses} style={combinedStyle} data-testid={dataTestId} {...other}>
       {children}
     </Component>
   );
-};
+});
