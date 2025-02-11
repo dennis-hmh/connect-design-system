@@ -111,27 +111,25 @@ const setGridVariables = (
   return variables;
 };
 
-export const Grid = React.forwardRef<HTMLElement, GridProps>((props) => {
-  const {
-    children,
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    gap,
-    columnGap,
-    rowGap,
-    gridTemplateColumns,
-    gridTemplateRows,
-    gutter,
-    className,
-    dataTestId,
-    tabIndex,
-    style: customStyle,
-    ...other
-  } = props;
-
+export const Grid: React.FC<GridProps> = ({
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  gap,
+  columnGap,
+  rowGap,
+  gridTemplateColumns,
+  gridTemplateRows,
+  gutter,
+  className,
+  dataTestId,
+  tabIndex,
+  style: customStyle,
+  ...other
+}) => {
   const cssVariables = useMemo(() => {
     const baseStyles = {
       '--connect__grid-template-columns': gridTemplateColumns,
@@ -188,4 +186,4 @@ export const Grid = React.forwardRef<HTMLElement, GridProps>((props) => {
       {children}
     </section>
   );
-});
+};
