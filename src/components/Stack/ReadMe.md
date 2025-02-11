@@ -153,9 +153,15 @@ function ComplexExample() {
         xs={{ justifyContent: 'space-around' }}
         md={{ justifyContent: 'space-between' }}
       >
-        <div style={{ flex: '1 0 calc(50% - var(--connect__spacer-sm))' }}>Item 1</div>
-        <div style={{ flex: '1 0 calc(50% - var(--connect__spacer-sm))' }}>Item 2</div>
-        <div style={{ flex: '1 0 calc(50% - var(--connect__spacer-sm))' }}>Item 3</div>
+        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+          Item 1
+        </Stack>
+        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+          Item 2
+        </Stack>
+        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+          Item 3
+        </Stack>
       </Stack>
       <Stack
         direction="column"
@@ -163,8 +169,8 @@ function ComplexExample() {
         xs={{ alignItems: 'center' }}
         md={{ alignItems: 'flex-start' }}
       >
-        <div style={{ flex: '1' }}>Item 4</div>
-        <div style={{ flex: '1' }}>Item 5</div>
+        <Stack element="div">Item 4</Stack>
+        <Stack element="div">Item 5</Stack>
       </Stack>
     </Stack>
   );
@@ -175,13 +181,23 @@ export default ComplexExample;
 
 ### Explanation of the Complex Example
 
-In this example, the outer `Stack` component is set to a column direction with large spacing between its children. It adjusts its alignment and justification based on the screen size:
+In this example, the outer `Stack` component is configured to display its children in a column direction with large spacing between them. The layout adjusts based on the screen size using responsive breakpoints:
 
-- **Extra Small Screens (`xs`)**: Items are centered both vertically and horizontally.
-- **Medium Screens (`md`)**: The direction changes to a row, and items are aligned to the start of the flex container.
-- **Large Screens (`lg`)**: The spacing increases, and padding is applied to the Stack.
+- **Extra Small Screens (`xs`)**: 
+  - The items are centered both vertically and horizontally within the Stack. This is achieved by setting `alignItems` and `justifyContent` to `center`.
+
+- **Medium Screens (`md`)**: 
+  - The direction of the Stack changes to a row, allowing items to be arranged side by side. The spacing between items is set to medium, and the items are aligned to the start of the flex container using `alignItems: 'flex-start'`.
+
+- **Large Screens (`lg`)**: 
+  - The spacing between items increases to extra-large, and additional padding is applied to the Stack with `paddingX` set to large and `paddingY` set to medium. This enhances the overall layout and spacing on larger displays.
 
 Inside the outer Stack, there are two inner Stack components:
 
-1. The first inner Stack arranges three items in a row, wrapping them if necessary. Each item has a custom flex value that calculates its width based on the available space minus a small spacer.
-2. The second inner Stack arranges two items in a column, adjusting alignment based on screen size.
+1. **First Inner Stack**: 
+   - This Stack is set to a row direction with small spacing between its items. It wraps its children if necessary, ensuring that they fit within the available width. Each item is a `Stack` component with the `element` prop set to `div`, and it has a custom flex value defined for large screens: `lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}`. This calculation allows each item to take up half of the available width minus a small spacer, ensuring a responsive layout.
+
+2. **Second Inner Stack**: 
+   - This Stack is set to a column direction with medium spacing between its items. On extra small screens, the items are centered, while on medium screens, they align to the start of the flex container. The items in this Stack are also `Stack` components with the `element` prop set to `div`, allowing for consistent styling and layout management.
+
+This complex example demonstrates how to effectively use the `Stack` component's features to create a responsive and flexible layout that adapts to different screen sizes while maintaining a clean and organized structure.
