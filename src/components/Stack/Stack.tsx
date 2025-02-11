@@ -1,7 +1,5 @@
 import React, { useMemo } from 'react';
 
-// I think we should move this outside the file in next iteration
-
 type SpacingSizes = 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type BreakpointValues = {
@@ -15,10 +13,6 @@ export type BreakpointValues = {
   paddingY?: SpacingSizes;
   flex?: string;
 };
-
-// I changed the element prop to be a React.ElementType, this is so we can pass in any valid HTML element,
-// Previously i had all the elements listed but we need to add new ones for nav etc
-// OLD version: element?: 'section' | 'article' | 'main' | 'header' | 'footer' | 'div';
 
 export type StackProps = {
   children: React.ReactNode;
@@ -63,7 +57,6 @@ const setStackVariables = (
 
   const variables: Record<string, string> = {};
 
-  // The following is how mui does this, the CC team have expressed a desire to have this
 
   // Set direction and its associated defaults
   if (values.direction) {
@@ -106,11 +99,6 @@ const setStackVariables = (
   return variables;
 };
 
-// I added a customStyle prop, this is the same as the sx prop in MUI
-// The use case i see is for the width of the stack, we can pass in a style object and it will be applied to the stack
-// I think this is a good addition, but we should discuss it more, as we have tried to lock down the stack, but it would
-// we don't have to add more props to the stack, we can just add a customStyle
-
 export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>((props) => {
   const {
     children,
@@ -127,17 +115,12 @@ export const Stack = React.forwardRef<HTMLDivElement | HTMLElement, StackProps>(
     ...other
   } = props;
 
-  // Generate CSS variables for each breakpoint
-  // I think the memo is ideal hereto prevent re-renders.
-  // The base styles are the ones that are always there
-  // The breakpoint styles are the ones that are only there if the breakpoint is defined
   const cssVariables = useMemo(() => {
     const baseStyles = {
       ...setStackVariables(xs),
       ...(flex && { '--connect__stack-flex': generateFlexValue(flex) }),
     };
 
-    // Add breakpoint-specific variables
     const breakpointStyles = {
       ...setStackVariables(sm, '-sm'),
       ...setStackVariables(md, '-md'),
