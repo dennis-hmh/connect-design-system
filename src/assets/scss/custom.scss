@@ -1153,7 +1153,12 @@ these styles are then open to breakpoint changes
 | Padding Y       | --xl-paddingY       | --lg-paddingY       | --md-paddingY       | --sm-paddingY       | --xs-paddingY       |
 | Spacing         | --xl-spacing        | --lg-spacing        | --md-spacing        | --sm-spacing        | --xs-spacing        |
 
+
+
+Style lint has been turned off for this file, as we are using the flex long form property
 */
+
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
 .connect__stack {
   --connect__stack-direction: initial;
@@ -1258,6 +1263,8 @@ these styles are then open to breakpoint changes
     }
   }
 }
+
+/* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
 /*
 .connect__chip Component
