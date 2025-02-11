@@ -1,5 +1,16 @@
 # @connect/connect-design-system
 
+## 1.18.6
+
+### Patch Changes
+
+- 32f35ce: - New Component: N/A
+  - Updated Component:
+    - `<Button />`: Fix Lifts' TypeError
+    - `<Icon />`: Fix Lifts' TypeError
+  - Bug Fix: Update react, react-dom to peerDepencies in `package.json`. Downgraded to React 18.2.0
+  - Other: N/A
+
 ## 1.18.5
 
 ### Patch Changes

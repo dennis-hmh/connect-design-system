@@ -62,13 +62,13 @@ export default [
           jsx: true,
         },
 
-        project: './tsconfig.json',
+        project: ['./tsconfig.json', './tsconfig.node.json'],
       },
     },
 
     settings: {
       react: {
-        version: '18.2',
+        version: 'detect',
       },
 
       'import/resolver': {
