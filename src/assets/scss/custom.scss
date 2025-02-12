@@ -2648,3 +2648,57 @@ connect__toolbar
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
 }
+.connect__tooltip-wrapper {
+  display: inline-flex;
+  position: relative;
+}
+
+.connect__tooltip {
+  align-items: var(--connect__align-center);
+  animation: tooltip-fade 200ms ease-in forwards;
+  border-radius: var(--connect__border-radius);
+
+  display: inline-flex;
+  justify-content: var(--connect__justify-center);
+  margin: 0.5rem;
+
+  // Transitions
+  opacity: 0;
+  padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+  position: var(--connect__absolute);
+  white-space: nowrap;
+}
+
+// Placement modifiers
+.connect__tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.connect__tooltip--bottom {
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
+
+.connect__tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.connect__tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes tooltip-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
