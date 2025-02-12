@@ -1009,6 +1009,7 @@ Breakpoint Values:
 */
 
 .connect__grid {
+  // Initial variable declarations
   --connect__grid-padding-x: initial;
   --connect__grid-padding-y: initial;
   --connect__grid-padding-top: initial;
@@ -1018,17 +1019,21 @@ Breakpoint Values:
   --connect__grid-align-content: initial;
   --connect__grid-align-items: initial;
   --connect__grid-justify-content: initial;
+  --connect__grid-gap: initial;
+  --connect__grid-column-gap: initial;
+  --connect__grid-row-gap: initial;
+  --connect__grid-template-columns: initial;
+  --connect__grid-template-rows: initial;
 
-  // Apply base styles with fallbacks
+  // Base styles
+  display: var(--connect__display-grid);
   align-content: var(--connect__grid-align-content);
   align-items: var(--connect__grid-align-items);
-  // Column and row gaps fall back to gap if not explicitly set
-  display: var(--connect__display-grid);
   gap: var(--connect__grid-row-gap, var(--connect__grid-gap, var(--connect__spacer-xl)))
     var(--connect__grid-column-gap, var(--connect__grid-gap, var(--connect__spacer-xl)));
   grid-auto-rows: auto;
   grid-template-columns: var(--connect__grid-template-columns, repeat(12, 1fr));
-  grid-template-rows: max-content;
+  grid-template-rows: var(--connect__grid-template-rows, max-content);
   justify-content: var(--connect__grid-justify-content);
   padding: var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
     var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
@@ -1037,19 +1042,19 @@ Breakpoint Values:
   position: relative;
   width: var(--connect__full-w);
 
+  // Extra small breakpoint
   &.connect__grid-xs {
     align-content: var(--connect__grid-xs-align-content, var(--connect__grid-align-content));
     align-items: var(--connect__grid-xs-align-items, var(--connect__grid-align-items));
-
+    justify-content: var(--connect__grid-xs-justify-content, var(--connect__grid-justify-content));
     gap: var(
-        --connect__grid-lg-row-gap,
+        --connect__grid-xs-row-gap,
         var(--connect__grid-xs-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
       )
       var(
-        --connect__grid-lg-column-gap,
+        --connect__grid-xs-column-gap,
         var(--connect__grid-xs-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
       );
-    justify-content: var(--connect__grid-xs-justify-content, var(--connect__grid-justify-content));
     padding: var(
         --connect__grid-xs-padding-top,
         var(
@@ -1080,23 +1085,23 @@ Breakpoint Values:
       );
   }
 
+  // Small breakpoint
   @media (min-width: 30rem) {
     &.connect__grid-sm {
       align-content: var(--connect__grid-sm-align-content, var(--connect__grid-align-content));
       align-items: var(--connect__grid-sm-align-items, var(--connect__grid-align-items));
-
-      gap: var(
-          --connect__grid-lg-row-gap,
-          var(--connect__grid-sm-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
-        )
-        var(
-          --connect__grid-lg-column-gap,
-          var(--connect__grid-sm-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
-        );
       justify-content: var(
         --connect__grid-sm-justify-content,
         var(--connect__grid-justify-content)
       );
+      gap: var(
+          --connect__grid-sm-row-gap,
+          var(--connect__grid-sm-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-sm-column-gap,
+          var(--connect__grid-sm-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
       padding: var(
           --connect__grid-sm-padding-top,
           var(
@@ -1128,22 +1133,23 @@ Breakpoint Values:
     }
   }
 
+  // Medium breakpoint
   @media (min-width: 40.625rem) {
     &.connect__grid-md {
       align-content: var(--connect__grid-md-align-content, var(--connect__grid-align-content));
       align-items: var(--connect__grid-md-align-items, var(--connect__grid-align-items));
-      gap: var(
-          --connect__grid-lg-row-gap,
-          var(--connect__grid-md-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
-        )
-        var(
-          --connect__grid-lg-column-gap,
-          var(--connect__grid-md-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
-        );
       justify-content: var(
         --connect__grid-md-justify-content,
         var(--connect__grid-justify-content)
       );
+      gap: var(
+          --connect__grid-md-row-gap,
+          var(--connect__grid-md-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-md-column-gap,
+          var(--connect__grid-md-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
       padding: var(
           --connect__grid-md-padding-top,
           var(
@@ -1175,10 +1181,15 @@ Breakpoint Values:
     }
   }
 
+  // Large breakpoint
   @media (min-width: 55rem) {
     &.connect__grid-lg {
       align-content: var(--connect__grid-lg-align-content, var(--connect__grid-align-content));
       align-items: var(--connect__grid-lg-align-items, var(--connect__grid-align-items));
+      justify-content: var(
+        --connect__grid-lg-justify-content,
+        var(--connect__grid-justify-content)
+      );
       gap: var(
           --connect__grid-lg-row-gap,
           var(--connect__grid-lg-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
@@ -1187,10 +1198,6 @@ Breakpoint Values:
           --connect__grid-lg-column-gap,
           var(--connect__grid-lg-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
         );
-      justify-content: var(
-        --connect__grid-lg-justify-content,
-        var(--connect__grid-justify-content)
-      );
       padding: var(
           --connect__grid-lg-padding-top,
           var(
@@ -1222,22 +1229,23 @@ Breakpoint Values:
     }
   }
 
+  // Extra large breakpoint
   @media (min-width: 80rem) {
     &.connect__grid-xl {
       align-content: var(--connect__grid-xl-align-content, var(--connect__grid-align-content));
       align-items: var(--connect__grid-xl-align-items, var(--connect__grid-align-items));
-      gap: var(
-          --connect__grid-lg-row-gap,
-          var(--connect__grid-xl-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
-        )
-        var(
-          --connect__grid-lg-column-gap,
-          var(--connect__grid-xl-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
-        );
       justify-content: var(
         --connect__grid-xl-justify-content,
         var(--connect__grid-justify-content)
       );
+      gap: var(
+          --connect__grid-xl-row-gap,
+          var(--connect__grid-xl-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-xl-column-gap,
+          var(--connect__grid-xl-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
       padding: var(
           --connect__grid-xl-padding-top,
           var(
@@ -1269,6 +1277,7 @@ Breakpoint Values:
     }
   }
 
+  // Gutter modifier
   &.connect__grid-gutter {
     --connect__gutter-padding-y: var(
       --theme__connect-gutter-padding-y,
@@ -1278,8 +1287,8 @@ Breakpoint Values:
     padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
   }
 
-  // Make nested .connect__grid elements use subgrid
-  .connect__grid {
+  // Subgrid modifier
+  &.connect__subgrid {
     display: var(--connect__display-grid);
     grid-column: 1 / -1;
     grid-template-columns: subgrid;

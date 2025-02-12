@@ -46,6 +46,7 @@ export type GridProps = {
   columnGap?: GapSizes;
   rowGap?: GapSizes;
   gutter?: boolean;
+  subgrid?: boolean;
   className?: string;
   style?: React.CSSProperties;
   tabIndex?: number;
@@ -79,6 +80,15 @@ const setGridVariables = (
   if (values.justifyContent) {
     variables[`--connect__grid${prefix}-justify-content`] = values.justifyContent;
   }
+  if (values.gap) {
+    variables[`--connect__grid${prefix}-gap`] = gapSizes[values.gap];
+  }
+  if (values.columnGap) {
+    variables[`--connect__grid${prefix}-column-gap`] = gapSizes[values.columnGap];
+  }
+  if (values.rowGap) {
+    variables[`--connect__grid${prefix}-row-gap`] = gapSizes[values.rowGap];
+  }
   if (values.paddingX) {
     variables[`--connect__grid${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
   }
@@ -101,12 +111,6 @@ const setGridVariables = (
     variables[`--connect__grid${prefix}-padding-right`] =
       `var(--connect__spacer-${values.paddingRight})`;
   }
-  if (values.columnGap) {
-    variables[`--connect__grid${prefix}-column-gap`] = `var(--connect__spacer-${values.columnGap})`;
-  }
-  if (values.rowGap) {
-    variables[`--connect__grid${prefix}-row-gap`] = `var(--connect__spacer-${values.rowGap})`;
-  }
 
   return variables;
 };
@@ -124,6 +128,7 @@ export const Grid: React.FC<GridProps> = ({
   gridTemplateColumns,
   gridTemplateRows,
   gutter,
+  subgrid = false,
   className,
   dataTestId,
   tabIndex,
@@ -134,14 +139,12 @@ export const Grid: React.FC<GridProps> = ({
     const baseStyles = {
       '--connect__grid-template-columns': gridTemplateColumns,
       '--connect__grid-template-rows': gridTemplateRows,
-      // Michael, here i am proposing the base gaps, e.g non breakpoint gaps are lowest priority and if there is a breakpoint gap, it will override the base gap
       ...(gap && { '--connect__grid-gap': gapSizes[gap] }),
       ...(columnGap && { '--connect__grid-column-gap': gapSizes[columnGap] }),
       ...(rowGap && { '--connect__grid-row-gap': gapSizes[rowGap] }),
       ...setGridVariables(xs),
     };
 
-    // Add breakpoint-specific variables
     const breakpointStyles = {
       ...setGridVariables(sm, '-sm'),
       ...setGridVariables(md, '-md'),
@@ -153,7 +156,7 @@ export const Grid: React.FC<GridProps> = ({
       ...baseStyles,
       ...breakpointStyles,
     } as React.CSSProperties;
-  }, [xs, sm, md, lg, xl, gridTemplateColumns, gap, columnGap, rowGap]);
+  }, [xs, sm, md, lg, xl, gridTemplateColumns, gridTemplateRows, gap, columnGap, rowGap]);
 
   const breakpointClasses = useMemo(() => {
     const classes = ['connect__grid'];
@@ -164,8 +167,9 @@ export const Grid: React.FC<GridProps> = ({
     if (xl) classes.push('connect__grid-xl');
     if (className) classes.push(className);
     if (gutter) classes.push('connect__grid-gutter');
+    if (subgrid) classes.push('connect__subgrid');
     return classes.join(' ');
-  }, [className, xs, sm, md, lg, xl, gutter]);
+  }, [className, xs, sm, md, lg, xl, gutter, subgrid]);
 
   const combinedStyle = useMemo(
     () => ({

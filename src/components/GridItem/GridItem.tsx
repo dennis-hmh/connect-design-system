@@ -17,7 +17,7 @@ export type GridItemProps = {
   md?: BreakpointValues;
   lg?: BreakpointValues;
   xl?: BreakpointValues;
-  rowSpan?: number; // Add base rowSpan prop
+  rowSpan?: number;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -26,33 +26,26 @@ export type GridItemProps = {
 const processBreakpointValue = (
   breakpoint: string,
   values: BreakpointValues,
-  previousValues: BreakpointValues,
-): { [key: string]: any } => {
-  // If value is a number, treat it as MUI-style column span
+): { [key: string]: string } => {
+  const styles: { [key: string]: string } = {};
+
+  // If value is a number, only set span columns
   if (typeof values === 'number') {
-    return {
-      [`--connect__grid-item-${breakpoint}-start-col`]: 1,
-      [`--connect__grid-item-${breakpoint}-span-col`]: values,
-    };
+    styles[`--connect__grid-item-${breakpoint}-span-col`] = values.toString();
+    return styles;
   }
 
-  // Otherwise, process as before
-  const startCol =
-    values.startCol ?? (typeof previousValues === 'number' ? 1 : previousValues.startCol) ?? 1;
-  const spanCol =
-    values.spanCol ??
-    (typeof previousValues === 'number' ? previousValues : previousValues.spanCol) ??
-    12;
-  const rowSpan =
-    values.rowSpan ?? (typeof previousValues === 'number' ? null : previousValues.rowSpan) ?? null;
+  // If object, only set the properties that are provided
+  if (values.startCol !== undefined) {
+    styles[`--connect__grid-item-${breakpoint}-start-col`] = values.startCol.toString();
+  }
 
-  const styles: { [key: string]: any } = {
-    [`--connect__grid-item-${breakpoint}-start-col`]: startCol,
-    [`--connect__grid-item-${breakpoint}-span-col`]: spanCol,
-  };
+  if (values.spanCol !== undefined) {
+    styles[`--connect__grid-item-${breakpoint}-span-col`] = values.spanCol.toString();
+  }
 
-  if (rowSpan) {
-    styles[`--connect__grid-item-${breakpoint}-row-span`] = rowSpan;
+  if (values.rowSpan !== undefined) {
+    styles[`--connect__grid-item-${breakpoint}-row-span`] = values.rowSpan.toString();
   }
 
   return styles;
@@ -65,31 +58,34 @@ export const GridItem: React.FC<GridItemProps> = ({
   md,
   lg,
   xl,
-  rowSpan, // Add rowSpan to destructuring
+  rowSpan,
   className,
   dataTestId,
 }) => {
-  const style: { [key: string]: any } = {};
+  const style: { [key: string]: string } = {};
   const breakpoints = { xs, sm, md, lg, xl };
-  let previousBreakpoint: BreakpointValues = {};
 
   // Set base rowSpan if provided
   if (rowSpan !== undefined) {
-    style['--connect__grid-item-row-span'] = rowSpan;
+    style['--connect__grid-item-row-span'] = rowSpan.toString();
   }
 
-  // Apply styles based on props for each breakpoint
+  // Process each breakpoint independently
   Object.entries(breakpoints).forEach(([breakpoint, values]) => {
     if (values) {
-      Object.assign(style, processBreakpointValue(breakpoint, values, previousBreakpoint));
-      previousBreakpoint = values;
+      Object.assign(style, processBreakpointValue(breakpoint, values));
     }
   });
 
-  const classes = `connect__grid-item ${className || ''} ${Object.keys(breakpoints)
-    .filter((bp) => breakpoints[bp])
-    .map((bp) => `connect__grid-item-${bp}`)
-    .join(' ')}`;
+  const classes = [
+    'connect__grid-item',
+    className,
+    ...Object.keys(breakpoints)
+      .filter((bp) => breakpoints[bp])
+      .map((bp) => `connect__grid-item-${bp}`),
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={classes} style={style} data-testid={dataTestId}>
