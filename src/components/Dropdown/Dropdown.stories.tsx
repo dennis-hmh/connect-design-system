@@ -121,6 +121,6 @@ OnClear.args = {
     { label: 'Option 7', value: 'Default' },
   ],
   onClear: () => {
-    console.log('Clearing of the text');
+    console.log('Clear the text');
   },
 };

@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { Hint } from '../Hint/Hint';
 import { GradeBand } from 'src/enum/gradeband';
 
@@ -49,25 +47,27 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const [internalOpen, setInternalOpen] = useState(false);
   const [internalSelectedValue, setInternalSelectedValue] = useState<string | null>(null);
 
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const open = controlledOpen ?? internalOpen;
   const selectedValue = controlledSelectedValue ?? internalSelectedValue;
 
-  const feedbackStates = [
-    correct && 'connect__feedback-correct',
-    incorrect && 'connect__feedback-incorrect',
-    answerShown && 'connect__feedback-shown',
-    open && 'connect__dropdown-open',
-    disabled && 'connect__disabled',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const feedbackStates = useMemo(() => {
+    return [
+      correct && 'connect__feedback-correct',
+      incorrect && 'connect__feedback-incorrect',
+      answerShown && 'connect__feedback-shown',
+      open && 'connect__dropdown-open',
+      disabled && 'connect__disabled',
+    ]
+      .filter(Boolean)
+      .join(' ');
+  }, [correct, incorrect, answerShown, open, disabled]);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
+  const handleClick = () => {
     if (!disabled) {
       setInternalOpen(!open);
       onToggle?.(!open);
-      console.log('Dropdown clicked:', { open });
     }
   };
 
@@ -76,29 +76,27 @@ export const Dropdown: React.FC<DropdownProps> = ({
     onChange?.(label);
     setInternalOpen(false);
     onToggle?.(false);
-    console.log('Item selected:', { label });
   };
 
-  const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    console.log('Clear button clicked');
+  const handleClear = () => {
     setInternalSelectedValue(null);
     onChange?.(null);
     onClear?.();
   };
 
-  const dropdownData = data.map((item) => ({
-    ...item,
-    className: null,
-    ariaSelected: selectedValue === item.label,
-    value: item.label,
-  }));
-
-  console.log('Dropdown rendered:', { open, selectedValue, dropdownData });
+  const dropdownData = useMemo(() => {
+    return data.map((item) => ({
+      ...item,
+      className: null,
+      ariaSelected: selectedValue === item.label,
+      value: item.label,
+    }));
+  }, [data, selectedValue]);
 
   return (
     <label className="connect__dropdown-wrapper">
       <div
+        ref={dropdownRef}
         id={id || 'connect__dropdown-button'}
         className={`connect__dropdown ${feedbackStates}`}
         role="button"
@@ -130,6 +128,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
         <button
           className={`connect__clear-button ${selectedValue ? 'connect__clear-button-visible' : ''}`}
           onClick={handleClear}
+          aria-label="Clear selection"
         >
           <svg xmlns="http://www.w3.org/2000/svg" id="close" fill="none" viewBox="0 0 40 40">
             <path
@@ -164,9 +163,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick, s
           className={`connect__dropdown-item ${item.disabled ? 'connect__disabled' : ''} ${selectedValue === item.label ? 'connect__selected' : ''}`}
           role="option"
           aria-selected={item.label === selectedValue}
-          aria-disabled={item.disabled || false}
+          aria-disabled={item.disabled}
           onClick={(event) => {
-            event.stopPropagation();
+            event.preventDefault();
             if (!item.disabled) {
               onItemClick(item.label);
             }
