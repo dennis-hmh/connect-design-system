@@ -4,8 +4,20 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type DropdownProps = {
   children: React.ReactNode;
-  data: { label: string; value: React.ReactNode }[];
+  data: {
+    label: string;
+    value: React.ReactNode;
+    className?: string | null;
+    ariaSelected?: boolean;
+    disabled?: boolean;
+  }[];
+  id?: string;
   label?: string;
+  selectedValue?: string | null;
+  open?: boolean;
+  onChange?: (value: string | null) => void;
+  onToggle?: (open: boolean) => void;
+  onClear?: () => void;
   hint?: string;
   correct?: boolean;
   incorrect?: boolean;
@@ -18,7 +30,13 @@ export type DropdownProps = {
 export const Dropdown: React.FC<DropdownProps> = ({
   children,
   data,
+  id,
   label,
+  selectedValue: controlledSelectedValue,
+  open: controlledOpen,
+  onChange,
+  onToggle,
+  onClear,
   hint,
   correct,
   incorrect,
@@ -26,8 +44,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled = false,
   dataTestId,
 }) => {
-  const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [internalOpen, setInternalOpen] = useState(false);
+  const [internalSelectedValue, setInternalSelectedValue] = useState<string | null>(null);
+
+  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
+  const selectedValue =
+    controlledSelectedValue !== undefined ? controlledSelectedValue : internalSelectedValue;
 
   const feedbackStates = [
     correct && 'connect__feedback-correct',
@@ -39,15 +61,27 @@ export const Dropdown: React.FC<DropdownProps> = ({
     .filter(Boolean)
     .join(' ');
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.stopPropagation();
     if (!disabled) {
-      setOpen(!open);
+      const newOpen = !open;
+      setInternalOpen(newOpen);
+      onToggle?.(newOpen);
     }
   };
 
   const handleItemClick = (label: string) => {
-    setSelectedValue(label);
-    setOpen(false);
+    setInternalSelectedValue(label);
+    onChange?.(label);
+    setInternalOpen(false);
+    onToggle?.(false);
+  };
+
+  const handleClear = (event) => {
+    event.stopPropagation();
+    setInternalSelectedValue(null);
+    onChange?.(null);
+    onClear?.();
   };
 
   const transformedData = data.map((item) => ({
@@ -58,36 +92,51 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }));
 
   return (
-    <div
-      id="connect__dropdown-button"
-      className={`connect__dropdown ${feedbackStates}`}
-      role="button"
-      aria-disabled={disabled}
-      aria-haspopup="listbox"
-      aria-labelledby="connect__dropdown-label"
-      aria-expanded={open}
-      onClick={handleClick}
-      tabIndex={0}
-      data-testid={dataTestId}
-    >
-      <span id="connect__dropdown-label" className="connect__dropdown-label" hidden>
-        {label || children}
-      </span>
-      <span id="connect__selected-text-id" className="connect__selected-text">
-        {selectedValue || children}
-      </span>
-      <div className="connect__feedback-stamp"></div>
-      {hint && <Hint>{hint}</Hint>}
-      {open && (
-        <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
-          <DropdownMenu
-            data={transformedData}
-            onItemClick={handleItemClick}
-            selectedValue={selectedValue}
-          />
-        </div>
+    <label className="connect__dropdown-wrapper">
+      <div
+        id={id || 'connect__dropdown-button'}
+        className={`connect__dropdown ${feedbackStates}`}
+        role="button"
+        aria-disabled={disabled}
+        aria-haspopup="listbox"
+        aria-labelledby="connect__dropdown-label"
+        aria-expanded={open}
+        onClick={handleClick}
+        tabIndex={0}
+        data-testid={dataTestId}
+      >
+        <span id="connect__dropdown-label" className="connect__dropdown-label" hidden>
+          {label || children}
+        </span>
+        <span id="connect__selected-text-id" className="connect__selected-text">
+          {selectedValue || children}
+        </span>
+        <div className="connect__feedback-stamp"></div>
+        {hint && <Hint>{hint}</Hint>}
+        {
+          <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
+            <DropdownMenu
+              data={transformedData}
+              onItemClick={handleItemClick}
+              selectedValue={selectedValue}
+            />
+          </div>
+        }
+      </div>
+      {onClear && (
+        <button
+          className={`connect__clear-button ${selectedValue ? 'connect__clear-button-visible' : ''}`}
+          onClick={handleClear}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" id="close" fill="none" viewBox="0 0 40 40">
+            <path
+              fill="var(--connect__icon-fill-color, #2d2d2d)"
+              d="m19.903 20.848-8.555 8.555a1.325 1.325 0 0 1-.973.403c-.38 0-.703-.134-.972-.403A1.325 1.325 0 0 1 9 28.43c0-.38.134-.704.403-.973l8.555-8.555-8.555-8.555A1.325 1.325 0 0 1 9 9.374c0-.38.134-.703.403-.972S9.996 8 10.375 8c.38 0 .704.134.973.403l8.555 8.555 8.555-8.555c.269-.269.593-.403.973-.403s.703.134.972.403.403.593.403.972c0 .38-.134.704-.403.973l-8.555 8.555 8.555 8.555c.269.269.403.593.403.973s-.134.703-.403.972a1.325 1.325 0 0 1-.972.403c-.38 0-.704-.134-.973-.403l-8.555-8.555Z"
+            />
+          </svg>
+        </button>
       )}
-    </div>
+    </label>
   );
 };
 
@@ -113,7 +162,8 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick, s
           role="option"
           aria-selected={item.label === selectedValue}
           aria-disabled={item.disabled || false}
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation();
             if (!item.disabled) {
               onItemClick(item.label);
             }

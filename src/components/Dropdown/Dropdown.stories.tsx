@@ -19,11 +19,19 @@ type Story = StoryObj<typeof Dropdown>;
 
 const Template: StoryFn<DropdownProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Dropdown {...args} />
+        <Dropdown
+          {...args}
+          selectedValue={selectedValue}
+          onChange={setSelectedValue}
+          open={open}
+          onToggle={setOpen}
+        />
       </div>
     </ConnectTheme>
   );
@@ -98,4 +106,22 @@ Hint.args = {
     { label: 'Grace', value: 'grace' },
   ],
   hint: 'Choose a name',
+};
+
+export const OnClear: Story = Template.bind({});
+OnClear.args = {
+  ...Default.args,
+  children: 'Select an option',
+  data: [
+    { label: 'Option 1', value: 'Default' },
+    { label: 'Option 2', value: 'Default' },
+    { label: 'Option 3', value: 'Default' },
+    { label: 'Option 4', value: 'Default' },
+    { label: 'Option 5', value: 'Default' },
+    { label: 'Option 6', value: 'Default' },
+    { label: 'Option 7', value: 'Default' },
+  ],
+  onClear: () => {
+    console.log('Clearing of the text');
+  },
 };
