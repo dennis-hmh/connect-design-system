@@ -78,7 +78,7 @@ WithMenu.args = {
   ...Default.args,
   children: (
     <ButtonMenuProvider>
-      <Stack>
+      <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {
@@ -148,7 +148,7 @@ WithDivider.args = {
   ...Default.args,
   children: (
     <ButtonMenuProvider>
-      <Stack>
+      <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {
