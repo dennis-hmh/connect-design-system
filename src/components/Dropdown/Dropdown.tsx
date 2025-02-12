@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import React, { useState } from 'react';
 import { Hint } from '../Hint/Hint';
 import { GradeBand } from 'src/enum/gradeband';
@@ -47,9 +49,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const [internalOpen, setInternalOpen] = useState(false);
   const [internalSelectedValue, setInternalSelectedValue] = useState<string | null>(null);
 
-  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
-  const selectedValue =
-    controlledSelectedValue !== undefined ? controlledSelectedValue : internalSelectedValue;
+  const open = controlledOpen ?? internalOpen;
+  const selectedValue = controlledSelectedValue ?? internalSelectedValue;
 
   const feedbackStates = [
     correct && 'connect__feedback-correct',
@@ -61,12 +62,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
     .filter(Boolean)
     .join(' ');
 
-  const handleClick = (event) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     if (!disabled) {
-      const newOpen = !open;
-      setInternalOpen(newOpen);
-      onToggle?.(newOpen);
+      setInternalOpen(!open);
+      onToggle?.(!open);
+      console.log('Dropdown clicked:', { open });
     }
   };
 
@@ -75,21 +76,25 @@ export const Dropdown: React.FC<DropdownProps> = ({
     onChange?.(label);
     setInternalOpen(false);
     onToggle?.(false);
+    console.log('Item selected:', { label });
   };
 
-  const handleClear = (event) => {
+  const handleClear = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
+    console.log('Clear button clicked');
     setInternalSelectedValue(null);
     onChange?.(null);
     onClear?.();
   };
 
-  const transformedData = data.map((item) => ({
+  const dropdownData = data.map((item) => ({
     ...item,
     className: null,
     ariaSelected: selectedValue === item.label,
     value: item.label,
   }));
+
+  console.log('Dropdown rendered:', { open, selectedValue, dropdownData });
 
   return (
     <label className="connect__dropdown-wrapper">
@@ -113,17 +118,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
         </span>
         <div className="connect__feedback-stamp"></div>
         {hint && <Hint>{hint}</Hint>}
-        {
-          <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
-            <DropdownMenu
-              data={transformedData}
-              onItemClick={handleItemClick}
-              selectedValue={selectedValue}
-            />
-          </div>
-        }
+        <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
+          <DropdownMenu
+            data={dropdownData}
+            onItemClick={handleItemClick}
+            selectedValue={selectedValue}
+          />
+        </div>
       </div>
-      {onClear && (
+      {onClear && selectedValue && (
         <button
           className={`connect__clear-button ${selectedValue ? 'connect__clear-button-visible' : ''}`}
           onClick={handleClear}

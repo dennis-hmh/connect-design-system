@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Dropdown, DropdownProps } from './Dropdown';
-import { DropdownMenu, DropdownMenuProps } from './Dropdown';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
