@@ -51,6 +51,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const tooltipId = useId();
   const descriptionId = useId();
 
+  // Theese are all the mui events
+
   const handleMouseEnter = () => {
     const timer = setTimeout(() => {
       setIsVisible(true);
