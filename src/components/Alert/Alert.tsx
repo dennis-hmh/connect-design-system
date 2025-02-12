@@ -48,6 +48,7 @@ export const Alert: React.FC<AlertProps> = ({
             justifyContent: 'space-between',
             paddingX: 'zero',
             paddingY: 'zero',
+            flex: '0 0 auto',
           }}
         >
           {iconId && (
