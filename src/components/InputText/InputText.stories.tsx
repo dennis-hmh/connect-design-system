@@ -42,6 +42,7 @@ export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 export const Number: Story = Template.bind({});
+export const OnClearWIP: Story = Template.bind({});
 
 Default.args = {
   defaultText: '',
@@ -63,15 +64,6 @@ Placeholder.args = {
 DefaultText.args = {
   ...Default.args,
   defaultText: 'This is default text',
-};
-
-export const OnClearWIP: Story = Template.bind({});
-OnClearWIP.args = {
-  ...Default.args,
-  defaultText: 'This is default text',
-  onClear: () => {
-    console.log('Clearing text');
-  },
 };
 
 CharacterCounter.args = {
@@ -121,4 +113,12 @@ Number.args = {
   ...Default.args,
   defaultText: 50,
   number: true,
+};
+
+OnClearWIP.args = {
+  ...Default.args,
+  defaultText: 'This is default text',
+  onClear: () => {
+    console.log('Clearing text');
+  },
 };

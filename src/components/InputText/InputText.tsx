@@ -40,7 +40,6 @@ export function InputText({
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
     characterCount && 'connect__input-character-count',
-    onClear && 'connect__input-clear',
   ]
     .filter(Boolean)
     .join(' ');
@@ -80,7 +79,7 @@ export function InputText({
       />
       {onClear && (
         <button
-          className={`connect__input-clear-button ${text ? 'connect__input-clear-button-visible' : ''}`}
+          className={`connect__clear-button ${text ? 'connect__clear-button-visible' : ''}`}
           onClick={() => {
             setText('');
             setCharCount(0);
