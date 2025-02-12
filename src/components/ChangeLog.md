@@ -1,3 +1,43 @@
+### v1.18.8 Release Notice
+
+### Release date: February 11, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Stack />`: forwardRef removed
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.7 Release Notice
+
+### Release date: February 11, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Stack />`: Style scoping, default wrap values based on direction
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.6 Release Notice
 
 ### Release date: February 10, 2025

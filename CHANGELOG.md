@@ -1,5 +1,14 @@
 # @connect/connect-design-system
 
+## 1.18.8
+
+### Patch Changes
+
+- b07b356: - New Component: N/A
+  - Updated Component: `<Stack />`: forwardRef removed
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.18.7
 
 ### Patch Changes
