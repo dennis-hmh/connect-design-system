@@ -2,39 +2,40 @@ import React from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
-import { GradeBand } from 'src/enum/gradeband';
+import { ButtonBase, ButtonBaseProps } from './ButtonBase';
 
-// Define the old button props
-export type OldButtonProps = {
-  children: React.ReactNode;
-  primary?: boolean; // Optional for backward compatibility
-  title?: string;
-  disabled?: boolean;
+// Define props specific to the old button implementation
+type OldButtonSpecificProps = {
+  primary?: boolean;
   correct?: boolean;
   incorrect?: boolean;
-  submit?: 'button' | 'submit'; // Allow submit type
   clickHandler?: () => void;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
   iconPosition?: 'before' | 'after';
-  iconOpacity?: number | undefined;
-  ariaLabel?: string;
-  dataTestId?: string;
+  iconOpacity?: number;
   additionalClass?: string;
-  gradeBand?: GradeBand;
 };
 
-// Define the new button props
-export type NewButtonProps = {
+// Define props specific to the new button implementation
+type NewButtonSpecificProps = {
   variant?: 'text' | 'contained' | 'outlined';
   color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
   size?: 'small' | 'large';
   startIcon?: IconId;
   endIcon?: IconId;
+  // New MUI-like props
+  disableElevation?: boolean;
+  fullWidth?: boolean;
+  loading?: boolean;
+  loadingIndicator?: React.ReactNode;
+  loadingPosition?: 'center' | 'end' | 'start';
 };
 
-// Combine old and new props
+// Combine with ButtonBaseProps
+export type OldButtonProps = ButtonBaseProps & OldButtonSpecificProps;
+export type NewButtonProps = ButtonBaseProps & NewButtonSpecificProps;
 export type ButtonProps = OldButtonProps & NewButtonProps;
 
 export const Button: React.FC<ButtonProps> = ({
@@ -44,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled = false,
   correct,
   incorrect,
-  submit = 'button',
+  type = 'button',
   clickHandler,
   iconId,
   iconSize = 'md',
@@ -54,23 +55,56 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   dataTestId,
   additionalClass = '',
+  // New props
   variant,
   color,
   size,
   startIcon,
   endIcon,
+  disableElevation = false,
+  fullWidth = false,
+  loading = false,
+  loadingIndicator,
+  loadingPosition = 'center',
+  // ButtonBase props
+  className,
+  onFocusVisible,
+  onKeyDown,
+  onKeyUp,
+  onMouseDown,
+  onMouseLeave,
+  tabIndex,
+  component,
+  ariaDescribedby,
+  ariaLabelledby,
+  ariaHidden,
+  ariaExpanded,
+  ariaControls,
+  ariaPressed,
+  gradeBand,
+  role,
+  autoFocus,
+  ...other
 }) => {
   const classNames = [
     'connect__button',
-    primary && 'connect__button-primary',
-    !primary && 'connect__button-secondary',
+    // Only add primary/secondary classes if variant is not specified
+    !variant && (primary ? 'connect__button-primary' : 'connect__button-secondary'),
     correct && 'connect__button-correct',
     incorrect && 'connect__button-incorrect',
     additionalClass,
+    // New variant and color classes
     variant === 'contained' && 'connect__button-contained',
     variant === 'outlined' && 'connect__button-outlined',
+    variant === 'text' && 'connect__button-text',
+    // Only add color class if it's different from primary/secondary
+    color && color !== 'primary' && color !== 'secondary' && `connect__button-${color}`,
     size === 'small' && 'connect__button-small',
-    color && `connect__button-${color}`,
+    disableElevation && 'connect__button-no-elevation',
+    fullWidth && 'connect__button-full-width',
+    loading && 'connect__button-loading',
+    loading && loadingPosition && `connect__button-loading-${loadingPosition}`,
+    className,
   ]
     .filter(Boolean)
     .join(' ');
@@ -79,27 +113,90 @@ export const Button: React.FC<ButtonProps> = ({
   const iconToUse = iconId || startIcon || endIcon;
 
   const iconElement = iconToUse ? (
-    <Icon
-      id={iconToUse} // This will now always be defined
-      size={iconSize}
-      fill={fill}
-      opacity={iconOpacity}
-    />
+    <Icon id={iconToUse} size={iconSize} fill={fill} opacity={iconOpacity} />
   ) : null;
 
+  const loadingElement = loadingIndicator || (
+    <Icon
+      id="loader"
+      size={iconSize || 'md'}
+      fill={fill}
+      opacity={iconOpacity}
+      className="connect__button-loading-indicator"
+    />
+  );
+
+  const renderChildren = () => {
+    if (!loading) {
+      if (startIcon || endIcon) {
+        return (
+          <>
+            {startIcon && <Icon id={startIcon} size={iconSize} fill={fill} opacity={iconOpacity} />}
+            {children}
+            {endIcon && <Icon id={endIcon} size={iconSize} fill={fill} opacity={iconOpacity} />}
+          </>
+        );
+      }
+
+      return (
+        <>
+          {iconPosition === 'before' && iconElement}
+          {children}
+          {iconPosition === 'after' && iconElement}
+        </>
+      );
+    }
+
+    switch (loadingPosition) {
+      case 'start':
+        return (
+          <>
+            {loadingElement}
+            {children}
+          </>
+        );
+      case 'end':
+        return (
+          <>
+            {children}
+            {loadingElement}
+          </>
+        );
+      default:
+        return loadingElement;
+    }
+  };
+
   return (
-    <button
-      type={submit}
+    <ButtonBase
       className={classNames}
       onClick={clickHandler}
-      disabled={disabled}
-      data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
-      title={title ? title : ariaLabel}
+      disabled={disabled || loading}
+      type={type}
+      dataTestId={dataTestId}
+      ariaLabel={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      title={title}
+      onFocusVisible={onFocusVisible}
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      onMouseDown={onMouseDown}
+      onMouseLeave={onMouseLeave}
+      tabIndex={tabIndex}
+      component={component}
+      ariaDescribedby={ariaDescribedby}
+      ariaLabelledby={ariaLabelledby}
+      ariaHidden={ariaHidden}
+      ariaExpanded={ariaExpanded}
+      ariaControls={ariaControls}
+      ariaPressed={ariaPressed}
+      gradeBand={gradeBand}
+      role={role}
+      autoFocus={autoFocus}
+      {...other}
     >
-      {iconPosition === 'before' && iconElement}
-      {children}
-      {iconPosition === 'after' && iconElement}
-    </button>
+      {renderChildren()}
+    </ButtonBase>
   );
 };
+
+Button.displayName = 'Button';

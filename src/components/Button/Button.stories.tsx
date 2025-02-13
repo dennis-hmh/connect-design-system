@@ -7,6 +7,7 @@ import { Typography } from '../Typography/Typography';
 import { RiveEngine } from '../RiveEngine/RiveEngine';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
+import { IconId } from '../../utils/icon-list';
 
 const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
@@ -37,7 +38,7 @@ const Template: StoryFn<ButtonProps & { gradeBand: GradeBand }> = (args) => {
 export const Primary: Story = Template.bind({});
 Primary.args = {
   children: <Typography>Primary Button</Typography>,
-  variant: 'contained',
+  primary: true,
   color: 'primary',
   disabled: false,
   correct: false,
@@ -68,7 +69,7 @@ export const StartIcon: Story = Template.bind({});
 StartIcon.args = {
   ...Primary.args,
   children: <Typography>Start Icon Button</Typography>,
-  startIcon: 'arrowUp',
+  startIcon: 'arrowUp' as IconId,
   iconSize: 'md',
   ariaLabel: 'Start Icon Button',
 };
@@ -77,7 +78,7 @@ export const EndIcon: Story = Template.bind({});
 EndIcon.args = {
   ...Primary.args,
   children: <Typography>End Icon Button</Typography>,
-  endIcon: 'arrowUp',
+  endIcon: 'arrowUp' as IconId,
   iconSize: 'md',
   ariaLabel: 'End Icon Button',
 };
