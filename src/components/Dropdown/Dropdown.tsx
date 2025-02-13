@@ -1,16 +1,17 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Hint } from '../Hint/Hint';
 import { GradeBand } from 'src/enum/gradeband';
 
+type DropdownItem = {
+  label: string;
+  className?: string | null;
+  ariaSelected?: boolean;
+  disabled?: boolean;
+};
+
 export type DropdownProps = {
   children: React.ReactNode;
-  data: {
-    label: string;
-    value: React.ReactNode;
-    className?: string | null;
-    ariaSelected?: boolean;
-    disabled?: boolean;
-  }[];
+  data: DropdownItem[];
   id?: string;
   label?: string;
   selectedValue?: string | null;
@@ -32,8 +33,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   data,
   id,
   label,
-  selectedValue: controlledSelectedValue,
-  open: controlledOpen,
+  selectedValue = null,
+  open,
   onChange,
   onToggle,
   onClear,
@@ -44,13 +45,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   disabled = false,
   dataTestId,
 }) => {
-  const [internalOpen, setInternalOpen] = useState(false);
-  const [internalSelectedValue, setInternalSelectedValue] = useState<string | null>(null);
-
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const open = controlledOpen ?? internalOpen;
-  const selectedValue = controlledSelectedValue ?? internalSelectedValue;
 
   const feedbackStates = useMemo(() => {
     return [
@@ -66,20 +61,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const handleClick = () => {
     if (!disabled) {
-      setInternalOpen(!open);
       onToggle?.(!open);
     }
   };
 
   const handleItemClick = (label: string) => {
-    setInternalSelectedValue(label);
     onChange?.(label);
-    setInternalOpen(false);
     onToggle?.(false);
   };
 
   const handleClear = () => {
-    setInternalSelectedValue(null);
     onChange?.(null);
     onClear?.();
   };
@@ -89,7 +80,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
       ...item,
       className: null,
       ariaSelected: selectedValue === item.label,
-      value: item.label,
     }));
   }, [data, selectedValue]);
 
@@ -143,13 +133,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 };
 
 export type DropdownMenuProps = {
-  data: {
-    label: string;
-    className: string | null;
-    ariaSelected: boolean;
-    value: string;
-    disabled?: boolean;
-  }[];
+  data: DropdownItem[];
   onItemClick: (label: string) => void;
   selectedValue: string | null;
 };
@@ -163,7 +147,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({ data, onItemClick, s
           className={`connect__dropdown-item ${item.disabled ? 'connect__disabled' : ''} ${selectedValue === item.label ? 'connect__selected' : ''}`}
           role="option"
           aria-selected={item.label === selectedValue}
-          aria-disabled={item.disabled}
+          aria-disabled={item.disabled || false}
           onClick={(event) => {
             event.preventDefault();
             if (!item.disabled) {
