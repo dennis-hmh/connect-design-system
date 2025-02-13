@@ -24,6 +24,7 @@ export type DropdownProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
+  fixedWidth?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -44,6 +45,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   answerShown,
   disabled = false,
   dataTestId,
+  fixedWidth = false,
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -54,6 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       answerShown && 'connect__feedback-shown',
       open && 'connect__dropdown-open',
       disabled && 'connect__disabled',
+      fixedWidth && 'connect__fixed-dimensions',
     ]
       .filter(Boolean)
       .join(' ');

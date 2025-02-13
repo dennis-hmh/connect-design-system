@@ -50,6 +50,7 @@ Default.args = {
   ],
   hint: '',
   disabled: false,
+  fixedWidth: false,
   gradeBand: GradeBand.G4_5,
 };
 
@@ -87,6 +88,13 @@ export const Disabled: Story = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
+};
+
+export const FixedWidth: Story = Template.bind({});
+FixedWidth.args = {
+  ...Default.args,
+  fixedWidth: true, // Set fixedWidth to true cc Michael
+  label: 'Fixed Width Dropdown',
 };
 
 export const Hint: Story = Template.bind({});
