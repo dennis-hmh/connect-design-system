@@ -10,7 +10,7 @@ import { Typography } from '../Typography/Typography';
 
 const meta: Meta<typeof Header> = {
   component: Header,
-  title: 'Layout/Header',
+  title: 'Content/Header',
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
