@@ -28,7 +28,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
-    isChecked: true,
+    isChecked: checked,
     disabled,
   });
   return (
