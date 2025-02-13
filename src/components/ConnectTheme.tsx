@@ -4,7 +4,7 @@ import { GradeBand } from '../enum/gradeband';
 const themeClassName = {
   // [GradeBand.K_2]: 'connect__k2',
   [GradeBand.G2_3]: 'connect__g23',
-  // [GradeBand.G3_5]: 'connect__g35',
+  [GradeBand.G3_5]: 'connect__g35',
   [GradeBand.G4_5]: 'connect__g45',
   [GradeBand.G6_8]: 'connect__g68',
   [GradeBand.G9_12]: 'connect__g912',
