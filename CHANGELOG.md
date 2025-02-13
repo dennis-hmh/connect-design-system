@@ -1,5 +1,22 @@
 # @connect/connect-design-system
 
+## 1.18.10
+
+### Patch Changes
+
+- fcd8bd1: Move Font files to the Lumina CDN to reduce package size
+
+## 1.18.9
+
+### Patch Changes
+
+- c6c2ad3: - New Component: N/A
+  - Updated Component:
+    - `<Grid />`: Aligned with MUI
+    - `<GridItem />`: Aligned with MUI
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.18.8
 
 ### Patch Changes

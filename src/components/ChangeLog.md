@@ -1,3 +1,25 @@
+### v1.18.9 Release Notice
+
+### Release date: February 12, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Grid />`: Aligned with MUI
+  - `<GridItem />`: Aligned with MUI
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.8 Release Notice
 
 ### Release date: February 11, 2025
