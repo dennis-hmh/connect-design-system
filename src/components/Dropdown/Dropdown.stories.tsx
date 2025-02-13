@@ -59,27 +59,24 @@ DropdownStates.args = {
   ...Default.args,
   children: 'Select an option',
   data: [
-    { label: 'Option 1', className: null, ariaSelected: false },
+    { label: 'Option 1', ariaSelected: false },
     {
       label: 'Disabled Option 2',
-      className: null,
       ariaSelected: false,
       disabled: true,
     },
     {
       label: 'Disabled Selected',
-      className: 'connect__selected',
       ariaSelected: true,
       disabled: true,
     },
-    { label: 'Option 4', className: null, ariaSelected: false },
+    { label: 'Option 4', ariaSelected: false },
     {
       label: 'Option 5 is going to be very long',
-      className: null,
       ariaSelected: false,
     },
-    { label: 'Option 6', className: null, ariaSelected: false },
-    { label: 'Option 7', className: null, ariaSelected: false },
+    { label: 'Option 6', ariaSelected: false },
+    { label: 'Option 7', ariaSelected: false },
   ],
   disabled: false,
 };
@@ -93,7 +90,7 @@ Disabled.args = {
 export const FixedWidth: Story = Template.bind({});
 FixedWidth.args = {
   ...Default.args,
-  fixedWidth: true, // Set fixedWidth to true cc Michael
+  fixedWidth: true,
   label: 'Fixed Width Dropdown',
 };
 

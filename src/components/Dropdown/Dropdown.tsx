@@ -4,7 +4,6 @@ import { GradeBand } from 'src/enum/gradeband';
 
 type DropdownItem = {
   label: string;
-  className?: string | null;
   ariaSelected?: boolean;
   disabled?: boolean;
 };
@@ -81,7 +80,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   const dropdownData = useMemo(() => {
     return data.map((item) => ({
       ...item,
-      className: null,
       ariaSelected: selectedValue === item.label,
     }));
   }, [data, selectedValue]);
