@@ -59,7 +59,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     ]
       .filter(Boolean)
       .join(' ');
-  }, [correct, incorrect, answerShown, open, disabled]);
+  }, [correct, incorrect, answerShown, open, disabled, fixedWidth]);
 
   const handleClick = () => {
     if (!disabled) {
