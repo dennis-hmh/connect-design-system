@@ -129,7 +129,6 @@ Buttons take variables in the following format
   font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
   gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
   grid-auto-columns: max-content;
-  height: var(--connect__btn-h, auto);
   justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
   line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);

@@ -4,14 +4,15 @@ import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
 
-type OldButtonProps = {
+// Define the old button props
+export type OldButtonProps = {
   children: React.ReactNode;
-  primary: boolean;
+  primary?: boolean; // Optional for backward compatibility
   title?: string;
   disabled?: boolean;
   correct?: boolean;
   incorrect?: boolean;
-  submit?: 'button' | 'submit';
+  submit?: 'button' | 'submit'; // Allow submit type
   clickHandler?: () => void;
   iconId?: IconId;
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -24,107 +25,81 @@ type OldButtonProps = {
   gradeBand?: GradeBand;
 };
 
-type NewButtonProps = {
+// Define the new button props
+export type NewButtonProps = {
   variant?: 'text' | 'contained' | 'outlined';
   color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
   size?: 'small' | 'large';
-  disabled?: boolean;
-  disableElevation?: boolean;
   startIcon?: IconId;
   endIcon?: IconId;
-  iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children: React.ReactNode;
-  submit?: 'button' | 'submit';
-  className?: string;
-  dataTestId?: string;
-  ariaLabel?: string;
-  gradeBand?: GradeBand;
-  correct?: boolean;
-  incorrect?: boolean;
 };
 
-export type ButtonProps = OldButtonProps | NewButtonProps;
+// Combine old and new props
+export type ButtonProps = OldButtonProps & NewButtonProps;
 
-const isNewProps = (props: ButtonProps): props is NewButtonProps => {
-  return 'variant' in props || 'startIcon' in props || 'endIcon' in props;
-};
-
-const mapColorToFill = (
-  color?: 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
-): Color | undefined => {
-  const colorMap: Record<string, Color> = {
-    primary: 'primary-mid',
-    success: 'correct-mid',
-    error: 'error-mid',
-  };
-  return color ? colorMap[color] : undefined;
-};
-
-export const Button: React.FC<ButtonProps> = (props) => {
-  const oldProps: OldButtonProps = isNewProps(props)
-    ? {
-        children: props.children,
-        primary: props.variant !== 'text',
-        disabled: props.disabled,
-        correct: props.correct,
-        incorrect: props.incorrect,
-        iconId: props.startIcon || props.endIcon,
-        iconPosition: props.startIcon ? 'before' : props.endIcon ? 'after' : 'before',
-        iconSize: props.iconSize || 'md',
-        clickHandler: props.onClick
-          ? () => props.onClick?.({} as React.MouseEvent<HTMLButtonElement>)
-          : undefined,
-        submit: props.submit,
-        dataTestId: props.dataTestId,
-        ariaLabel: props.ariaLabel,
-        gradeBand: props.gradeBand,
-        fill: mapColorToFill(props.color),
-        additionalClass: `${props.className || ''} ${
-          props.color ? `connect__button-${props.color}` : ''
-        }`.trim(),
-        iconOpacity: undefined,
-        title: undefined,
-      }
-    : props;
-
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  primary = true,
+  title,
+  disabled = false,
+  correct,
+  incorrect,
+  submit = 'button',
+  clickHandler,
+  iconId,
+  iconSize = 'md',
+  fill,
+  iconPosition = 'before',
+  iconOpacity,
+  ariaLabel,
+  dataTestId,
+  additionalClass = '',
+  variant,
+  color,
+  size,
+  startIcon,
+  endIcon,
+}) => {
   const classNames = [
     'connect__button',
-    oldProps.primary && 'connect__button-primary',
-    !oldProps.primary && 'connect__button-secondary',
-    oldProps.correct && 'connect__feedback-correct',
-    oldProps.incorrect && 'connect__feedback-incorrect',
-    isNewProps(props) && props.size === 'small' && 'connect__button-small',
-    oldProps.additionalClass,
+    primary && 'connect__button-primary',
+    !primary && 'connect__button-secondary',
+    correct && 'connect__button-correct',
+    incorrect && 'connect__button-incorrect',
+    additionalClass,
+    variant === 'contained' && 'connect__button-contained',
+    variant === 'outlined' && 'connect__button-outlined',
+    size === 'small' && 'connect__button-small',
+    color && `connect__button-${color}`,
   ]
     .filter(Boolean)
     .join(' ');
 
-  const iconElement = oldProps.iconId ? (
+  // Determine the icon ID to use
+  const iconToUse = iconId || startIcon || endIcon;
+
+  const iconElement = iconToUse ? (
     <Icon
-      id={oldProps.iconId}
-      size={oldProps.iconSize || 'md'}
-      fill={oldProps.fill}
-      opacity={oldProps.iconOpacity}
+      id={iconToUse} // This will now always be defined
+      size={iconSize}
+      fill={fill}
+      opacity={iconOpacity}
     />
   ) : null;
 
   return (
     <button
-      type={oldProps.submit}
+      type={submit}
       className={classNames}
-      onClick={oldProps.clickHandler}
-      disabled={oldProps.disabled}
-      data-testid={oldProps.dataTestId}
-      aria-label={
-        oldProps.ariaLabel ||
-        (oldProps.iconId && !oldProps.children ? `Icon button ${oldProps.iconId}` : undefined)
-      }
-      title={oldProps.title ? oldProps.title : oldProps.ariaLabel}
+      onClick={clickHandler}
+      disabled={disabled}
+      data-testid={dataTestId}
+      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      title={title ? title : ariaLabel}
     >
-      {oldProps.iconPosition === 'before' && iconElement}
-      {oldProps.children}
-      {oldProps.iconPosition === 'after' && iconElement}
+      {iconPosition === 'before' && iconElement}
+      {children}
+      {iconPosition === 'after' && iconElement}
     </button>
   );
 };

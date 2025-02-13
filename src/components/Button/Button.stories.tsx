@@ -42,7 +42,7 @@ Primary.args = {
   disabled: false,
   correct: false,
   incorrect: false,
-  submit: 'button',
+  type: 'submit',
   onClick: () => console.log('Button clicked'),
   ariaLabel: 'Primary Button',
   gradeBand: GradeBand.G4_5,
