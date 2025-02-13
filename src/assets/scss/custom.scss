@@ -91,7 +91,6 @@ Buttons take variables in the following format
 */
 
 .connect__button {
-  --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
   --connect__btn-border-w: var(
     --theme__btn-border-w,
     var(--variant__btn-border-w, var(--connect__spacer-zero))
@@ -125,7 +124,6 @@ Buttons take variables in the following format
   color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
-  // flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
   font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
   font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
@@ -136,7 +134,6 @@ Buttons take variables in the following format
   line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   place-items: var(--theme__btn-align, var(--variant__btn-align, center)) center;
-  text-transform: var(--connect__btn-text-transform, initial);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
@@ -197,7 +194,8 @@ Buttons take variables in the following format
     );
   }
 
-  &-primary {
+  &-primary,
+  &-contained {
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
@@ -217,7 +215,8 @@ Buttons take variables in the following format
     }
   }
 
-  &-secondary {
+  &-secondary,
+  &-outlined {
     --state-based-bg: var(--connect__surface-white);
     --active-color: var(--connect__primary-mid);
     --connect__icon-fill: var(--active-color);
@@ -246,44 +245,52 @@ Buttons take variables in the following format
     }
   }
 
-  &-menu {
-    --variant__btn-bg: var(--connect__surface-null);
-    --connect__inner-status-color: var(--connect__surface-null);
-    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-
-    box-shadow: var(--connect__shadow-null);
-
-    &:not(:disabled) {
-      &:hover {
-        --variant__btn-bg: var(--connect__surface-white);
-        --connect__inner-status-color: var(--connect__surface-white);
-        box-shadow: var(--connect__shadow-lvl-2);
-      }
-
-      &:active {
-        box-shadow: var(--connect__shadow-null);
-      }
-    }
-
-    &:disabled {
-      --icon__fill-opacity: var(--connect__state-opacity);
-      --variant__icon-fill-color: var(--connect__disabled-mid);
-      --connect__state-based-pointer: var(--connect__disabled-cursor);
-    }
+  &-small {
+    --connect__btn-padding-y: var(--connect__spacer-xs);
+    --connect__btn-padding-x: var(--connect__spacer-sm);
+    font-size: var(--connect__body-xs);
   }
+
+
+
+  // &-menu {
+  //   --variant__btn-bg: var(--connect__surface-null);
+  //   --connect__inner-status-color: var(--connect__surface-null);
+  //   --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+  //   --variant__btn-padding-x: var(--connect__spacer-sm);
+
+  //   box-shadow: var(--connect__shadow-null);
+
+  //   &:not(:disabled) {
+  //     &:hover {
+  //       --variant__btn-bg: var(--connect__surface-white);
+  //       --connect__inner-status-color: var(--connect__surface-white);
+  //       box-shadow: var(--connect__shadow-lvl-2);
+  //     }
+
+  //     &:active {
+  //       box-shadow: var(--connect__shadow-null);
+  //     }
+  //   }
+
+  //   &:disabled {
+  //     --icon__fill-opacity: var(--connect__state-opacity);
+  //     --variant__icon-fill-color: var(--connect__disabled-mid);
+  //     --connect__state-based-pointer: var(--connect__disabled-cursor);
+  //   }
+  // }
 
   &-loading > svg {
     animation: connect-loading 0.85s linear infinite;
   }
 
-  &-media {
-    box-shadow: var(--connect__shadow-null);
+  // &-media {
+  //   box-shadow: var(--connect__shadow-null);
 
-    &.connect__media-active:not(:disabled) {
-      --state-based-bg: var(--connect__error-mid);
-    }
-  }
+  //   &.connect__media-active:not(:disabled) {
+  //     --state-based-bg: var(--connect__error-mid);
+  //   }
+  // }
 
   &.connect__feedback-correct,
   &.connect__feedback-incorrect {

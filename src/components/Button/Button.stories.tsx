@@ -32,15 +32,18 @@ const Template: StoryFn<ButtonProps & { gradeBand: GradeBand }> = (args) => {
   );
 };
 
+// ... existing imports and meta ...
+
 export const Primary: Story = Template.bind({});
 Primary.args = {
   children: <Typography>Primary Button</Typography>,
-  primary: true,
+  variant: 'contained',
+  color: 'primary',
   disabled: false,
   correct: false,
   incorrect: false,
   submit: 'button',
-  clickHandler: () => console.log('Button clicked'),
+  onClick: () => console.log('Button clicked'),
   ariaLabel: 'Primary Button',
   gradeBand: GradeBand.G4_5,
 };
@@ -49,16 +52,66 @@ export const Secondary: Story = Template.bind({});
 Secondary.args = {
   ...Primary.args,
   children: <Typography>Secondary Button</Typography>,
-  primary: false,
+  color: 'secondary',
   ariaLabel: 'Secondary Button',
 };
 
-export const Correct: Story = Template.bind({});
-Correct.args = {
+export const Small: Story = Template.bind({});
+Small.args = {
   ...Primary.args,
-  children: <Typography>Correct Button</Typography>,
-  correct: true,
-  ariaLabel: 'Correct Button',
+  children: <Typography>Small Button</Typography>,
+  size: 'small',
+  ariaLabel: 'Small Button',
+};
+
+export const StartIcon: Story = Template.bind({});
+StartIcon.args = {
+  ...Primary.args,
+  children: <Typography>Start Icon Button</Typography>,
+  startIcon: 'arrowUp',
+  iconSize: 'md',
+  ariaLabel: 'Start Icon Button',
+};
+
+export const EndIcon: Story = Template.bind({});
+EndIcon.args = {
+  ...Primary.args,
+  children: <Typography>End Icon Button</Typography>,
+  endIcon: 'arrowUp',
+  iconSize: 'md',
+  ariaLabel: 'End Icon Button',
+};
+
+export const TextVariant: Story = Template.bind({});
+TextVariant.args = {
+  ...Primary.args,
+  children: <Typography>Text Button</Typography>,
+  variant: 'text',
+  ariaLabel: 'Text Button',
+};
+
+export const OutlinedVariant: Story = Template.bind({});
+OutlinedVariant.args = {
+  ...Primary.args,
+  children: <Typography>Outlined Button</Typography>,
+  variant: 'outlined',
+  ariaLabel: 'Outlined Button',
+};
+
+export const Success: Story = Template.bind({});
+Success.args = {
+  ...Primary.args,
+  children: <Typography>Success Button</Typography>,
+  color: 'success',
+  ariaLabel: 'Success Button',
+};
+
+export const Error: Story = Template.bind({});
+Error.args = {
+  ...Primary.args,
+  children: <Typography>Error Button</Typography>,
+  color: 'error',
+  ariaLabel: 'Error Button',
 };
 
 export const Icon: Story = Template.bind({});
@@ -68,6 +121,14 @@ Icon.args = {
   iconId: 'arrowUp',
   iconSize: 'md',
   ariaLabel: 'Icon Button Up Arrow',
+};
+
+export const Correct: Story = Template.bind({});
+Correct.args = {
+  ...Primary.args,
+  children: <Typography>Correct Button</Typography>,
+  correct: true,
+  ariaLabel: 'Correct Button',
 };
 
 export const Loading: Story = Template.bind({});
