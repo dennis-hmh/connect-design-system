@@ -1,6 +1,6 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.18.9",
+  "version": "1.18.10",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./src/index.ts",
