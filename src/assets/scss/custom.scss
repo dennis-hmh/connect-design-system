@@ -107,7 +107,7 @@ Buttons take variables in the following format
 
   --icon__fill-color: var(
     --theme__icon-fill,
-    var(--state-based-icon-fill, var(--connect__icon-fill))
+    var(--state-based-icon-fill, var(--connect__color-neutral-40))
   );
 
   background-color: var(
@@ -192,10 +192,9 @@ Buttons take variables in the following format
       var(--state__based-icon-fill, var(--icon__fill-color))
     );
   }
-
-  &-primary,
-  &-contained {
-    --variant__btn-bg: var(--connect__primary-mid);
+  &-contained,
+  &-primary {
+    --variant__btn-bg: var(--connect__color-primary-500);
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
@@ -215,49 +214,149 @@ Buttons take variables in the following format
     }
   }
 
-  &-secondary,
-  &-outlined {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__primary-mid);
+  &-outlined,
+  &-secondary {
+    --variant__btn-bg: var(--connect__surface-white);
+    --active-color: var(--connect__color-secondary-400);
     --connect__icon-fill: var(--active-color);
-    --connect__inner-status-color: var(--connect__primary-mid);
+    --connect__inner-status-color: var(--connect__color-secondary-400);
 
     &:disabled {
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
       --connect__inner-status-color-state: var(--connect__surface-pale);
     }
-
-    &.connect__feedback-incorrect {
-      --state-based-bg: var(--connect__surface-white);
-    }
-
-    &.connect__feedback-correct {
-      --state-based-bg: var(--connect__surface-white);
-      --state-based-icon-fill: var(--connect__correct-mid);
-      --connect__inner-status-color: var(--connect__correct-light);
-    }
   }
 
   &-text {
     --variant__btn-bg: var(--connect__transparent);
     --variant__btn-fw: 600;
+    --active-color: var(--connect__surface-black);
     box-shadow: var(--connect__shadow-null);
   }
 
-  &-incorrect {
-    &:disabled {
-      --state-based-bg: var(--color-incorrect-bg);
+  &-assistive {
+    --variant__btn-bg: var(--connect__color-assistive-300);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-assistive-300);
+      --connect__icon-fill: var(--active-color);
+
+      --connect__inner-status-color: var(--connect__color-assistive-300);
     }
   }
 
+  &-caution {
+    --variant__btn-bg: var(--connect__color-caution-500);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-caution-500);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-caution-500);
+    }
+  }
+
+  &-negative {
+    --variant__btn-bg: var(--connect__color-negative-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-negative-400);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-negative-400);
+    }
+  }
+
+  &-constructive {
+    --variant__btn-bg: var(--connect__color-constructive-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-constructive-400);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-constructive-400);
+    }
+  }
+
+  &-positive {
+    --variant__btn-bg: var(--connect__color-positive-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-positive-400);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-positive-400);
+    }
+  }
+
+  &-focus {
+    --variant__btn-bg: var(--connect__color-focus-500);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-focus-500);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-focus-500);
+    }
+  }
+
+  &-neutral {
+    --variant__btn-bg: var(--connect__color-neutral-300);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined,
+    &.connect__button-secondary {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-neutral-300);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-neutral-300);
+    }
+  }
+
+  // Size variants
   &-small {
     --connect__btn-padding-y: var(--connect__spacer-xs);
     --connect__btn-padding-x: var(--connect__spacer-sm);
   }
 
+  // Elevation variants
   &-no-elevation {
     box-shadow: var(--connect__shadow-null);
+  }
+
+  // Loading state
+  &-loading > svg {
+    animation: connect-loading 0.85s linear infinite;
+  }
+
+  // Feedback states
+  &.connect__feedback-correct,
+  &.connect__feedback-incorrect {
+    &:hover,
+    &:active {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+    }
   }
 
   // &-menu {
@@ -287,10 +386,6 @@ Buttons take variables in the following format
   //   }
   // }
 
-  &-loading > svg {
-    animation: connect-loading 0.85s linear infinite;
-  }
-
   // &-media {
   //   box-shadow: var(--connect__shadow-null);
 
@@ -298,14 +393,6 @@ Buttons take variables in the following format
   //     --state-based-bg: var(--connect__error-mid);
   //   }
   // }
-
-  &.connect__feedback-correct,
-  &.connect__feedback-incorrect {
-    &:hover,
-    &:active {
-      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-    }
-  }
 }
 
 @keyframes connect-loading {

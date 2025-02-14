@@ -944,7 +944,7 @@
   --connect__essential-guide-purple: var(--connect__cc-purple);
   --connect__essential-guide-green: var(--connect__green-c50);
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
-  
+
   /*
     3.4: Connect Neutral Palette
   */
@@ -1024,6 +1024,48 @@
   --connect__disabled-mid: var(--connect__gray-c55);
   --connect__disabled-light: var(--connect__gray-c40);
   --connect__disabled-pale: var(--connect__gray-c10);
+
+
+  /*
+  new palette
+  */
+
+  --connect__color-primary-500: var(--connect__blue-s50);
+  --connect__color-primary-400: var(--connect__blue-s50);
+  --connect__color-primary-300: var(--connect__blue-c50);
+  --connect__color-primary-200: var(--connect__blue-s15);
+  --connect__color-primary-100: var(--connect__blue-s15);
+
+  --connect__color-secondary-400: var(--connect__purple-s50);
+  --connect__color-secondary-300: var(--connect__purple-c50);
+  --connect__color-secondary-100: var(--connect__purple-c10);
+
+  --connect__color-neutral-300: var(--connect__gray-c40);
+  --connect__color-neutral-100: var(--connect__gray-c10);
+
+  --connect__color-assistive-300: var(--connect__aqua-m40);
+  --connect__color-assistive-100: var(--connect__aqua-s15);
+
+  --connect__color-caution-500: var(--connect__cerise-s50);
+  --connect__color-caution-300: var(--connect__cerise-s40);
+  --connect__color-caution-100: var(--connect__cerise-s10);
+
+  --connect__color-negative-400: var(--connect__red-s45);
+  --connect__color-negative-300: var(--connect__red-c50);
+  --connect__color-negative-100: var(--connect__red-s15);
+
+  --connect__color-constructive-400: var(--connect__blue-s50);
+  --connect__color-constructive-300: var(--connect__blue-c50);
+  --connect__color-constructive-100: var(--connect__blue-s15);
+
+  --connect__color-positive-400: var(--connect__green-s40);
+  --connect__color-positive-300: var(--connect__green-c50);
+  --connect__color-positive-100: var(--connect__green-s15);
+
+  --connect__color-focus-500: var(--connect__cerise-s50);
+  --connect__color-focus-300: var(--connect__cerise-s40);
+  --connect__color-focus-100: var(--connect__cerise-s10);
+
 
   /*
     4: Shadows
