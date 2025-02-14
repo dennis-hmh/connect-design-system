@@ -2906,8 +2906,11 @@ Connect Avatars
   connect__avatar-group-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
 */
 
-:where([class*='connect__avatar-group-negative-']) > *:not(:first-child) {
-  margin-right: calc(var(--connect__spacer-size) * -1);
+.connect__avatar-group-negative-sm > *:not(:first-child),
+.connect__avatar-group-negative-md > *:not(:first-child),
+.connect__avatar-group-negative-lg > *:not(:first-child),
+.connect__avatar-group-negative-xl > *:not(:first-child) {
+  margin-right: calc(-1 * var(--connect__spacer-size));
 }
 
 .connect__avatar-group-negative-xs {
