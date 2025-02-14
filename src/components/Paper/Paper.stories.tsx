@@ -124,7 +124,7 @@ WithOutline.args = {
     <>
       <Paper
         fullWidth={true}
-        backgroundColor="primary-mid"
+        backgroundColor="focus-pale"
         roundedCorner={{
           topAll: true,
         }}
@@ -152,7 +152,7 @@ WithOutline.args = {
               paddingY: 'zero',
             }}
           >
-            <Icon id="syl" fill="primary-dark" size="xl" />
+            <Icon id="syl" fill="focus-dark" size="xl" />
           </Stack>
           <Stack
             flex="auto"
@@ -214,7 +214,7 @@ WithOutline.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: true,
-  outline: 'primary-mid',
+  outline: 'focus-pale',
   fullWidth: false,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,

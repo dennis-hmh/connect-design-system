@@ -55,11 +55,14 @@ const App: React.FC = () => {
           <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
               <Stack
-                lg={{
+                xs={{
                   direction: 'row',
                   spacing: 'xs',
                   alignItems: 'start',
                   justifyContent: 'start',
+                }}
+                lg={{
+                  direction: 'column',
                 }}
               >
                 <Button primary={true}>Button</Button>
@@ -70,7 +73,14 @@ const App: React.FC = () => {
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
-              <Stack>
+              <Stack
+                xs={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
                 <Typography element="h1">Grade k H1</Typography>
                 <Typography element="h2">h2</Typography>
                 <Typography element="h3">h3</Typography>
@@ -86,7 +96,7 @@ const App: React.FC = () => {
                   h4 styled as h3
                 </Typography>
                 <Stack
-                  lg={{
+                  xs={{
                     direction: 'row',
                     spacing: 'xs',
                     alignItems: 'start',
@@ -285,16 +295,10 @@ const App: React.FC = () => {
           <GridItem>
             <Stack
               xs={{
-                justifyContent: 'space-between',
-              }}
-              md={{
                 direction: 'row',
-                spacing: 'md',
-                justifyContent: 'center',
-              }}
-              lg={{
+                spacing: 'xs',
+                alignItems: 'start',
                 justifyContent: 'start',
-                flexWrap: 'nowrap',
               }}
             >
               <SingleImage
@@ -416,9 +420,11 @@ const App: React.FC = () => {
               <Blockquote>This is a sample blockquote for Zelda</Blockquote>
             </Figure>
             <Stack
-              md={{
+              xs={{
                 direction: 'row',
-                spacing: 'md',
+                spacing: 'xs',
+                alignItems: 'center',
+                justifyContent: 'start',
               }}
             >
               <Button primary={true} disabled={false}>
@@ -591,7 +597,14 @@ const App: React.FC = () => {
             </Stack>
           </GridItem>
           <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-            <Stack>
+            <Stack
+              xs={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
               <Typography element="h1">Grade k H1</Typography>
               <Typography element="h2">h2</Typography>
               <Typography element="h3">h3</Typography>
@@ -607,7 +620,7 @@ const App: React.FC = () => {
                 h4 styled as h3
               </Typography>
               <Stack
-                lg={{
+                xs={{
                   direction: 'row',
                   spacing: 'xs',
                   alignItems: 'start',

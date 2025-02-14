@@ -16,7 +16,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Card> = {
-  title: 'Layout/Card',
+  title: 'Content/Card',
   component: Card,
   tags: ['autodocs'],
   parameters: {
