@@ -1382,14 +1382,14 @@ Style lint has been turned off for this file, as we are using the flex long form
   --connect__stack-padding-x: initial;
   --connect__stack-padding-y: initial;
   --connect__stack-flex: initial;
-  align-items: var(--connect__stack-align-items, start);
+  align-items: var(--connect__stack-align-items);
   align-self: var(--connect__stack-align-self, auto);
   display: var(--connect__display-flex);
   flex: var(--connect__stack-flex);
-  flex-direction: var(--connect__stack-direction, row);
-  flex-wrap: var(--connect__stack-flex-wrap, nowrap);
+  flex-direction: var(--connect__stack-direction);
+  flex-wrap: var(--connect__stack-flex-wrap);
   gap: var(--connect__stack-spacing, 0);
-  justify-content: var(--connect__stack-justify-content, start);
+  justify-content: var(--connect__stack-justify-content);
   padding: var(--connect__stack-padding-y, 0) var(--connect__stack-padding-x, 0);
 
   &.connect__stack-xs {

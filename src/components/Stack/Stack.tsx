@@ -51,37 +51,20 @@ const setStackVariables = (
 
   const variables: Record<string, string> = {};
 
-  if (values.direction) {
-    variables[`--connect__stack${prefix}-direction`] = values.direction;
-    const isRow = values.direction.includes('row');
+  // Set default direction to column if not specified (matches MUI default)
+  variables[`--connect__stack${prefix}-direction`] = values.direction || 'column';
 
-    if (isRow) {
-      if (!values.flexWrap) {
-        variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
-      }
-      if (!values.justifyContent) {
-        variables[`--connect__stack${prefix}-justify-content`] = 'start';
-      }
-      if (!values.alignItems) {
-        variables[`--connect__stack${prefix}-align-items`] = 'stretch';
-      }
-    }
-  }
+  // Set default flex properties (matches MUI behavior)
+  variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap || 'nowrap';
+  variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent || 'flex-start';
+  variables[`--connect__stack${prefix}-align-items`] = values.alignItems || 'stretch';
 
+  // Optional properties - only set if provided
   if (values.spacing) {
     variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
   }
-  if (values.alignItems) {
-    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
-  }
   if (values.alignSelf) {
     variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
-  }
-  if (values.justifyContent) {
-    variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
-  }
-  if (values.flexWrap) {
-    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
   }
   if (values.paddingX) {
     variables[`--connect__stack${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
