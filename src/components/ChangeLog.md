@@ -9,6 +9,7 @@
   - `<Checkbox />`: checked prop fixed
   - `<MultipleChoiceQuestionImage />`: checked prop fixed
   - `<Image />`: Default image src updated
+  - `<Stack />`: CSS fallbacks removed, updated to MUI defaults.
 - Bug Fix: N/A
 - Other:
   - Storybook stories alignment update
