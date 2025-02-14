@@ -1,6 +1,6 @@
 ### v1.18.11 Release Notice
 
-### Release date: February 13, 2025
+### Release date: February 14, 2025
 
 #### Changelog:
 
