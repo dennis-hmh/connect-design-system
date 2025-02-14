@@ -1,5 +1,5 @@
 export enum GradeBand {
-  //K_2 = 'k-2',
+  K_2 = 'k-2',
   G2_3 = 'g2-3',
   G3_5 = 'g3-5',
   G4_5 = 'g4-5',
