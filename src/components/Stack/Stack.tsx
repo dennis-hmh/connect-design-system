@@ -47,19 +47,32 @@ const setStackVariables = (
   values: BreakpointValues | undefined,
   prefix: string = '',
 ): Record<string, string> => {
-  if (!values) return {};
-
   const variables: Record<string, string> = {};
 
-  // Set default direction to column if not specified (matches MUI default)
-  variables[`--connect__stack${prefix}-direction`] = values.direction || 'column';
+  // Only set base defaults if there's no prefix (not a breakpoint)
+  if (!prefix) {
+    variables['--connect__stack-direction'] = 'column';
+    variables['--connect__stack-flex-wrap'] = 'nowrap';
+  }
 
-  // Set default flex properties (matches MUI behavior)
-  variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap || 'nowrap';
-  variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent || 'flex-start';
-  variables[`--connect__stack${prefix}-align-items`] = values.alignItems || 'stretch';
+  // If no values provided, return (either base defaults or empty object for breakpoints)
+  if (!values) {
+    return variables;
+  }
 
-  // Optional properties - only set if provided
+  // Only set these if explicitly provided in values
+  if (values.direction) {
+    variables[`--connect__stack${prefix}-direction`] = values.direction;
+  }
+  if (values.flexWrap) {
+    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
+  }
+  if (values.justifyContent) {
+    variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
+  }
+  if (values.alignItems) {
+    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
+  }
   if (values.spacing) {
     variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
   }
