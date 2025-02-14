@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.18.11
+
+### Patch Changes
+
+- 672b57d: Fix: Remove module property in the package.json
+
+## 1.18.10
+
+### Patch Changes
+
+- fcd8bd1: Move Font files to the Lumina CDN to reduce package size
+
 ## 1.18.9
 
 ### Patch Changes
