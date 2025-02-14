@@ -112,7 +112,7 @@ Buttons take variables in the following format
 
   background-color: var(
     --theme__btn-bg,
-    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
+    var(--variant__btn-bg, var(--state-based-bg, var(--connect__surface-light)))
   );
   border: var(--connect__btn-border-w) solid
     var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__surface-null)));
@@ -195,6 +195,7 @@ Buttons take variables in the following format
 
   &-primary,
   &-contained {
+    --variant__btn-bg: var(--connect__primary-mid);
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
