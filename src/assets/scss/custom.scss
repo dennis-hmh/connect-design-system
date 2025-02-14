@@ -192,6 +192,7 @@ Buttons take variables in the following format
       var(--state__based-icon-fill, var(--icon__fill-color))
     );
   }
+
   &-contained,
   &-primary {
     --variant__btn-bg: var(--connect__color-primary-500);
