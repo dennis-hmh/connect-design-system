@@ -28,69 +28,63 @@ export type ButtonBaseProps = {
   autoFocus?: boolean;
 };
 
-export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonBaseProps>(
-  (
-    {
-      children,
-      className,
-      disabled = false,
-      onClick,
-      onFocusVisible,
-      onKeyDown,
-      onKeyUp,
-      onMouseDown,
-      onMouseLeave,
-      type = 'button',
-      tabIndex,
-      component: Component = 'button',
-      dataTestId,
-      ariaLabel,
-      ariaDescribedby,
-      ariaLabelledby,
-      ariaHidden,
-      ariaExpanded,
-      ariaControls,
-      ariaPressed,
-      title,
-      gradeBand,
-      role,
-      autoFocus,
-      ...other
-    },
-    ref,
-  ) => {
-    return (
-      <Component
-        ref={ref}
-        className={className}
-        disabled={Component === 'button' ? disabled : undefined}
-        aria-disabled={disabled}
-        onClick={disabled ? undefined : onClick}
-        onFocus={onFocusVisible}
-        onKeyDown={onKeyDown}
-        onKeyUp={onKeyUp}
-        onMouseDown={disabled ? undefined : onMouseDown}
-        onMouseLeave={onMouseLeave}
-        type={Component === 'button' ? type : undefined}
-        tabIndex={disabled ? -1 : tabIndex}
-        data-testid={dataTestId}
-        aria-label={ariaLabel}
-        aria-describedby={ariaDescribedby}
-        aria-labelledby={ariaLabelledby}
-        aria-hidden={ariaHidden}
-        aria-expanded={ariaExpanded}
-        aria-controls={ariaControls}
-        aria-pressed={ariaPressed}
-        title={title}
-        data-gradeband={gradeBand}
-        role={role}
-        autoFocus={autoFocus}
-        {...other}
-      >
-        {children}
-      </Component>
-    );
-  },
-);
+export const ButtonBase: React.FC<ButtonBaseProps> = ({
+  children,
+  className,
+  disabled = false,
+  onClick,
+  onFocusVisible,
+  onKeyDown,
+  onKeyUp,
+  onMouseDown,
+  onMouseLeave,
+  type = 'button',
+  tabIndex,
+  component: Component = 'button',
+  dataTestId,
+  ariaLabel,
+  ariaDescribedby,
+  ariaLabelledby,
+  ariaHidden,
+  ariaExpanded,
+  ariaControls,
+  ariaPressed,
+  title,
+  gradeBand,
+  role,
+  autoFocus,
+  ...other
+}) => {
+  return (
+    <Component
+      className={className}
+      disabled={Component === 'button' ? disabled : undefined}
+      aria-disabled={disabled}
+      onClick={disabled ? undefined : onClick}
+      onFocus={onFocusVisible}
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      onMouseDown={disabled ? undefined : onMouseDown}
+      onMouseLeave={onMouseLeave}
+      type={Component === 'button' ? type : undefined}
+      tabIndex={disabled ? -1 : tabIndex}
+      data-testid={dataTestId}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedby}
+      aria-labelledby={ariaLabelledby}
+      aria-hidden={ariaHidden}
+      aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
+      aria-pressed={ariaPressed}
+      title={title}
+      data-gradeband={gradeBand}
+      role={role}
+      autoFocus={autoFocus}
+      {...other}
+    >
+      {children}
+    </Component>
+  );
+};
 
 ButtonBase.displayName = 'ButtonBase';

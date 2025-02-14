@@ -121,7 +121,7 @@ Buttons take variables in the following format
     var(--variant__btn-border-radius, var(--connect__border-radius))
   );
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-black)));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
   font-family: var(--connect__font-sans);
@@ -238,6 +238,12 @@ Buttons take variables in the following format
     }
   }
 
+  &-text {
+    --variant__btn-bg: var(--connect__transparent);
+    --variant__btn-fw: 600;
+    box-shadow: var(--connect__shadow-null);
+  }
+
   &-incorrect {
     &:disabled {
       --state-based-bg: var(--color-incorrect-bg);
@@ -247,10 +253,11 @@ Buttons take variables in the following format
   &-small {
     --connect__btn-padding-y: var(--connect__spacer-xs);
     --connect__btn-padding-x: var(--connect__spacer-sm);
-    font-size: var(--connect__body-xs);
   }
 
-
+  &-no-elevation {
+    box-shadow: var(--connect__shadow-null);
+  }
 
   // &-menu {
   //   --variant__btn-bg: var(--connect__surface-null);

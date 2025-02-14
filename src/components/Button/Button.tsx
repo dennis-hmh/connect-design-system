@@ -90,8 +90,8 @@ export const Button: React.FC<ButtonProps> = ({
     'connect__button',
     // Only add primary/secondary classes if variant is not specified
     !variant && (primary ? 'connect__button-primary' : 'connect__button-secondary'),
-    correct && 'connect__button-correct',
-    incorrect && 'connect__button-incorrect',
+    correct && 'connect__feedback-correct',
+    incorrect && 'connect__feedback-incorrect',
     additionalClass,
     // New variant and color classes
     variant === 'contained' && 'connect__button-contained',
