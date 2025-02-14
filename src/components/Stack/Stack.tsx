@@ -47,41 +47,37 @@ const setStackVariables = (
   values: BreakpointValues | undefined,
   prefix: string = '',
 ): Record<string, string> => {
-  if (!values) return {};
-
   const variables: Record<string, string> = {};
 
+  // Only set base defaults if there's no prefix (not a breakpoint)
+  if (!prefix) {
+    variables['--connect__stack-direction'] = 'column';
+    variables['--connect__stack-flex-wrap'] = 'nowrap';
+  }
+
+  // If no values provided, return (either base defaults or empty object for breakpoints)
+  if (!values) {
+    return variables;
+  }
+
+  // Only set these if explicitly provided in values
   if (values.direction) {
     variables[`--connect__stack${prefix}-direction`] = values.direction;
-    const isRow = values.direction.includes('row');
-
-    if (isRow) {
-      if (!values.flexWrap) {
-        variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
-      }
-      if (!values.justifyContent) {
-        variables[`--connect__stack${prefix}-justify-content`] = 'start';
-      }
-      if (!values.alignItems) {
-        variables[`--connect__stack${prefix}-align-items`] = 'stretch';
-      }
-    }
   }
-
-  if (values.spacing) {
-    variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
-  }
-  if (values.alignItems) {
-    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
-  }
-  if (values.alignSelf) {
-    variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
+  if (values.flexWrap) {
+    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
   }
   if (values.justifyContent) {
     variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
   }
-  if (values.flexWrap) {
-    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
+  if (values.alignItems) {
+    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
+  }
+  if (values.spacing) {
+    variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
+  }
+  if (values.alignSelf) {
+    variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
   }
   if (values.paddingX) {
     variables[`--connect__stack${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
