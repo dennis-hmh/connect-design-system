@@ -64,9 +64,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const iconElement = iconId ? (
     <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
-  ) : (
-    ''
-  );
+  ) : null;
 
   return (
     <button

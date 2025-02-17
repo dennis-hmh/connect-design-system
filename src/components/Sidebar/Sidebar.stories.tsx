@@ -10,7 +10,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Sidebar> = {
-  title: 'Layout/Sidebar',
+  title: 'Content/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
   parameters: {
@@ -78,7 +78,7 @@ WithMenu.args = {
   ...Default.args,
   children: (
     <ButtonMenuProvider>
-      <Stack>
+      <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {
@@ -148,7 +148,7 @@ WithDivider.args = {
   ...Default.args,
   children: (
     <ButtonMenuProvider>
-      <Stack>
+      <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {

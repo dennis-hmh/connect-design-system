@@ -31,7 +31,9 @@ const Template: StoryFn<MultipleChoiceQuestionImageProp> = (args) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
-    args.onChange(event);
+    if (args.onChange) {
+      args.onChange(event);
+    }
   };
 
   useEffect(() => {
