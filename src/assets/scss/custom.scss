@@ -1717,7 +1717,7 @@ Padding on MCQ labels is the total border + spacer
     var(--variant__label-fw, var(--connect__fw-regular, initial))
   );
   gap: var(--theme__label-gap, var(--variant__label-gap, var(--connect__spacer-md)));
-  justify-content: start;
+  justify-content: flex-start;
   line-height: var(--theme__label-lh, var(--variant__label-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
   position: relative;
@@ -2859,4 +2859,15 @@ connect__toolbar
   + .connect__input-textarea {
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
+}
+
+
+
+/*
+utilities 
+*/
+
+.connect__visually-hidden {
+  position: absolute;
+  left: -9999px;
 }

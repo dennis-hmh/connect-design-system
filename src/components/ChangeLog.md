@@ -1,3 +1,41 @@
+### v1.18.14 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.12 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other:
+  - Add type spacers for teachers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.11 Release Notice
 
 ### Release date: February 14, 2025
