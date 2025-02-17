@@ -1373,12 +1373,12 @@ Style lint has been turned off for this file, as we are using the flex long form
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
 .connect__stack {
-  --connect__stack-direction: initial;
+  --connect__stack-direction: column;
   --connect__stack-spacing: initial;
-  --connect__stack-align-items: initial;
-  --connect__stack-align-self: initial;
-  --connect__stack-justify-content: initial;
-  --connect__stack-flex-wrap: initial;
+  --connect__stack-align-items: stretch;
+  --connect__stack-align-self: stretch;
+  --connect__stack-justify-content: start;
+  --connect__stack-flex-wrap: nowrap;
   --connect__stack-padding-x: initial;
   --connect__stack-padding-y: initial;
   --connect__stack-flex: initial;
