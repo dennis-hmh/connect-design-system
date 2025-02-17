@@ -2,46 +2,68 @@
 
 @font-face {
   font-family: 'Source Sans Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
   src:
-    url('fonts/sourcesans3vf-roman.ttf.woff2') format('woff2'),
-    url('fonts/sourcesans3vf-roman.ttf.woff') format('woff'),
-    url('fonts/sourcesans3vf-roman.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
   src:
-    url('fonts/sourcesans3vf-italic.ttf.woff2') format('woff2'),
-    url('fonts/sourcesans3vf-italic.ttf.woff') format('woff'),
-    url('fonts/sourcesans3vf-italic.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Serif Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
   src:
-    url('fonts/sourceserifvariable-roman.ttf.woff2') format('woff2'),
-    url('fonts/sourceserifvariable-roman.ttf.woff') format('woff'),
-    url('fonts/sourceserifvariable-roman.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Serif Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
   src:
-    url('fonts/sourceserifvariable-italic.ttf.woff2') format('woff2'),
-    url('fonts/sourceserifvariable-italic.ttf.woff') format('woff'),
-    url('fonts/sourceserifvariable-italic.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-display: swap;
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src:
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-display: swap;
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src:
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff') format('woff'),
 }
 
 /* stylelint-enable order/properties-alphabetical-order */

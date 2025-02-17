@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { Stack, StackProps, BreakpointValues } from '../Stack/Stack';
+import { Stack, StackProps } from '../Stack/Stack';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -10,43 +10,6 @@ const meta: Meta<typeof Stack> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-  },
-  argTypes: {
-    direction: {
-      control: 'select',
-      options: ['row', 'column'],
-      description: 'Direction of the stack',
-    },
-    spacing: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl', 'zero'],
-      description: 'Spacing between elements',
-    },
-    alignItems: {
-      control: 'select',
-      options: ['start', 'center', 'end', 'baseline', 'stretch'],
-      description: 'Alignment of items along the cross axis',
-    },
-    justifyContent: {
-      control: 'select',
-      options: ['start', 'center', 'end', 'space-between', 'space-around', 'space-evenly'],
-      description: 'Alignment of items along the main axis',
-    },
-    flexWrap: {
-      control: 'select',
-      options: ['nowrap', 'wrap', 'wrap-reverse'],
-      description: 'Wrapping behavior of the flex container',
-    },
-    paddingX: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl', 'zero'],
-      description: 'Horizontal padding',
-    },
-    paddingY: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl', 'zero'],
-      description: 'Vertical padding',
-    },
   },
 };
 
@@ -67,50 +30,45 @@ const Template: StoryFn<StackProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  xs: {
-    direction: 'column',
-    spacing: 'sm',
-    alignItems: 'center',
-    justifyContent: 'start',
-    flexWrap: 'wrap',
-    paddingX: 'xs',
-    paddingY: 'xs',
-  },
-  sm: {
-    direction: 'column',
-    spacing: 'sm',
-    alignItems: 'start',
-    justifyContent: 'start',
-    flexWrap: 'wrap',
-    paddingX: 'sm',
-    paddingY: 'sm',
-  },
-  md: {
-    direction: 'column',
-    spacing: 'md',
-    alignItems: 'start',
-    justifyContent: 'start',
-    flexWrap: 'wrap',
-    paddingX: 'md',
-    paddingY: 'md',
-  },
-  lg: {
-    direction: 'column',
-    spacing: 'lg',
-    alignItems: 'start',
-    justifyContent: 'start',
-    flexWrap: 'wrap',
-    paddingX: 'lg',
-    paddingY: 'lg',
-  },
-  xl: {
-    direction: 'column',
-    spacing: 'xl',
-    alignItems: 'stretch',
-    justifyContent: 'start',
-    flexWrap: 'wrap',
-    paddingX: 'xl',
-    paddingY: 'xl',
-  },
   children: 'Stack',
+  element: 'div',
+};
+
+export const Center: Story = Template.bind({});
+Center.args = {
+  children: 'Centered',
+  element: 'div',
+  xs: { justifyContent: 'center', alignItems: 'center' },
+  customStyle: { height: '100vh' },
+};
+
+export const ResponsiveStack: Story = Template.bind({});
+ResponsiveStack.args = {
+  children: (
+    <>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </>
+  ),
+  element: 'article',
+  xs: { spacing: 'xs' },
+  md: { direction: 'row', spacing: 'md', alignItems: 'center', justifyContent: 'space-between' },
+  lg: { spacing: 'lg', paddingX: 'md', paddingY: 'sm' },
+};
+
+export const CustomStyleStack: Story = Template.bind({});
+CustomStyleStack.args = {
+  children: (
+    <>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </>
+  ),
+  element: 'section',
+  xs: { spacing: 'xs' },
+  md: { direction: 'row', spacing: 'md', alignItems: 'center', justifyContent: 'space-between' },
+  lg: { spacing: 'lg', paddingX: 'md', paddingY: 'sm' },
+  customStyle: { backgroundColor: 'var(--connect__surface-mid)', color: 'white', width: '100%' },
 };

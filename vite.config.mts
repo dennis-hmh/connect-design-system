@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { libInjectCss, scanEntries } from 'vite-plugin-lib-inject-css';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
+
 import dts from 'vite-plugin-dts';
 import autoprefixer from 'autoprefixer';
 import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
-// import css from 'rollup-plugin-css-only';
 
 export default defineConfig({
-  assetsInclude: ["**/*.riv"],
+  assetsInclude: ['**/*.riv'],
   css: {
     postcss: {
       plugins: [autoprefixer],
@@ -19,32 +20,24 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'Connect-Design-System',
       fileName: 'connect-design-system',
+      formats: ['umd'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
+        interop: 'auto',
       },
     },
-    assetsInlineLimit: 0,
     sourcemap: true,
     emptyOutDir: true,
   },
   plugins: [
-    libInjectCss(),
     dts({
       include: ['src/components/'],
     }),
-    react({
-      jsxRuntime: 'automatic',
-    }),
-    // css({ output: 'button.css' }),
+    react(),
     ViteSvgSpriteWrapper({
       icons: './src/assets/icons/svg/*.svg',
-      outputDir: './public/svg/',
+      outputDir: './src/assets/icons',
       sprite: {
         shape: {
           transform: [
@@ -73,6 +66,8 @@ export default defineConfig({
         },
       },
     }),
+    libInjectCss(),
+    externalizeDeps(),
   ],
   resolve: {
     alias: {
