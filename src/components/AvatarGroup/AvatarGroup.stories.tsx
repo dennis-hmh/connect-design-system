@@ -49,11 +49,11 @@ const avatars = [
 ];
 
 const imageAvatars = [
-  <Avatar key="1" alt="User Avatar 1" src="/images/zelda.jpg" shape="circle" />,
-  <Avatar key="2" alt="User Avatar 2" src="/images/zelda.jpg" shape="circle" />,
-  <Avatar key="3" alt="User Avatar 3" src="/images/zelda.jpg" shape="circle" />,
-  <Avatar key="4" alt="User Avatar 4" src="/images/zelda.jpg" shape="circle" />,
-  <Avatar key="5" alt="User Avatar 5" src="/images/zelda.jpg" shape="circle" />,
+  <Avatar key="1" alt="User Avatar 1" src="https://picsum.photos/600/400" shape="circle" />,
+  <Avatar key="2" alt="User Avatar 2" src="https://picsum.photos/600/400" shape="circle" />,
+  <Avatar key="3" alt="User Avatar 3" src="https://picsum.photos/600/400" shape="circle" />,
+  <Avatar key="4" alt="User Avatar 4" src="https://picsum.photos/600/400" shape="circle" />,
+  <Avatar key="5" alt="User Avatar 5" src="https://picsum.photos/600/400" shape="circle" />,
 ];
 
 export const Default: Story = Template.bind({});

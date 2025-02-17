@@ -42,7 +42,7 @@ Default.args = {
 export const ImageAvatar: Story = Template.bind({});
 ImageAvatar.args = {
   ...Default.args,
-  src: '/images/zelda.jpg',
+  src: 'https://picsum.photos/600/400',
   alt: 'User avatar',
 };
 
@@ -61,7 +61,7 @@ LargeAvatar.args = {
 export const ImageLargeAvatar: Story = Template.bind({});
 ImageLargeAvatar.args = {
   ...Default.args,
-  src: '/images/zelda.jpg',
+  src: 'https://picsum.photos/600/400',
   alt: 'User avatar',
   size: 'lg',
 };
