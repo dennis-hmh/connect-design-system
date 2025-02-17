@@ -2968,7 +2968,6 @@ Connect Avatars
   padding: 0;
 }
 
-/* Positioning */
 .connect__badge-top-right {
   right: 0;
   top: 0;
@@ -2983,6 +2982,13 @@ Connect Avatars
   transform-origin: 0% 0%;
 }
 
+.connect__badge-top-center {
+  left: 50%;
+  top: 0;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 0%;
+}
+
 .connect__badge-bottom-right {
   bottom: 0;
   right: 0;
@@ -2995,6 +3001,34 @@ Connect Avatars
   left: 0;
   transform: scale(1) translate(-50%, 50%);
   transform-origin: 0% 100%;
+}
+
+.connect__badge-bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: scale(1) translate(-50%, 50%);
+  transform-origin: 50% 100%;
+}
+
+.connect__badge-center-right {
+  right: 0;
+  top: 50%;
+  transform: scale(1) translate(50%, -50%);
+  transform-origin: 100% 50%;
+}
+
+.connect__badge-center-left {
+  left: 0;
+  top: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 0% 50%;
+}
+
+.connect__badge-center-center {
+  left: 50%;
+  top: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
 }
 
 /* Invisible variant */

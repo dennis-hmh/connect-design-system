@@ -1,19 +1,21 @@
 import React from 'react';
 import { Color } from '../../utils/colors';
-import { Typography } from '../Typography/Typography';
+import { Typography, TypographyProps } from '../Typography/Typography';
 import { GradeBand } from '../../enum/gradeband';
 
 type BadgeAnchorOrigin = {
-  vertical: 'top' | 'bottom';
-  horizontal: 'left' | 'right';
+  vertical: 'top' | 'bottom' | 'center';
+  horizontal: 'left' | 'right' | 'center';
 };
 
+
 export interface BadgeProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   badgeContent?: React.ReactNode;
   anchorOrigin?: BadgeAnchorOrigin;
   variant?: 'dot' | 'standard' | 'invisible';
   color?: Color;
+  size?: TypographyProps['size'];
   max?: number;
   showZero?: boolean;
   className?: string;
@@ -28,6 +30,7 @@ export const Badge: React.FC<BadgeProps> = ({
   anchorOrigin = { vertical: 'top', horizontal: 'right' },
   variant = 'dot',
   color = 'primary-mid',
+  size = 'caption', // Default to caption size
   max,
   showZero = false,
   className = '',
@@ -46,7 +49,7 @@ export const Badge: React.FC<BadgeProps> = ({
 
     if (typeof content === 'string' || typeof content === 'number') {
       return (
-        <Typography color="white" size="caption" weight={600}>
+        <Typography color="white" size={size} weight={600}>
           {content}
         </Typography>
       );
@@ -58,6 +61,7 @@ export const Badge: React.FC<BadgeProps> = ({
   const badgeClassName = [
     'connect__badge',
     `connect__badge-${variant}`,
+    `connect__badge-${size}`,
     `connect__badge-${anchorOrigin.vertical}-${anchorOrigin.horizontal}`,
     className,
   ]
