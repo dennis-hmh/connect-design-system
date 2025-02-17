@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.13
+
+### Patch Changes
+
+- 5813d92: Add Type spacers to teacher typography
+
 ## 1.18.12
 
 ### Patch Changes
