@@ -1712,7 +1712,7 @@ Padding on MCQ labels is the total border + spacer
     var(--variant__label-fw, var(--connect__fw-regular, initial))
   );
   gap: var(--theme__label-gap, var(--variant__label-gap, var(--connect__spacer-md)));
-  justify-content: start;
+  justify-content: flex-start;
   line-height: var(--theme__label-lh, var(--variant__label-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
   position: relative;
@@ -3034,4 +3034,193 @@ Connect Avatars
 /* Invisible variant */
 .connect__badge-invisible {
   --variant-badge-display: var(--connect__display-none);
+}
+
+/*
+|---------------|---------------------------------|--------------------------------|
+ Avatar Avatar Group & Badge Styles to come these values may change slightly 
+|---------------|---------------------------------|--------------------------------|
+*/
+
+/*
+Connect Avatars
+*/
+
+.connect__avatar {
+  align-items: var(--connect__align-center);
+  background-color: var(--connect__avatar-bg);
+  border-radius: (var(--connect__avatar-radius));
+  display: var(--connect__display-flex);
+  justify-content: var(--connect__justify-center);
+  overflow: var(--connect__overflow-hidden);
+}
+
+.connect__avatar-circle {
+  --connect__avatar-radius: var(--connect__half-radius);
+}
+
+.connect__avatar-square {
+  --connect__avatar-radius: var(--connect__rounded-reset);
+}
+
+.connect__avatar-rounded {
+  --connect__avatar-radius: var(--connect__border-radius);
+}
+
+.connect__avatar-img {
+  height: var(--connect__full-h);
+  object-fit: cover;
+  width: var(--connect__full-w);
+}
+
+/* 
+  Negative spacing for avatar groups
+  This will remove the margin all direct children except the first child 
+
+  :where keeps the specificity of the selector low
+  the rule expects a --connect__spacer-size
+
+  --connect__spacer-size is then set to the spacer value for that class
+
+  e.g 
+  connect__avatar-group-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
+*/
+
+.connect__avatar-group-negative-sm > *:not(:first-child),
+.connect__avatar-group-negative-md > *:not(:first-child),
+.connect__avatar-group-negative-lg > *:not(:first-child),
+.connect__avatar-group-negative-xl > *:not(:first-child) {
+  margin-right: calc(-1 * var(--connect__spacer-size));
+}
+
+.connect__avatar-group-negative-xs {
+  --connect__spacer-size: var(--connect__spacer-xs);
+}
+
+.connect__avatar-group-negative-sm {
+  --connect__spacer-size: var(--connect__spacer-sm);
+}
+
+.connect__avatar-group-negative-md {
+  --connect__spacer-size: var(--connect__spacer-md);
+}
+
+.connect__avatar-group-negative-lg {
+  --connect__spacer-size: var(--connect__spacer-lg);
+}
+
+.connect__avatar-group-negative-xl {
+  --connect__spacer-size: var(--connect__spacer-xl);
+}
+
+.connect__badge-container {
+  display: var(--connect__display-flex);
+  position: var(--connect__relative);
+}
+
+/* 
+  Badge component
+*/
+
+.connect__badge {
+  align-items: var(--connect__align-center);
+  background-color: var(--connect__badge-bg);
+  border-radius: var(--connect__inner-radius);
+  display: var(--variant-badge-display, var(--connect__display-flex));
+  flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
+  justify-content: var(--connect__align-center);
+  min-height: var(--connect__spacer-md);
+  min-width: var(--connect__spacer-md);
+  padding: 0 var(--connect__spacer-xs);
+  position: var(--connect__absolute);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  z-index: 1;
+
+  .connect__typography {
+    white-space: var(--connect__white-space-nowrap);
+  }
+}
+
+.connect__badge-dot {
+  border-radius: var(--connect__half-radius);
+  min-height: var(--connect__spacer-sm);
+  min-width: var(--connect__spacer-sm);
+  padding: 0;
+}
+
+.connect__badge-top-right {
+  right: 0;
+  top: 0;
+  transform: scale(1) translate(50%, -50%);
+  transform-origin: 100% 0%;
+}
+
+.connect__badge-top-left {
+  left: 0;
+  top: 0;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 0% 0%;
+}
+
+.connect__badge-top-center {
+  left: 50%;
+  top: 0;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 0%;
+}
+
+.connect__badge-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: scale(1) translate(50%, 50%);
+  transform-origin: 100% 100%;
+}
+
+.connect__badge-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: scale(1) translate(-50%, 50%);
+  transform-origin: 0% 100%;
+}
+
+.connect__badge-bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: scale(1) translate(-50%, 50%);
+  transform-origin: 50% 100%;
+}
+
+.connect__badge-center-right {
+  right: 0;
+  top: 50%;
+  transform: scale(1) translate(50%, -50%);
+  transform-origin: 100% 50%;
+}
+
+.connect__badge-center-left {
+  left: 0;
+  top: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 0% 50%;
+}
+
+.connect__badge-center-center {
+  left: 50%;
+  top: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+/* Invisible variant */
+.connect__badge-invisible {
+  --variant-badge-display: var(--connect__display-none);
+}
+
+/*
+utilities 
+*/
+
+.connect__visually-hidden {
+  position: absolute;
+  left: -9999px;
 }

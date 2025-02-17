@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.18.14
+
+### Patch Changes
+
+- a94dd51: Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+## 1.18.13
+
+### Patch Changes
+
+- 5813d92: Add Type spacers to teacher typography
+
 ## 1.18.12
 
 ### Patch Changes

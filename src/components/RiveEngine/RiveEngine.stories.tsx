@@ -35,9 +35,11 @@ const Template: StoryFn<RiveEngineProps> = (args) => {
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
 
-  return <RiveEngine {...args} {...riveState} />;
+  return (<div style={{width: '500px'}} ><RiveEngine {...args} {...riveState} /></div>);
 };
 
 /** An example of showing a Rive animation! One special thing to note about this example is that it automatically responds to changes in the "Reduced Motion" and "Dark Mode" system preferences.
@@ -48,7 +50,6 @@ export const Default: Story = Template.bind({});
 Default.args = {
   width: '500px',
   height: '500px',
-  contain: true,
   debug: true,
 };
 
@@ -71,7 +72,9 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
   const gradeBand = args.gradeBand;
   const src = getGradeBandFile_timer(gradeBand);
 
-  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' });
+  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' }, {
+    fitCanvasToArtboardHeight: true
+  });
   useReactStateMachineInput(
     riveState.rive,
     'State Machine 1',
@@ -166,7 +169,7 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
           <RiveEngine volume={0.5} width="400px" height="400px" {...riveState} />
         </div>
 
-        <div style={{ width: '220px', textAlign: 'center', justifySelf: 'center' }}>
+        <div style={{ width: '300px', textAlign: 'center', justifySelf: 'center' }}>
           <Timer
             time={countdownLength}
             onTimeUp={handleTimerFinish}
@@ -234,13 +237,15 @@ const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
   const pickStudent = useReactStateMachineInput(riveState.rive, 'State Machine 1', 'pickStudent');
   const pickRandomStudentClicked = () => pickStudent?.fire();
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center' }}>
-      <RiveEngine width="400px" height="400px" {...riveState} />
+    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}>
+      <RiveEngine {...riveState} />
       <Button primary clickHandler={pickRandomStudentClicked} additionalClass={'connect__g68'}>
         Pick Random Student
       </Button>
@@ -268,6 +273,8 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
     autoplay: true,
     src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
   const [ratingValue, setRatingValue] = useState(0);
   useReactStateMachineInput(
@@ -279,11 +286,11 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   );
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center' }}>
+    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px', height: ' 400px' }}>
       <Typography element="h1" family="sans" size="heading-lg" style="normal">
         <span style={{ fontSize: 'x-large' }}>{ratingValue}</span>
       </Typography>
-      <RiveEngine width="400px" height="400px" ignoreReducedMotion={true} {...riveState} />
+      <RiveEngine ignoreReducedMotion={true} {...riveState} />
       <div style={{ padding: '10px' }}>
         <Button primary clickHandler={() => setRatingValue(0)} additionalClass={'connect__g68'}>
           0 Stars
