@@ -1,5 +1,23 @@
 # @connect/connect-design-system
 
+## 1.19.0
+
+### Minor Changes
+
+- bc1e957: Addition of G3-5 and GK-2 gradebands
+
+## 1.18.16
+
+### Patch Changes
+
+- f24cd06: Paper now can take any html element (implemented for nav)
+
+## 1.18.15
+
+### Patch Changes
+
+- c6e2aad: - Stack now matches mui initial values - removed the need to use xs
+
 ## 1.18.14
 
 ### Patch Changes
