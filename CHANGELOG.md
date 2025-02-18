@@ -1,5 +1,55 @@
 # @connect/connect-design-system
 
+## 1.18.16
+
+### Patch Changes
+
+- f24cd06: Paper now can take any html element (implemented for nav)
+
+## 1.18.15
+
+### Patch Changes
+
+- c6e2aad: - Stack now matches mui initial values - removed the need to use xs
+
+## 1.18.14
+
+### Patch Changes
+
+- a94dd51: Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+## 1.18.13
+
+### Patch Changes
+
+- 5813d92: Add Type spacers to teacher typography
+
+## 1.18.12
+
+### Patch Changes
+
+- b0bc1b6: - New Component: N/A
+  - Updated Component:
+    - `<Checkbox />`: checked prop fixed
+    - `<MultipleChoiceQuestionImage />`: checked prop fixed
+    - `<Image />`: Default image src updated
+  - Bug Fix: N/A
+  - Other:
+    - Storybook stories alignment update
+    - Storybook stories update with new color names, `<Stack />` changes
+
+## 1.18.11
+
+### Patch Changes
+
+- 672b57d: Fix: Remove module property in the package.json
+
+## 1.18.10
+
+### Patch Changes
+
+- fcd8bd1: Move Font files to the Lumina CDN to reduce package size
+
 ## 1.18.9
 
 ### Patch Changes
