@@ -1009,70 +1009,275 @@ Breakpoint Values:
 */
 
 .connect__grid {
-  --connect__grid-gap: var(--connect__spacer-xl);
-  --connect__grid-cols: var(--theme-col-amount, 12);
-  align-content: var(--connect__grid-align-content, start);
+  // Initial variable declarations
+  --connect__grid-padding-x: initial;
+  --connect__grid-padding-y: initial;
+  --connect__grid-padding-top: initial;
+  --connect__grid-padding-bottom: initial;
+  --connect__grid-padding-left: initial;
+  --connect__grid-padding-right: initial;
+  --connect__grid-align-content: initial;
+  --connect__grid-align-items: initial;
+  --connect__grid-justify-content: initial;
+  --connect__grid-gap: initial;
+  --connect__grid-column-gap: initial;
+  --connect__grid-row-gap: initial;
+  --connect__grid-template-columns: initial;
+  --connect__grid-template-rows: initial;
+
+  // Base styles
+  align-content: var(--connect__grid-align-content);
+  align-items: var(--connect__grid-align-items);
   display: var(--connect__display-grid);
-  gap: var(--connect__grid-gap);
+  gap: var(--connect__grid-row-gap, var(--connect__grid-gap, var(--connect__spacer-xl)))
+    var(--connect__grid-column-gap, var(--connect__grid-gap, var(--connect__spacer-xl)));
   grid-auto-rows: auto;
-  grid-template-columns: repeat(var(--connect__grid-cols), 1fr);
-  grid-template-rows: max-content;
-  justify-content: var(--connect__grid-justify-content, start);
-  place-items: var(--connect__grid-align-items, start) var(--connect__grid-justify-items, start);
+  grid-template-columns: var(--connect__grid-template-columns, repeat(12, 1fr));
+  grid-template-rows: var(--connect__grid-template-rows, max-content);
+  justify-content: var(--connect__grid-justify-content);
+  padding: var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+    var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+    var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+    var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0));
   position: relative;
   width: var(--connect__full-w);
 
+  // Extra small breakpoint
   &.connect__grid-xs {
-    --connect__grid-align-content: var(--connect__xs-alignContent);
-    --connect__grid-align-items: var(--connect__xs-alignItems);
-    --connect__grid-justify-content: var(--connect__xs-justifyContent);
-    --connect__grid-justify-items: var(--connect__xs-justifyItems);
+    align-content: var(--connect__grid-xs-align-content, var(--connect__grid-align-content));
+    align-items: var(--connect__grid-xs-align-items, var(--connect__grid-align-items));
+    gap: var(
+        --connect__grid-xs-row-gap,
+        var(--connect__grid-xs-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+      )
+      var(
+        --connect__grid-xs-column-gap,
+        var(--connect__grid-xs-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+      );
+    justify-content: var(--connect__grid-xs-justify-content, var(--connect__grid-justify-content));
+    padding: var(
+        --connect__grid-xs-padding-top,
+        var(
+          --connect__grid-xs-padding-y,
+          var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+        )
+      )
+      var(
+        --connect__grid-xs-padding-right,
+        var(
+          --connect__grid-xs-padding-x,
+          var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+        )
+      )
+      var(
+        --connect__grid-xs-padding-bottom,
+        var(
+          --connect__grid-xs-padding-y,
+          var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+        )
+      )
+      var(
+        --connect__grid-xs-padding-left,
+        var(
+          --connect__grid-xs-padding-x,
+          var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0))
+        )
+      );
   }
 
+  // Small breakpoint
   @media (min-width: 30rem) {
     &.connect__grid-sm {
-      --connect__grid-align-content: var(--connect__sm-alignContent);
-      --connect__grid-align-items: var(--connect__sm-alignItems);
-      --connect__grid-justify-content: var(--connect__sm-justifyContent);
-      --connect__grid-justify-items: var(--connect__sm-justifyItems);
+      align-content: var(--connect__grid-sm-align-content, var(--connect__grid-align-content));
+      align-items: var(--connect__grid-sm-align-items, var(--connect__grid-align-items));
+      gap: var(
+          --connect__grid-sm-row-gap,
+          var(--connect__grid-sm-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-sm-column-gap,
+          var(--connect__grid-sm-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
+      justify-content: var(
+        --connect__grid-sm-justify-content,
+        var(--connect__grid-justify-content)
+      );
+      padding: var(
+          --connect__grid-sm-padding-top,
+          var(
+            --connect__grid-sm-padding-y,
+            var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-sm-padding-right,
+          var(
+            --connect__grid-sm-padding-x,
+            var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+          )
+        )
+        var(
+          --connect__grid-sm-padding-bottom,
+          var(
+            --connect__grid-sm-padding-y,
+            var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-sm-padding-left,
+          var(
+            --connect__grid-sm-padding-x,
+            var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0))
+          )
+        );
     }
   }
 
+  // Medium breakpoint
   @media (min-width: 40.625rem) {
     &.connect__grid-md {
-      --connect__grid-align-content: var(--connect__md-alignContent);
-      --connect__grid-align-items: var(--connect__md-alignItems);
-      --connect__grid-justify-content: var(--connect__md-justifyContent);
-      --connect__grid-justify-items: var(--connect__md-justifyItems);
+      align-content: var(--connect__grid-md-align-content, var(--connect__grid-align-content));
+      align-items: var(--connect__grid-md-align-items, var(--connect__grid-align-items));
+      gap: var(
+          --connect__grid-md-row-gap,
+          var(--connect__grid-md-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-md-column-gap,
+          var(--connect__grid-md-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
+      justify-content: var(
+        --connect__grid-md-justify-content,
+        var(--connect__grid-justify-content)
+      );
+      padding: var(
+          --connect__grid-md-padding-top,
+          var(
+            --connect__grid-md-padding-y,
+            var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-md-padding-right,
+          var(
+            --connect__grid-md-padding-x,
+            var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+          )
+        )
+        var(
+          --connect__grid-md-padding-bottom,
+          var(
+            --connect__grid-md-padding-y,
+            var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-md-padding-left,
+          var(
+            --connect__grid-md-padding-x,
+            var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0))
+          )
+        );
     }
   }
 
+  // Large breakpoint
   @media (min-width: 55rem) {
     &.connect__grid-lg {
-      --connect__grid-align-content: var(--connect__lg-alignContent);
-      --connect__grid-align-items: var(--connect__lg-alignItems);
-      --connect__grid-justify-content: var(--connect__lg-justifyContent);
-      --connect__grid-justify-items: var(--connect__lg-justifyItems);
+      align-content: var(--connect__grid-lg-align-content, var(--connect__grid-align-content));
+      align-items: var(--connect__grid-lg-align-items, var(--connect__grid-align-items));
+      gap: var(
+          --connect__grid-lg-row-gap,
+          var(--connect__grid-lg-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-lg-column-gap,
+          var(--connect__grid-lg-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
+      justify-content: var(
+        --connect__grid-lg-justify-content,
+        var(--connect__grid-justify-content)
+      );
+      padding: var(
+          --connect__grid-lg-padding-top,
+          var(
+            --connect__grid-lg-padding-y,
+            var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-lg-padding-right,
+          var(
+            --connect__grid-lg-padding-x,
+            var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+          )
+        )
+        var(
+          --connect__grid-lg-padding-bottom,
+          var(
+            --connect__grid-lg-padding-y,
+            var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-lg-padding-left,
+          var(
+            --connect__grid-lg-padding-x,
+            var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0))
+          )
+        );
     }
   }
 
+  // Extra large breakpoint
   @media (min-width: 80rem) {
     &.connect__grid-xl {
-      --connect__grid-align-content: var(--connect__xl-alignContent);
-      --connect__grid-align-items: var(--connect__xl-alignItems);
-      --connect__grid-justify-content: var(--connect__xl-justifyContent);
-      --connect__grid-justify-items: var(--connect__xl-justifyItems);
+      align-content: var(--connect__grid-xl-align-content, var(--connect__grid-align-content));
+      align-items: var(--connect__grid-xl-align-items, var(--connect__grid-align-items));
+      gap: var(
+          --connect__grid-xl-row-gap,
+          var(--connect__grid-xl-gap, var(--connect__grid-row-gap, var(--connect__grid-gap)))
+        )
+        var(
+          --connect__grid-xl-column-gap,
+          var(--connect__grid-xl-gap, var(--connect__grid-column-gap, var(--connect__grid-gap)))
+        );
+      justify-content: var(
+        --connect__grid-xl-justify-content,
+        var(--connect__grid-justify-content)
+      );
+      padding: var(
+          --connect__grid-xl-padding-top,
+          var(
+            --connect__grid-xl-padding-y,
+            var(--connect__grid-padding-top, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-xl-padding-right,
+          var(
+            --connect__grid-xl-padding-x,
+            var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
+          )
+        )
+        var(
+          --connect__grid-xl-padding-bottom,
+          var(
+            --connect__grid-xl-padding-y,
+            var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
+          )
+        )
+        var(
+          --connect__grid-xl-padding-left,
+          var(
+            --connect__grid-xl-padding-x,
+            var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0))
+          )
+        );
     }
   }
 
-  // Apply margin to all direct children except .connect__grid and section
-  > *:not(.connect__grid):not(section):not(.connect__breakout) {
-    @media (min-width: 40.625rem) {
-      margin-left: var(--connect__spacer-md);
-      margin-right: var(--connect__spacer-md);
-    }
-  }
-
+  // Gutter modifier
   &.connect__grid-gutter {
     --connect__gutter-padding-y: var(
       --theme__connect-gutter-padding-y,
@@ -1082,8 +1287,8 @@ Breakpoint Values:
     padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
   }
 
-  // Make nested .connect__grid elements use subgrid
-  .connect__grid {
+  // Subgrid modifier
+  &.connect__subgrid {
     display: var(--connect__display-grid);
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
@@ -1104,36 +1309,43 @@ Breakpoint Values:
 .connect__grid-item {
   grid-column: var(--connect__grid-item-xs-start-col, 1) / span
     var(--connect__grid-item-xs-span-col, 12);
-  grid-row: var(--connect__grid-item-xs-row-start, auto) / span
-    var(--connect__grid-item-xs-row-span, 1);
-  width: var(--connect__full-w);
-}
+  grid-row: span var(--connect__grid-item-row-span, 1);
 
-@media (min-width: 30rem) {
-  .connect__grid-item-sm {
-    grid-column: var(--connect__grid-item-sm-start-col) / span var(--connect__grid-item-sm-span-col);
-    grid-row: var(--connect__grid-item-sm-row-span, auto);
+  &.connect__grid-item-xs {
+    grid-column: var(--connect__grid-item-xs-start-col) / span var(--connect__grid-item-xs-span-col);
+    grid-row: span var(--connect__grid-item-xs-row-span, var(--connect__grid-item-row-span));
   }
-}
 
-@media (min-width: 40.625rem) {
-  .connect__grid-item-md {
-    grid-column: var(--connect__grid-item-md-start-col) / span var(--connect__grid-item-md-span-col);
-    grid-row: var(--connect__grid-item-md-row-span, auto);
+  @media (min-width: 30rem) {
+    &.connect__grid-item-sm {
+      grid-column: var(--connect__grid-item-sm-start-col) / span
+        var(--connect__grid-item-sm-span-col);
+      grid-row: span var(--connect__grid-item-sm-row-span, var(--connect__grid-item-row-span));
+    }
   }
-}
 
-@media (min-width: 55rem) {
-  .connect__grid-item-lg {
-    grid-column: var(--connect__grid-item-lg-start-col) / span var(--connect__grid-item-lg-span-col);
-    grid-row: var(--connect__grid-item-lg-row-span, auto);
+  @media (min-width: 40.625rem) {
+    &.connect__grid-item-md {
+      grid-column: var(--connect__grid-item-md-start-col) / span
+        var(--connect__grid-item-md-span-col);
+      grid-row: span var(--connect__grid-item-md-row-span, var(--connect__grid-item-row-span));
+    }
   }
-}
 
-@media (min-width: 80rem) {
-  .connect__grid-item-xl {
-    grid-column: var(--connect__grid-item-xl-start-col) / span var(--connect__grid-item-xl-span-col);
-    grid-row: var(--connect__grid-item-xl-row-span, auto);
+  @media (min-width: 55rem) {
+    &.connect__grid-item-lg {
+      grid-column: var(--connect__grid-item-lg-start-col) / span
+        var(--connect__grid-item-lg-span-col);
+      grid-row: span var(--connect__grid-item-lg-row-span, var(--connect__grid-item-row-span));
+    }
+  }
+
+  @media (min-width: 80rem) {
+    &.connect__grid-item-xl {
+      grid-column: var(--connect__grid-item-xl-start-col) / span
+        var(--connect__grid-item-xl-span-col);
+      grid-row: span var(--connect__grid-item-xl-row-span, var(--connect__grid-item-row-span));
+    }
   }
 }
 
@@ -1153,85 +1365,118 @@ these styles are then open to breakpoint changes
 | Padding Y       | --xl-paddingY       | --lg-paddingY       | --md-paddingY       | --sm-paddingY       | --xs-paddingY       |
 | Spacing         | --xl-spacing        | --lg-spacing        | --md-spacing        | --sm-spacing        | --xs-spacing        |
 
+
+
+Style lint has been turned off for this file, as we are using the flex long form property
 */
 
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+
 .connect__stack {
-  align-items: var(--connect__stack-align, start);
-  align-self: var(--connect__stack-alignSelf, stretch);
-  display: flex;
-  flex-flow: var(--connect__stack-direction, column) var(--connect__stack-wrap, wrap);
+  --connect__stack-direction: column;
+  --connect__stack-spacing: initial;
+  --connect__stack-align-items: stretch;
+  --connect__stack-align-self: stretch;
+  --connect__stack-justify-content: start;
+  --connect__stack-flex-wrap: nowrap;
+  --connect__stack-padding-x: initial;
+  --connect__stack-padding-y: initial;
+  --connect__stack-flex: 0 1 auto;
+  align-items: var(--connect__stack-align-items);
+  align-self: var(--connect__stack-align-self);
+  display: var(--connect__display-flex);
+  flex: var(--connect__stack-flex);
+  flex-direction: var(--connect__stack-direction);
+  flex-wrap: var(--connect__stack-flex-wrap);
   gap: var(--connect__stack-spacing, 0);
-  justify-content: var(--connect__justify-content, start);
-  padding: var(--connect__paddingY, 0) var(--connect__paddingX, 0);
+  justify-content: var(--connect__stack-justify-content);
+  padding: var(--connect__stack-padding-y, 0) var(--connect__stack-padding-x, 0);
 
   &.connect__stack-xs {
-    --connect__stack-spacing: var(--connect__stack-xs-spacing);
-    --connect__stack-direction: var(--connect__stack-xs-direction);
-    --connect__stack-align: var(--connect__stack-xs-alignItems);
-    --connect__stack-alignSelf: var(--connect__stack-xs-alignSelf);
-    --connect__stack-wrap: var(--connect__stack-xs-flexWrap);
-    --connect__justify-content: var(--connect__stack-xs-justifyContent);
-    --connect__paddingX: var(--connect__stack-xs-paddingX);
-    --connect__paddingY: var(--connect__stack-xs-paddingY);
-    flex: var(--connect__stack-xs-flex, none);
+    align-items: var(--connect__stack-xs-align-items, var(--connect__stack-align-items));
+    align-self: var(--connect__stack-xs-align-self, var(--connect__stack-align-self));
+    flex: var(--connect__stack-xs-flex, var(--connect__stack-flex));
+    flex-direction: var(--connect__stack-xs-direction, var(--connect__stack-direction));
+    flex-wrap: var(--connect__stack-xs-flex-wrap, var(--connect__stack-flex-wrap));
+    gap: var(--connect__stack-xs-spacing, var(--connect__stack-spacing));
+    justify-content: var(
+      --connect__stack-xs-justify-content,
+      var(--connect__stack-justify-content)
+    );
+    padding: var(--connect__stack-xs-padding-y, var(--connect__stack-padding-y))
+      var(--connect__stack-xs-padding-x, var(--connect__stack-padding-x));
   }
 
   @media (min-width: 30rem) {
     &.connect__stack-sm {
-      --connect__stack-spacing: var(--connect__stack-sm-spacing);
-      --connect__stack-direction: var(--connect__stack-sm-direction);
-      --connect__stack-align: var(--connect__stack-sm-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-sm-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-sm-flexWrap);
-      --connect__justify-content: var(--connect__stack-sm-justifyContent);
-      --connect__paddingX: var(--connect__stack-sm-paddingX);
-      --connect__paddingY: var(--connect__stack-sm-paddingY);
-      flex: var(--connect__stack-sm-flex, none);
+      align-items: var(--connect__stack-sm-align-items, var(--connect__stack-align-items));
+      align-self: var(--connect__stack-sm-align-self, var(--connect__stack-align-self));
+      flex: var(--connect__stack-sm-flex, var(--connect__stack-flex));
+      flex-direction: var(--connect__stack-sm-direction, var(--connect__stack-direction));
+      flex-wrap: var(--connect__stack-sm-flex-wrap, var(--connect__stack-flex-wrap));
+      gap: var(--connect__stack-sm-spacing, var(--connect__stack-spacing));
+      justify-content: var(
+        --connect__stack-sm-justify-content,
+        var(--connect__stack-justify-content)
+      );
+      padding: var(--connect__stack-sm-padding-y, var(--connect__stack-padding-y))
+        var(--connect__stack-sm-padding-x, var(--connect__stack-padding-x));
     }
   }
 
   @media (min-width: 40.625rem) {
     &.connect__stack-md {
-      --connect__stack-spacing: var(--connect__stack-md-spacing);
-      --connect__stack-direction: var(--connect__stack-md-direction);
-      --connect__stack-align: var(--connect__stack-md-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-md-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-md-flexWrap);
-      --connect__justify-content: var(--connect__stack-md-justifyContent);
-      --connect__paddingX: var(--connect__stack-md-paddingX);
-      --connect__paddingY: var(--connect__stack-md-paddingY);
-      flex: var(--connect__stack-md-flex, none);
+      align-items: var(--connect__stack-md-align-items, var(--connect__stack-align-items));
+      align-self: var(--connect__stack-md-align-self, var(--connect__stack-align-self));
+      flex: var(--connect__stack-md-flex, var(--connect__stack-flex));
+      flex-direction: var(--connect__stack-md-direction, var(--connect__stack-direction));
+      flex-wrap: var(--connect__stack-md-flex-wrap, var(--connect__stack-flex-wrap));
+      gap: var(--connect__stack-md-spacing, var(--connect__stack-spacing));
+      justify-content: var(
+        --connect__stack-md-justify-content,
+        var(--connect__stack-justify-content)
+      );
+      padding: var(--connect__stack-md-padding-y, var(--connect__stack-padding-y))
+        var(--connect__stack-md-padding-x, var(--connect__stack-padding-x));
     }
   }
 
   @media (min-width: 55rem) {
     &.connect__stack-lg {
-      --connect__stack-spacing: var(--connect__stack-lg-spacing);
-      --connect__stack-direction: var(--connect__stack-lg-direction);
-      --connect__stack-align: var(--connect__stack-lg-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-lg-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-lg-flexWrap);
-      --connect__justify-content: var(--connect__stack-lg-justifyContent);
-      --connect__paddingX: var(--connect__stack-lg-paddingX);
-      --connect__paddingY: var(--connect__stack-lg-paddingY);
-      flex: var(--connect__stack-lg-flex, none);
+      align-items: var(--connect__stack-lg-align-items, var(--connect__stack-align-items));
+      align-self: var(--connect__stack-lg-align-self, var(--connect__stack-align-self));
+      flex: var(--connect__stack-lg-flex, var(--connect__stack-flex));
+      flex-direction: var(--connect__stack-lg-direction, var(--connect__stack-direction));
+      flex-wrap: var(--connect__stack-lg-flex-wrap, var(--connect__stack-flex-wrap));
+      gap: var(--connect__stack-lg-spacing, var(--connect__stack-spacing));
+      justify-content: var(
+        --connect__stack-lg-justify-content,
+        var(--connect__stack-justify-content)
+      );
+      padding: var(--connect__stack-lg-padding-y, var(--connect__stack-padding-y))
+        var(--connect__stack-lg-padding-x, var(--connect__stack-padding-x));
     }
   }
 
   @media (min-width: 80rem) {
     &.connect__stack-xl {
-      --connect__stack-spacing: var(--connect__stack-xl-spacing);
-      --connect__stack-direction: var(--connect__stack-xl-direction);
-      --connect__stack-align: var(--connect__stack-xl-alignItems);
-      --connect__stack-alignSelf: var(--connect__stack-xl-alignSelf);
-      --connect__stack-wrap: var(--connect__stack-xl-flexWrap);
-      --connect__justify-content: var(--connect__stack-xl-justifyContent);
-      --connect__paddingX: var(--connect__stack-xl-paddingX);
-      --connect__paddingY: var(--connect__stack-xl-paddingY);
-      flex: var(--connect__stack-xl-flex, none);
+      align-items: var(--connect__stack-xl-align-items, var(--connect__stack-align-items));
+      align-self: var(--connect__stack-xl-align-self, var(--connect__stack-align-self));
+      flex: var(--connect__stack-xl-flex, var(--connect__stack-flex));
+      flex-direction: var(--connect__stack-xl-direction, var(--connect__stack-direction));
+      flex-wrap: var(--connect__stack-xl-flex-wrap, var(--connect__stack-flex-wrap));
+      gap: var(--connect__stack-xl-spacing, var(--connect__stack-spacing));
+      justify-content: var(
+        --connect__stack-xl-justify-content,
+        var(--connect__stack-justify-content)
+      );
+      padding: var(--connect__stack-xl-padding-y, var(--connect__stack-padding-y))
+        var(--connect__stack-xl-padding-x, var(--connect__stack-padding-x));
     }
   }
 }
+
+/* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
 /*
 .connect__chip Component
@@ -1472,7 +1717,7 @@ Padding on MCQ labels is the total border + spacer
     var(--variant__label-fw, var(--connect__fw-regular, initial))
   );
   gap: var(--theme__label-gap, var(--variant__label-gap, var(--connect__spacer-md)));
-  justify-content: start;
+  justify-content: flex-start;
   line-height: var(--theme__label-lh, var(--variant__label-lh, var(--connect__body-sm-lheight)));
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
   position: relative;
@@ -2614,4 +2859,13 @@ connect__toolbar
   + .connect__input-textarea {
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
+}
+
+/*
+utilities 
+*/
+
+.connect__visually-hidden {
+  left: -9999px;
+  position: absolute;
 }

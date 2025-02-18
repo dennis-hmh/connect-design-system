@@ -2,46 +2,68 @@
 
 @font-face {
   font-family: 'Source Sans Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
   src:
-    url('fonts/sourcesans3vf-roman.ttf.woff2') format('woff2'),
-    url('fonts/sourcesans3vf-roman.ttf.woff') format('woff'),
-    url('fonts/sourcesans3vf-roman.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
   src:
-    url('fonts/sourcesans3vf-italic.ttf.woff2') format('woff2'),
-    url('fonts/sourcesans3vf-italic.ttf.woff') format('woff'),
-    url('fonts/sourcesans3vf-italic.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Serif Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
   src:
-    url('fonts/sourceserifvariable-roman.ttf.woff2') format('woff2'),
-    url('fonts/sourceserifvariable-roman.ttf.woff') format('woff'),
-    url('fonts/sourceserifvariable-roman.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff') format('woff'),
 }
 
 @font-face {
   font-family: 'Source Serif Pro';
+  font-display: swap;
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
   src:
-    url('fonts/sourceserifvariable-italic.ttf.woff2') format('woff2'),
-    url('fonts/sourceserifvariable-italic.ttf.woff') format('woff'),
-    url('fonts/sourceserifvariable-italic.ttf') format('truetype');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-display: swap;
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src:
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-display: swap;
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src:
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff') format('woff'),
 }
 
 /* stylelint-enable order/properties-alphabetical-order */
@@ -615,24 +637,33 @@
 .connect__teach {
   --connect__heading-xl: 1.875rem;
   --connect__heading-xl-lheight: 2.375rem;
+  --connect__heading-xl-spacer: 4.875rem;
   --connect__heading-lg: 1.625rem;
   --connect__heading-lg-lheight: 2.125rem;
+  --connect__heading-lg-spacer: 4.0625rem;
   --connect__heading-md: 1.3125rem;
   --connect__heading-md-lheight: 2rem;
+  --connect__heading-md-spacer: 3.25rem;
   --connect__heading-sm: 1.25rem;
   --connect__heading-sm-lheight: 1.875rem;
+  --connect__heading-sm-spacer: 2.4375rem;
   --connect__body-lg: 1.1875rem;
   --connect__body-lg-lheight: 1.875rem;
+  --connect__body-lg-spacer: 1.625rem;
   --connect__body-lg-head-lheight: 1.875rem;
   --connect__body-md: 1.0625rem;
   --connect__body-md-lheight: 1.625rem;
+  --connect__body-md-spacer: .8125rem;
   --connect__body-md-head-lheight: 1.625rem;
   --connect__body-sm: 1rem;
   --connect__body-sm-lheight: 1.5rem;
+  --connect__body-sm-spacer: 1.875rem;
   --connect__caption: .875rem;
   --connect__caption-lheight: 1.375rem;
+  --connect__caption-spacer: .9375rem;
   --connect__credits: .875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: .9375rem;
 
   --connect__spacer-xxl: 3.25rem;
   --connect__spacer-xl: 1.625rem;
@@ -660,24 +691,33 @@
   .connect__teach {
     --connect__heading-xl: 2.25rem;
     --connect__heading-xl-lheight: 2.875rem;
+    --connect__heading-xl-spacer: 5.25rem;
     --connect__heading-lg: 1.875rem;
     --connect__heading-lg-lheight: 2.375rem;
+    --connect__heading-lg-spacer: 4.375rem;
     --connect__heading-md: 1.375rem;
     --connect__heading-md-lheight: 2.125rem;
+    --connect__heading-md-spacer: 3.5rem;
     --connect__heading-sm: 1.3125rem;
     --connect__heading-sm-lheight: 2rem;
+    --connect__heading-sm-spacer: 2.625rem;
     --connect__body-lg: 1.25rem;
     --connect__body-lg-lheight: 1.875rem;
+    --connect__body-lg-spacer: 1.75rem;
     --connect__body-lg-head-lheight: 1.875rem;
     --connect__body-md: 1.125rem;
     --connect__body-md-lheight: 1.75rem;
+    --connect__body-md-spacer: .875rem;
     --connect__body-md-head-lheight: 1.75rem;
     --connect__body-sm: 1rem;
     --connect__body-sm-lheight: 1.5rem;
+    --connect__body-sm-spacer: 1.875rem;
     --connect__caption: .875rem;
     --connect__caption-lheight: 1.375rem;
+    --connect__caption-spacer: .9375rem;
     --connect__credits: .875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: .9375rem;
 
     --connect__spacer-xxl: 3.5rem;
     --connect__spacer-xl: 1.75rem;
@@ -944,7 +984,7 @@
   --connect__essential-guide-purple: var(--connect__cc-purple);
   --connect__essential-guide-green: var(--connect__green-c50);
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
-  
+
   /*
     3.4: Connect Neutral Palette
   */
@@ -1281,7 +1321,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__'])>img {
+:where([class*='connect__']) > img {
   height: auto;
   max-height: 100%;
 }

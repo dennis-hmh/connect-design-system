@@ -1,5 +1,3 @@
-import '../assets/scss/custom.scss';
-
 export * from './Alert/Alert';
 export * from './Blockquote/Blockquote';
 export * from './Button/Button';

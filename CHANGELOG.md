@@ -1,5 +1,86 @@
 # @connect/connect-design-system
 
+## 1.18.15
+
+### Patch Changes
+
+- c6e2aad: - Stack now matches mui initial values - removed the need to use xs
+
+## 1.18.14
+
+### Patch Changes
+
+- a94dd51: Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+## 1.18.13
+
+### Patch Changes
+
+- 5813d92: Add Type spacers to teacher typography
+
+## 1.18.12
+
+### Patch Changes
+
+- b0bc1b6: - New Component: N/A
+  - Updated Component:
+    - `<Checkbox />`: checked prop fixed
+    - `<MultipleChoiceQuestionImage />`: checked prop fixed
+    - `<Image />`: Default image src updated
+  - Bug Fix: N/A
+  - Other:
+    - Storybook stories alignment update
+    - Storybook stories update with new color names, `<Stack />` changes
+
+## 1.18.11
+
+### Patch Changes
+
+- 672b57d: Fix: Remove module property in the package.json
+
+## 1.18.10
+
+### Patch Changes
+
+- fcd8bd1: Move Font files to the Lumina CDN to reduce package size
+
+## 1.18.9
+
+### Patch Changes
+
+- c6c2ad3: - New Component: N/A
+  - Updated Component:
+    - `<Grid />`: Aligned with MUI
+    - `<GridItem />`: Aligned with MUI
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.18.8
+
+### Patch Changes
+
+- b07b356: - New Component: N/A
+  - Updated Component: `<Stack />`: forwardRef removed
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.18.7
+
+### Patch Changes
+
+- 2d0ef17: Add scoping to Stack css, change element type to React.ElementType,add custom style prop"
+
+## 1.18.6
+
+### Patch Changes
+
+- 32f35ce: - New Component: N/A
+  - Updated Component:
+    - `<Button />`: Fix Lifts' TypeError
+    - `<Icon />`: Fix Lifts' TypeError
+  - Bug Fix: Update react, react-dom to peerDepencies in `package.json`. Downgraded to React 18.2.0
+  - Other: N/A
+
 ## 1.18.5
 
 ### Patch Changes

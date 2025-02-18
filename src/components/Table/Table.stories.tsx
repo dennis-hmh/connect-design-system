@@ -5,17 +5,11 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Table> = {
-  title: 'WIP/Table',
+  title: 'Content/Table',
   component: Table,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          '🚧 **This componenent is currently a Work In Progress (WIP). It is not ready for production use.** 🚧',
-      },
-    },
   },
 } as Meta;
 

@@ -38,6 +38,16 @@ const App: React.FC = () => {
     autoplay: true,
     src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
     stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
+  });
+
+  const studentPicker = useRive({
+    autoplay: true,
+    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
+    stateMachines: 'State Machine 1',
+  }, {
+    fitCanvasToArtboardHeight: true
   });
 
   const handleDialogClick = () => {
@@ -55,11 +65,14 @@ const App: React.FC = () => {
           <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
               <Stack
-                lg={{
+                xs={{
                   direction: 'row',
                   spacing: 'xs',
                   alignItems: 'start',
                   justifyContent: 'start',
+                }}
+                lg={{
+                  direction: 'column',
                 }}
               >
                 <Button primary={true}>Button</Button>
@@ -70,7 +83,14 @@ const App: React.FC = () => {
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
-              <Stack>
+              <Stack
+                xs={{
+                  direction: 'row',
+                  spacing: 'xs',
+                  alignItems: 'start',
+                  justifyContent: 'start',
+                }}
+              >
                 <Typography element="h1">Grade k H1</Typography>
                 <Typography element="h2">h2</Typography>
                 <Typography element="h3">h3</Typography>
@@ -86,7 +106,7 @@ const App: React.FC = () => {
                   h4 styled as h3
                 </Typography>
                 <Stack
-                  lg={{
+                  xs={{
                     direction: 'row',
                     spacing: 'xs',
                     alignItems: 'start',
@@ -157,21 +177,24 @@ const App: React.FC = () => {
           <GridItem>
             <div
               style={{
-                width: '500px',
-                height: '200px',
+                width: '700px',
+                height: '300px',
                 backgroundColor: 'lightgrey',
                 display: 'inline-block',
               }}
             >
-              <Image
+
+              {/* <Image
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
-              />
+              /> */}
+              <RiveEngine sizeByHeight {...studentPicker} desc="student picker animation"/>
+
             </div>
-            <div
+            {/* <div
               style={{
                 width: '500px',
-                height: '200px',
+                // height: '200px',
                 backgroundColor: 'lightgrey',
                 display: 'inline-block',
                 overflow: 'hidden',
@@ -181,7 +204,7 @@ const App: React.FC = () => {
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
               />
-            </div>
+            </div> */}
           </GridItem>
           <GridItem>
             <div
@@ -285,16 +308,10 @@ const App: React.FC = () => {
           <GridItem>
             <Stack
               xs={{
-                justifyContent: 'space-between',
-              }}
-              md={{
                 direction: 'row',
-                spacing: 'md',
-                justifyContent: 'center',
-              }}
-              lg={{
+                spacing: 'xs',
+                alignItems: 'start',
                 justifyContent: 'start',
-                flexWrap: 'nowrap',
               }}
             >
               <SingleImage
@@ -416,9 +433,11 @@ const App: React.FC = () => {
               <Blockquote>This is a sample blockquote for Zelda</Blockquote>
             </Figure>
             <Stack
-              md={{
+              xs={{
                 direction: 'row',
-                spacing: 'md',
+                spacing: 'xs',
+                alignItems: 'center',
+                justifyContent: 'start',
               }}
             >
               <Button primary={true} disabled={false}>
@@ -591,7 +610,14 @@ const App: React.FC = () => {
             </Stack>
           </GridItem>
           <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-            <Stack>
+            <Stack
+              xs={{
+                direction: 'row',
+                spacing: 'xs',
+                alignItems: 'start',
+                justifyContent: 'start',
+              }}
+            >
               <Typography element="h1">Grade k H1</Typography>
               <Typography element="h2">h2</Typography>
               <Typography element="h3">h3</Typography>
@@ -607,7 +633,7 @@ const App: React.FC = () => {
                 h4 styled as h3
               </Typography>
               <Stack
-                lg={{
+                xs={{
                   direction: 'row',
                   spacing: 'xs',
                   alignItems: 'start',

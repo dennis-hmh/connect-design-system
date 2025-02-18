@@ -13,7 +13,6 @@ export type RiveEngineProps = RiveState & {
   disableTouchScroll?: boolean;
   width?: string;
   height?: string;
-  contain?: boolean;
   sizeByHeight?: boolean;
   gradeBand?: GradeBand;
   playState?: 'playing' | 'paused' | 'stopped';
@@ -187,12 +186,12 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
       ref={divRef}
       style={{
         height: '100%', 
-        ...(sizeByHeight && aspectRatio && { width: calculatedWidth }),
+        ...(sizeByHeight && aspectRatio ? { width: calculatedWidth } : { width: '100%' }),
         ...style
         }}
     >
       <RiveComponent />
-      <Typography element="p" ariaLive="polite">
+      <Typography element="p" ariaLive="polite" className='connect__visually-hidden'>
         {desc}
       </Typography>
     </div>

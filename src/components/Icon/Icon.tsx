@@ -29,6 +29,10 @@ export const Icon: React.FC<IconProps> = ({
   const [symbolContent, setSymbolContent] = useState<string>('');
 
   useEffect(() => {
+    if (!id) {
+      return;
+    }
+
     const loadIcon = async () => {
       try {
         const response = await fetch(spriteSheet);
@@ -40,10 +44,7 @@ export const Icon: React.FC<IconProps> = ({
         const symbol = svgDocument.getElementById(id);
 
         if (symbol) {
-          const appendedSymbol = symbol.outerHTML.replace(
-            `id="${id}"`,
-            `id="${id}-icon"`, // Dynamically add "Icon" to the symbol ID
-          );
+          const appendedSymbol = symbol.outerHTML.replace(`id="${id}"`, `id="${id}-icon"`);
           setSymbolContent(appendedSymbol);
         } else {
           // eslint-disable-next-line no-console
@@ -57,6 +58,10 @@ export const Icon: React.FC<IconProps> = ({
 
     loadIcon();
   }, [spriteSheet, id]);
+
+  if (!id) {
+    return null;
+  }
 
   const fillColorVariable = fill ? `--connect__${fill}` : '';
   const strokeColorVariable = fill ? `--connect__${stroke}` : '';

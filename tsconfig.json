@@ -47,8 +47,8 @@
     "src/App.tsx",
     "src/**/**/*.stories.tsx",
     "src/components/**/*.stories.tsx",
-    "vite.config.ts",
-    "vitest.config.ts",
+    "vite.config.mts",
+    "vitest.config.mts",
     "vitest.storybook.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
