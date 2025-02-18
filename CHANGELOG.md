@@ -1,5 +1,12 @@
 # @connect/connect-design-system
 
+## 1.19.1
+
+### Patch Changes
+
+- a6ad197: Overflow prop added to grid
+- 88886f0: Fix to images in Storybook
+
 ## 1.19.0
 
 ### Minor Changes
