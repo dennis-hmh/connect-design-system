@@ -23,7 +23,6 @@ export default defineConfig({
       formats: ['umd'],
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
@@ -38,10 +37,15 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      include: ['src/components/'],
-      insertTypesEntry: true,
-      outDir: 'dist',
-      rollupTypes: true,
+      outDir: 'dist/types',
+      include: [
+        'src/index.ts',
+        'src/components',
+        'src/enum',
+        'src/types',
+        'src/utils',
+        'src/context',
+      ],
     }),
     react(),
     ViteSvgSpriteWrapper({

@@ -10,7 +10,8 @@
   ],
   "publishConfig": {
     "main": "./dist/connect-design-system.umd.js",
-    "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
+    "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/",
+    "types": "./dist/types/index.d.ts"
   },
   "scripts": {
     "build": "VITE_ENV=build tsc && vite build",
@@ -47,7 +48,6 @@
     "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
-    "@microsoft/api-extractor": "^7.50.0",
     "@storybook/addon-a11y": "^8.5.1",
     "@storybook/addon-designs": "^8.0.4",
     "@storybook/addon-essentials": "^8.5.1",
