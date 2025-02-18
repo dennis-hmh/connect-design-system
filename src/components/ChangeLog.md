@@ -1,3 +1,20 @@
+### v1.18.16 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Paper now can take any html element (implemented for nav)
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.15 Release Notice
 
 ### Release date: February 17, 2025
