@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.19.0
+
+### Minor Changes
+
+- bc1e957: Addition of G3-5 and GK-2 gradebands
+
 ## 1.18.16
 
 ### Patch Changes
