@@ -5,7 +5,7 @@ import { RoundedCorner } from '../../utils/radius';
 
 export type PaperProps = {
   children: React.ReactNode;
-  element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog';
+  element?: React.ElementType;
   id?: string;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: RoundedCorner;

@@ -40,7 +40,7 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
   id,
   name,
   children,
-  checked,
+  checked = false,
   onChange,
   disabled,
   correct,
@@ -52,7 +52,7 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
     correct,
     incorrect,
     answerShown,
-    isChecked: true,
+    isChecked: checked,
     disabled,
   });
 

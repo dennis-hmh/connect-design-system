@@ -6,6 +6,7 @@ The `Grid` component is a flexible and customizable layout component designed to
 
 - **Responsive Layout**: Easily create responsive grid layouts with customizable gap sizes.
 - **Customizable Gaps**: Supports predefined gap sizes (`none`, `xs`, `sm`, `md`, `lg`, `xl`) to control the spacing between grid items.
+- **Column and Row Gaps**: You can specify individual column and row gaps, which will fall back to the general gap if not provided.
 - **Optional Gutters**: Add gutters to the grid for additional spacing control.
 - **TypeScript Support**: Leverages TypeScript for type safety and to define props clearly.
 
@@ -22,13 +23,27 @@ npm install @connect/connect-design-system@latest
 Here is an example of how to use the Grid component in your React application:
 
 ```tsx
-iimport React from 'react';
+import React from 'react';
 import { Grid } from '@connect/connect-design-system';
 import { GridItem } from '@connect/connect-design-system';
 
 const App = () => {
   return (
-    <Grid gap="md" gutter={true}>
+    <Grid
+      gap="lg" // Sets both column and row gaps to 'lg'
+      rowGap="xs" // Overrides just the row gap to 'xs'
+      xs={{ paddingX: 'md', paddingY: 'lg' }} // Padding for extra small screens
+      md={{
+        rowGap: 'xs', // Overrides row gap to 'xs' at medium breakpoint
+        columnGap: 'md', // Sets column gap to 'md' at medium breakpoint
+      }}
+      lg={{
+        paddingX: 'md', // Padding for large screens
+        paddingBottom: 'lg',
+        paddingTop: 'xl',
+        gap: 'lg', // Sets both column and row gaps to 'lg' at large breakpoint
+      }}
+    >
       <GridItem xs={{ startCol: 1, spanCol: 4 }}>
         <div>Item 1</div>
       </GridItem>
@@ -65,11 +80,23 @@ The Grid component accepts the following props:
 
 - Type: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 - Required: No
-- Description: The size of the gap between grid items. Defaults to 'var(--grid-gap)' if not provided.
+- Description: The size of the gap between grid items. Defaults to 'var(--grid-gap)' if not provided. This property sets both the column and row gaps.
+
+### columnGap
+
+- Type: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+- Required: No
+- Description: The size of the column gap between grid items. If not provided, it falls back to the value set in the `gap` property.
+
+### rowGap
+
+- Type: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+- Required: No
+- Description: The size of the row gap between grid items. If not provided, it falls back to the value set in the `gap` property.
 
 ### gutter
 
-- Type: 'boolean'
+- Type: boolean
 - Required: No
 - Description: Adds gutters to the grid for additional spacing control.
 
@@ -81,9 +108,9 @@ The Grid component accepts the following props:
 
 ### style
 
--Type: React.CSSProperties
--Required: No
--Description: Inline styles to apply to the grid.
+- Type: React.CSSProperties
+- Required: No
+- Description: Inline styles to apply to the grid.
 
 ### tabIndex
 
@@ -130,3 +157,7 @@ const Example = () => {
 
 export default Example;
 ```
+
+## Conclusion
+
+The `Grid` component provides a powerful and flexible way to create responsive layouts in your React applications. With customizable gaps, padding options, and support for various breakpoints, it allows for fine-tuned control over the layout of your components.

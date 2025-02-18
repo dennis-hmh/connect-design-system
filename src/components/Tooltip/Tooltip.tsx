@@ -1,24 +1,21 @@
 import React, { useState, useId } from 'react';
-import { Typography } from '../Typography/Typography';
+import { Typography, TypographyProps } from '../Typography/Typography';
 import { Paper } from '../Paper/Paper';
 import { Color } from '../../utils/colors';
+import { Position, getPositionClass } from '../../utils/position';
 import { GradeBand } from '../../enum/gradeband';
 
-// we could move spacers and typography to a util file
-// they are in a lot of components now
 
 export type TooltipProps = {
   children: React.ReactNode;
   title: React.ReactNode;
-  placement?: 'top' | 'bottom' | 'left' | 'right';
+  placement?: Position;
   backgroundColor?: Color;
-  color?: Color;
   elevation?: -2 | 0 | 2 | 4 | 6;
   open?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
   dataTestId?: string;
   gradeBand?: GradeBand;
   describeChild?: boolean;
@@ -26,26 +23,27 @@ export type TooltipProps = {
   leaveDelay?: number;
   disableInteractive?: boolean;
   disableTouchListener?: boolean;
-};
+} & Pick<TypographyProps, 'color' | 'size' | 'style' | 'weight' | 'textWrap'>;
 
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
   title,
-  placement = 'top',
+  placement = 'top-center',
   backgroundColor = 'surface-dark',
   color = 'white',
   elevation = 4,
   open: controlledOpen,
   onOpen,
   onClose,
-  className = '',
-  size = 'sm',
+  size = 'caption',
+  textWrap = 'nowrap',
   dataTestId,
   describeChild = false,
   enterDelay = 0,
   leaveDelay = 0,
   disableInteractive = false,
   disableTouchListener = false,
+  ...typographyProps
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const tooltipId = useId();
@@ -97,27 +95,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   };
 
-  const getDefaultTypographySize = (tooltipSize: string) => {
-    switch (tooltipSize) {
-      case 'xs':
-        return 'caption';
-      case 'sm':
-        return 'caption';
-      case 'md':
-        return 'body-sm';
-      case 'lg':
-        return 'body-md';
-      case 'xl':
-        return 'body-lg';
-      case 'xxl':
-        return 'heading-sm';
-      case 'unset':
-        return 'body-sm';
-      default:
-        return 'body-sm';
-    }
-  };
-
   //might be a better way to do this
   const isOpen = controlledOpen !== undefined ? controlledOpen : isVisible;
 
@@ -134,7 +111,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div
-      className={`connect__tooltip-wrapper ${className}`}
+      className={`connect__tooltip connect__position ${getPositionClass(placement)}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={!disableInteractive ? handleMouseLeave : undefined}
       onTouchStart={handleTouchStart}
@@ -147,14 +124,20 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {enhancedChild}
       {isOpen && (
         <Paper
-          className={`connect__tooltip connect__tooltip--${placement}`}
+          className={`connect__tooltip connect__position-${placement}`}
           elevation={elevation}
           backgroundColor={backgroundColor}
           id={describeChild ? descriptionId : tooltipId}
           aria-hidden={!isOpen}
           role="tooltip"
         >
-          <Typography element="p" size={getDefaultTypographySize(size)} color={color}>
+          <Typography
+            element="p"
+            color={color}
+            size={size}
+            textWrap={textWrap}
+            {...typographyProps}
+          >
             {title}
           </Typography>
         </Paper>

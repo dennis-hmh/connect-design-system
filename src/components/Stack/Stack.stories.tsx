@@ -52,7 +52,7 @@ ResponsiveStack.args = {
     </>
   ),
   element: 'article',
-  xs: { direction: 'column', spacing: 'xs' },
+  xs: { spacing: 'xs' },
   md: { direction: 'row', spacing: 'md', alignItems: 'center', justifyContent: 'space-between' },
   lg: { spacing: 'lg', paddingX: 'md', paddingY: 'sm' },
 };
@@ -67,7 +67,7 @@ CustomStyleStack.args = {
     </>
   ),
   element: 'section',
-  xs: { direction: 'column', spacing: 'xs' },
+  xs: { spacing: 'xs' },
   md: { direction: 'row', spacing: 'md', alignItems: 'center', justifyContent: 'space-between' },
   lg: { spacing: 'lg', paddingX: 'md', paddingY: 'sm' },
   customStyle: { backgroundColor: 'var(--connect__surface-mid)', color: 'white', width: '100%' },

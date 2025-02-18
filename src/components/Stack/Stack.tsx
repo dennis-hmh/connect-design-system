@@ -17,6 +17,14 @@ export type BreakpointValues = {
 export type StackProps = {
   children: React.ReactNode;
   element?: React.ElementType;
+  direction?: BreakpointValues['direction'];
+  spacing?: BreakpointValues['spacing'];
+  alignItems?: BreakpointValues['alignItems'];
+  alignSelf?: BreakpointValues['alignSelf'];
+  justifyContent?: BreakpointValues['justifyContent'];
+  flexWrap?: BreakpointValues['flexWrap'];
+  paddingX?: BreakpointValues['paddingX'];
+  paddingY?: BreakpointValues['paddingY'];
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -47,41 +55,31 @@ const setStackVariables = (
   values: BreakpointValues | undefined,
   prefix: string = '',
 ): Record<string, string> => {
-  if (!values) return {};
-
   const variables: Record<string, string> = {};
 
+  // If no values provided, return (either base defaults or empty object for breakpoints)
+  if (!values) {
+    return variables;
+  }
+
+  // Only set these if explicitly provided in values
   if (values.direction) {
     variables[`--connect__stack${prefix}-direction`] = values.direction;
-    const isRow = values.direction.includes('row');
-
-    if (isRow) {
-      if (!values.flexWrap) {
-        variables[`--connect__stack${prefix}-flex-wrap`] = 'wrap';
-      }
-      if (!values.justifyContent) {
-        variables[`--connect__stack${prefix}-justify-content`] = 'start';
-      }
-      if (!values.alignItems) {
-        variables[`--connect__stack${prefix}-align-items`] = 'stretch';
-      }
-    }
   }
-
-  if (values.spacing) {
-    variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
-  }
-  if (values.alignItems) {
-    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
-  }
-  if (values.alignSelf) {
-    variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
+  if (values.flexWrap) {
+    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
   }
   if (values.justifyContent) {
     variables[`--connect__stack${prefix}-justify-content`] = values.justifyContent;
   }
-  if (values.flexWrap) {
-    variables[`--connect__stack${prefix}-flex-wrap`] = values.flexWrap;
+  if (values.alignItems) {
+    variables[`--connect__stack${prefix}-align-items`] = values.alignItems;
+  }
+  if (values.spacing) {
+    variables[`--connect__stack${prefix}-spacing`] = `var(--connect__spacer-${values.spacing})`;
+  }
+  if (values.alignSelf) {
+    variables[`--connect__stack${prefix}-align-self`] = values.alignSelf;
   }
   if (values.paddingX) {
     variables[`--connect__stack${prefix}-padding-x`] = `var(--connect__spacer-${values.paddingX})`;
@@ -99,6 +97,14 @@ const setStackVariables = (
 export const Stack: React.FC<StackProps> = ({
   children,
   element: Component = 'div',
+  direction,
+  spacing,
+  alignItems,
+  alignSelf,
+  justifyContent,
+  flexWrap,
+  paddingX,
+  paddingY,
   xs,
   sm,
   md,
@@ -123,11 +129,38 @@ export const Stack: React.FC<StackProps> = ({
       ...setStackVariables(xl, '-xl'),
     };
 
+    const nonBreakpointStyles = {
+      ...(direction && { '--connect__stack-direction': direction }),
+      ...(spacing && { '--connect__stack-spacing': `var(--connect__spacer-${spacing})` }),
+      ...(alignItems && { '--connect__stack-align-items': alignItems }),
+      ...(alignSelf && { '--connect__stack-align-self': alignSelf }),
+      ...(justifyContent && { '--connect__stack-justify-content': justifyContent }),
+      ...(flexWrap && { '--connect__stack-flex-wrap': flexWrap }),
+      ...(paddingX && { '--connect__stack-padding-x': `var(--connect__spacer-${paddingX})` }),
+      ...(paddingY && { '--connect__stack-padding-y': `var(--connect__spacer-${paddingY})` }),
+    };
+
     return {
       ...baseStyles,
       ...breakpointStyles,
+      ...nonBreakpointStyles,
     } as React.CSSProperties;
-  }, [xs, sm, md, lg, xl, flex]);
+  }, [
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    flex,
+    direction,
+    spacing,
+    alignItems,
+    alignSelf,
+    justifyContent,
+    flexWrap,
+    paddingX,
+    paddingY,
+  ]);
 
   const stackClasses = useMemo(() => {
     const classes = ['connect__stack'];
