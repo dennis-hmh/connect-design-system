@@ -17,6 +17,14 @@ export type BreakpointValues = {
 export type StackProps = {
   children: React.ReactNode;
   element?: React.ElementType;
+  direction?: BreakpointValues['direction'];
+  spacing?: BreakpointValues['spacing'];
+  alignItems?: BreakpointValues['alignItems'];
+  alignSelf?: BreakpointValues['alignSelf'];
+  justifyContent?: BreakpointValues['justifyContent'];
+  flexWrap?: BreakpointValues['flexWrap'];
+  paddingX?: BreakpointValues['paddingX'];
+  paddingY?: BreakpointValues['paddingY'];
   xs?: BreakpointValues;
   sm?: BreakpointValues;
   md?: BreakpointValues;
@@ -48,12 +56,6 @@ const setStackVariables = (
   prefix: string = '',
 ): Record<string, string> => {
   const variables: Record<string, string> = {};
-
-  // Only set base defaults if there's no prefix (not a breakpoint)
-  if (!prefix) {
-    variables['--connect__stack-direction'] = 'column';
-    variables['--connect__stack-flex-wrap'] = 'nowrap';
-  }
 
   // If no values provided, return (either base defaults or empty object for breakpoints)
   if (!values) {
@@ -95,6 +97,14 @@ const setStackVariables = (
 export const Stack: React.FC<StackProps> = ({
   children,
   element: Component = 'div',
+  direction,
+  spacing,
+  alignItems,
+  alignSelf,
+  justifyContent,
+  flexWrap,
+  paddingX,
+  paddingY,
   xs,
   sm,
   md,
@@ -119,11 +129,38 @@ export const Stack: React.FC<StackProps> = ({
       ...setStackVariables(xl, '-xl'),
     };
 
+    const nonBreakpointStyles = {
+      ...(direction && { '--connect__stack-direction': direction }),
+      ...(spacing && { '--connect__stack-spacing': `var(--connect__spacer-${spacing})` }),
+      ...(alignItems && { '--connect__stack-align-items': alignItems }),
+      ...(alignSelf && { '--connect__stack-align-self': alignSelf }),
+      ...(justifyContent && { '--connect__stack-justify-content': justifyContent }),
+      ...(flexWrap && { '--connect__stack-flex-wrap': flexWrap }),
+      ...(paddingX && { '--connect__stack-padding-x': `var(--connect__spacer-${paddingX})` }),
+      ...(paddingY && { '--connect__stack-padding-y': `var(--connect__spacer-${paddingY})` }),
+    };
+
     return {
       ...baseStyles,
       ...breakpointStyles,
+      ...nonBreakpointStyles,
     } as React.CSSProperties;
-  }, [xs, sm, md, lg, xl, flex]);
+  }, [
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    flex,
+    direction,
+    spacing,
+    alignItems,
+    alignSelf,
+    justifyContent,
+    flexWrap,
+    paddingX,
+    paddingY,
+  ]);
 
   const stackClasses = useMemo(() => {
     const classes = ['connect__stack'];
