@@ -19,18 +19,11 @@ type Story = StoryObj<typeof Dropdown>;
 const Template: StoryFn<DropdownProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
-  const [open, setOpen] = useState(false);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Dropdown
-          {...args}
-          selectedValue={selectedValue}
-          onChange={setSelectedValue}
-          open={open}
-          onToggle={setOpen}
-        />
+        <Dropdown {...args} selectedValue={selectedValue} onChange={setSelectedValue} />
       </div>
     </ConnectTheme>
   );

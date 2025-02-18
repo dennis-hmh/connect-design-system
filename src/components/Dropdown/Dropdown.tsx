@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { Hint } from '../Hint/Hint';
 import { GradeBand } from 'src/enum/gradeband';
 
@@ -14,9 +14,7 @@ export type DropdownProps = {
   id?: string;
   label?: string;
   selectedValue?: string | null;
-  open?: boolean;
   onChange?: (value: string | null) => void;
-  onToggle?: (open: boolean) => void;
   onClear?: () => void;
   hint?: string;
   correct?: boolean;
@@ -34,9 +32,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   id,
   label,
   selectedValue = null,
-  open,
   onChange,
-  onToggle,
   onClear,
   hint,
   correct,
@@ -46,6 +42,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   dataTestId,
   fixedWidth = false,
 }) => {
+  const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const feedbackStates = useMemo(() => {
@@ -61,15 +58,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
       .join(' ');
   }, [correct, incorrect, answerShown, open, disabled, fixedWidth]);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     if (!disabled) {
-      onToggle?.(!open);
+      event.preventDefault();
+      setOpen(!open);
     }
   };
 
   const handleItemClick = (label: string) => {
+    setOpen(false);
     onChange?.(label);
-    onToggle?.(false);
   };
 
   const handleClear = () => {
@@ -115,7 +113,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
           />
         </div>
       </div>
-      {onClear && selectedValue && (
+      {onClear && (
         <button
           className={`connect__clear-button ${selectedValue ? 'connect__clear-button-visible' : ''}`}
           onClick={handleClear}
