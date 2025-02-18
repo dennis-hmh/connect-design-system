@@ -52,6 +52,7 @@ export type GridProps = {
   tabIndex?: number;
   dataTestId?: string;
   gradeBand?: GradeBand;
+  overflow?: 'auto' | 'scroll' | 'hidden';
 };
 
 const gapSizes: { [key in GapSizes]: string } = {
@@ -132,6 +133,7 @@ export const Grid: React.FC<GridProps> = ({
   className,
   dataTestId,
   tabIndex,
+  overflow,
   style: customStyle,
   ...other
 }) => {
@@ -174,9 +176,10 @@ export const Grid: React.FC<GridProps> = ({
   const combinedStyle = useMemo(
     () => ({
       ...cssVariables,
+      ...(overflow && { overflow }),
       ...customStyle,
     }),
-    [cssVariables, customStyle],
+    [cssVariables, overflow, customStyle],
   );
 
   return (
