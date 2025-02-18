@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.16
+
+### Patch Changes
+
+- f24cd06: Paper now can take any html element (implemented for nav)
+
 ## 1.18.15
 
 ### Patch Changes
