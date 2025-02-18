@@ -1,31 +1,31 @@
 import React from 'react';
-import { Color } from '../../utils/colors';
-import { Typography } from '../Typography/Typography';
+import { Typography, TypographyProps } from '../Typography/Typography';
 import { Image } from '../Image/Image';
 import { GradeBand } from '../../enum/gradeband';
+import { Color } from '../../utils/colors';
 
+type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 type Shape = 'circle' | 'square' | 'rounded';
 
 export type AvatarProps = {
   children?: React.ReactNode;
   src?: string;
   alt: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
+  iconSize?: IconSize;
   backgroundColor?: Color;
   shape?: Shape;
-  color?: Color;
-  weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   element?: React.ElementType;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
-};
+} & Pick<TypographyProps, 'color' | 'size' | 'weight'>;
 
 export const Avatar: React.FC<AvatarProps> = ({
   children,
   src,
   alt,
-  size = 'sm',
+  iconSize = 'sm',
+  size = 'body-sm',
   backgroundColor = 'surface-mid',
   shape = 'circle',
   color = 'white',
@@ -57,8 +57,8 @@ export const Avatar: React.FC<AvatarProps> = ({
     }
   };
 
-  const getSize = () => {
-    switch (size) {
+  const getIconSize = () => {
+    switch (iconSize) {
       case 'xs':
         return 'var(--connect__icon-xs)';
       case 'sm':
@@ -71,22 +71,12 @@ export const Avatar: React.FC<AvatarProps> = ({
         return 'var(--connect__icon-xl)';
       case 'xxl':
         return 'var(--connect__icon-xxl)';
-      case 'unset':
+      case 'zero':
         return 'auto';
       default:
         return 'var(--connect__icon-md)';
     }
   };
-
-  const avatarClassName = ['connect__avatar', getShapeClass(), className || '']
-    .filter(Boolean)
-    .join(' ');
-
-  const avatarStyle = {
-    '--connect__avatar-bg': `var(--connect__${backgroundColor})`,
-    width: getSize(),
-    height: getSize(),
-  } as React.CSSProperties;
 
   const renderContent = () => {
     if (src) {
@@ -104,7 +94,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       return (
         <Typography
           element="span"
-          size={getDefaultTypographySize(size)}
+          size={size}
           weight={weight}
           className="connect__avatar-text"
           color={color}
@@ -117,29 +107,15 @@ export const Avatar: React.FC<AvatarProps> = ({
     return children;
   };
 
-  // Design is working through the type sizes, will prob be removed!!
-  const getDefaultTypographySize = (avatarSize: string) => {
-    switch (avatarSize) {
-      case 'xs':
-        return 'caption';
-      case 'sm':
-        return 'caption';
-      case 'md':
-        return 'body-sm';
-      case 'lg':
-        return 'body-md';
-      case 'xl':
-        return 'body-lg';
-      case 'xxl':
-        return 'heading-sm';
-      default:
-        return 'body-sm';
-    }
-  };
+  const avatarStyle = {
+    '--connect__avatar-bg': `var(--connect__${backgroundColor})`,
+    width: getIconSize(),
+    height: getIconSize(),
+  } as React.CSSProperties;
 
   return (
     <Component
-      className={avatarClassName}
+      className={`connect__avatar ${getShapeClass()} ${className || ''}`}
       style={avatarStyle}
       data-testid={dataTestId}
       role="img"

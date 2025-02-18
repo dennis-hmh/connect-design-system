@@ -32,7 +32,7 @@ export const AvatarGroup = ({
   const childrenArray = React.Children.toArray(children) as React.ReactElement<AvatarProps>[];
   const totalAvatars = total ?? childrenArray.length;
   const surplus = totalAvatars - max;
-  
+
   const renderSurplusAvatar = () => {
     if (surplus <= 0) return null;
     if (renderSurplus) return renderSurplus(surplus);
@@ -50,11 +50,9 @@ export const AvatarGroup = ({
 
   return (
     <Stack
-      xs={{
-        direction: 'row-reverse',
-        alignItems: 'center',
-        spacing: variant === 'standard' ? spacing : undefined,
-      }}
+      direction="row-reverse"
+      alignItems="center"
+      spacing={variant === 'standard' ? spacing : undefined}
       className={classes}
       data-testid={dataTestId}
     >
