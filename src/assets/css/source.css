@@ -68,6 +68,7 @@
 
 /* stylelint-enable order/properties-alphabetical-order */
 
+.connect__gk2, 
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -95,7 +96,7 @@
   --connect__caption: 1.25rem;
   --connect__caption-lheight: 1.875rem;
   --connect__caption-spacer: 2.25rem;
-  --connect__credits: .875rem;
+  --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 1.125rem;
 
@@ -103,8 +104,8 @@
   --connect__spacer-xl: 2.125rem;
   --connect__spacer-lg: 1.625rem;
   --connect__spacer-md: 1.0625rem;
-  --connect__spacer-sm: .5625rem;
-  --connect__spacer-xs: .25rem;
+  --connect__spacer-sm: 0.5625rem;
+  --connect__spacer-xs: 0.25rem;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -112,16 +113,17 @@
   --connect__icon-lg: 2.5rem;
   --connect__icon-xl: 2.5rem;
 
-  --connect__total-border: .625rem;
-  --connect__border-radius: .875rem;
-  --connect__mcq-border-w: .1563rem;
-  --connect__effects-inner-edge: .1875rem;
-  --connect__inner-radius: .375rem;
-  --connect__inner-status: .5rem;
-  --connect__inner-divider-width: .625rem;
+  --connect__total-border: 0.625rem;
+  --connect__border-radius: 0.875rem;
+  --connect__mcq-border-w: 0.1563rem;
+  --connect__effects-inner-edge: 0.1875rem;
+  --connect__inner-radius: 0.375rem;
+  --connect__inner-status: 0.5rem;
+  --connect__inner-divider-width: 0.625rem;
 }
 
 @media (min-width: 40.625rem) {
+  .connect__gk2, 
   .connect__g23 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
@@ -149,7 +151,7 @@
     --connect__caption: 1.3125rem;
     --connect__caption-lheight: 2rem;
     --connect__caption-spacer: 2.5rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.25rem;
 
@@ -164,11 +166,12 @@
     --connect__icon-xl: 3.75rem;
 
     --connect__border-radius: 1rem;
-    --connect__inner-radius: .5rem;
+    --connect__inner-radius: 0.5rem;
   }
 }
 
 @media (min-width: 80rem) {
+  .connect__gk2, 
   .connect__g23 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
@@ -196,7 +199,7 @@
     --connect__caption: 1.375rem;
     --connect__caption-lheight: 2.125rem;
     --connect__caption-spacer: 2.875rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.4375rem;
 
@@ -204,17 +207,18 @@
     --connect__spacer-xl: 2.625rem;
     --connect__spacer-lg: 2rem;
     --connect__spacer-md: 1.3125rem;
-    --connect__spacer-sm: .6875rem;
-    --connect__spacer-xs: .3125rem;
+    --connect__spacer-sm: 0.6875rem;
+    --connect__spacer-xs: 0.3125rem;
 
     --connect__icon-lg: 3.75rem;
     --connect__icon-xl: 4.375rem;
 
     --connect__border-radius: 1.125rem;
-    --connect__inner-radius: .625rem;
+    --connect__inner-radius: 0.625rem;
   }
 }
 
+.connect__g35,
 .connect__g45 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -242,7 +246,7 @@
   --connect__caption: 1.1875rem;
   --connect__caption-lheight: 1.875rem;
   --connect__caption-spacer: 2rem;
-  --connect__credits: .875rem;
+  --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 2rem;
 
@@ -250,8 +254,8 @@
   --connect__spacer-xl: 2rem;
   --connect__spacer-lg: 1.5rem;
   --connect__spacer-md: 1rem;
-  --connect__spacer-sm: .5rem;
-  --connect__spacer-xs: .25rem;
+  --connect__spacer-sm: 0.5rem;
+  --connect__spacer-xs: 0.25rem;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -259,16 +263,17 @@
   --connect__icon-lg: 2.5rem;
   --connect__icon-xl: 3.125rem;
 
-  --connect__total-border: .5rem;
-  --connect__border-radius: .75rem;
-  --connect__mcq-border-w: .1563rem;
-  --connect__effects-inner-edge: .1875rem;
-  --connect__inner-radius: .25rem;
-  --connect__inner-status: .4375rem;
-  --connect__inner-divider-width: .5rem;
+  --connect__total-border: 0.5rem;
+  --connect__border-radius: 0.75rem;
+  --connect__mcq-border-w: 0.1563rem;
+  --connect__effects-inner-edge: 0.1875rem;
+  --connect__inner-radius: 0.25rem;
+  --connect__inner-status: 0.4375rem;
+  --connect__inner-divider-width: 0.5rem;
 }
 
 @media (min-width: 40.625rem) {
+  .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
@@ -296,7 +301,7 @@
     --connect__caption: 1.25rem;
     --connect__caption-lheight: 1.875rem;
     --connect__caption-spacer: 2.125rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
@@ -304,17 +309,18 @@
     --connect__spacer-xl: 2.125rem;
     --connect__spacer-lg: 1.625rem;
     --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: .5625rem;
-    --connect__spacer-xs: .25rem;
+    --connect__spacer-sm: 0.5625rem;
+    --connect__spacer-xs: 0.25rem;
 
     --connect__icon-xl: 3.75rem;
 
-    --connect__border-radius: .875rem;
-    --connect__inner-radius: .375rem;
+    --connect__border-radius: 0.875rem;
+    --connect__inner-radius: 0.375rem;
   }
 }
 
 @media (min-width: 80rem) {
+  .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
@@ -342,7 +348,7 @@
     --connect__caption: 1.25rem;
     --connect__caption-lheight: 1.875rem;
     --connect__caption-spacer: 2.25rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.125rem;
 
@@ -350,12 +356,12 @@
     --connect__spacer-xl: 2.25rem;
     --connect__spacer-lg: 1.6875rem;
     --connect__spacer-md: 1.125rem;
-    --connect__spacer-sm: .5625rem;
-    --connect__spacer-xs: .3125rem;
+    --connect__spacer-sm: 0.5625rem;
+    --connect__spacer-xs: 0.3125rem;
     --connect__icon-lg: 3.125rem;
 
     --connect__border-radius: 1rem;
-    --connect__inner-radius: .5rem;
+    --connect__inner-radius: 0.5rem;
   }
 }
 
@@ -378,7 +384,7 @@
   --connect__body-lg-head-lheight: 2rem;
   --connect__body-md: 1.25rem;
   --connect__body-md-lheight: 1.875rem;
-  --connect__body-md-spacer: .9375rem;
+  --connect__body-md-spacer: 0.9375rem;
   --connect__body-md-head-lheight: 1.875rem;
   --connect__body-sm: 1.1875rem;
   --connect__body-sm-lheight: 1.875rem;
@@ -386,16 +392,16 @@
   --connect__caption: 1.0625rem;
   --connect__caption-lheight: 1.625rem;
   --connect__caption-spacer: 1.875rem;
-  --connect__credits: .875rem;
+  --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: .9375rem;
+  --connect__credits-spacer: 0.9375rem;
 
   --connect__spacer-xxl: 3.75rem;
   --connect__spacer-xl: 1.875rem;
   --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: .9375rem;
-  --connect__spacer-sm: .5rem;
-  --connect__spacer-xs: .25rem;
+  --connect__spacer-md: 0.9375rem;
+  --connect__spacer-sm: 0.5rem;
+  --connect__spacer-xs: 0.25rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -403,13 +409,13 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 2.5rem;
 
-  --connect__total-border: .375rem;
-  --connect__border-radius: .625rem;
-  --connect__mcq-border-w: .1563rem;
-  --connect__effects-inner-edge: .125rem;
-  --connect__inner-status: .25rem;
-  --connect__inner-radius: .25rem;
-  --connect__inner-divider-width: .375rem;
+  --connect__total-border: 0.375rem;
+  --connect__border-radius: 0.625rem;
+  --connect__mcq-border-w: 0.1563rem;
+  --connect__effects-inner-edge: 0.125rem;
+  --connect__inner-status: 0.25rem;
+  --connect__inner-radius: 0.25rem;
+  --connect__inner-divider-width: 0.375rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -440,7 +446,7 @@
     --connect__caption: 1.125rem;
     --connect__caption-lheight: 1.75rem;
     --connect__caption-spacer: 2rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1rem;
 
@@ -448,14 +454,14 @@
     --connect__spacer-xl: 2rem;
     --connect__spacer-lg: 1.5rem;
     --connect__spacer-md: 1rem;
-    --connect__spacer-sm: .5rem;
-    --connect__spacer-xs: .25rem;
+    --connect__spacer-sm: 0.5rem;
+    --connect__spacer-xs: 0.25rem;
 
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.75rem;
 
-    --connect__border-radius: .75rem;
-    --connect__inner-radius: .375rem;
+    --connect__border-radius: 0.75rem;
+    --connect__inner-radius: 0.375rem;
   }
 }
 
@@ -487,7 +493,7 @@
     --connect__caption: 1.125rem;
     --connect__caption-lheight: 1.75rem;
     --connect__caption-spacer: 2.125rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
@@ -495,13 +501,13 @@
     --connect__spacer-xl: 2.125rem;
     --connect__spacer-lg: 1.625rem;
     --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: .5625rem;
-    --connect__spacer-xs: .25rem;
+    --connect__spacer-sm: 0.5625rem;
+    --connect__spacer-xs: 0.25rem;
 
     --connect__icon-lg: 3.125rem;
 
-    --connect__border-radius: .875rem;
-    --connect__inner-radius: .5rem;
+    --connect__border-radius: 0.875rem;
+    --connect__inner-radius: 0.5rem;
   }
 }
 
@@ -524,7 +530,7 @@
   --connect__body-lg-head-lheight: 2rem;
   --connect__body-md: 1.1875rem;
   --connect__body-md-lheight: 1.875rem;
-  --connect__body-md-spacer: .9375rem;
+  --connect__body-md-spacer: 0.9375rem;
   --connect__body-md-head-lheight: 1.875rem;
   --connect__body-sm: 1.0625rem;
   --connect__body-sm-lheight: 1.625rem;
@@ -532,16 +538,16 @@
   --connect__caption: 1rem;
   --connect__caption-lheight: 1.5rem;
   --connect__caption-spacer: 1.875rem;
-  --connect__credits: .875rem;
+  --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: .9375rem;
+  --connect__credits-spacer: 0.9375rem;
 
   --connect__spacer-xxl: 3.75rem;
   --connect__spacer-xl: 1.875rem;
   --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: .9375rem;
-  --connect__spacer-sm: .5rem;
-  --connect__spacer-xs: .25rem;
+  --connect__spacer-md: 0.9375rem;
+  --connect__spacer-sm: 0.5rem;
+  --connect__spacer-xs: 0.25rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -549,13 +555,13 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 2.5rem;
 
-  --connect__total-border: .375rem;
-  --connect__border-radius: .5rem;
-  --connect__mcq-border-w: .125rem;
-  --connect__effects-inner-edge: .125rem;
-  --connect__inner-status: .25rem;
-  --connect__inner-radius: .125rem;
-  --connect__inner-divider-width: .375rem;
+  --connect__total-border: 0.375rem;
+  --connect__border-radius: 0.5rem;
+  --connect__mcq-border-w: 0.125rem;
+  --connect__effects-inner-edge: 0.125rem;
+  --connect__inner-status: 0.25rem;
+  --connect__inner-radius: 0.125rem;
+  --connect__inner-divider-width: 0.375rem;
 }
 
 @media (min-width: 40.625rem) {
@@ -578,20 +584,20 @@
     --connect__body-sm-lheight: 1.75rem;
     --connect__caption: 1rem;
     --connect__caption-lheight: 1.5rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
 
     --connect__spacer-xxl: 3.75rem;
     --connect__spacer-xl: 1.875rem;
     --connect__spacer-lg: 1.4375rem;
-    --connect__spacer-md: .9375rem;
-    --connect__spacer-sm: .5rem;
-    --connect__spacer-xs: .25rem;
+    --connect__spacer-md: 0.9375rem;
+    --connect__spacer-sm: 0.5rem;
+    --connect__spacer-xs: 0.25rem;
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.125rem;
 
-    --connect__border-radius: .625rem;
-    --connect__inner-radius: .25rem;
+    --connect__border-radius: 0.625rem;
+    --connect__inner-radius: 0.25rem;
   }
 }
 
@@ -615,53 +621,62 @@
     --connect__body-sm-lheight: 1.75rem;
     --connect__caption: 1rem;
     --connect__caption-lheight: 1.5rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
 
     --connect__spacer-xxl: 3.75rem;
     --connect__spacer-xl: 1.875rem;
     --connect__spacer-lg: 1.4375rem;
-    --connect__spacer-md: .9375rem;
-    --connect__spacer-sm: .5rem;
-    --connect__spacer-xs: .25rem;
+    --connect__spacer-md: 0.9375rem;
+    --connect__spacer-sm: 0.5rem;
+    --connect__spacer-xs: 0.25rem;
 
     --connect__icon-xs: 1.25rem;
     --connect__icon-lg: 3.75rem;
     --connect__icon-xl: 3.125rem;
 
-    --connect__border-radius: .75rem;
-    --connect__inner-radius: .375rem;
+    --connect__border-radius: 0.75rem;
+    --connect__inner-radius: 0.375rem;
   }
 }
 
 .connect__teach {
   --connect__heading-xl: 1.875rem;
   --connect__heading-xl-lheight: 2.375rem;
+  --connect__heading-xl-spacer: 4.875rem;
   --connect__heading-lg: 1.625rem;
   --connect__heading-lg-lheight: 2.125rem;
+  --connect__heading-lg-spacer: 4.0625rem;
   --connect__heading-md: 1.3125rem;
   --connect__heading-md-lheight: 2rem;
+  --connect__heading-md-spacer: 3.25rem;
   --connect__heading-sm: 1.25rem;
   --connect__heading-sm-lheight: 1.875rem;
+  --connect__heading-sm-spacer: 2.4375rem;
   --connect__body-lg: 1.1875rem;
   --connect__body-lg-lheight: 1.875rem;
+  --connect__body-lg-spacer: 1.625rem;
   --connect__body-lg-head-lheight: 1.875rem;
   --connect__body-md: 1.0625rem;
   --connect__body-md-lheight: 1.625rem;
+  --connect__body-md-spacer: .8125rem;
   --connect__body-md-head-lheight: 1.625rem;
   --connect__body-sm: 1rem;
   --connect__body-sm-lheight: 1.5rem;
+  --connect__body-sm-spacer: 1.875rem;
   --connect__caption: .875rem;
   --connect__caption-lheight: 1.375rem;
+  --connect__caption-spacer: .9375rem;
   --connect__credits: .875rem;
   --connect__credits-lheight: 1.375rem;
+  --connect__credits-spacer: .9375rem;
 
   --connect__spacer-xxl: 3.25rem;
   --connect__spacer-xl: 1.625rem;
   --connect__spacer-lg: 1.25rem;
-  --connect__spacer-md: .8125rem;
-  --connect__spacer-sm: .4063rem;
-  --connect__spacer-xs: .2031rem;
+  --connect__spacer-md: 0.8125rem;
+  --connect__spacer-sm: 0.4063rem;
+  --connect__spacer-xs: 0.2031rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -669,47 +684,56 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 1.875rem;
 
-  --connect__total-border: .375rem;
-  --connect__border-radius: .5rem;
-  --connect__mcq-border-w: .125rem;
-  --connect__inner-radius: .125rem;
-  --connect__effects-inner-edge: .125rem;
-  --connect__inner-status: .25rem;
-  --connect__inner-divider-width: .375rem;
+  --connect__total-border: 0.375rem;
+  --connect__border-radius: 0.5rem;
+  --connect__mcq-border-w: 0.125rem;
+  --connect__inner-radius: 0.125rem;
+  --connect__effects-inner-edge: 0.125rem;
+  --connect__inner-status: 0.25rem;
+  --connect__inner-divider-width: 0.375rem;
 }
 
 @media (min-width: 40.625rem) {
   .connect__teach {
     --connect__heading-xl: 2.25rem;
     --connect__heading-xl-lheight: 2.875rem;
+    --connect__heading-xl-spacer: 5.25rem;
     --connect__heading-lg: 1.875rem;
     --connect__heading-lg-lheight: 2.375rem;
+    --connect__heading-lg-spacer: 4.375rem;
     --connect__heading-md: 1.375rem;
     --connect__heading-md-lheight: 2.125rem;
+    --connect__heading-md-spacer: 3.5rem;
     --connect__heading-sm: 1.3125rem;
     --connect__heading-sm-lheight: 2rem;
+    --connect__heading-sm-spacer: 2.625rem;
     --connect__body-lg: 1.25rem;
     --connect__body-lg-lheight: 1.875rem;
+    --connect__body-lg-spacer: 1.75rem;
     --connect__body-lg-head-lheight: 1.875rem;
     --connect__body-md: 1.125rem;
     --connect__body-md-lheight: 1.75rem;
+    --connect__body-md-spacer: .875rem;
     --connect__body-md-head-lheight: 1.75rem;
     --connect__body-sm: 1rem;
     --connect__body-sm-lheight: 1.5rem;
+    --connect__body-sm-spacer: 1.875rem;
     --connect__caption: .875rem;
     --connect__caption-lheight: 1.375rem;
+    --connect__caption-spacer: .9375rem;
     --connect__credits: .875rem;
     --connect__credits-lheight: 1.375rem;
+    --connect__credits-spacer: .9375rem;
 
     --connect__spacer-xxl: 3.5rem;
     --connect__spacer-xl: 1.75rem;
     --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: .875rem;
-    --connect__spacer-sm: .4375rem;
-    --connect__spacer-xs: .2188rem;
+    --connect__spacer-md: 0.875rem;
+    --connect__spacer-sm: 0.4375rem;
+    --connect__spacer-xs: 0.2188rem;
 
-    --connect__border-radius: .5rem;
-    --connect__inner-radius: .125rem;
+    --connect__border-radius: 0.5rem;
+    --connect__inner-radius: 0.125rem;
   }
 }
 
@@ -731,25 +755,27 @@
     --connect__body-md-head-lheight: 1.75rem;
     --connect__body-sm: 1rem;
     --connect__body-sm-lheight: 1.5rem;
-    --connect__caption: .875rem;
+    --connect__caption: 0.875rem;
     --connect__caption-lheight: 1.375rem;
-    --connect__credits: .875rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
 
     --connect__spacer-xxl: 3.5rem;
     --connect__spacer-xl: 1.75rem;
     --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: .875rem;
-    --connect__spacer-sm: .4375rem;
-    --connect__spacer-xs: .2188rem;
+    --connect__spacer-md: 0.875rem;
+    --connect__spacer-sm: 0.4375rem;
+    --connect__spacer-xs: 0.2188rem;
     --connect__icon-xl: 2.5rem;
 
-    --connect__border-radius: .625rem;
-    --connect__inner-radius: .25rem;
+    --connect__border-radius: 0.625rem;
+    --connect__inner-radius: 0.25rem;
   }
 }
 
+.connect__gk2, 
 .connect__g23,
+.connect__g35,
 .connect__g45 {
   --color-incorrect-bg: rgba(215, 231, 241, 1);
   --color-incorrect: rgba(115, 130, 143, 1);
@@ -783,7 +809,9 @@
   --connect__hint-size: var(--connect__spacer-sm);
 }
 
-/* .connect__g23,
+/* .connect__gk2, 
+.connect__g23,
+.connect__g35,
 .connect__g45,
 .connect__g68,
 .connect__g912,
@@ -798,17 +826,27 @@
   }
 } */
 
+.connect__gk2, 
 .connect__g23,
+.connect__g35,
 .connect__g45,
 .connect__g68,
 .connect__g912,
 .connect__teach {
   /* 14.375rem all grades */
   --connect__dropdown-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-min-w: calc(
+    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) +
+      (var(--connect__spacer-xs) + var(--connect__icon-xs))
+  );
   --connect__input-max-w: 14.375rem;
-  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
-  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
+  --connect__input-min-w: calc(
+    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) +
+      (var(--connect__spacer-xs) + var(--connect__icon-xs))
+  );
+  --connect__dropdown-max-h: calc(
+    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
+  );
 
   @media (min-width: 40.625rem) {
     --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
@@ -866,7 +904,6 @@
   --connect__text-left: left;
   --connect__text-center: left;
 
-
   /* 2.4: Font Styles */
   --connect__fs-normal: normal;
   --connect__fs-italic: italic;
@@ -879,7 +916,6 @@
   --connect__text-capitalize: capitalize;
   --connect__text-uppercase: uppercase;
   --connect__text-lowercase: lowercase;
-
 
   --connect__text-ellipsis: ellipsis;
 
@@ -966,7 +1002,7 @@
   --connect__essential-guide-purple: var(--connect__cc-purple);
   --connect__essential-guide-green: var(--connect__green-c50);
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
-  
+
   /*
     3.4: Connect Neutral Palette
   */
@@ -978,9 +1014,6 @@
   --connect__surface-white: var(--connect__white);
   --connect__surface-black: #1e1e1e;
   --connect__surface-null: rgba(255, 255, 255, 0);
-
-
-
 
   /*
     3.4: State Driven Palette
@@ -1070,35 +1103,35 @@
 
   */
   --connect__shadow-reset: 0rem 0rem 0rem;
-  --connect__definer-level-1: 0rem 0rem 0rem .0625rem;
+  --connect__definer-level-1: 0rem 0rem 0rem 0.0625rem;
   --connect__definer-level-0: 0rem 0rem 0rem 0rem;
 
   --connect__short-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__short-shadow-spread-level-1: 0rem .0625rem .1875rem 0rem;
-  --connect__short-shadow-spread-level-2: 0rem .0625rem .3125rem 0rem;
-  --connect__short-shadow-spread-level-3: 0rem .0625rem .5rem 0rem;
-  --connect__short-shadow-spread-level-4: 0rem .0625rem .625rem 0rem;
-  --connect__short-shadow-spread-level-5: 0rem .0625rem 1.125rem 0rem;
-  --connect__short-shadow-spread-level-6: 0rem .1875rem .875rem .125rem;
-  --connect__short-shadow-spread-level-f: 0rem .0625rem 0rem .0625rem;
+  --connect__short-shadow-spread-level-1: 0rem 0.0625rem 0.1875rem 0rem;
+  --connect__short-shadow-spread-level-2: 0rem 0.0625rem 0.3125rem 0rem;
+  --connect__short-shadow-spread-level-3: 0rem 0.0625rem 0.5rem 0rem;
+  --connect__short-shadow-spread-level-4: 0rem 0.0625rem 0.625rem 0rem;
+  --connect__short-shadow-spread-level-5: 0rem 0.0625rem 1.125rem 0rem;
+  --connect__short-shadow-spread-level-6: 0rem 0.1875rem 0.875rem 0.125rem;
+  --connect__short-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.0625rem;
 
   --connect__mid-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__mid-shadow-spread-level-1: 0rem .0625rem .0625rem 0rem;
-  --connect__mid-shadow-spread-level-2: 0rem .125rem .125rem 0rem;
-  --connect__mid-shadow-spread-level-3: 0rem .1875rem .25rem 0rem;
-  --connect__mid-shadow-spread-level-4: 0rem .25rem .3125rem 0rem;
-  --connect__mid-shadow-spread-level-5: 0rem .375rem .625rem 0rem;
-  --connect__mid-shadow-spread-level-6: 0rem .5rem .625rem .0625rem;
-  --connect__mid-shadow-spread-level-f: 0rem 0rem 0rem .125rem;
+  --connect__mid-shadow-spread-level-1: 0rem 0.0625rem 0.0625rem 0rem;
+  --connect__mid-shadow-spread-level-2: 0rem 0.125rem 0.125rem 0rem;
+  --connect__mid-shadow-spread-level-3: 0rem 0.1875rem 0.25rem 0rem;
+  --connect__mid-shadow-spread-level-4: 0rem 0.25rem 0.3125rem 0rem;
+  --connect__mid-shadow-spread-level-5: 0rem 0.375rem 0.625rem 0rem;
+  --connect__mid-shadow-spread-level-6: 0rem 0.5rem 0.625rem 0.0625rem;
+  --connect__mid-shadow-spread-level-f: 0rem 0rem 0rem 0.125rem;
 
   --connect__long-shadow-spread-level-0: 0rem 0rem 0rem 0rem;
-  --connect__long-shadow-spread-level-1: 0rem .125rem .0625rem -0.0625rem;
-  --connect__long-shadow-spread-level-2: 0rem .1875rem .0625rem -0.125rem;
-  --connect__long-shadow-spread-level-3: 0rem .1875rem .1875rem -0.125rem;
-  --connect__long-shadow-spread-level-4: 0rem .125rem .25rem -0.0625rem;
-  --connect__long-shadow-spread-level-5: 0rem .1875rem .3125rem -0.0625rem;
-  --connect__long-shadow-spread-level-6: 0rem .3125rem .3125rem -0.1875rem;
-  --connect__long-shadow-spread-level-f: 0rem .0625rem 0rem .125rem;
+  --connect__long-shadow-spread-level-1: 0rem 0.125rem 0.0625rem -0.0625rem;
+  --connect__long-shadow-spread-level-2: 0rem 0.1875rem 0.0625rem -0.125rem;
+  --connect__long-shadow-spread-level-3: 0rem 0.1875rem 0.1875rem -0.125rem;
+  --connect__long-shadow-spread-level-4: 0rem 0.125rem 0.25rem -0.0625rem;
+  --connect__long-shadow-spread-level-5: 0rem 0.1875rem 0.3125rem -0.0625rem;
+  --connect__long-shadow-spread-level-6: 0rem 0.3125rem 0.3125rem -0.1875rem;
+  --connect__long-shadow-spread-level-f: 0rem 0.0625rem 0rem 0.125rem;
 
   --connect__shadow-lvl--1: var(--connect__definer-level-1) var(--connect__shadow-definer) inset,
     var(--connect__short-shadow-spread-level-1) var(--connect__shadow-short) inset,
@@ -1239,16 +1272,24 @@
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-color-state,
-      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
+  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
+      var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status)
+      var(
+        --connect__inner-status-color-state,
+        var(--connect__inner-status-color, var(--connect__surface-null))
+      )
+      inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
+  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge)
+      var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status)
+      var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1)
+      var(--connect__active-state, var(--connect__surface-null)),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1291,7 +1332,8 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
+    var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,
@@ -1303,14 +1345,16 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__'])>img {
+:where([class*='connect__']) > img {
   height: auto;
   max-height: 100%;
 }
 
+.connect__gk2, 
 .connect__gk,
 .connect__g1,
 .connect__g23,
+.connect__g35,
 .connect__g45,
 .connect__g68,
 .connect__g912,

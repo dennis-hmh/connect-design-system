@@ -1,3 +1,93 @@
+### v1.18.17 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Addition of G3-5 and GK-2 gradebands
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.16 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Paper now can take any html element (implemented for nav)
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.15 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- Stack now matches mui initial values
+- removed the need to use xs 
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.14 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.12 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other:
+  - Add type spacers for teachers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.11 Release Notice
 
 ### Release date: February 14, 2025
