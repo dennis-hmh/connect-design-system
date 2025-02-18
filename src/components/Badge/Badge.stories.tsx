@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import type { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Badge, BadgeProps } from './Badge';
 import { Avatar } from '../Avatar/Avatar';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Badge> = {
-  title: 'WIP/Badge',
+  title: 'wip/Badge',
   component: Badge,
   tags: ['autodocs'],
   parameters: {
@@ -17,7 +17,7 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
-const Template: StoryFn<BadgeProps> = (args) => {
+const Template: StoryFn<BadgeProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
@@ -30,113 +30,48 @@ const Template: StoryFn<BadgeProps> = (args) => {
   );
 };
 
-// Base Avatar for examples
-const DemoAvatar = () => (
-  <Avatar src="https://picsum.photos/600/400" alt="User avatar" size="md" shape="circle" />
-);
-const InitialsAvatar = () => (
-  <Avatar alt="User Avatar" backgroundColor="primary-mid" shape="circle" aria-label="avatar">
-    JD
-  </Avatar>
-);
-
-// Basic Examples
-export const Dot: Story = Template.bind({});
-Dot.args = {
-  color: 'primary-mid',
-  anchorOrigin: { vertical: 'top', horizontal: 'right' },
-  gradeBand: GradeBand.G4_5,
-  'aria-label': 'notification',
-};
-
-export const Content: Story = Template.bind({});
-Content.args = {
-  ...Dot.args,
-  children: <InitialsAvatar />,
-  variant: 'standard',
+export const Default: Story = Template.bind({});
+Default.args = {
+  children: (
+    <Avatar src="https://picsum.photos/600/400" alt="User avatar" size="md" shape="circle" />
+  ),
   badgeContent: 4,
-  color: 'surface-mid',
+  placement: 'top-right',
+  variant: 'standard',
+  color: 'primary-mid',
+  size: 'caption',
+  max: undefined,
+  showZero: false,
+  gradeBand: GradeBand.G4_5,
+
   'aria-label': 'notifications count',
 };
 
-// Color Examples
-export const Colors: Story = Template.bind({});
-Colors.args = {
-  ...Content.args,
+export const Dot: Story = Template.bind({});
+Dot.args = {
+  ...Default.args,
+  variant: 'dot',
+  color: 'success-mid',
+  'aria-label': 'online status',
+};
+
+export const CustomPlacement: Story = Template.bind({});
+CustomPlacement.args = {
+  ...Default.args,
+  placement: 'bottom-left',
   color: 'error-mid',
-  'aria-label': 'error notification',
 };
 
-// Badge Visibility
-export const Invisible: Story = Template.bind({});
-Invisible.args = {
-  ...Dot.args,
-  variant: 'invisible',
-};
-
-export const ShowZero: Story = Template.bind({});
-ShowZero.args = {
-  ...Content.args,
-  badgeContent: 0,
-  showZero: true,
-};
-
-// Maximum Value
 export const MaxValue: Story = Template.bind({});
 MaxValue.args = {
-  ...Content.args,
+  ...Default.args,
   badgeContent: 1000,
   max: 999,
 };
 
-// Badge Alignment
-export const Alignment: Story = Template.bind({});
-Alignment.args = {
-  ...Content.args,
-  anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
-};
-
-export const OnlineStatus: Story = Template.bind({});
-OnlineStatus.args = {
-  ...Dot.args,
-  children: <DemoAvatar />,
-  variant: 'dot',
-  color: 'success-mid',
-  anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
-  'aria-label': 'Online status',
-};
-
-export const AvatarBadge: Story = Template.bind({});
-AvatarBadge.args = {
-  ...Content.args,
-
-  children: <DemoAvatar />,
-  variant: 'standard',
-  color: 'transparent',
-  badgeContent: (
-    <Avatar src="https://picsum.photos/600/400" alt="Collaborator avatar" size="xs" shape="circle" />
-  ),
-  anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
-  'aria-label': 'Collaborator avatar',
-};
-export const CombinedBadges: Story = Template.bind({});
-CombinedBadges.args = {
-  ...Content.args,
-
-  children: (
-    <Badge
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      color="transparent"
-      badgeContent={
-        <Avatar src="https://picsum.photos/600/400" alt="Collaborator avatar" size="xs" shape="circle" />
-      }
-      variant="standard"
-    >
-      <DemoAvatar />
-    </Badge>
-  ),
-  variant: 'dot',
-  color: 'success-mid',
-  anchorOrigin: { vertical: 'top', horizontal: 'right' },
-  'aria-label': 'Online status and collaborator',
+export const ShowZero: Story = Template.bind({});
+ShowZero.args = {
+  ...Default.args,
+  badgeContent: 0,
+  showZero: true,
 };

@@ -3040,7 +3040,120 @@ Connect Avatars
 utilities 
 */
 
+/* Positioning */
+
+// Position utility classes
+@mixin position-transform($x, $y, $originX, $originY) {
+  transform: scale(1) translate($x, $y);
+  transform-origin: $originX $originY;
+}
+
+.connect__position {
+  &-top {
+    &-right {
+      right: 0;
+      top: 0;
+      @include position-transform(50%, -50%, 100%, 0%);
+    }
+
+    &-left {
+      left: 0;
+      top: 0;
+      @include position-transform(-50%, -50%, 0%, 0%);
+    }
+
+    &-center {
+      left: 50%;
+      top: 0;
+      @include position-transform(-50%, -50%, 50%, 0%);
+    }
+  }
+
+  &-bottom {
+    &-right {
+      bottom: 0;
+      right: 0;
+      @include position-transform(50%, 50%, 100%, 100%);
+    }
+
+    &-left {
+      bottom: 0;
+      left: 0;
+      @include position-transform(-50%, 50%, 0%, 100%);
+    }
+
+    &-center {
+      bottom: 0;
+      left: 50%;
+      @include position-transform(-50%, 50%, 50%, 100%);
+    }
+  }
+
+  &-center {
+    &-right {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-left {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-center {
+      left: 50%;
+      top: 50%;
+      @include position-transform(-50%, -50%, 50%, 50%);
+    }
+  }
+}
+
 .connect__visually-hidden {
   left: -9999px;
   position: absolute;
 }
+
+/* 
+Motion
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: var(--connect__opacity-zero);
+  }
+  to {
+    opacity: var(--connect__opacity-one);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes connect-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+

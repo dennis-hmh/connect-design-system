@@ -1,36 +1,28 @@
 import React from 'react';
-import { Color } from '../../utils/colors';
 import { Typography, TypographyProps } from '../Typography/Typography';
+import { Position, getPositionClass } from '../../utils/position';
 import { GradeBand } from '../../enum/gradeband';
 
-type BadgeAnchorOrigin = {
-  vertical: 'top' | 'bottom' | 'center';
-  horizontal: 'left' | 'right' | 'center';
-};
-
-
-export interface BadgeProps {
-  children?: React.ReactNode;
-  badgeContent?: React.ReactNode;
-  anchorOrigin?: BadgeAnchorOrigin;
+export type BadgeProps = {
+  children: React.ReactNode;
+  badgeContent?: React.ReactNode | number;
+  placement?: Position;
   variant?: 'dot' | 'standard' | 'invisible';
-  color?: Color;
-  size?: TypographyProps['size'];
   max?: number;
   showZero?: boolean;
   className?: string;
   dataTestId?: string;
-  gradeBand?: GradeBand;
   'aria-label'?: string;
-}
+  gradeBand?: GradeBand;
+} & Pick<TypographyProps, 'color' | 'size'>;
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
   badgeContent,
-  anchorOrigin = { vertical: 'top', horizontal: 'right' },
-  variant = 'dot',
+  placement = 'top-right',
+  variant = 'standard',
   color = 'primary-mid',
-  size = 'caption', // Default to caption size
+  size = 'caption',
   max,
   showZero = false,
   className = '',
@@ -60,9 +52,10 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const badgeClassName = [
     'connect__badge',
+    'connect__position',
+    getPositionClass(placement),
     `connect__badge-${variant}`,
     `connect__badge-${size}`,
-    `connect__badge-${anchorOrigin.vertical}-${anchorOrigin.horizontal}`,
     className,
   ]
     .filter(Boolean)
