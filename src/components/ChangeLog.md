@@ -5,6 +5,7 @@
 #### Changelog:
 
 - Fix to images in Storybook
+- Overflow prop added to grid
 
 #### Repo:
 
