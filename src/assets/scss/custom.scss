@@ -2542,12 +2542,6 @@ Divider can be vertical or horizontal
   );
 }
 
-.connect__typography {
-  font-weight: var(--connect__fw, var(--connect__fw-regular));
-  hyphens: auto;
-  margin: 0;
-}
-
 /* 
 These styles apply to elements with classes that include '-correct'.
 
@@ -2638,23 +2632,6 @@ Cover Text / Cursors / Iconography
   --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
-}
-
-.connect__full-width {
-  width: var(--connect__full-w);
-}
-
-/* 
-To be fleshed out / moved
-*/
-
-.connect__contain {
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center center;
-  width: auto;
 }
 
 .connect__alert {
@@ -2868,4 +2845,21 @@ utilities
 .connect__visually-hidden {
   left: -9999px;
   position: absolute;
+}
+
+.connect__full-width {
+  width: var(--connect__full-w);
+}
+
+/* 
+To be fleshed out / moved
+*/
+
+.connect__contain {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+  width: auto;
 }
