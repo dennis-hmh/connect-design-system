@@ -2653,22 +2653,13 @@ Cover Text / Cursors / Iconography
 
   background-color: var(--connect__surface-white);
   border-radius: var(--connect__inner-radius);
-  color: var(--connect__hint-mid);
   display: var(--variant__hint-display, var(--connect__display-block));
-  font-family: var(--connect__font-sans);
-  font-size: var(--connect__credits);
-  font-style: var(--connect__style-italic);
-  font-weight: var(--connect__fw-regular);
   left: 0;
-  line-height: var(--connect__credits-lheight);
   max-width: var(--connect__hint-max-w);
-  overflow: var(--connect__overflow-hidden);
   padding: 0 var(--connect__effects-inner-edge);
   position: var(--connect__absolute);
-  text-overflow: var(--connect__text-ellipsis);
   top: 0;
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
-  white-space: var(--connect__white-space-nowrap);
   z-index: 2;
 }
 
