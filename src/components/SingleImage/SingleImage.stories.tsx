@@ -30,9 +30,9 @@ const Template: StoryFn<SingleImageProps & { gradeBand: GradeBand }> = (args) =>
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  imageSrc: '/images/default.jpg',
-  altText: 'A picture of a gradient pattern',
-  caption: 'A picture of a gradient pattern',
+  imageSrc: '/images/default.png',
+  altText: 'HMH\'s logo',
+  caption: 'HMH Logo',
   cite: 'https://unsplash.com/',
   gradeBand: GradeBand.G4_5,
 };
