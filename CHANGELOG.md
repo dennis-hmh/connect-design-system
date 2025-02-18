@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.18.15
+
+### Patch Changes
+
+- c6e2aad: - Stack now matches mui initial values - removed the need to use xs
+
 ## 1.18.14
 
 ### Patch Changes
