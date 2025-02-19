@@ -2528,12 +2528,6 @@ Divider can be vertical or horizontal
   );
 }
 
-.connect__typography {
-  font-weight: var(--connect__fw, var(--connect__fw-regular));
-  hyphens: auto;
-  margin: 0;
-}
-
 /* 
 These styles apply to elements with classes that include '-correct'.
 
@@ -2626,23 +2620,6 @@ Cover Text / Cursors / Iconography
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
-.connect__full-width {
-  width: var(--connect__full-w);
-}
-
-/* 
-To be fleshed out / moved
-*/
-
-.connect__contain {
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center center;
-  width: auto;
-}
-
 .connect__alert {
   .connect__button-menu {
     --connect__btn-padding-y: var(--connect__spacer-xs);
@@ -2662,22 +2639,13 @@ To be fleshed out / moved
 
   background-color: var(--connect__surface-white);
   border-radius: var(--connect__inner-radius);
-  color: var(--connect__hint-mid);
   display: var(--variant__hint-display, var(--connect__display-block));
-  font-family: var(--connect__font-sans);
-  font-size: var(--connect__credits);
-  font-style: var(--connect__style-italic);
-  font-weight: var(--connect__fw-regular);
   left: 0;
-  line-height: var(--connect__credits-lheight);
   max-width: var(--connect__hint-max-w);
-  overflow: var(--connect__overflow-hidden);
   padding: 0 var(--connect__effects-inner-edge);
   position: var(--connect__absolute);
-  text-overflow: var(--connect__text-ellipsis);
   top: 0;
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
-  white-space: var(--connect__white-space-nowrap);
   z-index: 2;
 }
 
@@ -2854,4 +2822,21 @@ utilities
 .connect__visually-hidden {
   left: -9999px;
   position: absolute;
+}
+
+.connect__full-width {
+  width: var(--connect__full-w);
+}
+
+/* 
+To be fleshed out / moved
+*/
+
+.connect__contain {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+  width: auto;
 }
