@@ -36,10 +36,9 @@ Default.args = {
     <Avatar src="https://picsum.photos/600/400" alt="User avatar" size="md" shape="circle" />
   ),
   badgeContent: 4,
-  placement: 'top-right',
+  anchorOrigin: { vertical: 'top', horizontal: 'right' },
   variant: 'standard',
   color: 'primary-mid',
-  size: 'caption',
   max: undefined,
   showZero: false,
   gradeBand: GradeBand.G4_5,
@@ -58,7 +57,7 @@ Dot.args = {
 export const CustomPlacement: Story = Template.bind({});
 CustomPlacement.args = {
   ...Default.args,
-  placement: 'bottom-left',
+  anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
   color: 'error-mid',
 };
 

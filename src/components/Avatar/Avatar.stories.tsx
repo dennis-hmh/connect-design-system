@@ -32,7 +32,6 @@ const Template: StoryFn<AvatarProps> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   children: 'JD',
-  size: 'md',
   shape: 'circle',
   backgroundColor: 'primary-mid',
   color: 'white',
@@ -44,32 +43,6 @@ ImageAvatar.args = {
   ...Default.args,
   src: 'https://picsum.photos/600/400',
   alt: 'User avatar',
-};
-
-export const SmallAvatar: Story = Template.bind({});
-SmallAvatar.args = {
-  ...Default.args,
-  size: 'sm',
-};
-
-export const LargeAvatar: Story = Template.bind({});
-LargeAvatar.args = {
-  ...Default.args,
-  size: 'lg',
-};
-
-export const ImageLargeAvatar: Story = Template.bind({});
-ImageLargeAvatar.args = {
-  ...Default.args,
-  src: 'https://picsum.photos/600/400',
-  alt: 'User avatar',
-  size: 'lg',
-};
-
-export const ExtraLargeAvatar: Story = Template.bind({});
-ExtraLargeAvatar.args = {
-  ...Default.args,
-  size: 'xl',
 };
 
 export const SquareAvatar: Story = Template.bind({});

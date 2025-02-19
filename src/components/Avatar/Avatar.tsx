@@ -5,27 +5,29 @@ import { GradeBand } from '../../enum/gradeband';
 import { Color } from '../../utils/colors';
 
 type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+type FontSize = 'body-sm' | 'caption' | 'credits';
 type Shape = 'circle' | 'square' | 'rounded';
 
 export type AvatarProps = {
   children?: React.ReactNode;
   src?: string;
   alt: string;
-  iconSize?: IconSize;
+  size?: IconSize;
+  fontSize?: FontSize;
   backgroundColor?: Color;
   shape?: Shape;
   element?: React.ElementType;
   className?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
-} & Pick<TypographyProps, 'color' | 'size' | 'weight'>;
+} & Pick<TypographyProps, 'color' | 'weight'>;
 
 export const Avatar: React.FC<AvatarProps> = ({
   children,
   src,
   alt,
-  iconSize = 'sm',
-  size = 'body-sm',
+  size = 'sm',
+  fontSize = 'credits',
   backgroundColor = 'surface-mid',
   shape = 'circle',
   color = 'white',
@@ -42,8 +44,6 @@ export const Avatar: React.FC<AvatarProps> = ({
     return alt || 'Avatar';
   };
 
-  // Dunno if this is the best way to do it, we also def don't need all these right now
-  // But with ED we absolutely do
   const getShapeClass = () => {
     switch (shape) {
       case 'circle':
@@ -57,25 +57,15 @@ export const Avatar: React.FC<AvatarProps> = ({
     }
   };
 
-  const getIconSize = () => {
-    switch (iconSize) {
-      case 'xs':
-        return 'var(--connect__icon-xs)';
-      case 'sm':
-        return 'var(--connect__icon-sm)';
-      case 'md':
-        return 'var(--connect__icon-md)';
-      case 'lg':
-        return 'var(--connect__icon-lg)';
-      case 'xl':
-        return 'var(--connect__icon-xl)';
-      case 'xxl':
-        return 'var(--connect__icon-xxl)';
-      case 'zero':
-        return 'auto';
-      default:
-        return 'var(--connect__icon-md)';
-    }
+  const getAvatarClassName = () => {
+    const classes = [
+      'connect__avatar',
+      getShapeClass(),
+      !src && typeof children === 'string' ? `connect__avatar-text connect__text-${fontSize}` : '',
+      className,
+    ].filter(Boolean);
+
+    return classes.join(' ');
   };
 
   const renderContent = () => {
@@ -85,21 +75,14 @@ export const Avatar: React.FC<AvatarProps> = ({
           imageSrc={src}
           altText={alt}
           roundedCorners={shape === 'circle'}
-          className="connect__avatar-img"
+          className={`connect__avatar-img connect__icon-${size}`}
           aria-hidden="false"
         />
       );
     }
     if (typeof children === 'string') {
       return (
-        <Typography
-          element="span"
-          size={size}
-          weight={weight}
-          className="connect__avatar-text"
-          color={color}
-          aria-hidden="true"
-        >
+        <Typography element="p" size={fontSize} weight={weight} color={color} aria-hidden="true">
           {children}
         </Typography>
       );
@@ -109,13 +92,11 @@ export const Avatar: React.FC<AvatarProps> = ({
 
   const avatarStyle = {
     '--connect__avatar-bg': `var(--connect__${backgroundColor})`,
-    width: getIconSize(),
-    height: getIconSize(),
   } as React.CSSProperties;
 
   return (
     <Component
-      className={`connect__avatar ${getShapeClass()} ${className || ''}`}
+      className={getAvatarClassName()}
       style={avatarStyle}
       data-testid={dataTestId}
       role="img"

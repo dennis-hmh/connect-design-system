@@ -2856,6 +2856,8 @@ connect__toolbar
   }
 }
 
+//badge 
+
 /*
 |---------------|---------------------------------|--------------------------------|
  Avatar Avatar Group & Badge Styles to come these values may change slightly 
@@ -2868,11 +2870,32 @@ Connect Avatars
 
 .connect__avatar {
   align-items: var(--connect__align-center);
-  background-color: var(--connect__avatar-bg);
-  border-radius: (var(--connect__avatar-radius));
+  border-radius: var(--connect__avatar-radius);
   display: var(--connect__display-flex);
   justify-content: var(--connect__justify-center);
   overflow: var(--connect__overflow-hidden);
+}
+
+.connect__avatar-text {
+  background-color: var(--connect__avatar-bg);
+  height: var(--connect__credits-lheight);
+  width: var(--connect__credits-lheight);
+  padding: 0 var(--connect__spacer-xs);
+
+  &.connect__text-body-sm {
+    height: var(--connect__body-sm-lheight);
+    width: var(--connect__body-sm-lheight);
+  }
+
+  &.connect__text-caption {
+    height: var(--connect__caption-lheight);
+    width: var(--connect__caption-lheight);
+  }
+
+  &.connect__text-credits {
+    height: var(--connect__credits-lheight);
+    width: var(--connect__credits-lheight);
+  }
 }
 
 .connect__avatar-circle {
@@ -2888,9 +2911,9 @@ Connect Avatars
 }
 
 .connect__avatar-img {
-  height: var(--connect__full-h);
+  height: var(--connect__icon-size);
   object-fit: cover;
-  width: var(--connect__full-w);
+  width: var(--connect__icon-size);
 }
 
 /* 
@@ -2949,9 +2972,6 @@ Connect Avatars
   display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
   justify-content: var(--connect__align-center);
-  min-height: var(--connect__spacer-md);
-  min-width: var(--connect__spacer-md);
-  padding: 0 var(--connect__spacer-xs);
   position: var(--connect__absolute);
   transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1;
@@ -2961,76 +2981,17 @@ Connect Avatars
   }
 }
 
+.connect__badge-text {
+  min-height: var(--connect__credits-lheight);
+  min-width: var(--connect__credits-lheight);
+  padding: 0 var(--connect__spacer-xs);
+}
+
 .connect__badge-dot {
   border-radius: var(--connect__half-radius);
   min-height: var(--connect__spacer-sm);
   min-width: var(--connect__spacer-sm);
-  padding: 0;
 }
-
-.connect__badge-top-right {
-  right: 0;
-  top: 0;
-  transform: scale(1) translate(50%, -50%);
-  transform-origin: 100% 0%;
-}
-
-.connect__badge-top-left {
-  left: 0;
-  top: 0;
-  transform: scale(1) translate(-50%, -50%);
-  transform-origin: 0% 0%;
-}
-
-.connect__badge-top-center {
-  left: 50%;
-  top: 0;
-  transform: scale(1) translate(-50%, -50%);
-  transform-origin: 50% 0%;
-}
-
-.connect__badge-bottom-right {
-  bottom: 0;
-  right: 0;
-  transform: scale(1) translate(50%, 50%);
-  transform-origin: 100% 100%;
-}
-
-.connect__badge-bottom-left {
-  bottom: 0;
-  left: 0;
-  transform: scale(1) translate(-50%, 50%);
-  transform-origin: 0% 100%;
-}
-
-.connect__badge-bottom-center {
-  bottom: 0;
-  left: 50%;
-  transform: scale(1) translate(-50%, 50%);
-  transform-origin: 50% 100%;
-}
-
-.connect__badge-center-right {
-  right: 0;
-  top: 50%;
-  transform: scale(1) translate(50%, -50%);
-  transform-origin: 100% 50%;
-}
-
-.connect__badge-center-left {
-  left: 0;
-  top: 50%;
-  transform: scale(1) translate(-50%, -50%);
-  transform-origin: 0% 50%;
-}
-
-.connect__badge-center-center {
-  left: 50%;
-  top: 50%;
-  transform: scale(1) translate(-50%, -50%);
-  transform-origin: 50% 50%;
-}
-
 /* Invisible variant */
 .connect__badge-invisible {
   --variant-badge-display: var(--connect__display-none);
@@ -3042,13 +3003,14 @@ utilities
 
 /* Positioning */
 
-// Position utility classes
 @mixin position-transform($x, $y, $originX, $originY) {
   transform: scale(1) translate($x, $y);
   transform-origin: $originX $originY;
 }
 
 .connect__position {
+  position: absolute;
+  // Badge positions
   &-top {
     &-right {
       right: 0;
@@ -3108,6 +3070,87 @@ utilities
       @include position-transform(-50%, -50%, 50%, 50%);
     }
   }
+
+  // Tooltip positions
+  &-top {
+    &-end {
+      top: 0;
+      right: 0;
+      @include position-transform(50%, -50%, 100%, 0%);
+    }
+
+    &-start {
+      top: 0;
+      left: 0;
+      @include position-transform(-50%, -50%, 0%, 0%);
+    }
+
+    &-center {
+      top: 0;
+      left: 50%;
+      @include position-transform(-50%, -50%, 50%, 0%);
+    }
+  }
+
+  &-bottom {
+    &-end {
+      bottom: 0;
+      right: 0;
+      @include position-transform(50%, 50%, 100%, 100%);
+    }
+
+    &-start {
+      bottom: 0;
+      left: 0;
+      @include position-transform(-50%, 50%, 0%, 100%);
+    }
+
+    &-center {
+      bottom: 0;
+      left: 50%;
+      @include position-transform(-50%, 50%, 50%, 100%);
+    }
+  }
+
+  &-left {
+    &-end {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-start {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-center {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+  }
+
+  &-right {
+    &-end {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-start {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-center {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+  }
 }
 
 .connect__visually-hidden {
@@ -3155,5 +3198,4 @@ Motion
     transform: rotate(360deg);
   }
 }
-
 
