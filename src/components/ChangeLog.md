@@ -1,3 +1,21 @@
+### v1.19.2 Release Notice
+
+### Release date: February 19, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Type definations added to package.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
 ### v1.19.1 Release Notice
 
 ### Release date: February 18, 2025
@@ -57,7 +75,7 @@
 #### Changelog:
 
 - Stack now matches mui initial values
-- removed the need to use xs 
+- removed the need to use xs
 
 #### Repo:
 
