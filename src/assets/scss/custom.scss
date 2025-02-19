@@ -2816,13 +2816,14 @@ utilities
 
 /* Positioning */
 
-// Position utility classes
 @mixin position-transform($x, $y, $originX, $originY) {
   transform: scale(1) translate($x, $y);
   transform-origin: $originX $originY;
 }
 
 .connect__position {
+  position: absolute;
+  // Badge positions
   &-top {
     &-right {
       right: 0;
@@ -2880,6 +2881,87 @@ utilities
       left: 50%;
       top: 50%;
       @include position-transform(-50%, -50%, 50%, 50%);
+    }
+  }
+
+  // Tooltip positions
+  &-top {
+    &-end {
+      top: 0;
+      right: 0;
+      @include position-transform(50%, -50%, 100%, 0%);
+    }
+
+    &-start {
+      top: 0;
+      left: 0;
+      @include position-transform(-50%, -50%, 0%, 0%);
+    }
+
+    &-center {
+      top: 0;
+      left: 50%;
+      @include position-transform(-50%, -50%, 50%, 0%);
+    }
+  }
+
+  &-bottom {
+    &-end {
+      bottom: 0;
+      right: 0;
+      @include position-transform(50%, 50%, 100%, 100%);
+    }
+
+    &-start {
+      bottom: 0;
+      left: 0;
+      @include position-transform(-50%, 50%, 0%, 100%);
+    }
+
+    &-center {
+      bottom: 0;
+      left: 50%;
+      @include position-transform(-50%, 50%, 50%, 100%);
+    }
+  }
+
+  &-left {
+    &-end {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-start {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-center {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+  }
+
+  &-right {
+    &-end {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-start {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-center {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
     }
   }
 }
