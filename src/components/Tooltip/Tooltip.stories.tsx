@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Tooltip, TooltipProps } from './Tooltip';
+import { Stack } from '../Stack/Stack';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'wip/Tooltip',
@@ -20,15 +20,12 @@ type Story = StoryObj<typeof Tooltip>;
 
 const Template: StoryFn<TooltipProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
-
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-      <div ref={themeWrapperRef}>
-        <ButtonMenuProvider>
-          <Tooltip {...args} />
-        </ButtonMenuProvider>
+      <div ref={themeWrapperRef} style={{ position: 'relative' }}>
+        <Tooltip {...args} />
       </div>
     </ConnectTheme>
   );
@@ -38,7 +35,9 @@ export const Default: Story = Template.bind({});
 Default.args = {
   title: 'This is a tooltip',
   children: <ButtonMenu id="info" iconId="info" iconSize="md" ariaLabel="Info" />,
+  color: 'white',
   placement: 'top',
+  elevation: 4,
   disableInteractive: false,
   disableTouchListener: false,
   describeChild: false,
@@ -66,6 +65,5 @@ export const CustomStyle: Story = Template.bind({});
 CustomStyle.args = {
   ...Default.args,
   backgroundColor: 'primary-mid',
-  color: 'white',
   children: <ButtonMenu id="info" iconId="info" iconSize="lg" ariaLabel="Information" />,
 };
