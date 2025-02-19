@@ -106,28 +106,83 @@ import { Stack } from './components/Stack/Stack';
 function Example() {
   return (
     <Stack
-      className="custom-stack"
-      dataTestId="example-stack"
-      xs={{ direction: 'column', spacing: 'xs' }}
-      md={{
-        direction: 'row',
-        spacing: 'md',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
-      lg={{ spacing: 'lg', paddingX: 'md', paddingY: 'sm' }}
+  spacing="md"
+  paddingX="lg"
+  paddingY="xs"
+  md={{ paddingY: "lg" }}
+  lg={{ paddingY: "xs" }}
+  xl={{ paddingY: "xl" }}
+>
+  <Stack
+    xl={{
+      flexWrap: "nowrap"
+    }}
+    alignItems="start"
+    direction="row"
+    flexWrap="wrap"
+    spacing="lg"
+  >
+    <Stack>  </Stack>
+  </Stack>
+
+  <Stack direction="row" flexWrap="wrap" spacing="xs" alignItems="start">
+    <Stack
+      xs={{ paddingY: "xl" }}
+      flex="fill"
+      direction="row"
+      spacing="md"
+      alignItems="center"
+      justifyContent="space-between"
     >
-      <div>Item 1</div>
-      <div>Item 2</div>
-      <div>Item 3</div>
+      <Stack direction="row" spacing="md" alignItems="center"></Stack>
     </Stack>
+  </Stack>
+
+  <Stack spacing="xs" alignItems="center" paddingY="md"></Stack>
+</Stack>
   );
 }
 
 export default Example;
 ```
 
-In this example, the `Stack` component is used to arrange three div elements. At the smallest screen size (`xs`), the items are arranged in a column with extra-small spacing between them. As the screen size increases to medium (`md`), the direction changes to a row, with medium spacing, centered alignment, and space-between justification. At large screen sizes (`lg`), the spacing increases to large, with medium horizontal padding (`paddingX`) and small vertical padding (`paddingY`).
+In this example, the `Stack` component demonstrates its flexible layout capabilities:
+
+1. The outer Stack shows responsive padding:
+   - Base: medium spacing, large horizontal padding, extra-small vertical padding
+   - Medium screens: changes to large vertical padding
+   - Large screens: changes to extra-small vertical padding
+   - Extra-large screens: changes to extra-large vertical padding
+
+2. First nested Stack shows:
+   - Row direction with wrap enabled
+   - Start alignment
+   - Large spacing between items
+   - Responsive behavior at xl breakpoint (nowrap)
+
+3. Second nested Stack demonstrates:
+   - Row direction with wrap
+   - Start alignment
+   - Extra-small spacing
+   - Contains a child Stack that:
+     - Fills available space (flex="fill")
+     - Uses row direction
+     - Has medium spacing
+     - Centers items vertically
+     - Distributes items with space-between
+     - Extra-large vertical padding at xs breakpoint
+
+4. Final Stack shows:
+   - Extra-small spacing
+   - Centered alignment
+   - Medium vertical padding
+
+The Stack component supports:
+- Responsive breakpoints (xs, sm, md, lg, xl)
+- Flexible layout properties (direction, spacing, alignment, justification)
+- Padding controls (paddingX, paddingY)
+- Flex behavior customization
+- Custom styling and element types
 
 ## Complex Example
 
@@ -142,7 +197,8 @@ function ComplexExample() {
     <Stack
       direction="column"
       spacing="lg"
-      xs={{ alignItems: 'center', justifyContent: 'center' }}
+      alignItems="center"
+      justifyContent="center"
       md={{ direction: 'row', spacing: 'md', alignItems: 'flex-start' }}
       lg={{ spacing: 'xl', paddingX: 'lg', paddingY: 'md' }}
     >
@@ -150,23 +206,23 @@ function ComplexExample() {
         direction="row"
         spacing="sm"
         flexWrap="wrap"
-        xs={{ justifyContent: 'space-around' }}
+        justifyContent="space-around"
         md={{ justifyContent: 'space-between' }}
       >
-        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+        <Stack element="div" lg={{ flex: 'fill' }}>
           Item 1
         </Stack>
-        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+        <Stack element="div" lg={{ flex: 'fill' }}>
           Item 2
         </Stack>
-        <Stack element="div" lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}>
+        <Stack element="div" lg={{ flex: 'fill' }}>
           Item 3
         </Stack>
       </Stack>
       <Stack
         direction="column"
         spacing="md"
-        xs={{ alignItems: 'center' }}
+        alignItems="center"
         md={{ alignItems: 'flex-start' }}
       >
         <Stack element="div">Item 4</Stack>
@@ -181,23 +237,50 @@ export default ComplexExample;
 
 ### Explanation of the Complex Example
 
-In this example, the outer `Stack` component is configured to display its children in a column direction with large spacing between them. The layout adjusts based on the screen size using responsive breakpoints:
+In this example, the outer `Stack` component demonstrates responsive layout with base styles and breakpoint adjustments:
 
-- **Extra Small Screens (`xs`)**: 
-  - The items are centered both vertically and horizontally within the Stack. This is achieved by setting `alignItems` and `justifyContent` to `center`.
+Base Configuration:
+- Column direction layout
+- Large spacing between items
+- Centered alignment (both `alignItems` and `justifyContent` set to "center")
 
+Responsive Breakpoints:
 - **Medium Screens (`md`)**: 
-  - The direction of the Stack changes to a row, allowing items to be arranged side by side. The spacing between items is set to medium, and the items are aligned to the start of the flex container using `alignItems: 'flex-start'`.
-
+  - Transforms into row layout
+  - Reduces spacing to medium
+  - Aligns items to flex-start
+  
 - **Large Screens (`lg`)**: 
-  - The spacing between items increases to extra-large, and additional padding is applied to the Stack with `paddingX` set to large and `paddingY` set to medium. This enhances the overall layout and spacing on larger displays.
+  - Increases spacing to extra-large
+  - Adds large horizontal padding
+  - Adds medium vertical padding
 
-Inside the outer Stack, there are two inner Stack components:
+Inside the outer Stack are two main sections:
 
 1. **First Inner Stack**: 
-   - This Stack is set to a row direction with small spacing between its items. It wraps its children if necessary, ensuring that they fit within the available width. Each item is a `Stack` component with the `element` prop set to `div`, and it has a custom flex value defined for large screens: `lg={{ flex: '0 0 calc(50% - var(--connect__stack-spacing))' }}`. This calculation allows each item to take up half of the available width minus a small spacer, ensuring a responsive layout.
+   - Base configuration:
+     - Row direction
+     - Small spacing
+     - Wrap enabled
+     - Space-around justification
+   - Medium screens (`md`):
+     - Changes justification to space-between
+   - Contains three Stack items that:
+     - Use div elements
+     - Expand to fill available space on large screens with `flex: 'fill'`
 
 2. **Second Inner Stack**: 
-   - This Stack is set to a column direction with medium spacing between its items. On extra small screens, the items are centered, while on medium screens, they align to the start of the flex container. The items in this Stack are also `Stack` components with the `element` prop set to `div`, allowing for consistent styling and layout management.
+   - Base configuration:
+     - Column direction
+     - Medium spacing
+     - Center alignment
+   - Medium screens (`md`):
+     - Changes alignment to flex-start
+   - Contains two simple Stack elements rendered as divs
 
-This complex example demonstrates how to effectively use the `Stack` component's features to create a responsive and flexible layout that adapts to different screen sizes while maintaining a clean and organized structure.
+This complex example showcases:
+- Direct props for base styles instead of xs breakpoint objects
+- Responsive layout changes through breakpoints
+- Nested Stack components for complex layouts
+- Flexible item sizing using the 'fill' preset
+- Consistent spacing and alignment patterns
