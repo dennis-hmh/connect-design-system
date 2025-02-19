@@ -1,5 +1,14 @@
 # @connect/connect-design-system
 
+## 1.19.5
+
+### Patch Changes
+
+- 49374c1: - New Component: N/A
+  - Updated Component: `<Dropdown />` simplified. onClear prop added.
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.19.4
 
 ### Patch Changes
