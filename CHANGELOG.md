@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.19.2
+
+### Patch Changes
+
+- b1257a6: Hint component now uses Typography
+
 ## 1.19.1
 
 ### Patch Changes
