@@ -1,3 +1,23 @@
+### v1.19.4 Release Notice
+
+### Release date: Fecruary 19, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Type definations added to package.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.19.3 Release Notice
 
 ### Release date: February 19, 2025
@@ -91,7 +111,7 @@
 #### Changelog:
 
 - Stack now matches mui initial values
-- removed the need to use xs 
+- removed the need to use xs
 
 #### Repo:
 
@@ -151,6 +171,7 @@
   - `<Checkbox />`: checked prop fixed
   - `<MultipleChoiceQuestionImage />`: checked prop fixed
   - `<Image />`: Default image src updated
+  - `<Stack />`: CSS fallbacks removed, updated to MUI defaults.
 - Bug Fix: N/A
 - Other:
   - Storybook stories alignment update
