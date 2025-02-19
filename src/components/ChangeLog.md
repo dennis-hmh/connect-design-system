@@ -1,3 +1,23 @@
+### v1.19.5 Release Notice
+
+### Release date: Fecruary 19, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Dropdown />` simplified. onClear prop added.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.19.4 Release Notice
 
 ### Release date: Fecruary 19, 2025
