@@ -1,3 +1,20 @@
+### v1.19.3 Release Notice
+
+### Release date: February 19, 2025
+
+#### Changelog:
+
+- Stack now uses zero as initial padding value, removal of xs class as should be considered defaults
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.19.2 Release Notice
 
 ### Release date: February 19, 2025
