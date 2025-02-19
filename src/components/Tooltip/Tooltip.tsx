@@ -15,13 +15,13 @@ export type TooltipProps = {
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
-  dataTestId?: string;
-  gradeBand?: GradeBand;
   describeChild?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
   disableInteractive?: boolean;
   disableTouchListener?: boolean;
+  dataTestId?: string;
+  gradeBand?: GradeBand;
 } & Pick<TypographyProps, 'color' | 'textWrap'>;
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -35,12 +35,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
   open: controlledOpen,
   onOpen,
   onClose,
-  dataTestId,
   describeChild = false,
   enterDelay = 0,
   leaveDelay = 0,
   disableInteractive = false,
   disableTouchListener = false,
+  dataTestId,
   ...typographyProps
 }) => {
   const [isVisible, setIsVisible] = useState(false);
