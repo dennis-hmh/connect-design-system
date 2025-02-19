@@ -1,5 +1,14 @@
 # @connect/connect-design-system
 
+## 1.19.4
+
+### Patch Changes
+
+- bdf8168: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Type definations added to package.
+
 ## 1.19.3
 
 ### Patch Changes

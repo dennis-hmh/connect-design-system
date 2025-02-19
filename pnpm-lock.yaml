@@ -37,9 +37,6 @@ devDependencies:
   '@eslint/js':
     specifier: ^9.13.0
     version: 9.16.0
-  '@microsoft/api-extractor':
-    specifier: ^7.50.0
-    version: 7.50.0(@types/node@20.17.9)
   '@storybook/addon-a11y':
     specifier: ^8.5.1
     version: 8.5.1(storybook@8.5.1)(vitest@2.1.8)
