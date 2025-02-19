@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.19.3
+
+### Patch Changes
+
+- 89106a2: Stack now uses zero as initial padding value, removal of xs class as should be considered defaults
+
+## 1.19.2
+
+### Patch Changes
+
+- b1257a6: Hint component now uses Typography
+
 ## 1.19.1
 
 ### Patch Changes
