@@ -4,7 +4,6 @@ import { GradeBand } from 'src/enum/gradeband';
 
 type DropdownItem = {
   label: string;
-  ariaSelected?: boolean;
   disabled?: boolean;
 };
 
@@ -75,13 +74,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
     onClear?.();
   };
 
-  const dropdownData = useMemo(() => {
-    return data.map((item) => ({
-      ...item,
-      ariaSelected: selectedValue === item.label,
-    }));
-  }, [data, selectedValue]);
-
   return (
     <label className="connect__dropdown-wrapper">
       <div
@@ -106,11 +98,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
         <div className="connect__feedback-stamp"></div>
         {hint && <Hint>{hint}</Hint>}
         <div className="connect__dropdown-menu" aria-labelledby="connect__dropdown-label">
-          <DropdownMenu
-            data={dropdownData}
-            onItemClick={handleItemClick}
-            selectedValue={selectedValue}
-          />
+          <DropdownMenu data={data} onItemClick={handleItemClick} selectedValue={selectedValue} />
         </div>
       </div>
       {onClear && (

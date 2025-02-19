@@ -52,24 +52,21 @@ DropdownStates.args = {
   ...Default.args,
   children: 'Select an option',
   data: [
-    { label: 'Option 1', ariaSelected: false },
+    { label: 'Option 1' },
     {
       label: 'Disabled Option 2',
-      ariaSelected: false,
       disabled: true,
     },
     {
       label: 'Disabled Selected',
-      ariaSelected: true,
       disabled: true,
     },
-    { label: 'Option 4', ariaSelected: false },
+    { label: 'Option 4' },
     {
       label: 'Option 5 is going to be very long',
-      ariaSelected: false,
     },
-    { label: 'Option 6', ariaSelected: false },
-    { label: 'Option 7', ariaSelected: false },
+    { label: 'Option 6' },
+    { label: 'Option 7' },
   ],
   disabled: false,
 };
