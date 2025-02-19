@@ -7,7 +7,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: 'wip/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   parameters: {
@@ -38,49 +38,28 @@ export const Default: Story = Template.bind({});
 Default.args = {
   title: 'This is a tooltip',
   children: <ButtonMenu id="info" iconId="info" iconSize="md" ariaLabel="Info" />,
-  placement: 'top-center',
-  backgroundColor: 'surface-dark',
-  color: 'white',
-  size: 'caption',
-  elevation: 4,
-  enterDelay: 200,
-  leaveDelay: 0,
+  placement: 'top',
   disableInteractive: false,
   disableTouchListener: false,
   describeChild: false,
   gradeBand: GradeBand.G4_5,
 };
 
-export const WithLongContent: Story = Template.bind({});
-WithLongContent.args = {
-  ...Default.args,
-  title: 'This is a tooltip with much longer content that might wrap to multiple lines',
-  size: 'body-md',
-  textWrap: 'wrap',
-};
+// This works but need a max width from design so ignore for now
+
+// export const WithLongContent: Story = Template.bind({});
+// WithLongContent.args = {
+//   ...Default.args,
+//   title: 'This is a tooltip with much longer content that might wrap to multiple lines',
+//   placement: 'bottom',
+//   textWrap: 'wrap',
+// };
 
 export const WithCustomPlacement: Story = Template.bind({});
 WithCustomPlacement.args = {
   ...Default.args,
-  placement: 'center-right',
+  placement: 'right-start',
   children: <ButtonMenu id="desmos" iconId="desmos" iconSize="md" ariaLabel="Desmos Calculator" />,
-};
-
-export const Interactive: Story = Template.bind({});
-Interactive.args = {
-  ...Default.args,
-  title: 'Hover over me for a while',
-  disableInteractive: false,
-  enterDelay: 500,
-  leaveDelay: 200,
-  children: (
-    <ButtonMenu
-      id="groupActivity"
-      iconId="groupActivity"
-      iconSize="md"
-      ariaLabel="Group Activity"
-    />
-  ),
 };
 
 export const CustomStyle: Story = Template.bind({});
@@ -88,9 +67,5 @@ CustomStyle.args = {
   ...Default.args,
   backgroundColor: 'primary-mid',
   color: 'white',
-  size: 'body-md',
-  style: 'italic',
-  weight: 600,
-  elevation: 6,
   children: <ButtonMenu id="info" iconId="info" iconSize="lg" ariaLabel="Information" />,
 };

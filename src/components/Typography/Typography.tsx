@@ -28,6 +28,7 @@ export interface TypographyProps {
   textWrap?: 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'stable';
   textAlign?: React.CSSProperties['textAlign'];
   textTransform?: React.CSSProperties['textTransform'];
+  textOverflow?: 'clip' | 'ellipsis';
   opacity?: React.CSSProperties['opacity'];
   className?: string;
   dataTestId?: string;
@@ -54,6 +55,7 @@ export const Typography: React.FC<TypographyProps> = ({
   className = '',
   dataTestId,
   ariaLive,
+  textOverflow,
 }) => {
   const typoProps: React.CSSProperties = {
     color: color ? `var(--connect__${color})` : undefined,
@@ -65,6 +67,13 @@ export const Typography: React.FC<TypographyProps> = ({
     textTransform,
     opacity,
     textWrap,
+    ...(textOverflow
+      ? {
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          textOverflow: textOverflow || 'clip',
+        }
+      : {}),
   };
 
   if (textWrap) {

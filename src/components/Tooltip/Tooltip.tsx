@@ -2,16 +2,15 @@ import React, { useState, useId } from 'react';
 import { Typography, TypographyProps } from '../Typography/Typography';
 import { Paper } from '../Paper/Paper';
 import { Color } from '../../utils/colors';
-import { Position, getPositionClass } from '../../utils/position';
+import { TooltipPosition, getPositionClass } from '../../utils/position';
 import { GradeBand } from '../../enum/gradeband';
-
 
 export type TooltipProps = {
   children: React.ReactNode;
   title: React.ReactNode;
-  placement?: Position;
+  placement?: TooltipPosition;
   backgroundColor?: Color;
-  elevation?: -2 | 0 | 2 | 4 | 6;
+  elevation?: 4;
   open?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
@@ -23,20 +22,19 @@ export type TooltipProps = {
   leaveDelay?: number;
   disableInteractive?: boolean;
   disableTouchListener?: boolean;
-} & Pick<TypographyProps, 'color' | 'size' | 'style' | 'weight' | 'textWrap'>;
+} & Pick<TypographyProps, 'color' | 'textWrap'>;
 
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
   title,
-  placement = 'top-center',
+  placement = 'top',
   backgroundColor = 'surface-dark',
   color = 'white',
+  textWrap = 'nowrap',
   elevation = 4,
   open: controlledOpen,
   onOpen,
   onClose,
-  size = 'caption',
-  textWrap = 'nowrap',
   dataTestId,
   describeChild = false,
   enterDelay = 0,
@@ -95,11 +93,18 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }
   };
 
-  //might be a better way to do this
+  //might be a better way to do this (thinking what you did dropdowns)
   const isOpen = controlledOpen !== undefined ? controlledOpen : isVisible;
 
   // MUI does this, dunno why, just copied
   // clone child element to add accessibility props
+  // Per the internet This is needed for:
+  /* 
+  Accessibility - connects tooltip text to the element for screen readers
+  Keyboard navigation - allows users to interact with tooltips without a mouse
+  Focus management - ensures tooltips work with keyboard focus states
+  ARIA compliance - maintains proper accessibility relationships
+*/
   const child = React.Children.only(children);
   const enhancedChild = React.cloneElement(child as React.ReactElement, {
     'aria-describedby': describeChild ? descriptionId : tooltipId,
@@ -134,7 +139,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           <Typography
             element="p"
             color={color}
-            size={size}
+            size="caption"
             textWrap={textWrap}
             {...typographyProps}
           >
