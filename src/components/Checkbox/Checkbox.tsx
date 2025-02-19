@@ -22,13 +22,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   name,
   children,
-  checked,
+  checked = false,
   onChange,
   disabled,
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
-    isChecked: true,
+    isChecked: checked,
     disabled,
   });
   return (
