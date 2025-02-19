@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, Figure, Image, Button, Icon, Typography, List } from '../index';
+import { Stack, Figure, Image, Button, Icon, Typography, List, Dropdown } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -225,4 +225,38 @@ WithOutline.parameters = {
   backgrounds: {
     default: 'light',
   },
+};
+
+export const WithDropdown: Story = Template.bind({});
+WithDropdown.args = {
+  ...Default.args,
+  elevation: 4,
+  roundedCorner: true,
+  children: (
+    <Stack
+      xs={{
+        direction: 'column',
+        spacing: 'sm',
+        paddingX: 'md',
+        paddingY: 'md',
+      }}
+    >
+      <Dropdown
+        children="Select an option"
+        data={[
+          { label: 'Option 1' },
+          { label: 'Option 2' },
+          { label: 'Option 3' },
+          { label: 'Option 4' },
+          { label: 'Option 5' },
+          { label: 'Option 6' },
+          { label: 'Option 7' },
+        ]}
+      />
+    </Stack>
+  ),
+};
+
+WithDropdown.parameters = {
+  layout: 'centered',
 };
