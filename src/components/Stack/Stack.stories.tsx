@@ -81,7 +81,12 @@ Layouts.args = {
       </Stack>
       <Stack flex="grow">
         <Paper backgroundColor="surface-pale" roundedCorner={true}>
-          <Stack paddingY="sm" paddingX="sm">
+          <Stack
+            xs={{ paddingY: 'sm', paddingX: 'sm' }}
+            md={{ paddingY: 'sm', paddingX: 'md' }}
+            lg={{ paddingY: 'xl', paddingX: 'sm' }}
+            xl={{ paddingY: 'sm', paddingX: 'xl' }}
+          >
             Item 3 doesn't shrink
           </Stack>
         </Paper>

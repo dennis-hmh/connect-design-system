@@ -1393,21 +1393,6 @@ Style lint has been turned off for this file, as we are using the flex long form
   justify-content: var(--connect__stack-justify-content);
   padding: var(--connect__stack-padding-y) var(--connect__stack-padding-x);
 
-  &.connect__stack-xs {
-    align-items: var(--connect__stack-xs-align-items, var(--connect__stack-align-items));
-    align-self: var(--connect__stack-xs-align-self, var(--connect__stack-align-self));
-    flex: var(--connect__stack-xs-flex, var(--connect__stack-flex));
-    flex-direction: var(--connect__stack-xs-direction, var(--connect__stack-direction));
-    flex-wrap: var(--connect__stack-xs-flex-wrap, var(--connect__stack-flex-wrap));
-    gap: var(--connect__stack-xs-spacing, var(--connect__stack-spacing));
-    justify-content: var(
-      --connect__stack-xs-justify-content,
-      var(--connect__stack-justify-content)
-    );
-    padding: var(--connect__stack-xs-padding-y, var(--connect__stack-padding-y))
-      var(--connect__stack-xs-padding-x, var(--connect__stack-padding-x));
-  }
-
   @media (min-width: 30rem) {
     &.connect__stack-sm {
       align-items: var(--connect__stack-sm-align-items, var(--connect__stack-align-items));
