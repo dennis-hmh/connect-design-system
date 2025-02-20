@@ -294,16 +294,6 @@ Buttons take variables in the following format
   }
 }
 
-@keyframes connect-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*
 | Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
 |---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
@@ -2177,24 +2167,6 @@ Usage:
   }
 }
 
-@keyframes shake {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 /* 
 .connect__aside Component
 
@@ -2837,10 +2809,185 @@ connect__toolbar
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
 }
+.connect__tooltip-wrapper {
+  display: inline-flex;
+  position: relative;
+}
+
+// tooltip
+.connect__tooltip-wrapper {
+  display: inline-flex;
+  position: relative;
+}
+
+.connect__tooltip {
+  align-items: var(--connect__align-center);
+  animation: fade-in var(--connect__transition-rapid) var(--connect__linear) forwards;
+  border-radius: var(--connect__border-radius);
+  display: var(--connect__display-flex);
+  justify-content: var(--connect__justify-center);
+  margin: var(--connect__spacer-sm);
+  opacity: var(--connect__opacity-zero);
+  padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+  position: var(--connect__absolute);
+  white-space: nowrap;
+}
 
 /*
 utilities 
 */
+
+/* Positioning */
+
+@mixin position-transform($x, $y, $originX, $originY) {
+  transform: scale(1) translate($x, $y);
+  transform-origin: $originX $originY;
+}
+
+.connect__position {
+  position: absolute;
+  // Badge positions
+  &-top {
+    &-right {
+      right: 0;
+      top: 0;
+      @include position-transform(50%, -50%, 100%, 0%);
+    }
+
+    &-left {
+      left: 0;
+      top: 0;
+      @include position-transform(-50%, -50%, 0%, 0%);
+    }
+
+    &-center {
+      left: 50%;
+      top: 0;
+      @include position-transform(-50%, -50%, 50%, 0%);
+    }
+  }
+
+  &-bottom {
+    &-right {
+      bottom: 0;
+      right: 0;
+      @include position-transform(50%, 50%, 100%, 100%);
+    }
+
+    &-left {
+      bottom: 0;
+      left: 0;
+      @include position-transform(-50%, 50%, 0%, 100%);
+    }
+
+    &-center {
+      bottom: 0;
+      left: 50%;
+      @include position-transform(-50%, 50%, 50%, 100%);
+    }
+  }
+
+  &-center {
+    &-right {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-left {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-center {
+      left: 50%;
+      top: 50%;
+      @include position-transform(-50%, -50%, 50%, 50%);
+    }
+  }
+
+  // Tooltip positions
+  &-top {
+    &-end {
+      top: 0;
+      right: 0;
+      @include position-transform(50%, -50%, 100%, 0%);
+    }
+
+    &-start {
+      top: 0;
+      left: 0;
+      @include position-transform(-50%, -50%, 0%, 0%);
+    }
+
+    &-center {
+      top: 0;
+      left: 50%;
+      @include position-transform(-50%, -50%, 50%, 0%);
+    }
+  }
+
+  &-bottom {
+    &-end {
+      bottom: 0;
+      right: 0;
+      @include position-transform(50%, 50%, 100%, 100%);
+    }
+
+    &-start {
+      bottom: 0;
+      left: 0;
+      @include position-transform(-50%, 50%, 0%, 100%);
+    }
+
+    &-center {
+      bottom: 0;
+      left: 50%;
+      @include position-transform(-50%, 50%, 50%, 100%);
+    }
+  }
+
+  &-left {
+    &-end {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-start {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+
+    &-center {
+      left: 0;
+      top: 50%;
+      @include position-transform(-50%, -50%, 0%, 50%);
+    }
+  }
+
+  &-right {
+    &-end {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-start {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+
+    &-center {
+      right: 0;
+      top: 50%;
+      @include position-transform(50%, -50%, 100%, 50%);
+    }
+  }
+}
 
 .connect__visually-hidden {
   left: -9999px;
@@ -2862,4 +3009,45 @@ To be fleshed out / moved
   object-fit: contain;
   object-position: center center;
   width: auto;
+}
+
+/* 
+Motion
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: var(--connect__opacity-zero);
+  }
+  to {
+    opacity: var(--connect__opacity-one);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes connect-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
