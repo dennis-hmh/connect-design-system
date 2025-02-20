@@ -809,22 +809,6 @@
   --connect__hint-size: var(--connect__spacer-sm);
 }
 
-/* .connect__gk2, 
-.connect__g23,
-.connect__g35,
-.connect__g45,
-.connect__g68,
-.connect__g912,
-.connect__teach {
-  --connect__dropdown-max-w: 14.375rem;
-  --connect__input-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-
-  @media (min-width: 40.625rem) {
-    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-  }
-} */
 
 .connect__gk2, 
 .connect__g23,
@@ -1251,6 +1235,23 @@
   --connect__full-h: 100%;
   --connect__auto-h: auto;
   --connect__half-radius: 50%;
+
+  --connect__align-normal: normal;
+  --connect__align-stretch: stretch;
+  --connect__align-center: center;
+  --connect__align-flex-start: flex-start;
+  --connect__align-flex-end: flex-end;
+  --connect__align-baseline: baseline;
+
+  --connect__justify-center: center;
+  --connect__justify-start: start;
+  --connect__justify-flex-start: flex-start;
+  --connect__justify-flex-end: flex-end;
+  --connect__justify-normal: normal;
+  --connect__justify-space-between: space-between;
+  --connect__justify-space-around: space-around;
+  --connect__justify-space-evenly: space-evenly;
+  --connect__justify-stretch: stretch;
 }
 
 @media (min-width: 40.625rem) {

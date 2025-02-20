@@ -1616,30 +1616,25 @@ Style lint has been turned off for this file, as we are using the flex long form
     fill: var(--connect__icon-fill-color, var(--connect__surface-dark));
     stroke: var(--connect__icon-stroke-color);
   }
+}
 
-  &-xs {
-    --connect__icon-size: var(--connect__icon-xs);
-  }
-
-  &-sm {
-    --connect__icon-size: var(--connect__icon-sm);
-  }
-
-  &-md {
-    --connect__icon-size: var(--connect__icon-md);
-  }
-
-  &-lg {
-    --connect__icon-size: var(--connect__icon-lg);
-  }
-
-  &-xl {
-    --connect__icon-size: var(--connect__icon-xl);
-  }
-
-  &-xxl {
-    --connect__icon-size: var(--connect__icon-xxl);
-  }
+.connect__icon-xs {
+  --connect__icon-size: var(--connect__icon-xs);
+}
+.connect__icon-sm {
+  --connect__icon-size: var(--connect__icon-sm);
+}
+.connect__icon-md {
+  --connect__icon-size: var(--connect__icon-md);
+}
+.connect__icon-lg {
+  --connect__icon-size: var(--connect__icon-lg);
+}
+.connect__icon-xl {
+  --connect__icon-size: var(--connect__icon-xl);
+}
+.connect__icon-xxl {
+  --connect__icon-size: var(--connect__icon-xxl);
 }
 
 /*
@@ -2831,6 +2826,147 @@ connect__toolbar
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   position: var(--connect__absolute);
   white-space: nowrap;
+}
+
+//badge
+
+/*
+|---------------|---------------------------------|--------------------------------|
+ Avatar Avatar Group & Badge Styles to come these values may change slightly 
+|---------------|---------------------------------|--------------------------------|
+*/
+
+/*
+Connect Avatars
+*/
+
+.connect__avatar {
+  align-items: var(--connect__align-center);
+  border-radius: var(--connect__avatar-radius);
+  display: var(--connect__display-flex);
+  justify-content: var(--connect__justify-center);
+  overflow: var(--connect__overflow-hidden);
+}
+
+.connect__avatar-text {
+  background-color: var(--connect__avatar-bg);
+  height: var(--connect__credits-lheight);
+  width: var(--connect__credits-lheight);
+  padding: 0 var(--connect__spacer-xs);
+
+  &.connect__text-body-sm {
+    height: var(--connect__body-sm-lheight);
+    width: var(--connect__body-sm-lheight);
+  }
+
+  &.connect__text-caption {
+    height: var(--connect__caption-lheight);
+    width: var(--connect__caption-lheight);
+  }
+
+  &.connect__text-credits {
+    height: var(--connect__credits-lheight);
+    width: var(--connect__credits-lheight);
+  }
+}
+
+.connect__avatar-circle {
+  --connect__avatar-radius: var(--connect__half-radius);
+}
+
+.connect__avatar-square {
+  --connect__avatar-radius: var(--connect__rounded-reset);
+}
+
+.connect__avatar-rounded {
+  --connect__avatar-radius: var(--connect__border-radius);
+}
+
+.connect__avatar-img {
+  height: var(--connect__icon-size);
+  object-fit: cover;
+  width: var(--connect__icon-size);
+}
+
+/* 
+  Negative spacing for avatar groups
+  This will remove the margin all direct children except the first child 
+
+  :where keeps the specificity of the selector low
+  the rule expects a --connect__spacer-size
+
+  --connect__spacer-size is then set to the spacer value for that class
+
+  e.g 
+  connect__avatar-group-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
+*/
+
+.connect__avatar-group-negative-sm > *:not(:first-child),
+.connect__avatar-group-negative-md > *:not(:first-child),
+.connect__avatar-group-negative-lg > *:not(:first-child),
+.connect__avatar-group-negative-xl > *:not(:first-child) {
+  margin-right: calc(-1 * var(--connect__spacer-size));
+}
+
+.connect__avatar-group-negative-xs {
+  --connect__spacer-size: var(--connect__spacer-xs);
+}
+
+.connect__avatar-group-negative-sm {
+  --connect__spacer-size: var(--connect__spacer-sm);
+}
+
+.connect__avatar-group-negative-md {
+  --connect__spacer-size: var(--connect__spacer-md);
+}
+
+.connect__avatar-group-negative-lg {
+  --connect__spacer-size: var(--connect__spacer-lg);
+}
+
+.connect__avatar-group-negative-xl {
+  --connect__spacer-size: var(--connect__spacer-xl);
+}
+
+.connect__badge-container {
+  display: var(--connect__display-flex);
+  position: var(--connect__relative);
+}
+
+/* 
+  Badge component
+*/
+
+.connect__badge {
+  align-items: var(--connect__align-center);
+  background-color: var(--connect__badge-bg);
+  border-radius: var(--connect__inner-radius);
+  display: var(--variant-badge-display, var(--connect__display-flex));
+  flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
+  justify-content: var(--connect__align-center);
+  position: var(--connect__absolute);
+  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  z-index: 1;
+
+  .connect__typography {
+    white-space: var(--connect__white-space-nowrap);
+  }
+}
+
+.connect__badge-text {
+  min-height: var(--connect__credits-lheight);
+  min-width: var(--connect__credits-lheight);
+  padding: 0 var(--connect__spacer-xs);
+}
+
+.connect__badge-dot {
+  border-radius: var(--connect__half-radius);
+  min-height: var(--connect__spacer-sm);
+  min-width: var(--connect__spacer-sm);
+}
+/* Invisible variant */
+.connect__badge-invisible {
+  --variant-badge-display: var(--connect__display-none);
 }
 
 /*
