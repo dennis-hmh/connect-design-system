@@ -12,6 +12,7 @@ export type InputBoxProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
+  classes?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -46,6 +47,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   incorrect,
   answerShown,
   disabled,
+  classes,
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
@@ -68,7 +70,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={labelClass}>
+      <label htmlFor={id} className={`${classes} ${labelClass}`}>
         {children}
       </label>
     </div>
