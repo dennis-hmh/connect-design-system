@@ -6,7 +6,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Misc/Dialog',
+  title: 'Patter/Dialog',
   component: Dialog,
   tags: ['autodocs'],
   parameters: {

@@ -10,7 +10,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Sidebar> = {
-  title: 'Content/Sidebar',
+  title: 'Patter/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
   parameters: {
