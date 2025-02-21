@@ -2825,31 +2825,17 @@ Connect Avatars
 .connect__avatar {
   align-items: var(--connect__align-center);
   border-radius: var(--connect__avatar-radius);
+  box-shadow: var(--connect__shadow-lvl-1);
   display: var(--connect__display-flex);
+  height: var(--connect__icon-size);
   justify-content: var(--connect__justify-center);
   overflow: var(--connect__overflow-hidden);
+  width: var(--connect__icon-size);
 }
 
 .connect__avatar-text {
   background-color: var(--connect__avatar-bg);
-  height: var(--connect__credits-lheight);
-  width: var(--connect__credits-lheight);
   padding: 0 var(--connect__spacer-xs);
-
-  &.connect__text-body-sm {
-    height: var(--connect__body-sm-lheight);
-    width: var(--connect__body-sm-lheight);
-  }
-
-  &.connect__text-caption {
-    height: var(--connect__caption-lheight);
-    width: var(--connect__caption-lheight);
-  }
-
-  &.connect__text-credits {
-    height: var(--connect__credits-lheight);
-    width: var(--connect__credits-lheight);
-  }
 }
 
 .connect__avatar-circle {
@@ -3028,20 +3014,20 @@ utilities
   // Tooltip positions
   &-top {
     &-end {
-      top: 0;
       right: 0;
+      top: 0;
       @include position-transform(50%, -50%, 100%, 0%);
     }
 
     &-start {
-      top: 0;
       left: 0;
+      top: 0;
       @include position-transform(-50%, -50%, 0%, 0%);
     }
 
     &-center {
-      top: 0;
       left: 50%;
+      top: 0;
       @include position-transform(-50%, -50%, 50%, 0%);
     }
   }

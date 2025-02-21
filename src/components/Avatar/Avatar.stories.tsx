@@ -57,6 +57,12 @@ RoundedAvatar.args = {
   shape: 'rounded',
 };
 
+export const AvatarSizing: Story = Template.bind({});
+AvatarSizing.args = {
+  ...Default.args,
+  size: 'lg',
+};
+
 export const CustomBackground: Story = Template.bind({});
 CustomBackground.args = {
   ...Default.args,
