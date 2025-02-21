@@ -1,7 +1,6 @@
 // @ts-ignore: React is used implicitly in JSX
 import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
-import { Typography } from '../Typography/Typography';
-import { Stack } from '../Stack/Stack';
+import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
@@ -64,37 +63,6 @@ export function InputText({
     setCharCount(newText.length);
   };
 
-  const renderCharacterCounter = () => {
-    if (!characterCount) return null;
-
-    const isLimitReached = characterLimit && charCount >= characterLimit;
-
-    return (
-      <Stack direction="row" alignItems="center" justifyContent="end" spacing="xs">
-        <Typography
-          element="span"
-          size="caption"
-          style={isLimitReached ? 'italic' : 'normal'}
-          weight={isLimitReached ? 700 : 400}
-          color="surface-mid"
-        >
-          {charCount}
-        </Typography>
-
-        {characterLimit && (
-          <>
-            <Typography element="span" size="caption" color="surface-mid" aria-hidden="true">
-              /
-            </Typography>
-            <Typography element="span" size="caption" color="surface-mid">
-              {characterLimit}
-            </Typography>
-          </>
-        )}
-      </Stack>
-    );
-  };
-
   return (
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
@@ -127,7 +95,11 @@ export function InputText({
           </svg>
         </button>
       )}
-      {renderCharacterCounter()}
+      <CharacterCounter
+        charCount={charCount}
+        characterLimit={characterLimit}
+        characterCount={characterCount}
+      />
     </label>
   );
 }
