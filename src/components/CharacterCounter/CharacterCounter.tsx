@@ -1,11 +1,13 @@
 import React from 'react';
 import { Stack } from '../Stack/Stack';
 import { Typography } from '../Typography/Typography';
+import { GradeBand } from '../../enum/gradeband';
 
 export interface CharacterCounterProps {
   charCount: number;
   characterLimit?: number;
   characterCount?: boolean;
+  gradeBand?: GradeBand;
 }
 
 export const CharacterCounter: React.FC<CharacterCounterProps> = ({

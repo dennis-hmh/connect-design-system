@@ -7,7 +7,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof CharacterCounter> = {
   component: CharacterCounter,
-  title: 'CharacterCounter',
+  title: 'Misc/CharacterCounter',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -21,7 +21,7 @@ const Template: StoryFn<CharacterCounterProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
 
   return (
-    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={args.gradeBand || GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
         <CharacterCounter {...args} />
       </div>
@@ -36,7 +36,7 @@ export const CharacterLimitReached: Story = Template.bind({});
 Default.args = {
   characterCount: true,
   charCount: 100,
-  characterLimit: null,
+  characterLimit: undefined,
   gradeBand: GradeBand.G4_5,
 };
 
