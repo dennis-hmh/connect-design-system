@@ -1,5 +1,8 @@
 import React from 'react';
-import { GradeBand } from 'src/enum/gradeband';
+import { Typography } from '../Typography/Typography';
+import { Paper } from '../Paper/Paper';
+import { Stack } from '../Stack/Stack';
+import { GradeBand } from '../../enum/gradeband';
 
 export type ChipProps = {
   children: React.ReactNode;
@@ -11,8 +14,27 @@ export type ChipProps = {
 
 export function Chip({ children, num, totalNum, dataTestId }: ChipProps) {
   return (
-    <div className="connect__chip" data-testid={dataTestId}>
-      {num} {totalNum ? `/ ${totalNum}` : ''} {children}
-    </div>
+    <Paper
+      elevation={2}
+      roundedCorner={true}
+      backgroundColor="surface-white"
+      className="connect__chip"
+      dataTestId={dataTestId}
+    >
+      <Stack paddingX="md" paddingY="xs" direction="row" spacing="xs" alignItems="center">
+        <Typography element="span" size="caption" color="surface-dark">
+          {num}
+          {totalNum && (
+            <>
+              <Typography element="span" size="caption" color="surface-dark">
+                {' / '}
+              </Typography>
+              {totalNum}
+            </>
+          )}{' '}
+          {children}
+        </Typography>
+      </Stack>
+    </Paper>
   );
 }
