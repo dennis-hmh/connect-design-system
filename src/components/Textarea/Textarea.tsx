@@ -3,11 +3,12 @@ import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
-  defaultText?: string | undefined;
   characterCount?: boolean;
   placeholderText?: string | undefined;
   characterLimit?: number;
@@ -17,19 +18,18 @@ export type TextareaProps = {
 };
 
 export const Textarea: React.FC<TextareaProps> = ({
+  value = '',
+  onChange,
   correct,
   incorrect,
   answerShown,
   disabled,
-  defaultText,
   characterCount,
   placeholderText,
   toolbar,
   characterLimit,
   dataTestId,
 }) => {
-  const [text, setText] = useState(defaultText || '');
-  const [charCount, setCharCount] = useState(defaultText?.length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
   const inputStates = [
@@ -52,10 +52,10 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newText = e.target.value;
-    setText(newText);
-    setCharCount(newText.length);
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   return (
@@ -63,17 +63,17 @@ export const Textarea: React.FC<TextareaProps> = ({
       {toolbar && toolbar}
       <textarea
         className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
-        disabled={shouldBeDisabled}
-        value={text}
+        value={value}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={(e) => handleTextChange(e)}
+        onChange={handleTextChange}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
+        disabled={shouldBeDisabled}
         data-testid={dataTestId}
       />
       <CharacterCounter
-        charCount={charCount}
+        charCount={value.toString().length}
         characterLimit={characterLimit}
         characterCount={characterCount}
       />

@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Textarea, TextareaProps } from './Textarea';
 import { Stack } from '../Stack/Stack';
-import { Icon } from '../Icon/Icon';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
@@ -25,18 +24,23 @@ type Story = StoryObj<typeof Textarea>;
 
 const Template: StoryFn<TextareaProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState(args.value || '');
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(event.target.value);
+  };
 
   return (
-    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+    <ConnectTheme gradeBand={args.gradeBand || GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Textarea {...args} />
+        <Textarea {...args} value={value} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );
 };
 
 export const Default: Story = Template.bind({});
-export const Placeholder: Strory = Template.bind({});
+export const Placeholder: Story = Template.bind({});
 export const DefaultText: Story = Template.bind({});
 export const CharacterCounter: Story = Template.bind({});
 export const CharacterLimit: Story = Template.bind({});
@@ -47,8 +51,8 @@ export const Toolbar: Story = Template.bind({});
 export const Disabled: Story = Template.bind({});
 
 Default.args = {
-  defaultText: undefined,
-  placeholder: undefined,
+  value: '',
+  placeholderText: undefined,
   characterCount: false,
   characterLimit: undefined,
   correct: false,
@@ -65,12 +69,12 @@ Placeholder.args = {
 
 DefaultText.args = {
   ...Default.args,
-  defaultText: 'This is default text',
+  value: 'This is default text',
 };
 
 CharacterCounter.args = {
   ...Default.args,
-  defaultText: 'This is some default text',
+  value: 'This is some default text',
   characterCount: true,
 };
 
@@ -107,7 +111,7 @@ Toolbar.args = {
 Correct.args = {
   ...Default.args,
   correct: true,
-  defaultText: 'Answer correct',
+  value: 'Answer correct',
   characterCount: true,
   characterLimit: 100,
 };
@@ -116,7 +120,7 @@ Incorrect.args = {
   ...Default.args,
   correct: false,
   incorrect: true,
-  defaultText: 'Answer incorrect',
+  value: 'Answer incorrect',
   characterCount: true,
   characterLimit: 100,
 };
@@ -124,14 +128,14 @@ Incorrect.args = {
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
-  defaultText: 'Answer shown',
+  value: 'Answer shown',
   characterCount: true,
   characterLimit: 100,
 };
 
 Disabled.args = {
   ...Default.args,
-  defaultText: 'Disabled',
+  value: 'Disabled',
   characterCount: true,
   characterLimit: 100,
   disabled: true,

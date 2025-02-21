@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { InputText, InputTextProps } from './InputText';
 import { ConnectTheme } from '../ConnectTheme';
@@ -22,11 +22,16 @@ type Story = StoryObj<typeof InputText>;
 
 const Template: StoryFn<InputTextProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState(args.value || '');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <InputText {...args} />
+        <InputText {...args} value={value} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );
@@ -45,7 +50,7 @@ export const Number: Story = Template.bind({});
 export const OnClearWIP: Story = Template.bind({});
 
 Default.args = {
-  defaultText: '',
+  value: '',
   placeholderText: '',
   characterCount: false,
   characterLimit: undefined,
@@ -63,12 +68,12 @@ Placeholder.args = {
 
 DefaultText.args = {
   ...Default.args,
-  defaultText: 'This is default text',
+  value: 'This is default text',
 };
 
 CharacterCounter.args = {
   ...Default.args,
-  defaultText: 'This is some default text',
+  value: 'This is some default text',
   characterCount: true,
 };
 
@@ -81,7 +86,7 @@ CharacterLimit.args = {
 Correct.args = {
   ...Default.args,
   correct: true,
-  defaultText: 'Answer correct',
+  value: 'Answer correct',
   characterCount: true,
   characterLimit: 50,
 };
@@ -89,7 +94,7 @@ Correct.args = {
 Incorrect.args = {
   ...Default.args,
   incorrect: true,
-  defaultText: 'Answer incorrect',
+  value: 'Answer incorrect',
   characterCount: true,
   characterLimit: 50,
 };
@@ -97,27 +102,27 @@ Incorrect.args = {
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
-  defaultText: 'Answer shown',
+  value: 'Answer shown',
   characterCount: true,
   characterLimit: 50,
 };
 
 Disabled.args = {
   ...Default.args,
-  defaultText: 'Disabled',
+  value: 'Disabled',
   characterCount: true,
   characterLimit: 50,
 };
 
 Number.args = {
   ...Default.args,
-  defaultText: 50,
+  value: 50,
   number: true,
 };
 
 OnClearWIP.args = {
   ...Default.args,
-  defaultText: 'This is default text',
+  value: 'This is default text',
   onClear: () => {
     console.log('Clearing text');
   },

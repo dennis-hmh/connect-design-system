@@ -4,12 +4,13 @@ import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
+  value: string | number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  defaultText?: string | number | undefined;
   characterCount?: boolean;
   characterLimit?: number | undefined;
   placeholderText?: string | undefined;
@@ -19,6 +20,8 @@ export type InputTextProps = {
 };
 
 export function InputText({
+  value = '',
+  onChange,
   correct,
   incorrect,
   answerShown,
@@ -28,11 +31,8 @@ export function InputText({
   characterLimit,
   placeholderText,
   onClear,
-  defaultText,
   dataTestId,
 }: InputTextProps) {
-  const [text, setText] = useState(defaultText);
-  const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
   const inputStates = [
@@ -57,10 +57,8 @@ export function InputText({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newText = e.target.value;
-    setText(newText);
-    setCharCount(newText.length);
+  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(event);
   };
 
   return (
@@ -69,9 +67,9 @@ export function InputText({
         type={isNumber}
         className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
-        value={text}
+        value={value}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={(e) => handleTextChange(e)}
+        onChange={(event) => handleTextChange(event)}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
@@ -79,10 +77,9 @@ export function InputText({
       />
       {onClear && (
         <button
-          className={`connect__clear-button ${text ? 'connect__clear-button-visible' : ''}`}
+          className={`connect__clear-button ${value ? 'connect__clear-button-visible' : ''}`}
           onClick={() => {
-            setText('');
-            setCharCount(0);
+            onChange({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>);
             onClear();
           }}
           aria-label="Clear input field"
@@ -96,7 +93,7 @@ export function InputText({
         </button>
       )}
       <CharacterCounter
-        charCount={charCount}
+        charCount={value.toString().length}
         characterLimit={characterLimit}
         characterCount={characterCount}
       />
