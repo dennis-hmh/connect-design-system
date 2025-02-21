@@ -9,6 +9,7 @@ export * from './Checkbox/Checkbox';
 export * from './Chip/Chip';
 export * from './Dialog/Dialog';
 export * from './Divider/Divider';
+export * from './Dropdown/Dropdown';
 // export * from './FigCaption/FigCaption';
 // export * from './Figure/Figure';
 // export * from './Footer/Footer';

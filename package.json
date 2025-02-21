@@ -1,15 +1,17 @@
 {
   "name": "@connect/connect-design-system",
-  "version": "1.19.1",
+  "version": "1.19.5",
   "description": "Connect Design System of UI components",
   "author": "HMH Core PXD",
   "main": "./src/index.ts",
+  "types": "./dist/connect-design-system.d.ts",
   "files": [
     "dist"
   ],
   "publishConfig": {
     "main": "./dist/connect-design-system.umd.js",
-    "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/"
+    "registry": "https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/",
+    "types": "./dist/types/index.d.ts"
   },
   "scripts": {
     "build": "VITE_ENV=build tsc && vite build",

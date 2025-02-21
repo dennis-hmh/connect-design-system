@@ -2,9 +2,10 @@
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
+    "declaration": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
-  "include": ["vite.config.mts", "vitest.config.mts","package.json"],
+  "include": ["vite.config.mts", "vitest.config.mts", "package.json"]
 }
