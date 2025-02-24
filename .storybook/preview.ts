@@ -18,7 +18,7 @@ const preview: Preview = {
           'Layout',
           'Misc',
           'Design System',
-          'Patter',
+          'Pattern',
           'Draft',
           'WIP',
         ],
