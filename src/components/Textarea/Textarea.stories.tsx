@@ -26,8 +26,8 @@ const Template: StoryFn<TextareaProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const [value, setValue] = useState(args.value || '');
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
   };
 
   return (

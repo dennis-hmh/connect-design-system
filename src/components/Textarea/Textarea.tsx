@@ -4,7 +4,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
@@ -54,7 +54,7 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) {
-      onChange(event);
+      onChange(event.currentTarget.value);
     }
   };
 

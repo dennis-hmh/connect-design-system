@@ -24,8 +24,8 @@ const Template: StoryFn<InputTextProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const [value, setValue] = useState(args.value || '');
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
   };
 
   return (
