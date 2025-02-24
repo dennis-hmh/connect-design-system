@@ -1,5 +1,35 @@
 # @connect/connect-design-system
 
+## 1.19.5
+
+### Patch Changes
+
+- 49374c1: - New Component: N/A
+  - Updated Component: `<Dropdown />` simplified. onClear prop added.
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.19.4
+
+### Patch Changes
+
+- bdf8168: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Type definations added to package.
+
+## 1.19.3
+
+### Patch Changes
+
+- 89106a2: Stack now uses zero as initial padding value, removal of xs class as should be considered defaults
+
+## 1.19.2
+
+### Patch Changes
+
+- b1257a6: Hint component now uses Typography
+
 ## 1.19.1
 
 ### Patch Changes

@@ -24,6 +24,11 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
+        globals: {
+          react: 'React',
+          'react/jsx-runtime': 'jsxRuntime',
+          '@rive-app/react-canvas': 'reactCanvas',
+        },
         interop: 'auto',
       },
     },
@@ -32,7 +37,15 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      include: ['src/components/'],
+      outDir: 'dist/types',
+      include: [
+        'src/index.ts',
+        'src/components',
+        'src/enum',
+        'src/types',
+        'src/utils',
+        'src/context',
+      ],
     }),
     react(),
     ViteSvgSpriteWrapper({
