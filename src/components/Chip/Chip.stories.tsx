@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Chip> = {
-  title: 'Misc/Chip',
+  title: 'Pattern/Chip',
   component: Chip,
   tags: ['autodocs'],
   parameters: {
