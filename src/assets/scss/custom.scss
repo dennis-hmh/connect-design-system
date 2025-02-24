@@ -1568,6 +1568,7 @@ Style lint has been turned off for this file, as we are using the flex long form
   | width            | connect__icon-md             |                             | connect__icon-size |                  |        
 */
 
+// this should be stack. must investigate engineering side
 .connect__icon-wrapper {
   display: inline-flex;
   flex-flow: column wrap;
