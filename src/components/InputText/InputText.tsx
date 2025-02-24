@@ -92,11 +92,13 @@ export function InputText({
           </svg>
         </button>
       )}
-      <CharacterCounter
-        charCount={value.toString().length}
-        characterLimit={characterLimit}
-        characterCount={characterCount}
-      />
+      {characterCount && (
+        <CharacterCounter
+          charCount={value.toString().length}
+          characterLimit={characterLimit}
+          characterCount={characterCount}
+        />
+      )}
     </label>
   );
 }

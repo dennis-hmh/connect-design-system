@@ -72,11 +72,13 @@ export const Textarea: React.FC<TextareaProps> = ({
         disabled={shouldBeDisabled}
         data-testid={dataTestId}
       />
-      <CharacterCounter
-        charCount={value.toString().length}
-        characterLimit={characterLimit}
-        characterCount={characterCount}
-      />
+      {CharacterCounter && (
+        <CharacterCounter
+          charCount={value.toString().length}
+          characterLimit={characterLimit}
+          characterCount={characterCount}
+        />
+      )}
     </div>
   );
 };
