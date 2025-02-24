@@ -1095,21 +1095,6 @@ Style lint has been turned off for this file, as we are using the flex long form
 
 /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
-/*
-.connect__chip Component
-
-| Property         | Theme                         | Variant/State              | Fallback / Default                                        |
-|------------------|------------------------------ |----------------------------|-----------------------------------------------------------|
-| Font size        | --theme__chip-fs              | --variant__chip-fs         | --connect__body-sm                                        |
-| Line height      | --theme__chip-lh              | --variant__chip-lh         | --connect__body-sm-lheight                                |
-| Background color | --theme__chip-bg              | --variant__chip-bg         | --connect__primary-mid                                    |
-| Border color     | --theme__chip-border-c        | --variant__chip-border-c   | --connect__surface-null                                  |
-| Border width     | --theme__chip-border-w        | --variant__chip-border-w   | --connect__spacer-zero                                    |
-| Padding X        | --theme__chip-padding-x       | --variant__chip-padding-x  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
-| Padding Y        | --theme__chip-padding-y       | --variant__chip-padding-y  | var(--connect__spacer-sm) - var(--connect__chip-border-w) |
-| Width            | --theme__chip-radius          | --variant__chip-radius     | --connect__border-radius                                  |
-*/
-
 .connect__chip {
   &:focus-visible:not(:active) {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
@@ -1150,7 +1135,6 @@ Style lint has been turned off for this file, as we are using the flex long form
     var(--theme__pill-br-bl, var(--variant__pill-br-bl, var(--connect__spacer-zero)));
   color: var(--theme__pill-color, var(--variant__pill-color, var(--connect__surface-white)));
   display: inline-flex;
-  font-family: var(--connect__font-sans);
   font-size: var(--theme__pill-fs, var(--variant__pill-fs, var(--connect__body-sm)));
   font-weight: var(--theme__pill-fw, var(--variant__pill-fw, var(--connect__fw-bold)));
   justify-content: center;
@@ -1704,6 +1688,24 @@ Positioning int he pseudos is the total border / 2
       content: attr(data-heading) ': ';
       font-weight: var(--connect__fw-bold);
     }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 
