@@ -294,16 +294,6 @@ Buttons take variables in the following format
   }
 }
 
-@keyframes connect-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 /*
 | Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
 |---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
@@ -1679,10 +1669,6 @@ Padding on MCQ labels is the total border + spacer
 
 */
 
-.connect__choice-label-wrapper {
-  position: relative;
-}
-
 .connect__choice-label {
   --connect__label-padding-y: calc(var(--connect__total-border) + var(--connect__spacer-xs));
   --connect__label-padding-x: calc(var(--connect__total-border) + var(--connect__spacer-sm));
@@ -1898,10 +1884,6 @@ Positioning int he pseudos is the total border / 2
  |------------------|-----------------------|-------------------------|-------------------------|-----------------------|
 
 */
-
-.connect__progress-wrapper {
-  width: var(--connect__full-w);
-}
 
 .connect__progress {
   background: var(--theme__progress-bg, var(--variant__progress-bg, var(--connect__surface-white)));
@@ -2177,24 +2159,6 @@ Usage:
   }
 }
 
-@keyframes shake {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 /* 
 .connect__aside Component
 
@@ -2396,79 +2360,6 @@ Divider can be vertical or horizontal
 
 .connect__paper-outlined {
   padding: var(--connect__effects-inner-edge);
-}
-
-.connect__rounded-corners {
-  border-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-reset {
-  --variant__rounded-radius: var(--connect__spacer-zero);
-}
-
-.connect__rounded-top-left {
-  border-top-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-top-right {
-  border-top-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-bottom-left {
-  border-bottom-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-bottom-right {
-  border-bottom-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-top {
-  border-radius: var(
-      --theme__rounded-radius,
-      var(--variant__rounded-radius, var(--connect__border-radius))
-    )
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
-}
-
-.connect__rounded-bottom {
-  border-radius: 0 0
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
-}
-
-.connect__elevation--2 {
-  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl--2);
-}
-
-.connect__elevation-0 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-0);
-}
-
-.connect__elevation-2 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-2);
-}
-
-.connect__elevation-4 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-4);
-}
-
-.connect__elevation-6 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
 }
 
 .connect__figure {
@@ -2842,6 +2733,14 @@ connect__toolbar
 utilities 
 */
 
+.connect__typography {
+  font-weight: var(--connect__fw, var(--connect__fw-regular));
+}
+
+.connect__position-relative-wrapper {
+  position: relative;
+}
+
 .connect__visually-hidden {
   left: -9999px;
   position: absolute;
@@ -2849,6 +2748,79 @@ utilities
 
 .connect__full-width {
   width: var(--connect__full-w);
+}
+
+.connect__rounded-corners {
+  border-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-reset {
+  --variant__rounded-radius: var(--connect__spacer-zero);
+}
+
+.connect__rounded-top-left {
+  border-top-left-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-top-right {
+  border-top-right-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-bottom-left {
+  border-bottom-left-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-bottom-right {
+  border-bottom-right-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-top {
+  border-radius: var(
+      --theme__rounded-radius,
+      var(--variant__rounded-radius, var(--connect__border-radius))
+    )
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
+}
+
+.connect__rounded-bottom {
+  border-radius: 0 0
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
+}
+
+.connect__elevation--2 {
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl--2);
+}
+
+.connect__elevation-0 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-0);
+}
+
+.connect__elevation-2 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-2);
+}
+
+.connect__elevation-4 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-4);
+}
+
+.connect__elevation-6 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
 }
 
 /* 
@@ -2862,4 +2834,32 @@ To be fleshed out / moved
   object-fit: contain;
   object-position: center center;
   width: auto;
+}
+
+@keyframes connect-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

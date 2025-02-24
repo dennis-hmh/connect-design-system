@@ -66,7 +66,7 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
   }
 
   return (
-    <div className="connect__choice-label-wrapper">
+    <div className="connect__position-relative-wrapper">
       <input
         type={type}
         id={id}
