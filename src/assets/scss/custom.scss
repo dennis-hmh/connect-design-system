@@ -1593,32 +1593,6 @@ Positioning int he pseudos is the total border / 2
     }
   }
 
-  &.connect__table-scrolling {
-    overflow-x: auto;
-  }
-
-  &.connect__table-sticky-header {
-    &:is(table) {
-      overflow: unset;
-    }
-
-    thead {
-      position: sticky;
-      top: -0.0625rem;
-      z-index: 1;
-    }
-  }
-
-  &.connect__table-no-thead {
-    thead {
-      display: none;
-    }
-
-    tr:first-of-type td {
-      border-top: unset;
-    }
-  }
-
   caption {
     font-size: var(--connect__body-md);
     font-weight: var(--connect__fw-bold);
@@ -1630,6 +1604,7 @@ Positioning int he pseudos is the total border / 2
   th,
   td {
     border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+    padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
 
     &:first-of-type {
       border-left: unset;
@@ -1643,7 +1618,6 @@ Positioning int he pseudos is the total border / 2
     background-color: var(--connect__thead-bg);
     border-top: unset;
     overflow: hidden;
-    padding: var(--connect__spacer-sm);
     text-align: left;
     &:is([scope='row']) {
       background-color: var(--connect__tr-hover-bg);
@@ -1657,11 +1631,36 @@ Positioning int he pseudos is the total border / 2
 
   td {
     border-bottom: unset;
-    padding: var(--connect__spacer-sm);
   }
 
   tr:hover {
     background-color: var(--connect__tr-hover-bg);
+  }
+}
+
+.connect__table-scrolling {
+  overflow-x: auto;
+}
+
+.connect__table-sticky-header {
+  &:is(table) {
+    overflow: unset;
+  }
+
+  thead {
+    position: sticky;
+    top: -0.0625rem;
+    z-index: 1;
+  }
+}
+
+.connect__table-no-thead {
+  thead {
+    display: none;
+  }
+
+  tr:first-of-type td {
+    border-top: unset;
   }
 }
 
@@ -1707,7 +1706,6 @@ Positioning int he pseudos is the total border / 2
     }
   }
 }
-
 
 /* 
 .connect__aside Component
@@ -2231,11 +2229,12 @@ connect__toolbar
 */
 
 .connect__toolbar {
-  background-color: var(--theme__toolbar-bg, var(--variant__toolbar-bg, var(--connect__surface-pale)));
-  border: var(--connect__input-border-w) solid
-    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  background-color: var(
+    --theme__toolbar-bg,
+    var(--variant__toolbar-bg, var(--connect__surface-pale))
+  );
   border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+  box-shadow: var(--connect__shadow-lvl-0);
 
   + .connect__input-textarea {
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
