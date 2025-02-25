@@ -10,7 +10,6 @@ export type TextareaProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
-  characterCount?: boolean;
   charLimit?: number;
   toolbar?: React.ReactNode;
   dataTestId?: string;

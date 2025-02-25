@@ -104,7 +104,6 @@ Toolbar.args = {
     </Stack>
   ),
   placeholderText: 'Input your response',
-  characterCount: true,
   charLimit: 500,
 };
 
@@ -112,7 +111,6 @@ Correct.args = {
   ...Default.args,
   correct: true,
   value: 'Answer correct',
-  characterCount: true,
   charLimit: 100,
 };
 
@@ -121,7 +119,6 @@ Incorrect.args = {
   correct: false,
   incorrect: true,
   value: 'Answer incorrect',
-  characterCount: true,
   charLimit: 100,
 };
 
@@ -129,14 +126,12 @@ AnswerShown.args = {
   ...Default.args,
   answerShown: true,
   value: 'Answer shown',
-  characterCount: true,
   charLimit: 100,
 };
 
 Disabled.args = {
   ...Default.args,
   value: 'Disabled',
-  characterCount: true,
   charLimit: 100,
   disabled: true,
 };
