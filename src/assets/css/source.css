@@ -123,7 +123,6 @@
 }
 
 @media (min-width: 40.625rem) {
-
   .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 3.75rem;
@@ -172,7 +171,6 @@
 }
 
 @media (min-width: 80rem) {
-
   .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 5.75rem;
@@ -224,7 +222,7 @@
 .connect__g45 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 108px;
+  --connect__heading-xl-spacer: 6.75rem;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
   --connect__heading-lg-spacer: 5rem;
@@ -275,12 +273,11 @@
 }
 
 @media (min-width: 40.625rem) {
-
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 120px;
+    --connect__heading-xl-spacer: 7.5rem;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
     --connect__heading-lg-spacer: 5.3125rem;
@@ -323,7 +320,6 @@
 }
 
 @media (min-width: 80rem) {
-
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 5.75rem;
