@@ -68,7 +68,7 @@
 
 /* stylelint-enable order/properties-alphabetical-order */
 
-.connect__gk2, 
+.connect__gk2,
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -123,7 +123,8 @@
 }
 
 @media (min-width: 40.625rem) {
-  .connect__gk2, 
+
+  .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
@@ -171,7 +172,8 @@
 }
 
 @media (min-width: 80rem) {
-  .connect__gk2, 
+
+  .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 5.75rem;
     --connect__heading-xl-lheight: 6.5rem;
@@ -222,7 +224,7 @@
 .connect__g45 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 6rem;
+  --connect__heading-xl-spacer: 108px;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
   --connect__heading-lg-spacer: 5rem;
@@ -267,17 +269,18 @@
   --connect__border-radius: 0.75rem;
   --connect__mcq-border-w: 0.1563rem;
   --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: 0.25rem;
+  --connect__inner-radius: .3125rem;
   --connect__inner-status: 0.4375rem;
   --connect__inner-divider-width: 0.5rem;
 }
 
 @media (min-width: 40.625rem) {
+
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 6.375rem;
+    --connect__heading-xl-spacer: 120px;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
     --connect__heading-lg-spacer: 5.3125rem;
@@ -320,6 +323,7 @@
 }
 
 @media (min-width: 80rem) {
+
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 5.75rem;
@@ -773,7 +777,7 @@
   }
 }
 
-.connect__gk2, 
+.connect__gk2,
 .connect__g23,
 .connect__g35,
 .connect__g45 {
@@ -809,24 +813,7 @@
   --connect__hint-size: var(--connect__spacer-sm);
 }
 
-/* .connect__gk2, 
-.connect__g23,
-.connect__g35,
-.connect__g45,
-.connect__g68,
-.connect__g912,
-.connect__teach {
-  --connect__dropdown-max-w: 14.375rem;
-  --connect__input-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-
-  @media (min-width: 40.625rem) {
-    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 4) + (var(--connect__spacer-md) + var(--connect__icon-xs) - var(--connect__spacer-xs)));
-  }
-} */
-
-.connect__gk2, 
+.connect__gk2,
 .connect__g23,
 .connect__g35,
 .connect__g45,
@@ -835,18 +822,10 @@
 .connect__teach {
   /* 14.375rem all grades */
   --connect__dropdown-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
   --connect__input-max-w: 14.375rem;
-  --connect__input-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 
   @media (min-width: 40.625rem) {
     --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
@@ -1272,24 +1251,16 @@
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
+  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
+  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1332,8 +1303,7 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
-    var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,
@@ -1350,7 +1320,7 @@
   max-height: 100%;
 }
 
-.connect__gk2, 
+.connect__gk2,
 .connect__gk,
 .connect__g1,
 .connect__g23,
