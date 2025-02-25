@@ -6,16 +6,14 @@ import { GradeBand } from '../../enum/gradeband';
 export interface CharacterCounterProps {
   charCount: number;
   characterLimit?: number;
-  characterCount?: boolean;
   gradeBand?: GradeBand;
 }
 
 export const CharacterCounter: React.FC<CharacterCounterProps> = ({
   charCount,
   characterLimit,
-  characterCount,
 }) => {
-  if (!characterCount) return null;
+  if (typeof charCount !== 'number') return null;
 
   const isLimitReached = characterLimit && charCount >= characterLimit;
 
