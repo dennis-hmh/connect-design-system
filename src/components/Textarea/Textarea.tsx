@@ -5,13 +5,13 @@ import { GradeBand } from '../../enum/gradeband';
 export type TextareaProps = {
   value: string;
   onChange: (value: string) => void;
+  placeholderText?: string | undefined;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
   characterCount?: boolean;
-  placeholderText?: string | undefined;
-  characterLimit?: number;
+  charLimit?: number;
   toolbar?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -20,14 +20,13 @@ export type TextareaProps = {
 export const Textarea: React.FC<TextareaProps> = ({
   value = '',
   onChange,
+  placeholderText,
   correct,
   incorrect,
   answerShown,
   disabled,
-  characterCount,
-  placeholderText,
   toolbar,
-  characterLimit,
+  charLimit,
   dataTestId,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -73,11 +72,7 @@ export const Textarea: React.FC<TextareaProps> = ({
         data-testid={dataTestId}
       />
       {CharacterCounter && (
-        <CharacterCounter
-          charCount={value.toString().length}
-          characterLimit={characterLimit}
-          characterCount={characterCount}
-        />
+        <CharacterCounter charCount={value.toString().length} charLimit={charLimit} />
       )}
     </div>
   );

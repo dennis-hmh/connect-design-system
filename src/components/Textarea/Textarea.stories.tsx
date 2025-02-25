@@ -43,7 +43,7 @@ export const Default: Story = Template.bind({});
 export const Placeholder: Story = Template.bind({});
 export const DefaultText: Story = Template.bind({});
 export const CharacterCounter: Story = Template.bind({});
-export const CharacterLimit: Story = Template.bind({});
+export const CharacterCounterLimit: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
@@ -53,8 +53,7 @@ export const Disabled: Story = Template.bind({});
 Default.args = {
   value: '',
   placeholderText: undefined,
-  characterCount: false,
-  characterLimit: undefined,
+  charLimit: undefined,
   correct: false,
   incorrect: false,
   answerShown: false,
@@ -74,14 +73,15 @@ DefaultText.args = {
 
 CharacterCounter.args = {
   ...Default.args,
+  charLimit: 100,
   value: 'This is some default text',
-  characterCount: true,
 };
 
-CharacterLimit.args = {
+CharacterCounterLimit.args = {
   ...Default.args,
-  characterCount: true,
-  characterLimit: 100,
+  value:
+    'This is example text that is more than one hundred characters long, including spaces and punctuation.',
+  charLimit: 100,
 };
 
 Toolbar.args = {
@@ -105,7 +105,7 @@ Toolbar.args = {
   ),
   placeholderText: 'Input your response',
   characterCount: true,
-  characterLimit: 500,
+  charLimit: 500,
 };
 
 Correct.args = {
@@ -113,7 +113,7 @@ Correct.args = {
   correct: true,
   value: 'Answer correct',
   characterCount: true,
-  characterLimit: 100,
+  charLimit: 100,
 };
 
 Incorrect.args = {
@@ -122,7 +122,7 @@ Incorrect.args = {
   incorrect: true,
   value: 'Answer incorrect',
   characterCount: true,
-  characterLimit: 100,
+  charLimit: 100,
 };
 
 AnswerShown.args = {
@@ -130,13 +130,13 @@ AnswerShown.args = {
   answerShown: true,
   value: 'Answer shown',
   characterCount: true,
-  characterLimit: 100,
+  charLimit: 100,
 };
 
 Disabled.args = {
   ...Default.args,
   value: 'Disabled',
   characterCount: true,
-  characterLimit: 100,
+  charLimit: 100,
   disabled: true,
 };

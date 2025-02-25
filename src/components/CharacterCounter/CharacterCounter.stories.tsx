@@ -30,22 +30,22 @@ const Template: StoryFn<CharacterCounterProps> = (args) => {
 };
 
 export const Default: Story = Template.bind({});
-export const CharacterLimit: Story = Template.bind({});
-export const CharacterLimitReached: Story = Template.bind({});
+export const charLimit: Story = Template.bind({});
+export const charLimitReached: Story = Template.bind({});
 
 Default.args = {
   charCount: 100,
-  characterLimit: undefined,
+  charLimit: undefined,
   gradeBand: GradeBand.G4_5,
 };
 
-CharacterLimit.args = {
+charLimit.args = {
   ...Default.args,
   charCount: 0,
-  characterLimit: 100,
+  charLimit: 100,
 };
 
-CharacterLimitReached.args = {
-  ...CharacterLimit.args,
+charLimitReached.args = {
+  ...charLimit.args,
   charCount: 101,
 };

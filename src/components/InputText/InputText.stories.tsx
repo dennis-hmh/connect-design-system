@@ -41,7 +41,7 @@ export const Default: Story = Template.bind({});
 export const Placeholder: Story = Template.bind({});
 export const DefaultText: Story = Template.bind({});
 export const CharacterCounter: Story = Template.bind({});
-export const CharacterLimit: Story = Template.bind({});
+export const CharacterCounterLimit: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
 export const AnswerShown: Story = Template.bind({});
@@ -52,8 +52,7 @@ export const OnClearWIP: Story = Template.bind({});
 Default.args = {
   value: '',
   placeholderText: '',
-  characterCount: false,
-  characterLimit: undefined,
+  charLimit: undefined,
   correct: false,
   incorrect: false,
   answerShown: false,
@@ -74,44 +73,40 @@ DefaultText.args = {
 CharacterCounter.args = {
   ...Default.args,
   value: 'This is some default text',
-  characterCount: true,
+  charLimit: 50,
 };
 
-CharacterLimit.args = {
+CharacterCounterLimit.args = {
   ...Default.args,
-  characterCount: true,
-  characterLimit: 50,
+  value: 'This is text that is more than fifty characters long',
+  charLimit: 50,
 };
 
 Correct.args = {
   ...Default.args,
   correct: true,
   value: 'Answer correct',
-  characterCount: true,
-  characterLimit: 50,
+  charLimit: 50,
 };
 
 Incorrect.args = {
   ...Default.args,
   incorrect: true,
   value: 'Answer incorrect',
-  characterCount: true,
-  characterLimit: 50,
+  charLimit: 50,
 };
 
 AnswerShown.args = {
   ...Default.args,
   answerShown: true,
   value: 'Answer shown',
-  characterCount: true,
-  characterLimit: 50,
+  charLimit: 50,
 };
 
 Disabled.args = {
   ...Default.args,
   value: 'Disabled',
-  characterCount: true,
-  characterLimit: 50,
+  charLimit: 50,
 };
 
 Number.args = {

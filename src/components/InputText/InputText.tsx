@@ -6,14 +6,13 @@ import { GradeBand } from 'src/enum/gradeband';
 export type InputTextProps = {
   value: string | number;
   onChange: (value: string) => void;
+  placeholderText?: string | undefined;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  characterCount?: boolean;
-  characterLimit?: number | undefined;
-  placeholderText?: string | undefined;
+  charLimit?: number | undefined;
   onClear?: () => void | undefined;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -22,14 +21,13 @@ export type InputTextProps = {
 export function InputText({
   value = '',
   onChange,
+  placeholderText,
   correct,
   incorrect,
   answerShown,
   number,
   disabled,
-  characterCount,
-  characterLimit,
-  placeholderText,
+  charLimit,
   onClear,
   dataTestId,
 }: InputTextProps) {
@@ -92,12 +90,8 @@ export function InputText({
           </svg>
         </button>
       )}
-      {characterCount && (
-        <CharacterCounter
-          charCount={value.toString().length}
-          characterLimit={characterLimit}
-          characterCount={characterCount}
-        />
+      {CharacterCounter && (
+        <CharacterCounter charCount={value.toString().length} charLimit={charLimit} />
       )}
     </label>
   );
