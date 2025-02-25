@@ -1326,12 +1326,6 @@
   }
 }
 
-:where([class*='connect__']) :where(h1, h2, h3, h4, h5) {
-  font-weight: var(--connect__fw, var(--variant__fw));
-  hyphens: auto;
-  text-wrap: balance;
-}
-
 :where([class*='connect__']):focus-visible {
   outline: 0;
 }

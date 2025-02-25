@@ -165,7 +165,7 @@ Buttons take variables in the following format
       justify-self: end;
     }
   }
-  
+
   .connect__icon {
     --connect__icon-fill-color: var(
       --variant__icon-fill,
@@ -269,7 +269,6 @@ Buttons take variables in the following format
     }
   }
 }
-
 
 /*
 | Property            | Variant/State                  | Fallback / Default                                         |
@@ -2099,6 +2098,7 @@ utilities
 
 .connect__typography {
   font-weight: var(--connect__fw, var(--connect__fw-regular));
+  hyphens: auto;
 }
 
 .connect__position-relative-wrapper {
