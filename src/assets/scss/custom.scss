@@ -1963,7 +1963,7 @@ Positioning int he pseudos is the total border / 2
   );
 }
 
-/* Table
+/* 
   Table Component
 */
 .connect__table-wrapper {
@@ -2655,6 +2655,65 @@ Cover Text / Cursors / Iconography
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
   z-index: 2;
 }
+
+/*
+button-group
+*/
+
+.connect__button-group {
+  --connect__stack-direction: row;
+  --connect__stack-justify-content: center;
+
+  background-color: var(
+    --theme__btn-bg,
+    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
+  );
+  border-radius: var(--connect__border-radius);
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
+
+  &-primary {
+    --active-color: var(--connect__surface-white);
+  }
+
+  &-secondary {
+    --state-based-bg: var(--connect__surface-white);
+    --active-color: var(--connect__primary-mid);
+    --connect__inner-status-color: var(--connect__primary-mid);
+  }
+
+  &-tools {
+    --state-based-bg: var(--connect__surface-white);
+    --active-color: var(--connect__surface-dark);
+    --connect__inner-status-color: var(--connect__surface-white);
+  }
+
+  button {
+    background-color: var(--connect__transparent);
+    border-radius: unset;
+    box-shadow: unset;
+
+    &:first-of-type {
+      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
+    }
+
+    &:last-of-type {
+      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
+    }
+
+    &:only-of-type {
+      border-radius: var(--connect__border-radius);
+    }
+
+    &:not(:disabled):hover {
+      box-shadow: var(--connect__shadow-null), var(--connect__shadow-lvl-4);
+    }
+  }
+}
+
+/*
+dropdown
+*/
 
 .connect__dropdown-wrapper {
   position: var(--connect__relative);
