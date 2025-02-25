@@ -1577,6 +1577,32 @@ Positioning int he pseudos is the total border / 2
     }
   }
 
+  &.connect__table-scrolling {
+    overflow-x: auto;
+  }
+
+  &.connect__table-sticky-header {
+    &:is(table) {
+      overflow: unset;
+    }
+
+    thead {
+      position: sticky;
+      top: -0.0625rem;
+      z-index: 1;
+    }
+  }
+
+  &.connect__table-no-thead {
+    thead {
+      display: none;
+    }
+
+    tr:first-of-type td {
+      border-top: unset;
+    }
+  }
+
   caption {
     font-size: var(--connect__body-md);
     font-weight: var(--connect__fw-bold);
@@ -1588,7 +1614,6 @@ Positioning int he pseudos is the total border / 2
   th,
   td {
     border: var(--connect__table-border-w) solid var(--connect__table-border-c);
-    padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
 
     &:first-of-type {
       border-left: unset;
@@ -1602,6 +1627,7 @@ Positioning int he pseudos is the total border / 2
     background-color: var(--connect__thead-bg);
     border-top: unset;
     overflow: hidden;
+    padding: var(--connect__spacer-sm);
     text-align: left;
     &:is([scope='row']) {
       background-color: var(--connect__tr-hover-bg);
@@ -1615,36 +1641,11 @@ Positioning int he pseudos is the total border / 2
 
   td {
     border-bottom: unset;
+    padding: var(--connect__spacer-sm);
   }
 
   tr:hover {
     background-color: var(--connect__tr-hover-bg);
-  }
-}
-
-.connect__table-scrolling {
-  overflow-x: auto;
-}
-
-.connect__table-sticky-header {
-  &:is(table) {
-    overflow: unset;
-  }
-
-  thead {
-    position: sticky;
-    top: -0.0625rem;
-    z-index: 1;
-  }
-}
-
-.connect__table-no-thead {
-  thead {
-    display: none;
-  }
-
-  tr:first-of-type td {
-    border-top: unset;
   }
 }
 
