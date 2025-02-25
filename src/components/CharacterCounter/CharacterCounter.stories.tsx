@@ -34,14 +34,14 @@ export const charLimit: Story = Template.bind({});
 export const charLimitReached: Story = Template.bind({});
 
 Default.args = {
-  charCount: 100,
-  charLimit: undefined,
+  charCount: 0,
+  charLimit: 100,
   gradeBand: GradeBand.G4_5,
 };
 
 charLimit.args = {
   ...Default.args,
-  charCount: 0,
+  charCount: 50,
   charLimit: 100,
 };
 
