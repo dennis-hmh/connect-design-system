@@ -71,72 +71,46 @@ Buttons take variables in the following format
       State --connect__inner-status-color-state
 
 /*
-| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
-|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
-| Font size           | --theme__btn-fs              | --variant__btn-fs             | --connect__body-sm                                       |
-| Line height         | --theme__btn-lh              | --variant__btn-lh             | --connect__body-sm-lheight                               |
-| Font weight         | --theme__btn-fw              | --variant__btn-fw             | --connect__fw-regular                                    |
-| Text transform      | --theme__btn-text-transform  | --variant__btn-text-transform | --connect__text-capitalize                               |
-| Background color    | --theme__btn-bg              | --state__btn-bg               | --connect__primary-mid                                   |
-| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__surface-null                                 |
-| Gap                 | --theme__btn-gap             | --variant__btn-gap            | --connect__spacer-sm                                     |
-| Padding X           | --theme__btn-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
-| Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
-| Flex align          | --theme__btn-align           | --variant__btn-align          | center                                                   |
-| Flex justify        | --theme__btn-justify         | --variant__btn-justify        | space-between                                            |
-| Border radius       | --theme__btn-border-radius   | --variant__btn-border-radius  | --connect__border-radius                                 |
-| Height              | --theme__btn-h               | --variant__btn-h              | auto                                                     |
-| Icon Fill           | --theme__icon-fill            | --state-based-icon-fill        | --connect__icon-fill                                      |
-| Cursor              |                              |                               | pointer                                                  |
+| Property            |  Variant/State                | Fallback / Default                                       |
+|---------------------|-------------------------------|----------------------------------------------------------|
+| Font size           | --variant__btn-fs             | --connect__body-sm                                       |
+| Line height         | --variant__btn-lh             | --connect__body-sm-lheight                               |
+| Font weight         | --variant__btn-fw             | --connect__fw-regular                                    |
+| Text transform      | --variant__btn-text-transform | --connect__text-capitalize                               |
+| Background color    | --state__btn-bg               | --connect__primary-mid                                   |
+| Border color        | --variant__btn-border-c       | --connect__surface-null                                  |
+| Gap                 | --variant__btn-gap            | --connect__spacer-sm                                     |
+| Padding X           | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Padding Y           | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Flex align          | --variant__btn-align          | center                                                   |
+| Flex justify        | --variant__btn-justify        | space-between                                            |
+| Border radius       | --variant__btn-border-radius  | --connect__border-radius                                 |
+| Height              | --variant__btn-h              | auto                                                     |
+| Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
 
 .connect__button {
-  --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
-  --connect__btn-border-w: var(
-    --theme__btn-border-w,
-    var(--variant__btn-border-w, var(--connect__spacer-zero))
-  );
+  --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
+  --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
+  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
 
-  --connect__btn-padding-y: var(
-    --theme__btn-padding-y,
-    var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
-  );
-  --connect__btn-padding-x: var(
-    --theme__btn-padding-x,
-    var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
-  );
-
-  --icon__fill-color: var(
-    --theme__icon-fill,
-    var(--state-based-icon-fill, var(--connect__icon-fill))
-  );
-
-  background-color: var(
-    --theme__btn-bg,
-    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
-  );
-  border: var(--connect__btn-border-w) solid
-    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__surface-null)));
-  border-radius: var(
-    --theme__btn-border-radius,
-    var(--variant__btn-border-radius, var(--connect__border-radius))
-  );
+  background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
+  border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
-  // flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
-  font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
-  font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
-  gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  font-size: var(--variant__btn-fs, var(--connect__body-sm));
+  font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
+  gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
   height: var(--connect__btn-h, auto);
-  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
-  line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
+  justify-content: var(--variant__btn-justify, space-between);
+  line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
-  place-items: var(--theme__btn-align, var(--variant__btn-align, center)) center;
-  text-transform: var(--connect__btn-text-transform, initial);
+  place-items: var(--variant__btn-align, center) center;
+  text-transform: var(--connect__text-capitalize);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
@@ -305,54 +279,32 @@ Buttons take variables in the following format
 }
 
 /*
-| Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
-|---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
-| Font size           | --theme__input-fs            | --variant__input-fs            | --connect__body-sm                                         |
-| Line height         | --theme__input-lh            | --variant__input-lh            | --connect__body-sm-lheight                                 |
-| Background color    | --theme__input-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__surface-null                                    |
-| Padding X           | --theme__input-padding-x     | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
-| Padding Y           | --theme__input-padding-y     | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
-| Border radius       | --theme__input-border-radius | --variant__input-border-radius | --connect__border-radius                                   |
-| Width               | --connect__btn-w             | --variant__input-w             | fit-content                                                 |
+| Property            | Variant/State                  | Fallback / Default                                         |
+|---------------------|--------------------------------|------------------------------------------------------------|
+| Font size           | --variant__input-fs            | --connect__body-sm                                         |
+| Line height         | --variant__input-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --state__btn-bg                | --connect__surface-white                                   |
+| Border color        | --variant__input-border-c      | --connect__surface-null                                    |
+| Padding X           | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
+| Padding Y           | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
+| Border radius       | --variant__input-border-radius | --connect__border-radius                                   |
+| Width               | --variant__input-w             | fit-content                                                 |
 */
 
 .connect__input {
-  --connect__input-border-w: var(
-    --theme__input-border-w,
-    var(--variant__input-border-w, var(--connect__spacer-zero))
-  );
-  --connect__input-padding-y: var(
-    --theme__input-padding-y,
-    var(
-      --variant__input-padding-y,
-      calc(var(--connect__spacer-sm) - var(--connect__input-border-w))
-    )
-  );
-  --connect__input-padding-x: var(
-    --theme__input-padding-x,
-    var(
-      --variant__input-padding-x,
-      calc(var(--connect__spacer-md) - var(--connect__input-border-w))
-    )
-  );
+  --connect__input-padding-y: var(--variant__input-padding-y, var(--connect__spacer-sm));
+  --connect__input-padding-x: var(--variant__input-padding-x, var(--connect__spacer-md));
 
-  background-color: var(
-    --theme__input-bg,
-    var(--variant__input-bg, var(--state-based-bg, var(--connect__surface-white)))
-  );
-  border: var(--connect__input-border-w) solid
-    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  background-color: var(--variant__input-bg, var(--state-based-bg, var(--connect__surface-white)));
   border-radius: var(--connect__border-radius);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   caret-color: var(--connect__primary-mid);
-  color: var(--theme__input-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, text);
   font-family: var(--connect__font-sans);
-  font-size: var(--theme__input-fs, var(--variant__input-fs, var(--connect__body-sm)));
-  line-height: var(--theme__input-lh, var(--variant__input-lh, var(--connect__body-sm-lheight)));
-  padding: calc(var(--connect__input-padding-y) - var(--connect__input-border-w))
-    calc(var(--connect__input-padding-x) - var(--connect__input-border-w));
+  font-size: var(--variant__input-fs, var(--connect__body-sm));
+  line-height: var(--variant__input-lh, var(--connect__body-sm-lheight));
+  padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
   position: relative;
   resize: var(--resize, none);
   transition-duration: var(--connect__transition-rapid);
@@ -434,17 +386,17 @@ Buttons take variables in the following format
 .connect__select Component
 
 /*
-| Property            | Theme                         | Variant/State                   | Fallback / Default                                         |
-|---------------------|-------------------------------|---------------------------------|------------------------------------------------------------|
-| Font size           | --theme__select-fs            | --variant__select-fs            | --connect__body-sm                                         |
-| Line height         | --theme__select-lh            | --variant__select-lh            | --connect__body-sm-lheight                                 |
-| Background color    | --theme__select-bg            | --state__btn-bg                 | --connect__surface-white                                   |
-| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__surface-null                                    |
-| Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
-| Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
-| Border radius       | --theme__select-border-radius | --variant__select-border-radius | --connect__border-radius                                   |
-| Width               | --connect__btn-w              | --variant__select-w             | fit-content                                                 |
-| Resize              |                               | Resize                          | none                                                       |
+| Property             Variant/State                    | Fallback / Default                                         |
+|---------------------|---------------------------------|------------------------------------------------------------|
+| Font size           | --variant__select-fs            | --connect__body-sm                                         |
+| Line height         | --variant__select-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --state__btn-bg                 | --connect__surface-white                                   |
+| Border color        | --variant__select-border-c      | --connect__surface-null                                    |
+| Padding X           | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
+| Padding Y           | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
+| Border radius       | --variant__select-border-radius | --connect__border-radius                                   |
+| Width               | --variant__select-w             | fit-content                                                 |
+| Resize             | Resize                           | none                                                       |
 */
 
 .connect__select {
