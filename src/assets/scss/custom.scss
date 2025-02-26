@@ -1688,10 +1688,10 @@ Divider can be vertical or horizontal
 
 | Property         | Variant                      | Fallback / Default             |
 |------------------|------------------------------|--------------------------------|
-| Background color |  --variant__divider-bg       | --connect__surface-pale        |
+| Background color |                              | --connect__surface-pale        |
 | Height           |  --variant__divider-h        | --connect__effects-inner-edge  |
 | Width            |  --variant__divider-w        | --connect__full-w              |
-| Radius           |  --variant__divider-br       | --connect__border-radius       |         
+| Radius           |                              | --connect__border-radius       |         
 | Margin x         |  --variant__divider-margin-x | --connect__spacer-zero         |      
 | Margin y         |  --variant__divider-margin-y | --connect__spacer-zero         |       
 */
@@ -1701,8 +1701,8 @@ Divider can be vertical or horizontal
   --connect__divider-margin-x: var(--variant__divider-margin-x, var(--connect__spacer-zero));
   --connect__divider-margin-y: var(--variant__divider-margin-y, var(--connect__spacer-zero));
 
-  --connect__divider-bg: var(--variant__divider-bg, var(--connect__surface-pale));
-  --connect__divider-br: var(--variant__divider-br, var(--connect__border-radius));
+  --connect__divider-bg: var(--connect__surface-pale);
+  --connect__divider-br: var(--connect__border-radius);
   --connect__divider-h: var(--variant__divider-h, var(--connect__effects-inner-edge));
   --connect__divider-w: var(--variant__divider-w, var(--connect__full-w));
 
