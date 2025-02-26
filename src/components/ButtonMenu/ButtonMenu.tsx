@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
-import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
   children?: React.ReactNode;
@@ -37,14 +36,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   onClick,
   dataTestId,
 }) => {
-  const context = useContext(ButtonMenuContext);
-  const clickedButtonId = context?.clickedButtonId;
-  const setClickedButtonId = context?.setClickedButtonId;
-
   const handleClick = () => {
-    if (setClickedButtonId) {
-      setClickedButtonId(clickedButtonId === id ? '' : id);
-    }
     if (clickHandler) {
       clickHandler();
     }
@@ -53,14 +45,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
     }
   };
 
-  const isClicked = clickedButtonId === id;
-
-  const classNames = [
-    'connect__button',
-    'connect__button-menu',
-    additionalClass,
-    isClicked && clickedClass,
-  ]
+  const classNames = ['connect__button', 'connect__button-menu', additionalClass, clickedClass]
     .filter(Boolean)
     .join(' ');
 

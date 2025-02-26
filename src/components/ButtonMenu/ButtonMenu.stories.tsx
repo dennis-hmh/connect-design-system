@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { ButtonMenu, ButtonMenuProps } from './ButtonMenu';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof ButtonMenu> = {
   title: 'Buttons/Button Menu',
@@ -12,15 +11,6 @@ const meta: Meta<typeof ButtonMenu> = {
   parameters: {
     layout: 'centered',
   },
-  decorators: [
-    (Story) => {
-      return (
-        <ButtonMenuProvider>
-          <Story />
-        </ButtonMenuProvider>
-      );
-    },
-  ],
 };
 
 export default meta;
@@ -28,11 +18,18 @@ type Story = StoryObj<typeof ButtonMenu>;
 
 const Template: StoryFn<ButtonMenuProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+
+  const clickedClass = clicked ? args.clickedClass : '';
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <ButtonMenu {...args} />
+        <ButtonMenu {...args} onClick={handleClick} additionalClass={clickedClass} />
       </div>
     </ConnectTheme>
   );
