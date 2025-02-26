@@ -1906,7 +1906,7 @@ Cover Text / Cursors / Iconography
 .connect__feedback-correct,
 .connect__feedback-incorrect,
 .connect__feedback-shown {
-  // --active-color: var(--connect__disabled-mid);
+  --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
