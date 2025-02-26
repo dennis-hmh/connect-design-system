@@ -89,35 +89,114 @@ Buttons take variables in the following format
 | Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
 
-.connect__button {
-  --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
-  --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
-  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
+@layer btn-component, btn-variants, btn-states, btn-feedback;
 
-  background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
-  border: var(--connect__spacer-zero);
-  border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
-  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--active-color, var(--connect__surface-dark));
-  cursor: var(--connect__state-based-pointer, pointer);
-  display: grid;
-  font-family: var(--connect__font-sans);
-  font-size: var(--variant__btn-fs, var(--connect__body-sm));
-  font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
-  gap: var(--variant__btn-gap, var(--connect__spacer-sm));
-  grid-auto-columns: max-content;
-  height: var(--connect__btn-h, auto);
-  justify-content: var(--variant__btn-justify, space-between);
-  line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
-  padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
-  place-items: var(--variant__btn-align, center) center;
-  text-transform: var(--connect__text-capitalize);
-  transition-duration: var(--connect__transition-rapid);
-  transition-property: color, background-color, border-color, box-shadow, fill, stroke;
-  transition-timing-function: var(--connect__ease-out);
-  width: var(--connect__btn-w, auto);
+@layer btn-component {
+  .connect__button {
+    --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
+    --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
+    --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
 
-  &:not(:disabled) {
+    background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
+    border: var(--connect__spacer-zero);
+    border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+    color: var(--active-color, var(--connect__surface-dark));
+    cursor: var(--connect__state-based-pointer, pointer);
+    display: grid;
+    font-size: var(--variant__btn-fs, var(--connect__body-sm));
+    font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
+    gap: var(--variant__btn-gap, var(--connect__spacer-sm));
+    grid-auto-columns: max-content;
+    justify-content: var(--variant__btn-justify, space-between);
+    line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
+    padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
+    place-items: var(--variant__btn-align, center) center;
+    text-transform: var(--connect__text-capitalize);
+    transition-duration: var(--connect__transition-rapid);
+    transition-property: color, background-color, border-color, box-shadow, fill, stroke;
+    transition-timing-function: var(--connect__ease-out);
+    width: var(--connect__btn-w, auto);
+
+    * {
+      grid-row: 1;
+
+      &:not(svg):not(span) {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    span {
+      grid-column: 1 / span 2;
+    }
+    svg:first-child:last-child {
+      grid-column: 1 / span 2;
+    }
+    &:has(svg:first-child) {
+      svg {
+        grid-column: 1;
+        justify-self: end;
+      }
+      span {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+    &:has(svg:last-child) {
+      svg {
+        grid-column: 2;
+        justify-self: start;
+      }
+      span {
+        grid-column: 1;
+        justify-self: end;
+      }
+    }
+
+    .connect__icon {
+      --connect__icon-fill-color: var(
+        --variant__icon-fill,
+        var(--state__based-icon-fill, var(--icon__fill-color))
+      );
+    }
+  }
+}
+
+@layer btn-variants {
+  .connect__button-primary {
+    --active-color: var(--connect__surface-white);
+    --connect__icon-fill: var(--active-color);
+  }
+
+  .connect__button-secondary {
+    --state-based-bg: var(--connect__surface-white);
+    --active-color: var(--connect__primary-mid);
+    --connect__icon-fill: var(--active-color);
+    --connect__inner-status-color: var(--connect__primary-mid);
+  }
+
+  .connect__button-menu {
+    --variant__btn-bg: var(--connect__surface-null);
+    --connect__inner-status-color: var(--connect__surface-null);
+    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+    --variant__btn-padding-x: var(--connect__spacer-sm);
+
+    box-shadow: var(--connect__shadow-null);
+  }
+
+  .connect__button-media {
+    box-shadow: var(--connect__shadow-null);
+  }
+
+  .connect__button-loading {
+    svg {
+      animation: connect-loading 0.85s var(--connect__linear) infinite;
+    }
+  }
+}
+
+@layer btn-states {
+  .connect__button:not(:disabled) {
     &:hover {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
     }
@@ -131,142 +210,74 @@ Buttons take variables in the following format
     }
   }
 
-  * {
-    grid-row: 1;
-
-    &:not(svg):not(span) {
-      grid-column: 1 / span 2;
-    }
-  }
-
-  span {
-    grid-column: 1 / span 2;
-  }
-  svg:first-child:last-child {
-    grid-column: 1 / span 2;
-  }
-  &:has(svg:first-child) {
-    svg {
-      grid-column: 1;
-      justify-self: end;
-    }
-    span {
-      grid-column: 2;
-      justify-self: start;
-    }
-  }
-  &:has(svg:last-child) {
-    svg {
-      grid-column: 2;
-      justify-self: start;
-    }
-    span {
-      grid-column: 1;
-      justify-self: end;
-    }
-  }
-
-  .connect__icon {
-    --connect__icon-fill-color: var(
-      --variant__icon-fill,
-      var(--state__based-icon-fill, var(--icon__fill-color))
-    );
-  }
-
-  &-primary {
+  .connect__button-primary:disabled {
     --active-color: var(--connect__surface-white);
-    --connect__icon-fill: var(--active-color);
-
-    &.connect__feedback-correct {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-      --state-based-icon-fill: var(--connect__correct-mid);
-    }
-
-    &.connect__feedback-incorrect {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-    }
-
-    &:disabled {
-      --active-color: var(--connect__surface-white);
-      --variant__icon-fill: var(--active-color);
-      --variant__btn-bg: var(--connect__disabled-light);
-    }
+    --variant__icon-fill: var(--active-color);
+    --variant__btn-bg: var(--connect__disabled-light);
   }
 
-  &-secondary {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__primary-mid);
-    --connect__icon-fill: var(--active-color);
-    --connect__inner-status-color: var(--connect__primary-mid);
+  .connect__button-secondary:disabled {
+    --variant__btn-bg: var(--connect__surface-white);
+    --variant__icon-fill: var(--connect__disabled-light);
+    --connect__inner-status-color-state: var(--connect__surface-pale);
+  }
 
-    &:disabled {
+  .connect__button-incorrect:disabled {
+    --state-based-bg: var(--color-incorrect-bg);
+  }
+
+  .connect__button-menu:not(:disabled) {
+    &:hover {
       --variant__btn-bg: var(--connect__surface-white);
-      --variant__icon-fill: var(--connect__disabled-light);
-      --connect__inner-status-color-state: var(--connect__surface-pale);
+      --connect__inner-status-color: var(--connect__surface-white);
+      box-shadow: var(--connect__shadow-lvl-2);
     }
 
-    &.connect__feedback-incorrect {
-      --state-based-bg: var(--connect__surface-white);
-    }
-
-    &.connect__feedback-correct {
-      --state-based-bg: var(--connect__surface-white);
-      --state-based-icon-fill: var(--connect__correct-mid);
-      --connect__inner-status-color: var(--connect__correct-light);
+    &:active {
+      box-shadow: var(--connect__shadow-null);
     }
   }
 
-  &-incorrect {
-    &:disabled {
-      --state-based-bg: var(--color-incorrect-bg);
-    }
+  .connect__button-menu:disabled {
+    --icon__fill-opacity: var(--connect__state-opacity);
+    --variant__icon-fill-color: var(--connect__disabled-mid);
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
   }
 
-  &-menu {
-    --variant__btn-bg: var(--connect__surface-null);
-    --connect__inner-status-color: var(--connect__surface-null);
-    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-
-    box-shadow: var(--connect__shadow-null);
-
-    &:not(:disabled) {
-      &:hover {
-        --variant__btn-bg: var(--connect__surface-white);
-        --connect__inner-status-color: var(--connect__surface-white);
-        box-shadow: var(--connect__shadow-lvl-2);
-      }
-
-      &:active {
-        box-shadow: var(--connect__shadow-null);
-      }
-    }
-
-    &:disabled {
-      --icon__fill-opacity: var(--connect__state-opacity);
-      --variant__icon-fill-color: var(--connect__disabled-mid);
-      --connect__state-based-pointer: var(--connect__disabled-cursor);
-    }
+  .connect__button-media.connect__media-active:not(:disabled) {
+    --state-based-bg: var(--connect__error-mid);
   }
+}
 
-  &-loading > svg {
-    animation: connect-loading 0.85s var(--connect__linear) infinite;
-  }
-
-  &-media {
-    box-shadow: var(--connect__shadow-null);
-
-    &.connect__media-active:not(:disabled) {
-      --state-based-bg: var(--connect__error-mid);
-    }
-  }
-
-  &.connect__feedback-correct,
-  &.connect__feedback-incorrect {
+@layer btn-feedback {
+  .connect__button.connect__feedback-correct,
+  .connect__button.connect__feedback-incorrect {
     &:hover,
     &:active {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
     }
+  }
+
+  .connect__button-primary.connect__feedback-correct {
+    --connect__inner-status-color-state: var(--connect__surface-null);
+    --state-based-bg: var(--connect__correct-pale);
+    --state-based-icon-fill: var(--connect__correct-mid);
+    --active-color: var(--connect__disabled-mid);
+  }
+
+  .connect__button-primary.connect__feedback-incorrect {
+    --connect__inner-status-color-state: var(--connect__surface-null);
+  }
+
+  .connect__button-secondary.connect__feedback-incorrect {
+    --state-based-bg: var(--connect__surface-white);
+  }
+
+  .connect__button-secondary.connect__feedback-correct {
+    --state-based-bg: var(--connect__surface-white);
+    --state-based-icon-fill: var(--connect__correct-mid);
+    --connect__inner-status-color: var(--connect__correct-light);
+    --active-color: var(--connect__disabled-mid);
   }
 }
 
@@ -283,28 +294,52 @@ Buttons take variables in the following format
 | Width               | --variant__input-w             | fit-content                                                 |
 */
 
+@layer input-base, input-variants, input-states, input-feedback;
+
+@layer input-base {
+  .connect__input {
+    --connect__input-padding-y: var(--variant__input-padding-y, var(--connect__spacer-sm));
+    --connect__input-padding-x: var(--variant__input-padding-x, var(--connect__spacer-md));
+
+    background-color: var(--state-based-bg, var(--connect__surface-white));
+    border: 0;
+    border-radius: var(--connect__border-radius);
+    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+    caret-color: var(--connect__primary-mid);
+    color: var(--active-color, var(--connect__surface-dark));
+    cursor: var(--connect__state-based-pointer, text);
+    font-family: var(--connect__font-sans);
+    font-size: var(--variant__input-fs, var(--connect__body-sm));
+    line-height: var(--variant__input-lh, var(--connect__body-sm-lheight));
+    padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
+    position: var(--connect__relative);
+    resize: var(--resize, none);
+    transition-duration: var(--connect__transition-rapid);
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-timing-function: var(--connect__ease-in-out);
+    width: var(--connect__full-w);
+  }
+}
+
+@layer input-variants {
+  .connect__input-resize {
+    --resize: vertical;
+  }
+}
+
+@layer input-feedback {
+  .connect__input.connect__feedback-correct {
+    --state-based-bg: var(--connect__correct-pale);
+  }
+  .connect__input.connect__feedback-incorrect {
+    --state-based-bg: var(--color-incorrect-bg);
+  }
+  .connect__input.connect__feedback-shown {
+    --state-based-bg: var(--connect__surface-white);
+  }
+}
+
 .connect__input {
-  --connect__input-padding-y: var(--variant__input-padding-y, var(--connect__spacer-sm));
-  --connect__input-padding-x: var(--variant__input-padding-x, var(--connect__spacer-md));
-
-  background-color: var(--state-based-bg, var(--connect__surface-white));
-  border: 0;
-  border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
-  caret-color: var(--connect__primary-mid);
-  color: var(--active-color, var(--connect__surface-dark));
-  cursor: var(--connect__state-based-pointer, text);
-  font-family: var(--connect__font-sans);
-  font-size: var(--variant__input-fs, var(--connect__body-sm));
-  line-height: var(--variant__input-lh, var(--connect__body-sm-lheight));
-  padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
-  position: var(--connect__relative);
-  resize: var(--resize, none);
-  transition-duration: var(--connect__transition-rapid);
-  transition-property: color, background-color, border-color, box-shadow;
-  transition-timing-function: var(--connect__ease-in-out);
-  width: var(--connect__input-width, var(--connect__full-w));
-
   &:not(:disabled):not(.connect__selected) {
     &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--4);
@@ -1250,6 +1285,7 @@ Padding on MCQ labels is the total border + spacer
       --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
       --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
       --checked-state-icon: var(--checked-correct);
+      --connect__inner-status-color: var(--connect__correct-mid);
     }
 
     &.connect__feedback-incorrect {
@@ -1257,13 +1293,15 @@ Padding on MCQ labels is the total border + spacer
       --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
       --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
       --checked-state-icon: var(--checked-incorrect);
+      --connect__inner-status-color: var(--connect__incorrect-mid);
     }
 
-    &.connect__input-shown {
+    &.connect__feedback-shown {
       --checkbox-state-based-bg: var(--connect__surface-dark);
       --checkbox-checked-state-based-border-c: var(--checkbox-state-based-bg);
       --checkbox-state-based-inner-shadow: var(--checkbox-state-based-bg);
       --checked-state-icon: var(--checked-correct);
+      --connect__inner-status-color: var(--connect__surface-mid);
     }
   }
 
@@ -1878,7 +1916,7 @@ Cover Text / Cursors / Iconography
 .connect__feedback-correct,
 .connect__feedback-incorrect,
 .connect__feedback-shown {
-  --active-color: var(--connect__disabled-mid);
+  // --active-color: var(--connect__disabled-mid);
   --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
