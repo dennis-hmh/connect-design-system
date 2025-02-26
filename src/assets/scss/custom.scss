@@ -318,6 +318,11 @@ Buttons take variables in the following format
     transition-property: color, background-color, border-color, box-shadow;
     transition-timing-function: var(--connect__ease-in-out);
     width: var(--connect__full-w);
+
+    &::placeholder {
+      color: var(--connect__surface-mid);
+      font-style: var(--connect__style-italic);
+    }
   }
 }
 
@@ -339,40 +344,25 @@ Buttons take variables in the following format
   }
 }
 
-.connect__input {
-  &:not(:disabled):not(.connect__selected) {
-    &:hover {
-      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--4);
+@layer input-states {
+  .connect__input {
+    &:not(:disabled) {
+      &:hover {
+        box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--4);
+      }
+    }
+
+    &:focus-visible:not(.connect__selected) {
+      box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
     }
   }
 
-  &:focus-visible:not(.connect__selected) {
-    box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
-  }
-
-  &::placeholder {
-    color: var(--connect__surface-mid);
-    font-style: var(--connect__style-italic);
-  }
-
-  &-resize {
-    --resize: vertical;
-
-    &:disabled {
-      resize: none;
-    }
-  }
-
-  &.connect__selected {
+  .connect__input.connect__selected {
     box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
 
     &:hover {
       box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-active);
     }
-  }
-
-  &:has(+ .connect__clear-button) {
-    padding-right: calc(var(--connect__spacer-md) * 3);
   }
 }
 
@@ -380,6 +370,12 @@ Buttons take variables in the following format
 .connect__clear-button
 
 */
+
+.connect__input {
+  &:has(+ .connect__clear-button) {
+    padding-right: calc(var(--connect__spacer-md) * 3);
+  }
+}
 
 .connect__clear-button {
   --connect__icon-fill-color: var(--connect__white);
