@@ -294,7 +294,7 @@ Buttons take variables in the following format
 | Width               | --variant__input-w             | fit-content                                                 |
 */
 
-@layer input-base, input-variants, input-states, input-feedback;
+@layer input-base, input-states, input-feedback;
 
 @layer input-base {
   .connect__input {
@@ -323,12 +323,6 @@ Buttons take variables in the following format
       color: var(--connect__surface-mid);
       font-style: var(--connect__style-italic);
     }
-  }
-}
-
-@layer input-variants {
-  .connect__input-resize {
-    --resize: vertical;
   }
 }
 
