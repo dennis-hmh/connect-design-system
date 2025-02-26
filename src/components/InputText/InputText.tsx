@@ -90,7 +90,7 @@ export function InputText({
           </svg>
         </button>
       )}
-      {CharacterCounter && (
+      {typeof charLimit === 'number' && (
         <CharacterCounter charCount={value.toString().length} charLimit={charLimit} />
       )}
     </label>
