@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.21.1
+
+### Patch Changes
+
+- c9f9ebc: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other:
+    - Storybook alignment update
+    - Component Pattern: `<Alert />`, `<Card />`, `<Chip />`, `<Dialog />`, `<Sidebar />`
+    - Componets Archived: `<Blockquote />`, `<ButtonRive />`, `<ButtonSplit />`, `<FigCaption />`, `<Figure />`, `<Footer />`, `<Header />`, `<RiveSimple />`, `<SingleBlockquote />`, `<SingleImage />`
+
 ## 1.21.0
 
 ### Minor Changes
