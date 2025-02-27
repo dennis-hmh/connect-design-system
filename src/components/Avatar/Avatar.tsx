@@ -69,6 +69,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       'connect__avatar',
       getShapeClass(),
       !src && typeof children === 'string' ? `connect__avatar-text connect__icon-${size}` : '',
+      !src && typeof children !== 'string' ? `connect__avatar-text connect__icon-${size}` : '',
       className,
     ].filter(Boolean);
 

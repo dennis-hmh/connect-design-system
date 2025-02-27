@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { AvatarGroup, AvatarGroupProps } from './AvatarGroup';
 import { Avatar } from '../Avatar/Avatar';
+import { Typography } from '../Typography/Typography';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -90,8 +91,10 @@ CustomSurplus.args = {
   max: 3,
   children: [...avatars, ...imageAvatars],
   renderSurplus: (surplus: number) => (
-    <Avatar alt={`+${surplus} users`} backgroundColor="primary-mid" shape="circle" size="md">
-      +{surplus}
+    <Avatar alt={`+${surplus} users`} backgroundColor="success-dark" shape="circle" size="md">
+      <Typography element="span" color="surface-white">
+        +{surplus}
+      </Typography>
     </Avatar>
   ),
 };
@@ -102,9 +105,13 @@ WithTotal.args = {
   max: 3,
   total: 10,
   children: avatars.slice(0, 3),
-  renderSurplus: (surplus: number) => (
-    <Avatar alt={`+${surplus} users`} backgroundColor="primary-mid" shape="circle">
-      +{surplus}
-    </Avatar>
-  ),
+  renderSurplus: (surplus: number) => {
+    return (
+      <Avatar alt={`+${surplus} users`} backgroundColor="primary-mid" shape="circle">
+        <Typography element="span" color="surface-white">
+          +{surplus}
+        </Typography>
+      </Avatar>
+    );
+  },
 };

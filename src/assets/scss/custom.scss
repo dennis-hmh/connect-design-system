@@ -2810,7 +2810,6 @@ connect__toolbar
   }
 }
 
-//badge
 
 /*
 |---------------|---------------------------------|--------------------------------|
@@ -2823,12 +2822,12 @@ Connect Avatars
 */
 
 .connect__avatar {
-  align-items: var(--connect__align-center);
+  align-items: center;
   border-radius: var(--connect__avatar-radius);
   box-shadow: var(--connect__shadow-lvl-1);
   display: var(--connect__display-flex);
   height: var(--connect__icon-size);
-  justify-content: var(--connect__justify-center);
+  justify-content: center;
   overflow: var(--connect__overflow-hidden);
   width: var(--connect__icon-size);
 }
@@ -2932,6 +2931,7 @@ Connect Avatars
   min-height: var(--connect__spacer-sm);
   min-width: var(--connect__spacer-sm);
 }
+
 /* Invisible variant */
 .connect__badge-invisible {
   --variant-badge-display: var(--connect__display-none);
