@@ -1,7 +1,5 @@
 // @ts-ignore: React is used implicitly in JSX
 import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
-import { Typography } from '../Typography/Typography';
-import { Stack } from '../Stack/Stack';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
@@ -41,6 +39,7 @@ export function InputText({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
+    characterCount && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');
@@ -62,37 +61,6 @@ export function InputText({
     const newText = e.target.value;
     setText(newText);
     setCharCount(newText.length);
-  };
-
-  const renderCharacterCounter = () => {
-    if (!characterCount) return null;
-
-    const isLimitReached = characterLimit && charCount >= characterLimit;
-
-    return (
-      <Stack direction="row" alignItems="center" justifyContent="end" spacing="xs">
-        <Typography
-          element="span"
-          size="caption"
-          style={isLimitReached ? 'italic' : 'normal'}
-          weight={isLimitReached ? 700 : 400}
-          color="surface-mid"
-        >
-          {charCount}
-        </Typography>
-
-        {characterLimit && (
-          <>
-            <Typography element="span" size="caption" color="surface-mid" aria-hidden="true">
-              /
-            </Typography>
-            <Typography element="span" size="caption" color="surface-mid">
-              {characterLimit}
-            </Typography>
-          </>
-        )}
-      </Stack>
-    );
   };
 
   return (
@@ -127,7 +95,23 @@ export function InputText({
           </svg>
         </button>
       )}
-      {renderCharacterCounter()}
+      {characterCount && (
+        <div
+          className={`connect__character-counter ${
+            characterLimit && charCount >= characterLimit
+              ? 'connect__character-counter-limit-reached'
+              : ''
+          }`}
+        >
+          <em>{charCount}</em>
+          {characterLimit && (
+            <>
+              <span aria-hidden="true">/</span>
+              {characterLimit}
+            </>
+          )}
+        </div>
+      )}
     </label>
   );
 }

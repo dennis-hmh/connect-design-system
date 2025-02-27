@@ -29,7 +29,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   return (
-    <div className="connect__progress-wrapper">
+    <div className="connect__full-width">
       <progress
         className="connect__progress"
         role="progressbar"

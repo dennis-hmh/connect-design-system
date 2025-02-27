@@ -613,7 +613,6 @@ Variables related to theme/overrides:
   }
 }
 
-
 /* 
 .connect__grid Component
 
@@ -1097,7 +1096,6 @@ Style lint has been turned off for this file, as we are using the flex long form
 /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
 .connect__chip {
-
   &:focus-visible:not(:active) {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
   }
@@ -1159,6 +1157,7 @@ Style lint has been turned off for this file, as we are using the flex long form
   | width            | connect__icon-md             |                             | connect__icon-size |                  |        
 */
 
+// this should be stack. must investigate engineering side
 .connect__icon-wrapper {
   display: inline-flex;
   flex-flow: column wrap;
@@ -1254,10 +1253,6 @@ Padding on MCQ labels is the total border + spacer
 | Dimensions          | --theme__input-dimensions    | --variant__input-dimensions   | --connect__caption-lheight                              |
 
 */
-
-.connect__choice-label-wrapper {
-  position: relative;
-}
 
 .connect__choice-label {
   --connect__label-padding-y: calc(var(--connect__total-border) + var(--connect__spacer-xs));
@@ -1475,10 +1470,6 @@ Positioning int he pseudos is the total border / 2
 
 */
 
-.connect__progress-wrapper {
-  width: var(--connect__full-w);
-}
-
 .connect__progress {
   background: var(--theme__progress-bg, var(--variant__progress-bg, var(--connect__surface-white)));
   border: none;
@@ -1544,11 +1535,11 @@ Positioning int he pseudos is the total border / 2
 */
 .connect__table-wrapper {
   --connect__table-bg: var(--theme__table-bg, var(--connect__white));
-  --connect__thead-bg: var(--theme__thead-bg, var(--connect__gray-c10));
-  --connect__table-border-c: var(--theme__table-border-c, rgba(220, 220, 220));
+  --connect__thead-bg: var(--theme__thead-bg, var(--connect__surface-pale));
+  --connect__table-border-c: var(--theme__table-border-c, rgb(220, 220, 220));
   --connect__tr-hover-bg: var(--theme__tr-hover-bg, var(--connect__gray-c5));
   --connect__table-border-w: var(--theme__table-border-w, 0.0625rem);
-  --connect__table-color: var(--theme__table-color, var(--connect__gray-c70));
+  --connect__table-color: var(--theme__table-color, var(--connect__surface-dark));
   --connect__container-type: var(--theme__container-type, inline-size);
   --connect__container-name: var(--theme__container-name, table-container);
 
@@ -1695,7 +1686,6 @@ Positioning int he pseudos is the total border / 2
     }
   }
 }
-
 
 /* 
 .connect__aside Component
@@ -1900,79 +1890,6 @@ Divider can be vertical or horizontal
   padding: var(--connect__effects-inner-edge);
 }
 
-.connect__rounded-corners {
-  border-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-reset {
-  --variant__rounded-radius: var(--connect__spacer-zero);
-}
-
-.connect__rounded-top-left {
-  border-top-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-top-right {
-  border-top-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-bottom-left {
-  border-bottom-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-bottom-right {
-  border-bottom-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
-}
-
-.connect__rounded-top {
-  border-radius: var(
-      --theme__rounded-radius,
-      var(--variant__rounded-radius, var(--connect__border-radius))
-    )
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
-}
-
-.connect__rounded-bottom {
-  border-radius: 0 0
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
-}
-
-.connect__elevation--2 {
-  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl--2);
-}
-
-.connect__elevation-0 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-0);
-}
-
-.connect__elevation-2 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-2);
-}
-
-.connect__elevation-4 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-4);
-}
-
-.connect__elevation-6 {
-  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
-}
-
 .connect__figure {
   height: 100%;
   margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
@@ -1999,7 +1916,6 @@ Divider can be vertical or horizontal
   border: 0;
   padding: 0;
 }
-
 
 /* 
 These styles apply to elements with classes that include '-correct'.
@@ -2293,11 +2209,12 @@ connect__toolbar
 */
 
 .connect__toolbar {
-  background-color: var(--theme__toolbar-bg, var(--variant__toolbar-bg, var(--connect__gray-c10)));
-  border: var(--connect__input-border-w) solid
-    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  background-color: var(
+    --theme__toolbar-bg,
+    var(--variant__toolbar-bg, var(--connect__surface-pale))
+  );
   border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
-  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
+  box-shadow: var(--connect__shadow-lvl-0);
 
   + .connect__input-textarea {
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
@@ -2605,6 +2522,13 @@ utilities
   }
 }
 
+.connect__typography {
+  font-weight: var(--connect__fw, var(--connect__fw-regular));
+}
+
+.connect__position-relative-wrapper {
+  position: relative;
+}
 
 .connect__visually-hidden {
   left: -9999px;
@@ -2613,6 +2537,79 @@ utilities
 
 .connect__full-width {
   width: var(--connect__full-w);
+}
+
+.connect__rounded-corners {
+  border-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-reset {
+  --variant__rounded-radius: var(--connect__spacer-zero);
+}
+
+.connect__rounded-top-left {
+  border-top-left-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-top-right {
+  border-top-right-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-bottom-left {
+  border-bottom-left-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-bottom-right {
+  border-bottom-right-radius: var(
+    --theme__rounded-radius,
+    var(--variant__rounded-radius, var(--connect__border-radius))
+  );
+}
+
+.connect__rounded-top {
+  border-radius: var(
+      --theme__rounded-radius,
+      var(--variant__rounded-radius, var(--connect__border-radius))
+    )
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
+}
+
+.connect__rounded-bottom {
+  border-radius: 0 0
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
+    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
+}
+
+.connect__elevation--2 {
+  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl--2);
+}
+
+.connect__elevation-0 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-0);
+}
+
+.connect__elevation-2 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-2);
+}
+
+.connect__elevation-4 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-4);
+}
+
+.connect__elevation-6 {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
 }
 
 /* 
@@ -2628,9 +2625,15 @@ To be fleshed out / moved
   width: auto;
 }
 
-/* 
-Motion
-*/
+@keyframes connect-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes fade-in {
   from {
@@ -2656,15 +2659,5 @@ Motion
   }
   100% {
     transform: rotate(0deg);
-  }
-}
-
-@keyframes connect-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }
