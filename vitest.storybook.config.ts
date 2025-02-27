@@ -14,7 +14,7 @@ export default mergeConfig(
     ],
     test: {
       include: ['src/components/**/*.stories.@(ts|tsx)'],
-      exclude: ['src/components/**/*.test.@(ts|tsx)'],
+      exclude: ['src/**/*.test.@(ts|tsx)'],
       browser: {
         enabled: true,
         name: 'chromium',

@@ -7,7 +7,7 @@ export default mergeConfig(
   defineConfig({
     plugins: [react()],
     test: {
-      include: ['src/components/**/*.test.@(ts|tsx)'],
+      include: ['src/**/*.test.@(ts|tsx)'],
       exclude: ['src/components/**/*.stories.@(jsx|tsx)'],
       globals: true,
       environment: 'jsdom',

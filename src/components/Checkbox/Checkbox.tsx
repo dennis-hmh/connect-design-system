@@ -32,7 +32,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     disabled,
   });
   return (
-    <div className="connect__choice-label-wrapper">
+    <div className="connect__position-relative-wrapper">
       <input
         type="checkbox"
         id={id}

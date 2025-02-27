@@ -68,7 +68,7 @@ DefaultText.args = {
 
 CharacterCounter.args = {
   ...Default.args,
-  defaultText: 'This is some default text',
+  defaultText: 'This is default text',
   characterCount: true,
 };
 
@@ -82,16 +82,12 @@ Correct.args = {
   ...Default.args,
   correct: true,
   defaultText: 'Answer correct',
-  characterCount: true,
-  characterLimit: 50,
 };
 
 Incorrect.args = {
   ...Default.args,
   incorrect: true,
   defaultText: 'Answer incorrect',
-  characterCount: true,
-  characterLimit: 50,
 };
 
 AnswerShown.args = {
@@ -105,8 +101,7 @@ AnswerShown.args = {
 Disabled.args = {
   ...Default.args,
   defaultText: 'Disabled',
-  characterCount: true,
-  characterLimit: 50,
+  disabled: true,
 };
 
 Number.args = {
