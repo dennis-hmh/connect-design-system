@@ -1,3 +1,24 @@
+### v1.20 Release Notice
+
+### Release date: Fecruary 27, 2025
+
+### Changelog:
+
+- New component: Avatar
+- New component: AvatarGroup
+- New component: Badge
+- Reduction in compiled CSS, move to focus on utility classes, and implemented in existing components
+- Position utils added
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.19.6 Release Notice
 
 ### Release date: Fecruary 27, 2025
