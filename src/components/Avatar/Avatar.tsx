@@ -5,7 +5,6 @@ import { GradeBand } from '../../enum/gradeband';
 import { Color } from '../../utils/colors';
 
 type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-type FontSize = 'body-sm' | 'caption' | 'credits';
 type Shape = 'circle' | 'square' | 'rounded';
 
 export type AvatarProps = {
@@ -13,7 +12,6 @@ export type AvatarProps = {
   src?: string;
   alt: string;
   size?: IconSize;
-  fontSize?: FontSize;
   backgroundColor?: Color;
   shape?: Shape;
   element?: React.ElementType;
@@ -27,7 +25,6 @@ export const Avatar: React.FC<AvatarProps> = ({
   src,
   alt,
   size = 'sm',
-  fontSize = 'credits',
   backgroundColor = 'surface-mid',
   shape = 'circle',
   color = 'white',
@@ -36,12 +33,22 @@ export const Avatar: React.FC<AvatarProps> = ({
   className,
   dataTestId,
 }) => {
-  const getAriaLabel = () => {
-    if (src) return alt;
-    if (typeof children === 'string') {
-      return `Avatar with initials ${children}`;
+  const getFontSize = () => {
+    switch (size) {
+      case 'xxl':
+      case 'xl':
+        return 'body-lg';
+      case 'lg':
+        return 'body-md';
+      case 'md':
+        return 'body-sm';
+      case 'sm':
+        return 'caption';
+      case 'xs':
+        return 'credits';
+      default:
+        return 'caption';
     }
-    return alt || 'Avatar';
   };
 
   const getShapeClass = () => {
@@ -61,11 +68,20 @@ export const Avatar: React.FC<AvatarProps> = ({
     const classes = [
       'connect__avatar',
       getShapeClass(),
-      !src && typeof children === 'string' ? `connect__avatar-text connect__text-${fontSize}` : '',
+      !src && typeof children === 'string' ? `connect__avatar-text connect__icon-${size}` : '',
+      !src && typeof children !== 'string' ? `connect__avatar-text connect__icon-${size}` : '',
       className,
     ].filter(Boolean);
 
     return classes.join(' ');
+  };
+
+  const getAriaLabel = () => {
+    if (src) return alt;
+    if (typeof children === 'string') {
+      return `Avatar with initials ${children}`;
+    }
+    return alt || 'Avatar';
   };
 
   const renderContent = () => {
@@ -82,7 +98,13 @@ export const Avatar: React.FC<AvatarProps> = ({
     }
     if (typeof children === 'string') {
       return (
-        <Typography element="p" size={fontSize} weight={weight} color={color} aria-hidden="true">
+        <Typography
+          element="p"
+          size={getFontSize()}
+          weight={weight}
+          color={color}
+          aria-hidden="true"
+        >
           {children}
         </Typography>
       );

@@ -2,6 +2,7 @@
 // loosely copy from here https://github.com/mui/material-ui/blob/master/packages/mui-material/src/AvatarGroup/AvatarGroup.js
 import React from 'react';
 import { Avatar, AvatarProps } from '../Avatar/Avatar';
+import { Typography } from '../Typography/Typography';
 import { Stack, BreakpointValues } from '../Stack/Stack';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -37,14 +38,16 @@ export const AvatarGroup = ({
     if (surplus <= 0) return null;
     if (renderSurplus) return renderSurplus(surplus);
 
-    return <Avatar alt={`${surplus} more avatars`}>+{surplus}</Avatar>;
+    return (
+      <Avatar alt={`+${surplus} users`} shape="circle">
+        <Typography element="span" size="caption">
+          +{surplus}
+        </Typography>
+      </Avatar>
+    );
   };
 
-  const classes = [
-    'connect__avatar-group',
-    variant === 'grouped' && `connect__avatar-group-negative-${spacing}`,
-    className,
-  ]
+  const classes = [variant === 'grouped' && `connect__stack-negative-${spacing}`, className]
     .filter(Boolean)
     .join(' ');
 

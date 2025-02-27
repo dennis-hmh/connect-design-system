@@ -2828,8 +2828,6 @@ connect__toolbar
   white-space: nowrap;
 }
 
-//badge
-
 /*
 |---------------|---------------------------------|--------------------------------|
  Avatar Avatar Group & Badge Styles to come these values may change slightly 
@@ -2841,33 +2839,19 @@ Connect Avatars
 */
 
 .connect__avatar {
-  align-items: var(--connect__align-center);
+  align-items: center;
   border-radius: var(--connect__avatar-radius);
+  box-shadow: var(--connect__shadow-lvl-1);
   display: var(--connect__display-flex);
-  justify-content: var(--connect__justify-center);
+  height: var(--connect__icon-size);
+  justify-content: center;
   overflow: var(--connect__overflow-hidden);
+  width: var(--connect__icon-size);
 }
 
 .connect__avatar-text {
   background-color: var(--connect__avatar-bg);
-  height: var(--connect__credits-lheight);
-  width: var(--connect__credits-lheight);
   padding: 0 var(--connect__spacer-xs);
-
-  &.connect__text-body-sm {
-    height: var(--connect__body-sm-lheight);
-    width: var(--connect__body-sm-lheight);
-  }
-
-  &.connect__text-caption {
-    height: var(--connect__caption-lheight);
-    width: var(--connect__caption-lheight);
-  }
-
-  &.connect__text-credits {
-    height: var(--connect__credits-lheight);
-    width: var(--connect__credits-lheight);
-  }
 }
 
 .connect__avatar-circle {
@@ -2938,12 +2922,12 @@ Connect Avatars
 */
 
 .connect__badge {
-  align-items: var(--connect__align-center);
+  align-items: center;
   background-color: var(--connect__badge-bg);
   border-radius: var(--connect__inner-radius);
   display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
-  justify-content: var(--connect__align-center);
+  justify-content: center;
   position: var(--connect__absolute);
   transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1;
@@ -2964,6 +2948,7 @@ Connect Avatars
   min-height: var(--connect__spacer-sm);
   min-width: var(--connect__spacer-sm);
 }
+
 /* Invisible variant */
 .connect__badge-invisible {
   --variant-badge-display: var(--connect__display-none);
@@ -3046,20 +3031,20 @@ utilities
   // Tooltip positions
   &-top {
     &-end {
-      top: 0;
       right: 0;
+      top: 0;
       @include position-transform(50%, -50%, 100%, 0%);
     }
 
     &-start {
-      top: 0;
       left: 0;
+      top: 0;
       @include position-transform(-50%, -50%, 0%, 0%);
     }
 
     &-center {
-      top: 0;
       left: 50%;
+      top: 0;
       @include position-transform(-50%, -50%, 50%, 0%);
     }
   }
