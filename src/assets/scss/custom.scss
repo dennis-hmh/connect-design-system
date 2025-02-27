@@ -2878,33 +2878,33 @@ Connect Avatars
   --connect__spacer-size is then set to the spacer value for that class
 
   e.g 
-  connect__avatar-group-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
+  connect__stack-negative-xs will have a --connect__spacer-size of var(--connect__spacer-xs)
 */
 
-.connect__avatar-group-negative-sm > *:not(:first-child),
-.connect__avatar-group-negative-md > *:not(:first-child),
-.connect__avatar-group-negative-lg > *:not(:first-child),
-.connect__avatar-group-negative-xl > *:not(:first-child) {
+.connect__stack-negative-sm > *:not(:first-child),
+.connect__stack-negative-md > *:not(:first-child),
+.connect__stack-negative-lg > *:not(:first-child),
+.connect__stack-negative-xl > *:not(:first-child) {
   margin-right: calc(-1 * var(--connect__spacer-size));
 }
 
-.connect__avatar-group-negative-xs {
+.connect__stack-negative-xs {
   --connect__spacer-size: var(--connect__spacer-xs);
 }
 
-.connect__avatar-group-negative-sm {
+.connect__stack-negative-sm {
   --connect__spacer-size: var(--connect__spacer-sm);
 }
 
-.connect__avatar-group-negative-md {
+.connect__stack-negative-md {
   --connect__spacer-size: var(--connect__spacer-md);
 }
 
-.connect__avatar-group-negative-lg {
+.connect__stack-negative-lg {
   --connect__spacer-size: var(--connect__spacer-lg);
 }
 
-.connect__avatar-group-negative-xl {
+.connect__stack-negative-xl {
   --connect__spacer-size: var(--connect__spacer-xl);
 }
 
