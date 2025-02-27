@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Blockquote> = {
-  title: 'Figure/Blockquote',
+  title: 'Removed/Blockquote',
   component: Blockquote,
   tags: ['autodocs'],
   parameters: {
