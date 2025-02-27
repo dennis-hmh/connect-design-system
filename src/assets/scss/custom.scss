@@ -2810,7 +2810,6 @@ connect__toolbar
   }
 }
 
-
 /*
 |---------------|---------------------------------|--------------------------------|
  Avatar Avatar Group & Badge Styles to come these values may change slightly 
@@ -2905,12 +2904,12 @@ Connect Avatars
 */
 
 .connect__badge {
-  align-items: var(--connect__align-center);
+  align-items: center;
   background-color: var(--connect__badge-bg);
   border-radius: var(--connect__inner-radius);
   display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
-  justify-content: var(--connect__align-center);
+  justify-content: center;
   position: var(--connect__absolute);
   transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   z-index: 1;
