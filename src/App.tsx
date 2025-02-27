@@ -34,21 +34,27 @@ const App: React.FC = () => {
   // State to manage the `animState` input for RiveSimple
   const [animationState, setAnimationState] = useState<number>(0);
 
-  const aiButton = useRive({
-    autoplay: true,
-    src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
-    stateMachines: 'State Machine 1',
-  }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const aiButton = useRive(
+    {
+      autoplay: true,
+      src: 'https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv',
+      stateMachines: 'State Machine 1',
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
 
-  const studentPicker = useRive({
-    autoplay: true,
-    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
-    stateMachines: 'State Machine 1',
-  }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const studentPicker = useRive(
+    {
+      autoplay: true,
+      src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
+      stateMachines: 'State Machine 1',
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
 
   const handleDialogClick = () => {
     // Open the dialog on button click
@@ -183,13 +189,11 @@ const App: React.FC = () => {
                 display: 'inline-block',
               }}
             >
-
               {/* <Image
                 imageSrc="https://picsum.photos/600/400"
                 altText="A random picture from Lorem Picsum"
               /> */}
-              <RiveEngine sizeByHeight {...studentPicker} desc="student picker animation"/>
-
+              <RiveEngine sizeByHeight {...studentPicker} desc="student picker animation" />
             </div>
             {/* <div
               style={{
@@ -578,11 +582,11 @@ const App: React.FC = () => {
                 spacing: 'md',
               }}
             >
-              <InputText correct={false} defaultText={'works?'} />
-              <InputText correct={false} number={true} />
-              <InputText correct={false} incorrect={false} />
-              <InputText correct={true} />
-              <InputText correct={false} incorrect={true} />
+              <InputText correct={false} value={'works?'} />
+              <InputText correct={false} number={true} value="" />
+              <InputText correct={false} incorrect={false} value="" />
+              <InputText correct={true} value="" />
+              <InputText correct={false} incorrect={true} value="" />
             </Stack>
             <br />
             <Stack

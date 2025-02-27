@@ -5,7 +5,7 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
   value: string | number;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   placeholderText?: string | undefined;
   correct?: boolean;
   incorrect?: boolean;
@@ -38,7 +38,7 @@ export function InputText({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
-    characterCount && 'connect__input-character-count',
+    charLimit && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');
@@ -57,7 +57,9 @@ export function InputText({
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.currentTarget.value);
+    if (onChange) {
+      onChange(event.currentTarget.value);
+    }
   };
 
   return (
@@ -78,7 +80,9 @@ export function InputText({
         <button
           className={`connect__clear-button ${value ? 'connect__clear-button-visible' : ''}`}
           onClick={() => {
-            onChange('');
+            if (onChange) {
+              onChange('');
+            }
             onClear();
           }}
           aria-label="Clear input field"
