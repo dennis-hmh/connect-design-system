@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof ButtonRive> = {
-  title: 'Buttons/Button Rive',
+  title: 'Archive/Button Rive',
   component: ButtonRive,
   tags: ['autodocs'],
   parameters: {
