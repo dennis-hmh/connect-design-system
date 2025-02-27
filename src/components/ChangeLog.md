@@ -1,4 +1,27 @@
-### v1.20.1 Release Notice
+### v1.21.2 Release Notice
+
+### Release date: Fecruary 27, 2025
+
+### Changelog:
+
+- New Component: `<CharacterCounter />`
+- Updated Component:
+  - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+  - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+  - `<Chip />`: Updated to be a pattern.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.1 Release Notice
 
 ### Release date: Fecruary 27, 2025
 
@@ -21,7 +44,7 @@
 
 ---
 
-### v1.20 Release Notice
+### v1.21.0 Release Notice
 
 ### Release date: Fecruary 27, 2025
 
@@ -43,7 +66,7 @@
 
 ---
 
-### v1.19.6 Release Notice
+### v1.20.0 Release Notice
 
 ### Release date: Fecruary 27, 2025
 
@@ -51,7 +74,7 @@
 
 - Added a new hook useMediaQuery to enable Connect users to render components conditionally to media queries.
 - Added a media constant to help users generate media queries that respect defined breakpoints by Connect
-  This is strongly inspired by MUI to lighten the refactor from XDS to Connect in Lift
+- This is strongly inspired by MUI to lighten the refactor from XDS to Connect in Lift
 
 #### Repo:
 
