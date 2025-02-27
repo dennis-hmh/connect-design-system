@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.21.0
+
+### Minor Changes
+
+- 703ebb5: New components, tidying CSS, position util added
+
 ## 1.20.0
 
 ### Minor Changes
