@@ -1,4 +1,4 @@
-# Typography Component
+# Avatar Component
 
 The `Avatar` component is a versatile and customizable user representation component designed for React applications. It allows for displaying user initials or images with various styles, sizes, and configurations.
 
