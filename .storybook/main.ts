@@ -26,12 +26,17 @@ const config: StorybookConfig = {
   managerHead: (head) => `
     ${head}
     <style>
-      div[id="removed"] { display: none; }
-      button[id="removed-drag-drop"] { display: none; }
-      button[id="removed-flipcards"] { display: none; }
-      button[id="removed-reveal"] {display: none; }
-      .sidebar-item:has(button[id="buttons-button-rive"]) { display: none; }
-      .sidebar-item:has(button[id="buttons-button-split"]) { display: none; }
+      div[id="removed"] > button {display: none; }
+      button[id^="removed-"] {display: none; }
+      a[id$="-removed"] {display: none; }
+
+      div[id="archive"] > button { display: none; }
+      button[id^="archive-"] { display: none; }
+      a[id$="-archive"] { display: none; }
+
+      div[id="draft"] > button:first-child::after { content: " 📝 "; }
+      button[id^="draft-"]::after { content: " 📝 "; }
+      a[id$="-draft"]::after { content: " 📝 "; }
       
       div[id="wip"] > button:first-child::after { content: " 🚧 "; }
       button[id^="wip-"]::after { content: " 🚧 "; }

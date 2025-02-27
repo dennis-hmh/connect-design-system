@@ -29,7 +29,7 @@ const getClassNames = ({
   isChecked: boolean;
   disabled?: boolean;
 }) => {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
   const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   return { choiceClass, labelClass };
@@ -66,7 +66,7 @@ export const MultipleChoiceQuestionImage: React.FC<MultipleChoiceQuestionImagePr
   }
 
   return (
-    <div className="connect__choice-label-wrapper">
+    <div className="connect__position-relative-wrapper">
       <input
         type={type}
         id={id}

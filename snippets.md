@@ -88,7 +88,7 @@ It includes
 - Card base styles
 - Generic styles for elements
 
-## Source Header + Footer Styles
+## Source Header Styles
 
 This is the [Source Header](https://scm.eng.hmhco.com/gist/RockA/e0b315c1060ef2b0e219a3bf95f3c2b4)
 
@@ -97,12 +97,5 @@ It includes
 - Header styles
 - psuedo support: breakout linear halftone
 - full variable support
-
-
-## figcaption
-
-This is the [Source Header](https://scm.eng.hmhco.com/gist/RockA/f41c3a49f5ec2983d7b0126bb9eff1e8)
-
-
 
 # React Snippets

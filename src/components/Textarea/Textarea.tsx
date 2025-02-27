@@ -35,6 +35,7 @@ export const Textarea: React.FC<TextareaProps> = ({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
+    characterCount && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');

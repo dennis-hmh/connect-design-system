@@ -12,6 +12,7 @@ export type InputBoxProps = {
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
+  classes?: string;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -29,7 +30,7 @@ const getClassNames = ({
   isChecked: boolean;
   disabled?: boolean;
 }) => {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__choice-label-shown' : ''}`;
+  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
   const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   return { choiceClass, labelClass };
@@ -46,6 +47,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   incorrect,
   answerShown,
   disabled,
+  classes,
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
@@ -57,7 +59,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   });
 
   return (
-    <div className="connect__choice-label-wrapper">
+    <div className="connect__position-relative-wrapper">
       <input
         type={type}
         id={id}
@@ -68,7 +70,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={labelClass}>
+      <label htmlFor={id} className={`${classes} ${labelClass}`}>
         {children}
       </label>
     </div>
