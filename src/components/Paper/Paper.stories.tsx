@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, Figure, Image, Button, Icon, Typography, List, Dropdown } from '../index';
+import { Stack, Image, Button, Icon, Typography, List, Dropdown } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
@@ -83,17 +83,14 @@ Card.args = {
         flexWrap: `wrap`,
       }}
     >
-      <Figure caption="This is a caption">
-        <Image
-          imageSrc=""
-          roundedCorners={{
-            topLeft: true,
-            topRight: true,
-          }}
-          altText={'This is Alt Text'}
-        />
-      </Figure>
-
+      <Image
+        imageSrc=""
+        roundedCorners={{
+          topLeft: true,
+          topRight: true,
+        }}
+        altText={'This is Alt Text'}
+      />
       <Stack
         xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'md' }}
         lg={{ direction: 'row', justifyContent: 'space-between' }}
