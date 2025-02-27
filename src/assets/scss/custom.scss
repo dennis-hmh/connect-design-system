@@ -2786,10 +2786,6 @@ connect__toolbar
     border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
   }
 }
-.connect__tooltip-wrapper {
-  display: inline-flex;
-  position: relative;
-}
 
 // tooltip
 .connect__tooltip-wrapper {
@@ -2798,11 +2794,11 @@ connect__toolbar
 }
 
 .connect__tooltip {
-  align-items: var(--connect__align-center);
+  align-items: center;
   animation: fade-in var(--connect__transition-rapid) var(--connect__linear) forwards;
   border-radius: var(--connect__border-radius);
   display: var(--connect__display-flex);
-  justify-content: var(--connect__justify-center);
+  justify-content: center;
   margin: var(--connect__spacer-sm);
   opacity: var(--connect__opacity-zero);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
