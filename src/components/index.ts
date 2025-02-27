@@ -8,6 +8,7 @@ export * from './ButtonMenu/ButtonMenu';
 // export * from './ButtonRive/ButtonRive';
 // export * from './ButtonSplit/ButtonSplit';
 export * from './Card/Card';
+export * from './CharacterCounter/CharacterCounter';
 export * from './Checkbox/Checkbox';
 export * from './Chip/Chip';
 export * from './Dialog/Dialog';
