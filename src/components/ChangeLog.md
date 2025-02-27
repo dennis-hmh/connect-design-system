@@ -1,3 +1,22 @@
+### v1.19.6 Release Notice
+
+### Release date: Fecruary 27, 2025
+
+### Changelog:
+
+- Added a new hook useMediaQuery to enable Connect users to render components conditionally to media queries.
+- Added a media constant to help users generate media queries that respect defined breakpoints by Connect
+This is strongly inspired by MUI to lighten the refactor from XDS to Connect in Lift
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.19.5 Release Notice
 
 ### Release date: Fecruary 19, 2025
