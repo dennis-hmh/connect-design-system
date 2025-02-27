@@ -343,14 +343,13 @@ Buttons take variables in the following format
 
 /* 
 .connect__clear-button
-
 */
 
 .connect__clear-button {
   --connect__icon-fill-color: var(--connect__white);
 
   align-items: center;
-  background-color: var(--connect__transparent);
+  background-color: var(--connect__clear-button-bg, var(--connect__transparent));
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
   border-radius: var(--connect__half-radius);
   cursor: pointer;
