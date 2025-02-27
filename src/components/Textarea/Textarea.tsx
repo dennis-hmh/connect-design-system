@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Typography } from '../Typography/Typography';
+import { Stack } from '../Stack/Stack';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
@@ -36,7 +38,6 @@ export const Textarea: React.FC<TextareaProps> = ({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
-    characterCount && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');
@@ -58,6 +59,42 @@ export const Textarea: React.FC<TextareaProps> = ({
     setCharCount(newText.length);
   };
 
+  const renderCharacterCounter = () => {
+    if (!characterCount) return null;
+
+    const isLimitReached = characterLimit && charCount >= characterLimit;
+
+    return (
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="end"
+        spacing="xs"
+      >
+        <Typography
+          element="span"
+          size="caption"
+          style={isLimitReached ? 'italic' : 'normal'}
+          weight={isLimitReached ? 700 : 400}
+          color="surface-mid"
+        >
+          {charCount}
+        </Typography>
+
+        {characterLimit && (
+          <>
+            <Typography element="span" size="caption" color="surface-mid" aria-hidden="true">
+              /
+            </Typography>
+            <Typography element="span" size="caption" color="surface-mid">
+              {characterLimit}
+            </Typography>
+          </>
+        )}
+      </Stack>
+    );
+  };
+
   return (
     <div className={`connect__icon-wrapper ${inputStates}`}>
       {toolbar && toolbar}
@@ -72,23 +109,7 @@ export const Textarea: React.FC<TextareaProps> = ({
         aria-label={inputAriaLabel}
         data-testid={dataTestId}
       />
-      {characterCount && (
-        <div
-          className={`connect__character-counter ${
-            characterLimit && charCount >= characterLimit
-              ? 'connect__character-counter-limit-reached'
-              : ''
-          }`}
-        >
-          <em>{charCount}</em>
-          {characterLimit && (
-            <>
-              <span aria-hidden="true">/</span>
-              {characterLimit}
-            </>
-          )}
-        </div>
-      )}
+      {renderCharacterCounter()}
     </div>
   );
 };
