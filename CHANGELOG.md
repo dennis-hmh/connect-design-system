@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.21.2
+
+### Patch Changes
+
+- 6f087ae: - New Component: `<CharacterCounter />`
+  - Updated Component:
+    - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<Chip />`: Updated to be a pattern.
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.21.1
 
 ### Patch Changes
