@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.20.0
+
+### Minor Changes
+
+- 70765f3: New: Add useMediaQuery hook
+
 ## 1.19.5
 
 ### Patch Changes
