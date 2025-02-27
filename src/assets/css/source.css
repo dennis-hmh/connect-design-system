@@ -69,6 +69,7 @@
 /* stylelint-enable order/properties-alphabetical-order */
 
 .connect__gk2,
+.connect__gk2,
 .connect__g23 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
@@ -224,7 +225,7 @@
 .connect__g45 {
   --connect__heading-xl: 2.625rem;
   --connect__heading-xl-lheight: 3rem;
-  --connect__heading-xl-spacer: 6rem;
+  --connect__heading-xl-spacer: 6.75rem;
   --connect__heading-lg: 2.375rem;
   --connect__heading-lg-lheight: 3rem;
   --connect__heading-lg-spacer: 5rem;
@@ -269,7 +270,7 @@
   --connect__border-radius: 0.75rem;
   --connect__mcq-border-w: 0.1563rem;
   --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: 0.25rem;
+  --connect__inner-radius: .3125rem;
   --connect__inner-status: 0.4375rem;
   --connect__inner-divider-width: 0.5rem;
 }
@@ -280,7 +281,7 @@
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
     --connect__heading-xl-lheight: 4.25rem;
-    --connect__heading-xl-spacer: 6.375rem;
+    --connect__heading-xl-spacer: 7.5rem;
     --connect__heading-lg: 3rem;
     --connect__heading-lg-lheight: 3.75rem;
     --connect__heading-lg-spacer: 5.3125rem;
@@ -824,7 +825,10 @@
   /* 14.375rem all grades */
   --connect__dropdown-max-w: 14.375rem;
   --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
   --connect__input-max-w: 14.375rem;
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
   --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
   --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 
@@ -1342,24 +1346,3 @@
 :where([class*='connect__']):focus-visible {
   outline: 0;
 }
-<<<<<<< HEAD
-
-@media (min-width: 40.625rem) {
-  .connect__dual-column {
-    columns: 2;
-  }
-}
-
-@media (min-width: 55rem) {
-  .connect__triple-column {
-    columns: 3;
-  }
-}
-
-.connect__dual-column,
-.connect__triple-column {
-  --connect__dual-column-gap: var(--theme__dual-column-gap, var(--connect__spacer-xl));
-  column-gap: var(--connect__dual-column-gap);
-}
-=======
->>>>>>> connect-utility-classes
