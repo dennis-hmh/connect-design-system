@@ -71,72 +71,47 @@ Buttons take variables in the following format
       State --connect__inner-status-color-state
 
 /*
-| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
-|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
-| Font size           | --theme__btn-fs              | --variant__btn-fs             | --connect__body-sm                                       |
-| Line height         | --theme__btn-lh              | --variant__btn-lh             | --connect__body-sm-lheight                               |
-| Font weight         | --theme__btn-fw              | --variant__btn-fw             | --connect__fw-regular                                    |
-| Text transform      | --theme__btn-text-transform  | --variant__btn-text-transform | --connect__text-capitalize                               |
-| Background color    | --theme__btn-bg              | --state__btn-bg               | --connect__primary-mid                                   |
-| Border color        | --theme__btn-border-c        | --variant__btn-border-c       | --connect__surface-null                                 |
-| Gap                 | --theme__btn-gap             | --variant__btn-gap            | --connect__spacer-sm                                     |
-| Padding X           | --theme__btn-padding-x       | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
-| Padding Y           | --theme__btn-padding-y       | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
-| Flex align          | --theme__btn-align           | --variant__btn-align          | center                                                   |
-| Flex justify        | --theme__btn-justify         | --variant__btn-justify        | space-between                                            |
-| Border radius       | --theme__btn-border-radius   | --variant__btn-border-radius  | --connect__border-radius                                 |
-| Height              | --theme__btn-h               | --variant__btn-h              | auto                                                     |
-| Icon Fill           | --theme__icon-fill            | --state-based-icon-fill        | --connect__icon-fill                                      |
-| Cursor              |                              |                               | pointer                                                  |
+| Property            |  Variant/State                | Fallback / Default                                       |
+|---------------------|-------------------------------|----------------------------------------------------------|
+| Font size           | --variant__btn-fs             | --connect__body-sm                                       |
+| Line height         | --variant__btn-lh             | --connect__body-sm-lheight                               |
+| Font weight         | --variant__btn-fw             | --connect__fw-regular                                    |
+| Text transform      | --variant__btn-text-transform | --connect__text-capitalize                               |
+| Background color    | --state__btn-bg               | --connect__primary-mid                                   |
+| Border color        | --variant__btn-border-c       | --connect__surface-null                                  |
+| Gap                 | --variant__btn-gap            | --connect__spacer-sm                                     |
+| Padding X           | --variant__btn-padding-x      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Padding Y           | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
+| Flex align          | --variant__btn-align          | center                                                   |
+| Flex justify        | --variant__btn-justify        | space-between                                            |
+| Border radius       | --variant__btn-border-radius  | --connect__border-radius                                 |
+| Height              | --variant__btn-h              | auto                                                     |
+| Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
 
 .connect__button {
-  --connect__btn-text-transform: var(--theme__btn-transform, var(--connect__text-capitalize));
-  --connect__btn-border-w: var(
-    --theme__btn-border-w,
-    var(--variant__btn-border-w, var(--connect__spacer-zero))
-  );
+  --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
+  --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
+  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
 
-  --connect__btn-padding-y: var(
-    --theme__btn-padding-y,
-    var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
-  );
-  --connect__btn-padding-x: var(
-    --theme__btn-padding-x,
-    var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
-  );
-
-  --icon__fill-color: var(
-    --theme__icon-fill,
-    var(--state-based-icon-fill, var(--connect__icon-fill))
-  );
-
-  background-color: var(
-    --theme__btn-bg,
-    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
-  );
-  border: var(--connect__btn-border-w) solid
-    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__surface-null)));
-  border-radius: var(
-    --theme__btn-border-radius,
-    var(--variant__btn-border-radius, var(--connect__border-radius))
-  );
+  background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
+  border: var(--connect__spacer-zero);
+  border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
-  // flex-flow: var(--theme__btn-flow, var(--variant__btn-flow, row wrap));
   font-family: var(--connect__font-sans);
-  font-size: var(--theme__btn-fs, var(--variant__btn-fs, var(--connect__body-sm)));
-  font-weight: var(--theme__btn-fw, var(--variant__btn-fw, var(--connect__fw-regular, initial)));
-  gap: var(--theme__btn-gap, var(--variant__btn-gap, var(--connect__spacer-sm)));
+  font-size: var(--variant__btn-fs, var(--connect__body-sm));
+  font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
+  gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
   height: var(--connect__btn-h, auto);
-  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
-  line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
+  justify-content: var(--variant__btn-justify, space-between);
+  line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
-  place-items: var(--theme__btn-align, var(--variant__btn-align, center)) center;
-  text-transform: var(--connect__btn-text-transform, initial);
+  place-items: var(--variant__btn-align, center) center;
+  text-transform: var(--connect__text-capitalize);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
@@ -190,6 +165,7 @@ Buttons take variables in the following format
       justify-self: end;
     }
   }
+
   .connect__icon {
     --connect__icon-fill-color: var(
       --variant__icon-fill,
@@ -274,7 +250,7 @@ Buttons take variables in the following format
   }
 
   &-loading > svg {
-    animation: connect-loading 0.85s linear infinite;
+    animation: connect-loading 0.85s var(--connect__linear) infinite;
   }
 
   &-media {
@@ -295,55 +271,34 @@ Buttons take variables in the following format
 }
 
 /*
-| Property            | Theme                        | Variant/State                  | Fallback / Default                                         |
-|---------------------|------------------------------|--------------------------------|------------------------------------------------------------|
-| Font size           | --theme__input-fs            | --variant__input-fs            | --connect__body-sm                                         |
-| Line height         | --theme__input-lh            | --variant__input-lh            | --connect__body-sm-lheight                                 |
-| Background color    | --theme__input-bg            | --state__btn-bg                | --connect__surface-white                                   |
-| Border color        | --theme__input-border-c      | --variant__input-border-c      | --connect__surface-null                                    |
-| Padding X           | --theme__input-padding-x     | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
-| Padding Y           | --theme__input-padding-y     | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
-| Border radius       | --theme__input-border-radius | --variant__input-border-radius | --connect__border-radius                                   |
-| Width               | --connect__btn-w             | --variant__input-w             | fit-content                                                 |
+| Property            | Variant/State                  | Fallback / Default                                         |
+|---------------------|--------------------------------|------------------------------------------------------------|
+| Font size           | --variant__input-fs            | --connect__body-sm                                         |
+| Line height         | --variant__input-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --state__btn-bg                | --connect__surface-white                                   |
+| Border color        | --variant__input-border-c      | --connect__surface-null                                    |
+| Padding X           | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
+| Padding Y           | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
+| Border radius       | --variant__input-border-radius | --connect__border-radius                                   |
+| Width               | --variant__input-w             | fit-content                                                 |
 */
 
 .connect__input {
-  --connect__input-border-w: var(
-    --theme__input-border-w,
-    var(--variant__input-border-w, var(--connect__spacer-zero))
-  );
-  --connect__input-padding-y: var(
-    --theme__input-padding-y,
-    var(
-      --variant__input-padding-y,
-      calc(var(--connect__spacer-sm) - var(--connect__input-border-w))
-    )
-  );
-  --connect__input-padding-x: var(
-    --theme__input-padding-x,
-    var(
-      --variant__input-padding-x,
-      calc(var(--connect__spacer-md) - var(--connect__input-border-w))
-    )
-  );
+  --connect__input-padding-y: var(--variant__input-padding-y, var(--connect__spacer-sm));
+  --connect__input-padding-x: var(--variant__input-padding-x, var(--connect__spacer-md));
 
-  background-color: var(
-    --theme__input-bg,
-    var(--variant__input-bg, var(--state-based-bg, var(--connect__surface-white)))
-  );
-  border: var(--connect__input-border-w) solid
-    var(--theme__input-border-c, var(--variant__input-border-c, var(--connect__surface-null)));
+  background-color: var(--state-based-bg, var(--connect__surface-white));
+  border: 0;
   border-radius: var(--connect__border-radius);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   caret-color: var(--connect__primary-mid);
-  color: var(--theme__input-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, text);
   font-family: var(--connect__font-sans);
-  font-size: var(--theme__input-fs, var(--variant__input-fs, var(--connect__body-sm)));
-  line-height: var(--theme__input-lh, var(--variant__input-lh, var(--connect__body-sm-lheight)));
-  padding: calc(var(--connect__input-padding-y) - var(--connect__input-border-w))
-    calc(var(--connect__input-padding-x) - var(--connect__input-border-w));
-  position: relative;
+  font-size: var(--variant__input-fs, var(--connect__body-sm));
+  line-height: var(--variant__input-lh, var(--connect__body-sm-lheight));
+  padding: var(--connect__input-padding-y) var(--connect__input-padding-x);
+  position: var(--connect__relative);
   resize: var(--resize, none);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
@@ -392,13 +347,12 @@ Buttons take variables in the following format
 */
 
 .connect__clear-button {
-  --connect__clear-button-bg: transparent;
   --connect__icon-fill-color: var(--connect__white);
 
   align-items: center;
-  background-color: var(--connect__clear-button-bg);
+  background-color: var(--connect__transparent);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
-  border-radius: 50%;
+  border-radius: var(--connect__half-radius);
   cursor: pointer;
   display: var(--connect__display-flex, flex);
   height: var(--connect__clear-button-size, --connect__unset);
@@ -406,7 +360,7 @@ Buttons take variables in the following format
   margin-right: var(--connect__spacer-sm);
   margin-top: var(--connect__spacer-sm);
   opacity: var(--connect__clear-button-opacity, var(--connect__opacity-zero));
-  position: absolute;
+  position: var(--connect__absolute);
   right: 0;
   transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
   width: var(--connect__clear-button-size, --connect__unset);
@@ -415,7 +369,6 @@ Buttons take variables in the following format
     --connect__clear-button-bg: var(--connect__gray-c35);
     --connect__clear-button-size: calc(var(--connect__spacer-lg) * 1.25);
     --connect__clear-button-opacity: var(--connect__opacity-one);
-
     transition: opacity var(--connect__transition-rapid) var(--connect__ease-out);
   }
 }
@@ -424,25 +377,22 @@ Buttons take variables in the following format
 .connect__select Component
 
 /*
-| Property            | Theme                         | Variant/State                   | Fallback / Default                                         |
-|---------------------|-------------------------------|---------------------------------|------------------------------------------------------------|
-| Font size           | --theme__select-fs            | --variant__select-fs            | --connect__body-sm                                         |
-| Line height         | --theme__select-lh            | --variant__select-lh            | --connect__body-sm-lheight                                 |
-| Background color    | --theme__select-bg            | --state__btn-bg                 | --connect__surface-white                                   |
-| Border color        | --theme__select-border-c      | --variant__select-border-c      | --connect__surface-null                                    |
-| Padding X           | --theme__select-padding-x     | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
-| Padding Y           | --theme__select-padding-y     | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
-| Border radius       | --theme__select-border-radius | --variant__select-border-radius | --connect__border-radius                                   |
-| Width               | --connect__btn-w              | --variant__select-w             | fit-content                                                 |
-| Resize              |                               | Resize                          | none                                                       |
+| Property             Variant/State                    | Fallback / Default                                         |
+|---------------------|---------------------------------|------------------------------------------------------------|
+| Font size           | --variant__select-fs            | --connect__body-sm                                         |
+| Line height         | --variant__select-lh            | --connect__body-sm-lheight                                 |
+| Background color    | --state__btn-bg                 | --connect__surface-white                                   |
+| Border color        | --variant__select-border-c      | --connect__surface-null                                    |
+| Padding X           | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
+| Padding Y           | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
+| Border radius       | --variant__select-border-radius | --connect__border-radius                                   |
+| Width               | --variant__select-w             | fit-content                                                 |
+| Resize              | Resize                          | none                                                       |
 */
 
 .connect__select {
   appearance: none;
-  background-color: var(
-    --theme__select-bg,
-    var(--variant__select-bg, var(--state-based-bg, var(--connect__surface-white)))
-  );
+  background-color: var(--variant__select-bg, var(--state-based-bg, var(--connect__surface-white)));
   background-image: var(--state__connect-dropdown-icon, var(--connect__dropdown-icon-closed));
   background-position: calc(var(--connect__full-w) - var(--connect__spacer-sm));
   background-repeat: no-repeat;
@@ -453,12 +403,12 @@ Buttons take variables in the following format
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
-  font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
-  font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
-  line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
+  font-size: var(--connect__body-sm);
+  font-weight: var(--connect__fw-regular);
+  line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
-  position: relative;
+  position: var(--connect__relative);
   width: var(--connect__full-w);
 
   &:not(:disabled) {
@@ -498,8 +448,8 @@ Variables related to theme/overrides:
 */
 
 .connect__accordion {
-  display: flex;
-  flex-flow: column wrap;
+  display: var(--connect__display-flex);
+  flex-flow: var(--connect__flow-column) var(--connect__flex-wrap);
   gap: var(--connect__effects-inner-edge);
 }
 
@@ -511,11 +461,9 @@ Variables related to theme/overrides:
   // Icon for accordion. Changes when open. in the [open]
   --connect__icon-rotate: rotate(0deg);
 
-  padding: var(--theme__details-padding-t, var(--variant__details-padding-t, 0))
-    var(--theme__details-padding-r, var(--variant__details-padding-r, 0))
-    var(--theme__details-padding-b, var(--variant__details-padding-b, 0))
-    var(--theme__details-padding-l, var(--variant__details-padding-l, 0));
-  position: relative;
+  padding: var(--variant__details-padding-t, 0) var(--variant__details-padding-r, 0)
+    var(--variant__details-padding-b, 0) var(--variant__details-padding-l, 0);
+  position: var(--connect__relative);
 
   > *:not(summary) {
     padding: var(--connect__spacer-sm) var(--connect__spacer-sm) var(--connect__spacer-zero)
@@ -529,17 +477,14 @@ Variables related to theme/overrides:
 }
 
 .connect__summary {
-  align-items: var(--theme__align-items, var(--variant__align-items, center));
+  align-items: var(--variant__align-items, center);
   border-radius: var(--connect__details-open-radius, var(--connect__details-closed-radius));
   cursor: var(--connect__state-based-pointer, pointer);
-  display: flex;
-  justify-content: var(--theme__justify-content, var(--variant__justify-content, space-between));
+  display: var(--connect__display-flex);
+  justify-content: var(--variant__justify-content, space-between);
 
-  padding: var(
-      --theme__summary-padding-y,
-      var(--variant__summary-padding-y, var(--connect__spacer-sm))
-    )
-    var(--theme__summary-padding-x, var(--variant__summary-padding-x, var(--connect__spacer-sm)));
+  padding: var(--variant__summary-padding-y, var(--connect__spacer-sm))
+    var(--variant__summary-padding-x, var(--connect__spacer-sm));
 
   &::after {
     background-image: var(--connect__dropdown-icon-closed);
@@ -547,11 +492,8 @@ Variables related to theme/overrides:
     background-repeat: no-repeat;
     background-size: var(--connect__icon-sm) var(--connect__icon-sm);
     border: var(--connect__effects-inner-edge) solid
-      var(
-        --theme__summary-icon-active-ring,
-        var(--variant__summary-icon-active-ring, var(--connect__primary-mid))
-      );
-    border-radius: 50%;
+      var(--variant__summary-icon-active-ring, var(--connect__primary-mid));
+    border-radius: var(--connect__half-radius);
     content: '';
     flex-shrink: 0;
     height: var(--connect__icon-md);
@@ -567,7 +509,7 @@ Variables related to theme/overrides:
     content: '';
     height: var(--connect__full-h);
     left: 0;
-    position: absolute;
+    position: var(--connect__absolute);
     top: 0;
     transition-duration: var(--connect__transition-medium);
     transition-property: visibility, opacity, transform, max-height;
@@ -598,14 +540,14 @@ Variables related to theme/overrides:
   summary {
     & + * {
       --active-color: var(--connect__primary-mid);
-      position: relative;
+      position: var(--connect__relative);
 
       &::before {
         background: var(--active-color);
         content: '';
         height: var(--connect__effects-inner-edge);
         left: var(--connect__spacer-md);
-        position: absolute;
+        position: var(--connect__absolute);
         top: 0;
         width: calc(var(--connect__full-w) - var(--connect__spacer-xl));
       }
@@ -670,7 +612,7 @@ Breakpoint Values:
     var(--connect__grid-padding-right, var(--connect__grid-padding-x, 0))
     var(--connect__grid-padding-bottom, var(--connect__grid-padding-y, 0))
     var(--connect__grid-padding-left, var(--connect__grid-padding-x, 0));
-  position: relative;
+  position: var(--connect__relative);
   width: var(--connect__full-w);
 
   // Extra small breakpoint
@@ -910,12 +852,7 @@ Breakpoint Values:
 
   // Gutter modifier
   &.connect__grid-gutter {
-    --connect__gutter-padding-y: var(
-      --theme__connect-gutter-padding-y,
-      calc(var(--connect__spacer-xl) * 2)
-    );
-    --connect__gutter-padding-x: var(--theme__connect-gutter-padding-x, var(--gutter-width));
-    padding: var(--connect__gutter-padding-y) var(--connect__gutter-padding-x);
+    padding: calc(var(--connect__spacer-xl) * 2) var(--gutter-width);
   }
 
   // Subgrid modifier
@@ -1093,8 +1030,6 @@ Style lint has been turned off for this file, as we are using the flex long form
   }
 }
 
-/* stylelint-enable declaration-block-no-redundant-longhand-properties */
-
 .connect__chip {
   &:focus-visible:not(:active) {
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-focus);
@@ -1103,46 +1038,39 @@ Style lint has been turned off for this file, as we are using the flex long form
 
 /*
 .connect__pill Component
+THIS WILL BE PROP BASED WHEN DESIGN UPDATES RADIUS
 
-| Property         | Theme               | Variant/State         | Fallback / Default            | Props                      |
-|------------------|---------------------|---------------------- |-------------------------------|----------------------------|
-| Font size        | --theme__pill-fs    | --variant__pill-fs    | --connect__body-sm            |
-| Font weight      | --theme__pill-fw    | --variant__pill-fw    | --connect__fw-bold            |
-| Line height      | --theme__pill-lh    | --variant__pill-lh    | --connect__body-sm-lheight    |
-| Background color | --theme__pill-bg    | --variant__pill-bg    | --connect__cc-purple          | --connect__default-pill-bg |
-| Color            | --theme__pill-color | --variant__pill-color | --connect__surface-white      |
-| Padding Y        | --theme__pill-py    | --variant__pill-py    | --connect__spacer-xs          |
-| Padding L        | --theme__pill-pl    | --variant__pill-pl    | --connect__spacer-md          |
-| Padding R        | --theme__pill-pr    | --variant__pill-pr    | --connect__spacer-lg          |
+| Property          Variant/State        | Fallback / Default       
+|------------------|---------------------|-------------------------------|
+| Font size        |                     | --connect__body-sm            |
+| Font weight      |                     | --connect__fw-bold            |
+| Line height      |                     | --connect__body-sm-lheight    |
+| Background color | --variant__pill-bg  | --connect__cc-purple          | 
+| Color            |                     | --connect__surface-white      |
+| Padding Y        |                     | --connect__spacer-xs          |
+| Padding L        |                     | --connect__spacer-md          |
+| Padding R        |                     | --connect__spacer-lg          |
 
-|-------------------border-radius: top-left top-right bottom-right bottom-left ------------------|
 
-| Border Radius TL | --theme__pill-br-tl | --variant__pill-br-tl | --connect__heading-lg-lheight |
-| Border Radius TR | --theme__pill-br-tr | --variant__pill-br-tr | --connect__heading-lg-lheight |
-| Border Radius BR | --theme__pill-br-br | --variant__pill-br-br | --connect__spacer-zero        |
-| Border Radius BL | --theme__pill-br-bl | --variant__pill-br-bl | --connect__spacer-zero        |
+| Border Radius TL |                     | --connect__heading-lg-lheight |
+| Border Radius TR |                     | --connect__heading-lg-lheight |
+| Border Radius BR |                     | --connect__spacer-zero        |
+| Border Radius BL |                     | --connect__spacer-zero        |
 */
 
 .connect__pill {
   align-items: center;
-  background-color: var(
-    --theme__pill-bg,
-    var(--variant__pill-bg, var(--connect__default-pill-bg, var(--connect__cc-purple)))
-  );
-  border-radius: var(--theme__pill-br-tl, var(--variant__pill-br-tl, var(--connect__spacer-zero)))
-    var(--theme__pill-br-tr, var(--variant__pill-br-tr, var(--connect__heading-lg-lheight)))
-    var(--theme__pill-br-br, var(--variant__pill-br-br, var(--connect__heading-lg-lheight)))
-    var(--theme__pill-br-bl, var(--variant__pill-br-bl, var(--connect__spacer-zero)));
-  color: var(--theme__pill-color, var(--variant__pill-color, var(--connect__surface-white)));
+  background-color: var(--variant__pill-bg, var(--connect__cc-purple));
+  border-radius: var(--connect__spacer-zero) var(--connect__heading-lg-lheight)
+    var(--connect__heading-lg-lheight) var(--connect__spacer-zero);
+  color: var(--connect__surface-white);
   display: inline-flex;
-  font-size: var(--theme__pill-fs, var(--variant__pill-fs, var(--connect__body-sm)));
-  font-weight: var(--theme__pill-fw, var(--variant__pill-fw, var(--connect__fw-bold)));
+  font-size: var(--connect__body-sm);
+  font-weight: var(--connect__fw-bold);
   justify-content: center;
-  line-height: var(--theme__pill-lh, var(--variant__pill-lh, var(--connect__body-sm-lheight)));
-  padding: var(--theme__pill-py, var(--variant__pill-py, var(--connect__spacer-xs)))
-    var(--theme__pill-pr, var(--variant__pill-pr, var(--connect__spacer-lg)))
-    var(--theme__pill-py, var(--variant__pill-py, var(--connect__spacer-xs)))
-    var(--theme__pill-pl, var(--variant__pill-pl, var(--connect__spacer-md)));
+  line-height: var(--connect__body-sm-lheight);
+  padding: var(--connect__spacer-xs) var(--connect__spacer-lg) var(--connect__spacer-xs)
+    var(--connect__spacer-md);
 }
 
 /*
@@ -1160,8 +1088,8 @@ Style lint has been turned off for this file, as we are using the flex long form
 // this should be stack. must investigate engineering side
 .connect__icon-wrapper {
   display: inline-flex;
-  flex-flow: column wrap;
-  position: relative;
+  flex-flow: var(--connect__flow-column) var(--connect__flex-wrap);
+  position: var(--connect__relative);
   width: var(--connect__full-w);
 
   &::after {
@@ -1170,7 +1098,7 @@ Style lint has been turned off for this file, as we are using the flex long form
     background-size: contain;
     content: '';
     height: var(--connect__icon-size, var(--connect__icon-md));
-    position: absolute;
+    position: var(--connect__absolute);
     right: 0;
     top: 0;
     transform: translate(var(--connect__feedback-translateX), var(--connect__feedback-translateY));
@@ -1211,18 +1139,23 @@ Style lint has been turned off for this file, as we are using the flex long form
 .connect__icon-xs {
   --connect__icon-size: var(--connect__icon-xs);
 }
+
 .connect__icon-sm {
   --connect__icon-size: var(--connect__icon-sm);
 }
+
 .connect__icon-md {
   --connect__icon-size: var(--connect__icon-md);
 }
+
 .connect__icon-lg {
   --connect__icon-size: var(--connect__icon-lg);
 }
+
 .connect__icon-xl {
   --connect__icon-size: var(--connect__icon-xl);
 }
+
 .connect__icon-xxl {
   --connect__icon-size: var(--connect__icon-xxl);
 }
@@ -1232,25 +1165,25 @@ Style lint has been turned off for this file, as we are using the flex long form
 
 Padding on MCQ labels is the total border + spacer
 
-| Property            | Theme                        | Variant/State                  | Fallback / Default                                       |
-|---------------------|------------------------------|--------------------------------|----------------------------------------------------------|
-| Font size           | --theme__label-fs            | --variant__label-fs            | --connect__body-sm                                       |
-| Line height         | --theme__label-lh            | --variant__label-lh            | --connect__body-sm-lheight                               |
-| Font weight         | --theme__label-fw            | --variant__label-fw            | --connect__fw-regular                                    |
-| Radius              | --theme__label-border-radius | --variant__label-border-radius | --connect__border-radius                              |
-| Background color    | --theme__label-bg            | --variant__label-bg            | --connect__surface-white                                   |
-| Color               | --theme__label-color         | --variant__label-color         | --connect__surface-dark                                |
-| Gap                 | --theme__label-gap           | --variant__label-gap             | --connect__spacer-md                                     |
-| Cursor              |                              | --connect__state-based-pointer | pointer                                                  |
+| Property            | Variant/State                  | Fallback / Default             |
+|---------------------|--------------------------------|--------------------------------|
+| Font size           | --variant__label-fs            | --connect__body-sm             |
+| Line height         | --variant__label-lh            | --connect__body-sm-lheight     |
+| Font weight         | --variant__label-fw            | --connect__fw-regular          |
+| Radius              | --variant__label-border-radius | --connect__border-radius       |
+| Background color    | --variant__label-bg            | --connect__surface-white       |
+| Color               | --variant__label-color         | --connect__surface-dark        |
+| Gap                 | --variant__label-gap           | --connect__spacer-md           |
+| Cursor              | --connect__state-based-pointer | pointer                        |
 
 
-|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
-|---------------------|-------INPUT VARIABLES--------|-------------------------------|----------------------------------------------------------|
-|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
-| Property            | Theme                        | Variant/State                 | Fallback / Default                                       |
-|---------------------|------------------------------|-------------------------------|----------------------------------------------------------|
-| Radius              | --theme__mcq-border-radius   | --variant__mcq-border-radius  | --connect__inner-radius                              |
-| Dimensions          | --theme__input-dimensions    | --variant__input-dimensions   | --connect__caption-lheight                              |
+|---------------------|------------------------------|-------------------------------|
+|---------------------|-------INPUT VARIABLES--------|-------------------------------|
+|---------------------|------------------------------|-------------------------------|
+| Property            |Variant/State                 | Fallback / Default            |
+|---------------------|------------------------------|-------------------------------|
+| Radius              | --variant__mcq-border-radius | --connect__inner-radius       |
+| Dimensions          | --variant__input-dimensions  | --connect__caption-lheight    |
 
 */
 
@@ -1258,33 +1191,24 @@ Padding on MCQ labels is the total border + spacer
   --connect__label-padding-y: calc(var(--connect__total-border) + var(--connect__spacer-xs));
   --connect__label-padding-x: calc(var(--connect__total-border) + var(--connect__spacer-sm));
 
-  --connect__input-dimensions: var(
-    --theme__input-dimensions,
-    var(--variant__input-dimensions, var(--connect__caption-lheight))
-  );
+  --connect__input-dimensions: var(--connect__caption-lheight);
   --connect__input-border-w: var(--connect__mcq-border-w);
 
   align-items: center;
-  background-color: var(--theme__label-bg, var(--variant__label-bg, var(--connect__surface-white)));
-  border-radius: var(
-    --theme__label-border-radius,
-    var(--variant__label-border-radius, var(--connect__border-radius))
-  );
+  background-color: var(--variant__label-bg, var(--connect__surface-white));
+  border-radius: var(--variant__label-border-radius, var(--connect__border-radius));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__label-color, var(--active-color, var(--connect__surface-dark)));
+  color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: inline-flex;
   font-family: var(--connect__font-sans);
-  font-size: var(--theme__label-fs, var(--variant__label-fs, var(--connect__body-sm)));
-  font-weight: var(
-    --theme__label-fw,
-    var(--variant__label-fw, var(--connect__fw-regular, initial))
-  );
-  gap: var(--theme__label-gap, var(--variant__label-gap, var(--connect__spacer-md)));
+  font-size: var(--connect__body-sm);
+  font-weight: var(--connect__fw-regular, initial);
+  gap: var(--connect__spacer-md);
   justify-content: flex-start;
-  line-height: var(--theme__label-lh, var(--variant__label-lh, var(--connect__body-sm-lheight)));
+  line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
-  position: relative;
+  position: var(--connect__relative);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--connect__ease-in-out);
@@ -1293,10 +1217,7 @@ Padding on MCQ labels is the total border + spacer
   &::before {
     border: var(--connect__input-border-w) solid
       var(--checkbox-checked-state-based-border-c, var(--connect__primary-mid));
-    border-radius: var(
-      --theme__mcq-radius,
-      var(--variant__mcq-radius, var(--connect__inner-radius))
-    );
+    border-radius: var(--variant__mcq-radius, var(--connect__inner-radius));
     content: '';
     flex-shrink: 0;
     height: var(--connect__input-dimensions);
@@ -1405,16 +1326,15 @@ Positioning int he pseudos is the total border / 2
 
   &::after {
     background-color: var(--connect__surface-white);
-    border-radius: var(--theme__inner-radius, var(--connect__inner-radius))
-      var(--connect__spacer-zero);
+    border-radius: var(--connect__inner-radius) var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
         var(--connect__inner-status)
     );
-    left: var(--theme__inner-divider-width, var(--connect__inner-divider-width));
-    position: absolute;
-    top: var(--theme__inner-divider-width, var(--connect__inner-divider-width));
+    left: var(--connect__inner-divider-width);
+    position: var(--connect__absolute);
+    top: var(--connect__inner-divider-width);
     width: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
         var(--connect__inner-status)
@@ -1434,7 +1354,7 @@ Positioning int he pseudos is the total border / 2
 .connect__choice {
   inset: 0;
   opacity: var(--connect__opacity-zero);
-  position: absolute;
+  position: var(--connect__absolute);
 }
 
 .connect__choice[type='radio'] {
@@ -1471,77 +1391,63 @@ Positioning int he pseudos is the total border / 2
 */
 
 .connect__progress {
-  background: var(--theme__progress-bg, var(--variant__progress-bg, var(--connect__surface-white)));
+  background: var(--variant__progress-bg, var(--connect__surface-white));
   border: none;
-  border-radius: var(--theme__progress-br, var(--variant__progress-br, 1rem));
+  border-radius: var(--connect__border-radius);
   box-shadow: var(--connect__shadow-lvl-0);
-  overflow: hidden;
+  overflow: var(--connect__overflow-hidden);
   width: var(--connect__full-w);
 
   &::-webkit-progress-bar {
-    background: var(
-      --theme__progress-bg,
-      var(--variant__progress-bg, var(--connect__surface-white))
-    );
+    background: var(--variant__progress-bg, var(--connect__surface-white));
   }
 
   &::-webkit-progress-value {
-    background: var(--theme__progress-color, var(--connect__cc-purple));
-    border-radius: var(--theme__inner-br, var(--variant__inner-br, 2.5rem));
+    background: var(--variant__progress-color, var(--connect__cc-purple));
+    border-radius: 2.5rem;
     transition:
       inline-size var(--connect__transition-medium) var(--connect__in-out-quad),
       width var(--connect__transition-medium) var(--connect__in-out-quad);
   }
 
   &::-moz-progress-bar {
-    background: var(
-      --theme__progress-color,
-      var(--variant__progress-color, var(--connect__cc-purple))
-    );
-    border-radius: var(--theme__progress-br, var(--variant__progress-br, 1rem));
+    background: var(--variant__progress-color, var(--connect__cc-purple));
+    border-radius: var(--connect__border-radius);
   }
 }
 
 /*
 .connect__timer Component
 
-| Property    | Theme                 | Variant/State            | Fallback / Default            | Props               |
-|-------------|---------------------- |------------------------- |-------------------------------|---------------------|
-| Font size   | --theme__timer-fs     | --variant__timer-fs      | --connect__heading-lg         | --connect__timer-fs |
-| Line height | --theme__timer-lh     | --variant__timer-lh      | --connect__heading-lg-lheight | --connect__timer-lh |
-| Font weight | --theme__timer-fw     | --variant__timer-fw      | --connect__fw-bold            |
-| Font Style  | --theme__timer-fstyle | --variant__timer-fstyle  | normal                        |
-| Color       | --theme__timer-color  | --variant__timer-color   | --connect__surface-dark       |
+| Property    | Props                   |
+|-------------|-------------------------|
+| Font size   | --connect__timer-fs     |
+| Line height |--connect__timer-lh      |
+| Font weight | --connect__fw-bold      |
+| Font Style  | normal                  |
+| Color       | --connect__surface-dark |
 */
 
 .connect__timer {
-  color: var(--theme__timer-color, var(--variant__timer-color, var(--connect__surface-dark)));
+  color: var(--connect__surface-dark);
   font-family: var(--connect__font-sans);
-  font-size: var(
-    --theme__timer-fs,
-    var(--variant__timer-fs, var(--connect__timer-fs, var(--connect__heading-lg)))
-  );
-  font-style: var(--theme__timer-fstyle, var(--variant__timer-fstyle, var(--connect__fw-style)));
+  font-size: var(--connect__heading-lg);
+  font-style: var(--connect__fw-style);
   font-variant-numeric: tabular-nums;
-  font-weight: var(--theme__timer-fw, var(--variant__timer-fw, var(--connect__fw-bold)));
-  line-height: var(
-    --theme__timer-lh,
-    var(--variant__timer-lh, var(--connect__timer-lh, var(--connect__heading-lg-lheight)))
-  );
+  font-weight: var(--connect__fw-bold);
+  line-height: var(--connect__heading-lg-lheight);
 }
 
-/* Table
-  Table Component
-*/
+/* table Component */
 .connect__table-wrapper {
-  --connect__table-bg: var(--theme__table-bg, var(--connect__white));
-  --connect__thead-bg: var(--theme__thead-bg, var(--connect__surface-pale));
-  --connect__table-border-c: var(--theme__table-border-c, rgb(220, 220, 220));
-  --connect__tr-hover-bg: var(--theme__tr-hover-bg, var(--connect__gray-c5));
-  --connect__table-border-w: var(--theme__table-border-w, 0.0625rem);
-  --connect__table-color: var(--theme__table-color, var(--connect__surface-dark));
-  --connect__container-type: var(--theme__container-type, inline-size);
-  --connect__container-name: var(--theme__container-name, table-container);
+  --connect__table-bg: var(--connect__white);
+  --connect__thead-bg: var(--connect__surface-pale);
+  --connect__table-border-c: rgb(220, 220, 220);
+  --connect__tr-hover-bg: var(--connect__gray-c5);
+  --connect__table-border-w: 0.0625rem;
+  --connect__table-color: var(--connect__surface-dark);
+  --connect__container-type: inline-size;
+  --connect__container-name: table-container;
 
   padding: var(--connect__spacer-sm);
 
@@ -1558,8 +1464,8 @@ Positioning int he pseudos is the total border / 2
   border-spacing: 0;
   box-shadow: var(--connect__shadow-lvl-0);
   color: var(--connect__table-color);
-  overflow: hidden;
-  width: 100%;
+  overflow: var(--connect__overflow-hidden);
+  width: var(--connect__full-w);
 
   thead {
     border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
@@ -1590,7 +1496,7 @@ Positioning int he pseudos is the total border / 2
 
   &.connect__table-no-thead {
     thead {
-      display: none;
+      display: var(--connect__display-none);
     }
 
     tr:first-of-type td {
@@ -1621,7 +1527,7 @@ Positioning int he pseudos is the total border / 2
   th {
     background-color: var(--connect__thead-bg);
     border-top: unset;
-    overflow: hidden;
+    overflow: var(--connect__overflow-hidden);
     padding: var(--connect__spacer-sm);
     text-align: left;
     &:is([scope='row']) {
@@ -1651,7 +1557,7 @@ Positioning int he pseudos is the total border / 2
     th,
     td {
       display: block;
-      width: 100%;
+      width: var(--connect__full-w);
     }
 
     tr {
@@ -1672,12 +1578,12 @@ Positioning int he pseudos is the total border / 2
     th {
       background-color: unset;
       border: unset !important;
-      position: relative;
+      position: var(--connect__relative);
       text-align: left;
     }
 
     thead tr:first-of-type {
-      display: none;
+      display: var(--connect__display-none);
     }
 
     td::before {
@@ -1690,26 +1596,25 @@ Positioning int he pseudos is the total border / 2
 /* 
 .connect__aside Component
 
-| Property         | Theme                    | Variant                    | Fallback / Default       |
-|------------------|--------------------------|----------------------------|--------------------------|
-| Background color | --theme__aside-bg        | --variant__aside-bg        | --connect__surface-white |
-| Padding X        | --theme__aside-padding-x | --variant__aside-padding-x | --connect__spacer-xs     |
-| Padding Y        | --theme__aside-padding-y | --variant__aside-padding-y | --connect__spacer-md     |
-| Width            | --theme__aside-w         | --variant__aside-w         | 3.625rem                 |
-| Height           | --theme__aside-h         | --variant__aside-h         | 100vh                    |
+| Property         |Default                   |
+|------------------|--------------------------|
+| Background color | --connect__surface-white |
+| Padding X        | --connect__spacer-xs     |
+| Padding Y        | --connect__spacer-md     |
+| Width            | 3.625rem                 |
+| Height           |  100vh                   |
 */
 
 .connect__aside {
   align-items: center;
-  background-color: var(--theme__aside-bg, var(--variant__aside-bg, var(--connect__surface-white)));
-  display: flex;
-  flex-flow: column wrap;
-  height: var(--theme__aside-h, var(--variant__aside-h, 100vh));
+  background-color: var(--connect__surface-white);
+  display: var(--connect__display-flex);
+  flex-flow: var(--connect__flow-column) var(--connect__flex-wrap);
+  height: 100vh;
   justify-content: space-between;
   margin: 0;
-  padding: var(--theme__aside-padding-y, var(--variant__aside-padding-y, var(--connect__spacer-md)))
-    var(--theme__aside-padding-x, var(--variant__aside-padding-x, var(--connect__spacer-xs)));
-  width: var(--theme__aside-w, var(--variant__aside-w, 3.625rem));
+  padding: var(--connect__spacer-md) var(--connect__spacer-xs);
+  width: 3.625rem;
 
   &:has(> .connect__list:only-child) {
     justify-content: end;
@@ -1735,10 +1640,10 @@ Positioning int he pseudos is the total border / 2
 
   .connect__list {
     align-items: center;
-    display: flex;
-    flex-flow: column wrap;
+    display: var(--connect__display-flex);
+    flex-flow: var(--connect__flow-column) var(--connect__flex-wrap);
     gap: var(--connect__spacer-xs);
-    width: 100%;
+    width: var(--connect__full-w);
   }
 
   .connect__stack {
@@ -1756,40 +1661,25 @@ Positioning int he pseudos is the total border / 2
 Divider can be vertical or horizontal
 [aria-orientation='vertical']
 
-| Property         | Theme                     | Variant                     | Fallback / Default             |
-|------------------|---------------------------|-----------------------------|--------------------------------|
-| Background color | --theme__divider-bg       | --variant__divider-bg       | --connect__surface-pale        |
-| Height           | --theme__divider-h        | --variant__divider-h        | --connect__effects-inner-edge  |
-| Width            | --theme__divider-w        | --variant__divider-w        | --connect__full-w              |
-| Radius           | --theme__divider-br       | --variant__divider-br       | --connect__border-radius       |         
-| Margin x         | --theme__divider-margin-x | --variant__divider-margin-x | --connect__spacer-zero         |      
-| Margin y         | --theme__divider-margin-y | --variant__divider-margin-y | --connect__spacer-zero         |       
+| Property         | Variant                      | Fallback / Default             |
+|------------------|------------------------------|--------------------------------|
+| Background color |  --variant__divider-bg       | --connect__surface-pale        |
+| Height           |  --variant__divider-h        | --connect__effects-inner-edge  |
+| Width            |  --variant__divider-w        | --connect__full-w              |
+| Radius           |  --variant__divider-br       | --connect__border-radius       |         
+| Margin x         |  --variant__divider-margin-x | --connect__spacer-zero         |      
+| Margin y         |  --variant__divider-margin-y | --connect__spacer-zero         |       
 */
 
 .connect__divider {
   /* Define horizontal margin variables */
-  --connect__divider-margin-x: var(
-    --theme__divider-margin-x,
-    var(--variant__divider-margin-x, var(--connect__spacer-zero))
-  );
-  --connect__divider-margin-y: var(
-    --theme__divider-margin-y,
-    var(--variant__divider-margin-y, var(--connect__spacer-zero))
-  );
+  --connect__divider-margin-x: var(--variant__divider-margin-x, var(--connect__spacer-zero));
+  --connect__divider-margin-y: var(--variant__divider-margin-y, var(--connect__spacer-zero));
 
-  --connect__divider-bg: var(
-    --theme__divider-bg,
-    var(--variant__divider-bg, var(--connect__surface-pale))
-  );
-  --connect__divider-br: var(
-    --theme__divider-br,
-    var(--variant__divider-br, var(--connect__border-radius))
-  );
-  --connect__divider-h: var(
-    --theme__divider-h,
-    var(--variant__divider-h, var(--connect__effects-inner-edge))
-  );
-  --connect__divider-w: var(--theme__divider-w, var(--variant__divider-w, var(--connect__full-w)));
+  --connect__divider-bg: var(--variant__divider-bg, var(--connect__surface-pale));
+  --connect__divider-br: var(--variant__divider-br, var(--connect__border-radius));
+  --connect__divider-h: var(--variant__divider-h, var(--connect__effects-inner-edge));
+  --connect__divider-w: var(--variant__divider-w, var(--connect__full-w));
 
   background-color: var(--connect__divider-bg);
   border: 0;
@@ -1797,7 +1687,7 @@ Divider can be vertical or horizontal
   height: var(--connect__divider-h);
   margin: var(--connect__divider-margin-y) var(--connect__divider-margin-x);
   padding-bottom: var(--connect__spacer-xs);
-  position: relative;
+  position: var(--connect__relative);
   width: calc(var(--connect__divider-w) - (var(--connect__divider-margin-x) * 2));
 
   &[aria-orientation='vertical'] {
@@ -1810,12 +1700,11 @@ Divider can be vertical or horizontal
 /*
 .connect__list Component
 
-| Property    | Theme            | Variants           | Fallback / Default         |
-|-------------|------------------|--------------------|----------------------------|
-| Font size   | --theme__list-fs | --variant__list-fs | --connect__body-sm         |
-| Line Height | --theme__list-lh | --variant__list-lh | --connect__body-sm-lheight |
-|-------------|------------------|--------------------|----------------------------|
-| Marker Type |                  | --variant__list-style-type   
+| Property    | Variants            | Fallback / Default         |
+|-------------|---------------------|----------------------------|
+| Font size   |  --variant__list-fs | --connect__body-sm         |
+| Line Height |  --variant__list-lh | --connect__body-sm-lheight |
+| Marker Type |                     | --variant__list-style-type |  
 */
 
 .connect__list {
@@ -1824,13 +1713,13 @@ Divider can be vertical or horizontal
 }
 
 .connect__list-item {
-  font-size: var(--theme__list-fs, var(--variant__list-fs, var(--connect__body-sm)));
-  line-height: var(--theme__list-lh, var(--variant__list-lh, var(--connect__body-sm-lheight)));
+  font-size: var(--connect__body-sm);
+  line-height: var(--connect__body-sm-lheight);
 
   &::marker {
-    color: var(--theme__list-marker-color, var(--variant__marker-color, inherit));
-    font-size: var(--theme__connect-list-item-marker-fs, var(--connect__body-sm));
-    line-height: var(--theme__connect-list-item-marker-lh, var(--connect__body-sm-lheight));
+    color: var(--variant__marker-color, inherit);
+    font-size: var(--connect__body-sm);
+    line-height: var(--connect__body-sm-lheight);
   }
 }
 
@@ -1867,23 +1756,23 @@ Divider can be vertical or horizontal
 
   &::marker {
     content: counters(list-item, '.') ':';
-    font-weight: var(--theme__connect-marker-fw, var(--connect__fw-bold));
+    font-weight: var(--connect__fw-bold);
   }
 }
 
 /*
 .connect__paper Component
 
-| Property   | Theme                 | Variants                | Fallback / Default         |
-|------------|-----------------------|-------------------------|----------------------------|
-| Radius     | --theme__paper-radius | --variant__paper-radius | --connect__spacer-zero     |
-|------------|-----------------------|-------------------------|----------------------------|
-| Elevation-levels 
+| Property   | Fallback / Default     |
+|------------|------------------------|
+| BG         | Prop based             |
+| Radius     | Prop based             |
+| Outline    | Prop based             |
+| Elevation  | Prop based             |
 */
 
 .connect__paper {
-  --connect__paper-bg: var(--theme__paper-bg, var(--connect__white));
-  background-color: var(--connect__paper-bg);
+  background-color: var(--connect__paper-bg, var(--connect__white));
 }
 
 .connect__paper-outlined {
@@ -1891,24 +1780,12 @@ Divider can be vertical or horizontal
 }
 
 .connect__figure {
-  height: 100%;
-  margin-top: var(--theme__fig-mt, var(--variant__fig-mt, var(--connect__spacer-zero)));
+  height: var(--connect__full-h);
+  margin-top: var(--connect__spacer-zero);
 }
 
-/*
-.connect__dialog Component
-
-| Property   | Theme                  | Variants                 | Fallback / Default         |
-|------------|------------------------|--------------------------|----------------------------|
-| BG Color   | --theme__dialog-bg     | --variant_dialog-bg      | --connect__white           |
-|------------|------------------------|--------------------------|----------------------------|
-| Radius     | --theme__dialog-radius | --variant__dialog-radius | --connect__spacer-zero     |
-|------------|------------------------|--------------------------|----------------------------|
-| Elevation-levels 
-*/
-
 .connect__dialog {
-  --connect__dialog-bg: var(--theme__dialog-bg, var(--connect__white));
+  --connect__dialog-bg: var(--connect__white);
   --connect__horizontal-margin: auto;
   --connect__vertical-margin: auto;
 
@@ -2042,7 +1919,7 @@ Cover Text / Cursors / Iconography
   position: var(--connect__relative);
 
   &:has(.connect__dropdown) {
-    display: flex;
+    display: var(--connect__display-flex);
   }
 
   .connect__clear-button {
@@ -2054,8 +1931,8 @@ Cover Text / Cursors / Iconography
 .connect__dropdown {
   appearance: none;
   background-color: var(
-    --theme__dropdown-bg,
-    var(--variant__dropdown-bg, var(--state-based-bg, var(--connect__surface-white)))
+    --variant__dropdown-bg,
+    var(--state-based-bg, var(--connect__surface-white))
   );
   background-image: var(
     --state__connect-dropdown-icon,
@@ -2070,9 +1947,9 @@ Cover Text / Cursors / Iconography
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: var(--connect__display-flex);
-  font-size: var(--theme__select-fs, var(--variant__select-fs, var(--connect__body-sm)));
-  font-weight: var(--theme__select-fw, var(--variant__select-fw, var(--connect__fw-regular)));
-  line-height: var(--theme__select-lh, var(--variant__select-lh, var(--connect__body-sm-lheight)));
+  font-size: var(--connect__body-sm);
+  font-weight: var(--connect__fw-regular);
+  line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: var(--connect__relative);
@@ -2204,15 +2081,10 @@ Cover Text / Cursors / Iconography
   }
 }
 
-/*
-connect__toolbar 
-*/
+/* connect__toolbar */
 
 .connect__toolbar {
-  background-color: var(
-    --theme__toolbar-bg,
-    var(--variant__toolbar-bg, var(--connect__surface-pale))
-  );
+  background-color: var(--connect__surface-pale);
   border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
   box-shadow: var(--connect__shadow-lvl-0);
 
@@ -2221,15 +2093,7 @@ connect__toolbar
   }
 }
 
-/*
-|---------------|---------------------------------|--------------------------------|
- Avatar Avatar Group & Badge Styles to come these values may change slightly 
-|---------------|---------------------------------|--------------------------------|
-*/
-
-/*
-Connect Avatars
-*/
+/* Connect Avatars */
 
 .connect__avatar {
   align-items: center;
@@ -2524,15 +2388,16 @@ utilities
 
 .connect__typography {
   font-weight: var(--connect__fw, var(--connect__fw-regular));
+  hyphens: auto;
 }
 
 .connect__position-relative-wrapper {
-  position: relative;
+  position: var(--connect__relative);
 }
 
 .connect__visually-hidden {
   left: -9999px;
-  position: absolute;
+  position: var(--connect__absolute);
 }
 
 .connect__full-width {
@@ -2540,10 +2405,7 @@ utilities
 }
 
 .connect__rounded-corners {
-  border-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
+  border-radius: var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__rounded-reset {
@@ -2551,45 +2413,29 @@ utilities
 }
 
 .connect__rounded-top-left {
-  border-top-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
+  border-top-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__rounded-top-right {
-  border-top-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
+  border-top-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__rounded-bottom-left {
-  border-bottom-left-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
+  border-bottom-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__rounded-bottom-right {
-  border-bottom-right-radius: var(
-    --theme__rounded-radius,
-    var(--variant__rounded-radius, var(--connect__border-radius))
-  );
+  border-bottom-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__rounded-top {
-  border-radius: var(
-      --theme__rounded-radius,
-      var(--variant__rounded-radius, var(--connect__border-radius))
-    )
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius))) 0 0;
+  border-radius: var(--variant__rounded-radius, var(--connect__border-radius))
+    var(--variant__rounded-radius, var(--connect__border-radius)) 0 0;
 }
 
 .connect__rounded-bottom {
-  border-radius: 0 0
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)))
-    var(--theme__rounded-radius, var(--variant__rounded-radius, var(--connect__border-radius)));
+  border-radius: 0 0 var(--variant__rounded-radius, var(--connect__border-radius))
+    var(--variant__rounded-radius, var(--connect__border-radius));
 }
 
 .connect__elevation--2 {
@@ -2618,8 +2464,8 @@ To be fleshed out / moved
 
 .connect__contain {
   height: auto;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: var(--connect__full-h);
+  max-width: var(--connect__full-w);
   object-fit: contain;
   object-position: center center;
   width: auto;

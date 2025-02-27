@@ -21,11 +21,11 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   dataTestId,
 }) => {
   const customStyles: React.CSSProperties & {
-    '--theme__progress-bg'?: string;
-    '--theme__progress-color'?: string;
+    '--variant__progress-bg'?: string;
+    '--variant__progress-color'?: string;
   } = {
-    '--theme__progress-bg': `var(--connect__${backgroundColor})`,
-    '--theme__progress-color': `var(--connect__${barColor})`,
+    '--variant__progress-bg': `var(--connect__${backgroundColor})`,
+    '--variant__progress-color': `var(--connect__${barColor})`,
   };
 
   return (
