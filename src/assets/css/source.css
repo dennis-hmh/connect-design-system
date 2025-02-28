@@ -895,11 +895,15 @@
     3.1: Connect Default Palette
   */
   --connect__gray-c70: rgb(45, 45, 45);
+  --connect__gray-c60: rgb(86, 87, 87);
   --connect__gray-c55: rgb(93, 95, 95);
+  --connect__gray-c50: rgb(106, 109, 109);
   --connect__gray-c40: rgb(137, 141, 141);
   --connect__gray-c35: rgb(160, 162, 162);
   --connect__gray-c10: rgb(237, 237, 237);
   --connect__gray-c5: rgb(247, 247, 248);
+
+  --connect__cool-gray-c20: rgb(192, 198, 200);
 
   --connect__red-c55: rgb(191, 19, 19);
   --connect__red-c50: rgb(214, 36, 36);
@@ -937,6 +941,13 @@
   --connect__unset: unset;
 
   --connect__white: #fff;
+
+  /* Color Packs */
+  --connect__passive-100: var(--connect__gray-c10);
+  --connect__passive-200: var(--connect__cool-gray-c20);
+  --connect__passive-300: var(--connect__gray-c40);
+  --connect__passive-400: var(--connect__gray-c50);
+  --connect__passive-500: var(--connect__gray-c60);
 
   /*
     3.2: Connect Default Palette
@@ -1290,7 +1301,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__']) > img {
+:where([class*='connect__'])>img {
   height: auto;
   max-height: 100%;
 }

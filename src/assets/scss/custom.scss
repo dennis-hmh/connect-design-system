@@ -187,9 +187,9 @@ Buttons take variables in the following format
     }
 
     &:disabled {
-      --active-color: var(--connect__surface-white);
+      --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
-      --variant__btn-bg: var(--connect__disabled-light);
+      --variant__btn-bg: var(--connect__passive-100);
     }
   }
 
@@ -200,9 +200,10 @@ Buttons take variables in the following format
     --connect__inner-status-color: var(--connect__primary-mid);
 
     &:disabled {
+      --active-color: var(--connect__passive-500);
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
-      --connect__inner-status-color-state: var(--connect__surface-pale);
+      --connect__inner-status-color-state: var(--connect__passive-200);
     }
 
     &.connect__feedback-incorrect {
