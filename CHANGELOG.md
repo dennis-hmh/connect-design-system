@@ -1,5 +1,14 @@
 # @connect/connect-design-system
 
+## 1.21.5
+
+### Patch Changes
+
+- f1d4adf: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Fixing an issue with Chromatic not finishing Storybook build.
+
 ## 1.21.4
 
 ### Patch Changes
