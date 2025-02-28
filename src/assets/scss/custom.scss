@@ -1449,7 +1449,12 @@ Positioning int he pseudos is the total border / 2
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
 
+  overflow-x: auto;
   padding: var(--connect__spacer-sm);
+
+  &:has(.connect__table-sticky-header) {
+    overflow: unset;
+  }
 
   &:not(:has(.connect__table-scrolling)) {
     container-name: var(--connect__container-name);
@@ -1483,10 +1488,6 @@ Positioning int he pseudos is the total border / 2
   }
 
   &.connect__table-sticky-header {
-    &:is(table) {
-      overflow: unset;
-    }
-
     thead {
       position: sticky;
       top: -0.0625rem;
