@@ -106,6 +106,7 @@ AnswerShown.args = {
 Disabled.args = {
   ...Default.args,
   value: 'Disabled',
+  disabled: true,
   charLimit: 50,
 };
 
