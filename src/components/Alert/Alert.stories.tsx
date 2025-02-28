@@ -7,7 +7,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Misc/Alert',
+  title: 'Pattern/Alert',
   component: Alert,
   tags: ['autodocs'],
   parameters: {

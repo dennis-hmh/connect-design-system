@@ -1,5 +1,29 @@
 # @connect/connect-design-system
 
+## 1.21.2
+
+### Patch Changes
+
+- 6f087ae: - New Component: `<CharacterCounter />`
+  - Updated Component:
+    - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<Chip />`: Updated to be a pattern.
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.21.1
+
+### Patch Changes
+
+- c9f9ebc: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other:
+    - Storybook alignment update
+    - Component Pattern: `<Alert />`, `<Card />`, `<Chip />`, `<Dialog />`, `<Sidebar />`
+    - Componets Archived: `<Blockquote />`, `<ButtonRive />`, `<ButtonSplit />`, `<FigCaption />`, `<Figure />`, `<Footer />`, `<Header />`, `<RiveSimple />`, `<SingleBlockquote />`, `<SingleImage />`
+
 ## 1.21.0
 
 ### Minor Changes

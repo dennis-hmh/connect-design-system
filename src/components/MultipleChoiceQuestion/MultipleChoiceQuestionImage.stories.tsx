@@ -11,7 +11,7 @@ import { Image } from '../Image/Image';
 
 const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   component: MultipleChoiceQuestionImage,
-  title: 'Input/Multiple Choice Question Image',
+  title: 'Archive/Multiple Choice Question Image',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

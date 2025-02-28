@@ -1,34 +1,33 @@
 import React, { useState } from 'react';
+import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TextareaProps = {
+  value: string;
+  onChange: (value: string) => void;
+  placeholderText?: string | undefined;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   disabled?: boolean;
-  defaultText?: string | undefined;
-  characterCount?: boolean;
-  placeholderText?: string | undefined;
-  characterLimit?: number;
+  charLimit?: number;
   toolbar?: React.ReactNode;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
 export const Textarea: React.FC<TextareaProps> = ({
+  value = '',
+  onChange,
+  placeholderText,
   correct,
   incorrect,
   answerShown,
   disabled,
-  defaultText,
-  characterCount,
-  placeholderText,
   toolbar,
-  characterLimit,
+  charLimit,
   dataTestId,
 }) => {
-  const [text, setText] = useState(defaultText || '');
-  const [charCount, setCharCount] = useState(defaultText?.length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
   const inputStates = [
@@ -36,7 +35,7 @@ export const Textarea: React.FC<TextareaProps> = ({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
-    characterCount && 'connect__input-character-count',
+    charLimit && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');
@@ -52,10 +51,10 @@ export const Textarea: React.FC<TextareaProps> = ({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newText = e.target.value;
-    setText(newText);
-    setCharCount(newText.length);
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (onChange) {
+      onChange(event.currentTarget.value);
+    }
   };
 
   return (
@@ -63,31 +62,17 @@ export const Textarea: React.FC<TextareaProps> = ({
       {toolbar && toolbar}
       <textarea
         className={`connect__input connect__input-textarea ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
-        disabled={shouldBeDisabled}
-        value={text}
+        value={value}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={(e) => handleTextChange(e)}
+        onChange={handleTextChange}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
+        disabled={shouldBeDisabled}
         data-testid={dataTestId}
       />
-      {characterCount && (
-        <div
-          className={`connect__character-counter ${
-            characterLimit && charCount >= characterLimit
-              ? 'connect__character-counter-limit-reached'
-              : ''
-          }`}
-        >
-          <em>{charCount}</em>
-          {characterLimit && (
-            <>
-              <span aria-hidden="true">/</span>
-              {characterLimit}
-            </>
-          )}
-        </div>
+      {typeof charLimit === 'number' && (
+        <CharacterCounter charCount={value.toString().length} charLimit={charLimit} />
       )}
     </div>
   );
