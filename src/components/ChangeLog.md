@@ -1,6 +1,42 @@
+### v1.21.4 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- Addition of passive color pack
+- Chip component now constructed with atomic components
+- InputText story amended
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.3 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- Default responsive table behaviour changed from list-view to horizontal scrolling
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.21.2 Release Notice
 
-### Release date: Fecruary 27, 2025
+### Release date: February 27, 2025
 
 ### Changelog:
 
@@ -23,7 +59,7 @@
 
 ### v1.21.1 Release Notice
 
-### Release date: Fecruary 27, 2025
+### Release date: February 27, 2025
 
 ### Changelog:
 
@@ -46,7 +82,7 @@
 
 ### v1.21.0 Release Notice
 
-### Release date: Fecruary 27, 2025
+### Release date: February 27, 2025
 
 ### Changelog:
 
@@ -68,7 +104,7 @@
 
 ### v1.20.0 Release Notice
 
-### Release date: Fecruary 27, 2025
+### Release date: February 27, 2025
 
 ### Changelog:
 
@@ -87,7 +123,7 @@
 
 ### v1.19.5 Release Notice
 
-### Release date: Fecruary 19, 2025
+### Release date: February 19, 2025
 
 ### Changelog:
 
@@ -107,7 +143,7 @@
 
 ### v1.19.4 Release Notice
 
-### Release date: Fecruary 19, 2025
+### Release date: February 19, 2025
 
 ### Changelog:
 

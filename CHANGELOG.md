@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.21.4
+
+### Patch Changes
+
+- 1e407af: Addition of passive color pack, Chip component now constructed with atomic components, InputText story amended
+
+## 1.21.3
+
+### Patch Changes
+
+- ae4767f: Default responsive table behaviour changed from list-view to horizontal scrolling
+
 ## 1.21.2
 
 ### Patch Changes

@@ -187,9 +187,9 @@ Buttons take variables in the following format
     }
 
     &:disabled {
-      --active-color: var(--connect__surface-white);
+      --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
-      --variant__btn-bg: var(--connect__disabled-light);
+      --variant__btn-bg: var(--connect__passive-100);
     }
   }
 
@@ -200,9 +200,10 @@ Buttons take variables in the following format
     --connect__inner-status-color: var(--connect__primary-mid);
 
     &:disabled {
+      --active-color: var(--connect__passive-500);
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
-      --connect__inner-status-color-state: var(--connect__surface-pale);
+      --connect__inner-status-color-state: var(--connect__passive-200);
     }
 
     &.connect__feedback-incorrect {
@@ -1448,7 +1449,12 @@ Positioning int he pseudos is the total border / 2
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
 
+  overflow-x: auto;
   padding: var(--connect__spacer-sm);
+
+  &:has(.connect__table-sticky-header) {
+    overflow: unset;
+  }
 
   &:not(:has(.connect__table-scrolling)) {
     container-name: var(--connect__container-name);
@@ -1482,10 +1488,6 @@ Positioning int he pseudos is the total border / 2
   }
 
   &.connect__table-sticky-header {
-    &:is(table) {
-      overflow: unset;
-    }
-
     thead {
       position: sticky;
       top: -0.0625rem;
