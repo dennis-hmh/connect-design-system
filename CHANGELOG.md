@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.21.4
+
+### Patch Changes
+
+- 1e407af: Addition of passive color pack, Chip component now constructed with atomic components, InputText story amended
+
 ## 1.21.3
 
 ### Patch Changes
