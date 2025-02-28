@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.21.3
+
+### Patch Changes
+
+- ae4767f: Default responsive table behaviour changed from list-view to horizontal scrolling
+
 ## 1.21.2
 
 ### Patch Changes
