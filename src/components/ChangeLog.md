@@ -1,3 +1,22 @@
+### v1.21.4 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- Addition of passive color pack
+- Chip component now constructed with atomic components
+- InputText story amended
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.21.3 Release Notice
 
 ### Release date: February 28, 2025
