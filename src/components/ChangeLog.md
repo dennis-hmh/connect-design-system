@@ -1,3 +1,23 @@
+### v1.21.5 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Fixing an issue with Chromatic not finishing Storybook build.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.21.4 Release Notice
 
 ### Release date: February 28, 2025
