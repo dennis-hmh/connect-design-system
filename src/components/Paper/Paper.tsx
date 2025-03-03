@@ -5,13 +5,14 @@ import { RoundedCorner } from '../../utils/radius';
 
 export type PaperProps = {
   children: React.ReactNode;
-  element?: 'section' | 'article' | 'main' | 'aside' | 'div' | 'dialog';
+  element?: React.ElementType;
   id?: string;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: RoundedCorner;
   outline?: Color;
   backgroundColor?: Color;
   className?: string;
+  role?: string;
   fullWidth?: boolean;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -26,6 +27,7 @@ export const Paper: React.FC<PaperProps> = ({
   outline = 'transparent',
   backgroundColor = 'white',
   className,
+  role,
   fullWidth = false,
   dataTestId,
 }) => {
@@ -54,7 +56,7 @@ export const Paper: React.FC<PaperProps> = ({
       if (roundedCorner.bottomRight) classes.push('connect__rounded-bottom-right');
     }
 
-     return classes.join(' ') || 'connect__rounded-reset';
+    return classes.join(' ') || 'connect__rounded-reset';
   };
 
   const paperClassName = [
@@ -78,7 +80,13 @@ export const Paper: React.FC<PaperProps> = ({
   }
 
   return (
-    <Component id={id} className={paperClassName} data-testid={dataTestId} style={paperProps}>
+    <Component
+      id={id}
+      className={paperClassName}
+      data-testid={dataTestId}
+      style={paperProps}
+      role={role}
+    >
       {children}
     </Component>
   );

@@ -1,21 +1,17 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Table, TableProps } from './Table';
+import { InputText } from '../InputText/InputText';
+import { Image } from '../Image/Image';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Table> = {
-  title: 'WIP/Table',
+  title: 'Content/Table',
   component: Table,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          '🚧 **This componenent is currently a Work In Progress (WIP). It is not ready for production use.** 🚧',
-      },
-    },
   },
 } as Meta;
 
@@ -36,7 +32,7 @@ const Template: StoryFn<TableProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  scrolling: false,
+  scrolling: true,
   stickyHeader: false,
   headers: ['Header 1', 'Header 2', 'Header 3', 'Header 4'],
   cells: [
@@ -82,9 +78,41 @@ NoHeader.args = {
   className: 'connect__table-no-thead',
 };
 
+export const MobileListView = Template.bind({});
+MobileListView.args = {
+  ...Default.args,
+  caption: 'Mobile List View',
+  scrolling: false,
+};
+
+export const FillInTheBlank = Template.bind({});
+FillInTheBlank.args = {
+  ...Default.args,
+  caption: 'Fill in the Blank',
+  headers: ['Question', 'Answer'],
+  cells: [
+    ['The capital of France is', <InputText />],
+    ['The capital of Germany is', <InputText />],
+    ['The capital of Italy is', <InputText />],
+    ['The capital of Japan is', <InputText />],
+  ],
+};
+
+export const ImageGallery = Template.bind({});
+ImageGallery.args = {
+  ...Default.args,
+  caption: 'Image Gallery',
+  headers: ['Image', 'Description'],
+  cells: [
+    [<Image imageSrc="" altText="Placeholder Image" />, 'Image 1'],
+    [<Image imageSrc="" altText="Placeholder Image" />, 'Image 2'],
+    [<Image imageSrc="" altText="Placeholder Image" />, 'Image 3'],
+    [<Image imageSrc="" altText="Placeholder Image" />, 'Image 4'],
+  ],
+};
+
 export const personalInfo = Template.bind({});
 personalInfo.args = {
-  scrolling: false,
   stickyHeader: false,
   headers: ['Name', 'Age', 'Email', 'Address', 'Phone Number'],
   cells: [
@@ -100,7 +128,6 @@ personalInfo.args = {
 
 export const productData = Template.bind({});
 productData.args = {
-  scrolling: false,
   stickyHeader: false,
   headers: [
     'Product ID',
@@ -126,7 +153,6 @@ productData.args = {
 
 export const Presidents = Template.bind({});
 Presidents.args = {
-  scrolling: false,
   stickyHeader: true,
   headers: ['Name', 'Age', 'Party', 'Years in Office', 'State', 'Vice President'],
   cells: [

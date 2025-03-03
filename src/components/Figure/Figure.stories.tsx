@@ -10,7 +10,7 @@ import { FigCaption } from '../FigCaption/FigCaption';
 
 const meta: Meta<typeof Figure> = {
   component: Figure,
-  title: 'Figure/Figure',
+  title: 'Removed/Figure',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -34,7 +34,7 @@ const Template: StoryFn<FigureProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  children: <Image imageSrc={'../../images/zelda.jpg'} altText={'This is Alt Text'} />,
+  children: <Image imageSrc="" altText={'This is Alt Text'} />,
   caption: 'This is a caption',
   cite: '',
   gradeBand: GradeBand.G4_5,

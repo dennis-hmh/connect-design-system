@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof SingleImage> = {
-  title: 'Figure/Single Image',
+  title: 'Removed/Single Image',
   component: SingleImage,
   tags: ['autodocs'],
   parameters: {
@@ -30,9 +30,9 @@ const Template: StoryFn<SingleImageProps & { gradeBand: GradeBand }> = (args) =>
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  imageSrc: 'https://picsum.photos/600/400',
-  altText: 'A random picture from Lorem Picsum',
-  caption: 'A random picture chosen by Lorem Picsum',
-  cite: 'https://picsum.photos/',
+  imageSrc: '/images/default.png',
+  altText: "HMH's logo",
+  caption: 'HMH Logo',
+  cite: 'https://unsplash.com/',
   gradeBand: GradeBand.G4_5,
 };

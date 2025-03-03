@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { InputBox, InputBoxProps } from './InputBox';
+import { Image } from '../index.ts';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -42,6 +43,7 @@ const Template: StoryFn<InputBoxProps> = (args) => {
 };
 
 export const Default: Story = Template.bind({});
+export const MCQImage: Story = Template.bind({});
 export const Checked: Story = Template.bind({});
 export const Correct: Story = Template.bind({});
 export const Incorrect: Story = Template.bind({});
@@ -59,6 +61,12 @@ Default.args = {
   disabled: false,
   children: 'The mouse rides a bike',
   gradeBand: GradeBand.G4_5,
+};
+
+MCQImage.args = {
+  ...Default.args,
+  classes: 'connect__mcq-card',
+  children: <Image imageSrc="" altText={'This is Alt Text'} />,
 };
 
 Checked.args = {

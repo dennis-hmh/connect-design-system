@@ -1,10 +1,19 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
-import { Stack, Figure, Image, Button, Icon, Typography, List } from '../index';
+import {
+  Stack,
+  Image,
+  Button,
+  Icon,
+  Typography,
+  List,
+  Dropdown,
+  Divider,
+  ButtonMenu,
+} from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Paper> = {
   component: Paper,
@@ -23,13 +32,11 @@ const Template: StoryFn<PaperProps> = (args) => {
   const gradeBand = args.gradeBand ?? GradeBand.G4_5;
 
   return (
-    <ButtonMenuProvider>
-      <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
-        <div ref={themeWrapperRef}>
-          <Paper {...args} />
-        </div>
-      </ConnectTheme>
-    </ButtonMenuProvider>
+    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Paper {...args} />
+      </div>
+    </ConnectTheme>
   );
 };
 
@@ -83,17 +90,14 @@ Card.args = {
         flexWrap: `wrap`,
       }}
     >
-      <Figure caption="This is a caption">
-        <Image
-          imageSrc=""
-          roundedCorners={{
-            topLeft: true,
-            topRight: true,
-          }}
-          altText={'This is Alt Text'}
-        />
-      </Figure>
-
+      <Image
+        imageSrc=""
+        roundedCorners={{
+          topLeft: true,
+          topRight: true,
+        }}
+        altText={'This is Alt Text'}
+      />
       <Stack
         xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'md' }}
         lg={{ direction: 'row', justifyContent: 'space-between' }}
@@ -124,7 +128,7 @@ WithOutline.args = {
     <>
       <Paper
         fullWidth={true}
-        backgroundColor="primary-mid"
+        backgroundColor="focus-pale"
         roundedCorner={{
           topAll: true,
         }}
@@ -152,7 +156,7 @@ WithOutline.args = {
               paddingY: 'zero',
             }}
           >
-            <Icon id="syl" fill="primary-dark" size="xl" />
+            <Icon id="syl" fill="focus-dark" size="xl" />
           </Stack>
           <Stack
             flex="auto"
@@ -214,7 +218,7 @@ WithOutline.args = {
   element: 'div',
   elevation: 0,
   roundedCorner: true,
-  outline: 'primary-mid',
+  outline: 'focus-pale',
   fullWidth: false,
   dataTestId: '',
   gradeBand: GradeBand.G4_5,
@@ -225,4 +229,136 @@ WithOutline.parameters = {
   backgrounds: {
     default: 'light',
   },
+};
+
+export const WithDropdown: Story = Template.bind({});
+WithDropdown.args = {
+  ...Default.args,
+  elevation: 4,
+  roundedCorner: true,
+  children: (
+    <Stack
+      xs={{
+        direction: 'column',
+        spacing: 'sm',
+        paddingX: 'md',
+        paddingY: 'md',
+      }}
+    >
+      <Dropdown
+        children="Select an option"
+        data={[
+          { label: 'Option 1' },
+          { label: 'Option 2' },
+          { label: 'Option 3' },
+          { label: 'Option 4' },
+          { label: 'Option 5' },
+          { label: 'Option 6' },
+          { label: 'Option 7' },
+        ]}
+      />
+    </Stack>
+  ),
+};
+
+WithDropdown.parameters = {
+  layout: 'centered',
+};
+
+const classcraftLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24" fill="none" class="connect__icon connect__icon-md">
+  <rect x="10.5272" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 10.5272 0)" fill="url(#paint0_linear_1128_1272)"></rect>
+  <rect x="18.5195" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 18.5195 0)" fill="url(#paint1_linear_1128_1272)"></rect>
+  <rect x="26.512" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 26.512 0)" fill="url(#paint2_linear_1128_1272)"></rect>
+  <defs>
+  <linearGradient id="paint0_linear_1128_1272" x1="16.8218" y1="11.6948" x2="10.5399" y2="11.694" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#CC00C0"></stop>
+    <stop offset="1" stop-color="#DF04D2"></stop>
+  </linearGradient>
+  <linearGradient id="paint1_linear_1128_1272" x1="24.8141" y1="11.6948" x2="18.5322" y2="11.694" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#CC00C0"></stop>
+    <stop offset="1" stop-color="#DF04D2"></stop>
+  </linearGradient>
+  <linearGradient id="paint2_linear_1128_1272" x1="32.8066" y1="11.6948" x2="26.5247" y2="11.694" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#CC00C0"></stop>
+    <stop offset="1" stop-color="#DF04D2"></stop>
+  </linearGradient>
+  </defs>
+</svg>`;
+
+export const Sidebar: Story = Template.bind({});
+Sidebar.args = {
+  ...Default.args,
+  children: (
+    <>
+      <Stack xs={{ direction: 'column' }}>
+        <List
+          data={[
+            {
+              content: (
+                <ButtonMenu
+                  id="info"
+                  iconId="info"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Info"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+          ]}
+        />
+        <Divider />
+        <List
+          data={[
+            {
+              content: (
+                <ButtonMenu
+                  id="desmos"
+                  iconId="desmos"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Desnos Calculator"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+            {
+              content: (
+                <ButtonMenu
+                  id="group-activity"
+                  iconId="groupActivity"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Group Activity"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+            {
+              content: (
+                <ButtonMenu
+                  id="add"
+                  iconId="add"
+                  iconSize="md"
+                  clickedClass="connect__selected"
+                  ariaLabel="Add"
+                  children=""
+                ></ButtonMenu>
+              ),
+            },
+          ]}
+        />
+      </Stack>
+      <List
+        data={[
+          {
+            content: <div dangerouslySetInnerHTML={{ __html: classcraftLogo }} />,
+          },
+        ]}
+      />
+    </>
+  ),
+  element: 'aside',
+  elevation: 4,
+  className: 'connect__aside',
 };

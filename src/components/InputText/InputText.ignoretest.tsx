@@ -10,12 +10,12 @@ describe('InputText Component', () => {
     answerShown: false,
     number: false,
     disabled: false,
-    defaultText: '',
+    value: '',
     dataTestId: 'test-input',
   };
 
   it('renders the input with default text', () => {
-    render(<InputText {...defaultProps} defaultText="Test Text" />);
+    render(<InputText {...defaultProps} value="Test Text" />);
     const inputElement = screen.getByDisplayValue(/Test Text/i);
     expect(inputElement).toBeInTheDocument();
   });

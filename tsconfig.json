@@ -8,6 +8,8 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
+    "declaration": true,
+    "declarationDir": "./dist/",
     "baseUrl": ".",
     "paths": {
       "connect-design-system": ["src/component/index.ts"],

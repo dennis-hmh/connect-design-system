@@ -16,7 +16,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Card> = {
-  title: 'Layout/Card',
+  title: 'Pattern/Card',
   component: Card,
   tags: ['autodocs'],
   parameters: {
@@ -404,137 +404,171 @@ MCQCheckbox.args = {
   gradeBand: GradeBand.G4_5,
 };
 
-export const ShortAnswer: Story = Template.bind({});
-ShortAnswer.args = {
-  ...Default.args,
-  header: (
-    <Paper
-      elevation={0}
-      fullWidth={true}
-      backgroundColor="surface-pale"
-      roundedCorner={{
-        topLeft: true,
-        topRight: true,
-      }}
-    >
-      <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
-        <Typography element="h4" size="heading-md">
-          Short Answer Question
-        </Typography>
-      </Stack>
-    </Paper>
-  ),
-  children: (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-    >
-      <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
-        What is the capital of France?
-      </Typography>
-      <Textarea characterCount characterLimit={100} />
-    </Stack>
-  ),
-  footer: (
-    <Stack
-      element="footer"
-      xs={{
-        alignItems: 'stretch',
-        direction: 'column',
-        spacing: 'md',
-        paddingX: 'md',
-        paddingY: 'md',
-      }}
-      md={{
-        direction: 'row',
-        justifyContent: 'end',
-      }}
-    >
-      <Button primary={true} disabled={true}>
-        Submit
-      </Button>
-    </Stack>
-  ),
+export const ShortAnswer: Story = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [textareaValue, setTextareaValue] = useState('');
+
+  const handleTextareaChange = (value: string) => {
+    setTextareaValue(value);
+  };
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Grid gap="sm" gutter={true}>
+          <GridItem xs={{ startCol: 1, spanCol: 12 }}>
+            <Card {...args}>
+              <Paper
+                elevation={0}
+                fullWidth={true}
+                backgroundColor="surface-pale"
+                roundedCorner={{
+                  topLeft: true,
+                  topRight: true,
+                }}
+              >
+                <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
+                  <Typography element="h4" size="heading-md">
+                    Short Answer Question
+                  </Typography>
+                </Stack>
+              </Paper>
+              <Stack
+                element="article"
+                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+              >
+                <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
+                  What is the capital of France?
+                </Typography>
+                <Textarea value={textareaValue} onChange={handleTextareaChange} charLimit={100} />
+              </Stack>
+              <Stack
+                element="footer"
+                xs={{
+                  alignItems: 'stretch',
+                  direction: 'column',
+                  spacing: 'md',
+                  paddingX: 'md',
+                  paddingY: 'md',
+                }}
+                md={{
+                  direction: 'row',
+                  justifyContent: 'end',
+                }}
+              >
+                <Button primary={true} disabled={true}>
+                  Submit
+                </Button>
+              </Stack>
+            </Card>
+          </GridItem>
+        </Grid>
+      </div>
+    </ConnectTheme>
+  );
 };
 
-export const SpeechToText: Story = Template.bind({});
+ShortAnswer.args = {
+  gradeBand: GradeBand.G4_5,
+};
+
+export const SpeechToText: Story = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [textareaValue, setTextareaValue] = useState('');
+
+  const handleTextareaChange = (value: string) => {
+    setTextareaValue(value);
+  };
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef}>
+        <Grid gap="sm" gutter={true}>
+          <GridItem xs={{ startCol: 1, spanCol: 12 }}>
+            <Card {...args}>
+              <Stack
+                element="article"
+                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
+              >
+                <Stack
+                  element="header"
+                  xs={{
+                    direction: 'row',
+                    justifyContent: 'start',
+                    flexWrap: 'nowrap',
+                    paddingX: 'zero',
+                    paddingY: 'zero',
+                  }}
+                >
+                  <Typography
+                    element="span"
+                    size="body-lg"
+                    spacer={true}
+                    spacerSize="body-md"
+                    color="brand-deep-magenta"
+                    weight={600}
+                  >
+                    A.
+                  </Typography>
+                  <Typography
+                    element="h5"
+                    size="body-lg"
+                    spacer={true}
+                    spacerSize="body-md"
+                    textWrap="pretty"
+                  >
+                    Prompt text. Body-large size text. Body-large size text. Body-large size text.
+                  </Typography>
+                </Stack>
+                <Textarea
+                  value={textareaValue}
+                  onChange={handleTextareaChange}
+                  charLimit={500}
+                  toolbar={
+                    <Stack
+                      element="header"
+                      className="connect__toolbar"
+                      xs={{
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        direction: 'row',
+                        flexWrap: 'nowrap',
+                        paddingX: 'md',
+                        paddingY: 'sm',
+                      }}
+                    >
+                      <ButtonMenu iconId="add" />
+                      <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
+                    </Stack>
+                  }
+                />
+              </Stack>
+              <Stack
+                element="footer"
+                xs={{
+                  alignItems: 'stretch',
+                  direction: 'column',
+                  spacing: 'md',
+                  paddingX: 'md',
+                  paddingY: 'md',
+                }}
+                md={{
+                  direction: 'row',
+                  justifyContent: 'end',
+                }}
+              >
+                <Button primary={true} disabled={true}>
+                  Save
+                </Button>
+              </Stack>
+            </Card>
+          </GridItem>
+        </Grid>
+      </div>
+    </ConnectTheme>
+  );
+};
+
 SpeechToText.args = {
-  ...ShortAnswer.args,
-  header: null,
-  children: (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-    >
-      <Stack
-        element="header"
-        xs={{
-          direction: 'row',
-          justifyContent: 'start',
-          flexWrap: 'nowrap',
-          paddingX: 'zero',
-          paddingY: 'zero',
-        }}
-      >
-        <Typography
-          element="span"
-          size="body-lg"
-          spacer={true}
-          spacerSize="body-md"
-          color="brand-deep-magenta"
-          weight={600}
-        >
-          A.
-        </Typography>
-        <Typography
-          element="h5"
-          size="body-lg"
-          spacer={true}
-          spacerSize="body-md"
-          textWrap="pretty"
-        >
-          Prompt text. Body-large size text. Body-large size text. Body-large size text.
-        </Typography>
-      </Stack>
-      <Textarea
-        characterCount
-        characterLimit={500}
-        toolbar={
-          <Stack
-            element="header"
-            className="connect__toolbar"
-            xs={{
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              direction: 'row',
-              flexWrap: 'nowrap',
-              paddingX: 'md',
-              paddingY: 'sm',
-            }}
-          >
-            <ButtonMenu iconId="add" />
-            <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
-          </Stack>
-        }
-      />
-    </Stack>
-  ),
-  footer: (
-    <Stack
-      element="footer"
-      xs={{
-        alignItems: 'stretch',
-        direction: 'column',
-        spacing: 'md',
-        paddingX: 'md',
-        paddingY: 'md',
-      }}
-      md={{
-        direction: 'row',
-        justifyContent: 'end',
-      }}
-    >
-      <Button primary={true}>Save</Button>
-    </Stack>
-  ),
+  gradeBand: GradeBand.G4_5,
 };

@@ -1,37 +1,36 @@
 // @ts-ignore: React is used implicitly in JSX
 import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
+import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputTextProps = {
+  value: string | number;
+  onChange?: (value: string) => void;
+  placeholderText?: string | undefined;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   number?: boolean;
   disabled?: boolean;
-  defaultText?: string | number | undefined;
-  characterCount?: boolean;
-  characterLimit?: number | undefined;
-  placeholderText?: string | undefined;
+  charLimit?: number | undefined;
   onClear?: () => void | undefined;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
 export function InputText({
+  value = '',
+  onChange,
+  placeholderText,
   correct,
   incorrect,
   answerShown,
   number,
   disabled,
-  characterCount,
-  characterLimit,
-  placeholderText,
+  charLimit,
   onClear,
-  defaultText,
   dataTestId,
 }: InputTextProps) {
-  const [text, setText] = useState(defaultText);
-  const [charCount, setCharCount] = useState(defaultText?.toString().length || 0);
   const [isSelected, setIsSelected] = useState(false);
 
   const inputStates = [
@@ -39,8 +38,7 @@ export function InputText({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
-    characterCount && 'connect__input-character-count',
-    onClear && 'connect__input-clear',
+    charLimit && 'connect__input-character-count',
   ]
     .filter(Boolean)
     .join(' ');
@@ -58,10 +56,10 @@ export function InputText({
 
   const shouldBeDisabled = correct || incorrect || answerShown || disabled;
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newText = e.target.value;
-    setText(newText);
-    setCharCount(newText.length);
+  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event.currentTarget.value);
+    }
   };
 
   return (
@@ -70,9 +68,9 @@ export function InputText({
         type={isNumber}
         className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
         disabled={shouldBeDisabled}
-        value={text}
+        value={value}
         placeholder={placeholderText ? placeholderText : ''}
-        onChange={(e) => handleTextChange(e)}
+        onChange={handleTextChange}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
@@ -80,10 +78,11 @@ export function InputText({
       />
       {onClear && (
         <button
-          className={`connect__input-clear-button ${text ? 'connect__input-clear-button-visible' : ''}`}
+          className={`connect__clear-button ${value ? 'connect__clear-button-visible' : ''}`}
           onClick={() => {
-            setText('');
-            setCharCount(0);
+            if (onChange) {
+              onChange('');
+            }
             onClear();
           }}
           aria-label="Clear input field"
@@ -96,22 +95,8 @@ export function InputText({
           </svg>
         </button>
       )}
-      {characterCount && (
-        <div
-          className={`connect__character-counter ${
-            characterLimit && charCount >= characterLimit
-              ? 'connect__character-counter-limit-reached'
-              : ''
-          }`}
-        >
-          <em>{charCount}</em>
-          {characterLimit && (
-            <>
-              <span aria-hidden="true">/</span>
-              {characterLimit}
-            </>
-          )}
-        </div>
+      {typeof charLimit === 'number' && (
+        <CharacterCounter charCount={value.toString().length} charLimit={charLimit} />
       )}
     </label>
   );

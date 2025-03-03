@@ -11,7 +11,7 @@ import { Image } from '../Image/Image';
 
 const meta: Meta<typeof MultipleChoiceQuestionImage> = {
   component: MultipleChoiceQuestionImage,
-  title: 'Input/Multiple Choice Question Image',
+  title: 'Archive/Multiple Choice Question Image',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -31,7 +31,9 @@ const Template: StoryFn<MultipleChoiceQuestionImageProp> = (args) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
-    args.onChange(event);
+    if (args.onChange) {
+      args.onChange(event);
+    }
   };
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof RiveSimple> = {
-  title: 'Animation/Rive Simple',
+  title: 'Archive/Rive Simple',
   component: RiveSimple,
   tags: ['autodocs'],
   parameters: {

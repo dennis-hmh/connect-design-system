@@ -1,5 +1,155 @@
 # @connect/connect-design-system
 
+## 1.21.5
+
+### Patch Changes
+
+- f1d4adf: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Fixing an issue with Chromatic not finishing Storybook build.
+
+## 1.21.4
+
+### Patch Changes
+
+- 1e407af: Addition of passive color pack, Chip component now constructed with atomic components, InputText story amended
+
+## 1.21.3
+
+### Patch Changes
+
+- ae4767f: Default responsive table behaviour changed from list-view to horizontal scrolling
+
+## 1.21.2
+
+### Patch Changes
+
+- 6f087ae: - New Component: `<CharacterCounter />`
+  - Updated Component:
+    - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<Chip />`: Updated to be a pattern.
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.21.1
+
+### Patch Changes
+
+- c9f9ebc: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other:
+    - Storybook alignment update
+    - Component Pattern: `<Alert />`, `<Card />`, `<Chip />`, `<Dialog />`, `<Sidebar />`
+    - Componets Archived: `<Blockquote />`, `<ButtonRive />`, `<ButtonSplit />`, `<FigCaption />`, `<Figure />`, `<Footer />`, `<Header />`, `<RiveSimple />`, `<SingleBlockquote />`, `<SingleImage />`
+
+## 1.21.0
+
+### Minor Changes
+
+- 703ebb5: New components, tidying CSS, position util added
+
+## 1.20.0
+
+### Minor Changes
+
+- 70765f3: New: Add useMediaQuery hook
+
+## 1.19.5
+
+### Patch Changes
+
+- 49374c1: - New Component: N/A
+  - Updated Component: `<Dropdown />` simplified. onClear prop added.
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.19.4
+
+### Patch Changes
+
+- bdf8168: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Type definations added to package.
+
+## 1.19.3
+
+### Patch Changes
+
+- 89106a2: Stack now uses zero as initial padding value, removal of xs class as should be considered defaults
+
+## 1.19.2
+
+### Patch Changes
+
+- b1257a6: Hint component now uses Typography
+
+## 1.19.1
+
+### Patch Changes
+
+- a6ad197: Overflow prop added to grid
+- 88886f0: Fix to images in Storybook
+
+## 1.19.0
+
+### Minor Changes
+
+- bc1e957: Addition of G3-5 and GK-2 gradebands
+
+## 1.18.16
+
+### Patch Changes
+
+- f24cd06: Paper now can take any html element (implemented for nav)
+
+## 1.18.15
+
+### Patch Changes
+
+- c6e2aad: - Stack now matches mui initial values - removed the need to use xs
+
+## 1.18.14
+
+### Patch Changes
+
+- a94dd51: Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+## 1.18.13
+
+### Patch Changes
+
+- 5813d92: Add Type spacers to teacher typography
+
+## 1.18.12
+
+### Patch Changes
+
+- b0bc1b6: - New Component: N/A
+  - Updated Component:
+    - `<Checkbox />`: checked prop fixed
+    - `<MultipleChoiceQuestionImage />`: checked prop fixed
+    - `<Image />`: Default image src updated
+  - Bug Fix: N/A
+  - Other:
+    - Storybook stories alignment update
+    - Storybook stories update with new color names, `<Stack />` changes
+
+## 1.18.11
+
+### Patch Changes
+
+- 672b57d: Fix: Remove module property in the package.json
+
+## 1.18.10
+
+### Patch Changes
+
+- fcd8bd1: Move Font files to the Lumina CDN to reduce package size
+
 ## 1.18.9
 
 ### Patch Changes

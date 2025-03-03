@@ -22,17 +22,17 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   id,
   name,
   children,
-  checked,
+  checked = false,
   onChange,
   disabled,
   dataTestId,
 }) => {
   const { choiceClass, labelClass } = getClassNames({
-    isChecked: true,
+    isChecked: checked,
     disabled,
   });
   return (
-    <div className="connect__choice-label-wrapper">
+    <div className="connect__position-relative-wrapper">
       <input
         type="checkbox"
         id={id}

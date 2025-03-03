@@ -1,3 +1,376 @@
+### v1.21.5 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Fixing an issue with Chromatic not finishing Storybook build.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.4 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- Addition of passive color pack
+- Chip component now constructed with atomic components
+- InputText story amended
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.3 Release Notice
+
+### Release date: February 28, 2025
+
+### Changelog:
+
+- Default responsive table behaviour changed from list-view to horizontal scrolling
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.2 Release Notice
+
+### Release date: February 27, 2025
+
+### Changelog:
+
+- New Component: `<CharacterCounter />`
+- Updated Component:
+  - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+  - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+  - `<Chip />`: Updated to be a pattern.
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.1 Release Notice
+
+### Release date: February 27, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other:
+  - Storybook alignment update
+  - Component Pattern: `<Alert />`, `<Card />`, `<Chip />`, `<Dialog />`, `<Sidebar />`
+  - Componets Archived: `<Blockquote />`, `<ButtonRive />`, `<ButtonSplit />`, `<FigCaption />`, `<Figure />`, `<Footer />`, `<Header />`, `<RiveSimple />`, `<SingleBlockquote />`, `<SingleImage />`
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.0 Release Notice
+
+### Release date: February 27, 2025
+
+### Changelog:
+
+- New component: Avatar
+- New component: AvatarGroup
+- New component: Badge
+- New component: Tooltip
+- Reduction in compiled CSS, move to focus on utility classes, and implemented in existing components
+- Position utils added
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.20.0 Release Notice
+
+### Release date: February 27, 2025
+
+### Changelog:
+
+- Added a new hook useMediaQuery to enable Connect users to render components conditionally to media queries.
+- Added a media constant to help users generate media queries that respect defined breakpoints by Connect
+- This is strongly inspired by MUI to lighten the refactor from XDS to Connect in Lift
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.5 Release Notice
+
+### Release date: February 19, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: `<Dropdown />` simplified. onClear prop added.
+- Bug Fix: N/A
+- Other: `<ConnectTheme />` Grade 2 gradeBand fixed
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.4 Release Notice
+
+### Release date: February 19, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other: Type definations added to package.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.3 Release Notice
+
+### Release date: February 19, 2025
+
+#### Changelog:
+
+- Stack now uses zero as initial padding value, removal of xs class as should be considered defaults
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.2 Release Notice
+
+### Release date: February 19, 2025
+
+#### Changelog:
+
+- Hint component now uses Typography
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.1 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Fix to images in Storybook
+- Overflow prop added to grid
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.19.0 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Addition of G3-5 and GK-2 gradebands
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.16 Release Notice
+
+### Release date: February 18, 2025
+
+#### Changelog:
+
+- Paper now can take any html element (implemented for nav)
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.15 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- Stack now matches mui initial values
+- removed the need to use xs
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.14 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- Rive Stories updated to function correctly in Storybook using params and fixed width containers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.12 Release Notice
+
+### Release date: February 17, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/A
+- Bug Fix: N/A
+- Other:
+  - Add type spacers for teachers
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.11 Release Notice
+
+### Release date: February 14, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Checkbox />`: checked prop fixed
+  - `<MultipleChoiceQuestionImage />`: checked prop fixed
+  - `<Image />`: Default image src updated
+  - `<Stack />`: CSS fallbacks removed, updated to MUI defaults.
+- Bug Fix: N/A
+- Other:
+  - Storybook stories alignment update
+  - Storybook stories update with new color names, `<Stack />` changes
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.18.10 Release Notice
+
+### Release date: February 13, 2025
+
+#### Changelog:
+
+- New Component: N/A
+- Updated Component: N/N
+- Bug Fix: N/A
+- Other:
+  - Font files moved to CNA
+  - `package.json` update with Rive dependencies
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
 ### v1.18.9 Release Notice
 
 ### Release date: February 12, 2025

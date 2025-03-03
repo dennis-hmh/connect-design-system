@@ -58,8 +58,7 @@ The InputText component accepts the following props:
 - `number`: Optional. Boolean indicating if the input should accept only numeric values.
 - `disabled`: Optional. Boolean indicating if the input should be disabled.
 - `defaultText`: Optional. String or number for specifying a default value for the input field.
-- `characterCount`: Optional. Boolean indicating whether to show a character count.
-- `characterLimit`: Optional. Number specifying the character limit for the input field.
+- `charLimit`: Optional. Number specifying the character limit for the input field.
 - `placeholderText`: Optional. String for specifying the placeholder text for the input field.
 - `onClear`: Optional. Function to handle the clear action for the input field.
 - `dataTestId`: Optional. String for specifying a test ID for testing purposes.

@@ -18,7 +18,7 @@ export const Table: React.FC<TableProps> = ({
   headers = [],
   cells = [],
   caption,
-  scrolling,
+  scrolling = true,
   stickyHeader,
   scopeCol,
   scopeRow,
@@ -49,7 +49,7 @@ export const Table: React.FC<TableProps> = ({
         <thead>
           <tr>
             {headers.map((header, headerIndex) => (
-              <th scope={scopeCol ? 'scope=col' : undefined} key={headerIndex}>
+              <th scope={scopeCol ? 'scope=col' : undefined} key={headerIndex[headerIndex]}>
                 {header}
               </th>
             ))}
@@ -60,11 +60,11 @@ export const Table: React.FC<TableProps> = ({
             <tr key={rowIndex}>
               {row.map((cell, cellIndex) =>
                 cellIndex === 0 && scopeRow ? (
-                  <th scope="row" data-heading={headers[cellIndex]} key={cellIndex}>
+                  <th scope="row" data-heading={headers[cellIndex]} key={headers[cellIndex]}>
                     {cell}
                   </th>
                 ) : (
-                  <td data-heading={headers[cellIndex]} key={cellIndex}>
+                  <td data-heading={headers[cellIndex]} key={headers[cellIndex]}>
                     {cell}
                   </td>
                 ),
