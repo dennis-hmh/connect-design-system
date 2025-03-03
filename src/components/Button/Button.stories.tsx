@@ -4,7 +4,7 @@ import { Button, ButtonProps } from './Button';
 import { Typography } from '../Typography/Typography';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { IconId } from '../../utils/icon-list';
+import { Icon } from '../Icon/Icon';
 
 const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
@@ -36,6 +36,7 @@ const Template: StoryFn<ButtonProps & { gradeBand: GradeBand }> = (args) => {
 export const PrimaryContained: Story = Template.bind({});
 PrimaryContained.args = {
   children: <Typography>Primary Button</Typography>,
+  classes: '',
   variant: 'contained',
   color: 'primary',
   ariaLabel: 'Primary Button',
@@ -101,31 +102,49 @@ PositiveButton.args = {
 // Icons
 export const StartIconButton: Story = Template.bind({});
 StartIconButton.args = {
-  children: <Typography>Start Icon Button</Typography>,
+  children: (
+    <>
+      <Icon id="arrowUp" size="md" />
+      <Typography>Start Icon Button</Typography>
+    </>
+  ),
   variant: 'contained',
   color: 'primary',
-  startIcon: 'arrowUp' as IconId,
-  iconSize: 'md',
   ariaLabel: 'Start Icon Button',
 };
 
 export const EndIconButton: Story = Template.bind({});
 EndIconButton.args = {
-  children: <Typography>End Icon Button</Typography>,
+  children: (
+    <>
+      <Typography>End Icon Button</Typography>
+      <Icon id="arrowUp" size="md" />
+    </>
+  ),
   variant: 'contained',
   color: 'primary',
-  endIcon: 'arrowUp' as IconId,
-  iconSize: 'md',
   ariaLabel: 'End Icon Button',
+};
+
+export const StartEndIconButton: Story = Template.bind({});
+StartEndIconButton.args = {
+  children: (
+    <>
+      <Icon id="arrowUp" size="md" />
+      <Typography>Both Ends Icon Button</Typography>
+      <Icon id="arrowDown" size="md" />
+    </>
+  ),
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'Both Ends Icon Button',
 };
 
 export const IconOnlyButton: Story = Template.bind({});
 IconOnlyButton.args = {
-  children: null,
+  children: <Icon id="arrowUp" size="md" />,
   variant: 'contained',
   color: 'primary',
-  iconId: 'arrowUp',
-  iconSize: 'md',
   ariaLabel: 'Icon Button Up Arrow',
 };
 
@@ -141,11 +160,15 @@ DisabledButton.args = {
 
 export const LoadingButton: Story = Template.bind({});
 LoadingButton.args = {
-  children: <Typography>Loading Button</Typography>,
+  children: (
+    <>
+      <Icon id="loader" size="md" />
+      <Typography>Loading Button</Typography>
+    </>
+  ),
+  classes: 'connect__button-loading',
   variant: 'contained',
   color: 'primary',
-  loading: true,
-  loadingPosition: 'start',
   ariaLabel: 'Loading Button',
 };
 

@@ -99,15 +99,19 @@ Buttons take variables in the following format
     --theme__btn-padding-y,
     var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
   );
+  --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
+
   --connect__btn-padding-x: var(
     --theme__btn-padding-x,
     var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
   );
+  --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
 
   --icon__fill-color: var(
     --theme__icon-fill,
     var(--state-based-icon-fill, var(--connect__color-neutral-40))
   );
+  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
 
   background-color: var(
     --theme__btn-bg,
@@ -120,11 +124,7 @@ Buttons take variables in the following format
     var(--variant__btn-border-radius, var(--connect__border-radius))
   );
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-black)));
-  --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
-  --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
-  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
-
+  color: var(--active-color, var(--connect__surface-dark));
   background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
   border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
@@ -174,39 +174,39 @@ Buttons take variables in the following format
     }
   }
 
-  span {
-    grid-column: 1 / span 2;
-  }
-  svg:first-child:last-child {
-    grid-column: 1 / span 2;
-  }
-  &:has(svg:first-child) {
-    svg {
-      grid-column: 1;
-      justify-self: end;
-    }
-    span {
-      grid-column: 2;
-      justify-self: start;
-    }
-  }
-  &:has(svg:last-child) {
-    svg {
-      grid-column: 2;
-      justify-self: start;
-    }
-    span {
-      grid-column: 1;
-      justify-self: end;
-    }
-  }
+  // span {
+  //   grid-column: 1 / span 2;
+  // }
+  // svg:first-child:last-child {
+  //   grid-column: 1 / span 2;
+  // }
+  // &:has(svg:first-child) {
+  //   svg {
+  //     grid-column: 1;
+  //     justify-self: end;
+  //   }
+  //   span {
+  //     grid-column: 2;
+  //     justify-self: start;
+  //   }
+  // }
+  // &:has(svg:last-child) {
+  //   svg {
+  //     grid-column: 2;
+  //     justify-self: start;
+  //   }
+  //   span {
+  //     grid-column: 1;
+  //     justify-self: end;
+  //   }
+  // }
 
-  .connect__icon {
-    --connect__icon-fill-color: var(
-      --variant__icon-fill,
-      var(--state__based-icon-fill, var(--icon__fill-color))
-    );
-  }
+  // .connect__icon {
+  //   --connect__icon-fill-color: var(
+  //     --variant__icon-fill,
+  //     var(--state__based-icon-fill, var(--icon__fill-color))
+  //   );
+  // }
 
   &-contained,
   &-primary {
@@ -214,14 +214,14 @@ Buttons take variables in the following format
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__feedback-correct {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-      --state-based-icon-fill: var(--connect__correct-mid);
-    }
+    // &.connect__feedback-correct {
+    //   --connect__inner-status-color-state: var(--connect__surface-null);
+    //   --state-based-icon-fill: var(--connect__correct-mid);
+    // }
 
-    &.connect__feedback-incorrect {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-    }
+    // &.connect__feedback-incorrect {
+    //   --connect__inner-status-color-state: var(--connect__surface-null);
+    // }
 
     &:disabled {
       --active-color: var(--connect__passive-500);

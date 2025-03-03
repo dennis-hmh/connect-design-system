@@ -3,7 +3,7 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonBaseProps = {
   children?: React.ReactNode;
-  className?: string;
+  classes?: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onFocusVisible?: (event: React.FocusEvent<HTMLButtonElement>) => void;
@@ -30,7 +30,7 @@ export type ButtonBaseProps = {
 
 export const ButtonBase: React.FC<ButtonBaseProps> = ({
   children,
-  className,
+  classes,
   disabled = false,
   onClick,
   onFocusVisible,
@@ -57,7 +57,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
 }) => {
   return (
     <Component
-      className={className}
+      className={classes}
       disabled={Component === 'button' ? disabled : undefined}
       aria-disabled={disabled}
       onClick={disabled ? undefined : onClick}
