@@ -17,7 +17,7 @@ export type ImageProps = {
 //     ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'
 //     : '/images/zelda.jpg';
 
-const defaultImageSrc = 'https://picsum.photos/600/400';
+const defaultImageSrc = '/images/default.png';
 
 export const Image: React.FC<ImageProps> = ({
   imageSrc,

@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
-import { Grid } from '../Grid/Grid';
-import { GridItem } from '../GridItem/GridItem';
 import { Typography } from '../Typography/Typography';
-import { RiveEngine } from '../RiveEngine/RiveEngine';
+import { Icon } from '../Icon/Icon';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -15,6 +13,9 @@ const meta: Meta<typeof Button> = {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    gradeBand: GradeBand.G4_5,
+  },
 };
 
 export default meta;
@@ -22,7 +23,6 @@ type Story = StoryObj<typeof Button>;
 
 const Template: StoryFn<ButtonProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
-
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
@@ -32,89 +32,135 @@ const Template: StoryFn<ButtonProps & { gradeBand: GradeBand }> = (args) => {
   );
 };
 
-export const Primary: Story = Template.bind({});
-Primary.args = {
+// Base Variants
+export const PrimaryContained: Story = Template.bind({});
+PrimaryContained.args = {
   children: <Typography>Primary Button</Typography>,
-  primary: true,
-  disabled: false,
-  correct: false,
-  incorrect: false,
-  submit: 'button',
-  clickHandler: () => console.log('Button clicked'),
+  classes: '',
+  variant: 'contained',
+  color: 'primary',
   ariaLabel: 'Primary Button',
-  gradeBand: GradeBand.G4_5,
 };
 
-export const Secondary: Story = Template.bind({});
-Secondary.args = {
-  ...Primary.args,
+export const SecondaryOutlined: Story = Template.bind({});
+SecondaryOutlined.args = {
   children: <Typography>Secondary Button</Typography>,
-  primary: false,
+  variant: 'outlined',
+  color: 'secondary',
   ariaLabel: 'Secondary Button',
 };
 
-export const Correct: Story = Template.bind({});
-Correct.args = {
-  ...Primary.args,
-  children: <Typography>Correct Button</Typography>,
-  correct: true,
-  ariaLabel: 'Correct Button',
+export const TextButton: Story = Template.bind({});
+TextButton.args = {
+  children: <Typography>Text Button</Typography>,
+  variant: 'text',
+  color: 'primary',
+  ariaLabel: 'Text Button',
 };
 
-export const Icon: Story = Template.bind({});
-Icon.args = {
-  ...Primary.args,
-  children: null,
-  iconId: 'arrowUp',
-  iconSize: 'md',
+export const StartIconButton: Story = Template.bind({});
+StartIconButton.args = {
+  children: (
+    <>
+      <Icon id="arrowUp" size="md" />
+      <Typography>Start Icon Button</Typography>
+    </>
+  ),
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'Start Icon Button',
+};
+
+export const EndIconButton: Story = Template.bind({});
+EndIconButton.args = {
+  children: (
+    <>
+      <Typography>End Icon Button</Typography>
+      <Icon id="arrowUp" size="md" />
+    </>
+  ),
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'End Icon Button',
+};
+
+export const StartEndIconButton: Story = Template.bind({});
+StartEndIconButton.args = {
+  children: (
+    <>
+      <Icon id="arrowUp" size="md" />
+      <Typography>Start and End Icon Button</Typography>
+      <Icon id="arrowDown" size="md" />
+    </>
+  ),
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'Start and End Icon Button',
+};
+
+export const IconOnlyButton: Story = Template.bind({});
+IconOnlyButton.args = {
+  children: <Icon id="arrowUp" size="md" />,
+  variant: 'contained',
+  color: 'primary',
   ariaLabel: 'Icon Button Up Arrow',
 };
 
-export const Loading: Story = Template.bind({});
-Loading.args = {
-  ...Primary.args,
-  children: <Typography>Loading Button</Typography>,
-  fill: 'white',
-  iconId: 'loader',
-  iconSize: 'md',
-  iconPosition: 'before',
-  ariaLabel: 'Loading Button',
-  additionalClass: 'connect__button-loading',
+export const DisabledButton: Story = Template.bind({});
+DisabledButton.args = {
+  children: <Typography>Disabled Button</Typography>,
+  variant: 'contained',
+  color: 'primary',
+  disabled: true,
+  ariaLabel: 'Disabled Button',
 };
 
-// Rive Button Stories broken, thus commented out
-// export const RiveLoading: Story = Template.bind({});
-// RiveLoading.args = {
-//   children: (
-//     <>
-//       <Typography>Loading</Typography>
-//       <RiveEngine
-//         src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
-//         sizeByHeight
-//         style={{ opacity: 0 }}
-//       />
-//     </>
-//   ),
-//   primary: true,
-//   disabled: true,
-//   iconId: 'loader',
-//   iconPosition: 'before',
-//   ariaLabel: 'Rive Button Loading',
-//   gradeBand: GradeBand.G4_5,
-// };
+export const LoadingButton: Story = Template.bind({});
+LoadingButton.args = {
+  children: (
+    <>
+      <Icon id="loader" size="md" />
+      <Typography>Loading Button</Typography>
+    </>
+  ),
+  classes: 'connect__button-loading',
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'Loading Button',
+};
 
-// export const RiveGenerating: Story = Template.bind({});
-// RiveGenerating.args = {
-//   children: (
-//     <>
-//       <Typography styles={{ opacity: 0 }}>Generating</Typography>
-//       <RiveEngine
-//         src="https://chrisrooke-hmh.github.io/core-public/ai-button/ai_button_playstate.riv"
-//         sizeByHeight
-//       />
-//     </>
-//   ),
-//   primary: true,
-//   ariaLabel: 'Rive Button Generating',
-//   gradeBand: GradeBand.G4_5,
-// };
+export const SmallButton: Story = Template.bind({});
+SmallButton.args = {
+  children: <Typography>Small Button</Typography>,
+  variant: 'contained',
+  color: 'primary',
+  size: 'sm',
+  ariaLabel: 'Small Button',
+};
+
+export const LargeButton: Story = Template.bind({});
+LargeButton.args = {
+  children: <Typography>Large Button</Typography>,
+  variant: 'contained',
+  color: 'primary',
+  size: 'lg',
+  ariaLabel: 'Large Button',
+};
+
+export const NoElevationButton: Story = Template.bind({});
+NoElevationButton.args = {
+  children: <Typography>No Elevation</Typography>,
+  variant: 'contained',
+  color: 'primary',
+  disableElevation: true,
+  ariaLabel: 'No Elevation Button',
+};
+
+export const FullWidthButton: Story = Template.bind({});
+FullWidthButton.args = {
+  children: <Typography>Full Width Button</Typography>,
+  variant: 'contained',
+  color: 'primary',
+  fullWidth: true,
+  ariaLabel: 'Full Width Button',
+};

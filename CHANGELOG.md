@@ -1,5 +1,62 @@
 # @connect/connect-design-system
 
+## 1.21.5
+
+### Patch Changes
+
+- f1d4adf: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other: Fixing an issue with Chromatic not finishing Storybook build.
+
+## 1.21.4
+
+### Patch Changes
+
+- 1e407af: Addition of passive color pack, Chip component now constructed with atomic components, InputText story amended
+
+## 1.21.3
+
+### Patch Changes
+
+- ae4767f: Default responsive table behaviour changed from list-view to horizontal scrolling
+
+## 1.21.2
+
+### Patch Changes
+
+- 6f087ae: - New Component: `<CharacterCounter />`
+  - Updated Component:
+    - `<Textarea />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<InputText />`: Updated to be a controlled component, now using `<CharacterCounter />`
+    - `<Chip />`: Updated to be a pattern.
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.21.1
+
+### Patch Changes
+
+- c9f9ebc: - New Component: N/A
+  - Updated Component: N/A
+  - Bug Fix: N/A
+  - Other:
+    - Storybook alignment update
+    - Component Pattern: `<Alert />`, `<Card />`, `<Chip />`, `<Dialog />`, `<Sidebar />`
+    - Componets Archived: `<Blockquote />`, `<ButtonRive />`, `<ButtonSplit />`, `<FigCaption />`, `<Figure />`, `<Footer />`, `<Header />`, `<RiveSimple />`, `<SingleBlockquote />`, `<SingleImage />`
+
+## 1.21.0
+
+### Minor Changes
+
+- 703ebb5: New components, tidying CSS, position util added
+
+## 1.20.0
+
+### Minor Changes
+
+- 70765f3: New: Add useMediaQuery hook
+
 ## 1.19.5
 
 ### Patch Changes

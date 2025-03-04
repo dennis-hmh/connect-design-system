@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 const meta: Meta<typeof ButtonSplit> = {
-  title: 'Buttons/Button Split',
+  title: 'Archive/Button Split',
   component: ButtonSplit,
   tags: ['autodocs'],
   parameters: {

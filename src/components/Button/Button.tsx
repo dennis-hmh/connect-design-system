@@ -1,84 +1,60 @@
 import React from 'react';
-import { Icon } from '../Icon/Icon';
-import { IconId } from '../../utils/icon-list';
-import { Color } from '../../utils/colors';
-import { GradeBand } from 'src/enum/gradeband';
-import { Typography } from '../Typography/Typography';
+import { SemanticColorToken } from '../../utils/new-colors';
+import { ButtonBase, ButtonBaseProps } from './ButtonBase';
 
-export type ButtonProps = {
-  children: React.ReactNode;
-  primary?: boolean;
-  title?: string;
-  disabled?: boolean;
-  correct?: boolean;
-  incorrect?: boolean;
-  submit?: 'button' | 'submit';
-  clickHandler?: () => void;
-  iconId?: IconId;
-  iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  fill?: Color;
-  iconPosition?: 'before' | 'after';
-  iconOpacity?: number | undefined;
-  ariaLabel?: string;
-  additionalClass?: string;
-  mediaButton?: boolean;
-  // isLoading?: boolean;
-  // isAnimationRunning?: boolean;
-  dataTestId?: string;
-  gradeBand?: GradeBand;
+// Define props specific to the new button implementation
+type ButtonSpecificProps = {
+  variant?: 'text' | 'contained' | 'outlined';
+  color?: SemanticColorToken; // Updated to use semantic colors
+  size?: 'sm' | 'lg';
+  disableElevation?: boolean;
+  fullWidth?: boolean;
 };
+
+export type ButtonProps = ButtonBaseProps & ButtonSpecificProps;
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  primary = true,
-  title,
-  disabled = false,
-  correct,
-  incorrect,
-  submit = 'button',
-  clickHandler,
-  iconId,
-  iconSize = 'md',
-  fill,
-  iconPosition = 'before',
-  iconOpacity,
+  variant,
+  color,
+  size,
+  disableElevation = false,
+  fullWidth = false,
+  onClick,
+  disabled,
+  type,
   ariaLabel,
-  additionalClass = '',
-  mediaButton = false,
-  // isLoading = false,
-  // isAnimationRunning = false,
+  title,
   dataTestId,
+  classes,
+  ...other
 }) => {
   const classNames = [
     'connect__button',
-    primary && 'connect__button-primary',
-    !primary && 'connect__button-secondary',
-    correct && 'connect__feedback-correct',
-    incorrect && 'connect__feedback-incorrect',
-    mediaButton && 'connect__button-media',
-    disabled && 'connect__disabled',
-    additionalClass,
+    variant && `connect__button-${variant}`,
+    color && `connect__button-${color}`,
+    size === 'sm' && 'connect__button-small',
+    disableElevation && 'connect__button-no-elevation',
+    fullWidth && 'connect__button-full-width',
+    classes,
   ]
     .filter(Boolean)
     .join(' ');
 
-  const iconElement = iconId ? (
-    <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
-  ) : null;
-
   return (
-    <button
-      type={submit}
-      className={classNames}
-      onClick={clickHandler}
+    <ButtonBase
+      classes={classNames}
+      onClick={onClick}
       disabled={disabled}
-      data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
-      title={title ? title : ariaLabel}
+      type={type}
+      ariaLabel={ariaLabel}
+      title={title}
+      dataTestId={dataTestId}
+      {...other}
     >
-      {iconPosition === 'before' && iconElement}
-      {typeof children === 'string' ? <Typography>{children}</Typography> : children}
-      {iconPosition === 'after' && iconElement}
-    </button>
+      {children}
+    </ButtonBase>
   );
 };
+
+Button.displayName = 'Button';

@@ -11,8 +11,8 @@ export type PillProps = {
 
 export function Pill({ children, backgroundColor, dataTestId }: PillProps) {
   const pillStyle: React.CSSProperties & {
-    '--connect__default-pill-bg'?: string;
-  } = backgroundColor ? { '--connect__default-pill-bg': `var(--connect__${backgroundColor})` } : {};
+    '--variant__pill-bg'?: string;
+  } = backgroundColor ? { '--variant__pill-bg': `var(--connect__${backgroundColor})` } : {};
 
   return (
     <div className={`connect__pill`} style={pillStyle} data-testid={dataTestId}>
