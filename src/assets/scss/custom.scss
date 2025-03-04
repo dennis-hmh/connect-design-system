@@ -174,40 +174,6 @@ Buttons take variables in the following format
     }
   }
 
-  // span {
-  //   grid-column: 1 / span 2;
-  // }
-  // svg:first-child:last-child {
-  //   grid-column: 1 / span 2;
-  // }
-  // &:has(svg:first-child) {
-  //   svg {
-  //     grid-column: 1;
-  //     justify-self: end;
-  //   }
-  //   span {
-  //     grid-column: 2;
-  //     justify-self: start;
-  //   }
-  // }
-  // &:has(svg:last-child) {
-  //   svg {
-  //     grid-column: 2;
-  //     justify-self: start;
-  //   }
-  //   span {
-  //     grid-column: 1;
-  //     justify-self: end;
-  //   }
-  // }
-
-  // .connect__icon {
-  //   --connect__icon-fill-color: var(
-  //     --variant__icon-fill,
-  //     var(--state__based-icon-fill, var(--icon__fill-color))
-  //   );
-  // }
-
   &-contained,
   &-primary {
     --variant__btn-bg: var(--connect__color-primary-500);
