@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 import { Typography } from '../Typography/Typography';
+import { Icon } from '../Icon/Icon';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { Icon } from '../Icon/Icon';
 
 const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
@@ -58,48 +58,6 @@ TextButton.args = {
   ariaLabel: 'Text Button',
 };
 
-// Semantic Colors
-export const AssistiveButton: Story = Template.bind({});
-AssistiveButton.args = {
-  children: <Typography>Assistive Button</Typography>,
-  variant: 'contained',
-  color: 'assistive',
-  ariaLabel: 'Assistive Button',
-};
-
-export const CautionButton: Story = Template.bind({});
-CautionButton.args = {
-  children: <Typography>Caution Button</Typography>,
-  variant: 'contained',
-  color: 'caution',
-  ariaLabel: 'Caution Button',
-};
-
-export const NegativeButton: Story = Template.bind({});
-NegativeButton.args = {
-  children: <Typography>Negative Button</Typography>,
-  variant: 'contained',
-  color: 'negative',
-  ariaLabel: 'Negative Button',
-};
-
-export const ConstructiveButton: Story = Template.bind({});
-ConstructiveButton.args = {
-  children: <Typography>Constructive Button</Typography>,
-  variant: 'contained',
-  color: 'constructive',
-  ariaLabel: 'Constructive Button',
-};
-
-export const PositiveButton: Story = Template.bind({});
-PositiveButton.args = {
-  children: <Typography>Positive Button</Typography>,
-  variant: 'contained',
-  color: 'positive',
-  ariaLabel: 'Positive Button',
-};
-
-// Icons
 export const StartIconButton: Story = Template.bind({});
 StartIconButton.args = {
   children: (
@@ -131,13 +89,13 @@ StartEndIconButton.args = {
   children: (
     <>
       <Icon id="arrowUp" size="md" />
-      <Typography>Both Ends Icon Button</Typography>
+      <Typography>Start and End Icon Button</Typography>
       <Icon id="arrowDown" size="md" />
     </>
   ),
   variant: 'contained',
   color: 'primary',
-  ariaLabel: 'Both Ends Icon Button',
+  ariaLabel: 'Start and End Icon Button',
 };
 
 export const IconOnlyButton: Story = Template.bind({});
@@ -148,7 +106,6 @@ IconOnlyButton.args = {
   ariaLabel: 'Icon Button Up Arrow',
 };
 
-// States
 export const DisabledButton: Story = Template.bind({});
 DisabledButton.args = {
   children: <Typography>Disabled Button</Typography>,
@@ -172,13 +129,12 @@ LoadingButton.args = {
   ariaLabel: 'Loading Button',
 };
 
-// Sizes
 export const SmallButton: Story = Template.bind({});
 SmallButton.args = {
   children: <Typography>Small Button</Typography>,
   variant: 'contained',
   color: 'primary',
-  size: 'small',
+  size: 'sm',
   ariaLabel: 'Small Button',
 };
 
@@ -187,11 +143,10 @@ LargeButton.args = {
   children: <Typography>Large Button</Typography>,
   variant: 'contained',
   color: 'primary',
-  size: 'large',
+  size: 'lg',
   ariaLabel: 'Large Button',
 };
 
-// Modifiers
 export const NoElevationButton: Story = Template.bind({});
 NoElevationButton.args = {
   children: <Typography>No Elevation</Typography>,
