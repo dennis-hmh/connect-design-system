@@ -180,15 +180,6 @@ Buttons take variables in the following format
     --active-color: var(--connect__surface-white);
     --connect__icon-fill: var(--active-color);
 
-    // &.connect__feedback-correct {
-    //   --connect__inner-status-color-state: var(--connect__surface-null);
-    //   --state-based-icon-fill: var(--connect__correct-mid);
-    // }
-
-    // &.connect__feedback-incorrect {
-    //   --connect__inner-status-color-state: var(--connect__surface-null);
-    // }
-
     &:disabled {
       --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
