@@ -89,7 +89,8 @@ Buttons take variables in the following format
 | Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
 
-.connect__button {
+.connect__button,
+.connect__button-group {
   --connect__btn-border-w: var(
     --theme__btn-border-w,
     var(--variant__btn-border-w, var(--connect__spacer-zero))
@@ -113,22 +114,11 @@ Buttons take variables in the following format
   );
   --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
 
-  background-color: var(
-    --theme__btn-bg,
-    var(--variant__btn-bg, var(--state-based-bg, var(--connect__surface-light)))
-  );
-  border: var(--connect__btn-border-w) solid
-    var(--theme__btn-border-c, var(--variant__btn-border-c, var(--connect__surface-null)));
-  border-radius: var(
-    --theme__btn-border-radius,
-    var(--variant__btn-border-radius, var(--connect__border-radius))
-  );
-  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--active-color, var(--connect__surface-dark));
   background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
   border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
@@ -137,10 +127,6 @@ Buttons take variables in the following format
   font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
-  justify-content: var(--theme__btn-justify, var(--variant__btn-justify, space-between));
-  line-height: var(--theme__btn-lh, var(--variant__btn-lh, var(--connect__body-sm-lheight)));
-  padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
-  place-items: var(--theme__btn-align, var(--variant__btn-align, center)) center;
   height: var(--connect__btn-h, auto);
   justify-content: var(--variant__btn-justify, space-between);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
@@ -367,6 +353,45 @@ Buttons take variables in the following format
   //     --state-based-bg: var(--connect__error-mid);
   //   }
   // }
+}
+
+/*
+button-group
+*/
+
+.connect__button-group {
+  &:is(.connect__stack) {
+    --connect__stack-direction: var(--connect__flow-row);
+  }
+
+  &-tools {
+    --state-based-bg: var(--connect__surface-white);
+    --active-color: var(--connect__surface-dark);
+    --connect__inner-status-color: var(--connect__surface-white);
+    --variant__btn-bg: var(--connect__surface-white);
+  }
+
+  button {
+    background-color: var(--connect__transparent);
+    border-radius: unset;
+    box-shadow: unset;
+
+    &:first-of-type {
+      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
+    }
+
+    &:last-of-type {
+      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
+    }
+
+    &:only-of-type {
+      border-radius: var(--connect__border-radius);
+    }
+
+    &:not(:disabled):hover {
+      box-shadow: var(--connect__shadow-null), var(--connect__shadow-lvl-4);
+    }
+  }
 }
 
 /*
@@ -1039,7 +1064,6 @@ Style lint has been turned off for this file, as we are using the flex long form
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
 .connect__stack {
-  --connect__stack-direction: column;
   --connect__stack-direction: column;
   --connect__stack-spacing: initial;
   --connect__stack-align-items: stretch;
@@ -2012,61 +2036,6 @@ Cover Text / Cursors / Iconography
   top: 0;
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
   z-index: 2;
-}
-
-/*
-button-group
-*/
-
-.connect__button-group {
-  --connect__stack-direction: row;
-  --connect__stack-justify-content: center;
-
-  background-color: var(
-    --theme__btn-bg,
-    var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)))
-  );
-  border-radius: var(--connect__border-radius);
-  box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--theme__btn-color, var(--active-color, var(--connect__surface-dark)));
-
-  &-primary {
-    --active-color: var(--connect__surface-white);
-  }
-
-  &-secondary {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__primary-mid);
-    --connect__inner-status-color: var(--connect__primary-mid);
-  }
-
-  &-tools {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__surface-dark);
-    --connect__inner-status-color: var(--connect__surface-white);
-  }
-
-  button {
-    background-color: var(--connect__transparent);
-    border-radius: unset;
-    box-shadow: unset;
-
-    &:first-of-type {
-      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
-    }
-
-    &:last-of-type {
-      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
-    }
-
-    &:only-of-type {
-      border-radius: var(--connect__border-radius);
-    }
-
-    &:not(:disabled):hover {
-      box-shadow: var(--connect__shadow-null), var(--connect__shadow-lvl-4);
-    }
-  }
 }
 
 /*

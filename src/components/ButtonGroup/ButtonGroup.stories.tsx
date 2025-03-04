@@ -30,48 +30,55 @@ const Template: StoryFn<ButtonGroupProps> = (args) => {
   );
 };
 
-export const Default: Story = Template.bind({});
-Default.args = {
+export const PrimaryContained: Story = Template.bind({});
+PrimaryContained.args = {
   children: [<Button>Option 1</Button>, <Button>Option 2</Button>],
-  primary: true,
+  variant: 'contained',
+  color: 'primary',
+  ariaLabel: 'Primary Button Group',
   disabled: false,
   gradeBand: GradeBand.G4_5,
 };
 
-export const ThreeButtons: Story = Template.bind({});
-ThreeButtons.args = {
-  ...Default.args,
+export const SecondaryOutlined: Story = Template.bind({});
+SecondaryOutlined.args = {
+  ...PrimaryContained.args,
+  children: [<Button>Option 1</Button>, <Button>Option 2</Button>],
+  variant: 'outlined',
+  color: 'secondary',
+  ariaLabel: 'Secondary Button Group',
+};
+
+export const ThreeButtonsContained: Story = Template.bind({});
+ThreeButtonsContained.args = {
+  ...PrimaryContained.args,
   children: [<Button>Option 1</Button>, <Button>Option 2</Button>, <Button>Option 3</Button>],
 };
 
-export const Secondary: Story = Template.bind({});
-Secondary.args = {
-  ...Default.args,
-  children: [<Button primary={false}>Option 1</Button>, <Button primary={false}>Option 2</Button>],
-  primary: false,
+export const ThreeButtonsOutlined: Story = Template.bind({});
+ThreeButtonsOutlined.args = {
+  ...SecondaryOutlined.args,
+  children: [<Button>Option 1</Button>, <Button>Option 2</Button>, <Button>Option 3</Button>],
 };
 
-export const SecondaryThreeButtons: Story = Template.bind({});
-SecondaryThreeButtons.args = {
-  ...Secondary.args,
-  children: [
-    <Button primary={false}>Option 1</Button>,
-    <Button primary={false}>Option 2</Button>,
-    <Button primary={false}>Option 3</Button>,
-  ],
+export const DisableElevation: Story = Template.bind({});
+DisableElevation.args = {
+  ...PrimaryContained.args,
+  disableElevation: true,
 };
 
 export const Tools: Story = Template.bind({});
 Tools.args = {
-  ...Default.args,
+  ...PrimaryContained.args,
   children: [<ButtonMenu iconId="undo"></ButtonMenu>, <ButtonMenu iconId="redo"></ButtonMenu>],
   classes: 'connect__button-group-tools',
+  ariaLabel: 'Tools Button Group',
 };
 
 export const Disabled: Story = Template.bind({});
 Disabled.args = {
-  ...Default.args,
-  primary: false,
-  children: [<Button disabled={true}>Option 1</Button>, <Button disabled={true}>Option 2</Button>],
+  ...PrimaryContained.args,
+  disabled: true,
+  children: [<Button>Option 1</Button>, <Button>Option 2</Button>],
   disabled: true,
 };
