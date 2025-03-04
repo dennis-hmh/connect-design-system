@@ -1,175 +1,55 @@
 import React from 'react';
-// import { Icon } from '../Icon/Icon';
-// import { IconId } from '../../utils/icon-list';
 import { SemanticColorToken } from '../../utils/new-colors';
 import { ButtonBase, ButtonBaseProps } from './ButtonBase';
 
-// Define props specific to the old button implementation
-type OldButtonSpecificProps = {
-  // primary?: boolean;
-  // correct?: boolean;
-  // incorrect?: boolean;
-  clickHandler?: () => void;
-  // iconId?: IconId;
-  // iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  // fill?: ColorToken | SemanticColorToken; // Updated to use new color system
-  // iconPosition?: 'before' | 'after';
-  // iconOpacity?: number;
-  // additionalClass?: string;
-};
-
 // Define props specific to the new button implementation
-type NewButtonSpecificProps = {
+type ButtonSpecificProps = {
   variant?: 'text' | 'contained' | 'outlined';
   color?: SemanticColorToken; // Updated to use semantic colors
-  size?: 'small' | 'large';
-  // startIcon?: IconId;
-  // endIcon?: IconId;
-  // New MUI-like props
+  size?: 'sm' | 'lg';
   disableElevation?: boolean;
   fullWidth?: boolean;
-  loading?: boolean;
-  loadingIndicator?: React.ReactNode;
-  loadingPosition?: 'center' | 'end' | 'start';
 };
 
-// Combine with ButtonBaseProps
-export type OldButtonProps = ButtonBaseProps & OldButtonSpecificProps;
-export type NewButtonProps = ButtonBaseProps & NewButtonSpecificProps;
-export type ButtonProps = OldButtonProps & NewButtonProps;
+export type ButtonProps = ButtonBaseProps & ButtonSpecificProps;
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  title,
-  disabled = false,
-  type = 'button',
-  clickHandler,
-  // iconId,
-  // iconSize = 'md',
-  // fill,
-  // iconPosition = 'before',
-  // iconOpacity,
-  ariaLabel,
-  dataTestId,
-  // New props
   variant,
   color,
   size,
-  // startIcon,
-  // endIcon,
   disableElevation = false,
   fullWidth = false,
-  loading = false,
-  // loadingIndicator,
-  // loadingPosition = 'center',
-  // ButtonBase props
+  onClick,
+  disabled,
+  type,
+  ariaLabel,
+  title,
+  dataTestId,
   classes,
   ...other
 }) => {
   const classNames = [
     'connect__button',
-    // Variant classes
     variant && `connect__button-${variant}`,
-    // Color classes - use semantic colors or fallback to primary/secondary
     color && `connect__button-${color}`,
-    // Size and modifier classes
-    size === 'small' && 'connect__button-small',
+    size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
-    loading && 'connect__button-loading',
-    // loading && loadingPosition && `connect__button-loading-${loadingPosition}`,
-    // classes
     classes,
   ]
     .filter(Boolean)
     .join(' ');
 
-  // const convertToIconFill = (fill?: ColorToken | SemanticColorToken): string | undefined => {
-  //   if (!fill) return undefined;
-  //   return `var(--connect__color-${fill})`; // This assumes your CSS variables follow this pattern
-  // };
-
-  // // Determine the icon ID to use
-  // const iconToUse = iconId; // || startIcon || endIcon;
-
-  // const iconElement = iconToUse ? (
-  //   <Icon id={iconToUse} size={iconSize} fill={convertToIconFill(fill)} opacity={iconOpacity} />
-  // ) : null;
-
-  // const loadingElement = loadingIndicator || (
-  //   <Icon
-  //     id="loader"
-  //     size={iconSize || 'md'}
-  //     fill={convertToIconFill(fill)}
-  //     opacity={iconOpacity}
-  //     className="connect__button-loading-indicator"
-  //   />
-  // );
-
-  // const renderChildren = () => {
-  //   if (!loading) {
-  //     if (startIcon || endIcon) {
-  //       return (
-  //         <>
-  //           {/* {startIcon && (
-  //             <Icon
-  //               id={startIcon}
-  //               size={iconSize}
-  //               fill={convertToIconFill(fill)}
-  //               opacity={iconOpacity}
-  //             />
-  //           )} */}
-  //           {children}
-  //           {/* {endIcon && (
-  //             <Icon
-  //               id={endIcon}
-  //               size={iconSize}
-  //               fill={convertToIconFill(fill)}
-  //               opacity={iconOpacity}
-  //             />
-  //           )} */}
-  //         </>
-  //       );
-  //     }
-
-  //     return (
-  //       <>
-  //         {iconPosition === 'before' && iconElement}
-  //         {children}
-  //         {iconPosition === 'after' && iconElement}
-  //       </>
-  //     );
-  //   }
-
-  // switch (loadingPosition) {
-  //   case 'start':
-  //     return (
-  //       <>
-  //         {loadingElement}
-  //         {children}
-  //       </>
-  //     );
-  //   case 'end':
-  //     return (
-  //       <>
-  //         {children}
-  //         {loadingElement}
-  //       </>
-  //     );
-  //   default:
-  //     return loadingElement;
-  // }
-  // };
-
   return (
     <ButtonBase
       classes={classNames}
-      onClick={clickHandler}
-      disabled={disabled || loading}
+      onClick={onClick}
+      disabled={disabled}
       type={type}
-      dataTestId={dataTestId}
-      ariaLabel={ariaLabel} // || (iconId && !children ? `Icon button ${iconId}` : undefined)}
+      ariaLabel={ariaLabel}
       title={title}
+      dataTestId={dataTestId}
       {...other}
     >
       {children}
