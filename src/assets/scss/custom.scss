@@ -393,13 +393,6 @@ button-group
     }
   }
 
-  &-tools {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__surface-dark);
-    --connect__inner-status-color: var(--connect__surface-white);
-    --variant__btn-bg: var(--connect__surface-white);
-  }
-
   &:disabled {
     --active-color: var(--connect__passive-500) !important;
     --variant__icon-fill: var(--active-color) !important;

@@ -81,12 +81,13 @@ DisableElevation.args = {
   disableElevation: true,
 };
 
-export const Tools: Story = Template.bind({});
-Tools.args = {
+export const Icon: Story = Template.bind({});
+Icon.args = {
   ...PrimaryContained.args,
   children: [<ButtonMenu iconId="undo"></ButtonMenu>, <ButtonMenu iconId="redo"></ButtonMenu>],
-  classes: 'connect__button-group-tools',
-  ariaLabel: 'Tools Button Group',
+  ariaLabel: 'Icon Button Group',
+  color: 'white',
+  disableElevation: false,
 };
 
 export const Disabled: Story = Template.bind({});
