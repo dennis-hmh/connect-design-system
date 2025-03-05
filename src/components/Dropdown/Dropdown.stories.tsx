@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Misc/Dropdown',
+  title: 'Content/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   parameters: {
