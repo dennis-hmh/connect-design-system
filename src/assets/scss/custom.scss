@@ -294,6 +294,13 @@ Buttons take variables in the following format
     }
   }
 
+  &-white {
+    --variant__btn-bg: var(--connect__surface-white);
+    --active-color: var(--connect__surface-dark);
+    --connect__icon-fill: var(--active-color);
+    --connect__inner-status-color: var(--connect__surface-white);
+  }
+
   // Size variants
   &-small {
     --connect__btn-padding-y: var(--connect__spacer-xs);
@@ -303,6 +310,11 @@ Buttons take variables in the following format
   // Elevation variants
   &-no-elevation {
     box-shadow: var(--connect__shadow-null);
+
+    &:hover,
+    &:active {
+      --connect__effects-shadow: var(--connect__shadow-null);
+    }
   }
 
   // Loading state

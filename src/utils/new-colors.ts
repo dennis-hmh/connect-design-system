@@ -30,7 +30,8 @@ export type SemanticColorToken =
   | 'negative'
   | 'constructive'
   | 'positive'
-  | 'focus';
+  | 'focus'
+  | 'white';
 
 // Helper type for color combinations
 export type ColorToken = `${SemanticColorToken}-${ColorIntensity}`;
@@ -99,6 +100,9 @@ export const Colors: Partial<Record<ColorToken, string>> = {
   'focus-300': '#FF7A08', // Medium cerise
   'focus-400': '#FF5C00', // Dark cerise
   'focus-500': '#CE4500', // Darkest cerise
+
+  // White color
+  white: '#FFFFFF', // White
 };
 
 // Helper function to get a color with specific intensity
