@@ -319,32 +319,32 @@ Buttons take variables in the following format
     }
   }
 
-  // &-menu {
-  //   --variant__btn-bg: var(--connect__surface-null);
-  //   --connect__inner-status-color: var(--connect__surface-null);
-  //   --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
-  //   --variant__btn-padding-x: var(--connect__spacer-sm);
+  &-menu {
+    --variant__btn-bg: var(--connect__surface-null);
+    --connect__inner-status-color: var(--connect__surface-null);
+    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
+    --variant__btn-padding-x: var(--connect__spacer-sm);
 
-  //   box-shadow: var(--connect__shadow-null);
+    box-shadow: var(--connect__shadow-null);
 
-  //   &:not(:disabled) {
-  //     &:hover {
-  //       --variant__btn-bg: var(--connect__surface-white);
-  //       --connect__inner-status-color: var(--connect__surface-white);
-  //       box-shadow: var(--connect__shadow-lvl-2);
-  //     }
+    &:not(:disabled) {
+      &:hover {
+        --variant__btn-bg: var(--connect__surface-white);
+        --connect__inner-status-color: var(--connect__surface-white);
+        box-shadow: var(--connect__shadow-lvl-2);
+      }
 
-  //     &:active {
-  //       box-shadow: var(--connect__shadow-null);
-  //     }
-  //   }
+      &:active {
+        box-shadow: var(--connect__shadow-null);
+      }
+    }
 
-  //   &:disabled {
-  //     --icon__fill-opacity: var(--connect__state-opacity);
-  //     --variant__icon-fill-color: var(--connect__disabled-mid);
-  //     --connect__state-based-pointer: var(--connect__disabled-cursor);
-  //   }
-  // }
+    &:disabled {
+      --icon__fill-opacity: var(--connect__state-opacity);
+      --variant__icon-fill-color: var(--connect__disabled-mid);
+      --connect__state-based-pointer: var(--connect__disabled-cursor);
+    }
+  }
 
   // &-media {
   //   box-shadow: var(--connect__shadow-null);
@@ -360,8 +360,25 @@ button-group
 */
 
 .connect__button-group {
-  &:is(.connect__stack) {
+  &.connect__button-group-horizontal {
     --connect__stack-direction: var(--connect__flow-row);
+
+    button:first-of-type {
+      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
+    }
+    button:last-of-type {
+      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
+    }
+  }
+  &.connect__button-group-vertical {
+    --connect__stack-direction: var(--connect__flow-column);
+
+    button:first-of-type {
+      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+    }
+    button:last-of-type {
+      border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
+    }
   }
 
   &-tools {
@@ -371,18 +388,16 @@ button-group
     --variant__btn-bg: var(--connect__surface-white);
   }
 
+  &:disabled {
+    --active-color: var(--connect__passive-500) !important;
+    --variant__icon-fill: var(--active-color) !important;
+    --variant__btn-bg: var(--connect__passive-100) !important;
+  }
+
   button {
     background-color: var(--connect__transparent);
     border-radius: unset;
     box-shadow: unset;
-
-    &:first-of-type {
-      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
-    }
-
-    &:last-of-type {
-      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
-    }
 
     &:only-of-type {
       border-radius: var(--connect__border-radius);

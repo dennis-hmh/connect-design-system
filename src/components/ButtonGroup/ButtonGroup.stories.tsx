@@ -36,8 +36,16 @@ PrimaryContained.args = {
   variant: 'contained',
   color: 'primary',
   ariaLabel: 'Primary Button Group',
+  orientation: 'horizontal',
+  type: 'button',
   disabled: false,
   gradeBand: GradeBand.G4_5,
+};
+
+export const VerticalContaineed: Story = Template.bind({});
+VerticalContaineed.args = {
+  ...PrimaryContained.args,
+  orientation: 'vertical',
 };
 
 export const SecondaryOutlined: Story = Template.bind({});
@@ -53,6 +61,12 @@ export const ThreeButtonsContained: Story = Template.bind({});
 ThreeButtonsContained.args = {
   ...PrimaryContained.args,
   children: [<Button>Option 1</Button>, <Button>Option 2</Button>, <Button>Option 3</Button>],
+};
+
+export const VerticalThreeButtonsContained: Story = Template.bind({});
+VerticalThreeButtonsContained.args = {
+  ...ThreeButtonsContained.args,
+  orientation: 'vertical',
 };
 
 export const ThreeButtonsOutlined: Story = Template.bind({});

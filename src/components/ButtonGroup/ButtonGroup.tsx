@@ -39,6 +39,8 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
     disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
     orientation === 'horizontal' && 'connect__button-group-horizontal',
+    orientation === 'vertical' && 'connect__button-group-vertical',
+    disabled && 'connect__disabled',
     classes,
   ]
     .filter(Boolean)
