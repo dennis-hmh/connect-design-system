@@ -27,7 +27,7 @@ import { Grid, GridItem } from '@connect/connect-design-system';
 
 const App = () => {
   return (
-    <Grid gap="lg" grid-t gutter={true}>
+    <Grid gap="lg" gutter={true}>
       <GridItem xs={12} md={6} rowSpan={2} lg={{ spanCol: 4, rowSpan: 3 }}>
         <div>Item 1</div>
       </GridItem>
