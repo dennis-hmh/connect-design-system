@@ -29,7 +29,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   ariaLabel,
   dataTestId,
   classes,
-  ...other
+  ...props
 }) => {
   const classNames = [
     'connect__button-group',
@@ -55,7 +55,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
           disableElevation,
           fullWidth,
           disabled,
-          ...other,
+          ...props,
         })
       : child,
   );
@@ -66,7 +66,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
       aria-label={ariaLabel}
       disabled={disabled}
       data-testid={dataTestId}
-      {...other}
+      {...props}
     >
       {clonedChildren}
     </Stack>

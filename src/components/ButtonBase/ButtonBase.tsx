@@ -50,10 +50,9 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   ariaControls,
   ariaPressed,
   title,
-  gradeBand,
   role,
   autoFocus,
-  ...other
+  ...props
 }) => {
   return (
     <Component
@@ -77,10 +76,9 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
       aria-controls={ariaControls}
       aria-pressed={ariaPressed}
       title={title}
-      data-gradeband={gradeBand}
       role={role}
       autoFocus={autoFocus}
-      {...other}
+      {...props}
     >
       {children}
     </Component>

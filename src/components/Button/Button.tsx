@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   title,
   dataTestId,
   classes,
-  ...other
+  ...props
 }) => {
   const classNames = [
     'connect__button',
@@ -52,7 +52,7 @@ export const Button: React.FC<ButtonProps> = ({
       ariaLabel={ariaLabel}
       title={title}
       dataTestId={dataTestId}
-      {...other}
+      {...props}
     >
       {children}
     </ButtonBase>

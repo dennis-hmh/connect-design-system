@@ -42,8 +42,8 @@ PrimaryContained.args = {
   gradeBand: GradeBand.G4_5,
 };
 
-export const VerticalContaineed: Story = Template.bind({});
-VerticalContaineed.args = {
+export const VerticalContained: Story = Template.bind({});
+VerticalContained.args = {
   ...PrimaryContained.args,
   orientation: 'vertical',
 };
