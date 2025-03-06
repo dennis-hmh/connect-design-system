@@ -1,3 +1,23 @@
+### v1.22.0 Release Notice
+
+### Release date: March 7, 2025
+
+### Changelog:
+
+- New Component:
+  - `<ButtonGroup />`: Button grouping with same styling as `<Button />`
+- Updated Component:
+  - `<Button />`: Now using `ButtonBase` with MUI props
+- Bug Fix: N/A
+- Other: `ButtonBase` added to share MUI props between button components.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
 ### v1.21.5 Release Notice
 
 ### Release date: February 28, 2025
