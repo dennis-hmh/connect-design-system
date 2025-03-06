@@ -1,6 +1,7 @@
 import React from 'react';
 import { SemanticColorToken } from '../../utils/new-colors';
-import { ButtonBase, ButtonBaseProps } from './ButtonBase';
+import { ButtonBase, ButtonBaseProps } from '../ButtonBase/ButtonBase';
+import { GradeBand } from 'src/enum/gradeband';
 
 // Define props specific to the new button implementation
 type ButtonSpecificProps = {
@@ -9,6 +10,7 @@ type ButtonSpecificProps = {
   size?: 'sm' | 'lg';
   disableElevation?: boolean;
   fullWidth?: boolean;
+  gradeBand?: GradeBand;
 };
 
 export type ButtonProps = ButtonBaseProps & ButtonSpecificProps;
@@ -43,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <ButtonBase
-      classes={classNames}
+      className={classNames}
       onClick={onClick}
       disabled={disabled}
       type={type}

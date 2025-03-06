@@ -1,8 +1,8 @@
 import React from 'react';
-import { ButtonBaseProps } from '../Button/ButtonBase';
-import { GradeBand } from 'src/enum/gradeband';
+import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
 import { SemanticColorToken } from '../../utils/new-colors';
 import { Stack } from '../Stack/Stack';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonGroupSpecificProps = {
   variant?: 'text' | 'contained' | 'outlined';
