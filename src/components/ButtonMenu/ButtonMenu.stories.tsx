@@ -10,6 +10,13 @@ const meta: Meta<typeof ButtonMenu> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+**Warning:** This component will soon be archived and no longer available. Please start using the \`<IconButton>\` component instead.
+        `,
+      },
+    },
   },
 };
 
