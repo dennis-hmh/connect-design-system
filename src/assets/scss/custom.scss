@@ -393,10 +393,21 @@ button-group
     }
   }
 
-  &:disabled {
-    --active-color: var(--connect__passive-500) !important;
-    --variant__icon-fill: var(--active-color) !important;
-    --variant__btn-bg: var(--connect__passive-100) !important;
+  &.connect__button-contained {
+    &.connect__disabled {
+      --active-color: var(--connect__passive-500);
+      --variant__icon-fill: var(--active-color);
+      --variant__btn-bg: var(--connect__passive-100);
+    }
+  }
+
+  &.connect__button-outlined {
+    &.connect__disabled {
+      --active-color: var(--connect__passive-500);
+      --variant__icon-fill: var(--active-color);
+      --variant__btn-bg: var(--connect__surface-white);
+      --connect__inner-status-color: var(--connect__passive-200);
+    }
   }
 
   button {
