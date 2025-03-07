@@ -177,6 +177,11 @@ Buttons take variables in the following format
     }
   }
 
+  &-text {
+    --variant__btn-fw: 600;
+    box-shadow: var(--connect__shadow-null);
+  }
+
   &-primary {
     --variant__btn-bg: var(--connect__color-primary-500);
     --active-color: var(--connect__surface-white);
@@ -187,6 +192,12 @@ Buttons take variables in the following format
       --active-color: var(--connect__color-primary-500);
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-primary-500);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-primary-500);
+      --connect__icon-fill: var(--active-color);
     }
   }
 
@@ -201,13 +212,12 @@ Buttons take variables in the following format
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-secondary-400);
     }
-  }
 
-  &-text {
-    --variant__btn-bg: var(--connect__transparent);
-    --variant__btn-fw: 600;
-    --active-color: var(--connect__surface-black);
-    box-shadow: var(--connect__shadow-null);
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-secondary-400);
+      --connect__icon-fill: var(--active-color);
+    }
   }
 
   &-assistive {
@@ -220,6 +230,12 @@ Buttons take variables in the following format
       --active-color: var(--connect__color-assistive-300);
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-assistive-300);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-assistive-300);
+      --connect__icon-fill: var(--active-color);
     }
   }
 
@@ -234,6 +250,12 @@ Buttons take variables in the following format
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-caution-500);
     }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-caution-500);
+      --connect__icon-fill: var(--active-color);
+    }
   }
 
   &-negative {
@@ -246,6 +268,12 @@ Buttons take variables in the following format
       --active-color: var(--connect__color-negative-400);
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-negative-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-negative-400);
+      --connect__icon-fill: var(--active-color);
     }
   }
 
@@ -260,6 +288,12 @@ Buttons take variables in the following format
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-constructive-400);
     }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-constructive-400);
+      --connect__icon-fill: var(--active-color);
+    }
   }
 
   &-positive {
@@ -272,6 +306,12 @@ Buttons take variables in the following format
       --active-color: var(--connect__color-positive-400);
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-positive-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-positive-400);
+      --connect__icon-fill: var(--active-color);
     }
   }
 
@@ -286,6 +326,12 @@ Buttons take variables in the following format
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-focus-500);
     }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-focus-500);
+      --connect__icon-fill: var(--active-color);
+    }
   }
 
   &-neutral {
@@ -299,6 +345,12 @@ Buttons take variables in the following format
       --connect__icon-fill: var(--active-color);
       --connect__inner-status-color: var(--connect__color-neutral-300);
     }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-neutral-300);
+      --connect__icon-fill: var(--active-color);
+    }
   }
 
   &-white {
@@ -309,6 +361,11 @@ Buttons take variables in the following format
 
     &.connect__button-outlined {
       --connect__inner-status-color: var(--connect__surface-dark);
+    }
+
+    &.connect__button-text {
+      --active-color: var(--connect__surface-dark);
+      --connect__icon-fill: var(--active-color);
     }
   }
 
