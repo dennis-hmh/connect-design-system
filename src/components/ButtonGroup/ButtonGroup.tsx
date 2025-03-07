@@ -4,28 +4,32 @@ import { SemanticColorToken } from '../../utils/new-colors';
 import { Stack } from '../Stack/Stack';
 import { GradeBand } from 'src/enum/gradeband';
 
-export type ButtonGroupSpecificProps = {
+export type ButtonGroupProps = {
+  children: React.ReactNode;
+  ariaLabel?: string;
   variant?: 'text' | 'contained' | 'outlined';
   color?: SemanticColorToken; // Updated to use semantic colors
   size?: 'sm' | 'lg';
+  orientation?: 'horizontal' | 'vertical';
   disableElevation?: boolean;
   fullWidth?: boolean;
   disabled?: boolean;
-  orientation?: 'horizontal' | 'vertical';
+  classes?: string;
+  dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export type ButtonGroupProps = ButtonBaseProps & ButtonGroupSpecificProps;
+export type AllButtonGroupProps = ButtonBaseProps & ButtonGroupProps;
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
   variant,
   color,
   size,
+  orientation = 'horizontal',
   disableElevation = false,
   fullWidth = false,
   disabled,
-  orientation = 'horizontal',
   ariaLabel,
   dataTestId,
   classes,
@@ -56,18 +60,12 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
           fullWidth,
           disabled,
           ...props,
-        })
+        } as React.Attributes & ButtonGroupProps)
       : child,
   );
 
   return (
-    <Stack
-      className={classNames}
-      aria-label={ariaLabel}
-      disabled={disabled}
-      data-testid={dataTestId}
-      {...props}
-    >
+    <Stack className={classNames} aria-label={ariaLabel} data-testid={dataTestId} {...props}>
       {clonedChildren}
     </Stack>
   );
