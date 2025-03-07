@@ -102,7 +102,7 @@ export const Colors: Partial<Record<ColorToken, string>> = {
   'focus-500': '#CE4500', // Darkest cerise
 
   // White color
-  white: '#FFFFFF', // White
+  'white-100': '#FFFFFF', // White
 };
 
 // Helper function to get a color with specific intensity
@@ -123,6 +123,7 @@ export const getSemanticColor = (token: SemanticColorToken): string => {
     constructive: ColorIntensity.I400,
     positive: ColorIntensity.I400,
     focus: ColorIntensity.I500,
+    white: ColorIntensity.I100,
   };
 
   return getColor(token as ColorCategory, defaultIntensities[token]);
@@ -148,6 +149,7 @@ const getDefaultIntensity = (token: SemanticColorToken): ColorIntensity => {
     constructive: ColorIntensity.I400,
     positive: ColorIntensity.I400,
     focus: ColorIntensity.I500,
+    white: ColorIntensity.I100,
   };
   return defaultIntensities[token];
 };
