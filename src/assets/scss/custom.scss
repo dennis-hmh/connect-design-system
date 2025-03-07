@@ -160,12 +160,7 @@ Buttons take variables in the following format
     }
   }
 
-  &-contained,
-  &-primary {
-    --variant__btn-bg: var(--connect__color-primary-500);
-    --active-color: var(--connect__surface-white);
-    --connect__icon-fill: var(--active-color);
-
+  &-contained {
     &:disabled {
       --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
@@ -173,18 +168,38 @@ Buttons take variables in the following format
     }
   }
 
-  &-outlined,
-  &-secondary {
-    --variant__btn-bg: var(--connect__surface-white);
-    --active-color: var(--connect__color-secondary-400);
-    --connect__icon-fill: var(--active-color);
-    --connect__inner-status-color: var(--connect__color-secondary-400);
-
+  &-outlined {
     &:disabled {
       --active-color: var(--connect__passive-500);
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
       --connect__inner-status-color-state: var(--connect__passive-200);
+    }
+  }
+
+  &-primary {
+    --variant__btn-bg: var(--connect__color-primary-500);
+    --active-color: var(--connect__surface-white);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-primary-500);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-primary-500);
+    }
+  }
+
+  &-secondary {
+    --variant__btn-bg: var(--connect__color-secondary-400);
+    --active-color: var(--connect__surface-white);
+    --connect__icon-fill: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-secondary-400);
+      --connect__icon-fill: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-secondary-400);
     }
   }
 
@@ -200,12 +215,10 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-assistive-300);
       --connect__icon-fill: var(--active-color);
-
       --connect__inner-status-color: var(--connect__color-assistive-300);
     }
   }
@@ -215,8 +228,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-caution-500);
       --connect__icon-fill: var(--active-color);
@@ -229,8 +241,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-negative-400);
       --connect__icon-fill: var(--active-color);
@@ -243,8 +254,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-constructive-400);
       --connect__icon-fill: var(--active-color);
@@ -257,8 +267,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-positive-400);
       --connect__icon-fill: var(--active-color);
@@ -271,8 +280,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-focus-500);
       --connect__icon-fill: var(--active-color);
@@ -285,8 +293,7 @@ Buttons take variables in the following format
     --active-color: var(--connect__color-neutral-100);
     --connect__icon-fill: var(--active-color);
 
-    &.connect__button-outlined,
-    &.connect__button-secondary {
+    &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-neutral-300);
       --connect__icon-fill: var(--active-color);
@@ -299,6 +306,10 @@ Buttons take variables in the following format
     --active-color: var(--connect__surface-dark);
     --connect__icon-fill: var(--active-color);
     --connect__inner-status-color: var(--connect__surface-white);
+
+    &.connect__button-outlined {
+      --connect__inner-status-color: var(--connect__surface-dark);
+    }
   }
 
   // Size variants
@@ -1278,7 +1289,7 @@ THIS WILL BE PROP BASED WHEN DESIGN UPDATES RADIUS
 */
 
 .connect__icon {
-  color: var(--icon-fill);
+  color: var(--connect__icon-fill);
   height: var(--connect__icon-size);
   opacity: var(--connect__icon-opacity, 1);
   width: var(--connect__icon-size);
