@@ -10,6 +10,7 @@ type ButtonSpecificProps = {
   size?: 'sm' | 'lg';
   disableElevation?: boolean;
   fullWidth?: boolean;
+  iconOpacity?: number;
   gradeBand?: GradeBand;
 };
 
@@ -45,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <ButtonBase
-      className={classNames}
+      classes={classNames}
       onClick={onClick}
       disabled={disabled}
       type={type}
