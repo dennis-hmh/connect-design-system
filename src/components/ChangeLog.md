@@ -1,3 +1,24 @@
+### v1.21.6 Release Notice
+
+### Release date: March 10, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component:
+    - `<Avatar />`: Exposed ref
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.21.5 Release Notice
 
 ### Release date: February 28, 2025
