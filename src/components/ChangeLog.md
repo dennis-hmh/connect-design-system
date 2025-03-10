@@ -1,6 +1,6 @@
 ### v1.21.6 Release Notice
 
-### Release date: March 6, 2025
+### Release date: March 10, 2025
 
 ### Changelog:
 
