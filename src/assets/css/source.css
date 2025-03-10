@@ -849,10 +849,10 @@
 .connect__g68,
 .connect__g912,
 .connect__teach {
-
   /*
-      1.1: Source grid properties
-    */
+    1.1: Source grid properties 
+  */
+
   --base-lheight: 2rem;
   --half-lheight: 1rem;
   --col-width: calc((100vw - 2rem) / 12);
