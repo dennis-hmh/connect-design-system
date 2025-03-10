@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.21.6
+
+### Patch Changes
+
+- b887933: Avatar - exposed ref
+
 ## 1.21.5
 
 ### Patch Changes
