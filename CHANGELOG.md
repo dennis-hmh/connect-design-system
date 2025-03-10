@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.21.7
+
+### Patch Changes
+
+- ea8ebd6: Math icons added, icon viewbox updated to 20x20
+
+## 1.21.6
+
+### Patch Changes
+
+- b887933: Avatar - exposed ref
+
 ## 1.21.5
 
 ### Patch Changes

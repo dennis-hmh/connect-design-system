@@ -813,38 +813,62 @@
   --connect__hint-size: var(--connect__spacer-sm);
 }
 
-:root {
+*[class*='connect__'],
+*[class*='connect__'] *,
+*[class*='connect__'] *::before,
+*[class*='connect__'] *::after {
+  box-sizing: border-box;
+}
+
+:where([class*='connect__']) * {
+  font-family: var(--connect__font-sans);
+  -webkit-font-smoothing: antialiased;
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
+}
+
+:where([class*='connect__']) img,
+:where([class*='connect__']) video,
+:where([class*='connect__']) canvas,
+:where([class*='connect__']) svg {
+  display: var(--connect__media-display, var(--connect__display-block));
+  max-inline-size: var(--connect__media-max-inline-size, 100%);
+  max-width: var(--connect__media-max-width, 100%);
+}
+
+:where([class*='connect__'])>img {
+  height: auto;
+  max-height: 100%;
+}
+
+.connect__gk2,
+.connect__gk,
+.connect__g1,
+.connect__g23,
+.connect__g35,
+.connect__g45,
+.connect__g68,
+.connect__g912,
+.connect__teach {
   /*
-    WIP EVOLVING
-    1: Grid
-    1.1: Source grid properties
-    1.2: Frame: max/min width min-height
-    1.3: Full: cols/ max-width, min-height
-    1.4: Split (stimulus)
-          stim-width, stim-cols, stim-margin, stim-gutter
-    1.5: Split (interaction)
-          interaction-width, interaction-cols, interaction-margin, interaction-gutter
+    1.1: Source grid properties 
   */
 
-  /*
-    1.1: Source grid properties
-  */
   --base-lheight: 2rem;
   --half-lheight: 1rem;
   --col-width: calc((100vw - 2rem) / 12);
   --gutter-width: 1rem;
 
   /*
-    2: TYPOGRAPHY
-    2.1: Font Families
-    2.2: Font Weights
-      400: Regular
-      500: Medium
-      600: Semi-Bold
-      700: Bold
-    2.3: Text align / wrap  
-    2.4: Font Styles
-  */
+      2: TYPOGRAPHY
+      2.1: Font Families
+      2.2: Font Weights
+        400: Regular
+        500: Medium
+        600: Semi-Bold
+        700: Bold
+      2.3: Text align / wrap  
+      2.4: Font Styles
+    */
 
   /* 2.1: Font Families */
 
@@ -882,18 +906,18 @@
   --connect__white-space-nowrap: nowrap;
 
   /*
-    3: Palette
-    3.1: Connect Default Palette
-    3.2: Brand Palette Classcraft + HMH combo
-    3.3: Connect Neutral Palette
-    3.4: State Driven Palette
-      Correct / Incorrect / Answer Shown
-      Selected / Hint / Focus
-  */
+      3: Palette
+      3.1: Connect Default Palette
+      3.2: Brand Palette Classcraft + HMH combo
+      3.3: Connect Neutral Palette
+      3.4: State Driven Palette
+        Correct / Incorrect / Answer Shown
+        Selected / Hint / Focus
+    */
 
   /*
-    3.1: Connect Default Palette
-  */
+      3.1: Connect Default Palette
+    */
   --connect__gray-c70: rgb(45, 45, 45);
   --connect__gray-c60: rgb(86, 87, 87);
   --connect__gray-c55: rgb(93, 95, 95);
@@ -950,8 +974,8 @@
   --connect__passive-500: var(--connect__gray-c60);
 
   /*
-    3.2: Connect Default Palette
-  */
+      3.2: Connect Default Palette
+    */
 
   --connect__cc-purple: rgb(113, 47, 253);
 
@@ -961,8 +985,8 @@
   --connect__brand-pale-magenta: rgb(255, 238, 254);
 
   /*
-      3.3: Connect IO's Palette
-  */
+        3.3: Connect IO's Palette
+    */
 
   --connect__essential-guide-teal: var(--connect__aqua-m40);
   --connect__essential-guide-magenta: rgb(198, 22, 141);
@@ -974,8 +998,8 @@
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
 
   /*
-    3.4: Connect Neutral Palette
-  */
+      3.4: Connect Neutral Palette
+    */
 
   --connect__surface-dark: var(--connect__gray-c70);
   --connect__surface-mid: var(--connect__gray-c55);
@@ -986,18 +1010,18 @@
   --connect__surface-null: rgba(255, 255, 255, 0);
 
   /*
-    3.4: State Driven Palette
-    Error states are system,
-    Feedback states are:
-      Correct / Incorrect / Answer Shown
-      Selected / Hint 
-      
-      Browser states
-       Focus 
-       Disabled
-      
-       Opacities
-  */
+      3.4: State Driven Palette
+      Error states are system,
+      Feedback states are:
+        Correct / Incorrect / Answer Shown
+        Selected / Hint 
+        
+        Browser states
+         Focus 
+         Disabled
+        
+         Opacities
+    */
 
   --connect__correct-dark: var(--connect__green-c55);
   --connect__correct-mid: var(--connect__green-s40);
@@ -1093,14 +1117,14 @@
 
 
   /*
-    4: Shadows
-    4.1: Shadow Opacity Levels
-    4.2: Shadow Elevations
-  */
+      4: Shadows
+      4.1: Shadow Opacity Levels
+      4.2: Shadow Elevations
+    */
 
   /*
-    4.1: Shadow Opacity Levels
-  */
+      4.1: Shadow Opacity Levels
+    */
 
   --connect__shadow-definer: rgba(0, 0, 0, 0.1);
   --connect__shadow-short: rgba(0, 0, 0, 0.12);
@@ -1108,12 +1132,12 @@
   --connect__shadow-long: rgba(0, 0, 0, 0.2);
 
   /*
-    4.2: Shadow Elevations
-
-    These are the paper, Design currently working on the 
-    interactive shadows
-
-  */
+      4.2: Shadow Elevations
+  
+      These are the paper, Design currently working on the 
+      interactive shadows
+  
+    */
   --connect__shadow-reset: 0rem 0rem 0rem;
   --connect__definer-level-1: 0rem 0rem 0rem 0.0625rem;
   --connect__definer-level-0: 0rem 0rem 0rem 0rem;
@@ -1211,10 +1235,10 @@
     var(--connect__long-shadow-spread-level-6) var(--connect__shadow-long);
 
   /*
-    5: Motion
-    5.1: Easing
-    5.2: Speeds
-  */
+      5: Motion
+      5.1: Easing
+      5.2: Speeds
+    */
 
   /* 5.1: Easing */
   --connect__linear: cubic-bezier(0, 0, 1, 1);
@@ -1230,11 +1254,11 @@
   --connect__transition-slow: 700ms;
 
   /*
-    6: Misc
-    6.1: Displays
-    6.2: Resets
-    6.3: Feedback Iconography 
-  */
+      6: Misc
+      6.1: Displays
+      6.2: Resets
+      6.3: Feedback Iconography 
+    */
 
   /* 6.1: Displays */
   --connect__display-block: block;
@@ -1263,20 +1287,60 @@
   --connect__full-h: 100%;
   --connect__auto-h: auto;
   --connect__half-radius: 50%;
+
+  /* 14.375rem all grades */
+  --connect__dropdown-max-w: 14.375rem;
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__input-max-w: 14.375rem;
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
+
+  /* the ch width calc is
+         - x margin of label (spacer-xs)
+         - x padding of input (spacer-sm)
+         Total: (spacer-xs * 2) + (spacer-sm * 2)
+      */
+  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
+  --connect__input-width-2: calc(2ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-5: calc(5ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-9: calc(9ch + (var(--connect__spacer-sm) * 2));
+
+
+  font-size-adjust: ex-height 0.486;
 }
 
 @media (min-width: 40.625rem) {
-  :root {
+
+  .connect__gk2,
+  .connect__gk,
+  .connect__g1,
+  .connect__g23,
+  .connect__g35,
+  .connect__g45,
+  .connect__g68,
+  .connect__g912,
+  .connect__teach {
     --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
     --base-lheight: 2.125rem;
     --half-lheight: 1.0625rem;
     --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
     --gutter-width: max(calc(4.875rem - var(--half-lheight)), calc((100vw - 80rem) / 2));
+    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
+    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 7));
   }
 }
 
 @media (min-width: 80rem) {
-  :root {
+
+  .connect__gk2,
+  .connect__gk,
+  .connect__g1,
+  .connect__g23,
+  .connect__g35,
+  .connect__g45,
+  .connect__g68,
+  .connect__g912,
+  .connect__teach {
     --col-width: calc((100vw - (9.75rem - var(--base-lheight))) / 12);
     --base-lheight: 2.25rem;
     --half-lheight: 1.125rem;
@@ -1320,77 +1384,11 @@
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
 }
 
-
-*[class*='connect__'],
-*[class*='connect__'] *,
-*[class*='connect__'] *::before,
-*[class*='connect__'] *::after {
-  box-sizing: border-box;
-}
-
-:where([class*='connect__']) * {
-  font-family: var(--connect__font-sans);
-  -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
-}
-
-:where([class*='connect__']) img,
-:where([class*='connect__']) video,
-:where([class*='connect__']) canvas,
-:where([class*='connect__']) svg {
-  display: var(--connect__media-display, var(--connect__display-block));
-  max-inline-size: var(--connect__media-max-inline-size, 100%);
-  max-width: var(--connect__media-max-width, 100%);
-}
-
-:where([class*='connect__'])>img {
-  height: auto;
-  max-height: 100%;
-}
-
-.connect__gk2,
-.connect__g23,
-.connect__g35,
-.connect__g45,
-.connect__g68,
-.connect__g912,
-.connect__teach {
-  /* 14.375rem all grades */
-  --connect__dropdown-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
-  --connect__input-max-w: 14.375rem;
-  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
-  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
-
-  /* the ch width calc is
-     - x margin of label (spacer-xs)
-     - x padding of input (spacer-sm)
-     Total: (spacer-xs * 2) + (spacer-sm * 2)
-  */
-  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
-  --connect__input-width-2: calc(2ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-5: calc(5ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-9: calc(9ch + (var(--connect__spacer-sm) * 2));
-
-  @media (min-width: 40.625rem) {
-    --connect__dropdown-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 5));
-    --connect__input-max-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 7));
-  }
-}
-
-.connect__gk2,
-.connect__gk,
-.connect__g1,
-.connect__g23,
-.connect__g35,
-.connect__g45,
-.connect__g68,
-.connect__g912,
-.connect__teach {
-  font-size-adjust: ex-height 0.486;
-
-}
-
 :where([class*='connect__']):focus-visible {
   outline: 0;
+}
+
+.connect__typography {
+  font-weight: var(--connect__fw, var(--connect__fw-regular));
+  hyphens: auto;
 }
