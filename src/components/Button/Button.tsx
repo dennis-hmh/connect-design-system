@@ -6,12 +6,24 @@ import { GradeBand } from 'src/enum/gradeband';
 // Define props specific to the new button implementation
 type ButtonSpecificProps = {
   variant?: 'text' | 'contained' | 'outlined';
-  color?: SemanticColorToken; // Updated to use semantic colors
+  color?: SemanticColorToken;
   size?: 'sm' | 'lg';
   disableElevation?: boolean;
   fullWidth?: boolean;
   iconOpacity?: number;
   gradeBand?: GradeBand;
+  /**
+   * @deprecated Use `variant` and `color` prop instead.
+   */
+  primary?: boolean;
+  /**
+   * @deprecated Use `onClick` prop instead.
+   */
+  clickHandler?: () => void;
+  /**
+   * @deprecated Use `classes` prop instead.
+   */
+  additionalClasses?: string;
 };
 
 export type ButtonProps = ButtonBaseProps & ButtonSpecificProps;
@@ -30,6 +42,9 @@ export const Button: React.FC<ButtonProps> = ({
   title,
   dataTestId,
   classes,
+  primary, // Deprecated
+  clickHandler, // Deprecated
+  additionalClasses, // Deprecated
   ...props
 }) => {
   const classNames = [
@@ -39,6 +54,9 @@ export const Button: React.FC<ButtonProps> = ({
     size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
+    primary && `connect__button-primary`, // Deprecated
+    !primary && `connect__button-secondary connect__button-outlined`, // Deprecated
+    additionalClasses, // Deprecated
     classes,
   ]
     .filter(Boolean)
@@ -46,8 +64,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <ButtonBase
-      classes={classNames}
-      onClick={onClick}
+      classes={classNames || additionalClasses}
+      onClick={onClick || clickHandler}
       disabled={disabled}
       type={type}
       ariaLabel={ariaLabel}
