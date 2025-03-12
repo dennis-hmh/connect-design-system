@@ -5,6 +5,7 @@ export type ButtonBaseProps = {
   children?: React.ReactNode;
   classes?: string;
   disabled?: boolean;
+  title?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onFocusVisible?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
@@ -22,7 +23,6 @@ export type ButtonBaseProps = {
   ariaExpanded?: boolean;
   ariaControls?: string;
   ariaPressed?: boolean;
-  title?: string;
   gradeBand?: GradeBand;
   role?: string;
   autoFocus?: boolean;
@@ -32,6 +32,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   children,
   classes,
   disabled = false,
+  title,
   onClick,
   onFocusVisible,
   onKeyDown,
@@ -49,7 +50,6 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   ariaExpanded,
   ariaControls,
   ariaPressed,
-  title,
   role,
   autoFocus,
   ...props
