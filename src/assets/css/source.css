@@ -971,7 +971,7 @@
   --connect__gray-c35: rgb(160, 162, 162);
   --connect__gray-c10: rgb(237, 237, 237);
   --connect__gray-c5: rgb(247, 247, 248);
-
+  --connect__hmh-gray: rgb(248, 246, 244);
   --connect__cool-gray-c20: rgb(192, 198, 200);
 
   --connect__red-c55: rgb(191, 19, 19);
@@ -1017,6 +1017,14 @@
   --connect__passive-300: var(--connect__gray-c40);
   --connect__passive-400: var(--connect__gray-c50);
   --connect__passive-500: var(--connect__gray-c60);
+
+  --connect__surface-100: var(--connect__hmh-gray);
+  --connect__surface-200: var(--connect__gray-c10);
+  --connect__surface-300: var(--connect__gray-c20);
+  --connect__surface-400: var(--connect__gray-c40);
+  --connect__surface-500: var(--connect__gray-c50);
+  --connect__surface-600: var(--connect__gray-c60);
+  --connect__surface-700: var(--connect__gray-c70);
 
   /*
       3.2: Connect Default Palette
@@ -1288,6 +1296,7 @@
   --connect__scale-full: 1;
   --connect__full-w: 100%;
   --connect__full-h: 100%;
+  --connect__auto-w: auto;
   --connect__auto-h: auto;
   --connect__half-radius: 50%;
 
@@ -1303,11 +1312,20 @@
          - x padding of input (spacer-sm)
          Total: (spacer-xs * 2) + (spacer-sm * 2)
       */
-  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
-  --connect__input-width-2: calc(2ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-5: calc(5ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-9: calc(9ch + (var(--connect__spacer-sm) * 2));
 
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__border-color: color-mix(in srgb, var(--connect__table-theme-base) 100%, transparent);
+  --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
+  --connect__table-subheader-bg: color-mix(in srgb, var(--connect__table-theme-base) 30%, transparent);
+  --connect__table-cell-even-bg: color-mix(in srgb, var(--connect__table-theme-base) 4%, transparent);
+  --connect__table-row-hover-bg: color-mix(in srgb, var(--connect__table-theme-base) 23%, transparent);
+  --connect__table-row-hover-intersection: color-mix(in srgb, var(--connect__table-theme-base) 13%, transparent);
+
+  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
+  --connect__input-width-sm: calc(2ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-md: calc(5ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-lg: calc(9ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-table-cell-max-w: calc(22ch + calc(var(--connect__spacer-xs) * 2));
 
   font-size-adjust: ex-height 0.486;
 }
