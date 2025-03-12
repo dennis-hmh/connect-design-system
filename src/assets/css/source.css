@@ -1330,7 +1330,7 @@
   --connect__border-color: color-mix(in srgb, var(--connect__table-theme-base) 100%, transparent);
   --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
   --connect__table-subheader-bg: color-mix(in srgb, var(--connect__table-theme-base) 30%, transparent);
-  --connect__table-cell-even-bg: color-mix(in srgb, var(--connect__table-theme-base) 4%, transparent);
+  --connect__table-cell-even-bg: color-mix(in srgb, var(--connect__table-theme-base) 10%, transparent);
   --connect__table-row-hover-bg: color-mix(in srgb, var(--connect__table-theme-base) 23%, transparent);
   --connect__table-row-hover-intersection: color-mix(in srgb, var(--connect__table-theme-base) 13%, transparent);
 
