@@ -1,6 +1,6 @@
-### v1.22.0 Release Notice
+### v1.23.0 Release Notice
 
-### Release date: March 7, 2025
+### Release date: March 12, 2025
 
 ### Changelog:
 
@@ -10,6 +10,25 @@
   - `<Button />`: Now using `ButtonBase` with MUI props
 - Bug Fix: N/A
 - Other: `ButtonBase` added to share props between button components.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.22 Release Notice
+
+### Release date: March 12, 2025
+
+### Changelog:
+
+- Spacing values updated
+- Border radius values updated
+- Color sets added
 
 #### Repo:
 

@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.22.0
+
+### Minor Changes
+
+- dbf3714: - Spacing values updated - Border radius values updated
+
 ## 1.21.7
 
 ### Patch Changes
