@@ -84,7 +84,7 @@ Buttons take variables in the following format
 | Padding Y           | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
 | Flex align          | --variant__btn-align          | center                                                   |
 | Flex justify        | --variant__btn-justify        | space-between                                            |
-| Border radius       | --variant__btn-border-radius  | --connect__border-radius                                 |
+| Border radius       | --variant__btn-border-radius  | --connect__radius-sm                                 |
 | Height              | --variant__btn-h              | auto                                                     |
 | Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
@@ -96,7 +96,7 @@ Buttons take variables in the following format
 
   background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
-  border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
+  border-radius: var(--variant__btn-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -280,7 +280,7 @@ Buttons take variables in the following format
 | Border color        | --variant__input-border-c      | --connect__surface-null                                    |
 | Padding X           | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
 | Padding Y           | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
-| Border radius       | --variant__input-border-radius | --connect__border-radius                                   |
+| Border radius       | --variant__input-border-radius | --connect__radius-sm                                   |
 | Width               | --variant__input-w             | fit-content                                                 |
 */
 
@@ -290,7 +290,7 @@ Buttons take variables in the following format
 
   background-color: var(--state-based-bg, var(--connect__surface-white));
   border: 0;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   caret-color: var(--connect__primary-mid);
   color: var(--active-color, var(--connect__surface-dark));
@@ -385,7 +385,7 @@ Buttons take variables in the following format
 | Border color        | --variant__select-border-c      | --connect__surface-null                                    |
 | Padding X           | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
 | Padding Y           | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
-| Border radius       | --variant__select-border-radius | --connect__border-radius                                   |
+| Border radius       | --variant__select-border-radius | --connect__radius-sm                                   |
 | Width               | --variant__select-w             | fit-content                                                 |
 | Resize              | Resize                          | none                                                       |
 */
@@ -398,7 +398,7 @@ Buttons take variables in the following format
   background-repeat: no-repeat;
   background-size: var(--connect__icon-md);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -455,8 +455,8 @@ Variables related to theme/overrides:
 
 .connect__details {
   // border radius for details based on open closed
-  --connect__details-closed-radius: var(--connect__border-radius);
-  --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  --connect__details-closed-radius: var(--connect__radius-sm);
+  --connect__details-open-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
 
   // Icon for accordion. Changes when open. in the [open]
   --connect__icon-rotate: rotate(0deg);
@@ -504,7 +504,7 @@ Variables related to theme/overrides:
 
   &::before {
     background: var(--connect__surface-white);
-    border-radius: var(--connect__border-radius);
+    border-radius: var(--connect__radius-sm);
     box-shadow: var(--connect__shadow-lvl-2);
     content: '';
     height: var(--connect__full-h);
@@ -1170,7 +1170,7 @@ Padding on MCQ labels is the total border + spacer
 | Font size           | --variant__label-fs            | --connect__body-sm             |
 | Line height         | --variant__label-lh            | --connect__body-sm-lheight     |
 | Font weight         | --variant__label-fw            | --connect__fw-regular          |
-| Radius              | --variant__label-border-radius | --connect__border-radius       |
+| Radius              | --variant__label-border-radius | --connect__radius-sm       |
 | Background color    | --variant__label-bg            | --connect__surface-white       |
 | Color               | --variant__label-color         | --connect__surface-dark        |
 | Gap                 | --variant__label-gap           | --connect__spacer-md           |
@@ -1182,7 +1182,7 @@ Padding on MCQ labels is the total border + spacer
 |---------------------|------------------------------|-------------------------------|
 | Property            |Variant/State                 | Fallback / Default            |
 |---------------------|------------------------------|-------------------------------|
-| Radius              | --variant__mcq-border-radius | --connect__inner-radius       |
+| Radius              | --variant__mcq-border-radius | --connect__radius-xs       |
 | Dimensions          | --variant__input-dimensions  | --connect__caption-lheight    |
 
 */
@@ -1196,7 +1196,7 @@ Padding on MCQ labels is the total border + spacer
 
   align-items: center;
   background-color: var(--variant__label-bg, var(--connect__surface-white));
-  border-radius: var(--variant__label-border-radius, var(--connect__border-radius));
+  border-radius: var(--variant__label-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -1217,7 +1217,7 @@ Padding on MCQ labels is the total border + spacer
   &::before {
     border: var(--connect__input-border-w) solid
       var(--checkbox-checked-state-based-border-c, var(--connect__primary-mid));
-    border-radius: var(--variant__mcq-radius, var(--connect__inner-radius));
+    border-radius: var(--variant__mcq-radius, var(--connect__radius-xs));
     content: '';
     flex-shrink: 0;
     height: var(--connect__input-dimensions);
@@ -1326,7 +1326,7 @@ Positioning int he pseudos is the total border / 2
 
   &::after {
     background-color: var(--connect__surface-white);
-    border-radius: var(--connect__inner-radius) var(--connect__spacer-zero);
+    border-radius: var(--connect__radius-xs) var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
@@ -1346,7 +1346,7 @@ Positioning int he pseudos is the total border / 2
     grid-row: 1 / -1;
 
     img {
-      border-radius: var(--connect__inner-radius);
+      border-radius: var(--connect__radius-xs);
     }
   }
 }
@@ -1393,7 +1393,7 @@ Positioning int he pseudos is the total border / 2
 .connect__progress {
   background: var(--variant__progress-bg, var(--connect__surface-white));
   border: none;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__shadow-lvl-0);
   overflow: var(--connect__overflow-hidden);
   width: var(--connect__full-w);
@@ -1412,7 +1412,7 @@ Positioning int he pseudos is the total border / 2
 
   &::-moz-progress-bar {
     background: var(--variant__progress-color, var(--connect__cc-purple));
-    border-radius: var(--connect__border-radius);
+    border-radius: var(--connect__radius-sm);
   }
 }
 
@@ -1465,7 +1465,7 @@ Positioning int he pseudos is the total border / 2
 .connect__table {
   background-color: var(--connect__table-bg);
   border-collapse: collapse;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   border-spacing: 0;
   box-shadow: var(--connect__shadow-lvl-0);
   color: var(--connect__table-color);
@@ -1473,13 +1473,13 @@ Positioning int he pseudos is the total border / 2
   width: var(--connect__full-w);
 
   thead {
-    border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+    border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
 
     th:first-of-type {
-      border-top-left-radius: var(--connect__border-radius);
+      border-top-left-radius: var(--connect__radius-sm);
     }
     th:last-of-type {
-      border-top-right-radius: var(--connect__border-radius);
+      border-top-right-radius: var(--connect__radius-sm);
     }
   }
 
@@ -1667,7 +1667,7 @@ Divider can be vertical or horizontal
 | Background color |  --variant__divider-bg       | --connect__surface-pale        |
 | Height           |  --variant__divider-h        | --connect__effects-inner-edge  |
 | Width            |  --variant__divider-w        | --connect__full-w              |
-| Radius           |  --variant__divider-br       | --connect__border-radius       |         
+| Radius           |  --variant__divider-br       | --connect__radius-sm       |         
 | Margin x         |  --variant__divider-margin-x | --connect__spacer-zero         |      
 | Margin y         |  --variant__divider-margin-y | --connect__spacer-zero         |       
 */
@@ -1678,7 +1678,7 @@ Divider can be vertical or horizontal
   --connect__divider-margin-y: var(--variant__divider-margin-y, var(--connect__spacer-zero));
 
   --connect__divider-bg: var(--variant__divider-bg, var(--connect__surface-pale));
-  --connect__divider-br: var(--variant__divider-br, var(--connect__border-radius));
+  --connect__divider-br: var(--variant__divider-br, var(--connect__radius-sm));
   --connect__divider-h: var(--variant__divider-h, var(--connect__effects-inner-edge));
   --connect__divider-w: var(--variant__divider-w, var(--connect__full-w));
 
@@ -1905,7 +1905,7 @@ Cover Text / Cursors / Iconography
   --connect__hint-max-w: calc(var(--connect__dropdown-max-w) - var(--connect__hint-x-offset));
 
   background-color: var(--connect__surface-white);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   display: var(--variant__hint-display, var(--connect__display-block));
   left: 0;
   max-width: var(--connect__hint-max-w);
@@ -1943,7 +1943,7 @@ Cover Text / Cursors / Iconography
   background-repeat: no-repeat;
   background-size: var(--connect__icon-md);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -2020,7 +2020,7 @@ Cover Text / Cursors / Iconography
 }
 
 .connect__dropdown-menu {
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__shadow-lvl-4);
   display: var(--variant-menu-display, var(--connect__display-none));
   left: var(--connect__spacer-zero);
@@ -2045,7 +2045,7 @@ Cover Text / Cursors / Iconography
 
 .connect__dropdown-item {
   background-color: var(--connect__surface-white);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   box-shadow: var(--connect__shadow-null);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -2086,11 +2086,11 @@ Cover Text / Cursors / Iconography
 
 .connect__toolbar {
   background-color: var(--connect__surface-pale);
-  border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
   box-shadow: var(--connect__shadow-lvl-0);
 
   + .connect__input-textarea {
-    border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
+    border-radius: 0 0 var(--connect__radius-sm) var(--connect__radius-sm);
   }
 }
 
@@ -2121,7 +2121,7 @@ Cover Text / Cursors / Iconography
 }
 
 .connect__avatar-rounded {
-  --connect__avatar-radius: var(--connect__border-radius);
+  --connect__avatar-radius: var(--connect__radius-sm);
 }
 
 .connect__avatar-img {
@@ -2182,7 +2182,7 @@ Cover Text / Cursors / Iconography
 .connect__badge {
   align-items: center;
   background-color: var(--connect__badge-bg);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
   justify-content: center;
@@ -2221,7 +2221,7 @@ Cover Text / Cursors / Iconography
 .connect__tooltip {
   align-items: center;
   animation: fade-in var(--connect__transition-rapid) var(--connect__linear) forwards;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   display: var(--connect__display-flex);
   justify-content: center;
   margin: var(--connect__spacer-sm);
@@ -2406,7 +2406,7 @@ utilities
 }
 
 .connect__rounded-corners {
-  border-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-reset {
@@ -2414,29 +2414,29 @@ utilities
 }
 
 .connect__rounded-top-left {
-  border-top-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-top-left-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-top-right {
-  border-top-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-top-right-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-bottom-left {
-  border-bottom-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-bottom-left-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-bottom-right {
-  border-bottom-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-bottom-right-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-top {
-  border-radius: var(--variant__rounded-radius, var(--connect__border-radius))
-    var(--variant__rounded-radius, var(--connect__border-radius)) 0 0;
+  border-radius: var(--variant__rounded-radius, var(--connect__radius-sm))
+    var(--variant__rounded-radius, var(--connect__radius-sm)) 0 0;
 }
 
 .connect__rounded-bottom {
-  border-radius: 0 0 var(--variant__rounded-radius, var(--connect__border-radius))
-    var(--variant__rounded-radius, var(--connect__border-radius));
+  border-radius: 0 0 var(--variant__rounded-radius, var(--connect__radius-sm))
+    var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__elevation--2 {
