@@ -1,3 +1,22 @@
+### v1.22 Release Notice
+
+### Release date: March 12, 2025
+
+### Changelog:
+
+- Spacing values updated 
+- Border radius values updated
+- Color sets added
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.21.7 Release Notice
 
 ### Release date: March 10, 2025

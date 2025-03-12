@@ -101,11 +101,12 @@
   --connect__credits-spacer: 1.125rem;
 
   --connect__spacer-xxl: 4.25rem;
-  --connect__spacer-xl: 2.125rem;
-  --connect__spacer-lg: 1.625rem;
-  --connect__spacer-md: 1.0625rem;
-  --connect__spacer-sm: 0.5625rem;
+  --connect__spacer-xl: 2.25rem;
+  --connect__spacer-lg: 1.5rem;
+  --connect__spacer-md: 1rem;
+  --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxs: 0.125rem;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -113,11 +114,17 @@
   --connect__icon-lg: 2.5rem;
   --connect__icon-xl: 2.5rem;
 
+  --connect__radius-xxl: 7.5rem;
+  --connect__radius-xl: 1.875rem;
+  --connect__radius-lg: 1.5rem;
+  --connect__radius-md: 1.125rem;
+  --connect__radius-sm: 0.75rem;
+  --connect__radius-xs: 0.375rem;
+  --connect__radius-xxs: 0.1875rem;
+
   --connect__total-border: 0.625rem;
-  --connect__border-radius: 0.875rem;
   --connect__mcq-border-w: 0.1563rem;
   --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: 0.375rem;
   --connect__inner-status: 0.5rem;
   --connect__inner-divider-width: 0.625rem;
 }
@@ -156,18 +163,17 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.25rem;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
-
     --connect__icon-sm: 2.5rem;
     --connect__icon-md: 3.125rem;
     --connect__icon-lg: 3.125rem;
     --connect__icon-xl: 3.75rem;
 
-    --connect__border-radius: 1rem;
-    --connect__inner-radius: 0.5rem;
+    --connect__radius-xl: 2.5rem;
+    --connect__radius-lg: 2rem;
+    --connect__radius-md: 1.5rem;
+    --connect__radius-sm: 1rem;
+    --connect__radius-xs: 0.5rem;
+    --connect__radius-xxs: 0.25rem;
   }
 }
 
@@ -205,18 +211,23 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.4375rem;
 
-    --connect__spacer-xxl: 5.25rem;
-    --connect__spacer-xl: 2.625rem;
-    --connect__spacer-lg: 2rem;
-    --connect__spacer-md: 1.3125rem;
-    --connect__spacer-sm: 0.6875rem;
-    --connect__spacer-xs: 0.3125rem;
+    --connect__spacer-xxl: 4.5rem;
+    --connect__spacer-xl: 3rem;
+    --connect__spacer-lg: 2.25rem;
+    --connect__spacer-md: 1.5rem;
+    --connect__spacer-sm: 0.75rem;
+    --connect__spacer-xs: 0.375rem;
+    --connect__spacer-xxs: 0.125rem;
+
+    --connect__radius-xl: 3.125rem;
+    --connect__radius-lg: 2.5rem;
+    --connect__radius-md: 1.875rem;
+    --connect__radius-sm: 1.25rem;
+    --connect__radius-xs: 0.625rem;
+    --connect__radius-xxs: 0.3125rem;
 
     --connect__icon-lg: 3.75rem;
     --connect__icon-xl: 4.375rem;
-
-    --connect__border-radius: 1.125rem;
-    --connect__inner-radius: 0.625rem;
   }
 }
 
@@ -252,12 +263,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 2rem;
 
-  --connect__spacer-xxl: 4rem;
-  --connect__spacer-xl: 2rem;
+  --connect__spacer-xxl: 3rem;
+  --connect__spacer-xl: 2.25rem;
   --connect__spacer-lg: 1.5rem;
   --connect__spacer-md: 1rem;
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxs: 0.125rem;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -265,11 +277,17 @@
   --connect__icon-lg: 2.5rem;
   --connect__icon-xl: 3.125rem;
 
+  --connect__radius-xxl: 7.5rem;
+  --connect__radius-xl: 1.875rem;
+  --connect__radius-lg: 1.5rem;
+  --connect__radius-md: 1.125rem;
+  --connect__radius-sm: 0.75rem;
+  --connect__radius-xs: 0.3125rem;
+  --connect__radius-xxs: 0.1875rem;
+
   --connect__total-border: 0.5rem;
-  --connect__border-radius: 0.75rem;
   --connect__mcq-border-w: 0.1563rem;
   --connect__effects-inner-edge: 0.1875rem;
-  --connect__inner-radius: .3125rem;
   --connect__inner-status: 0.4375rem;
   --connect__inner-divider-width: 0.5rem;
 }
@@ -308,17 +326,7 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
-
     --connect__icon-xl: 3.75rem;
-
-    --connect__border-radius: 0.875rem;
-    --connect__inner-radius: 0.375rem;
   }
 }
 
@@ -356,16 +364,20 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.125rem;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
-    --connect__spacer-sm: 0.5625rem;
+    --connect__spacer-xxl: 3.75rem;
+    --connect__spacer-xl: 2.5rem;
+    --connect__spacer-lg: 1.875rem;
+    --connect__spacer-md: 1.25rem;
+    --connect__spacer-sm: 0.625rem;
     --connect__spacer-xs: 0.3125rem;
-    --connect__icon-lg: 3.125rem;
+    --connect__spacer-xxs: 0.125rem;
 
-    --connect__border-radius: 1rem;
-    --connect__inner-radius: 0.5rem;
+    --connect__radius-xl: 2.5rem;
+    --connect__radius-lg: 2rem;
+    --connect__radius-md: 1.5rem;
+    --connect__radius-sm: 1rem;
+    --connect__radius-xs: 0.5rem;
+    --connect__radius-xxs: 0.25rem;
   }
 }
 
@@ -400,12 +412,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 0.9375rem;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
+  --connect__spacer-xxl: 4.25rem;
+  --connect__spacer-xl: 2.25rem;
+  --connect__spacer-lg: 1.5rem;
+  --connect__spacer-md: 1rem;
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxs: 0.125rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -413,12 +426,18 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 2.5rem;
 
+  --connect__radius-xxl: 7.5rem;
+  --connect__radius-xl: 1.25rem;
+  --connect__radius-lg: 1rem;
+  --connect__radius-md: 0.75rem;
+  --connect__radius-sm: 0.5rem;
+  --connect__radius-xs: 0.25rem;
+  --connect__radius-xxs: 0.125rem;
+
   --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.625rem;
   --connect__mcq-border-w: 0.1563rem;
   --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
-  --connect__inner-radius: 0.25rem;
   --connect__inner-divider-width: 0.375rem;
 }
 
@@ -454,18 +473,8 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1rem;
 
-    --connect__spacer-xxl: 4rem;
-    --connect__spacer-xl: 2rem;
-    --connect__spacer-lg: 1.5rem;
-    --connect__spacer-md: 1rem;
-    --connect__spacer-sm: 0.5rem;
-    --connect__spacer-xs: 0.25rem;
-
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.75rem;
-
-    --connect__border-radius: 0.75rem;
-    --connect__inner-radius: 0.375rem;
   }
 }
 
@@ -501,17 +510,15 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
+
+    --connect__radius-xl: 2.5rem;
+    --connect__radius-lg: 2rem;
+    --connect__radius-md: 1.5rem;
+    --connect__radius-sm: 0.75rem;
+    --connect__radius-xs: 0.375rem;
+    --connect__radius-xxs: 0.1875rem;
 
     --connect__icon-lg: 3.125rem;
-
-    --connect__border-radius: 0.875rem;
-    --connect__inner-radius: 0.5rem;
   }
 }
 
@@ -546,12 +553,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 0.9375rem;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
+  --connect__spacer-xxl: 4.25rem;
+  --connect__spacer-xl: 2.25rem;
+  --connect__spacer-lg: 1.5rem;
+  --connect__spacer-md: 1rem;
   --connect__spacer-sm: 0.5rem;
   --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxs: 0.125rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -559,12 +567,18 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 2.5rem;
 
+  --connect__radius-xxl: 7.5rem;
+  --connect__radius-xl: 1.25rem;
+  --connect__radius-lg: 1rem;
+  --connect__radius-md: 0.75rem;
+  --connect__radius-sm: 0.5rem;
+  --connect__radius-xs: 0.25rem;
+  --connect__radius-xxs: 0.125rem;
+
   --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.5rem;
   --connect__mcq-border-w: 0.125rem;
   --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
-  --connect__inner-radius: 0.125rem;
   --connect__inner-divider-width: 0.375rem;
 }
 
@@ -599,9 +613,6 @@
     --connect__spacer-xs: 0.25rem;
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.125rem;
-
-    --connect__border-radius: 0.625rem;
-    --connect__inner-radius: 0.25rem;
   }
 }
 
@@ -639,8 +650,12 @@
     --connect__icon-lg: 3.75rem;
     --connect__icon-xl: 3.125rem;
 
-    --connect__border-radius: 0.75rem;
-    --connect__inner-radius: 0.375rem;
+    --connect__radius-xl: 1.875rem;
+    --connect__radius-lg: 1.5rem;
+    --connect__radius-md: 1.125rem;
+    --connect__radius-sm: 0.75rem;
+    --connect__radius-xs: 0.375rem;
+    --connect__radius-xxs: 0.1875rem;
   }
 }
 
@@ -663,24 +678,25 @@
   --connect__body-lg-head-lheight: 1.875rem;
   --connect__body-md: 1.0625rem;
   --connect__body-md-lheight: 1.625rem;
-  --connect__body-md-spacer: .8125rem;
+  --connect__body-md-spacer: 0.8125rem;
   --connect__body-md-head-lheight: 1.625rem;
   --connect__body-sm: 1rem;
   --connect__body-sm-lheight: 1.5rem;
   --connect__body-sm-spacer: 1.875rem;
-  --connect__caption: .875rem;
+  --connect__caption: 0.875rem;
   --connect__caption-lheight: 1.375rem;
-  --connect__caption-spacer: .9375rem;
-  --connect__credits: .875rem;
+  --connect__caption-spacer: 0.9375rem;
+  --connect__credits: 0.875rem;
   --connect__credits-lheight: 1.375rem;
-  --connect__credits-spacer: .9375rem;
+  --connect__credits-spacer: 0.9375rem;
 
-  --connect__spacer-xxl: 3.25rem;
-  --connect__spacer-xl: 1.625rem;
-  --connect__spacer-lg: 1.25rem;
-  --connect__spacer-md: 0.8125rem;
-  --connect__spacer-sm: 0.4063rem;
-  --connect__spacer-xs: 0.2031rem;
+  --connect__spacer-xxl: 4.25rem;
+  --connect__spacer-xl: 2.25rem;
+  --connect__spacer-lg: 1.5rem;
+  --connect__spacer-md: 1rem;
+  --connect__spacer-sm: 0.5rem;
+  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxs: 0.125rem;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -688,10 +704,18 @@
   --connect__icon-lg: 1.875rem;
   --connect__icon-xl: 1.875rem;
 
+  --connect__radius-xxl: 7.5rem;
+  --connect__radius-xl: 1.25rem;
+  --connect__radius-lg: 1rem;
+  --connect__radius-md: 0.75rem;
+  --connect__radius-sm: 0.5rem;
+  --connect__radius-xs: 0.25rem;
+  --connect__radius-xxs: 0.125rem;
+
   --connect__total-border: 0.375rem;
-  --connect__border-radius: 0.5rem;
+
   --connect__mcq-border-w: 0.125rem;
-  --connect__inner-radius: 0.125rem;
+
   --connect__effects-inner-edge: 0.125rem;
   --connect__inner-status: 0.25rem;
   --connect__inner-divider-width: 0.375rem;
@@ -717,27 +741,17 @@
     --connect__body-lg-head-lheight: 1.875rem;
     --connect__body-md: 1.125rem;
     --connect__body-md-lheight: 1.75rem;
-    --connect__body-md-spacer: .875rem;
+    --connect__body-md-spacer: 0.875rem;
     --connect__body-md-head-lheight: 1.75rem;
     --connect__body-sm: 1rem;
     --connect__body-sm-lheight: 1.5rem;
     --connect__body-sm-spacer: 1.875rem;
-    --connect__caption: .875rem;
+    --connect__caption: 0.875rem;
     --connect__caption-lheight: 1.375rem;
-    --connect__caption-spacer: .9375rem;
-    --connect__credits: .875rem;
+    --connect__caption-spacer: 0.9375rem;
+    --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
-    --connect__credits-spacer: .9375rem;
-
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
-
-    --connect__border-radius: 0.5rem;
-    --connect__inner-radius: 0.125rem;
+    --connect__credits-spacer: 0.9375rem;
   }
 }
 
@@ -764,16 +778,7 @@
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
 
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
     --connect__icon-xl: 2.5rem;
-
-    --connect__border-radius: 0.625rem;
-    --connect__inner-radius: 0.25rem;
   }
 }
 
@@ -835,7 +840,7 @@
   max-width: var(--connect__media-max-width, 100%);
 }
 
-:where([class*='connect__'])>img {
+:where([class*='connect__']) > img {
   height: auto;
   max-height: 100%;
 }
@@ -926,7 +931,7 @@
   --connect__gray-c35: rgb(160, 162, 162);
   --connect__gray-c10: rgb(237, 237, 237);
   --connect__gray-c5: rgb(247, 247, 248);
-
+  --connect__hmh-gray: rgb(248, 246, 244);
   --connect__cool-gray-c20: rgb(192, 198, 200);
 
   --connect__red-c55: rgb(191, 19, 19);
@@ -952,7 +957,13 @@
   --connect__blue-s50: rgb(0, 106, 255);
   --connect__blue-c50: rgb(0, 114, 219);
 
-  --connect__aqua-s15: rgb(179, 242, 255);
+
+  --connect__aqua-s15: rgb(217, 254, 255);
+  --connect__aqua-s25: rgb(18, 243, 224);
+  --connect__aqua-s35: rgb(0, 196, 195);
+  --connect__teal-s40: rgb(0, 159, 184);
+  --connect__teal-s40: rgb(0, 114, 143);
+
   --connect__aqua-m40: rgb(32, 133, 160);
 
   --connect__apple-c10: rgb(230, 245, 181);
@@ -972,6 +983,14 @@
   --connect__passive-300: var(--connect__gray-c40);
   --connect__passive-400: var(--connect__gray-c50);
   --connect__passive-500: var(--connect__gray-c60);
+
+  --connect__surface-100: var(--connect__hmh-gray);
+  --connect__surface-200: var(--connect__gray-c10);
+  --connect__surface-300: var(--connect__gray-c20);
+  --connect__surface-400: var(--connect__gray-c40);
+  --connect__surface-500: var(--connect__gray-c50);
+  --connect__surface-600: var(--connect__gray-c60);
+  --connect__surface-700: var(--connect__gray-c70);
 
   /*
       3.2: Connect Default Palette
@@ -1057,6 +1076,13 @@
   --connect__focus-mid: var(--connect__cerise-s40);
   --connect__focus-light: var(--connect__cerise-s25);
   --connect__focus-pale: var(--connect__cerise-s10);
+
+  --connect__assistive-100: var(--connect__turquoise-s15);
+  --connect__assistive-200: var(--connect__turquoise-s25);
+  --connect__assistive-300: var(--connect__turquoise-s35);
+  --connect__assistive-400: var(--connect__teal-s40);
+  --connect__assistive-500: var(--connect__teal-s55);
+
 
   --connect__hint-dark: var(--connect__purple-c65);
   --connect__hint-mid: var(--connect__purple-c50);
@@ -1243,6 +1269,7 @@
   --connect__scale-full: 1;
   --connect__full-w: 100%;
   --connect__full-h: 100%;
+  --connect__auto-w: auto;
   --connect__auto-h: auto;
   --connect__half-radius: 50%;
 
@@ -1258,11 +1285,20 @@
          - x padding of input (spacer-sm)
          Total: (spacer-xs * 2) + (spacer-sm * 2)
       */
-  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
-  --connect__input-width-2: calc(2ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-5: calc(5ch + (var(--connect__spacer-sm) * 2));
-  --connect__input-width-9: calc(9ch + (var(--connect__spacer-sm) * 2));
 
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__border-color: color-mix(in srgb, var(--connect__table-theme-base) 100%, transparent);
+  --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
+  --connect__table-subheader-bg: color-mix(in srgb, var(--connect__table-theme-base) 30%, transparent);
+  --connect__table-cell-even-bg: color-mix(in srgb, var(--connect__table-theme-base) 10%, transparent);
+  --connect__table-row-hover-bg: color-mix(in srgb, var(--connect__table-theme-base) 23%, transparent);
+  --connect__table-row-hover-intersection: color-mix(in srgb, var(--connect__table-theme-base) 13%, transparent);
+
+  --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
+  --connect__input-width-sm: calc(2ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-md: calc(5ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-width-lg: calc(9ch + (var(--connect__spacer-sm) * 2));
+  --connect__input-table-cell-max-w: calc(22ch + calc(var(--connect__spacer-xs) * 2));
 
   font-size-adjust: ex-height 0.486;
 }

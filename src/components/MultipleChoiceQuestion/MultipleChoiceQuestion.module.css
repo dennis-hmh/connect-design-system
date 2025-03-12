@@ -8,7 +8,7 @@ Padding on MCQ labels is the total border + spacer
 | Font size           | --variant__label-fs            | --connect__body-sm             |
 | Line height         | --variant__label-lh            | --connect__body-sm-lheight     |
 | Font weight         | --variant__label-fw            | --connect__fw-regular          |
-| Radius              | --variant__label-border-radius | --connect__border-radius       |
+| Radius              | --variant__label-border-radius | --connect__radius-sm       |
 | Background color    | --variant__label-bg            | --connect__surface-white       |
 | Color               | --variant__label-color         | --connect__surface-dark        |
 | Gap                 | --variant__label-gap           | --connect__spacer-md           |
@@ -20,7 +20,7 @@ Padding on MCQ labels is the total border + spacer
 |---------------------|------------------------------|-------------------------------|
 | Property            |Variant/State                 | Fallback / Default            |
 |---------------------|------------------------------|-------------------------------|
-| Radius              | --variant__mcq-border-radius | --connect__inner-radius       |
+| Radius              | --variant__mcq-border-radius | --connect__radius-xs       |
 | Dimensions          | --variant__input-dimensions  | --connect__caption-lheight    |
 
 */
@@ -34,7 +34,7 @@ Padding on MCQ labels is the total border + spacer
 
     align-items: center;
     background-color: var(--variant__label-bg, var(--connect__surface-white));
-    border-radius: var(--variant__label-border-radius, var(--connect__border-radius));
+    border-radius: var(--variant__label-border-radius, var(--connect__radius-sm));
     box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
     color: var(--active-color, var(--connect__surface-dark));
     cursor: var(--connect__state-based-pointer, pointer);
@@ -54,7 +54,7 @@ Padding on MCQ labels is the total border + spacer
 
     &::before {
         border: var(--connect__input-border-w) solid var(--checkbox-checked-state-based-border-c, var(--connect__primary-mid));
-        border-radius: var(--variant__mcq-radius, var(--connect__inner-radius));
+        border-radius: var(--variant__mcq-radius, var(--connect__radius-xs));
         content: '';
         flex-shrink: 0;
         height: var(--connect__input-dimensions);
@@ -156,7 +156,7 @@ Positioning int he pseudos is the total border / 2
 
     &::after {
         background-color: var(--connect__surface-white);
-        border-radius: var(--connect__inner-radius) var(--connect__spacer-zero);
+        border-radius: var(--connect__radius-xs) var(--connect__spacer-zero);
         content: '';
         height: calc(var(--connect__input-dimensions) + var(--connect__mcq-input-margin) + var(--connect__inner-status));
         left: var(--connect__inner-divider-width);
@@ -170,7 +170,7 @@ Positioning int he pseudos is the total border / 2
         grid-row: 1 / -1;
 
         img {
-            border-radius: var(--connect__inner-radius);
+            border-radius: var(--connect__radius-xs);
         }
     }
 }
@@ -182,7 +182,7 @@ Positioning int he pseudos is the total border / 2
 }
 
 .connect__choice[type='radio'] {
-    +label {
+    + label {
         --variant__mcq-radius: var(--connect__half-radius);
     }
 }
