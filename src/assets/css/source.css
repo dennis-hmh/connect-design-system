@@ -997,7 +997,13 @@
   --connect__blue-s50: rgb(0, 106, 255);
   --connect__blue-c50: rgb(0, 114, 219);
 
-  --connect__aqua-s15: rgb(179, 242, 255);
+
+  --connect__aqua-s15: rgb(217, 254, 255);
+  --connect__aqua-s25: rgb(18, 243, 224);
+  --connect__aqua-s35: rgb(0, 196, 195);
+  --connect__teal-s40: rgb(0, 159, 184);
+  --connect__teal-s40: rgb(0, 114, 143);
+
   --connect__aqua-m40: rgb(32, 133, 160);
 
   --connect__apple-c10: rgb(230, 245, 181);
@@ -1110,6 +1116,13 @@
   --connect__focus-mid: var(--connect__cerise-s40);
   --connect__focus-light: var(--connect__cerise-s25);
   --connect__focus-pale: var(--connect__cerise-s10);
+
+  --connect__assistive-100: var(--connect__turquoise-s15);
+  --connect__assistive-200: var(--connect__turquoise-s25);
+  --connect__assistive-300: var(--connect__turquoise-s35);
+  --connect__assistive-400: var(--connect__teal-s40);
+  --connect__assistive-500: var(--connect__teal-s55);
+
 
   --connect__hint-dark: var(--connect__purple-c65);
   --connect__hint-mid: var(--connect__purple-c50);
