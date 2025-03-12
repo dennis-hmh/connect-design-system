@@ -100,12 +100,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 1.125rem;
 
-  --connect__spacer-xxl: 4.25rem;
-  --connect__spacer-xl: 2.125rem;
-  --connect__spacer-lg: 1.625rem;
-  --connect__spacer-md: 1.0625rem;
-  --connect__spacer-sm: 0.5625rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 68px;
+  --connect__spacer-xl: 36px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
+  --connect__spacer-xxs: 2px;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -164,11 +165,6 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.25rem;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
-
     --connect__icon-sm: 2.5rem;
     --connect__icon-md: 3.125rem;
     --connect__icon-lg: 3.125rem;
@@ -220,12 +216,13 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.4375rem;
 
-    --connect__spacer-xxl: 5.25rem;
-    --connect__spacer-xl: 2.625rem;
-    --connect__spacer-lg: 2rem;
-    --connect__spacer-md: 1.3125rem;
-    --connect__spacer-sm: 0.6875rem;
-    --connect__spacer-xs: 0.3125rem;
+    --connect__spacer-xxl: 72px;
+    --connect__spacer-xl: 48px;
+    --connect__spacer-lg: 36px;
+    --connect__spacer-md: 24px;
+    --connect__spacer-sm: 12px;
+    --connect__spacer-xs: 6px;
+    --connect__spacer-xxs: 2px;
 
     --connect__radius-xl: 50px;
     --connect__radius-lg: 40px;
@@ -274,12 +271,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 2rem;
 
-  --connect__spacer-xxl: 4rem;
-  --connect__spacer-xl: 2rem;
-  --connect__spacer-lg: 1.5rem;
-  --connect__spacer-md: 1rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 48px;
+  --connect__spacer-xl: 36px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
+  --connect__spacer-xxs: 2px;
 
   --connect__icon-xs: 1.875rem;
   --connect__icon-sm: 1.875rem;
@@ -338,13 +336,6 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
-
     --connect__icon-xl: 3.75rem;
 
     --connect__border-radius: 0.875rem;
@@ -386,13 +377,13 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.125rem;
 
-    --connect__spacer-xxl: 4.5rem;
-    --connect__spacer-xl: 2.25rem;
-    --connect__spacer-lg: 1.6875rem;
-    --connect__spacer-md: 1.125rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.3125rem;
-    --connect__icon-lg: 3.125rem;
+    --connect__spacer-xxl: 60px;
+    --connect__spacer-xl: 40px;
+    --connect__spacer-lg: 30px;
+    --connect__spacer-md: 20px;
+    --connect__spacer-sm: 10px;
+    --connect__spacer-xs: 5px;
+    --connect__spacer-xxs: 2px;
 
     --connect__radius-xl: 40px;
     --connect__radius-lg: 32px;
@@ -437,12 +428,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 0.9375rem;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 68px;
+  --connect__spacer-xl: 36px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
+  --connect__spacer-xxs: 2px;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -499,13 +491,6 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1rem;
 
-    --connect__spacer-xxl: 4rem;
-    --connect__spacer-xl: 2rem;
-    --connect__spacer-lg: 1.5rem;
-    --connect__spacer-md: 1rem;
-    --connect__spacer-sm: 0.5rem;
-    --connect__spacer-xs: 0.25rem;
-
     --connect__icon-lg: 2.5rem;
     --connect__icon-xl: 3.75rem;
 
@@ -546,12 +531,6 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: 1.0625rem;
 
-    --connect__spacer-xxl: 4.25rem;
-    --connect__spacer-xl: 2.125rem;
-    --connect__spacer-lg: 1.625rem;
-    --connect__spacer-md: 1.0625rem;
-    --connect__spacer-sm: 0.5625rem;
-    --connect__spacer-xs: 0.25rem;
 
     --connect__radius-xl: 40px;
     --connect__radius-lg: 32px;
@@ -598,12 +577,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: 0.9375rem;
 
-  --connect__spacer-xxl: 3.75rem;
-  --connect__spacer-xl: 1.875rem;
-  --connect__spacer-lg: 1.4375rem;
-  --connect__spacer-md: 0.9375rem;
-  --connect__spacer-sm: 0.5rem;
-  --connect__spacer-xs: 0.25rem;
+  --connect__spacer-xxl: 68px;
+  --connect__spacer-xl: 36px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
+  --connect__spacer-xxs: 2px;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -742,12 +722,13 @@
   --connect__credits-lheight: 1.375rem;
   --connect__credits-spacer: .9375rem;
 
-  --connect__spacer-xxl: 3.25rem;
-  --connect__spacer-xl: 1.625rem;
-  --connect__spacer-lg: 1.25rem;
-  --connect__spacer-md: 0.8125rem;
-  --connect__spacer-sm: 0.4063rem;
-  --connect__spacer-xs: 0.2031rem;
+  --connect__spacer-xxl: 68px;
+  --connect__spacer-xl: 36px;
+  --connect__spacer-lg: 24px;
+  --connect__spacer-md: 16px;
+  --connect__spacer-sm: 8px;
+  --connect__spacer-xs: 4px;
+  --connect__spacer-xxs: 2px;
 
   --connect__icon-xs: 1.25rem;
   --connect__icon-sm: 1.25rem;
@@ -804,13 +785,6 @@
     --connect__credits-lheight: 1.375rem;
     --connect__credits-spacer: .9375rem;
 
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
-
     --connect__border-radius: 0.5rem;
     --connect__inner-radius: 0.125rem;
   }
@@ -839,12 +813,6 @@
     --connect__credits: 0.875rem;
     --connect__credits-lheight: 1.375rem;
 
-    --connect__spacer-xxl: 3.5rem;
-    --connect__spacer-xl: 1.75rem;
-    --connect__spacer-lg: 1.3125rem;
-    --connect__spacer-md: 0.875rem;
-    --connect__spacer-sm: 0.4375rem;
-    --connect__spacer-xs: 0.2188rem;
     --connect__icon-xl: 2.5rem;
 
     --connect__border-radius: 0.625rem;
