@@ -8,7 +8,7 @@ import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 
 const meta: Meta<typeof ButtonGroup> = {
   component: ButtonGroup,
-  title: 'Buttons/Button Group',
+  title: 'WIP/Button Group',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
