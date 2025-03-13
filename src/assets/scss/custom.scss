@@ -1440,6 +1440,7 @@ Positioning int he pseudos is the total border / 2
 
 /* table Component */
 .connect__table-wrapper {
+  --connect__table-theme-base: var(--connect__surface-400);
   --connect__table-bg: var(--connect__white);
   --connect__thead-bg: var(--connect__surface-pale);
   --connect__table-border-c: rgb(220, 220, 220);
