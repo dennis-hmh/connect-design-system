@@ -5,6 +5,7 @@ export type TableProps = {
   headers?: string[];
   cells: string[][];
   caption?: string;
+  colgroup?: boolean;
   scrolling?: boolean;
   stickyHeader?: boolean;
   scopeCol?: boolean;
@@ -18,6 +19,7 @@ export const Table: React.FC<TableProps> = ({
   headers = [],
   cells = [],
   caption,
+  colgroup = true,
   scrolling = true,
   stickyHeader,
   scopeCol,
@@ -45,6 +47,13 @@ export const Table: React.FC<TableProps> = ({
           <caption id="caption" className="connect__table-caption">
             {caption}
           </caption>
+        )}
+        {colgroup && (
+          <colgroup>
+            {headers.map((_, index) => (
+              <col key={index} />
+            ))}
+          </colgroup>
         )}
         <thead>
           <tr>
