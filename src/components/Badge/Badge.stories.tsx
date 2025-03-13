@@ -6,7 +6,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Badge> = {
-  title: 'wip/Badge',
+  title: 'Misc/Badge',
   component: Badge,
   tags: ['autodocs'],
   parameters: {
