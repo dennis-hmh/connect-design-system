@@ -1443,7 +1443,8 @@ Positioning int he pseudos is the total border / 2
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
   --connect__table-theme-base: var(--connect__surface-400);
-  --border: 1px solid var(--connect__border-color, var(--connect__surface-400, #dcdcdc));
+  --connect__table-border: 1px solid
+    var(--connect__border-color, var(--connect__surface-400, #dcdcdc));
 
   overflow-x: auto;
   padding: var(--connect__spacer-sm);
@@ -1458,13 +1459,12 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-table:not(.connect__table),
 .connect__table {
   background-color: var(--connect__surface-white, inherit);
+  border: var(--connect__table-border);
   border-collapse: separate;
   border-radius: var(--connect__radius-sm);
   border-spacing: 0;
-  border: var(--border);
   color: var(--connect__table-color);
   overflow: var(--connect__overflow-hidden);
   width: fit-content;
@@ -1510,43 +1510,42 @@ table:not(.connect__table),
     text-align: start;
   }
 
-  th.subheader,
-  td.subheader {
+  .connect__subheader {
     background-color: var(--connect__table-subheader-bg, var(--connect__surface-100, #f7f7f8));
   }
 
   th:not(:last-child),
   td:not(:last-child) {
-    border-right: var(--border);
+    border-right: var(--connect__table-border);
   }
 
-  tr:not(:has(> td.subheader)):hover td {
+  tr:not(:has(> .connect__subheader)):hover td {
     background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
   }
 
-  tr:not(:has(> td.subheader)):nth-of-type(even):hover td {
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):hover td {
     background-color: var(
       --connect__table-row-hover-intersection,
       var(--connect__surface-100, initial)
     );
   }
 
-  tr:not(:has(> td.subheader)):has(> th:first-child + td):hover {
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover {
     background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
   }
 
-  tr:not(:has(> td.subheader)):has(> th:first-child + td):hover th {
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover th {
     background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
   }
 
-  tr:not(:has(> td.subheader)):nth-of-type(even):has(> th:first-child + td):hover {
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover {
     background-color: var(
       --connect__table-row-hover-intersection,
       var(--connect__surface-100, initial)
     );
   }
 
-  tr:not(:has(> td.subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
     background-color: var(
       --connect__table-row-hover-intersection,
       var(--connect__surface-100, initial)
@@ -1565,26 +1564,24 @@ table:not(.connect__table),
 
   th:not(:last-child),
   td:not(:last-child) {
-    border-right: var(--border);
+    border-right: var(--connect__table-border);
   }
 
   th,
   td {
     color: var(--connect__surface-dark, #000);
+    cursor: text; // comeback
     font-size: var(--connect__caption);
+    height: var(--connect__auto-h, 2.5rem); // comeback
     line-height: var(--connect__caption-lheight);
 
     // comeback
-    height: var(--connect__auto-h, 2.5rem);
-    min-width: var(--connect__auto-w, 6rem);
     max-width: var(--connect__input-table-cell-max-w);
-    padding: var(--connect__spacer-xs, 0) var(--connect__spacer-sm, 1rem);
-    cursor: text;
-    vertical-align: top;
-    font-size: var(--connect__caption);
-    line-height: var(--connect__caption-lheight);
+    min-width: var(--connect__auto-w, 6rem);
     overflow: hidden;
+    padding: var(--connect__spacer-xs, 0) var(--connect__spacer-sm, 1rem);
     text-overflow: ellipsis;
+    vertical-align: top;
   }
 
   // th {
@@ -1595,6 +1592,7 @@ table:not(.connect__table),
 
   // Don't ask why thead is here haha it's their code not me
 
+  /* stylelint-disable selector-max-compound-selectors */
   & > thead > tr:not(:last-child) > th,
   & > thead > tr:not(:last-child) > td,
   & > tbody > tr:not(:last-child) > th,
@@ -1606,8 +1604,9 @@ table:not(.connect__table),
   & > thead:not(:last-child),
   & > tbody:not(:last-child),
   & > tfoot:not(:last-child) {
-    border-bottom: var(--border);
+    border-bottom: var(--connect__table-border);
   }
+  /* stylelint-enable selector-max-compound-selectors */
 }
 
 @container table-container (max-width: 26rem) {
@@ -1625,7 +1624,7 @@ table:not(.connect__table),
     }
 
     tr {
-      border-bottom: var(--border);
+      border-bottom: var(--connect__table-border);
       padding: var(--connect__spacer-sm) 0;
     }
 
