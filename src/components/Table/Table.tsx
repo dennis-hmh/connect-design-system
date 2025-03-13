@@ -3,6 +3,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 export type TableProps = {
   headers?: string[];
+  subheaders?: string[];
   cells: string[][];
   caption?: string;
   colgroup?: boolean;
@@ -17,6 +18,7 @@ export type TableProps = {
 
 export const Table: React.FC<TableProps> = ({
   headers = [],
+  subheaders = [],
   cells = [],
   caption,
   colgroup = true,
@@ -61,6 +63,11 @@ export const Table: React.FC<TableProps> = ({
               <th scope={scopeCol ? 'scope=col' : undefined} key={headerIndex[headerIndex]}>
                 {header}
               </th>
+            ))}
+            {subheaders.map((subheader, subheaderIndex) => (
+              <td className="subheader" key={subheaderIndex[subheaderIndex]}>
+                {subheader}
+              </td>
             ))}
           </tr>
         </thead>
