@@ -1458,7 +1458,7 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-table,
+table:not(.connect__table),
 .connect__table {
   background-color: var(--connect__surface-white, inherit);
   border-collapse: separate;
