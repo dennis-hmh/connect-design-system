@@ -1440,16 +1440,8 @@ Positioning int he pseudos is the total border / 2
 
 /* table Component */
 .connect__table-wrapper {
-  // --connect__table-theme-base: var(--connect__surface-400);
-  // --connect__table-bg: var(--connect__white);
-  // --connect__thead-bg: var(--connect__surface-pale);
-  // --connect__table-border-c: rgb(220, 220, 220);
-  // --connect__tr-hover-bg: var(--connect__gray-c5);
-  // --connect__table-border-w: 0.0625rem;
-  // --connect__table-color: var(--connect__surface-dark);
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
-
   --connect__table-theme-base: var(--connect__surface-400);
   --border: 1px solid var(--connect__border-color, var(--connect__surface-400, #dcdcdc));
 
@@ -1466,7 +1458,8 @@ Positioning int he pseudos is the total border / 2
   }
 }
 
-table {
+table,
+.connect__table {
   background-color: var(--connect__surface-white, inherit);
   border-collapse: separate;
   border-radius: var(--connect__radius-sm);
@@ -1489,7 +1482,7 @@ table {
         background-color: var(
           --connect__surface-300,
           var(--connect__gray-c20, var(--connect__gray-c35))
-        );
+        ); // --connect__gray-c20 doesn't exist, therefor --connect__suraface-300 is broken, but I need a none transparent header for sticky header so using --connect__gray-c35 as a backup.
       }
     }
   }
@@ -1590,9 +1583,6 @@ table {
     vertical-align: top;
     font-size: var(--connect__caption);
     line-height: var(--connect__caption-lheight);
-  }
-
-  td {
     overflow: hidden;
     text-overflow: ellipsis;
   }
