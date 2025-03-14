@@ -5,7 +5,7 @@ import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
 const meta: Meta<typeof Avatar> = {
-  title: 'WIP/Avatar',
+  title: 'Misc/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   parameters: {
