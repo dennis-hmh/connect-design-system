@@ -34,6 +34,7 @@ export const Default = Template.bind({});
 Default.args = {
   scrolling: true,
   stickyHeader: false,
+  theme: '',
   headers: ['Header 1', 'Header 2', 'Header 3', 'Header 4'],
   cells: [
     ['Row 1 - Col 1', 'Row 1 - Col 2', 'Row 1 - Col 3', 'Row 1 - Col 4'],
@@ -70,6 +71,13 @@ ScopeRow.args = {
   ],
 };
 
+export const TableTheme = Template.bind({});
+TableTheme.args = {
+  ...Default.args,
+  caption: 'Table Theme',
+  theme: 'primary',
+};
+
 export const NoHeader = Template.bind({});
 NoHeader.args = {
   ...Default.args,
@@ -91,10 +99,10 @@ FillInTheBlank.args = {
   caption: 'Fill in the Blank',
   headers: ['Question', 'Answer'],
   cells: [
-    ['The capital of France is', <InputText />],
-    ['The capital of Germany is', <InputText />],
-    ['The capital of Italy is', <InputText />],
-    ['The capital of Japan is', <InputText />],
+    ['The capital of France is', <InputText value="" />],
+    ['The capital of Germany is', <InputText value="" />],
+    ['The capital of Italy is', <InputText value="" />],
+    ['The capital of Japan is', <InputText value="" />],
   ],
 };
 

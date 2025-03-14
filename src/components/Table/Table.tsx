@@ -1,10 +1,12 @@
 import React from 'react';
+import { SemanticColorToken } from '../../utils/new-colors';
 import { GradeBand } from '../../enum/gradeband';
 
 export type TableProps = {
   headers?: string[];
   subheaders?: string[];
   cells: string[][];
+  theme?: SemanticColorToken;
   caption?: string;
   colgroup?: boolean;
   scrolling?: boolean;
@@ -21,6 +23,7 @@ export const Table: React.FC<TableProps> = ({
   subheaders = [],
   cells = [],
   caption,
+  theme,
   colgroup = true,
   scrolling = true,
   stickyHeader,
@@ -38,11 +41,24 @@ export const Table: React.FC<TableProps> = ({
     .filter(Boolean)
     .join(' ');
 
+  const themeColor = theme ? `var(--connect__color-${theme}-400)` : '';
+
+  const themeColorSticky = stickyHeader && theme ? `var(--connect__color-${theme}-100)` : '';
+
+  // eslint-disable-next-line no-console
+  console.log(`themeColor: ${themeColor}`);
+
   return (
     <div
       className="connect__table-wrapper"
       role="region"
       aria-labelledby={caption ? 'caption' : undefined}
+      style={
+        {
+          '--connect__table-theme-base': themeColor,
+          '--connect__table-theme-base-sticky': themeColorSticky,
+        } as React.CSSProperties
+      }
     >
       <table className={classNames} data-testid={dataTestId}>
         {caption && (

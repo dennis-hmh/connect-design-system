@@ -1664,8 +1664,7 @@ Positioning int he pseudos is the total border / 2
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
   --connect__table-theme-base: var(--connect__surface-400);
-  --connect__table-border: 1px solid
-    var(--connect__border-color, var(--connect__surface-400, #dcdcdc));
+  --connect__table-border: 1px solid var(--connect__table-border-color, var(--connect__surface-400));
 
   overflow-x: auto;
   padding: var(--connect__spacer-sm);
@@ -1701,9 +1700,9 @@ Positioning int he pseudos is the total border / 2
       z-index: 1;
       th {
         background-color: var(
-          --connect__surface-300,
-          var(--connect__gray-c20, var(--connect__gray-c35))
-        ); // --connect__gray-c20 doesn't exist, therefor --connect__suraface-300 is broken, but I need a none transparent header for sticky header so using --connect__gray-c35 as a backup.
+          --connect__table-header-bg-opac,
+          var(--connect__table-theme-base-sticky, var(--connect__surface-100))
+        );
       }
     }
   }
@@ -1727,12 +1726,18 @@ Positioning int he pseudos is the total border / 2
   }
 
   th {
-    background-color: var(--connect__table-header-bg, var(--connect__surface-200, #ededed));
+    background-color: var(
+      --connect__table-header-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
     text-align: start;
   }
 
   .connect__subheader {
-    background-color: var(--connect__table-subheader-bg, var(--connect__surface-100, #f7f7f8));
+    background-color: var(
+      --connect__table-subheader-bg,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
   }
 
   th:not(:last-child),
@@ -1741,35 +1746,44 @@ Positioning int he pseudos is the total border / 2
   }
 
   tr:not(:has(> .connect__subheader)):hover td {
-    background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
   }
 
   tr:not(:has(> .connect__subheader)):nth-of-type(even):hover td {
     background-color: var(
       --connect__table-row-hover-intersection,
-      var(--connect__surface-100, initial)
+      var(--connect__table-theme-base var(--connect__surface-100))
     );
   }
 
   tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover {
-    background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base var(--connect__surface-200))
+    );
   }
 
   tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover th {
-    background-color: var(--connect__table-row-hover-bg, var(--connect__surface-200, initial));
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
   }
 
   tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover {
     background-color: var(
       --connect__table-row-hover-intersection,
-      var(--connect__surface-100, initial)
+      var(--connect__table-theme-base, var(--connect__surface-100))
     );
   }
 
   tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
     background-color: var(
       --connect__table-row-hover-intersection,
-      var(--connect__surface-100, initial)
+      var(--connect__table-theme-base, var(--connect__surface-100))
     );
   }
 
