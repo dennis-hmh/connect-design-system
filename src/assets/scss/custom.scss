@@ -2042,6 +2042,60 @@ These styles apply to elements with classes that include '-correct'.
 }
 
 /* 
+These styles apply to elements that use Sematic colors.
+*/
+
+.connect__color-primary {
+  --connect__inner-status-color: var(--connect__color-primary-400);
+  --state-based-bg: var(--connect__color-primary-100);
+}
+
+.connect__color-secondary {
+  --connect__inner-status-color: var(--connect__color-secondary-400);
+  --state-based-bg: var(--connect__color-secondary-100);
+}
+
+.connect__color-neutral {
+  --connect__inner-status-color: var(--connect__color-neutral-300);
+  --state-based-bg: var(--connect__color-neutral-100);
+}
+
+.connect__color-assistive {
+  --connect__inner-status-color: var(--connect__color-assistive-300);
+  --state-based-bg: var(--connect__color-assistive-100);
+}
+
+.connect__color-caution {
+  --connect__inner-status-color: var(--connect__color-caution-500);
+  --state-based-bg: var(--connect__color-caution-100);
+}
+
+.connect__color-negative {
+  --connect__inner-status-color: var(--connect__color-negative-400);
+  --state-based-bg: var(--connect__color-negative-100);
+}
+
+.connect__color-constructive {
+  --connect__inner-status-color: var(--connect__color-constructive-400);
+  --state-based-bg: var(--connect__color-constructive-100);
+}
+
+.connect__color-positive {
+  --connect__inner-status-color: var(--connect__color-positive-400);
+  --state-based-bg: var(--connect__color-positive-100);
+}
+
+.connect__color-focus {
+  --connect__inner-status-color: var(--connect__color-focus-500);
+  --state-based-bg: var(--connect__color-focus-100);
+}
+
+.connect__color-white {
+  --connect__inner-status-color: var(--connect__white);
+  --state-based-bg: var(--connect__white);
+}
+
+/* 
 These styles apply to elements with classes that include '-correct'.
 
 | Property      | Variable                      | Description                       |

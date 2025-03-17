@@ -1,5 +1,6 @@
 import React from 'react';
 import { GradeBand } from 'src/enum/gradeband';
+import { SemanticColorToken } from 'src/utils/new-colors';
 
 export type InputBoxProps = {
   type: 'checkbox' | 'radio';
@@ -8,6 +9,7 @@ export type InputBoxProps = {
   children: React.ReactNode;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  color?: SemanticColorToken;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
@@ -23,16 +25,48 @@ const getClassNames = ({
   answerShown,
   isChecked,
   disabled,
+  color,
 }: {
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   isChecked: boolean;
   disabled?: boolean;
+  color?: SemanticColorToken;
 }) => {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
-  const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
-  const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  const inputStates = [
+    correct ? 'connect__feedback-correct' : '',
+    incorrect ? 'connect__feedback-incorrect' : '',
+    answerShown ? 'connect__feedback-shown' : '',
+    isChecked ? 'connect__choice-checked' : '',
+    disabled ? 'connect__disabled' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const choiceClass = [
+    'connect__choice',
+    inputStates,
+    color && `connect__color-${color}`,
+    isChecked ? 'connect__choice-checked' : '',
+    disabled ? 'connect__disabled' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const labelClass = [
+    'connect__choice-label',
+    inputStates,
+    color && `connect__color-${color}`,
+    isChecked ? 'connect__label-checked' : '',
+    disabled ? 'connect__disabled' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  // const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
+  // const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
+  // const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   return { choiceClass, labelClass };
 };
 
@@ -43,6 +77,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   children,
   checked,
   onChange,
+  color,
   correct,
   incorrect,
   answerShown,
@@ -56,6 +91,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
     answerShown,
     isChecked: checked,
     disabled,
+    color,
   });
 
   return (
@@ -70,7 +106,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
         disabled={disabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`${classes} ${labelClass}`}>
+      <label htmlFor={id} className={`${labelClass} ${classes ? classes : ''}`}>
         {children}
       </label>
     </div>

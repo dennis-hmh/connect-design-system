@@ -1,5 +1,6 @@
 // @ts-ignore: React is used implicitly in JSX
-import React, { useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
+import React, { useState } from 'react';
+import { SemanticColorToken } from 'src/utils/new-colors';
 import { CharacterCounter } from '../CharacterCounter/CharacterCounter';
 import { GradeBand } from 'src/enum/gradeband';
 
@@ -7,6 +8,7 @@ export type InputTextProps = {
   value: string | number;
   onChange?: (value: string) => void;
   placeholderText?: string | undefined;
+  color?: SemanticColorToken;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
@@ -22,6 +24,7 @@ export function InputText({
   value = '',
   onChange,
   placeholderText,
+  color,
   correct,
   incorrect,
   answerShown,
@@ -38,6 +41,8 @@ export function InputText({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
+    disabled && 'connect__disabled',
+    color && `connect__color-${color}`,
     charLimit && 'connect__input-character-count',
   ]
     .filter(Boolean)
@@ -66,7 +71,7 @@ export function InputText({
     <label className={`connect__icon-wrapper ${inputStates}`}>
       <input
         type={isNumber}
-        className={`connect__input ${inputStates} ${disabled ? 'connect__disabled' : ''}`}
+        className={`connect__input ${inputStates}`}
         disabled={shouldBeDisabled}
         value={value}
         placeholder={placeholderText ? placeholderText : ''}

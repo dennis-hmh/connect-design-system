@@ -55,6 +55,7 @@ Default.args = {
   id: 'answer',
   name: 'input',
   checked: false,
+  color: undefined,
   correct: false,
   incorrect: false,
   answerShown: false,

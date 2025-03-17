@@ -52,6 +52,7 @@ export const OnClearWIP: Story = Template.bind({});
 Default.args = {
   value: '',
   placeholderText: '',
+  color: undefined,
   charLimit: undefined,
   correct: false,
   incorrect: false,
