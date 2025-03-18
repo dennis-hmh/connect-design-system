@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { SelectBox, SelectBoxProps } from './SelectBox';
 import { ConnectTheme } from '../ConnectTheme';
@@ -18,11 +18,20 @@ type Story = StoryObj<typeof SelectBox>;
 
 const Template: StoryFn<SelectBoxProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedValue, setSelectedValue] = useState(args.value || '');
+
+  const handleChange = (value: string) => {
+    setSelectedValue(value);
+  };
+
+  useEffect(() => {
+    setSelectedValue(args.value || '');
+  }, [args.value]);
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <SelectBox {...args} />
+        <SelectBox {...args} value={selectedValue} onChange={handleChange} />
       </div>
     </ConnectTheme>
   );
@@ -45,7 +54,7 @@ export const Disabled: Story = Template.bind({});
 
 Default.args = {
   data: options,
-  defaultValue: '',
+  value: '',
   correct: false,
   incorrect: false,
   disabled: false,
@@ -54,7 +63,7 @@ Default.args = {
 
 SelectedValue.args = {
   ...Default.args,
-  defaultValue: 'option-5',
+  value: 'option-5',
 };
 
 Correct.args = {
@@ -64,15 +73,18 @@ Correct.args = {
 
 Incorrect.args = {
   ...Default.args,
+  value: 'option-2',
   incorrect: true,
 };
 
 AnswerShown.args = {
   ...Default.args,
+  value: 'option-3',
   answerShown: true,
 };
 
 Disabled.args = {
   ...Default.args,
+  value: 'option-4',
   disabled: true,
 };
