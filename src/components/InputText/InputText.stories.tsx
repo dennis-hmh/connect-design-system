@@ -88,6 +88,7 @@ Correct.args = {
   correct: true,
   value: 'Answer correct',
   charLimit: 50,
+  disabled: true,
 };
 
 Incorrect.args = {
@@ -95,6 +96,7 @@ Incorrect.args = {
   incorrect: true,
   value: 'Answer incorrect',
   charLimit: 50,
+  disabled: true,
 };
 
 AnswerShown.args = {
@@ -102,13 +104,14 @@ AnswerShown.args = {
   answerShown: true,
   value: 'Answer shown',
   charLimit: 50,
+  disabled: true,
 };
 
 Disabled.args = {
   ...Default.args,
   value: 'Disabled',
-  disabled: true,
   charLimit: 50,
+  disabled: true,
 };
 
 Number.args = {

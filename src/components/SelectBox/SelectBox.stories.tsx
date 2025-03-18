@@ -58,6 +58,7 @@ Default.args = {
   color: undefined,
   correct: false,
   incorrect: false,
+  answerShown: false,
   disabled: false,
   gradeBand: GradeBand.G4_5,
 };
@@ -71,18 +72,21 @@ Correct.args = {
   ...Default.args,
   value: 'option-4',
   correct: true,
+  disabled: true,
 };
 
 Incorrect.args = {
   ...Default.args,
   value: 'option-2',
   incorrect: true,
+  disabled: true,
 };
 
 AnswerShown.args = {
   ...Default.args,
   value: 'option-3',
   answerShown: true,
+  disabled: true,
 };
 
 Disabled.args = {

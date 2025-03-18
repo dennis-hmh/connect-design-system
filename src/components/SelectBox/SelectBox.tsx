@@ -65,11 +65,6 @@ export function SelectBox({
     .filter(Boolean)
     .join(' ');
 
-  // const wrapperClasses = `connect__icon-wrapper ${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
-  // const selectClasses = `connect__select ${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''}${answerShown ? 'connect__feedback-shown' : ''} ${disabled ? 'connect__disabled' : ''}`;
-
-  const shouldBeDisabled = correct || incorrect || answerShown || disabled;
-
   return (
     <label className={wrapperClasses}>
       <select
@@ -78,7 +73,7 @@ export function SelectBox({
         value={value}
         aria-label={inputAriaLabel}
         onChange={handleChange}
-        disabled={shouldBeDisabled}
+        disabled={disabled}
         data-testid={dataTestId}
       >
         <SelectBoxOptions data={data} />

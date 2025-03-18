@@ -79,18 +79,21 @@ Correct.args = {
   ...Default.args,
   checked: true,
   correct: true,
+  disabled: true,
 };
 
 Incorrect.args = {
   ...Default.args,
   checked: true,
   incorrect: true,
+  disabled: true,
 };
 
 AnswerShown.args = {
   ...Default.args,
   checked: true,
   answerShown: true,
+  disabled: true,
 };
 
 Disabled.args = {

@@ -58,9 +58,6 @@ export function InputText({
   } else if (answerShown) {
     inputAriaLabel += ', answer shown';
   }
-
-  const shouldBeDisabled = correct || incorrect || answerShown || disabled;
-
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event.currentTarget.value);
@@ -72,13 +69,13 @@ export function InputText({
       <input
         type={isNumber}
         className={`connect__input ${inputStates}`}
-        disabled={shouldBeDisabled}
         value={value}
         placeholder={placeholderText ? placeholderText : ''}
         onChange={handleTextChange}
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
+        disabled={disabled}
         data-testid={dataTestId}
       />
       {onClear && (

@@ -1,6 +1,6 @@
 import React from 'react';
-import { GradeBand } from 'src/enum/gradeband';
 import { SemanticColorToken } from 'src/utils/new-colors';
+import { GradeBand } from 'src/enum/gradeband';
 
 export type InputBoxProps = {
   type: 'checkbox' | 'radio';
@@ -64,9 +64,6 @@ const getClassNames = ({
     .filter(Boolean)
     .join(' ');
 
-  // const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
-  // const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
-  // const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
   return { choiceClass, labelClass };
 };
 

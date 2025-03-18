@@ -2150,7 +2150,6 @@ Cover Text / Cursors / Iconography
 | Property Type | Variable                        | Description                    |
 |---------------|---------------------------------|--------------------------------|
 | Color         | --active-color                  | Change to disabled text mid    |
-| Cursor        | --connect__state-based-pointer  | Change to disabled cursor      |
 | Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon  |
 */
 
@@ -2158,7 +2157,6 @@ Cover Text / Cursors / Iconography
 .connect__feedback-incorrect,
 .connect__feedback-shown {
   --active-color: var(--connect__disabled-mid);
-  --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
