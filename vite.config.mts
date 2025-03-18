@@ -82,6 +82,7 @@ export default defineConfig({
     libInjectCss(),
     externalizeDeps(),
   ],
+  server: { hmr: { overlay: false } },
   resolve: {
     alias: {
       '@': '/src',
