@@ -1,20 +1,20 @@
-name: Chromatic Build
-
 on:
   push:
     branches:
       - main
+    paths: ['stories/**/*', 'src/components/**/*']
 
 jobs:
   chromatic:
+    name: Build Chromatic
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -22,6 +22,4 @@ jobs:
         run: pnpm install
 
       - name: Run Chromatic
-        run: npx chromatic --project-token=chpt_3466af048492acd
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm chromatic --project-token=chpt_3466af048492acd # Don't see a way to use Github security/secrets within Enterprise
