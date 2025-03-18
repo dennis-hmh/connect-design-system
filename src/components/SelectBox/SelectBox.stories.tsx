@@ -55,6 +55,7 @@ export const Disabled: Story = Template.bind({});
 Default.args = {
   data: options,
   value: '',
+  color: undefined,
   correct: false,
   incorrect: false,
   disabled: false,
@@ -68,6 +69,7 @@ SelectedValue.args = {
 
 Correct.args = {
   ...Default.args,
+  value: 'option-4',
   correct: true,
 };
 
