@@ -4,6 +4,8 @@ export * from './AvatarGroup/AvatarGroup';
 export * from './Badge/Badge';
 // export * from './Blockquote/Blockquote';
 export * from './Button/Button';
+export * from './ButtonBase/ButtonBase';
+export * from './ButtonGroup/ButtonGroup';
 export * from './ButtonMenu/ButtonMenu';
 // export * from './ButtonRive/ButtonRive';
 // export * from './ButtonSplit/ButtonSplit';

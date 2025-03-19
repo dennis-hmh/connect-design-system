@@ -1,84 +1,144 @@
 import React from 'react';
-import { Icon } from '../Icon/Icon';
-import { IconId } from '../../utils/icon-list';
-import { Color } from '../../utils/colors';
+import { SemanticColorToken } from '../../utils/new-colors';
+import { Icon } from '../Icon/Icon'; // Deprecated
+import { IconId } from '../../utils/icon-list'; // Deprecated
+import { Color } from '../../utils/colors'; //Deprecated
+import { ButtonBase, ButtonBaseProps } from '../ButtonBase/ButtonBase';
 import { GradeBand } from 'src/enum/gradeband';
-import { Typography } from '../Typography/Typography';
 
-export type ButtonProps = {
-  children: React.ReactNode;
+// Existin props no part of ButtonBase. To be removed in v2.0.0.
+type ExistingButtonProps = {
+  /**
+   * @deprecated Use `variant` and `color` prop instead.
+   */
   primary?: boolean;
-  title?: string;
-  disabled?: boolean;
+  /**
+   * @deprecated Use `variant` and `color` prop instead.
+   */
   correct?: boolean;
+  /**
+   * @deprecated Use `variant` and `color` prop instead.
+   */
   incorrect?: boolean;
+  /**
+   * @deprecated To be removed in v2.0.0.
+   */
   submit?: 'button' | 'submit';
+  /**
+   * @deprecated Use `onClick` prop instead.
+   */
   clickHandler?: () => void;
+  /**
+   * @deprecated Use <Icon> component instead.
+   */
   iconId?: IconId;
-  iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  /**
+   * @deprecated Use <Icon> component instead.
+   */
+  iconSize?: 'unset' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  /**
+   * @deprecated Use <Icon> component instead.
+   */
   fill?: Color;
+  /**
+   * @deprecated Use <Icon> component instead.
+   */
   iconPosition?: 'before' | 'after';
+  /**
+   * @deprecated Use <Icon> component instead.
+   */
   iconOpacity?: number | undefined;
-  ariaLabel?: string;
-  additionalClass?: string;
+  /**
+   * @deprecated Use `classes` prop instead.
+   */
+  additionalClasses?: string;
+  /**
+   * @deprecated To be removed in v2.0.0.
+   */
   mediaButton?: boolean;
-  // isLoading?: boolean;
-  // isAnimationRunning?: boolean;
-  dataTestId?: string;
+};
+
+// Define props specific to the new button implementation
+type SpecificButtonProps = {
+  variant?: 'text' | 'contained' | 'outlined';
+  color?: SemanticColorToken;
+  size?: 'sm' | 'lg';
+  disableElevation?: boolean;
+  fullWidth?: boolean;
+  iconOpacity?: number;
   gradeBand?: GradeBand;
 };
 
+export type ButtonProps = ButtonBaseProps & SpecificButtonProps & ExistingButtonProps;
+
 export const Button: React.FC<ButtonProps> = ({
   children,
-  primary = true,
-  title,
-  disabled = false,
-  correct,
-  incorrect,
-  submit = 'button',
-  clickHandler,
-  iconId,
-  iconSize = 'md',
-  fill,
-  iconPosition = 'before',
-  iconOpacity,
+  variant,
+  color,
+  size,
+  disableElevation = false,
+  fullWidth = false,
+  onClick,
+  disabled,
+  type,
   ariaLabel,
-  additionalClass = '',
-  mediaButton = false,
-  // isLoading = false,
-  // isAnimationRunning = false,
   dataTestId,
+  classes,
+  // To be removed in v2.0.0
+  primary, // Deprecated
+  clickHandler, // Deprecated
+  additionalClasses, // Deprecated
+  correct, // Deprecated
+  incorrect, // Deprecated
+  mediaButton, // Deprecated
+  iconId, // Deprecated
+  iconSize = 'md', // Deprecated
+  fill, // Deprecated
+  iconPosition, // Deprecated
+  iconOpacity, // Deprecated
+  ...props
 }) => {
   const classNames = [
     'connect__button',
-    primary && 'connect__button-primary',
-    !primary && 'connect__button-secondary',
-    correct && 'connect__feedback-correct',
-    incorrect && 'connect__feedback-incorrect',
-    mediaButton && 'connect__button-media',
-    disabled && 'connect__disabled',
-    additionalClass,
+    variant && `connect__button-${variant}`,
+    color && `connect__button-${color}`,
+    size === 'sm' && 'connect__button-small',
+    disableElevation && 'connect__button-no-elevation',
+    fullWidth && 'connect__button-full-width',
+    // To be removed in v2.0.0
+    primary !== undefined
+      ? primary
+        ? 'connect__button-primary'
+        : 'connect__button-secondary connect__button-outlined'
+      : '', // Deprecated
+    correct && 'connect__button-positive', // Deprecated
+    incorrect && 'connect__button-negative', // Deprecated
+    mediaButton && 'connect__button-media', // Deprecated
+    additionalClasses, // Deprecated
+    classes,
   ]
     .filter(Boolean)
     .join(' ');
 
   const iconElement = iconId ? (
     <Icon id={iconId} size={iconSize} fill={fill} opacity={iconOpacity} />
-  ) : null;
+  ) : null; // Deprecated
 
   return (
-    <button
-      type={submit}
-      className={classNames}
-      onClick={clickHandler}
+    <ButtonBase
+      classes={classNames || additionalClasses}
+      onClick={onClick || clickHandler}
       disabled={disabled}
-      data-testid={dataTestId}
-      aria-label={ariaLabel || (iconId && !children ? `Icon button ${iconId}` : undefined)}
-      title={title ? title : ariaLabel}
+      type={type}
+      ariaLabel={ariaLabel}
+      dataTestId={dataTestId}
+      {...props}
     >
-      {iconPosition === 'before' && iconElement}
-      {typeof children === 'string' ? <Typography>{children}</Typography> : children}
-      {iconPosition === 'after' && iconElement}
-    </button>
+      {iconPosition === 'before' && iconElement /* Deprecated */}
+      {children}
+      {iconPosition === 'after' && iconElement /* Deprecated */}
+    </ButtonBase>
   );
 };
+
+Button.displayName = 'Button';
