@@ -34,12 +34,12 @@ const getClassNames = ({
   disabled?: boolean;
   color?: SemanticColorToken;
 }) => {
+  const shouldBeDisabled = correct || incorrect || answerShown;
+
   const inputStates = [
-    correct ? 'connect__feedback-correct' : '',
-    incorrect ? 'connect__feedback-incorrect' : '',
-    answerShown ? 'connect__feedback-shown' : '',
-    isChecked ? 'connect__choice-checked' : '',
-    disabled ? 'connect__disabled' : '',
+    correct && 'connect__feedback-correct',
+    incorrect && 'connect__feedback-incorrect',
+    answerShown && 'connect__feedback-shown',
   ]
     .filter(Boolean)
     .join(' ');
@@ -48,8 +48,8 @@ const getClassNames = ({
     'connect__choice',
     inputStates,
     color && `connect__color-${color}`,
-    isChecked ? 'connect__choice-checked' : '',
-    disabled ? 'connect__disabled' : '',
+    isChecked && 'connect__choice-checked',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
   ]
     .filter(Boolean)
     .join(' ');
@@ -58,13 +58,13 @@ const getClassNames = ({
     'connect__choice-label',
     inputStates,
     color && `connect__color-${color}`,
-    isChecked ? 'connect__label-checked' : '',
-    disabled ? 'connect__disabled' : '',
+    isChecked && 'connect__label-checked',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
   ]
     .filter(Boolean)
     .join(' ');
 
-  return { choiceClass, labelClass };
+  return { shouldBeDisabled, choiceClass, labelClass };
 };
 
 export const InputBox: React.FC<InputBoxProps> = ({
@@ -82,7 +82,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   classes,
   dataTestId,
 }) => {
-  const { choiceClass, labelClass } = getClassNames({
+  const { shouldBeDisabled, choiceClass, labelClass } = getClassNames({
     correct,
     incorrect,
     answerShown,
@@ -100,7 +100,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
         name={name}
         checked={checked}
         onChange={onChange}
-        disabled={disabled}
+        disabled={disabled || shouldBeDisabled}
         data-testid={dataTestId}
       />
       <label htmlFor={id} className={`${labelClass} ${classes ? classes : ''}`}>

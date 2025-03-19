@@ -36,12 +36,14 @@ export function InputText({
 }: InputTextProps) {
   const [isSelected, setIsSelected] = useState(false);
 
+  const shouldBeDisabled = correct || incorrect || answerShown;
+
   const inputStates = [
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
-    disabled && 'connect__disabled',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
     color && `connect__color-${color}`,
     charLimit && 'connect__input-character-count',
   ]
@@ -58,6 +60,7 @@ export function InputText({
   } else if (answerShown) {
     inputAriaLabel += ', answer shown';
   }
+
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event.currentTarget.value);
@@ -75,7 +78,7 @@ export function InputText({
         onMouseDown={() => setIsSelected(true)}
         onBlur={() => setIsSelected(false)}
         aria-label={inputAriaLabel}
-        disabled={disabled}
+        disabled={disabled || shouldBeDisabled}
         data-testid={dataTestId}
       />
       {onClear && (

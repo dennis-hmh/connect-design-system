@@ -27,6 +27,8 @@ export function SelectBox({
   disabled,
   dataTestId,
 }: SelectBoxProps) {
+  const shouldBeDisabled = correct || incorrect || answerShown;
+
   const selectRef = useRef<HTMLSelectElement>(null);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -59,7 +61,7 @@ export function SelectBox({
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
-    disabled && 'connect__disabled',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
     color && `connect__color-${color}`,
   ]
     .filter(Boolean)
@@ -73,7 +75,7 @@ export function SelectBox({
         value={value}
         aria-label={inputAriaLabel}
         onChange={handleChange}
-        disabled={disabled}
+        disabled={disabled || shouldBeDisabled}
         data-testid={dataTestId}
       >
         <SelectBoxOptions data={data} />
