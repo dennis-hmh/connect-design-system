@@ -1,4 +1,4 @@
-### v1.23.1 Release Notice
+### v1.24.1 Release Notice
 
 ### Release date: March 19, 2025
 
@@ -11,6 +11,27 @@
   - `<SelectBox />`: Now using SemanticColorTokens
 - Bug Fix: N/A
 - Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.24.0 Release Notice
+
+### Release date: March 20, 2025
+
+### Changelog:
+
+- 'plain' variant added to Button options
+- 'rounded' prop added to ButtonMenu
+- Icon changes:
+  - Bug fix: Icon colours now applied correctly
+  - Expand and Collapse icons behave consistently
 
 #### Repo:
 
