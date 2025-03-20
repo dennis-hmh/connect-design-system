@@ -66,7 +66,6 @@ type SpecificButtonProps = {
   disableElevation?: boolean;
   fullWidth?: boolean;
   iconOpacity?: number;
-  rounded?: boolean;
   gradeBand?: GradeBand;
 };
 
@@ -84,7 +83,6 @@ export const Button: React.FC<ButtonProps> = ({
   type,
   ariaLabel,
   dataTestId,
-  rounded,
   classes,
   // To be removed in v2.0.0
   primary, // Deprecated
@@ -107,7 +105,6 @@ export const Button: React.FC<ButtonProps> = ({
     size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
-    rounded && 'connect__button-rounded',
 
     // // To be removed in v2.0.0
     primary !== undefined
