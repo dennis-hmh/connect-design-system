@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof ButtonMenu> = {
-  title: 'Buttons/Icon',
+  title: 'Buttons/Button Menu',
   component: ButtonMenu,
   tags: ['autodocs'],
   parameters: {
