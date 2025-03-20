@@ -60,23 +60,10 @@ TextButton.args = {
 
 export const PlainButton: Story = Template.bind({});
 PlainButton.args = {
-  children: <Typography>Text Button</Typography>,
+  children: <Typography>Plain Button</Typography>,
   variant: 'plain',
   classes: 'connect__grapheme',
   ariaLabel: 'Text Button',
-  onClick: (e) => {
-    console.log('Plain button clicked');
-
-    // Add animation classes
-    const button = e.currentTarget;
-    button.classList.add('connect__grapheme-animate');
-
-    // Add animation class to Typography element
-    const typography = button.querySelector('.connect__typography');
-    if (typography) {
-      typography.classList.add('connect__typography-animate');
-    }
-  },
 };
 
 export const StartIconButton: Story = Template.bind({});
