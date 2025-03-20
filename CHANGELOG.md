@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.24.0
+
+### Minor Changes
+
+- ab715fd: 'plain' variant added to Button options, 'rounded' prop added to ButtonMenu, Icon colours now applied correctly, Expand and Collapse icons behave consistently
+
 ## 1.23.0
 
 ### Minor Changes
