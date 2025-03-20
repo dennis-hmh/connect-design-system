@@ -11,7 +11,7 @@ const meta: Meta<typeof Table> = {
   component: Table,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
 } as Meta;
 
@@ -91,6 +91,10 @@ MobileListView.args = {
   ...Default.args,
   caption: 'Mobile List View',
   scrolling: false,
+};
+
+MobileListView.parameters = {
+  layout: 'fullscreen',
 };
 
 export const FillInTheBlank = Template.bind({});
