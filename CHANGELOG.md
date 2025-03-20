@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.24.1
+
+### Patch Changes
+
+- 1b5462d: - New Component: N/A
+  - Updated Component:
+    - `<InputBox />`: Noe using SemanticColorTokens
+    - `<InputText />`: Now using SemanticColorTokens
+    - `<SelectBox />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.24.0
 
 ### Minor Changes
