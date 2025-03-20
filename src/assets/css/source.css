@@ -993,7 +993,7 @@
 
   --connect__surface-100: var(--connect__hmh-gray);
   --connect__surface-200: var(--connect__gray-c10);
-  --connect__surface-300: var(--connect__gray-c20);
+  --connect__surface-300: var(--connect__cool-gray-c20);
   --connect__surface-400: var(--connect__gray-c40);
   --connect__surface-500: var(--connect__gray-c50);
   --connect__surface-600: var(--connect__gray-c60);
@@ -1108,43 +1108,77 @@
 
   /*
   new palette
+  fallback hex color is used when --connect__color-... is not defined
   */
 
-  --connect__color-primary-500: var(--connect__blue-s50);
+  /* needs review */
+  --connect__color-primary-500: var(--connect__blue-c50);
   --connect__color-primary-400: var(--connect__blue-s50);
   --connect__color-primary-300: var(--connect__blue-c50);
   --connect__color-primary-200: var(--connect__blue-s15);
   --connect__color-primary-100: var(--connect__blue-s15);
 
+  /* incomplete */
   --connect__color-secondary-400: var(--connect__purple-s50);
   --connect__color-secondary-300: var(--connect__purple-c50);
   --connect__color-secondary-100: var(--connect__purple-c10);
 
+  /* used passive colors, needs review */
+  --connect__color-neutral-500: var(--connect__gray-c60);
+  --connect__color-neutral-400: var(--connect__gray-c50);
   --connect__color-neutral-300: var(--connect__gray-c40);
+  --connect__color-neutral-200: var(--connect__cool-gray-c20);
   --connect__color-neutral-100: var(--connect__gray-c10);
 
-  --connect__color-assistive-300: var(--connect__aqua-m40);
-  --connect__color-assistive-100: var(--connect__aqua-s15);
+  --connect__color-assistive-500: var(--connect__teal-s55, #00728f);
+  --connect__color-assistive-400: var(--connect__teal-s40);
+  --connect__color-assistive-300: var(--connect__turquoise-s35, #00c4c3);
+  --connect__color-assistive-200: var(--connect__turquoise-s25, #12f3e0);
+  --connect__color-assistive-100: var(--connect__turquoise-s15, #b5fff2);
 
+  /* old caution colors, can be deleted */
   --connect__color-caution-500: var(--connect__cerise-s50);
+  --connect__color-caution-400: var(--connect__cerise-c50);
   --connect__color-caution-300: var(--connect__cerise-s40);
+  --connect__color-caution-200: var(--connect__cerise-s25);
   --connect__color-caution-100: var(--connect__cerise-s10);
 
+  /* new caution colors */
+  --connect__color-caution-500: #ffb759;
+  --connect__color-caution-400: #ff9445;
+  --connect__color-caution-300: #ff780b;
+  --connect__color-caution-200: #ff5c00;
+  --connect__color-caution-100: #c25400;
+
+  --connect__color-negative-500: var(--connect__red-s55, #bd0000);
   --connect__color-negative-400: var(--connect__red-s45);
-  --connect__color-negative-300: var(--connect__red-c50);
+  --connect__color-negative-300: var(--connect__red-s35, #ff5858);
+  --connect__color-negative-200: var(--connect__red-s25);
   --connect__color-negative-100: var(--connect__red-s15);
 
+  /* old constructive colors, can be deleted */
   --connect__color-constructive-400: var(--connect__blue-s50);
   --connect__color-constructive-300: var(--connect__blue-c50);
   --connect__color-constructive-100: var(--connect__blue-s15);
 
-  --connect__color-positive-400: var(--connect__green-s40);
-  --connect__color-positive-300: var(--connect__green-c50);
-  --connect__color-positive-100: var(--connect__apple-c10);
+  /* new constructive colors */
+  --connect__color-constructive-500: #73828f;
+  --connect__color-constructive-400: #e5e5e5;
+  --connect__color-constructive-300: #9ec3e4;
+  --connect__color-constructive-200: #c8dded;
+  --connect__color-constructive-100: #d7e7f1;
 
-  --connect__color-focus-500: var(--connect__cerise-s50);
-  --connect__color-focus-300: var(--connect__cerise-s40);
-  --connect__color-focus-100: var(--connect__cerise-s10);
+  --connect__color-positive-500: var(--connect__green-c55);
+  --connect__color-positive-400: var(--connect__green-s45, #090);
+  --connect__color-positive-300: var(--connect__green-s35, #0c0);
+  --connect__color-positive-200: var(--connect__green-s25, #9ced45);
+  --connect__color-positive-100: var(--connect__apple-s15, #dcffa1);
+
+  /* incomplete */
+  --connect__color-focus-400: var(--connect__cerise-s50);
+
+  /* intentionaly incomplete */
+  --connect__color-white-400: var(--connect__white);
 
   /*
       4: Shadows
@@ -1452,6 +1486,38 @@
   --connect__dropdown-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5083 14.8709 11.4 14.8 11.3 14.7L6.69999 10.1C6.51665 9.91672 6.42499 9.68338 6.42499 9.40005C6.42499 9.11672 6.51665 8.88338 6.69999 8.70005C6.88332 8.51672 7.11665 8.42505 7.39999 8.42505C7.68332 8.42505 7.91665 8.51672 8.09999 8.70005L12 12.6L15.9 8.70005C16.0833 8.51672 16.3167 8.42505 16.6 8.42505C16.8833 8.42505 17.1167 8.51672 17.3 8.70005C17.4833 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4833 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2583 14.9542 12.1333 14.975 12 14.975Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --connect__dropdown-icon-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 10.8L8.09999 14.7C7.91665 14.8834 7.68332 14.975 7.39999 14.975C7.11665 14.975 6.88332 14.8834 6.69999 14.7C6.51665 14.5167 6.42499 14.2834 6.42499 14C6.42499 13.7167 6.51665 13.4834 6.69999 13.3L11.3 8.70002C11.5 8.50002 11.7333 8.40002 12 8.40002C12.2667 8.40002 12.5 8.50002 12.7 8.70002L17.3 13.3C17.4833 13.4834 17.575 13.7167 17.575 14C17.575 14.2834 17.4833 14.5167 17.3 14.7C17.1167 14.8834 16.8833 14.975 16.6 14.975C16.3167 14.975 16.0833 14.8834 15.9 14.7L12 10.8Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
+
+  --connect__table-border-color: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 100%,
+    transparent
+  );
+  --connect__table-header-bg-opac: color-mix(
+    in srgb,
+    var(--connect__table-theme-base-sticky) 100%,
+    transparent
+  );
+  --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
+  --connect__table-subheader-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 30%,
+    transparent
+  );
+  --connect__table-cell-even-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 10%,
+    transparent
+  );
+  --connect__table-row-hover-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 23%,
+    transparent
+  );
+  --connect__table-row-hover-intersection: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 13%,
+    transparent
+  );
 }
 
 :where([class*='connect__']):focus-visible {

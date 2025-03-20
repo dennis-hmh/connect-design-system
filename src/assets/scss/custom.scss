@@ -1671,17 +1671,12 @@ Positioning int he pseudos is the total border / 2
 
 /* table Component */
 .connect__table-wrapper {
-  --connect__table-bg: var(--connect__white);
-  --connect__thead-bg: var(--connect__surface-pale);
-  --connect__table-border-c: rgb(220, 220, 220);
-  --connect__tr-hover-bg: var(--connect__gray-c5);
-  --connect__table-border-w: 0.0625rem;
-  --connect__table-color: var(--connect__surface-dark);
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__table-border: 1px solid var(--connect__table-border-color, var(--connect__surface-400));
 
   overflow-x: auto;
-  padding: var(--connect__spacer-sm);
 
   &:has(.connect__table-sticky-header) {
     overflow: unset;
@@ -1694,25 +1689,14 @@ Positioning int he pseudos is the total border / 2
 }
 
 .connect__table {
-  background-color: var(--connect__table-bg);
-  border-collapse: collapse;
+  background-color: var(--connect__surface-white, inherit);
+  border: var(--connect__table-border);
+  border-collapse: separate;
   border-radius: var(--connect__radius-sm);
   border-spacing: 0;
-  box-shadow: var(--connect__shadow-lvl-0);
   color: var(--connect__table-color);
   overflow: var(--connect__overflow-hidden);
-  width: var(--connect__full-w);
-
-  thead {
-    border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
-
-    th:first-of-type {
-      border-top-left-radius: var(--connect__radius-sm);
-    }
-    th:last-of-type {
-      border-top-right-radius: var(--connect__radius-sm);
-    }
-  }
+  width: fit-content;
 
   &.connect__table-scrolling {
     overflow-x: auto;
@@ -1721,8 +1705,16 @@ Positioning int he pseudos is the total border / 2
   &.connect__table-sticky-header {
     thead {
       position: sticky;
+      overflow: hidden;
       top: -0.0625rem;
       z-index: 1;
+      th {
+        background-color: var(
+          --connect__table-header-bg-opac,
+          var(--connect__table-theme-base-sticky, var(--connect__surface-100))
+        );
+        border-bottom: var(--connect__table-border);
+      }
     }
   }
 
@@ -1744,47 +1736,133 @@ Positioning int he pseudos is the total border / 2
     text-align: left;
   }
 
+  th {
+    background-color: var(
+      --connect__table-header-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+    text-align: start;
+  }
+
+  .connect__subheader {
+    background-color: var(
+      --connect__table-subheader-bg,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
+  tr:not(:has(> .connect__subheader)):hover td {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):hover td {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:has(th + th) {
+    th:first-child {
+      border-top-left-radius: var(--connect__radius-sm);
+    }
+    th:last-child {
+      border-top-right-radius: var(--connect__radius-sm);
+    }
+  }
+
+  tr:last-child:has(th[scope='row']) {
+    th:first-child {
+      border-bottom-left-radius: var(--connect__radius-sm);
+    }
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
   th,
   td {
-    border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+    color: var(--connect__surface-dark, #000);
+    cursor: text; // comeback
+    font-size: var(--connect__caption);
+    height: var(--connect__auto-h, 2.5rem); // comeback
+    line-height: var(--connect__caption-lheight);
 
-    &:first-of-type {
-      border-left: unset;
-    }
-    &:last-of-type {
-      border-right: unset;
-    }
+    // comeback
+    max-width: var(--connect__input-table-cell-max-w);
+    min-width: var(--connect__auto-w, 6rem);
+    overflow: hidden;
+    padding: var(--connect__spacer-xs, 0) var(--connect__spacer-sm, 1rem);
+    text-overflow: ellipsis;
+    vertical-align: top;
   }
 
-  th {
-    background-color: var(--connect__thead-bg);
-    border-top: unset;
-    overflow: var(--connect__overflow-hidden);
-    padding: var(--connect__spacer-sm);
-    text-align: left;
-    &:is([scope='row']) {
-      background-color: var(--connect__tr-hover-bg);
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      border-right: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      &:first-of-type {
-        border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      }
-    }
-  }
+  // th {
+  //   &:is([scope='row']) {
+  //     background-color: var(--connect__table-header-bg);
+  //   }
+  // }
 
-  td {
-    border-bottom: unset;
-    padding: var(--connect__spacer-sm);
-  }
+  // Don't ask why thead is here haha it's their code not me
 
-  tr:hover {
-    background-color: var(--connect__tr-hover-bg);
+  /* stylelint-disable selector-max-compound-selectors */
+  & > thead > tr:not(:last-child) > th,
+  & > thead > tr:not(:last-child) > td,
+  & > tbody > tr:not(:last-child) > th,
+  & > tbody > tr:not(:last-child) > td,
+  & > tfoot > tr:not(:last-child) > th,
+  & > tfoot > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > th,
+  & > thead:not(:last-child),
+  & > tbody:not(:last-child),
+  & > tfoot:not(:last-child) {
+    border-bottom: var(--connect__table-border);
   }
+  /* stylelint-enable selector-max-compound-selectors */
 }
 
 @container table-container (max-width: 26rem) {
   .connect__table {
-    // display: block;
+    width: 100%;
     tr,
     th,
     td {
@@ -1792,19 +1870,18 @@ Positioning int he pseudos is the total border / 2
       width: var(--connect__full-w);
     }
 
+    tbody tr:first-of-type {
+      border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
+    }
+
     tr {
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
+      border-bottom: var(--connect__table-border);
       padding: var(--connect__spacer-sm) 0;
     }
 
     tr:nth-of-type(odd) {
-      background-color: var(--connect__thead-bg);
+      background-color: var(--connect__table-header-bg);
     }
-
-    // th:is([scope='row']) {
-    //   background-color: unset;
-    //   border: unset !important;
-    // }
 
     td,
     th {
