@@ -58,11 +58,19 @@ TextButton.args = {
   ariaLabel: 'Text Button',
 };
 
+export const PlainButton: Story = Template.bind({});
+PlainButton.args = {
+  children: <Typography>Plain Button</Typography>,
+  variant: 'plain',
+  classes: 'connect__grapheme',
+  ariaLabel: 'Text Button',
+};
+
 export const StartIconButton: Story = Template.bind({});
 StartIconButton.args = {
   children: (
     <>
-      <Icon id="arrowUp" size="md" />
+      <Icon id="arrowUp" size="sm" />
       <Typography>Start Icon Button</Typography>
     </>
   ),
@@ -76,7 +84,7 @@ EndIconButton.args = {
   children: (
     <>
       <Typography>End Icon Button</Typography>
-      <Icon id="arrowUp" size="md" />
+      <Icon id="arrowUp" size="sm" />
     </>
   ),
   variant: 'contained',
@@ -88,9 +96,9 @@ export const StartEndIconButton: Story = Template.bind({});
 StartEndIconButton.args = {
   children: (
     <>
-      <Icon id="arrowUp" size="md" />
+      <Icon id="arrowUp" size="sm" />
       <Typography>Start and End Icon Button</Typography>
-      <Icon id="arrowDown" size="md" />
+      <Icon id="arrowDown" size="sm" />
     </>
   ),
   variant: 'contained',
@@ -100,7 +108,7 @@ StartEndIconButton.args = {
 
 export const IconOnlyButton: Story = Template.bind({});
 IconOnlyButton.args = {
-  children: <Icon id="arrowUp" size="md" />,
+  children: <Icon id="arrowUp" size="sm" />,
   variant: 'contained',
   color: 'primary',
   ariaLabel: 'Icon Button Up Arrow',
@@ -119,7 +127,7 @@ export const LoadingButton: Story = Template.bind({});
 LoadingButton.args = {
   children: (
     <>
-      <Icon id="loader" size="md" />
+      <Icon id="loader" size="sm" />
       <Typography>Loading Button</Typography>
     </>
   ),
