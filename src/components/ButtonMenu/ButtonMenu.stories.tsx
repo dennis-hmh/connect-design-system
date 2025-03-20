@@ -6,7 +6,7 @@ import { GradeBand } from '../../enum/gradeband';
 import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof ButtonMenu> = {
-  title: 'Buttons/Button Menu',
+  title: 'Buttons/Icon',
   component: ButtonMenu,
   tags: ['autodocs'],
   parameters: {
@@ -44,10 +44,33 @@ Default.args = {
   id: 'add',
   backgroundColor: '',
   iconId: 'add',
-  iconSize: 'md',
+  iconSize: 'sm',
   additionalClass: '',
   clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
+  gradeBand: GradeBand.G4_5,
+};
+
+export const Plain: Story = Template.bind({});
+Plain.args = {
+  children: '',
+  id: 'replay',
+  iconId: 'replay',
+  variant: 'plain',
+  iconSize: 'sm',
+  ariaLabel: 'Plain reload button',
+  gradeBand: GradeBand.G4_5,
+};
+
+export const Rounded: Story = Template.bind({});
+Rounded.args = {
+  children: '',
+  id: 'replay',
+  iconId: 'replay',
+  variant: 'plain',
+  rounded: true,
+  iconSize: 'sm',
+  ariaLabel: 'Plain reload rounded button',
   gradeBand: GradeBand.G4_5,
 };
 

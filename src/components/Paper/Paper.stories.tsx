@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
 import {
@@ -11,6 +11,8 @@ import {
   Dropdown,
   Divider,
   ButtonMenu,
+  Grid,
+  GridItem,
 } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
@@ -298,7 +300,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="info"
                   iconId="info"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Info"
                   children=""
@@ -315,7 +317,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="desmos"
                   iconId="desmos"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Desnos Calculator"
                   children=""
@@ -327,7 +329,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="group-activity"
                   iconId="groupActivity"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Group Activity"
                   children=""
@@ -339,7 +341,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="add"
                   iconId="add"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
@@ -361,4 +363,115 @@ Sidebar.args = {
   element: 'aside',
   elevation: 4,
   className: 'connect__aside',
+};
+
+export const ClickableCard: StoryFn<PaperProps & { gradeBand: GradeBand }> = (args) => {
+  const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedLetters, setSelectedLetters] = useState<boolean[]>([false, false, false]);
+  const [animatingIndex, setAnimatingIndex] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    if (index === 0 || (index > 0 && selectedLetters[index - 1])) {
+      console.log(`Letter ${index} clicked`);
+
+      setAnimatingIndex(index);
+
+      setSelectedLetters((prev) => prev.map((value, i) => (i === index ? true : value)));
+
+      setTimeout(() => {
+        setAnimatingIndex(null);
+      }, 1100);
+    }
+  };
+
+  return (
+    <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef} style={{ maxWidth: '768px' }}>
+        <Stack spacing="xl" paddingY="md" paddingX="sm">
+          <Stack direction="row" spacing="sm" justifyContent="center">
+            <Stack>
+              <Button
+                variant="plain"
+                onClick={() => handleCardClick(0)}
+                ariaLabel="Select letter S"
+                classes={`connect__grapheme ${animatingIndex === 0 ? 'connect__grapheme-animate' : ''}`}
+              >
+                <Stack element="div" paddingX="md" paddingY="sm" alignItems="center">
+                  <Typography
+                    element="h5"
+                    size="heading-xl"
+                    className="connect__typography"
+                    color={selectedLetters[0] ? 'primary-mid' : 'surface-dark'}
+                  >
+                    S
+                  </Typography>
+                </Stack>
+              </Button>
+            </Stack>
+            <Stack>
+              <Button
+                variant="plain"
+                onClick={() => handleCardClick(1)}
+                ariaLabel="Select letter A"
+                classes={`connect__grapheme ${animatingIndex === 1 ? 'connect__grapheme-animate' : ''}`}
+              >
+                <Stack element="article" paddingX="md" paddingY="sm" alignItems="center">
+                  <Typography
+                    element="h5"
+                    size="heading-xl"
+                    className="connect__typography"
+                    color={selectedLetters[1] ? 'primary-mid' : 'surface-dark'}
+                  >
+                    A
+                  </Typography>
+                </Stack>
+              </Button>
+            </Stack>
+            <Stack>
+              <Button
+                variant="plain"
+                onClick={() => handleCardClick(2)}
+                ariaLabel="Select letter T"
+                classes={`connect__grapheme ${animatingIndex === 2 ? 'connect__grapheme-animate' : ''}`}
+              >
+                <Stack element="article" paddingX="md" paddingY="sm" alignItems="center">
+                  <Typography
+                    element="h5"
+                    size="heading-xl"
+                    className="connect__typography"
+                    color={selectedLetters[2] ? 'primary-mid' : 'surface-dark'}
+                  >
+                    T
+                  </Typography>
+                </Stack>
+              </Button>
+            </Stack>
+          </Stack>
+
+          <Stack direction="row" spacing="sm" justifyContent="center">
+            <Button variant="plain">
+              <Typography size="caption">Bell</Typography>
+            </Button>
+            <Button variant="plain">
+              <Typography size="caption">Mat</Typography>
+            </Button>
+            <Button variant="plain">
+              <Typography size="caption">Bus</Typography>
+            </Button>
+            <Button variant="plain">
+              <Typography size="caption">Kick</Typography>
+            </Button>
+          </Stack>
+
+          <Stack direction="row" spacing="sm" justifyContent="center">
+            <ButtonMenu rounded variant="plain" iconId="replay" fill="primary-mid" />
+          </Stack>
+        </Stack>
+      </div>
+    </ConnectTheme>
+  );
+};
+
+ClickableCard.args = {
+  gradeBand: GradeBand.GK_2,
 };
