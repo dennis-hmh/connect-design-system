@@ -17,7 +17,7 @@ export type IconProps = {
 
 export const Icon: React.FC<IconProps> = ({
   id = 'add',
-  size = 'md',
+  size = 'sm',
   fill,
   stroke,
   opacity = 1,
@@ -62,12 +62,14 @@ export const Icon: React.FC<IconProps> = ({
     return null;
   }
 
+  const fillColorVariable = fill ? `--connect__${fill}` : 'currentColor';
+
   return (
     <svg
       className={`connect__icon connect__icon-${size} ${className ? className : ''}`}
       style={
         {
-          '--connect__icon-fill-color': fill || 'currentColor',
+          '--connect__icon-fill-color': `var(${fillColorVariable})`,
           '--connect__icon-stroke-color': stroke || 'currentColor',
           '--connect__icon-opacity': `${opacity}`,
         } as React.CSSProperties

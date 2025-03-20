@@ -60,7 +60,7 @@ type ExistingButtonProps = {
 
 // Define props specific to the new button implementation
 type SpecificButtonProps = {
-  variant?: 'text' | 'contained' | 'outlined';
+  variant?: 'text' | 'contained' | 'outlined' | 'plain';
   color?: SemanticColorToken;
   size?: 'sm' | 'lg';
   disableElevation?: boolean;
@@ -105,12 +105,14 @@ export const Button: React.FC<ButtonProps> = ({
     size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
-    // To be removed in v2.0.0
+
+    // // To be removed in v2.0.0
     primary !== undefined
       ? primary
         ? 'connect__button-primary'
         : 'connect__button-secondary connect__button-outlined'
       : '', // Deprecated
+
     correct && 'connect__button-positive', // Deprecated
     incorrect && 'connect__button-negative', // Deprecated
     mediaButton && 'connect__button-media', // Deprecated

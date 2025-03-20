@@ -982,7 +982,7 @@
   --connect__transparent: transparent;
   --connect__unset: unset;
 
-  --connect__white: #fff;
+  --connect__white: rgb(255, 255, 255);
 
   /* Color Packs */
   --connect__passive-100: var(--connect__gray-c10);
@@ -1366,6 +1366,36 @@
   );
   --connect__dropdown-max-h: calc(
     (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
+  );
+
+  /* the ch width calc is
+         - x margin of label (spacer-xs)
+         - x padding of input (spacer-sm)
+         Total: (spacer-xs * 2) + (spacer-sm * 2)
+      */
+
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__border-color: color-mix(in srgb, var(--connect__table-theme-base) 100%, transparent);
+  --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
+  --connect__table-subheader-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 30%,
+    transparent
+  );
+  --connect__table-cell-even-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 10%,
+    transparent
+  );
+  --connect__table-row-hover-bg: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 23%,
+    transparent
+  );
+  --connect__table-row-hover-intersection: color-mix(
+    in srgb,
+    var(--connect__table-theme-base) 13%,
+    transparent
   );
 
   --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));

@@ -55,10 +55,7 @@ Default.args = {
         topRight: true,
       }}
     >
-      <Stack
-        element="header"
-        xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}
-      >
+      <Stack element="header" direction="row" spacing="sm" paddingX="sm" paddingY="sm">
         <Typography element="h4" size="heading-lg">
           Header
         </Typography>
@@ -66,28 +63,17 @@ Default.args = {
     </Paper>
   ),
   children: (
-    <Stack
-      element="article"
-      xs={{
-        direction: 'column',
-        spacing: 'md',
-        paddingX: 'md',
-        paddingY: 'md',
-      }}
-    >
+    <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
       Card
     </Stack>
   ),
   footer: (
     <Stack
       element="footer"
-      xs={{
-        alignItems: 'stretch',
-        direction: 'column',
-        spacing: 'md',
-        paddingX: 'md',
-        paddingY: 'md',
-      }}
+      alignItems="stretch"
+      spacing="sm"
+      paddingX="sm"
+      paddingY="sm"
       md={{
         direction: 'row',
         justifyContent: 'space-between',
@@ -105,13 +91,13 @@ SubHead.args = {
   ...Default.args,
   header: (
     <>
-      <Stack xs={{ direction: 'column', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
+      <Stack spacing="sm" paddingX="sm" paddingY="sm">
         <Typography element="h4" size="heading-lg">
           Header
         </Typography>
       </Stack>
       <Paper elevation={0} fullWidth={true} backgroundColor="surface-pale">
-        <Stack xs={{ direction: 'row', spacing: 'md', paddingX: 'md', paddingY: 'md' }}>
+        <Stack direction="row" spacing="sm" paddingX="sm" paddingY="sm">
           <Typography element="h5" size="heading-sm">
             Subheader
           </Typography>
@@ -126,10 +112,7 @@ ImageOnly.args = {
   ...Default.args,
   header: null,
   children: (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'sm', paddingY: 'sm' }}
-    >
+    <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
       <Image imageSrc="" altText="placeholder" roundedCorners={true} />
     </Stack>
   ),
@@ -140,10 +123,7 @@ export const ImageTop: Story = Template.bind({});
 ImageTop.args = {
   ...Default.args,
   header: (
-    <Stack
-      element="header"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'zero', paddingY: 'zero' }}
-    >
+    <Stack element="header" paddingX="zero" paddingY="zero" spacing="sm">
       <Image
         imageSrc=""
         altText="placeholder"
@@ -156,13 +136,10 @@ ImageTop.args = {
   footer: (
     <Stack
       element="footer"
-      xs={{
-        alignItems: 'stretch',
-        direction: 'column',
-        spacing: 'md',
-        paddingX: 'md',
-        paddingY: 'md',
-      }}
+      spacing="sm"
+      paddingX="sm"
+      paddingY="sm"
+      alignItems="stretch"
       md={{
         direction: 'row',
         justifyContent: 'end',
@@ -203,10 +180,7 @@ const MCQRadioComponent: React.FC = () => {
   };
 
   return (
-    <Stack
-      element="article"
-      xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-    >
+    <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
       <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
         What is the capital of France?
       </Typography>
@@ -261,7 +235,7 @@ MCQRadio.args = {
         topRight: true,
       }}
     >
-      <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
+      <Stack direction="row" spacing="sm" paddingX="sm" paddingY="sm">
         <Typography element="h4" size="heading-md">
           Multiple Choice Question
         </Typography>
@@ -272,13 +246,10 @@ MCQRadio.args = {
   footer: (
     <Stack
       element="footer"
-      xs={{
-        alignItems: 'stretch',
-        direction: 'column',
-        spacing: 'sm',
-        paddingX: 'sm',
-        paddingY: 'sm',
-      }}
+      spacing="sm"
+      paddingX="sm"
+      paddingY="sm"
+      alignItems="stretch"
       md={{
         direction: 'row',
         justifyContent: 'end',
@@ -324,16 +295,13 @@ export const MCQCheckbox: Story = (args) => {
                   topRight: true,
                 }}
               >
-                <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
+                <Stack direction="row" spacing="sm" paddingX="sm" paddingY="sm">
                   <Typography element="h4" size="heading-md">
                     Multiple Choice Question
                   </Typography>
                 </Stack>
               </Paper>
-              <Stack
-                element="article"
-                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-              >
+              <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
                 <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
                   What is the capital of France?
                 </Typography>
@@ -376,13 +344,10 @@ export const MCQCheckbox: Story = (args) => {
               </Stack>
               <Stack
                 element="footer"
-                xs={{
-                  alignItems: 'stretch',
-                  direction: 'column',
-                  spacing: 'sm',
-                  paddingX: 'sm',
-                  paddingY: 'sm',
-                }}
+                spacing="sm"
+                paddingX="sm"
+                paddingY="sm"
+                alignItems="stretch"
                 md={{
                   direction: 'row',
                   justifyContent: 'end',
@@ -427,16 +392,13 @@ export const ShortAnswer: Story = (args) => {
                   topRight: true,
                 }}
               >
-                <Stack xs={{ direction: 'row', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}>
+                <Stack direction="row" spacing="sm" paddingX="sm" paddingY="sm">
                   <Typography element="h4" size="heading-md">
                     Short Answer Question
                   </Typography>
                 </Stack>
               </Paper>
-              <Stack
-                element="article"
-                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-              >
+              <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
                 <Typography element="h5" size="body-lg" spacer={true} spacerSize="body-md">
                   What is the capital of France?
                 </Typography>
@@ -444,13 +406,10 @@ export const ShortAnswer: Story = (args) => {
               </Stack>
               <Stack
                 element="footer"
-                xs={{
-                  alignItems: 'stretch',
-                  direction: 'column',
-                  spacing: 'md',
-                  paddingX: 'md',
-                  paddingY: 'md',
-                }}
+                spacing="sm"
+                paddingX="sm"
+                paddingY="sm"
+                alignItems="stretch"
                 md={{
                   direction: 'row',
                   justifyContent: 'end',
@@ -486,19 +445,14 @@ export const SpeechToText: Story = (args) => {
         <Grid gap="sm" gutter={true}>
           <GridItem xs={{ startCol: 1, spanCol: 12 }}>
             <Card {...args}>
-              <Stack
-                element="article"
-                xs={{ direction: 'column', spacing: 'sm', paddingX: 'md', paddingY: 'md' }}
-              >
+              <Stack element="article" spacing="sm" paddingX="sm" paddingY="sm">
                 <Stack
                   element="header"
-                  xs={{
-                    direction: 'row',
-                    justifyContent: 'start',
-                    flexWrap: 'nowrap',
-                    paddingX: 'zero',
-                    paddingY: 'zero',
-                  }}
+                  direction="row"
+                  justifyContent="start"
+                  paddingX="zero"
+                  paddingY="zero"
+                  flexWrap="nowrap"
                 >
                   <Typography
                     element="span"
@@ -528,30 +482,25 @@ export const SpeechToText: Story = (args) => {
                     <Stack
                       element="header"
                       className="connect__toolbar"
-                      xs={{
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        direction: 'row',
-                        flexWrap: 'nowrap',
-                        paddingX: 'md',
-                        paddingY: 'sm',
-                      }}
+                      alignItems="center"
+                      direction="row"
+                      justifyContent="space-between"
+                      paddingX="sm"
+                      paddingY="sm"
+                      flexWrap="nowrap"
                     >
                       <ButtonMenu iconId="add" />
-                      <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
+                      <ButtonMenu iconId="micFilled" backgroundColor="primary-mid" fill="white" />
                     </Stack>
                   }
                 />
               </Stack>
               <Stack
                 element="footer"
-                xs={{
-                  alignItems: 'stretch',
-                  direction: 'column',
-                  spacing: 'md',
-                  paddingX: 'md',
-                  paddingY: 'md',
-                }}
+                spacing="sm"
+                paddingX="sm"
+                paddingY="sm"
+                alignItems="stretch"
                 md={{
                   direction: 'row',
                   justifyContent: 'end',

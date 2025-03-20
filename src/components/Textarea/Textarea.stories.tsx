@@ -100,7 +100,7 @@ Toolbar.args = {
       }}
     >
       <ButtonMenu iconId="add" />
-      <ButtonMenu iconId="mic" backgroundColor="primary-mid" fill="white" />
+      <ButtonMenu iconId="micFilled" backgroundColor="primary-mid" fill="white" />
     </Stack>
   ),
   placeholderText: 'Input your response',

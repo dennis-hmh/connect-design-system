@@ -34,7 +34,7 @@ const Template: StoryFn<TooltipProps & { gradeBand: GradeBand }> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   title: 'This is a tooltip',
-  children: <ButtonMenu id="info" iconId="info" iconSize="md" ariaLabel="Info" />,
+  children: <ButtonMenu id="info" iconId="info" iconSize="sm" ariaLabel="Info" />,
   color: 'white',
   placement: 'top',
   elevation: 4,
@@ -58,7 +58,7 @@ export const WithCustomPlacement: Story = Template.bind({});
 WithCustomPlacement.args = {
   ...Default.args,
   placement: 'right-start',
-  children: <ButtonMenu id="desmos" iconId="desmos" iconSize="md" ariaLabel="Desmos Calculator" />,
+  children: <ButtonMenu id="desmos" iconId="desmos" iconSize="sm" ariaLabel="Desmos Calculator" />,
 };
 
 export const CustomStyle: Story = Template.bind({});

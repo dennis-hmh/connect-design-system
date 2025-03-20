@@ -1,4 +1,5 @@
 import React from 'react';
+import { SemanticColorToken } from 'src/utils/new-colors';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type InputBoxProps = {
@@ -8,6 +9,7 @@ export type InputBoxProps = {
   children: React.ReactNode;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  color?: SemanticColorToken;
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
@@ -23,17 +25,46 @@ const getClassNames = ({
   answerShown,
   isChecked,
   disabled,
+  color,
 }: {
   correct?: boolean;
   incorrect?: boolean;
   answerShown?: boolean;
   isChecked: boolean;
   disabled?: boolean;
+  color?: SemanticColorToken;
 }) => {
-  const inputStates = `${correct ? 'connect__feedback-correct' : ''} ${incorrect ? 'connect__feedback-incorrect' : ''} ${answerShown ? 'connect__feedback-shown' : ''}`;
-  const choiceClass = `connect__choice ${inputStates} ${isChecked ? 'connect__choice-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
-  const labelClass = `connect__choice-label ${inputStates} ${isChecked ? 'connect__label-checked' : ''} ${disabled ? 'connect__disabled' : ''}`;
-  return { choiceClass, labelClass };
+  const shouldBeDisabled = correct || incorrect || answerShown;
+
+  const inputStates = [
+    correct && 'connect__feedback-correct',
+    incorrect && 'connect__feedback-incorrect',
+    answerShown && 'connect__feedback-shown',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const choiceClass = [
+    'connect__choice',
+    inputStates,
+    color && `connect__color-${color}`,
+    isChecked && 'connect__choice-checked',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const labelClass = [
+    'connect__choice-label',
+    inputStates,
+    color && `connect__color-${color}`,
+    isChecked && 'connect__label-checked',
+    (disabled || shouldBeDisabled) && 'connect__disabled',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return { shouldBeDisabled, choiceClass, labelClass };
 };
 
 export const InputBox: React.FC<InputBoxProps> = ({
@@ -43,6 +74,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   children,
   checked,
   onChange,
+  color,
   correct,
   incorrect,
   answerShown,
@@ -50,12 +82,13 @@ export const InputBox: React.FC<InputBoxProps> = ({
   classes,
   dataTestId,
 }) => {
-  const { choiceClass, labelClass } = getClassNames({
+  const { shouldBeDisabled, choiceClass, labelClass } = getClassNames({
     correct,
     incorrect,
     answerShown,
     isChecked: checked,
     disabled,
+    color,
   });
 
   return (
@@ -67,10 +100,10 @@ export const InputBox: React.FC<InputBoxProps> = ({
         name={name}
         checked={checked}
         onChange={onChange}
-        disabled={disabled}
+        disabled={disabled || shouldBeDisabled}
         data-testid={dataTestId}
       />
-      <label htmlFor={id} className={`${classes} ${labelClass}`}>
+      <label htmlFor={id} className={`${labelClass} ${classes ? classes : ''}`}>
         {children}
       </label>
     </div>
