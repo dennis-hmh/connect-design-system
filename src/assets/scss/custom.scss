@@ -108,18 +108,14 @@ Buttons take variables in the following format
   );
   --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
 
-  --icon__fill-color: var(
-    --theme__icon-fill,
-    var(--state-based-icon-fill, var(--connect__color-neutral-40))
-  );
-  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
+  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill-color));
 
   background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
   border-radius: var(--variant__btn-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
 
-  color: var(--active-color, var(--connect__surface-dark));
+  color: var(--active-color, var(--connect__white));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
   font-family: var(--connect__font-sans);
@@ -152,6 +148,13 @@ Buttons take variables in the following format
     }
   }
 
+  &:disabled {
+    --variant__btn-bg: var(--connect__passive-100);
+
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
+    --active-color: var(--connect__passive-500);
+  }
+
   * {
     grid-row: 1;
 
@@ -162,7 +165,6 @@ Buttons take variables in the following format
 
   &-contained {
     &:disabled {
-      --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
       --variant__btn-bg: var(--connect__passive-100);
     }
@@ -170,7 +172,6 @@ Buttons take variables in the following format
 
   &-outlined {
     &:disabled {
-      --active-color: var(--connect__passive-500);
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
       --connect__inner-status-color-state: var(--connect__passive-200);
@@ -178,185 +179,189 @@ Buttons take variables in the following format
   }
 
   &-text {
-    --variant__btn-fw: 600;
+    --variant__btn-fw: var(--connect__fw-semi-bold);
     box-shadow: var(--connect__shadow-null);
+  }
+
+  &-plain {
+    --variant__btn-bg: var(--connect__white);
+    --active-color: var(--connect__surface-dark);
+    --connect__icon-fill-color: var(--active-color);
   }
 
   &-primary {
     --variant__btn-bg: var(--connect__color-primary-500);
     --active-color: var(--connect__surface-white);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-primary-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-primary-500);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-primary-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-secondary {
     --variant__btn-bg: var(--connect__color-secondary-400);
     --active-color: var(--connect__surface-white);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-secondary-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-secondary-400);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-secondary-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-assistive {
     --variant__btn-bg: var(--connect__color-assistive-300);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-assistive-300);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-assistive-300);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-assistive-300);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-caution {
     --variant__btn-bg: var(--connect__color-caution-500);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-caution-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-caution-500);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-caution-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-negative {
     --variant__btn-bg: var(--connect__color-negative-400);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-negative-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-negative-400);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-negative-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-constructive {
     --variant__btn-bg: var(--connect__color-constructive-400);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-constructive-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-constructive-400);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-constructive-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-positive {
     --variant__btn-bg: var(--connect__color-positive-400);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-positive-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-positive-400);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-positive-400);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-focus {
     --variant__btn-bg: var(--connect__color-focus-500);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-focus-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-focus-500);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-focus-500);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-neutral {
     --variant__btn-bg: var(--connect__color-neutral-300);
     --active-color: var(--connect__color-neutral-100);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-neutral-300);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
       --connect__inner-status-color: var(--connect__color-neutral-300);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-neutral-300);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
   &-white {
-    --variant__btn-bg: var(--connect__surface-white);
-    --active-color: var(--connect__surface-dark);
-    --connect__icon-fill: var(--active-color);
+    --connect__icon-fill-color: var(--active-color);
     --connect__inner-status-color: var(--connect__surface-white);
 
     &.connect__button-outlined {
@@ -365,7 +370,7 @@ Buttons take variables in the following format
 
     &.connect__button-text {
       --active-color: var(--connect__surface-dark);
-      --connect__icon-fill: var(--active-color);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
@@ -385,6 +390,10 @@ Buttons take variables in the following format
     }
   }
 
+  &-rounded {
+    --variant__btn-border-radius: var(--connect__radius-xxl);
+  }
+
   // Loading state
   &-loading > svg {
     animation: connect-loading 0.85s var(--connect__linear) infinite;
@@ -401,11 +410,12 @@ Buttons take variables in the following format
 
   &-icon,
   &-menu {
+    --variant__btn-padding-x: var(--connect__spacer-sm);
+  }
+
+  &-menu:not(.connect__button-plain) {
     --variant__btn-bg: var(--connect__surface-null);
     --connect__inner-status-color: var(--connect__surface-null);
-    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-
     box-shadow: var(--connect__shadow-null);
 
     &:not(:disabled) {
@@ -1662,17 +1672,12 @@ Positioning int he pseudos is the total border / 2
 
 /* table Component */
 .connect__table-wrapper {
-  --connect__table-bg: var(--connect__white);
-  --connect__thead-bg: var(--connect__surface-pale);
-  --connect__table-border-c: rgb(220, 220, 220);
-  --connect__tr-hover-bg: var(--connect__gray-c5);
-  --connect__table-border-w: 0.0625rem;
-  --connect__table-color: var(--connect__surface-dark);
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__table-border: 1px solid var(--connect__table-border-color, var(--connect__surface-400));
 
   overflow-x: auto;
-  padding: var(--connect__spacer-sm);
 
   &:has(.connect__table-sticky-header) {
     overflow: unset;
@@ -1685,25 +1690,14 @@ Positioning int he pseudos is the total border / 2
 }
 
 .connect__table {
-  background-color: var(--connect__table-bg);
-  border-collapse: collapse;
+  background-color: var(--connect__surface-white, inherit);
+  border: var(--connect__table-border);
+  border-collapse: separate;
   border-radius: var(--connect__radius-sm);
   border-spacing: 0;
-  box-shadow: var(--connect__shadow-lvl-0);
   color: var(--connect__table-color);
   overflow: var(--connect__overflow-hidden);
-  width: var(--connect__full-w);
-
-  thead {
-    border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
-
-    th:first-of-type {
-      border-top-left-radius: var(--connect__radius-sm);
-    }
-    th:last-of-type {
-      border-top-right-radius: var(--connect__radius-sm);
-    }
-  }
+  width: fit-content;
 
   &.connect__table-scrolling {
     overflow-x: auto;
@@ -1712,8 +1706,16 @@ Positioning int he pseudos is the total border / 2
   &.connect__table-sticky-header {
     thead {
       position: sticky;
+      overflow: hidden;
       top: -0.0625rem;
       z-index: 1;
+      th {
+        background-color: var(
+          --connect__table-header-bg-opac,
+          var(--connect__table-theme-base-sticky, var(--connect__surface-100))
+        );
+        border-bottom: var(--connect__table-border);
+      }
     }
   }
 
@@ -1735,47 +1737,133 @@ Positioning int he pseudos is the total border / 2
     text-align: left;
   }
 
+  th {
+    background-color: var(
+      --connect__table-header-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+    text-align: start;
+  }
+
+  .connect__subheader {
+    background-color: var(
+      --connect__table-subheader-bg,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
+  tr:not(:has(> .connect__subheader)):hover td {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):hover td {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:has(th + th) {
+    th:first-child {
+      border-top-left-radius: var(--connect__radius-sm);
+    }
+    th:last-child {
+      border-top-right-radius: var(--connect__radius-sm);
+    }
+  }
+
+  tr:last-child:has(th[scope='row']) {
+    th:first-child {
+      border-bottom-left-radius: var(--connect__radius-sm);
+    }
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
   th,
   td {
-    border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+    color: var(--connect__surface-dark, #000);
+    cursor: text; // comeback
+    font-size: var(--connect__caption);
+    height: var(--connect__auto-h, 2.5rem); // comeback
+    line-height: var(--connect__caption-lheight);
 
-    &:first-of-type {
-      border-left: unset;
-    }
-    &:last-of-type {
-      border-right: unset;
-    }
+    // comeback
+    max-width: var(--connect__input-table-cell-max-w);
+    min-width: var(--connect__auto-w, 6rem);
+    overflow: hidden;
+    padding: var(--connect__spacer-xs, 0) var(--connect__spacer-sm, 1rem);
+    text-overflow: ellipsis;
+    vertical-align: top;
   }
 
-  th {
-    background-color: var(--connect__thead-bg);
-    border-top: unset;
-    overflow: var(--connect__overflow-hidden);
-    padding: var(--connect__spacer-sm);
-    text-align: left;
-    &:is([scope='row']) {
-      background-color: var(--connect__tr-hover-bg);
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      border-right: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      &:first-of-type {
-        border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      }
-    }
-  }
+  // th {
+  //   &:is([scope='row']) {
+  //     background-color: var(--connect__table-header-bg);
+  //   }
+  // }
 
-  td {
-    border-bottom: unset;
-    padding: var(--connect__spacer-sm);
-  }
+  // Don't ask why thead is here haha it's their code not me
 
-  tr:hover {
-    background-color: var(--connect__tr-hover-bg);
+  /* stylelint-disable selector-max-compound-selectors */
+  & > thead > tr:not(:last-child) > th,
+  & > thead > tr:not(:last-child) > td,
+  & > tbody > tr:not(:last-child) > th,
+  & > tbody > tr:not(:last-child) > td,
+  & > tfoot > tr:not(:last-child) > th,
+  & > tfoot > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > th,
+  & > thead:not(:last-child),
+  & > tbody:not(:last-child),
+  & > tfoot:not(:last-child) {
+    border-bottom: var(--connect__table-border);
   }
+  /* stylelint-enable selector-max-compound-selectors */
 }
 
 @container table-container (max-width: 26rem) {
   .connect__table {
-    // display: block;
+    width: 100%;
     tr,
     th,
     td {
@@ -1783,19 +1871,18 @@ Positioning int he pseudos is the total border / 2
       width: var(--connect__full-w);
     }
 
+    tbody tr:first-of-type {
+      border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
+    }
+
     tr {
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
+      border-bottom: var(--connect__table-border);
       padding: var(--connect__spacer-sm) 0;
     }
 
     tr:nth-of-type(odd) {
-      background-color: var(--connect__thead-bg);
+      background-color: var(--connect__table-header-bg);
     }
-
-    // th:is([scope='row']) {
-    //   background-color: unset;
-    //   border: unset !important;
-    // }
 
     td,
     th {
@@ -2043,6 +2130,60 @@ These styles apply to elements with classes that include '-correct'.
 }
 
 /* 
+These styles apply to elements that use Sematic colors.
+*/
+
+.connect__color-primary {
+  --connect__inner-status-color: var(--connect__color-primary-400);
+  --state-based-bg: var(--connect__color-primary-100);
+}
+
+.connect__color-secondary {
+  --connect__inner-status-color: var(--connect__color-secondary-400);
+  --state-based-bg: var(--connect__color-secondary-100);
+}
+
+.connect__color-neutral {
+  --connect__inner-status-color: var(--connect__color-neutral-300);
+  --state-based-bg: var(--connect__color-neutral-100);
+}
+
+.connect__color-assistive {
+  --connect__inner-status-color: var(--connect__color-assistive-300);
+  --state-based-bg: var(--connect__color-assistive-100);
+}
+
+.connect__color-caution {
+  --connect__inner-status-color: var(--connect__color-caution-500);
+  --state-based-bg: var(--connect__color-caution-100);
+}
+
+.connect__color-negative {
+  --connect__inner-status-color: var(--connect__color-negative-400);
+  --state-based-bg: var(--connect__color-negative-100);
+}
+
+.connect__color-constructive {
+  --connect__inner-status-color: var(--connect__color-constructive-400);
+  --state-based-bg: var(--connect__color-constructive-100);
+}
+
+.connect__color-positive {
+  --connect__inner-status-color: var(--connect__color-positive-400);
+  --state-based-bg: var(--connect__color-positive-100);
+}
+
+.connect__color-focus {
+  --connect__inner-status-color: var(--connect__color-focus-500);
+  --state-based-bg: var(--connect__color-focus-100);
+}
+
+.connect__color-white {
+  --connect__inner-status-color: var(--connect__white);
+  --state-based-bg: var(--connect__white);
+}
+
+/* 
 These styles apply to elements with classes that include '-correct'.
 
 | Property      | Variable                      | Description                       |
@@ -2097,7 +2238,6 @@ Cover Text / Cursors / Iconography
 | Property Type | Variable                        | Description                    |
 |---------------|---------------------------------|--------------------------------|
 | Color         | --active-color                  | Change to disabled text mid    |
-| Cursor        | --connect__state-based-pointer  | Change to disabled cursor      |
 | Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon  |
 */
 
@@ -2105,7 +2245,6 @@ Cover Text / Cursors / Iconography
 .connect__feedback-incorrect,
 .connect__feedback-shown {
   --active-color: var(--connect__disabled-mid);
-  --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
@@ -2732,5 +2871,53 @@ To be fleshed out / moved
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+/* 
+  Reading Tile Bespoke Styles
+*/
+
+.connect__grapheme {
+  --color-duration: 200ms;
+  --enlarge-duration: 300ms;
+  --scaled-duration: 500ms;
+  --reduce-duration: 300ms;
+  transform-origin: 50% 50%;
+
+  .connect__typography {
+    transition: color var(--color-duration) ease;
+  }
+
+  &-animate {
+    animation: grapheme-animate
+      calc(var(--enlarge-duration) + var(--scaled-duration) + var(--reduce-duration))
+      cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    .connect__typography {
+      color: var(--connect__primary-mid);
+    }
+  }
+}
+
+/* motion here is 300ms, 800ms 1100ms
+  First part is the 300ms enlarge,
+  second part 300ms + 500ms scale
+  final finish then 300ms reduce
+
+*/
+
+@keyframes grapheme-animate {
+  0% {
+    transform: scale(1);
+  }
+  27.27% {
+    transform: scale(1.05);
+  }
+  72.73% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

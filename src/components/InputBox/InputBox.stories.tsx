@@ -55,6 +55,7 @@ Default.args = {
   id: 'answer',
   name: 'input',
   checked: false,
+  color: undefined,
   correct: false,
   incorrect: false,
   answerShown: false,
@@ -78,18 +79,21 @@ Correct.args = {
   ...Default.args,
   checked: true,
   correct: true,
+  disabled: true,
 };
 
 Incorrect.args = {
   ...Default.args,
   checked: true,
   incorrect: true,
+  disabled: true,
 };
 
 AnswerShown.args = {
   ...Default.args,
   checked: true,
   answerShown: true,
+  disabled: true,
 };
 
 Disabled.args = {

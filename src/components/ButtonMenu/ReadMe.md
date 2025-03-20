@@ -37,7 +37,7 @@ function App() {
       <ButtonMenu
         id="example-button-menu"
         iconId="add"
-        iconSize="md"
+        iconSize="sm"
         additionalClass="custom-class"
         clickedClass="clicked-class"
         ariaLabel="Example Button Menu"

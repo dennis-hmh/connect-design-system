@@ -516,7 +516,7 @@ const App: React.FC = () => {
               }}
             >
               <SelectBox
-                defaultValue={'my-third-value'}
+                value={'my-third-value'}
                 data={[
                   { label: 'My First Label', value: 'my-first-value' },
                   { label: 'My Second Label', value: 'my-second-value' },

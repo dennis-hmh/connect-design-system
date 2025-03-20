@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Paper, PaperProps } from './Paper';
 import {
@@ -11,6 +11,8 @@ import {
   Dropdown,
   Divider,
   ButtonMenu,
+  Grid,
+  GridItem,
 } from '../index';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
@@ -298,7 +300,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="info"
                   iconId="info"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Info"
                   children=""
@@ -315,7 +317,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="desmos"
                   iconId="desmos"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Desnos Calculator"
                   children=""
@@ -327,7 +329,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="group-activity"
                   iconId="groupActivity"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Group Activity"
                   children=""
@@ -339,7 +341,7 @@ Sidebar.args = {
                 <ButtonMenu
                   id="add"
                   iconId="add"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""

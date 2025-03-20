@@ -1,5 +1,33 @@
 # @connect/connect-design-system
 
+## 1.24.2
+
+### Patch Changes
+
+- d83d4f1: - New Component: N/A
+  - Updated Component:
+    - `<Table />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: `<Table />` styles aligned with Plankton styles
+
+## 1.24.1
+
+### Patch Changes
+
+- 1b5462d: - New Component: N/A
+  - Updated Component:
+    - `<InputBox />`: Noe using SemanticColorTokens
+    - `<InputText />`: Now using SemanticColorTokens
+    - `<SelectBox />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.24.0
+
+### Minor Changes
+
+- ab715fd: 'plain' variant added to Button options, 'rounded' prop added to ButtonMenu, Icon colours now applied correctly, Expand and Collapse icons behave consistently
+
 ## 1.23.0
 
 ### Minor Changes
