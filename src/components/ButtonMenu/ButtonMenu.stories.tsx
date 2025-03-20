@@ -42,9 +42,10 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: '',
   id: 'add',
-  backgroundColor: '',
+  backgroundColor: undefined,
   iconId: 'add',
   iconSize: 'sm',
+  variant: 'plain',
   additionalClass: '',
   clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
