@@ -45,7 +45,7 @@ Default.args = {
   backgroundColor: undefined,
   iconId: 'add',
   iconSize: 'sm',
-  variant: 'plain',
+  variant: undefined,
   additionalClass: '',
   clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
