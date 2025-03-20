@@ -1677,7 +1677,6 @@ Positioning int he pseudos is the total border / 2
   --connect__table-border: 1px solid var(--connect__table-border-color, var(--connect__surface-400));
 
   overflow-x: auto;
-  padding: var(--connect__spacer-sm);
 
   &:has(.connect__table-sticky-header) {
     overflow: unset;
@@ -1706,6 +1705,7 @@ Positioning int he pseudos is the total border / 2
   &.connect__table-sticky-header {
     thead {
       position: sticky;
+      overflow: hidden;
       top: -0.0625rem;
       z-index: 1;
       th {
@@ -1713,6 +1713,7 @@ Positioning int he pseudos is the total border / 2
           --connect__table-header-bg-opac,
           var(--connect__table-theme-base-sticky, var(--connect__surface-100))
         );
+        border-bottom: var(--connect__table-border);
       }
     }
   }
@@ -1797,13 +1798,18 @@ Positioning int he pseudos is the total border / 2
     );
   }
 
-  th:has(+ th) {
-    &:first-child {
+  tr:has(th + th) {
+    th:first-child {
       border-top-left-radius: var(--connect__radius-sm);
     }
-
-    &:last-child {
+    th:last-child {
       border-top-right-radius: var(--connect__radius-sm);
+    }
+  }
+
+  tr:last-child:has(th[scope='row']) {
+    th:first-child {
+      border-bottom-left-radius: var(--connect__radius-sm);
     }
   }
 
@@ -1856,7 +1862,7 @@ Positioning int he pseudos is the total border / 2
 
 @container table-container (max-width: 26rem) {
   .connect__table {
-    // display: block;
+    width: 100%;
     tr,
     th,
     td {
