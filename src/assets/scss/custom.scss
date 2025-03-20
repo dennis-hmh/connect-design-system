@@ -110,12 +110,12 @@ Buttons take variables in the following format
 
   --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill-color));
 
-  background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__white)));
+  background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
   border-radius: var(--variant__btn-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
 
-  color: var(--active-color, var(--connect__surface-dark));
+  color: var(--active-color, var(--connect__white));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
   font-family: var(--connect__font-sans);
