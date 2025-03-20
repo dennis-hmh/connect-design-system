@@ -1,5 +1,15 @@
 # @connect/connect-design-system
 
+## 1.24.2
+
+### Patch Changes
+
+- d83d4f1: - New Component: N/A
+  - Updated Component:
+    - `<Table />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: `<Table />` styles aligned with Plankton styles
+
 ## 1.24.1
 
 ### Patch Changes
