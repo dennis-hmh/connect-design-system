@@ -452,6 +452,7 @@ button-group
 .connect__button-group {
   &.connect__button-group-horizontal {
     --connect__stack-direction: var(--connect__flow-row);
+    --connect__stack-justify-content: center;
 
     button:first-of-type {
       border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
