@@ -124,7 +124,7 @@ Buttons take variables in the following format
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
   height: var(--connect__btn-h, auto);
-  justify-content: var(--variant__btn-justify, space-between);
+  justify-content: var(--variant__btn-justify, center);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   place-items: var(--variant__btn-align, center) center;
