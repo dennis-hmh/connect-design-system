@@ -16,6 +16,37 @@ const meta: Meta<typeof Button> = {
   args: {
     gradeBand: GradeBand.G4_5,
   },
+  argTypes: {
+    primary: { table: { disable: true } },
+    correct: { table: { disable: true } },
+    incorrect: { table: { disable: true } },
+    submit: { table: { disable: true } },
+    clickHandler: { table: { disable: true } },
+    iconId: { table: { disable: true } },
+    iconSize: { table: { disable: true } },
+    fill: { table: { disable: true } },
+    iconPosition: { table: { disable: true } },
+    iconOpacity: { table: { disable: true } },
+    additionalClasses: { table: { disable: true } },
+    mediaButton: { table: { disable: true } },
+    //are the following needed at all
+    tabIndex: { table: { disable: true } },
+    onFocusVisible: { table: { disable: true } },
+    onKeyDown: { table: { disable: true } },
+    onKeyUp: { table: { disable: true } },
+    onMouseDown: { table: { disable: true } },
+    onMouseLeave: { table: { disable: true } },
+    classes: { table: { disable: true } },
+    ariaLabel: { table: { disable: true } },
+    ariaDescribedby: { table: { disable: true } },
+    ariaLabelledby: { table: { disable: true } },
+    ariaHidden: { table: { disable: true } },
+    ariaExpanded: { table: { disable: true } },
+    ariaControls: { table: { disable: true } },
+    ariaPressed: { table: { disable: true } },
+    role: { table: { disable: true } },
+    autoFocus: { table: { disable: true } },
+  },
 };
 
 export default meta;
