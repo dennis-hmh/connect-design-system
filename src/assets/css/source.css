@@ -7,10 +7,8 @@
   font-style: normal;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-roman.ttf.woff') format('woff');
 }
 
 @font-face {
@@ -20,10 +18,8 @@
   font-style: italic;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcesans3vf-italic.ttf.woff') format('woff');
 }
 
 @font-face {
@@ -33,10 +29,8 @@
   font-style: normal;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-roman.ttf.woff') format('woff');
 }
 
 @font-face {
@@ -46,10 +40,8 @@
   font-style: italic;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourceserifvf-italic.ttf.woff') format('woff');
 }
 
 @font-face {
@@ -59,10 +51,8 @@
   font-style: normal;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-roman.ttf.woff') format('woff');
 }
 
 @font-face {
@@ -72,10 +62,8 @@
   font-style: italic;
   font-stretch: normal;
   src:
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff2')
-      format('woff2'),
-    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff')
-      format('woff');
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff2') format('woff2'),
+    url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff') format('woff');
 }
 
 /* stylelint-enable order/properties-alphabetical-order */
@@ -142,6 +130,7 @@
 }
 
 @media (min-width: 40.625rem) {
+
   .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 3.75rem;
@@ -189,6 +178,7 @@
 }
 
 @media (min-width: 80rem) {
+
   .connect__gk2,
   .connect__g23 {
     --connect__heading-xl: 5.75rem;
@@ -303,6 +293,7 @@
 }
 
 @media (min-width: 40.625rem) {
+
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 3.75rem;
@@ -340,6 +331,7 @@
 }
 
 @media (min-width: 80rem) {
+
   .connect__g35,
   .connect__g45 {
     --connect__heading-xl: 5.75rem;
@@ -835,8 +827,7 @@
 :where([class*='connect__']) * {
   font-family: var(--connect__font-sans);
   -webkit-font-smoothing: antialiased;
-  margin: var(--connect__vertical-margin, var(--connect__spacer-zero))
-    var(--connect__horizontal-margin, 0);
+  margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
 :where([class*='connect__']) img,
@@ -944,10 +935,17 @@
 
   --connect__red-c55: rgb(191, 19, 19);
   --connect__red-c50: rgb(214, 36, 36);
-  --connect__red-s15: rgb(255, 204, 204);
-  --connect__red-s25: rgb(255, 144, 144);
-  --connect__red-s45: rgb(248, 8, 0);
 
+
+  --connect__red-s55: rgb(189, 0, 0);
+  --connect__red-s45: rgb(248, 8, 0);
+  --connect__red-s35: rgb(255, 88, 88);
+  --connect__red-s25: rgb(255, 144, 144);
+  --connect__red-s15: rgb(255, 204, 204);
+
+
+
+  --connect__orange-s15: rgb(255, 204, 138);
   --connect__cerise-s10: rgb(255, 230, 245);
   --connect__cerise-s25: rgb(255, 146, 211);
   --connect__cerise-s40: rgb(255, 46, 171);
@@ -960,11 +958,28 @@
   --connect__purple-c65: rgb(86, 40, 122);
   --connect__purple-s50: rgb(167, 51, 255);
 
+  /* primary */
+  --connect__marine-s10: rgb(219, 243, 255);
   --connect__blue-c60: rgb(0, 79, 168);
   --connect__blue-s15: rgb(209, 228, 255);
   --connect__blue-s50: rgb(0, 106, 255);
   --connect__blue-c50: rgb(0, 114, 219);
 
+  /* secondary */
+  --connect__grape-s15: rgb(243, 204, 255);
+  --connect__grape-s25: rgb(232, 158, 255);
+  --connect__purple-s35: rgb(219, 102, 255);
+  --connect__purple-s45: rgb(175, 70, 255);
+  --connect__violet-s50: rgb(127, 66, 255);
+
+  /* warning */
+  --connect__papaya-s15: rgb(255, 204, 138);
+  --connect__orange-s25: rgb(255, 148, 69);
+  --connect__orange-s35: rgb(255, 120, 11);
+  --connect__orange-40: rgb(238, 107, 0);
+  --connect__orange-s50: rgb(194, 84, 0);
+
+  /* assistive */
   --connect__aqua-s15: rgb(217, 254, 255);
   --connect__aqua-s25: rgb(18, 243, 224);
   --connect__aqua-s35: rgb(0, 196, 195);
@@ -972,6 +987,10 @@
   --connect__teal-s40: rgb(0, 114, 143);
 
   --connect__aqua-m40: rgb(32, 133, 160);
+
+
+  /* Constructive */
+
 
   --connect__apple-c10: rgb(230, 245, 181);
   --connect__green-s40: rgb(0, 173, 0);
@@ -1106,22 +1125,18 @@
   --connect__disabled-light: var(--connect__gray-c40);
   --connect__disabled-pale: var(--connect__gray-c10);
 
-  /*
-  new palette
-  fallback hex color is used when --connect__color-... is not defined
-  */
 
-  /* needs review */
   --connect__color-primary-500: var(--connect__blue-c50);
   --connect__color-primary-400: var(--connect__blue-s50);
-  --connect__color-primary-300: var(--connect__blue-c50);
+  --connect__color-primary-300: var(--connect__blue-s30);
   --connect__color-primary-200: var(--connect__blue-s15);
-  --connect__color-primary-100: var(--connect__blue-s15);
+  --connect__color-primary-100: var(--connect__marine-s10);
 
-  /* incomplete */
-  --connect__color-secondary-400: var(--connect__purple-s50);
-  --connect__color-secondary-300: var(--connect__purple-c50);
-  --connect__color-secondary-100: var(--connect__purple-c10);
+  --connect__color-secondary-500: var(--connect__violet-s50);
+  --connect__color-secondary-400: var(--connect__purple-s45);
+  --connect__color-secondary-300: var(--connect__purple-s35);
+  --connect__color-secondary-200: var(--connect__purple-s25);
+  --connect__color-secondary-100: var(--connect__purple-s15);
 
   /* used passive colors, needs review */
   --connect__color-neutral-500: var(--connect__gray-c60);
@@ -1130,31 +1145,25 @@
   --connect__color-neutral-200: var(--connect__cool-gray-c20);
   --connect__color-neutral-100: var(--connect__gray-c10);
 
-  --connect__color-assistive-500: var(--connect__teal-s55, #00728f);
+  --connect__color-assistive-500: var(--connect__teal-s55);
   --connect__color-assistive-400: var(--connect__teal-s40);
-  --connect__color-assistive-300: var(--connect__turquoise-s35, #00c4c3);
-  --connect__color-assistive-200: var(--connect__turquoise-s25, #12f3e0);
-  --connect__color-assistive-100: var(--connect__turquoise-s15, #b5fff2);
+  --connect__color-assistive-300: var(--connect__turquoise-s35);
+  --connect__color-assistive-200: var(--connect__turquoise-s25);
+  --connect__color-assistive-100: var(--connect__turquoise-s15);
 
-  /* old caution colors, can be deleted */
-  --connect__color-caution-500: var(--connect__cerise-s50);
-  --connect__color-caution-400: var(--connect__cerise-c50);
-  --connect__color-caution-300: var(--connect__cerise-s40);
-  --connect__color-caution-200: var(--connect__cerise-s25);
-  --connect__color-caution-100: var(--connect__cerise-s10);
+  --connect__color-caution-500: var(--connect__orange-s50);
+  --connect__color-caution-400: var(--connect__orange-40);
+  --connect__color-caution-300: var(--connect__orange-s35);
+  --connect__color-caution-200: var(--connect__orange-s25);
+  --connect__color-caution-100: var(--connect__papaya-s15);
 
-  /* new caution colors */
-  --connect__color-caution-500: #ffb759;
-  --connect__color-caution-400: #ff9445;
-  --connect__color-caution-300: #ff780b;
-  --connect__color-caution-200: #ff5c00;
-  --connect__color-caution-100: #c25400;
-
-  --connect__color-negative-500: var(--connect__red-s55, #bd0000);
+  --connect__color-negative-500: var(--connect__red-s55);
   --connect__color-negative-400: var(--connect__red-s45);
-  --connect__color-negative-300: var(--connect__red-s35, #ff5858);
+  --connect__color-negative-300: var(--connect__red-s35);
   --connect__color-negative-200: var(--connect__red-s25);
   --connect__color-negative-100: var(--connect__red-s15);
+
+
 
   /* old constructive colors, can be deleted */
   --connect__color-constructive-400: var(--connect__blue-s50);
@@ -1355,18 +1364,10 @@
 
   /* 14.375rem all grades */
   --connect__dropdown-max-w: 14.375rem;
-  --connect__dropdown-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
+  --connect__dropdown-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 3) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
   --connect__input-max-w: 14.375rem;
-  --connect__input-min-w: calc(
-    var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) +
-      (var(--connect__spacer-xs) + var(--connect__icon-xs))
-  );
-  --connect__dropdown-max-h: calc(
-    (4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs))
-  );
+  --connect__input-min-w: calc(var(--connect__spacer-md) + (var(--connect__spacer-xl) * 2) + (var(--connect__spacer-xs) + var(--connect__icon-xs)));
+  --connect__dropdown-max-h: calc((4.5 * var(--connect__body-sm-lheight)) + (14 * var(--connect__spacer-xs)));
 
   /* the ch width calc is
          - x margin of label (spacer-xs)
@@ -1377,26 +1378,18 @@
   --connect__table-theme-base: var(--connect__surface-400);
   --connect__border-color: color-mix(in srgb, var(--connect__table-theme-base) 100%, transparent);
   --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
-  --connect__table-subheader-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 30%,
-    transparent
-  );
-  --connect__table-cell-even-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 10%,
-    transparent
-  );
-  --connect__table-row-hover-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 23%,
-    transparent
-  );
-  --connect__table-row-hover-intersection: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 13%,
-    transparent
-  );
+  --connect__table-subheader-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 30%,
+      transparent);
+  --connect__table-cell-even-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 10%,
+      transparent);
+  --connect__table-row-hover-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 23%,
+      transparent);
+  --connect__table-row-hover-intersection: color-mix(in srgb,
+      var(--connect__table-theme-base) 13%,
+      transparent);
 
   --connect__input-max-w-fim: calc(19ch + (var(--connect__spacer-xs) * 2));
   --connect__input-width-sm: calc(2ch + (var(--connect__spacer-sm) * 2));
@@ -1408,6 +1401,7 @@
 }
 
 @media (min-width: 40.625rem) {
+
   .connect__gk2,
   .connect__gk,
   .connect__g1,
@@ -1428,6 +1422,7 @@
 }
 
 @media (min-width: 80rem) {
+
   .connect__gk2,
   .connect__gk,
   .connect__g1,
@@ -1444,24 +1439,16 @@
 }
 
 :where([class*='connect__']) {
-  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(
-        --connect__inner-status-color-state,
-        var(--connect__inner-status-color, var(--connect__surface-null))
-      )
-      inset,
+  --connect__effects-shadow: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-color-state,
+      var(--connect__inner-status-color, var(--connect__surface-null))) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge)
-      var(--connect__surface-white) inset,
-    0rem 0rem 0rem var(--connect__inner-status)
-      var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
+  --connect__effects-paper: 0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-white) inset,
+    0rem 0rem 0rem var(--connect__inner-status) var(--connect__inner-status-paper-color, var(--connect__surface-null)) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
 
-  --connect__inner-shadow: var(--connect__definer-level-1)
-      var(--connect__active-state, var(--connect__surface-null)),
+  --connect__inner-shadow: var(--connect__definer-level-1) var(--connect__active-state, var(--connect__surface-null)),
     0rem 0rem 0rem var(--connect__effects-inner-edge) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-status) var(--connect__surface-null) inset,
     0rem 0rem 0rem var(--connect__inner-divider-width) var(--connect__surface-null) inset;
@@ -1487,37 +1474,25 @@
   --connect__dropdown-icon-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 10.8L8.09999 14.7C7.91665 14.8834 7.68332 14.975 7.39999 14.975C7.11665 14.975 6.88332 14.8834 6.69999 14.7C6.51665 14.5167 6.42499 14.2834 6.42499 14C6.42499 13.7167 6.51665 13.4834 6.69999 13.3L11.3 8.70002C11.5 8.50002 11.7333 8.40002 12 8.40002C12.2667 8.40002 12.5 8.50002 12.7 8.70002L17.3 13.3C17.4833 13.4834 17.575 13.7167 17.575 14C17.575 14.2834 17.4833 14.5167 17.3 14.7C17.1167 14.8834 16.8833 14.975 16.6 14.975C16.3167 14.975 16.0833 14.8834 15.9 14.7L12 10.8Z' fill='%23006AFF'/%3E%3C/svg%3E");
   --state__variant-connect-dropdown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 14.975C11.8667 14.975 11.7417 14.9542 11.625 14.9125C11.5084 14.8709 11.4 14.8 11.3 14.7L6.70005 10.1C6.51672 9.91672 6.42505 9.68338 6.42505 9.40005C6.42505 9.11672 6.51672 8.88338 6.70005 8.70005C6.88338 8.51672 7.11672 8.42505 7.40005 8.42505C7.68338 8.42505 7.91672 8.51672 8.10005 8.70005L12 12.6L15.9 8.70005C16.0834 8.51672 16.3167 8.42505 16.6 8.42505C16.8834 8.42505 17.1167 8.51672 17.3 8.70005C17.4834 8.88338 17.575 9.11672 17.575 9.40005C17.575 9.68338 17.4834 9.91672 17.3 10.1L12.7 14.7C12.6 14.8 12.4917 14.8709 12.375 14.9125C12.2584 14.9542 12.1334 14.975 12 14.975Z' fill='%23898D8D'/%3E%3C/svg%3E");
 
-  --connect__table-border-color: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 100%,
-    transparent
-  );
-  --connect__table-header-bg-opac: color-mix(
-    in srgb,
-    var(--connect__table-theme-base-sticky) 100%,
-    transparent
-  );
+  --connect__table-border-color: color-mix(in srgb,
+      var(--connect__table-theme-base) 100%,
+      transparent);
+  --connect__table-header-bg-opac: color-mix(in srgb,
+      var(--connect__table-theme-base-sticky) 100%,
+      transparent);
   --connect__table-header-bg: color-mix(in srgb, var(--connect__table-theme-base) 50%, transparent);
-  --connect__table-subheader-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 30%,
-    transparent
-  );
-  --connect__table-cell-even-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 10%,
-    transparent
-  );
-  --connect__table-row-hover-bg: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 23%,
-    transparent
-  );
-  --connect__table-row-hover-intersection: color-mix(
-    in srgb,
-    var(--connect__table-theme-base) 13%,
-    transparent
-  );
+  --connect__table-subheader-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 30%,
+      transparent);
+  --connect__table-cell-even-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 10%,
+      transparent);
+  --connect__table-row-hover-bg: color-mix(in srgb,
+      var(--connect__table-theme-base) 23%,
+      transparent);
+  --connect__table-row-hover-intersection: color-mix(in srgb,
+      var(--connect__table-theme-base) 13%,
+      transparent);
 }
 
 :where([class*='connect__']):focus-visible {

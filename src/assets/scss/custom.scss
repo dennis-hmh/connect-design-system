@@ -128,7 +128,6 @@ Buttons take variables in the following format
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   place-items: var(--variant__btn-align, center) center;
-  text-transform: var(--connect__text-capitalize);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow, fill, stroke;
   transition-timing-function: var(--connect__ease-out);
@@ -190,21 +189,19 @@ Buttons take variables in the following format
   }
 
   &-primary {
-    --variant__btn-bg: var(--connect__color-primary-500);
+    --variant__btn-bg: var(--connect__color-primary-400);
     --active-color: var(--connect__surface-white);
     --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-primary-500);
-      --connect__icon-fill-color: var(--active-color);
-      --connect__inner-status-color: var(--connect__color-primary-500);
+      --connect__inner-status-color: var(--connect__color-primary-400);
     }
 
     &.connect__button-text {
       --variant__btn-bg: var(--connect__transparent);
-      --active-color: var(--connect__color-primary-500);
-      --connect__icon-fill-color: var(--active-color);
+      --active-color: var(--connect__surface-dark);
     }
   }
 
@@ -285,8 +282,8 @@ Buttons take variables in the following format
   }
 
   &-constructive {
-    --variant__btn-bg: var(--connect__color-constructive-400);
-    --active-color: var(--connect__color-neutral-100);
+    --variant__btn-bg: var(--connect__color-constructive-100);
+    --active-color: var(--connect__color-neutral-400);
     --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
@@ -304,8 +301,8 @@ Buttons take variables in the following format
   }
 
   &-positive {
-    --variant__btn-bg: var(--connect__color-positive-400);
-    --active-color: var(--connect__color-neutral-100);
+    --variant__btn-bg: var(--connect__color-positive-100);
+    --active-color: var(--connect__color-neutral-400);
     --connect__icon-fill-color: var(--active-color);
 
     &.connect__button-outlined {
