@@ -132,9 +132,9 @@ export const getSemanticColor = (token: SemanticColorToken): string => {
 // Helper function to get CSS variable name for a color token
 export const getColorVariable = (token: ColorToken | SemanticColorToken): string => {
   if (token.includes('-')) {
-    return `var(--connect__color-${token})`;
+    return `var(--connect__${token})`;
   }
-  return `var(--connect__color-${token}-${getDefaultIntensity(token as SemanticColorToken)})`;
+  return `var(--connect__${token}-${getDefaultIntensity(token as SemanticColorToken)})`;
 };
 
 // Helper function to get default intensity for a semantic color

@@ -51,7 +51,7 @@ export function SelectBox({
     correct && 'connect__feedback-correct',
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
-    color && `connect__color-${color}`,
+    color && `connect__${color}`,
   ]
     .filter(Boolean)
     .join(' ');
@@ -62,7 +62,7 @@ export function SelectBox({
     incorrect && 'connect__feedback-incorrect',
     answerShown && 'connect__feedback-shown',
     (disabled || shouldBeDisabled) && 'connect__disabled',
-    color && `connect__color-${color}`,
+    color && `connect__${color}`,
   ]
     .filter(Boolean)
     .join(' ');

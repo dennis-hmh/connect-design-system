@@ -44,7 +44,7 @@ export function InputText({
     answerShown && 'connect__feedback-shown',
     isSelected && 'connect__selected',
     (disabled || shouldBeDisabled) && 'connect__disabled',
-    color && `connect__color-${color}`,
+    color && `connect__${color}`,
     charLimit && 'connect__input-character-count',
   ]
     .filter(Boolean)
