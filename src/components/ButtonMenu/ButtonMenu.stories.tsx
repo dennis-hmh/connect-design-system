@@ -49,6 +49,7 @@ Default.args = {
   backgroundColor: undefined,
   iconId: 'add',
   iconSize: 'sm',
+  fill: 'white',
   variant: undefined,
   additionalClass: '',
   clickedClass: 'connect__selected',
@@ -82,5 +83,5 @@ Rounded.args = {
 export const withBackgroundColors: Story = Template.bind({});
 withBackgroundColors.args = {
   ...Default.args,
-  backgroundColor: 'gray-c5',
+  backgroundColor: 'red-s45',
 };
