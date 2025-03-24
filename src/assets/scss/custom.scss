@@ -150,6 +150,7 @@ Buttons take variables in the following format
 
   &:disabled {
     --variant__btn-bg: var(--connect__passive-100);
+    --connect__inner-status-color-state: var(--connect__transparent);
 
     --connect__state-based-pointer: var(--connect__disabled-cursor);
     --active-color: var(--connect__passive-500);
@@ -367,12 +368,6 @@ Buttons take variables in the following format
     --variant__btn-bg: var(--connect__color-outlined-bg);
     --active-color: var(--connect__color-outlined-text);
     --connect__inner-status-color: var(--connect__color-inner-status-color);
-
-    &:disabled {
-      --variant__btn-bg: var(--connect__surface-white);
-      --variant__icon-fill: var(--connect__disabled-light);
-      --connect__inner-status-color-state: var(--connect__passive-200);
-    }
   }
 
   &-activated {
