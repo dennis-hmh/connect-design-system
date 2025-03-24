@@ -40,6 +40,8 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: <Icon id="add" size="md" />,
   backgroundColor: '',
+  variant: 'contained',
+  color: 'primary',
   ariaLabel: 'Add',
   disabled: false,
   gradeBand: GradeBand.G4_5,
@@ -50,6 +52,7 @@ BackgroundColor.args = {
   ...Default.args,
   children: <Icon id="add" size="md" fill="white" />,
   backgroundColor: 'essential-guide-purple',
+  color: undefined,
 };
 
 export const Disabled: Story = Template.bind({});
