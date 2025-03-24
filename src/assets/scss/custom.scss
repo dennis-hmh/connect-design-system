@@ -398,11 +398,21 @@ Buttons take variables in the following format
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
+
+      &:hover {
+        --variant__btn-bg: var(--connect__color-visited-bg);
+        --active-color: var(--connect__color-visited-text);
+      }
     }
     &.connect__button-activated {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
+
+      &:hover {
+        --variant__btn-bg: var(--connect__color-plain-activated-bg);
+        --active-color: var(--connect__color-plain-activated-text);
+      }
     }
 
     &:not(:disabled) {
