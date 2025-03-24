@@ -49,8 +49,6 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
     }
   };
 
-  const isClicked = clickedButtonId === id;
-
   const classNames = [
     'connect__button',
     'connect__button-menu',
@@ -58,7 +56,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
 
     rounded && 'connect__button-rounded',
     additionalClass,
-    isClicked && clickedClass,
+    clickedClass && clickedClass,
   ]
     .filter(Boolean)
     .join(' ');

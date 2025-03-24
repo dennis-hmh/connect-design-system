@@ -1,6 +1,7 @@
 import React from 'react';
 import { Color } from 'src/utils/colors';
 import { SemanticColorToken } from 'src/utils/new-colors';
+import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
 import { GradeBand } from '../../enum/gradeband';
 
 export type IconButtonProps = {
@@ -8,20 +9,15 @@ export type IconButtonProps = {
   id?: string;
   classes?: string;
   clickedClass?: string;
-  variant?: 'text' | 'contained' | 'outlined';
-  size?: 'sm' | 'md';
+  states: 'correct' | 'incorrect';
   color?: SemanticColorToken;
   backgroundColor?: Color;
-  ariaLabel?: string;
-  title?: string;
-  disabled?: boolean;
-  loading?: boolean;
   onClick?: () => void;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
 
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   children,
   id,
   classes,
@@ -33,7 +29,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
   ariaLabel,
   title,
   disabled = false,
-  loading = false,
   onClick,
   dataTestId,
 }) => {
@@ -44,7 +39,6 @@ export const IconButton: React.FC<IconButtonProps> = ({
     color && `connect__button-${color}`,
     size === 'sm' && 'connect__button-small',
     disabled && 'connect__disabled',
-    loading && 'connect__loading',
     clickedClass && clickedClass,
     classes,
   ]

@@ -4,6 +4,7 @@ import { GradeBand } from 'src/enum/gradeband';
 export type ButtonBaseProps = {
   children?: React.ReactNode;
   classes?: string;
+  variant?: 'text' | 'contained' | 'outlined' | 'plain';
   disabled?: boolean;
   title?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -23,9 +24,10 @@ export type ButtonBaseProps = {
   ariaExpanded?: boolean;
   ariaControls?: string;
   ariaPressed?: boolean;
-  gradeBand?: GradeBand;
+  size?: 'sm' | 'md';
   role?: string;
   autoFocus?: boolean;
+  gradeBand?: GradeBand;
 };
 
 export const ButtonBase: React.FC<ButtonBaseProps> = ({
