@@ -404,10 +404,20 @@ Buttons take variables in the following format
     }
   }
 
-  &-icon,
-  &-menu {
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-  }
+  // &-media {
+  //   box-shadow: var(--connect__shadow-null);
+
+  //   &.connect__media-active:not(:disabled) {
+  //     --state-based-bg: var(--connect__error-mid);
+  //   }
+  // }
+}
+
+/* button-icon */
+
+.connect__button-icon,
+.connect__button-menu {
+  --variant__btn-padding-x: var(--connect__spacer-sm);
 
   &-menu:not(.connect__button-plain) {
     --variant__btn-bg: var(--connect__surface-null);
@@ -432,14 +442,6 @@ Buttons take variables in the following format
       --connect__state-based-pointer: var(--connect__disabled-cursor);
     }
   }
-
-  // &-media {
-  //   box-shadow: var(--connect__shadow-null);
-
-  //   &.connect__media-active:not(:disabled) {
-  //     --state-based-bg: var(--connect__error-mid);
-  //   }
-  // }
 }
 
 /*
