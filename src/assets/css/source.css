@@ -936,14 +936,13 @@
   --connect__red-c55: rgb(191, 19, 19);
   --connect__red-c50: rgb(214, 36, 36);
 
-
+  --connect__red-s60: rgb(148, 0, 0);
   --connect__red-s55: rgb(189, 0, 0);
   --connect__red-s45: rgb(248, 8, 0);
   --connect__red-s35: rgb(255, 88, 88);
   --connect__red-s25: rgb(255, 144, 144);
   --connect__red-s15: rgb(255, 204, 204);
 
-  --connect__orange-s15: rgb(255, 204, 138);
   --connect__cerise-s10: rgb(255, 230, 245);
   --connect__cerise-s25: rgb(255, 146, 211);
   --connect__cerise-s40: rgb(255, 46, 171);
@@ -962,13 +961,16 @@
   --connect__blue-s15: rgb(209, 228, 255);
   --connect__blue-s50: rgb(0, 106, 255);
   --connect__blue-c50: rgb(0, 114, 219);
+  --connect__blue-s60: rgb(0, 62, 220);
 
   /* secondary */
+  --connect__grape-s10: rgb(249, 229, 255);
   --connect__grape-s15: rgb(243, 204, 255);
   --connect__grape-s25: rgb(232, 158, 255);
   --connect__purple-s35: rgb(219, 102, 255);
   --connect__purple-s45: rgb(175, 70, 255);
   --connect__violet-s50: rgb(127, 66, 255);
+  --connect__purple-s60: rgb(102, 2, 202);
 
   /* warning */
   --connect__papaya-s15: rgb(255, 204, 138);
@@ -976,6 +978,7 @@
   --connect__orange-s35: rgb(255, 120, 11);
   --connect__orange-40: rgb(238, 107, 0);
   --connect__orange-s50: rgb(194, 84, 0);
+  --connect__poppy-s60: rgb(143, 43, 0);
 
   /* assistive */
   --connect__turquoise-s15: rgb(181, 255, 242);
@@ -988,11 +991,12 @@
 
 
   /* success new */
-  --connect__apple-s15: #DCFFA1;
-  --connect__lime-s25: #9CED45;
-  --connect__green-s35: #0C0;
-  --connect__green-s45: #090;
-  --connect__green-s55: #007800;
+  --connect__apple-s15: rgb(220, 255, 161);
+  --connect__lime-s25: rgb(156, 237, 69);
+  --connect__green-s35: rgb(0, 204, 0);
+  --connect__green-s45: rgb(0, 153, 0);
+  --connect__green-s55: rgb(0, 120, 0);
+  --connect__green-s60: rgb(0, 97, 0);
 
 
   --connect__green-s40: rgb(0, 173, 0);
@@ -1123,17 +1127,17 @@
   --connect__disabled-light: var(--connect__gray-c40);
   --connect__disabled-pale: var(--connect__gray-c10);
 
-  --connect__primary-500: var(--connect__blue-c50);
+  --connect__primary-500: var(--connect__blue-s60);
   --connect__primary-400: var(--connect__blue-s50);
   --connect__primary-300: var(--connect__blue-s30);
   --connect__primary-200: var(--connect__blue-s15);
   --connect__primary-100: var(--connect__marine-s10);
 
-  --connect__secondary-500: var(--connect__violet-s50);
-  --connect__secondary-400: var(--connect__purple-s45);
+  --connect__secondary-500: var(--connect__purple-s60);
+  --connect__secondary-400: var(--connect__purple-s50);
   --connect__secondary-300: var(--connect__purple-s35);
-  --connect__secondary-200: var(--connect__grape-s25);
-  --connect__secondary-100: var(--connect__grape-s15);
+  --connect__secondary-200: var(--connect__grape-s15);
+  --connect__secondary-100: var(--connect__grape-s10);
 
   --connect__neutral-500: var(--connect__gray-c60);
   --connect__neutral-400: var(--connect__gray-c50);
@@ -1147,23 +1151,18 @@
   --connect__assistive-200: var(--connect__turquoise-s25);
   --connect__assistive-100: var(--connect__turquoise-s15);
 
-  --connect__caution-500: var(--connect__orange-s50);
+  --connect__caution-500: var(--connect__poppy-s60);
   --connect__caution-400: var(--connect__orange-40);
   --connect__caution-300: var(--connect__orange-s35);
   --connect__caution-200: var(--connect__orange-s25);
   --connect__caution-100: var(--connect__papaya-s15);
 
-  --connect__negative-500: var(--connect__red-s55);
+  --connect__negative-500: var(--connect__red-s60);
   --connect__negative-400: var(--connect__red-s45);
   --connect__negative-300: var(--connect__red-s35);
   --connect__negative-200: var(--connect__red-s25);
   --connect__negative-100: var(--connect__red-s15);
 
-
-  /* old constructive colors, can be deleted */
-  --connect__constructive-400: var(--connect__blue-s50);
-  --connect__constructive-300: var(--connect__blue-c50);
-  --connect__constructive-100: var(--connect__blue-s15);
 
   /* new constructive colors */
   --connect__constructive-500: rgb(115, 130, 143);
@@ -1172,7 +1171,7 @@
   --connect__constructive-200: rgb(200, 221, 237);
   --connect__constructive-100: rgb(215, 231, 241);
 
-  --connect__positive-500: var(--connect__green-s55);
+  --connect__positive-500: var(--connect__green-s60);
   --connect__positive-400: var(--connect__green-s45);
   --connect__positive-300: var(--connect__green-s35);
   --connect__positive-200: var(--connect__lime-s25);
