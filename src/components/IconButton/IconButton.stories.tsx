@@ -42,17 +42,25 @@ Default.args = {
   backgroundColor: '',
   variant: 'contained',
   color: 'primary',
+  rounded: false,
   ariaLabel: 'Add',
   disabled: false,
   gradeBand: GradeBand.G4_5,
 };
 
-export const BackgroundColor: Story = Template.bind({});
-BackgroundColor.args = {
+export const Plain: Story = Template.bind({});
+Plain.args = {
   ...Default.args,
-  children: <Icon id="add" size="md" fill="white" />,
-  backgroundColor: 'essential-guide-purple',
-  color: undefined,
+  variant: 'plain',
+};
+
+export const PlainRounded: Story = Template.bind({});
+PlainRounded.args = {
+  children: <Icon id="replay" size="md" />,
+  variant: 'plain',
+  rounded: true,
+  ariaLabel: 'Plain reload rounded button',
+  gradeBand: GradeBand.G4_5,
 };
 
 export const Disabled: Story = Template.bind({});

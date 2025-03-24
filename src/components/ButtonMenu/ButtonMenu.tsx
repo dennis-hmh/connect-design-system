@@ -23,6 +23,9 @@ export type ButtonMenuProps = {
   gradeBand?: GradeBand;
 };
 
+/**
+ * @deprecated Use IconButton component instead. This component will be removed in v2.0.0.
+ */
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   children,
   id = '',

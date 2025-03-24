@@ -9,10 +9,11 @@ export type IconButtonProps = {
   id?: string;
   classes?: string;
   clickedClass?: string;
-  states: 'correct' | 'incorrect';
+  state: 'activated' | 'visited';
   color?: SemanticColorToken;
+  rounded?: boolean;
   backgroundColor?: Color;
-  onClick?: () => void;
+  clickHandler?: () => void;
   dataTestId?: string;
   gradeBand?: GradeBand;
 };
@@ -22,6 +23,8 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   id,
   classes,
   clickedClass,
+  state,
+  rounded,
   variant,
   size,
   color,
@@ -29,7 +32,7 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   ariaLabel,
   title,
   disabled = false,
-  onClick,
+  clickHandler,
   dataTestId,
 }) => {
   const classNames = [
@@ -37,6 +40,8 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
     'connect__button-icon',
     variant && `connect__button-${variant}`,
     color && `connect__button-${color}`,
+    state && `connect__button-${state}`,
+    rounded && 'connect__button-rounded',
     size === 'sm' && 'connect__button-small',
     disabled && 'connect__disabled',
     clickedClass && clickedClass,
@@ -49,7 +54,7 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
     <button
       id={id}
       className={classNames}
-      onClick={onClick}
+      onClick={clickHandler}
       aria-label={ariaLabel}
       title={title}
       disabled={disabled}
