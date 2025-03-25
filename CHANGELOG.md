@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.24.5
+
+### Patch Changes
+
+- 6fd8df6: Fix for semantic colours in buttons and inputs
+
 ## 1.24.4
 
 ### Patch Changes
