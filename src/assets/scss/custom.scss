@@ -1705,8 +1705,8 @@ Positioning int he pseudos is the total border / 2
 
   &.connect__table-sticky-header {
     thead {
-      position: sticky;
       overflow: hidden;
+      position: sticky;
       top: -0.0625rem;
       z-index: 1;
       th {
