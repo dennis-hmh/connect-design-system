@@ -13,7 +13,7 @@ const meta: Meta<typeof ButtonMenu> = {
     docs: {
       description: {
         component: `
-**Warning:** This component will soon be archived and no longer available. Please start using the \`<IconButton />\` component instead.
+**Warning:** This component will soon be archived and no longer available. Please use the \`<IconButton />\` component instead.
         `,
       },
     },
@@ -52,7 +52,6 @@ Default.args = {
   fill: 'white',
   variant: undefined,
   additionalClass: '',
-  clickedClass: 'connect__selected',
   ariaLabel: 'Add Menu Button',
   gradeBand: GradeBand.G4_5,
 };

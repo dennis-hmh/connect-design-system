@@ -43,9 +43,16 @@ Default.args = {
   variant: 'contained',
   color: 'primary',
   rounded: false,
+  state: '',
   ariaLabel: 'Add',
   disabled: false,
   gradeBand: GradeBand.G4_5,
+};
+
+export const Small: Story = Template.bind({});
+Small.args = {
+  ...Default.args,
+  size: 'sm',
 };
 
 export const Plain: Story = Template.bind({});
@@ -56,11 +63,23 @@ Plain.args = {
 
 export const PlainRounded: Story = Template.bind({});
 PlainRounded.args = {
+  ...Default.args,
   children: <Icon id="replay" size="md" />,
   variant: 'plain',
   rounded: true,
   ariaLabel: 'Plain reload rounded button',
-  gradeBand: GradeBand.G4_5,
+};
+
+export const SemanticColor: Story = Template.bind({});
+SemanticColor.args = {
+  ...Default.args,
+  color: 'positive',
+};
+
+export const BackgroundColor: Story = Template.bind({});
+BackgroundColor.args = {
+  ...Default.args,
+  backgroundColor: 'gray-c35',
 };
 
 export const Disabled: Story = Template.bind({});
