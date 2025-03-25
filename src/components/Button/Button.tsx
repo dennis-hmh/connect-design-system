@@ -62,7 +62,7 @@ type ExistingButtonProps = {
 type SpecificButtonProps = {
   variant?: 'text' | 'contained' | 'outlined' | 'plain';
   color?: SemanticColorToken;
-  size?: 'sm' | 'lg';
+  size?: 'sm' | 'md';
   disableElevation?: boolean;
   fullWidth?: boolean;
   iconOpacity?: number;
@@ -75,7 +75,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   variant,
   color,
-  size,
+  size = 'md',
   disableElevation = false,
   fullWidth = false,
   onClick,

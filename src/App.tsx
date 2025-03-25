@@ -1,6 +1,7 @@
 // @ts-ignore: React is used implicitly in JSX
 import React, { useRef, useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { Button } from './components/Button/Button';
+import { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
 import { InputBox } from './components/InputBox/InputBox';
 import { InputText } from './components/InputText/InputText';
 import { SelectBox } from './components/SelectBox/SelectBox';
@@ -81,6 +82,21 @@ const App: React.FC = () => {
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
+                <ButtonGroup
+                  ariaLabel="Primary Button Group"
+                  color="primary"
+                  orientation="horizontal"
+                  // type="button"
+                  variant="contained"
+                >
+                  <Button>
+                    Option 1
+                  </Button>
+                  <Button>
+                    Option 2
+                  </Button>
+                </ButtonGroup>
+
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
