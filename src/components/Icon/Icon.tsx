@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Color } from '../../utils/colors';
 import { IconId } from '../../utils/icon-list';
 import { GradeBand } from 'src/enum/gradeband';
 import spriteSheet from '../../assets/icons/sprite.svg';
@@ -7,8 +6,8 @@ import spriteSheet from '../../assets/icons/sprite.svg';
 export type IconProps = {
   id: IconId;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'unset';
-  fill?: Color | undefined;
-  stroke?: Color | undefined;
+  fill?: string | undefined;
+  stroke?: string | undefined;
   opacity?: number | undefined;
   focusable?: boolean;
   className?: string;
@@ -18,7 +17,7 @@ export type IconProps = {
 
 export const Icon: React.FC<IconProps> = ({
   id = 'add',
-  size = 'md',
+  size = 'sm',
   fill,
   stroke,
   opacity = 1,
@@ -63,8 +62,7 @@ export const Icon: React.FC<IconProps> = ({
     return null;
   }
 
-  const fillColorVariable = fill ? `--connect__${fill}` : '';
-  const strokeColorVariable = fill ? `--connect__${stroke}` : '';
+  const fillColorVariable = fill ? `--connect__${fill}` : 'currentColor';
 
   return (
     <svg
@@ -72,7 +70,7 @@ export const Icon: React.FC<IconProps> = ({
       style={
         {
           '--connect__icon-fill-color': `var(${fillColorVariable})`,
-          '--connect__icon-stroke-color': `var(${strokeColorVariable})`,
+          '--connect__icon-stroke-color': stroke || 'currentColor',
           '--connect__icon-opacity': `${opacity}`,
         } as React.CSSProperties
       }

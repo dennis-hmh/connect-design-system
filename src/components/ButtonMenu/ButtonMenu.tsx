@@ -11,8 +11,10 @@ export type ButtonMenuProps = {
   additionalClass?: string;
   clickedClass?: string;
   iconId?: IconId;
+  variant?: 'plain';
   iconSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   fill?: Color;
+  rounded?: boolean;
   backgroundColor?: Color;
   ariaLabel?: string;
   title?: string;
@@ -28,7 +30,9 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   additionalClass = '',
   clickedClass,
   iconId,
-  iconSize = 'md',
+  rounded,
+  iconSize = 'sm',
+  variant,
   fill,
   backgroundColor,
   ariaLabel,
@@ -58,6 +62,9 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   const classNames = [
     'connect__button',
     'connect__button-menu',
+    variant && `connect__button-${variant}`,
+
+    rounded && 'connect__button-rounded',
     additionalClass,
     isClicked && clickedClass,
   ]
@@ -65,6 +72,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
     .join(' ');
 
   const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} /> : null;
+
 
   return (
     <button

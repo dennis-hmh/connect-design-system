@@ -1,29 +1,23 @@
 // @ts-ignore: React is used implicitly in JSX
 import React, { useRef, useState } from 'react'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import { Button } from './components/Button/Button';
+import { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
 import { InputBox } from './components/InputBox/InputBox';
-import { MultipleChoiceQuestionImage } from './components/MultipleChoiceQuestion/MultipleChoiceQuestionImage';
 import { InputText } from './components/InputText/InputText';
 import { SelectBox } from './components/SelectBox/SelectBox';
-import { ButtonSplit } from './components/ButtonSplit/ButtonSplit';
 import { Chip } from './components/Chip/Chip';
 import { ConnectTheme } from './components/ConnectTheme';
 import { Typography } from './components/Typography/Typography';
 import { GradeBand } from './enum/gradeband';
 import { ProgressBar } from './components/ProgressBar/ProgressBar';
-// import { RiveSimple } from './components/RiveSimple/RiveSimple';
 import { RiveEngine } from './components/RiveEngine/RiveEngine';
-import { Figure } from './components/Figure/Figure';
 import { Image } from './components/Image/Image';
-import { Blockquote } from './components/Blockquote/Blockquote';
-import { SingleImage } from './components/SingleImage/SingleImage';
-import { SingleBlockquote } from './components/SingleBlockquote/SingleBlockquote';
+import { Icon } from './components/Icon/Icon';
 import { Dialog } from './components/Dialog/Dialog';
 import { Grid } from './components/Grid/Grid';
 import GridItem from './components/GridItem/GridItem';
 import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
-import { Header } from './components/Header/Header';
 import { Alert } from './components/Alert/Alert';
 import { useRive } from '@rive-app/react-canvas';
 
@@ -64,9 +58,6 @@ const App: React.FC = () => {
   return (
     <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <Header>
-          <h1>Welcome to My App</h1>
-        </Header>
         <div style={{ width: '100%', height: '1000px', background: 'lightgrey' }}>
           <Grid gutter={true} gap="md" xs={{ alignItems: 'center', justifyContent: 'center' }}>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
@@ -81,11 +72,31 @@ const App: React.FC = () => {
                   direction: 'column',
                 }}
               >
-                <Button primary={true}>Button</Button>
-                <Button primary={false}>Button</Button>
-                <Button primary={false} iconId="add">
+                <Button variant="contained" color="primary">
                   Button
                 </Button>
+                <Button variant="outlined" color="secondary">
+                  Button
+                </Button>
+                <Button variant="outlined" color="secondary">
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+                <ButtonGroup
+                  ariaLabel="Primary Button Group"
+                  color="primary"
+                  orientation="horizontal"
+                  // type="button"
+                  variant="contained"
+                >
+                  <Button>
+                    Option 1
+                  </Button>
+                  <Button>
+                    Option 2
+                  </Button>
+                </ButtonGroup>
+
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>
@@ -119,14 +130,18 @@ const App: React.FC = () => {
                     justifyContent: 'start',
                   }}
                 >
-                  <Button primary={true}>Button</Button>
-                  <Button primary={false}>Button</Button>
+                  <Button variant="contained" color="primary">
+                    <Typography>Button</Typography>
+                  </Button>
+                  <Button variant="outlined" color="secondary">
+                    <Typography>Button</Typography>
+                  </Button>
                 </Stack>
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 1, spanCol: 6 }}>
-              <Button primary={true} clickHandler={handleDialogClick}>
-                Activate Dialog
+              <Button variant="contained" color="primary" onClick={handleDialogClick}>
+                <Typography>Activate Dialog</Typography>
               </Button>
               <Dialog ref={dialogRef} iconId="add" heading="test dialog" dataTestId="dialogTest">
                 hi there
@@ -136,48 +151,45 @@ const App: React.FC = () => {
         </div>
         <Grid gutter={true} gap="md">
           <GridItem>
-            <Button primary iconId="add" iconPosition="before">
+            <Button color="primary" variant="contained">
+              <Icon size="md" id="add" />
               <Typography>Hi there</Typography>
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary iconId="add" iconPosition="after">
+            <Button color="secondary" variant="outlined">
               <Typography>Hi there</Typography>
+              <Icon size="md" id="add" />
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary iconId="add" iconPosition="before">
+            <Button color="primary" variant="contained">
               <Typography>Hi there</Typography>
               <RiveEngine {...aiButton} sizeByHeight />
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary disabled iconId="loader" iconPosition="before">
+            <Button color="secondary" variant="outlined">
               <Typography>Loading</Typography>
               <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }} />
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary>
+            <Button color="primary" variant="contained">
               <Typography>Generate Summaries</Typography>
               <RiveEngine {...aiButton} sizeByHeight style={{ opacity: 0 }} />
             </Button>
           </GridItem>
           <GridItem>
-            <Button primary>
+            <Button color="primary" variant="contained">
               <Typography opacity="0">Generating</Typography>
               <RiveEngine {...aiButton} sizeByHeight />
             </Button>
           </GridItem>
           <GridItem>
-            <Button
-              ariaLabel="Icon Button Right Arrow"
-              iconId="arrowUp"
-              iconSize="md"
-              primary
-              submit="button"
-            >
-              Hi there
+            <Button ariaLabel="Icon Button Right Arrow" color="primary" type="button">
+              <Icon size="md" id="arrowUp" />
+              <Typography>Hi there</Typography>
             </Button>
           </GridItem>
           <GridItem>
@@ -219,12 +231,10 @@ const App: React.FC = () => {
                 display: 'inline-block',
               }}
             >
-              <Figure>
-                <Image
-                  imageSrc="https://picsum.photos/600/400"
-                  altText="A random picture from Lorem Picsum"
-                />
-              </Figure>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
             </div>
             <div
               style={{
@@ -235,12 +245,10 @@ const App: React.FC = () => {
                 overflow: 'hidden',
               }}
             >
-              <Figure>
-                <Image
-                  imageSrc="https://picsum.photos/600/400"
-                  altText="A random picture from Lorem Picsum"
-                />
-              </Figure>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+              />
             </div>
           </GridItem>
           <GridItem>
@@ -283,13 +291,11 @@ const App: React.FC = () => {
                 display: 'inline-block',
               }}
             >
-              <Figure>
-                <Image
-                  imageSrc="https://picsum.photos/600/400"
-                  altText="A random picture from Lorem Picsum"
-                  contain
-                />
-              </Figure>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
             </div>
             <div
               style={{
@@ -300,43 +306,12 @@ const App: React.FC = () => {
                 overflow: 'hidden',
               }}
             >
-              <Figure>
-                <Image
-                  imageSrc="https://picsum.photos/600/400"
-                  altText="A random picture from Lorem Picsum"
-                  contain
-                />
-              </Figure>
+              <Image
+                imageSrc="https://picsum.photos/600/400"
+                altText="A random picture from Lorem Picsum"
+                contain
+              />
             </div>
-          </GridItem>
-          <GridItem>
-            <Stack
-              xs={{
-                direction: 'row',
-                spacing: 'xs',
-                alignItems: 'start',
-                justifyContent: 'start',
-              }}
-            >
-              <SingleImage
-                imageSrc="https://picsum.photos/600/400"
-                altText="A random picture from Lorem Picsum"
-                caption="A random picture chosen by Lorem Picsum"
-                cite="https://picsum.photos/"
-              />
-              <SingleImage
-                imageSrc="https://picsum.photos/600/400"
-                altText="A random picture from Lorem Picsum"
-                caption="A random picture chosen by Lorem Picsum"
-                cite="https://picsum.photos/"
-              />
-              <SingleImage
-                imageSrc="https://picsum.photos/600/400"
-                altText="A random picture from Lorem Picsum"
-                caption="A random picture chosen by Lorem Picsum"
-                cite="https://picsum.photos/"
-              />
-            </Stack>
           </GridItem>
           <GridItem>
             {/* eslint-disable-next-line no-console */}
@@ -408,34 +383,9 @@ const App: React.FC = () => {
             <ProgressBar value={30} />
             <br />
             <br />
-            <SingleImage
-              imageSrc="https://picsum.photos/600/400"
-              altText="A random picture from Lorem Picsum"
-              caption="A random picture chosen by Lorem Picsum"
-              cite="https://picsum.photos/"
-            />
-            <SingleBlockquote caption="this is a caption" cite="this is a citation">
-              <Typography element="p">The quick brown fox jumps over the laxy dog</Typography>
-              <Typography element="h3">A heading in a blockquote</Typography>
-              <Typography element="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula erat vel
-                felis convallis facilisis. Integer laoreet maximus iaculis. Nam lacinia eros
-                suscipit, dignissim quam quis, laoreet tellus. Aliquam non eros lorem. Praesent
-                cursus hendrerit sapien ac bibendum. Sed vitae mi a ex aliquam pharetra. Mauris
-                molestie tincidunt ex a sagittis. Suspendisse eu tristique magna. Integer sagittis
-                tortor in dapibus luctus. Etiam pharetra, quam sit amet ultricies tincidunt, eros
-                est facilisis dui, quis accumsan nulla odio sit amet sapien.
-              </Typography>
-            </SingleBlockquote>
             <br />
             <Chip num={10}>Word</Chip>
             <br />
-            <Figure caption="This is the caption for Zelda" cite="- This is the citation for Zelda">
-              <Image imageSrc="/images/zelda.jpg" altText="This is alt text for Zelda" />
-            </Figure>
-            <Figure cite="This is the cite for the blockquote">
-              <Blockquote>This is a sample blockquote for Zelda</Blockquote>
-            </Figure>
             <Stack
               xs={{
                 direction: 'row',
@@ -444,31 +394,27 @@ const App: React.FC = () => {
                 justifyContent: 'start',
               }}
             >
-              <Button primary={true} disabled={false}>
-                Click
+              <Button variant="contained" color="primary">
+                <Typography>Click</Typography>
               </Button>
-              <Button primary={false} disabled={false}>
-                Click
+              <Button variant="outlined" color="secondary">
+                <Typography>Click</Typography>
               </Button>
-              <Button primary={true} correct={true}>
-                Submitted
+              <Button variant="contained" color="positive">
+                <Typography>Submitted</Typography>
               </Button>
-              <Button primary={true} incorrect={true}>
-                Submitted
+              <Button variant="contained" color="negative">
+                <Typography>Submitted</Typography>
               </Button>
-              <Button primary={false} correct={true}>
-                Submitted
+              <Button variant="outlined" color="positive">
+                <Typography>Submitted</Typography>
               </Button>
-              <Button primary={false} incorrect={true}>
-                Submitted
+              <Button variant="outlined" color="negative">
+                <Typography>Submitted</Typography>
               </Button>
-              <Button
-                primary={true}
-                iconId={'loader'}
-                iconPosition={'before'}
-                additionalClass="connect__button-loading"
-              >
-                Loading
+              <Button classes="connect__button-loading">
+                <Icon size="md" id="loader" />
+                <Typography>Loading</Typography>
               </Button>
             </Stack>
             <br />
@@ -564,16 +510,7 @@ const App: React.FC = () => {
               The mouse rides a bike
             </InputBox>
             <br />
-            <MultipleChoiceQuestionImage
-              type={'checkbox'}
-              id={'msq-id-3'}
-              name={'mcq-name'}
-              correct={true}
-              checked={false}
-              onChange={() => {}}
-            >
-              <Image imageSrc="" altText="This is alt text" />
-            </MultipleChoiceQuestionImage>
+            <Image imageSrc="" altText="This is alt text" />
             <br />
             <br />
             <Stack
@@ -594,17 +531,8 @@ const App: React.FC = () => {
                 spacing: 'md',
               }}
             >
-              <ButtonSplit
-                data={[
-                  { label: 'My First Label', value: 'my-first-value' },
-                  { label: 'My Second Label', value: 'my-second-value' },
-                  { label: 'My Third Label', value: 'my-third-value' },
-                ]}
-              >
-                My Split Button
-              </ButtonSplit>
               <SelectBox
-                defaultValue={'my-third-value'}
+                value={'my-third-value'}
                 data={[
                   { label: 'My First Label', value: 'my-first-value' },
                   { label: 'My Second Label', value: 'my-second-value' },
@@ -644,8 +572,12 @@ const App: React.FC = () => {
                   justifyContent: 'start',
                 }}
               >
-                <Button primary={true}>Button</Button>
-                <Button primary={false}>Button</Button>
+                <Button variant="contained" color="primary">
+                  Button
+                </Button>
+                <Button variant="outlined" color="secondary">
+                  Button
+                </Button>
               </Stack>
             </Stack>
           </GridItem>

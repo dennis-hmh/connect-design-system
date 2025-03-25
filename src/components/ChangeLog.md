@@ -1,3 +1,167 @@
+### v1.24.3 Release Notice
+
+### Release date: March 25, 2025
+
+### Changelog:
+
+- Button: 
+  - Changed default position of Button content from space-between to center
+  - Removed deprecated props from Storybook
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.24.2 Release Notice
+
+### Release date: March 20, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Table />`: Now using SemanticColorTokens
+- Bug Fix: N/A
+- Other: `<Table />` styles aligned with Plankton styles
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.24.1 Release Notice
+
+### Release date: March 20, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<InputBox />`: Now using SemanticColorTokens
+  - `<InputText />`: Now using SemanticColorTokens
+  - `<SelectBox />`: Now using SemanticColorTokens
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.24.0 Release Notice
+
+### Release date: March 20, 2025
+
+### Changelog:
+
+- 'plain' variant added to Button options
+- 'rounded' prop added to ButtonMenu
+- Icon changes:
+  - Bug fix: Icon colours now applied correctly
+  - Expand and Collapse icons behave consistently
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.23.0 Release Notice
+
+### Release date: March 13, 2025
+
+### Changelog:
+
+- New Component:
+  - `<ButtonGroup />`: Button grouping with same props/styling as `<Button />`
+- Updated Component:
+  - `<Button />`: Now using `ButtonBase` with MUI props
+- Bug Fix: N/A
+- Other: `ButtonBase` added to share props between button components.
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.22 Release Notice
+
+### Release date: March 12, 2025
+
+### Changelog:
+
+- Spacing values updated
+- Border radius values updated
+- Color sets added
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.21.7 Release Notice
+
+### Release date: March 10, 2025
+
+### Changelog:
+
+- Math icons added
+- Icons updated to 20x20 viewbox
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com
+
+&nbsp;
+
+---
+
+### v1.21.6 Release Notice
+
+### Release date: March 10, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Avatar />`: Exposed ref
+- Bug Fix: N/A
+- Other: N/A
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://650211df9f7d78be97a6f39a-ggimoperby.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.21.5 Release Notice
 
 ### Release date: February 28, 2025

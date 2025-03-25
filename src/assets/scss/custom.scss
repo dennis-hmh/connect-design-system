@@ -84,21 +84,38 @@ Buttons take variables in the following format
 | Padding Y           | --variant__btn-padding-y      | var(--connect__spacer-sm) - var(--connect__btn-border-w) |
 | Flex align          | --variant__btn-align          | center                                                   |
 | Flex justify        | --variant__btn-justify        | space-between                                            |
-| Border radius       | --variant__btn-border-radius  | --connect__border-radius                                 |
+| Border radius       | --variant__btn-border-radius  | --connect__radius-sm                                 |
 | Height              | --variant__btn-h              | auto                                                     |
 | Icon Fill           | --state-based-icon-fill        | --connect__icon-fill                                      |
 */
 
-.connect__button {
+.connect__button,
+.connect__button-group {
+  --connect__btn-border-w: var(
+    --theme__btn-border-w,
+    var(--variant__btn-border-w, var(--connect__spacer-zero))
+  );
+
+  --connect__btn-padding-y: var(
+    --theme__btn-padding-y,
+    var(--variant__btn-padding-y, calc(var(--connect__spacer-sm) - var(--connect__btn-border-w)))
+  );
   --connect__btn-padding-y: var(--variant__btn-padding-y, var(--connect__spacer-sm));
+
+  --connect__btn-padding-x: var(
+    --theme__btn-padding-x,
+    var(--variant__btn-padding-x, calc(var(--connect__spacer-md) - var(--connect__btn-border-w)))
+  );
   --connect__btn-padding-x: var(--variant__btn-padding-x, var(--connect__spacer-md));
-  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill));
+
+  --icon__fill-color: var(--state-based-icon-fill, var(--connect__icon-fill-color));
 
   background-color: var(--variant__btn-bg, var(--state-based-bg, var(--connect__primary-mid)));
   border: var(--connect__spacer-zero);
-  border-radius: var(--variant__btn-border-radius, var(--connect__border-radius));
+  border-radius: var(--variant__btn-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
-  color: var(--active-color, var(--connect__surface-dark));
+
+  color: var(--active-color, var(--connect__white));
   cursor: var(--connect__state-based-pointer, pointer);
   display: grid;
   font-family: var(--connect__font-sans);
@@ -107,7 +124,7 @@ Buttons take variables in the following format
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
   height: var(--connect__btn-h, auto);
-  justify-content: var(--variant__btn-justify, space-between);
+  justify-content: var(--variant__btn-justify, center);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   place-items: var(--variant__btn-align, center) center;
@@ -131,6 +148,13 @@ Buttons take variables in the following format
     }
   }
 
+  &:disabled {
+    --variant__btn-bg: var(--connect__passive-100);
+
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
+    --active-color: var(--connect__passive-500);
+  }
+
   * {
     grid-row: 1;
 
@@ -139,96 +163,258 @@ Buttons take variables in the following format
     }
   }
 
-  span {
-    grid-column: 1 / span 2;
-  }
-  svg:first-child:last-child {
-    grid-column: 1 / span 2;
-  }
-  &:has(svg:first-child) {
-    svg {
-      grid-column: 1;
-      justify-self: end;
-    }
-    span {
-      grid-column: 2;
-      justify-self: start;
-    }
-  }
-  &:has(svg:last-child) {
-    svg {
-      grid-column: 2;
-      justify-self: start;
-    }
-    span {
-      grid-column: 1;
-      justify-self: end;
-    }
-  }
-
-  .connect__icon {
-    --connect__icon-fill-color: var(
-      --variant__icon-fill,
-      var(--state__based-icon-fill, var(--icon__fill-color))
-    );
-  }
-
-  &-primary {
-    --active-color: var(--connect__surface-white);
-    --connect__icon-fill: var(--active-color);
-
-    &.connect__feedback-correct {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-      --state-based-icon-fill: var(--connect__correct-mid);
-    }
-
-    &.connect__feedback-incorrect {
-      --connect__inner-status-color-state: var(--connect__surface-null);
-    }
-
+  &-contained {
     &:disabled {
-      --active-color: var(--connect__passive-500);
       --variant__icon-fill: var(--active-color);
       --variant__btn-bg: var(--connect__passive-100);
     }
   }
 
-  &-secondary {
-    --state-based-bg: var(--connect__surface-white);
-    --active-color: var(--connect__primary-mid);
-    --connect__icon-fill: var(--active-color);
-    --connect__inner-status-color: var(--connect__primary-mid);
-
+  &-outlined {
     &:disabled {
-      --active-color: var(--connect__passive-500);
       --variant__btn-bg: var(--connect__surface-white);
       --variant__icon-fill: var(--connect__disabled-light);
       --connect__inner-status-color-state: var(--connect__passive-200);
     }
+  }
 
-    &.connect__feedback-incorrect {
-      --state-based-bg: var(--connect__surface-white);
+  &-text {
+    --variant__btn-fw: var(--connect__fw-semi-bold);
+    box-shadow: var(--connect__shadow-null);
+  }
+
+  &-plain {
+    --variant__btn-bg: var(--connect__white);
+    --active-color: var(--connect__surface-dark);
+    --connect__icon-fill-color: var(--active-color);
+  }
+
+  &-primary {
+    --variant__btn-bg: var(--connect__color-primary-500);
+    --active-color: var(--connect__surface-white);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-primary-500);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-primary-500);
     }
 
-    &.connect__feedback-correct {
-      --state-based-bg: var(--connect__surface-white);
-      --state-based-icon-fill: var(--connect__correct-mid);
-      --connect__inner-status-color: var(--connect__correct-light);
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-primary-500);
+      --connect__icon-fill-color: var(--active-color);
     }
   }
 
-  &-incorrect {
-    &:disabled {
-      --state-based-bg: var(--color-incorrect-bg);
+  &-secondary {
+    --variant__btn-bg: var(--connect__color-secondary-400);
+    --active-color: var(--connect__surface-white);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-secondary-400);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-secondary-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-secondary-400);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-assistive {
+    --variant__btn-bg: var(--connect__color-assistive-300);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-assistive-300);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-assistive-300);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-assistive-300);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-caution {
+    --variant__btn-bg: var(--connect__color-caution-500);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-caution-500);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-caution-500);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-caution-500);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-negative {
+    --variant__btn-bg: var(--connect__color-negative-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-negative-400);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-negative-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-negative-400);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-constructive {
+    --variant__btn-bg: var(--connect__color-constructive-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-constructive-400);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-constructive-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-constructive-400);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-positive {
+    --variant__btn-bg: var(--connect__color-positive-400);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-positive-400);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-positive-400);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-positive-400);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-focus {
+    --variant__btn-bg: var(--connect__color-focus-500);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-focus-500);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-focus-500);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-focus-500);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-neutral {
+    --variant__btn-bg: var(--connect__color-neutral-300);
+    --active-color: var(--connect__color-neutral-100);
+    --connect__icon-fill-color: var(--active-color);
+
+    &.connect__button-outlined {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-neutral-300);
+      --connect__icon-fill-color: var(--active-color);
+      --connect__inner-status-color: var(--connect__color-neutral-300);
+    }
+
+    &.connect__button-text {
+      --variant__btn-bg: var(--connect__transparent);
+      --active-color: var(--connect__color-neutral-300);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  &-white {
+    --connect__icon-fill-color: var(--active-color);
+    --connect__inner-status-color: var(--connect__surface-white);
+
+    &.connect__button-outlined {
+      --connect__inner-status-color: var(--connect__surface-dark);
+    }
+
+    &.connect__button-text {
+      --active-color: var(--connect__surface-dark);
+      --connect__icon-fill-color: var(--active-color);
+    }
+  }
+
+  // Size variants
+  &-small {
+    --connect__btn-padding-y: var(--connect__spacer-xs);
+    --connect__btn-padding-x: var(--connect__spacer-sm);
+  }
+
+  // Elevation variants
+  &-no-elevation {
+    box-shadow: var(--connect__shadow-null);
+
+    &:hover,
+    &:active {
+      --connect__effects-shadow: var(--connect__shadow-null);
+    }
+  }
+
+  &-rounded {
+    --variant__btn-border-radius: var(--connect__radius-xxl);
+  }
+
+  // Loading state
+  &-loading > svg {
+    animation: connect-loading 0.85s var(--connect__linear) infinite;
+  }
+
+  // Feedback states
+  &.connect__feedback-correct,
+  &.connect__feedback-incorrect {
+    &:hover,
+    &:active {
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
     }
   }
 
   &-menu {
+    --variant__btn-padding-x: var(--connect__spacer-sm);
+  }
+
+  &-menu:not(.connect__button-plain) {
     --variant__btn-bg: var(--connect__surface-null);
     --connect__inner-status-color: var(--connect__surface-null);
-    --icon__fill-color: var(--variant__icon-fill-color, var(--connect__surface-dark));
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-
     box-shadow: var(--connect__shadow-null);
 
     &:not(:disabled) {
@@ -250,23 +436,70 @@ Buttons take variables in the following format
     }
   }
 
-  &-loading > svg {
-    animation: connect-loading 0.85s var(--connect__linear) infinite;
+  // &-media {
+  //   box-shadow: var(--connect__shadow-null);
+
+  //   &.connect__media-active:not(:disabled) {
+  //     --state-based-bg: var(--connect__error-mid);
+  //   }
+  // }
+}
+
+/*
+button-group
+*/
+
+.connect__button-group {
+  &.connect__button-group-horizontal {
+    --connect__stack-direction: var(--connect__flow-row);
+    --connect__stack-justify-content: center;
+
+    button:first-of-type {
+      border-radius: var(--connect__border-radius) 0 0 var(--connect__border-radius);
+    }
+    button:last-of-type {
+      border-radius: 0 var(--connect__border-radius) var(--connect__border-radius) 0;
+    }
   }
+  &.connect__button-group-vertical {
+    --connect__stack-direction: var(--connect__flow-column);
 
-  &-media {
-    box-shadow: var(--connect__shadow-null);
-
-    &.connect__media-active:not(:disabled) {
-      --state-based-bg: var(--connect__error-mid);
+    button:first-of-type {
+      border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+    }
+    button:last-of-type {
+      border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
     }
   }
 
-  &.connect__feedback-correct,
-  &.connect__feedback-incorrect {
-    &:hover,
-    &:active {
-      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
+  &.connect__button-contained {
+    &.connect__disabled {
+      --active-color: var(--connect__passive-500);
+      --variant__icon-fill: var(--active-color);
+      --variant__btn-bg: var(--connect__passive-100);
+    }
+  }
+
+  &.connect__button-outlined {
+    &.connect__disabled {
+      --active-color: var(--connect__passive-500);
+      --variant__icon-fill: var(--active-color);
+      --variant__btn-bg: var(--connect__surface-white);
+      --connect__inner-status-color: var(--connect__passive-200);
+    }
+  }
+
+  button {
+    background-color: var(--connect__transparent);
+    border-radius: unset;
+    box-shadow: unset;
+
+    &:only-of-type {
+      border-radius: var(--connect__border-radius);
+    }
+
+    &:not(:disabled):hover {
+      box-shadow: var(--connect__shadow-null), var(--connect__shadow-lvl-4);
     }
   }
 }
@@ -280,7 +513,7 @@ Buttons take variables in the following format
 | Border color        | --variant__input-border-c      | --connect__surface-null                                    |
 | Padding X           | --variant__input-padding-x     | var(--connect__spacer-md) - var(--connect__input-border-w) |
 | Padding Y           | --variant__input-padding-y     | var(--connect__spacer-sm) - var(--connect__input-border-w) |
-| Border radius       | --variant__input-border-radius | --connect__border-radius                                   |
+| Border radius       | --variant__input-border-radius | --connect__radius-sm                                   |
 | Width               | --variant__input-w             | fit-content                                                 |
 */
 
@@ -290,7 +523,7 @@ Buttons take variables in the following format
 
   background-color: var(--state-based-bg, var(--connect__surface-white));
   border: 0;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   caret-color: var(--connect__primary-mid);
   color: var(--active-color, var(--connect__surface-dark));
@@ -385,7 +618,7 @@ Buttons take variables in the following format
 | Border color        | --variant__select-border-c      | --connect__surface-null                                    |
 | Padding X           | --variant__select-padding-x     | var(--connect__spacer-md) - var(--connect__select-border-w)|
 | Padding Y           | --variant__select-padding-y     | var(--connect__spacer-sm) - var(--connect__select-border-w)|
-| Border radius       | --variant__select-border-radius | --connect__border-radius                                   |
+| Border radius       | --variant__select-border-radius | --connect__radius-sm                                   |
 | Width               | --variant__select-w             | fit-content                                                 |
 | Resize              | Resize                          | none                                                       |
 */
@@ -398,7 +631,7 @@ Buttons take variables in the following format
   background-repeat: no-repeat;
   background-size: var(--connect__icon-md);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -455,8 +688,8 @@ Variables related to theme/overrides:
 
 .connect__details {
   // border radius for details based on open closed
-  --connect__details-closed-radius: var(--connect__border-radius);
-  --connect__details-open-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  --connect__details-closed-radius: var(--connect__radius-sm);
+  --connect__details-open-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
 
   // Icon for accordion. Changes when open. in the [open]
   --connect__icon-rotate: rotate(0deg);
@@ -504,7 +737,7 @@ Variables related to theme/overrides:
 
   &::before {
     background: var(--connect__surface-white);
-    border-radius: var(--connect__border-radius);
+    border-radius: var(--connect__radius-sm);
     box-shadow: var(--connect__shadow-lvl-2);
     content: '';
     height: var(--connect__full-h);
@@ -942,7 +1175,6 @@ Style lint has been turned off for this file, as we are using the flex long form
 
 .connect__stack {
   --connect__stack-direction: column;
-  --connect__stack-direction: column;
   --connect__stack-spacing: initial;
   --connect__stack-align-items: stretch;
   --connect__stack-align-self: stretch;
@@ -1125,7 +1357,7 @@ THIS WILL BE PROP BASED WHEN DESIGN UPDATES RADIUS
 */
 
 .connect__icon {
-  color: var(--icon-fill);
+  color: var(--connect__icon-fill);
   height: var(--connect__icon-size);
   opacity: var(--connect__icon-opacity, 1);
   width: var(--connect__icon-size);
@@ -1170,7 +1402,7 @@ Padding on MCQ labels is the total border + spacer
 | Font size           | --variant__label-fs            | --connect__body-sm             |
 | Line height         | --variant__label-lh            | --connect__body-sm-lheight     |
 | Font weight         | --variant__label-fw            | --connect__fw-regular          |
-| Radius              | --variant__label-border-radius | --connect__border-radius       |
+| Radius              | --variant__label-border-radius | --connect__radius-sm       |
 | Background color    | --variant__label-bg            | --connect__surface-white       |
 | Color               | --variant__label-color         | --connect__surface-dark        |
 | Gap                 | --variant__label-gap           | --connect__spacer-md           |
@@ -1182,7 +1414,7 @@ Padding on MCQ labels is the total border + spacer
 |---------------------|------------------------------|-------------------------------|
 | Property            |Variant/State                 | Fallback / Default            |
 |---------------------|------------------------------|-------------------------------|
-| Radius              | --variant__mcq-border-radius | --connect__inner-radius       |
+| Radius              | --variant__mcq-border-radius | --connect__radius-xs       |
 | Dimensions          | --variant__input-dimensions  | --connect__caption-lheight    |
 
 */
@@ -1196,7 +1428,7 @@ Padding on MCQ labels is the total border + spacer
 
   align-items: center;
   background-color: var(--variant__label-bg, var(--connect__surface-white));
-  border-radius: var(--variant__label-border-radius, var(--connect__border-radius));
+  border-radius: var(--variant__label-border-radius, var(--connect__radius-sm));
   box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-2);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -1217,7 +1449,7 @@ Padding on MCQ labels is the total border + spacer
   &::before {
     border: var(--connect__input-border-w) solid
       var(--checkbox-checked-state-based-border-c, var(--connect__primary-mid));
-    border-radius: var(--variant__mcq-radius, var(--connect__inner-radius));
+    border-radius: var(--variant__mcq-radius, var(--connect__radius-xs));
     content: '';
     flex-shrink: 0;
     height: var(--connect__input-dimensions);
@@ -1326,7 +1558,7 @@ Positioning int he pseudos is the total border / 2
 
   &::after {
     background-color: var(--connect__surface-white);
-    border-radius: var(--connect__inner-radius) var(--connect__spacer-zero);
+    border-radius: var(--connect__radius-xs) var(--connect__spacer-zero);
     content: '';
     height: calc(
       var(--connect__input-dimensions) + var(--connect__mcq-input-margin) +
@@ -1346,7 +1578,7 @@ Positioning int he pseudos is the total border / 2
     grid-row: 1 / -1;
 
     img {
-      border-radius: var(--connect__inner-radius);
+      border-radius: var(--connect__radius-xs);
     }
   }
 }
@@ -1393,7 +1625,7 @@ Positioning int he pseudos is the total border / 2
 .connect__progress {
   background: var(--variant__progress-bg, var(--connect__surface-white));
   border: none;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__shadow-lvl-0);
   overflow: var(--connect__overflow-hidden);
   width: var(--connect__full-w);
@@ -1412,7 +1644,7 @@ Positioning int he pseudos is the total border / 2
 
   &::-moz-progress-bar {
     background: var(--variant__progress-color, var(--connect__cc-purple));
-    border-radius: var(--connect__border-radius);
+    border-radius: var(--connect__radius-sm);
   }
 }
 
@@ -1440,17 +1672,12 @@ Positioning int he pseudos is the total border / 2
 
 /* table Component */
 .connect__table-wrapper {
-  --connect__table-bg: var(--connect__white);
-  --connect__thead-bg: var(--connect__surface-pale);
-  --connect__table-border-c: rgb(220, 220, 220);
-  --connect__tr-hover-bg: var(--connect__gray-c5);
-  --connect__table-border-w: 0.0625rem;
-  --connect__table-color: var(--connect__surface-dark);
   --connect__container-type: inline-size;
   --connect__container-name: table-container;
+  --connect__table-theme-base: var(--connect__surface-400);
+  --connect__table-border: 1px solid var(--connect__table-border-color, var(--connect__surface-400));
 
   overflow-x: auto;
-  padding: var(--connect__spacer-sm);
 
   &:has(.connect__table-sticky-header) {
     overflow: unset;
@@ -1463,25 +1690,14 @@ Positioning int he pseudos is the total border / 2
 }
 
 .connect__table {
-  background-color: var(--connect__table-bg);
-  border-collapse: collapse;
-  border-radius: var(--connect__border-radius);
+  background-color: var(--connect__surface-white, inherit);
+  border: var(--connect__table-border);
+  border-collapse: separate;
+  border-radius: var(--connect__radius-sm);
   border-spacing: 0;
-  box-shadow: var(--connect__shadow-lvl-0);
   color: var(--connect__table-color);
   overflow: var(--connect__overflow-hidden);
-  width: var(--connect__full-w);
-
-  thead {
-    border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
-
-    th:first-of-type {
-      border-top-left-radius: var(--connect__border-radius);
-    }
-    th:last-of-type {
-      border-top-right-radius: var(--connect__border-radius);
-    }
-  }
+  width: fit-content;
 
   &.connect__table-scrolling {
     overflow-x: auto;
@@ -1489,9 +1705,17 @@ Positioning int he pseudos is the total border / 2
 
   &.connect__table-sticky-header {
     thead {
+      overflow: hidden;
       position: sticky;
       top: -0.0625rem;
       z-index: 1;
+      th {
+        background-color: var(
+          --connect__table-header-bg-opac,
+          var(--connect__table-theme-base-sticky, var(--connect__surface-100))
+        );
+        border-bottom: var(--connect__table-border);
+      }
     }
   }
 
@@ -1513,47 +1737,133 @@ Positioning int he pseudos is the total border / 2
     text-align: left;
   }
 
+  th {
+    background-color: var(
+      --connect__table-header-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+    text-align: start;
+  }
+
+  .connect__subheader {
+    background-color: var(
+      --connect__table-subheader-bg,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
+  tr:not(:has(> .connect__subheader)):hover td {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):hover td {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-bg,
+      var(--connect__table-theme-base, var(--connect__surface-200))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:not(:has(> .connect__subheader)):nth-of-type(even):has(> th:first-child + td):hover th {
+    background-color: var(
+      --connect__table-row-hover-intersection,
+      var(--connect__table-theme-base, var(--connect__surface-100))
+    );
+  }
+
+  tr:has(th + th) {
+    th:first-child {
+      border-top-left-radius: var(--connect__radius-sm);
+    }
+    th:last-child {
+      border-top-right-radius: var(--connect__radius-sm);
+    }
+  }
+
+  tr:last-child:has(th[scope='row']) {
+    th:first-child {
+      border-bottom-left-radius: var(--connect__radius-sm);
+    }
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: var(--connect__table-border);
+  }
+
   th,
   td {
-    border: var(--connect__table-border-w) solid var(--connect__table-border-c);
+    color: var(--connect__surface-dark, #000);
+    cursor: text; // comeback
+    font-size: var(--connect__caption);
+    height: var(--connect__auto-h, 2.5rem); // comeback
+    line-height: var(--connect__caption-lheight);
 
-    &:first-of-type {
-      border-left: unset;
-    }
-    &:last-of-type {
-      border-right: unset;
-    }
+    // comeback
+    max-width: var(--connect__input-table-cell-max-w);
+    min-width: var(--connect__auto-w, 6rem);
+    overflow: hidden;
+    padding: var(--connect__spacer-xs, 0) var(--connect__spacer-sm, 1rem);
+    text-overflow: ellipsis;
+    vertical-align: top;
   }
 
-  th {
-    background-color: var(--connect__thead-bg);
-    border-top: unset;
-    overflow: var(--connect__overflow-hidden);
-    padding: var(--connect__spacer-sm);
-    text-align: left;
-    &:is([scope='row']) {
-      background-color: var(--connect__tr-hover-bg);
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      border-right: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      &:first-of-type {
-        border-top: var(--connect__table-border-w) solid var(--connect__table-border-c);
-      }
-    }
-  }
+  // th {
+  //   &:is([scope='row']) {
+  //     background-color: var(--connect__table-header-bg);
+  //   }
+  // }
 
-  td {
-    border-bottom: unset;
-    padding: var(--connect__spacer-sm);
-  }
+  // Don't ask why thead is here haha it's their code not me
 
-  tr:hover {
-    background-color: var(--connect__tr-hover-bg);
+  /* stylelint-disable selector-max-compound-selectors */
+  & > thead > tr:not(:last-child) > th,
+  & > thead > tr:not(:last-child) > td,
+  & > tbody > tr:not(:last-child) > th,
+  & > tbody > tr:not(:last-child) > td,
+  & > tfoot > tr:not(:last-child) > th,
+  & > tfoot > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > td,
+  & > tr:not(:last-child) > th,
+  & > thead:not(:last-child),
+  & > tbody:not(:last-child),
+  & > tfoot:not(:last-child) {
+    border-bottom: var(--connect__table-border);
   }
+  /* stylelint-enable selector-max-compound-selectors */
 }
 
 @container table-container (max-width: 26rem) {
   .connect__table {
-    // display: block;
+    width: 100%;
     tr,
     th,
     td {
@@ -1561,19 +1871,18 @@ Positioning int he pseudos is the total border / 2
       width: var(--connect__full-w);
     }
 
+    tbody tr:first-of-type {
+      border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
+    }
+
     tr {
-      border-bottom: var(--connect__table-border-w) solid var(--connect__table-border-c);
+      border-bottom: var(--connect__table-border);
       padding: var(--connect__spacer-sm) 0;
     }
 
     tr:nth-of-type(odd) {
-      background-color: var(--connect__thead-bg);
+      background-color: var(--connect__table-header-bg);
     }
-
-    // th:is([scope='row']) {
-    //   background-color: unset;
-    //   border: unset !important;
-    // }
 
     td,
     th {
@@ -1667,7 +1976,7 @@ Divider can be vertical or horizontal
 | Background color |  --variant__divider-bg       | --connect__surface-pale        |
 | Height           |  --variant__divider-h        | --connect__effects-inner-edge  |
 | Width            |  --variant__divider-w        | --connect__full-w              |
-| Radius           |  --variant__divider-br       | --connect__border-radius       |         
+| Radius           |  --variant__divider-br       | --connect__radius-sm       |         
 | Margin x         |  --variant__divider-margin-x | --connect__spacer-zero         |      
 | Margin y         |  --variant__divider-margin-y | --connect__spacer-zero         |       
 */
@@ -1678,7 +1987,7 @@ Divider can be vertical or horizontal
   --connect__divider-margin-y: var(--variant__divider-margin-y, var(--connect__spacer-zero));
 
   --connect__divider-bg: var(--variant__divider-bg, var(--connect__surface-pale));
-  --connect__divider-br: var(--variant__divider-br, var(--connect__border-radius));
+  --connect__divider-br: var(--variant__divider-br, var(--connect__radius-sm));
   --connect__divider-h: var(--variant__divider-h, var(--connect__effects-inner-edge));
   --connect__divider-w: var(--variant__divider-w, var(--connect__full-w));
 
@@ -1821,6 +2130,60 @@ These styles apply to elements with classes that include '-correct'.
 }
 
 /* 
+These styles apply to elements that use Sematic colors.
+*/
+
+.connect__color-primary {
+  --connect__inner-status-color: var(--connect__color-primary-400);
+  --state-based-bg: var(--connect__color-primary-100);
+}
+
+.connect__color-secondary {
+  --connect__inner-status-color: var(--connect__color-secondary-400);
+  --state-based-bg: var(--connect__color-secondary-100);
+}
+
+.connect__color-neutral {
+  --connect__inner-status-color: var(--connect__color-neutral-300);
+  --state-based-bg: var(--connect__color-neutral-100);
+}
+
+.connect__color-assistive {
+  --connect__inner-status-color: var(--connect__color-assistive-300);
+  --state-based-bg: var(--connect__color-assistive-100);
+}
+
+.connect__color-caution {
+  --connect__inner-status-color: var(--connect__color-caution-500);
+  --state-based-bg: var(--connect__color-caution-100);
+}
+
+.connect__color-negative {
+  --connect__inner-status-color: var(--connect__color-negative-400);
+  --state-based-bg: var(--connect__color-negative-100);
+}
+
+.connect__color-constructive {
+  --connect__inner-status-color: var(--connect__color-constructive-400);
+  --state-based-bg: var(--connect__color-constructive-100);
+}
+
+.connect__color-positive {
+  --connect__inner-status-color: var(--connect__color-positive-400);
+  --state-based-bg: var(--connect__color-positive-100);
+}
+
+.connect__color-focus {
+  --connect__inner-status-color: var(--connect__color-focus-500);
+  --state-based-bg: var(--connect__color-focus-100);
+}
+
+.connect__color-white {
+  --connect__inner-status-color: var(--connect__white);
+  --state-based-bg: var(--connect__white);
+}
+
+/* 
 These styles apply to elements with classes that include '-correct'.
 
 | Property      | Variable                      | Description                       |
@@ -1875,7 +2238,6 @@ Cover Text / Cursors / Iconography
 | Property Type | Variable                        | Description                    |
 |---------------|---------------------------------|--------------------------------|
 | Color         | --active-color                  | Change to disabled text mid    |
-| Cursor        | --connect__state-based-pointer  | Change to disabled cursor      |
 | Iconography   | --state__connect-dropdown-icon  | Change to state dropdown icon  |
 */
 
@@ -1883,7 +2245,6 @@ Cover Text / Cursors / Iconography
 .connect__feedback-incorrect,
 .connect__feedback-shown {
   --active-color: var(--connect__disabled-mid);
-  --connect__state-based-pointer: var(--connect__disabled-cursor);
   --state__connect-dropdown-icon: var(--state__variant-connect-dropdown-icon);
 }
 
@@ -1905,7 +2266,7 @@ Cover Text / Cursors / Iconography
   --connect__hint-max-w: calc(var(--connect__dropdown-max-w) - var(--connect__hint-x-offset));
 
   background-color: var(--connect__surface-white);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   display: var(--variant__hint-display, var(--connect__display-block));
   left: 0;
   max-width: var(--connect__hint-max-w);
@@ -1915,6 +2276,10 @@ Cover Text / Cursors / Iconography
   transform: translateY(var(--connect__hint-y-offset)) translateX(var(--connect__hint-x-offset));
   z-index: 2;
 }
+
+/*
+dropdown
+*/
 
 .connect__dropdown-wrapper {
   position: var(--connect__relative);
@@ -1943,7 +2308,7 @@ Cover Text / Cursors / Iconography
   background-repeat: no-repeat;
   background-size: var(--connect__icon-md);
   border: var(--connect__spacer-zero) solid var(--connect__surface-null);
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl--1);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -2020,7 +2385,7 @@ Cover Text / Cursors / Iconography
 }
 
 .connect__dropdown-menu {
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   box-shadow: var(--connect__shadow-lvl-4);
   display: var(--variant-menu-display, var(--connect__display-none));
   left: var(--connect__spacer-zero);
@@ -2045,7 +2410,7 @@ Cover Text / Cursors / Iconography
 
 .connect__dropdown-item {
   background-color: var(--connect__surface-white);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   box-shadow: var(--connect__shadow-null);
   color: var(--active-color, var(--connect__surface-dark));
   cursor: var(--connect__state-based-pointer, pointer);
@@ -2086,11 +2451,11 @@ Cover Text / Cursors / Iconography
 
 .connect__toolbar {
   background-color: var(--connect__surface-pale);
-  border-radius: var(--connect__border-radius) var(--connect__border-radius) 0 0;
+  border-radius: var(--connect__radius-sm) var(--connect__radius-sm) 0 0;
   box-shadow: var(--connect__shadow-lvl-0);
 
   + .connect__input-textarea {
-    border-radius: 0 0 var(--connect__border-radius) var(--connect__border-radius);
+    border-radius: 0 0 var(--connect__radius-sm) var(--connect__radius-sm);
   }
 }
 
@@ -2121,7 +2486,7 @@ Cover Text / Cursors / Iconography
 }
 
 .connect__avatar-rounded {
-  --connect__avatar-radius: var(--connect__border-radius);
+  --connect__avatar-radius: var(--connect__radius-sm);
 }
 
 .connect__avatar-img {
@@ -2182,7 +2547,7 @@ Cover Text / Cursors / Iconography
 .connect__badge {
   align-items: center;
   background-color: var(--connect__badge-bg);
-  border-radius: var(--connect__inner-radius);
+  border-radius: var(--connect__radius-xs);
   display: var(--variant-badge-display, var(--connect__display-flex));
   flex-flow: var(--connect__flow-row) var(--connect__flex-wrap);
   justify-content: center;
@@ -2221,7 +2586,7 @@ Cover Text / Cursors / Iconography
 .connect__tooltip {
   align-items: center;
   animation: fade-in var(--connect__transition-rapid) var(--connect__linear) forwards;
-  border-radius: var(--connect__border-radius);
+  border-radius: var(--connect__radius-sm);
   display: var(--connect__display-flex);
   justify-content: center;
   margin: var(--connect__spacer-sm);
@@ -2406,7 +2771,7 @@ utilities
 }
 
 .connect__rounded-corners {
-  border-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-reset {
@@ -2414,29 +2779,29 @@ utilities
 }
 
 .connect__rounded-top-left {
-  border-top-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-top-left-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-top-right {
-  border-top-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-top-right-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-bottom-left {
-  border-bottom-left-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-bottom-left-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-bottom-right {
-  border-bottom-right-radius: var(--variant__rounded-radius, var(--connect__border-radius));
+  border-bottom-right-radius: var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__rounded-top {
-  border-radius: var(--variant__rounded-radius, var(--connect__border-radius))
-    var(--variant__rounded-radius, var(--connect__border-radius)) 0 0;
+  border-radius: var(--variant__rounded-radius, var(--connect__radius-sm))
+    var(--variant__rounded-radius, var(--connect__radius-sm)) 0 0;
 }
 
 .connect__rounded-bottom {
-  border-radius: 0 0 var(--variant__rounded-radius, var(--connect__border-radius))
-    var(--variant__rounded-radius, var(--connect__border-radius));
+  border-radius: 0 0 var(--variant__rounded-radius, var(--connect__radius-sm))
+    var(--variant__rounded-radius, var(--connect__radius-sm));
 }
 
 .connect__elevation--2 {
@@ -2506,5 +2871,53 @@ To be fleshed out / moved
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+/* 
+  Reading Tile Bespoke Styles
+*/
+
+.connect__grapheme {
+  --color-duration: 200ms;
+  --enlarge-duration: 300ms;
+  --scaled-duration: 500ms;
+  --reduce-duration: 300ms;
+  transform-origin: 50% 50%;
+
+  .connect__typography {
+    transition: color var(--color-duration) ease;
+  }
+
+  &-animate {
+    animation: grapheme-animate
+      calc(var(--enlarge-duration) + var(--scaled-duration) + var(--reduce-duration))
+      cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    .connect__typography {
+      color: var(--connect__primary-mid);
+    }
+  }
+}
+
+/* motion here is 300ms, 800ms 1100ms
+  First part is the 300ms enlarge,
+  second part 300ms + 500ms scale
+  final finish then 300ms reduce
+
+*/
+
+@keyframes grapheme-animate {
+  0% {
+    transform: scale(1);
+  }
+  27.27% {
+    transform: scale(1.05);
+  }
+  72.73% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

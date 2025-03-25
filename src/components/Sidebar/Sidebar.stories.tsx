@@ -86,7 +86,7 @@ WithMenu.args = {
                 <ButtonMenu
                   id="info"
                   iconId="info"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Info"
                   children=""
@@ -98,7 +98,7 @@ WithMenu.args = {
                 <ButtonMenu
                   id="desmos"
                   iconId="desmos"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Desnos Calculator"
                   children=""
@@ -110,7 +110,7 @@ WithMenu.args = {
                 <ButtonMenu
                   id="group-activity"
                   iconId="groupActivity"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Group Activity"
                   children=""
@@ -122,7 +122,7 @@ WithMenu.args = {
                 <ButtonMenu
                   id="add"
                   iconId="add"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""
@@ -156,7 +156,7 @@ WithDivider.args = {
                 <ButtonMenu
                   id="info"
                   iconId="info"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Info"
                   children=""
@@ -173,7 +173,7 @@ WithDivider.args = {
                 <ButtonMenu
                   id="desmos"
                   iconId="desmos"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Desnos Calculator"
                   children=""
@@ -185,7 +185,7 @@ WithDivider.args = {
                 <ButtonMenu
                   id="group-activity"
                   iconId="groupActivity"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Group Activity"
                   children=""
@@ -197,7 +197,7 @@ WithDivider.args = {
                 <ButtonMenu
                   id="add"
                   iconId="add"
-                  iconSize="md"
+                  iconSize="sm"
                   clickedClass="connect__selected"
                   ariaLabel="Add"
                   children=""

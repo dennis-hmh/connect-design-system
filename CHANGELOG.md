@@ -1,5 +1,62 @@
 # @connect/connect-design-system
 
+## 1.24.2
+
+### Patch Changes
+
+- d83d4f1: - New Component: N/A
+  - Updated Component:
+    - `<Table />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: `<Table />` styles aligned with Plankton styles
+
+## 1.24.1
+
+### Patch Changes
+
+- 1b5462d: - New Component: N/A
+  - Updated Component:
+    - `<InputBox />`: Noe using SemanticColorTokens
+    - `<InputText />`: Now using SemanticColorTokens
+    - `<SelectBox />`: Now using SemanticColorTokens
+  - Bug Fix: N/A
+  - Other: N/A
+
+## 1.24.0
+
+### Minor Changes
+
+- ab715fd: 'plain' variant added to Button options, 'rounded' prop added to ButtonMenu, Icon colours now applied correctly, Expand and Collapse icons behave consistently
+
+## 1.23.0
+
+### Minor Changes
+
+- eb17ccc: - New Component:
+  - `<ButtonGroup />`: Button grouping with same styling as `<Button />`
+  - Updated Component:
+    - `<Button />`: Now using `ButtonBase` with MUI props
+  - Bug Fix: N/A
+  - Other: `ButtonBase` added to share MUI props between button components.
+
+## 1.22.0
+
+### Minor Changes
+
+- dbf3714: - Spacing values updated - Border radius values updated
+
+## 1.21.7
+
+### Patch Changes
+
+- ea8ebd6: Math icons added, icon viewbox updated to 20x20
+
+## 1.21.6
+
+### Patch Changes
+
+- b887933: Avatar - exposed ref
+
 ## 1.21.5
 
 ### Patch Changes
