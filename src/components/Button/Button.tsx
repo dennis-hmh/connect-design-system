@@ -113,8 +113,8 @@ export const Button: React.FC<ButtonProps> = ({
     // // To be removed in v2.0.0
     primary !== undefined
       ? primary
-        ? 'connect__button-primary'
-        : 'connect__button-secondary connect__button-outlined'
+        ? 'connect__button-primary connect__button-contained'
+        : 'connect__button-primary connect__button-outlined'
       : '', // Deprecated
 
     correct && 'connect__button-positive', // Deprecated

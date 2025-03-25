@@ -96,6 +96,10 @@ const App: React.FC = () => {
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
+                <Button primary={false}>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
 
                 <ButtonGroup
                   ariaLabel="Primary Button Group"
