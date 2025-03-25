@@ -37,7 +37,6 @@ PrimaryContained.args = {
   color: 'primary',
   ariaLabel: 'Primary Button Group',
   orientation: 'horizontal',
-  type: 'button',
   disabled: false,
   gradeBand: GradeBand.G4_5,
 };
@@ -93,7 +92,6 @@ Icon.args = {
 export const Disabled: Story = Template.bind({});
 Disabled.args = {
   ...PrimaryContained.args,
-  disabled: true,
   children: [<Button>Option 1</Button>, <Button>Option 2</Button>],
   disabled: true,
 };

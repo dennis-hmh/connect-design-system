@@ -60,8 +60,10 @@ type ExistingButtonProps = {
 
 // Define props specific to the new button implementation
 type SpecificButtonProps = {
+  variant?: 'text' | 'contained' | 'outlined' | 'plain';
+  state?: 'activated' | 'visited';
   color?: SemanticColorToken;
-  size?: 'sm' | 'lg';
+  size?: 'sm' | 'md';
   disableElevation?: boolean;
   fullWidth?: boolean;
   iconOpacity?: number;
@@ -73,8 +75,9 @@ export type ButtonProps = ButtonBaseProps & SpecificButtonProps & ExistingButton
 export const Button: React.FC<ButtonProps> = ({
   children,
   variant,
+  state,
   color,
-  size,
+  size = 'md',
   disableElevation = false,
   fullWidth = false,
   onClick,
@@ -100,6 +103,8 @@ export const Button: React.FC<ButtonProps> = ({
   const classNames = [
     'connect__button',
     variant && `connect__button-${variant}`,
+    state && `connect__button-${state}`,
+
     color && `connect__button-${color}`,
     size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',

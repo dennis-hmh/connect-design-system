@@ -16,6 +16,37 @@ const meta: Meta<typeof Button> = {
   args: {
     gradeBand: GradeBand.G4_5,
   },
+  argTypes: {
+    primary: { table: { disable: true } },
+    correct: { table: { disable: true } },
+    incorrect: { table: { disable: true } },
+    submit: { table: { disable: true } },
+    clickHandler: { table: { disable: true } },
+    iconId: { table: { disable: true } },
+    iconSize: { table: { disable: true } },
+    fill: { table: { disable: true } },
+    iconPosition: { table: { disable: true } },
+    iconOpacity: { table: { disable: true } },
+    additionalClasses: { table: { disable: true } },
+    mediaButton: { table: { disable: true } },
+    //are the following needed at all
+    tabIndex: { table: { disable: true } },
+    onFocusVisible: { table: { disable: true } },
+    onKeyDown: { table: { disable: true } },
+    onKeyUp: { table: { disable: true } },
+    onMouseDown: { table: { disable: true } },
+    onMouseLeave: { table: { disable: true } },
+    classes: { table: { disable: true } },
+    ariaLabel: { table: { disable: true } },
+    ariaDescribedby: { table: { disable: true } },
+    ariaLabelledby: { table: { disable: true } },
+    ariaHidden: { table: { disable: true } },
+    ariaExpanded: { table: { disable: true } },
+    ariaControls: { table: { disable: true } },
+    ariaPressed: { table: { disable: true } },
+    role: { table: { disable: true } },
+    autoFocus: { table: { disable: true } },
+  },
 };
 
 export default meta;
@@ -58,12 +89,28 @@ TextButton.args = {
   ariaLabel: 'Text Button',
 };
 
+export const VisitedButton: Story = Template.bind({});
+VisitedButton.args = {
+  children: <Typography>Visited Button</Typography>,
+  color: 'primary',
+  state: 'visited',
+  ariaLabel: 'Visited Button',
+};
+
+export const ActivatedButton: Story = Template.bind({});
+ActivatedButton.args = {
+  children: <Typography>Activated Button</Typography>,
+  color: 'primary',
+  state: 'activated',
+  ariaLabel: 'Activated Button',
+};
+
 export const PlainButton: Story = Template.bind({});
 PlainButton.args = {
   children: <Typography>Plain Button</Typography>,
   variant: 'plain',
-  classes: 'connect__grapheme',
-  ariaLabel: 'Text Button',
+  color: 'primary',
+  ariaLabel: 'Plain Button',
 };
 
 export const StartIconButton: Story = Template.bind({});
@@ -146,13 +193,13 @@ SmallButton.args = {
   ariaLabel: 'Small Button',
 };
 
-export const LargeButton: Story = Template.bind({});
-LargeButton.args = {
-  children: <Typography>Large Button</Typography>,
+export const MediumButton: Story = Template.bind({});
+MediumButton.args = {
+  children: <Typography>Medium Button</Typography>,
   variant: 'contained',
   color: 'primary',
-  size: 'lg',
-  ariaLabel: 'Large Button',
+  size: 'md',
+  ariaLabel: 'Medium Button',
 };
 
 export const NoElevationButton: Story = Template.bind({});
