@@ -40,7 +40,7 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
     rounded && 'connect__button-rounded',
     size === 'sm' && 'connect__button-small',
     disabled && 'connect__disabled',
-    clickedClass && clickedClass,
+    clickedClass,
     classes,
   ]
     .filter(Boolean)
