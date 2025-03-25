@@ -352,7 +352,6 @@ Buttons take variables in the following format
     --connect__color-plain-activated-inner-status-color: var(--connect__neutral-500);
   }
 
-  &-no-elevation,
   &-contained {
     --variant__btn-bg: var(--connect__color-contained-bg);
     --active-color: var(--connect__color-contained-text);
@@ -363,7 +362,6 @@ Buttons take variables in the following format
     }
   }
 
-  &-no-elevation,
   &-outlined {
     --variant__btn-bg: var(--connect__color-outlined-bg);
     --active-color: var(--connect__color-outlined-text);
