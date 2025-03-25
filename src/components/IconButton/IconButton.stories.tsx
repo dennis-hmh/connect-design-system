@@ -39,11 +39,10 @@ const Template: StoryFn<IconButtonProps> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   children: <Icon id="add" size="md" />,
-  backgroundColor: '',
   variant: 'contained',
   color: 'primary',
   rounded: false,
-  state: '',
+  state: undefined,
   ariaLabel: 'Add',
   disabled: false,
   gradeBand: GradeBand.G4_5,
@@ -74,12 +73,6 @@ export const SemanticColor: Story = Template.bind({});
 SemanticColor.args = {
   ...Default.args,
   color: 'positive',
-};
-
-export const BackgroundColor: Story = Template.bind({});
-BackgroundColor.args = {
-  ...Default.args,
-  backgroundColor: 'gray-c35',
 };
 
 export const Disabled: Story = Template.bind({});

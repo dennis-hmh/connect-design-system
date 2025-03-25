@@ -1,5 +1,4 @@
 import React from 'react';
-import { Color } from 'src/utils/colors';
 import { SemanticColorToken } from 'src/utils/new-colors';
 import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
 import { GradeBand } from '../../enum/gradeband';
@@ -11,7 +10,6 @@ export type IconButtonProps = {
   clickedClass?: string;
   color?: SemanticColorToken;
   rounded?: boolean;
-  backgroundColor?: Color;
   clickHandler?: () => void;
   dataTestId?: string;
   gradeBand?: GradeBand;
@@ -27,7 +25,6 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   variant,
   size,
   color,
-  backgroundColor,
   ariaLabel,
   title,
   disabled = false,
@@ -58,11 +55,6 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
       title={title}
       disabled={disabled}
       data-testid={dataTestId}
-      style={
-        backgroundColor
-          ? ({ '--variant__btn-bg': `var(--connect__${backgroundColor})` } as React.CSSProperties)
-          : undefined
-      }
       type="button"
     >
       {children}
