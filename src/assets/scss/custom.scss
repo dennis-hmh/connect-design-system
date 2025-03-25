@@ -134,6 +134,9 @@ Buttons take variables in the following format
   transition-timing-function: var(--connect__ease-out);
   width: var(--connect__btn-w, auto);
 
+  // for andrew later
+  grid-auto-flow: column;
+
   &:not(:disabled) {
     &:hover {
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);

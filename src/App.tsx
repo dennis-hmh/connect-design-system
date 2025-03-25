@@ -78,10 +78,25 @@ const App: React.FC = () => {
                 <Button variant="outlined" color="secondary">
                   Button
                 </Button>
-                <Button variant="outlined" color="secondary">
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  Button
+                </Button>
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  <Typography>Button</Typography>
+                </Button>
+                <Button primary>
+                  <Icon size="md" id="add" />
+                  Button
+                </Button>
+                <Button primary>
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
+                <Button variant='contained' color='primary'>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+
                 <ButtonGroup
                   ariaLabel="Primary Button Group"
                   color="primary"
