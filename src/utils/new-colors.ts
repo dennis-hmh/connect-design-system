@@ -17,7 +17,6 @@ export enum ColorCategory {
   Negative = 'negative',
   Constructive = 'constructive',
   Positive = 'positive',
-  Focus = 'focus',
 }
 
 // Helper type for semantic color tokens
@@ -29,9 +28,7 @@ export type SemanticColorToken =
   | 'caution'
   | 'negative'
   | 'constructive'
-  | 'positive'
-  | 'focus'
-  | 'white';
+  | 'positive';
 
 // Helper type for color combinations
 export type ColorToken = `${SemanticColorToken}-${ColorIntensity}`;
@@ -93,16 +90,6 @@ export const Colors: Partial<Record<ColorToken, string>> = {
   'positive-300': '#00CC23', // Medium green
   'positive-400': '#00AD00', // Dark green
   'positive-500': '#197811', // Darkest green
-
-  // Focus colors
-  'focus-100': '#FFE9D5', // Lightest cerise
-  'focus-200': '#FFA145', // Light cerise
-  'focus-300': '#FF7A08', // Medium cerise
-  'focus-400': '#FF5C00', // Dark cerise
-  'focus-500': '#CE4500', // Darkest cerise
-
-  // White color
-  'white-100': '#FFFFFF', // White
 };
 
 // Helper function to get a color with specific intensity
@@ -122,8 +109,6 @@ export const getSemanticColor = (token: SemanticColorToken): string => {
     negative: ColorIntensity.I400,
     constructive: ColorIntensity.I400,
     positive: ColorIntensity.I400,
-    focus: ColorIntensity.I500,
-    white: ColorIntensity.I100,
   };
 
   return getColor(token as ColorCategory, defaultIntensities[token]);
@@ -132,9 +117,9 @@ export const getSemanticColor = (token: SemanticColorToken): string => {
 // Helper function to get CSS variable name for a color token
 export const getColorVariable = (token: ColorToken | SemanticColorToken): string => {
   if (token.includes('-')) {
-    return `var(--connect__color-${token})`;
+    return `var(--connect__${token})`;
   }
-  return `var(--connect__color-${token}-${getDefaultIntensity(token as SemanticColorToken)})`;
+  return `var(--connect__${token}-${getDefaultIntensity(token as SemanticColorToken)})`;
 };
 
 // Helper function to get default intensity for a semantic color
@@ -148,8 +133,6 @@ const getDefaultIntensity = (token: SemanticColorToken): ColorIntensity => {
     negative: ColorIntensity.I400,
     constructive: ColorIntensity.I400,
     positive: ColorIntensity.I400,
-    focus: ColorIntensity.I500,
-    white: ColorIntensity.I100,
   };
   return defaultIntensities[token];
 };

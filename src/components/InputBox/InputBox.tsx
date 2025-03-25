@@ -47,7 +47,7 @@ const getClassNames = ({
   const choiceClass = [
     'connect__choice',
     inputStates,
-    color && `connect__color-${color}`,
+    color && `connect__${color}`,
     isChecked && 'connect__choice-checked',
     (disabled || shouldBeDisabled) && 'connect__disabled',
   ]
@@ -57,7 +57,7 @@ const getClassNames = ({
   const labelClass = [
     'connect__choice-label',
     inputStates,
-    color && `connect__color-${color}`,
+    color && `connect__${color}`,
     isChecked && 'connect__label-checked',
     (disabled || shouldBeDisabled) && 'connect__disabled',
   ]
