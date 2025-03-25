@@ -41,9 +41,9 @@ export const Table: React.FC<TableProps> = ({
     .filter(Boolean)
     .join(' ');
 
-  const themeColor = theme ? `var(--connect__color-${theme}-400)` : '';
+  const themeColor = theme ? `var(--connect__${theme}-400)` : '';
 
-  const themeColorSticky = stickyHeader && theme ? `var(--connect__color-${theme}-100)` : '';
+  const themeColorSticky = stickyHeader && theme ? `var(--connect__${theme}-100)` : '';
 
   // eslint-disable-next-line no-console
   console.log(`themeColor: ${themeColor}`);
