@@ -1,5 +1,17 @@
 # @connect/connect-design-system
 
+## 1.24.4
+
+### Patch Changes
+
+- 53d5dc0: Automate building of Storybook
+
+## 1.24.3
+
+### Patch Changes
+
+- be52407: Default position of Button content changed to center, deprecated props removed from Storybook
+
 ## 1.24.2
 
 ### Patch Changes
