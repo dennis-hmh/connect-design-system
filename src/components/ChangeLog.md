@@ -1,3 +1,22 @@
+### v1.24.3 Release Notice
+
+### Release date: March 25, 2025
+
+### Changelog:
+
+- Button: 
+  - Changed default position of Button content from space-between to center
+  - Removed deprecated props from Storybook
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.24.2 Release Notice
 
 ### Release date: March 20, 2025

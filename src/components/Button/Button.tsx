@@ -77,7 +77,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant,
   state,
   color,
-  size,
+  size = 'md',
   disableElevation = false,
   fullWidth = false,
   onClick,
