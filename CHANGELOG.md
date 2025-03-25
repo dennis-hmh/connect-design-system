@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.24.4
+
+### Patch Changes
+
+- 53d5dc0: Automate building of Storybook
+
 ## 1.24.3
 
 ### Patch Changes
