@@ -9,7 +9,6 @@ export type IconButtonProps = {
   id?: string;
   classes?: string;
   clickedClass?: string;
-  state: 'activated' | 'visited';
   color?: SemanticColorToken;
   rounded?: boolean;
   backgroundColor?: Color;

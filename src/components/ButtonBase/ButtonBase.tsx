@@ -5,6 +5,7 @@ export type ButtonBaseProps = {
   children?: React.ReactNode;
   classes?: string;
   variant?: 'text' | 'contained' | 'outlined' | 'plain';
+  state?: 'activated' | 'visited';
   disabled?: boolean;
   title?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

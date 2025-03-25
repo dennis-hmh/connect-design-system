@@ -60,8 +60,6 @@ type ExistingButtonProps = {
 
 // Define props specific to the new button implementation
 type SpecificButtonProps = {
-  variant?: 'text' | 'contained' | 'outlined' | 'plain';
-  state?: 'activated' | 'visited';
   color?: SemanticColorToken;
   size?: 'sm' | 'md';
   disableElevation?: boolean;
