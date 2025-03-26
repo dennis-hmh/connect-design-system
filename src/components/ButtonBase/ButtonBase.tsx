@@ -1,4 +1,5 @@
 import React from 'react';
+import { SemanticColorToken } from 'src/utils/new-colors';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonBaseProps = {
@@ -7,6 +8,9 @@ export type ButtonBaseProps = {
   classes?: string;
   variant?: 'text' | 'contained' | 'outlined' | 'plain';
   state?: 'activated' | 'visited';
+  color?: SemanticColorToken;
+  disableElevation?: boolean;
+  size?: 'sm' | 'md';
   disabled?: boolean;
   title?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -26,7 +30,6 @@ export type ButtonBaseProps = {
   ariaExpanded?: boolean;
   ariaControls?: string;
   ariaPressed?: boolean;
-  size?: 'sm' | 'md';
   role?: string;
   autoFocus?: boolean;
   gradeBand?: GradeBand;
@@ -36,6 +39,11 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   children,
   id,
   classes,
+  variant,
+  state,
+  color,
+  size = 'md',
+  disableElevation = false,
   disabled = false,
   title,
   onClick,
@@ -59,10 +67,21 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
   autoFocus,
   ...props
 }) => {
+  const buttonClasses = [
+    'connect__button',
+    variant && `connect__button-${variant}`,
+    state && `connect__button-${state}`,
+    color && `connect__button-${color}`,
+    size === 'sm' && 'connect__button-small',
+    disableElevation && 'connect__button-no-elevation',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <Component
       id={id}
-      className={classes}
+      className={`${buttonClasses} ${classes}`}
       disabled={Component === 'button' ? disabled : undefined}
       aria-disabled={disabled}
       onClick={disabled ? undefined : onClick}

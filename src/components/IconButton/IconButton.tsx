@@ -1,12 +1,12 @@
 import React from 'react';
-import { SemanticColorToken } from 'src/utils/new-colors';
-import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
+import { ButtonBase, ButtonBaseProps } from '../ButtonBase/ButtonBase';
+import { GradeBand } from '../../enum/gradeband';
 
 export type IconButtonProps = {
   children: React.ReactNode;
   ariaLabel: string;
-  color?: SemanticColorToken;
   rounded?: boolean;
+  gradeBand?: GradeBand;
 };
 
 export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
@@ -14,42 +14,33 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   ariaLabel,
   id,
   classes,
-  color,
   rounded,
-  variant,
-  state,
-  size,
   title,
   onClick,
+  type = 'button',
   disabled = false,
   dataTestId,
+  ...props
 }) => {
-  const classNames = [
-    'connect__button',
-    'connect__button-icon',
-    variant && `connect__button-${variant}`,
-    color && `connect__button-${color}`,
-    state && `connect__button-${state}`,
-    rounded && 'connect__button-rounded',
-    size === 'sm' && 'connect__button-small',
-    disabled && 'connect__disabled',
-    classes,
-  ]
+  const classNames = ['connect__button-icon', rounded && 'connect__button-rounded', classes]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <button
+    <ButtonBase
       id={id}
-      className={classNames}
+      classes={classNames}
       onClick={onClick}
+      type={type}
       aria-label={ariaLabel}
       title={title}
       disabled={disabled}
       data-testid={dataTestId}
-      type="button"
+      {...props}
     >
       {children}
-    </button>
+    </ButtonBase>
   );
 };
+
+IconButton.displayName = 'IconButton';

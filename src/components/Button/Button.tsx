@@ -1,10 +1,8 @@
 import React from 'react';
-import { SemanticColorToken } from '../../utils/new-colors';
 import { Icon } from '../Icon/Icon'; // Deprecated
 import { IconId } from '../../utils/icon-list'; // Deprecated
 import { Color } from '../../utils/colors'; //Deprecated
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase/ButtonBase';
-import { GradeBand } from 'src/enum/gradeband';
 
 // Existin props no part of ButtonBase. To be removed in v2.0.0.
 type ExistingButtonProps = {
@@ -60,21 +58,13 @@ type ExistingButtonProps = {
 
 // Define props specific to the new button implementation
 type SpecificButtonProps = {
-  color?: SemanticColorToken;
-  disableElevation?: boolean;
   fullWidth?: boolean;
-  gradeBand?: GradeBand;
 };
 
 export type ButtonProps = ButtonBaseProps & SpecificButtonProps & ExistingButtonProps;
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  variant,
-  state,
-  color,
-  size = 'md',
-  disableElevation = false,
   fullWidth = false,
   onClick,
   disabled,
@@ -97,13 +87,6 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const classNames = [
-    'connect__button',
-    variant && `connect__button-${variant}`,
-    state && `connect__button-${state}`,
-
-    color && `connect__button-${color}`,
-    size === 'sm' && 'connect__button-small',
-    disableElevation && 'connect__button-no-elevation',
     fullWidth && 'connect__button-full-width',
 
     // // To be removed in v2.0.0

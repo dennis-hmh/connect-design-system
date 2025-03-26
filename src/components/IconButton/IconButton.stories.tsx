@@ -12,6 +12,9 @@ const meta: Meta<typeof IconButton> = {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    gradeBand: GradeBand.G4_5,
+  },
 };
 
 export default meta;
@@ -87,6 +90,12 @@ IconColor.args = {
   rounded: true,
   variant: 'plain',
   ariaLabel: 'Plain reload rounded button custom icon color',
+};
+
+export const NoElevationButton: Story = Template.bind({});
+NoElevationButton.args = {
+  ...Default.args,
+  disableElevation: true,
 };
 
 export const Disabled: Story = Template.bind({});
