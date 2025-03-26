@@ -449,8 +449,11 @@ Buttons take variables in the following format
   // Size variants
   &-small {
     --variant__btn-padding-y: var(--connect__spacer-xs);
-    --variant__btn-padding-x: var(--connect__spacer-xs);
     --variant__btn-border-radius: var(--connect__radius-xs);
+
+    &.connect__button-icon {
+      --variant__btn-padding-x: var(--connect__spacer-xs);
+    }
 
     min-height: var(--connect__component-min-h);
     min-width: var(--connect__component-min-w);
