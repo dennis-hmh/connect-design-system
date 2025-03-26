@@ -179,8 +179,8 @@ Buttons take variables in the following format
     --connect__color-activated-text: var(--connect__surface-white);
     --connect__color-activated-inner-status-color: var(--connect__primary-500);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__primary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
@@ -205,8 +205,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__secondary-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__secondary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
@@ -218,7 +218,7 @@ Buttons take variables in the following format
     --connect__color-contained-bg: var(--connect__assistive-400);
     --connect__color-contained-text: var(--connect__surface-white);
 
-    --connect__color-outlined-bg: var(--connect__transparent);
+    --connect__color-outlined-bg: var(--connect__surface-white);
     --connect__color-outlined-text: var(--connect__surface-dark);
     --connect__color-inner-status-color: var(--connect__assistive-400);
 
@@ -228,8 +228,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__assistive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__assistive-500);
 
@@ -251,8 +251,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__caution-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__caution-500);
 
@@ -274,8 +274,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__negative-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__negative-500);
 
@@ -297,8 +297,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__constructive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__constructive-500);
 
@@ -320,8 +320,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__positive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__positive-500);
 
@@ -343,8 +343,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__neutral-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__neutral-500);
 
@@ -384,6 +384,9 @@ Buttons take variables in the following format
 
   &-text,
   &-plain {
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
+
     --variant__btn-bg: var(--connect__color-plain-bg);
     --active-color: var(--connect__color-plain-text);
 
@@ -416,6 +419,18 @@ Buttons take variables in the following format
     }
   }
 
+  &-contained {
+    &.connect__button-visited {
+      --variant__btn-bg: var(--connect__color-visited-bg);
+      --active-color: var(--connect__color-visited-text);
+    }
+
+    &.connect__button-activated {
+      --variant__btn-bg: var(--connect__color-activated-bg);
+      --active-color: var(--connect__color-activated-text);
+    }
+  }
+
   &-outlined {
     &.connect__button-visited {
       --connect__inner-status-color: var(--connect__transparent);
@@ -431,8 +446,12 @@ Buttons take variables in the following format
 
   // Size variants
   &-small {
-    --connect__btn-padding-y: var(--connect__spacer-xs);
-    --connect__btn-padding-x: var(--connect__spacer-sm);
+    --variant__btn-padding-y: var(--connect__spacer-xs);
+    --variant__btn-padding-x: var(--connect__spacer-xs);
+    --variant__btn-border-radius: var(--connect__radius-xs);
+
+    min-height: var(--connect__component-min-h);
+    min-width: var(--connect__component-min-w);
   }
 
   // Elevation variants
@@ -2934,30 +2953,12 @@ To be fleshed out / moved
   }
 }
 
-/* 
-  Reading Tile Bespoke Styles
-*/
-
-.connect__grapheme {
-  --color-duration: 200ms;
-  --enlarge-duration: 300ms;
-  --scaled-duration: 500ms;
-  --reduce-duration: 300ms;
-  transform-origin: 50% 50%;
-
-  .connect__typography {
-    transition: color var(--color-duration) ease;
-  }
-
-  &-animate {
-    animation: grapheme-animate
-      calc(var(--enlarge-duration) + var(--scaled-duration) + var(--reduce-duration))
-      cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-    .connect__typography {
-      color: var(--connect__primary-mid);
-    }
-  }
+.connect__image {
+  display: var(--connect__media-display, var(--connect__display-block));
+  height: auto;
+  max-height: 100%;
+  max-inline-size: var(--connect__media-max-inline-size, 100%);
+  max-width: var(--connect__media-max-width, 100%);
 }
 
 /* motion here is 300ms, 800ms 1100ms

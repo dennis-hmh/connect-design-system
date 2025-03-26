@@ -73,6 +73,7 @@ Rounded.args = {
   id: 'replay',
   iconId: 'replay',
   variant: 'plain',
+  fill: 'primary-mid',
   rounded: true,
   iconSize: 'sm',
   ariaLabel: 'Plain reload rounded button',
