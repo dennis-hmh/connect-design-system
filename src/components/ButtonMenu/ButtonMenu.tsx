@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
 import { GradeBand } from 'src/enum/gradeband';
+import { ButtonMenuContext } from '../../context/ButtonMenuContext';
 
 export type ButtonMenuProps = {
   children?: React.ReactNode;
@@ -24,7 +25,7 @@ export type ButtonMenuProps = {
 };
 
 /**
- * @deprecated Use IconButton component instead. This component will be removed in v2.0.0.
+ * @deprecated The ButtonMenu component is being repaced with the IconButton component. Please use IconButton component is your work. This component will be removed in v2.0.0.
  */
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   children,
@@ -43,7 +44,14 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   onClick,
   dataTestId,
 }) => {
+  const context = useContext(ButtonMenuContext);
+  const clickedButtonId = context?.clickedButtonId;
+  const setClickedButtonId = context?.setClickedButtonId;
+
   const handleClick = () => {
+    if (setClickedButtonId) {
+      setClickedButtonId(clickedButtonId === id ? '' : id);
+    }
     if (clickHandler) {
       clickHandler();
     }
@@ -52,6 +60,8 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
     }
   };
 
+  const isClicked = clickedButtonId === id;
+
   const classNames = [
     'connect__button',
     'connect__button-menu',
@@ -59,7 +69,7 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
 
     rounded && 'connect__button-rounded',
     additionalClass,
-    clickedClass && clickedClass,
+    isClicked && clickedClass,
   ]
     .filter(Boolean)
     .join(' ');
