@@ -38,7 +38,7 @@ const Template: StoryFn<IconButtonProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  children: <Icon id="add" size="md" />,
+  children: <Icon id="add" size="sm" />,
   variant: 'contained',
   color: 'primary',
   rounded: false,
@@ -60,19 +60,27 @@ Plain.args = {
   variant: 'plain',
 };
 
-export const PlainRounded: Story = Template.bind({});
-PlainRounded.args = {
+export const Rounded: Story = Template.bind({});
+Rounded.args = {
   ...Default.args,
-  children: <Icon id="replay" size="md" />,
-  variant: 'plain',
+  children: <Icon id="replay" size="sm" />,
   rounded: true,
-  ariaLabel: 'Plain reload rounded button',
+  ariaLabel: 'Rounded button with reload icon',
 };
 
 export const SemanticColor: Story = Template.bind({});
 SemanticColor.args = {
   ...Default.args,
   color: 'positive',
+};
+
+export const IconColor: Story = Template.bind({});
+IconColor.args = {
+  ...Default.args,
+  children: <Icon id="replay" size="sm" fill="primary-400" />,
+  rounded: true,
+  variant: 'plain',
+  ariaLabel: 'Plain reload rounded button custom icon color',
 };
 
 export const Disabled: Story = Template.bind({});
