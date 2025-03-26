@@ -66,6 +66,38 @@
     url('https://d16qzots3do3wk.cloudfront.net/master-fonts/prod/sourcecodevf-italic.ttf.woff') format('woff');
 }
 
+@font-face {
+  font-display: swap;
+  font-family: "FrutigerRoman";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-roman.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "FrutigerBold";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-bold.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "AvenirPrimaryHMH";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "AvenirPrimaryHMH Bold";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh-bold.otf") format("opentype");
+}
+
 /* stylelint-enable order/properties-alphabetical-order */
 
 .connect__gk2,
@@ -781,6 +813,9 @@
   }
 }
 
+
+
+
 .connect__gk2,
 .connect__g23,
 .connect__g35,
@@ -815,6 +850,22 @@
   --color-incorrect-bg: var(--connect__incorrect-pale);
 
   --connect__hint-size: var(--connect__spacer-sm);
+}
+
+.connect__gk2,
+.connect__g23 {
+  --connect__font-sans: 'AvenirPrimaryHMH', 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
+}
+
+.connect__g35,
+.connect__g45 {
+  --connect__font-sans: 'FrutigerRoman', 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
+}
+
+.connect__g68,
+.connect__g912,
+.connect__teach {
+  --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
 }
 
 *[class*='connect__'],
@@ -876,7 +927,6 @@
 
   /* 2.1: Font Families */
 
-  --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
   --connect__font-serif: 'Source Serif Pro', 'Times New Roman', serif;
   --connect__font-mono: 'Source Code Pro', 'Courier', 'Courier New', monospace;
 
@@ -1490,6 +1540,7 @@
 }
 
 .connect__typography {
+  font-size-adjust: ex-height 0.486;
   font-weight: var(--connect__fw, var(--connect__fw-regular));
   hyphens: auto;
 }
