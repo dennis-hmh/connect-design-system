@@ -88,6 +88,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const classNames = [
     fullWidth && 'connect__button-full-width',
+    classes,
 
     // // To be removed in v2.0.0
     primary !== undefined
@@ -100,7 +101,6 @@ export const Button: React.FC<ButtonProps> = ({
     incorrect && 'connect__button-negative', // Deprecated
     mediaButton && 'connect__button-media', // Deprecated
     additionalClasses, // Deprecated
-    classes,
   ]
     .filter(Boolean)
     .join(' ');
