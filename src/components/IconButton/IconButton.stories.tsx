@@ -43,6 +43,7 @@ Default.args = {
   color: 'primary',
   rounded: false,
   state: undefined,
+  size: 'md',
   ariaLabel: 'Add',
   disabled: false,
   gradeBand: GradeBand.G4_5,
