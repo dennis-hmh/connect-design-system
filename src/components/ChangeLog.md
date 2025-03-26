@@ -5,9 +5,11 @@
 ### Changelog:
 
 - New Component: `<IconButton />`
-- Updated Component: `<ButtonMenu />` has been depricated
+- Updated Component:
+  - `<ButtonMenu />` has been depricated
+  - `<Button />` props alignment with `ButtonBase`.
 - Bug Fix: N/A
-- Other: N/A
+- Other: `ButtonBase` controls props and styles shared by `<Button />` and `<IconButton />`
 
 #### Repo:
 
