@@ -61,10 +61,8 @@ type ExistingButtonProps = {
 // Define props specific to the new button implementation
 type SpecificButtonProps = {
   color?: SemanticColorToken;
-  size?: 'sm' | 'md';
   disableElevation?: boolean;
   fullWidth?: boolean;
-  iconOpacity?: number;
   gradeBand?: GradeBand;
 };
 
