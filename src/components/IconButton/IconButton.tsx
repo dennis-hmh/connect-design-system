@@ -5,6 +5,7 @@ import { GradeBand } from '../../enum/gradeband';
 
 export type IconButtonProps = {
   children: React.ReactNode;
+  ariaLabel: string;
   id?: string;
   classes?: string;
   clickedClass?: string;
