@@ -15,6 +15,25 @@ const meta: Meta<typeof IconButton> = {
   args: {
     gradeBand: GradeBand.G4_5,
   },
+  argTypes: {
+    //are the following needed at all
+    tabIndex: { table: { disable: true } },
+    onFocusVisible: { table: { disable: true } },
+    onKeyDown: { table: { disable: true } },
+    onKeyUp: { table: { disable: true } },
+    onMouseDown: { table: { disable: true } },
+    onMouseLeave: { table: { disable: true } },
+    classes: { table: { disable: true } },
+    ariaLabel: { table: { disable: true } },
+    ariaDescribedby: { table: { disable: true } },
+    ariaLabelledby: { table: { disable: true } },
+    ariaHidden: { table: { disable: true } },
+    ariaExpanded: { table: { disable: true } },
+    ariaControls: { table: { disable: true } },
+    ariaPressed: { table: { disable: true } },
+    role: { table: { disable: true } },
+    autoFocus: { table: { disable: true } },
+  },
 };
 
 export default meta;
@@ -60,6 +79,7 @@ Default.args = {
 export const Small: Story = Template.bind({});
 Small.args = {
   ...Default.args,
+  classes: 'connect__button-this-is-new',
   size: 'sm',
 };
 
