@@ -1,35 +1,29 @@
 import React from 'react';
 import { SemanticColorToken } from 'src/utils/new-colors';
 import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
-import { GradeBand } from '../../enum/gradeband';
 
 export type IconButtonProps = {
   children: React.ReactNode;
   ariaLabel: string;
-  id?: string;
-  classes?: string;
   clickedClass?: string;
   color?: SemanticColorToken;
   rounded?: boolean;
-  clickHandler?: () => void;
-  dataTestId?: string;
-  gradeBand?: GradeBand;
 };
 
 export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   children,
+  ariaLabel,
   id,
   classes,
   clickedClass,
-  state,
+  color,
   rounded,
   variant,
+  state,
   size,
-  color,
-  ariaLabel,
   title,
+  onClick,
   disabled = false,
-  clickHandler,
   dataTestId,
 }) => {
   const classNames = [
@@ -51,7 +45,7 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
     <button
       id={id}
       className={classNames}
-      onClick={clickHandler}
+      onClick={onClick}
       aria-label={ariaLabel}
       title={title}
       disabled={disabled}

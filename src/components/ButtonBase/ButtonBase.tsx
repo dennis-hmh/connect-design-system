@@ -3,6 +3,7 @@ import { GradeBand } from 'src/enum/gradeband';
 
 export type ButtonBaseProps = {
   children?: React.ReactNode;
+  id?: string;
   classes?: string;
   variant?: 'text' | 'contained' | 'outlined' | 'plain';
   state?: 'activated' | 'visited';
@@ -33,6 +34,7 @@ export type ButtonBaseProps = {
 
 export const ButtonBase: React.FC<ButtonBaseProps> = ({
   children,
+  id,
   classes,
   disabled = false,
   title,
@@ -59,6 +61,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
 }) => {
   return (
     <Component
+      id={id}
       className={classes}
       disabled={Component === 'button' ? disabled : undefined}
       aria-disabled={disabled}

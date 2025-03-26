@@ -30,7 +30,7 @@ const Template: StoryFn<IconButtonProps> = (args) => {
   return (
     <ConnectTheme gradeBand={args.gradeBand || GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <IconButton {...args} clickHandler={handleClick} classes={clickedClass} />
+        <IconButton {...args} onClick={handleClick} classes={clickedClass} />
       </div>
     </ConnectTheme>
   );
