@@ -2924,6 +2924,11 @@ To be fleshed out / moved
   width: auto;
 }
 
+.connect__image {
+  display: var(--connect__media-display, var(--connect__display-block));
+  max-width: var(--connect__full-w);
+}
+
 @keyframes connect-loading {
   0% {
     transform: rotate(0deg);
@@ -2959,14 +2964,6 @@ To be fleshed out / moved
   100% {
     transform: rotate(0deg);
   }
-}
-
-.connect__image {
-  display: var(--connect__media-display, var(--connect__display-block));
-  height: auto;
-  max-height: 100%;
-  max-inline-size: var(--connect__media-max-inline-size, 100%);
-  max-width: var(--connect__media-max-width, 100%);
 }
 
 /* motion here is 300ms, 800ms 1100ms
