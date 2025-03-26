@@ -20,17 +20,22 @@ type Story = StoryObj<typeof IconButton>;
 const Template: StoryFn<IconButtonProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const [clicked, setClicked] = useState(false);
+  const [classes, setClasses] = useState<string>('');
 
   const handleClick = () => {
     setClicked(!clicked);
-  };
 
-  const clickedClass = clicked ? 'connect__selected' : '';
+    setClasses((prevClasses) =>
+      clicked
+        ? prevClasses.replace('connect__selected', '').trim()
+        : `${prevClasses} connect__selected`.trim(),
+    );
+  };
 
   return (
     <ConnectTheme gradeBand={args.gradeBand || GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
-        <IconButton {...args} onClick={handleClick} classes={clickedClass} />
+        <IconButton {...args} onClick={handleClick} classes={classes} />
       </div>
     </ConnectTheme>
   );

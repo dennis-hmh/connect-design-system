@@ -5,7 +5,6 @@ import { ButtonBaseProps } from '../ButtonBase/ButtonBase';
 export type IconButtonProps = {
   children: React.ReactNode;
   ariaLabel: string;
-  clickedClass?: string;
   color?: SemanticColorToken;
   rounded?: boolean;
 };
@@ -15,7 +14,6 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
   ariaLabel,
   id,
   classes,
-  clickedClass,
   color,
   rounded,
   variant,
@@ -35,7 +33,6 @@ export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
     rounded && 'connect__button-rounded',
     size === 'sm' && 'connect__button-small',
     disabled && 'connect__disabled',
-    clickedClass,
     classes,
   ]
     .filter(Boolean)
