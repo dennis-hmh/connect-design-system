@@ -11,6 +11,12 @@ const meta: Meta<typeof ButtonMenu> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          '⚠️ **Deprecated**: The `ButtonMenu` component is deprecated and will be removed in version 2. Please use the `IconButton` component instead.',
+      },
+    },
   },
   decorators: [
     (Story) => {

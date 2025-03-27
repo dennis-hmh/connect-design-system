@@ -67,35 +67,39 @@
 }
 
 @font-face {
+  font-family: Frutiger;
   font-display: swap;
-  font-family: "FrutigerRoman";
   font-stretch: normal;
   font-style: normal;
-  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-roman.otf") format("opentype");
+  font-weight: 400;;
+  src: url('https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-roman.otf') format('opentype');
 }
 
 @font-face {
+  font-family: Frutiger;
   font-display: swap;
-  font-family: "FrutigerBold";
   font-stretch: normal;
   font-style: normal;
-  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-bold.otf") format("opentype");
+  font-weight: 700;
+  src: url('https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-bold.otf') format('opentype');
 }
 
 @font-face {
+  font-family: AvenirPrimaryHMH;
   font-display: swap;
-  font-family: "AvenirPrimaryHMH";
   font-stretch: normal;
   font-style: normal;
-  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh.otf") format("opentype");
+  font-weight: 400;
+  src: url('https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh.otf') format('opentype');
 }
 
 @font-face {
+  font-family: AvenirPrimaryHMH;
   font-display: swap;
-  font-family: "AvenirPrimaryHMH Bold";
   font-stretch: normal;
   font-style: normal;
-  src: url("https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh-bold.otf") format("opentype");
+  font-weight: 700;
+  src: url('https://d16qzots3do3wk.cloudfront.net/master-fonts/avenirprimaryhmh-bold.otf') format('opentype');
 }
 
 /* stylelint-enable order/properties-alphabetical-order */

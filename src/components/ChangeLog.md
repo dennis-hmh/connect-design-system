@@ -1,3 +1,21 @@
+### v1.25.2 Release Notice
+
+### Release date: March 27, 2025
+
+### Changelog:
+
+- K-2 fonts added (Frutiger for G3-5, AvenirPrimaryHMH for K-2)
+- Reading colours added
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.25.1 Release Notice
 
 ### Release date: March 27, 2025
