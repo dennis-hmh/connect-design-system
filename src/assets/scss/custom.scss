@@ -148,12 +148,14 @@ Buttons take variables in the following format
     }
   }
 
-  &:disabled {
+  &.connect__button-disabled {
     --variant__btn-bg: var(--connect__passive-100);
     --connect__inner-status-color-state: var(--connect__transparent);
 
     --connect__state-based-pointer: var(--connect__disabled-cursor);
     --active-color: var(--connect__passive-500);
+
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   * {
@@ -376,6 +378,15 @@ Buttons take variables in the following format
     &:not(:disabled):hover {
       box-shadow: var(--connect__shadow-lvl-4);
     }
+
+    &:not(:disabled):active {
+      box-shadow: var(--connect__shadow-null);
+    }
+
+    &.connect__button-disabled {
+      box-shadow: var(--connect__shadow-null);
+    }
+
   }
 
   &-text,
@@ -388,7 +399,7 @@ Buttons take variables in the following format
     --variant__btn-bg: var(--connect__color-plain-bg);
     --active-color: var(--connect__color-plain-text);
 
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
@@ -398,7 +409,7 @@ Buttons take variables in the following format
         --active-color: var(--connect__color-visited-text);
       }
     }
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
@@ -409,31 +420,31 @@ Buttons take variables in the following format
       }
     }
 
-    &:hover {
+    &:not(.connect__button-disabled):hover {
       --variant__btn-bg: var(--connect__color-hover-plain-bg);
       --active-color: var(--connect__color-hover-plain-text);
     }
   }
 
   &-contained {
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
     }
 
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-activated-bg);
       --active-color: var(--connect__color-activated-text);
     }
   }
 
   &-outlined {
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
     }
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
