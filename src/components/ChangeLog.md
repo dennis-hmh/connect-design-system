@@ -1,3 +1,42 @@
+### v1.25.1 Release Notice
+
+### Release date: March 27, 2025
+
+### Changelog:
+
+- Fixed an issue for supporting older buttons with icons
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.25.0 Release Notice
+
+### Release date: March 26, 2025
+
+### Changelog:
+
+- New Component: `<IconButton />`
+- Updated Component:
+  - `<ButtonMenu />` has been depricated
+  - `<Button />` props alignment with `ButtonBase`.
+- Bug Fix: N/A
+- Other: `ButtonBase` controls props and styles shared by `<Button />` and `<IconButton />`
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.24.5 Release Notice
 
 ### Release date: March 25, 2025
@@ -38,7 +77,7 @@
 
 ### Changelog:
 
-- Button: 
+- Button:
   - Changed default position of Button content from space-between to center
   - Removed deprecated props from Storybook
 

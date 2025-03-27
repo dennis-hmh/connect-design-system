@@ -24,6 +24,11 @@ export type ButtonMenuProps = {
   gradeBand?: GradeBand;
 };
 
+/**
+ * @deprecated The ButtonMenu component has been deprecated and is being replaced by the IconButton component.
+ * Please migrate to the IconButton component in your future and previous implementations.
+ * This component is scheduled for removal in version 2.0.0.
+ */
 export const ButtonMenu: React.FC<ButtonMenuProps> = ({
   children,
   id = '',
@@ -72,7 +77,6 @@ export const ButtonMenu: React.FC<ButtonMenuProps> = ({
     .join(' ');
 
   const iconElement = iconId ? <Icon id={iconId} size={iconSize} fill={fill} /> : null;
-
 
   return (
     <button

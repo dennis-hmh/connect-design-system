@@ -1,5 +1,14 @@
 # @connect/connect-design-system
 
+## 1.25.0
+
+### Minor Changes
+
+- 96604fb: - New Component: `<IconButton />`
+  - Updated Component: `<ButtonMenu />` has been depricated
+  - Bug Fix: N/A
+  - Other: N/A
+
 ## 1.24.5
 
 ### Patch Changes

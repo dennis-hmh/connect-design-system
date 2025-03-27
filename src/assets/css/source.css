@@ -881,20 +881,6 @@
   margin: var(--connect__vertical-margin, var(--connect__spacer-zero)) var(--connect__horizontal-margin, 0);
 }
 
-:where([class*='connect__']) img,
-:where([class*='connect__']) video,
-:where([class*='connect__']) canvas,
-:where([class*='connect__']) svg {
-  display: var(--connect__media-display, var(--connect__display-block));
-  max-inline-size: var(--connect__media-max-inline-size, 100%);
-  max-width: var(--connect__media-max-width, 100%);
-}
-
-:where([class*='connect__']) > img {
-  height: auto;
-  max-height: 100%;
-}
-
 .connect__gk2,
 .connect__gk,
 .connect__g1,
@@ -1354,10 +1340,10 @@
     */
 
   /* 5.1: Easing */
-  --connect__linear: cubic-bezier(0, 0, 1, 1);
-  --connect__ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --connect__ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
-  --connect__in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --connect__linear: linear(0, 0.15 15%, 0.3 30%, 0.7 70%, 0.85 85%, 1);
+  --connect__ease-out: linear(0, 0.25 25%, 0.5 50%, 0.75 75%, 1);
+  --connect__ease-in-out: linear(0, 0.15 15%, 0.42 42%, 0.58 58%, 0.85 85%, 1);
+  --connect__in-out-quad: linear(0, 0.03 3%, 0.455 45.5%, 0.515 51.5%, 0.955 95.5%, 1);
 
   /* 5.2: Speeds */
 
@@ -1436,6 +1422,9 @@
   --connect__input-width-md: calc(5ch + (var(--connect__spacer-sm) * 2));
   --connect__input-width-lg: calc(9ch + (var(--connect__spacer-sm) * 2));
   --connect__input-table-cell-max-w: calc(22ch + calc(var(--connect__spacer-xs) * 2));
+
+  --connect__component-min-w: 2.25rem;
+  --connect__component-min-h: 2.25rem;
 
   font-size-adjust: ex-height 0.486;
 }

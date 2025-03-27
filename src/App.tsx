@@ -20,6 +20,7 @@ import { Stack } from './components/Stack/Stack';
 import './assets/scss/custom.scss';
 import { Alert } from './components/Alert/Alert';
 import { useRive } from '@rive-app/react-canvas';
+import { IconButton } from './components/IconButton/IconButton';
 
 const App: React.FC = () => {
   const themeWrapperRef = useRef(null);
@@ -55,6 +56,12 @@ const App: React.FC = () => {
     document.querySelector<HTMLDialogElement>('[data-testid="dialogTest"]')?.showModal();
   };
 
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked((prev) => !prev);
+  };
+
   return (
     <ConnectTheme gradeBand={GradeBand.G6_8} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef}>
@@ -78,10 +85,33 @@ const App: React.FC = () => {
                 <Button variant="outlined" color="secondary">
                   Button
                 </Button>
-                <Button variant="outlined" color="secondary">
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  Button
+                </Button>
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  <Typography>Button</Typography>
+                </Button>
+                <Button primary>
+                  <Icon size="md" id="add" />
+                  Button
+                </Button>
+                <Button primary>
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
+                <Button variant='contained' color='primary'>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+                <Button primary={false}>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+
+                <IconButton variant='contained' color='primary' ariaLabel='add' classes={isClicked ? 'connect__button-activated' : ''} onClick={handleClick}
+>
+                  <Icon size="md" id="add" />
+                </IconButton>
                 <ButtonGroup
                   ariaLabel="Primary Button Group"
                   color="primary"
@@ -187,7 +217,7 @@ const App: React.FC = () => {
             </Button>
           </GridItem>
           <GridItem>
-            <Button ariaLabel="Icon Button Right Arrow" color="primary" type="button">
+            <Button ariaLabel="Icon Button Right Arrow" primary type="button">
               <Icon size="md" id="arrowUp" />
               <Typography>Hi there</Typography>
             </Button>

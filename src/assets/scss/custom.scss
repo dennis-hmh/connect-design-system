@@ -124,15 +124,17 @@ Buttons take variables in the following format
   font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
+  grid-auto-flow: column;   // for andrew later
   height: var(--connect__btn-h, auto);
   justify-content: var(--variant__btn-justify, center);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
   padding: var(--connect__btn-padding-y) var(--connect__btn-padding-x);
   place-items: var(--variant__btn-align, center) center;
   transition-duration: var(--connect__transition-rapid);
-  transition-property: color, background-color, border-color, box-shadow, fill, stroke;
+  transition-property: color, background-color, box-shadow;
   transition-timing-function: var(--connect__ease-out);
   width: var(--connect__btn-w, auto);
+
 
   &:not(:disabled) {
     &:hover {
@@ -148,12 +150,14 @@ Buttons take variables in the following format
     }
   }
 
-  &:disabled {
+  &.connect__button-disabled {
     --variant__btn-bg: var(--connect__passive-100);
     --connect__inner-status-color-state: var(--connect__transparent);
 
     --connect__state-based-pointer: var(--connect__disabled-cursor);
     --active-color: var(--connect__passive-500);
+
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   * {
@@ -179,9 +183,8 @@ Buttons take variables in the following format
     --connect__color-activated-text: var(--connect__surface-white);
     --connect__color-activated-inner-status-color: var(--connect__primary-500);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__primary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__primary-500);
@@ -205,9 +208,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__secondary-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__secondary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__secondary-500);
@@ -218,7 +220,7 @@ Buttons take variables in the following format
     --connect__color-contained-bg: var(--connect__assistive-400);
     --connect__color-contained-text: var(--connect__surface-white);
 
-    --connect__color-outlined-bg: var(--connect__transparent);
+    --connect__color-outlined-bg: var(--connect__surface-white);
     --connect__color-outlined-text: var(--connect__surface-dark);
     --connect__color-inner-status-color: var(--connect__assistive-400);
 
@@ -228,9 +230,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__assistive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__assistive-500);
 
     --connect__color-plain-activated-text: var(--connect__assistive-500);
@@ -251,9 +252,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__caution-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__caution-500);
 
     --connect__color-plain-activated-text: var(--connect__caution-500);
@@ -274,9 +274,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__negative-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__negative-500);
 
     --connect__color-plain-activated-text: var(--connect__negative-500);
@@ -297,9 +296,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__constructive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__surface-white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__constructive-500);
 
     --connect__color-plain-activated-text: var(--connect__constructive-500);
@@ -320,9 +318,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__positive-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__positive-500);
 
     --connect__color-plain-activated-text: var(--connect__positive-500);
@@ -343,9 +340,8 @@ Buttons take variables in the following format
     --connect__color-activated-bg: var(--connect__neutral-500);
     --connect__color-activated-text: var(--connect__surface-white);
 
-    --connect__color-plain-bg: var(--connect__transparent);
-    --connect__color-hover-plain-bg: var(--connect__transparent);
-    --connect__color-plain-text: var(--connect__surface-dark);
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-text: var(--connect__neutral-500);
 
     --connect__color-plain-activated-text: var(--connect__neutral-500);
@@ -380,14 +376,46 @@ Buttons take variables in the following format
 
   &-text {
     box-shadow: var(--connect__shadow-null);
+
+    &.connect__button-activated:not(.connect__button-disabled) {
+      --variant__btn-bg: var(--connect__color-activated-bg, var(--connect__surface-white));
+      --active-color: var(--connect__color-activated-text);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+      &:not(:disabled) {
+        &:hover {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
+        }
+
+        &:active {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+        }
+      }
+    }
+
+    &:not(:disabled):hover {
+      box-shadow: var(--connect__shadow-lvl-4);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: var(--connect__shadow-null);
+    }
+
+    &.connect__button-disabled {
+      box-shadow: var(--connect__shadow-null);
+    }
   }
 
   &-text,
   &-plain {
+    --connect__color-plain-text: var(--connect__surface-dark);
+
+    --connect__color-plain-bg: var(--connect__white);
+    --connect__color-hover-plain-bg: var(--connect__surface-white);
+
     --variant__btn-bg: var(--connect__color-plain-bg);
     --active-color: var(--connect__color-plain-text);
 
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
@@ -397,7 +425,8 @@ Buttons take variables in the following format
         --active-color: var(--connect__color-visited-text);
       }
     }
-    &.connect__button-activated {
+
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
@@ -408,21 +437,31 @@ Buttons take variables in the following format
       }
     }
 
-    &:not(:disabled) {
-      &:hover {
-        --variant__btn-bg: var(--connect__color-hover-plain-bg);
-        --active-color: var(--connect__color-hover-plain-text);
-      }
+    &:not(.connect__button-disabled):hover {
+      --variant__btn-bg: var(--connect__color-hover-plain-bg);
+      --active-color: var(--connect__color-hover-plain-text, var(--connect__surface-dark));
+    }
+  }
+
+  &-contained {
+    &.connect__button-visited:not(.connect__button-disabled) {
+      --variant__btn-bg: var(--connect__color-visited-bg);
+      --active-color: var(--connect__color-visited-text);
+    }
+
+    &.connect__button-activated:not(.connect__button-disabled) {
+      --variant__btn-bg: var(--connect__color-activated-bg);
+      --active-color: var(--connect__color-activated-text);
     }
   }
 
   &-outlined {
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
     }
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
@@ -431,24 +470,62 @@ Buttons take variables in the following format
 
   // Size variants
   &-small {
-    --connect__btn-padding-y: var(--connect__spacer-xs);
-    --connect__btn-padding-x: var(--connect__spacer-sm);
+    --variant__btn-padding-y: var(--connect__spacer-xs);
+    --variant__btn-border-radius: var(--connect__radius-xs);
+
+    &.connect__button-icon {
+      --variant__btn-padding-x: var(--connect__spacer-xs);
+    }
+
+    min-height: var(--connect__component-min-h);
+    min-width: var(--connect__component-min-w);
   }
 
   // Elevation variants
   &-no-elevation {
-    --connect__color-inner-status-color: var(--connect__transparent);
+    // &.connect__button-text {
+    //   box-shadow: var(--connect__shadow-null);
 
-    box-shadow: var(--connect__shadow-null);
+    //   &:not(:disabled) {
+    //     &:hover {
+    //       box-shadow: var(--connect__shadow-lvl-4);
+    //     }
 
-    &:hover,
-    &:active {
-      --connect__effects-shadow: var(--connect__shadow-null);
+    //     &:active {
+    //       box-shadow: var(--connect__shadow-lvl-0);
+    //     }
+    //   }
+    // }
+
+    &.connect__button-plain {
+      --connect__color-plain-bg: var(--connect__white);
+      box-shadow: var(--connect__shadow-lvl-0);
+
+      &:not(.connect__button-disabled) {
+        &:hover {
+          box-shadow: var(--connect__shadow-lvl-2);
+        }
+
+        &:active {
+          box-shadow: var(--connect__shadow-lvl-0);
+        }
+      }
     }
   }
 
-  &-rounded {
-    --variant__btn-border-radius: var(--connect__radius-xxl);
+  &-icon {
+    --variant__btn-padding-y: var(--connect__spacer-sm);
+    --variant__btn-padding-x: var(--connect__spacer-sm);
+
+    &.connect__button-small {
+      --variant__btn-padding-y: var(--connect__spacer-xs);
+      --variant__btn-padding-x: var(--connect__spacer-xs);
+      --variant__btn-border-radius: var(--connect__radius-xs);
+    }
+
+    &.connect__button-rounded {
+      --variant__btn-border-radius: var(--connect__radius-xxl);
+    }
   }
 
   // Loading state
@@ -465,34 +542,6 @@ Buttons take variables in the following format
     }
   }
 
-  &-menu {
-    --variant__btn-padding-x: var(--connect__spacer-sm);
-  }
-
-  &-menu:not(.connect__button-plain) {
-    --variant__btn-bg: var(--connect__surface-null);
-    --connect__inner-status-color: var(--connect__surface-null);
-    box-shadow: var(--connect__shadow-null);
-
-    &:not(:disabled) {
-      &:hover {
-        --variant__btn-bg: var(--connect__surface-white);
-        --connect__inner-status-color: var(--connect__surface-white);
-        box-shadow: var(--connect__shadow-lvl-2);
-      }
-
-      &:active {
-        box-shadow: var(--connect__shadow-null);
-      }
-    }
-
-    &:disabled {
-      --icon__fill-opacity: var(--connect__state-opacity);
-      --variant__icon-fill-color: var(--connect__disabled-mid);
-      --connect__state-based-pointer: var(--connect__disabled-cursor);
-    }
-  }
-
   // &-media {
   //   box-shadow: var(--connect__shadow-null);
 
@@ -500,6 +549,32 @@ Buttons take variables in the following format
   //     --state-based-bg: var(--connect__error-mid);
   //   }
   // }
+}
+
+// .connect__button-icon,
+.connect__button-menu {
+  --variant__btn-padding-x: var(--connect__spacer-sm);
+  --variant__btn-bg: var(--connect__surface-null);
+  --connect__inner-status-color: var(--connect__surface-null);
+  box-shadow: var(--connect__shadow-null);
+
+  &:not(:disabled) {
+    &:hover {
+      --variant__btn-bg: var(--connect__surface-white);
+      --connect__inner-status-color: var(--connect__surface-white);
+      box-shadow: var(--connect__shadow-lvl-2);
+    }
+
+    &:active {
+      box-shadow: var(--connect__shadow-null);
+    }
+  }
+
+  &:disabled {
+    --icon__fill-opacity: var(--connect__state-opacity);
+    --variant__icon-fill-color: var(--connect__disabled-mid);
+    --connect__state-based-pointer: var(--connect__disabled-cursor);
+  }
 }
 
 /*
@@ -2894,6 +2969,11 @@ To be fleshed out / moved
   width: auto;
 }
 
+.connect__image {
+  display: var(--connect__media-display, var(--connect__display-block));
+  max-width: var(--connect__full-w);
+}
+
 @keyframes connect-loading {
   0% {
     transform: rotate(0deg);
@@ -2928,32 +3008,6 @@ To be fleshed out / moved
   }
   100% {
     transform: rotate(0deg);
-  }
-}
-
-/* 
-  Reading Tile Bespoke Styles
-*/
-
-.connect__grapheme {
-  --color-duration: 200ms;
-  --enlarge-duration: 300ms;
-  --scaled-duration: 500ms;
-  --reduce-duration: 300ms;
-  transform-origin: 50% 50%;
-
-  .connect__typography {
-    transition: color var(--color-duration) ease;
-  }
-
-  &-animate {
-    animation: grapheme-animate
-      calc(var(--enlarge-duration) + var(--scaled-duration) + var(--reduce-duration))
-      cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-    .connect__typography {
-      color: var(--connect__primary-mid);
-    }
   }
 }
 
