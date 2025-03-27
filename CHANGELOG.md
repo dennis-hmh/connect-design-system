@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.25.2
+
+### Patch Changes
+
+- 85493cf: K2 fonts added, Reading colours added
+
 ## 1.25.1
 
 ### Patch Changes
