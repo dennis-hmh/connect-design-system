@@ -124,6 +124,7 @@ Buttons take variables in the following format
   font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
+  grid-auto-flow: column;   // for andrew later
   height: var(--connect__btn-h, auto);
   justify-content: var(--variant__btn-justify, center);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
@@ -134,8 +135,6 @@ Buttons take variables in the following format
   transition-timing-function: var(--connect__ease-out);
   width: var(--connect__btn-w, auto);
 
-  // for andrew later
-  grid-auto-flow: column;
 
   &:not(:disabled) {
     &:hover {
