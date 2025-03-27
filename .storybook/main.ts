@@ -34,6 +34,11 @@ const config: StorybookConfig = {
       button[id^="archive-"] { display: none; }
       a[id$="-archive"] { display: none; }
 
+      div[id="danger"] > button:first-child::after { content: " ⚠️ "; }
+      button[id^="danger-"]::after { content: " ⚠️ "; }
+      button[id="buttons-button-menu"]::after { content: " ⚠️ "; }
+      a[id$="-danger"]::after { content: " ⚠️ "; }
+
       div[id="draft"] > button:first-child::after { content: " 📝 "; }
       button[id^="draft-"]::after { content: " 📝 "; }
       a[id$="-draft"]::after { content: " 📝 "; }
