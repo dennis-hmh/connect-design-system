@@ -375,7 +375,7 @@ Buttons take variables in the following format
   &-text {
     box-shadow: var(--connect__shadow-null);
 
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-activated-bg, var(--connect__surface-white));
       --active-color: var(--connect__color-activated-text);
       box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
