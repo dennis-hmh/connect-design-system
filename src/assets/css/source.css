@@ -1037,6 +1037,10 @@
   --connect__essential-guide-green: var(--connect__green-c50);
   --connect__essential-guide-cerise: var(--connect__cerise-c50);
 
+  /* Reading */
+  --connect__periwinkle-s10: rgb(229, 233, 255);
+  --connect__periwinkle-s25: rgb(163, 174, 255);
+
   /*
       3.4: Connect Neutral Palette
     */
