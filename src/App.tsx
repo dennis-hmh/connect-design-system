@@ -198,7 +198,7 @@ const App: React.FC = () => {
             </Button>
           </GridItem>
           <GridItem>
-            <Button ariaLabel="Icon Button Right Arrow" color="primary" type="button">
+            <Button ariaLabel="Icon Button Right Arrow" primary type="button">
               <Icon size="md" id="arrowUp" />
               <Typography>Hi there</Typography>
             </Button>
