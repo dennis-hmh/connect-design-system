@@ -21,6 +21,7 @@ export * from './Dropdown/Dropdown';
 // export * from './Footer/Footer';
 // export * from './Header/Header';
 export * from './Icon/Icon';
+export * from './IconButton/IconButton';
 export * from './Image/Image';
 export * from './InputBox/InputBox';
 export * from './InputText/InputText';
