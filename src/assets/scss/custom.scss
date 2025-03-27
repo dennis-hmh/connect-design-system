@@ -181,7 +181,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__primary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__primary-500);
@@ -207,7 +206,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__secondary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__secondary-500);
@@ -230,7 +228,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__assistive-500);
 
     --connect__color-plain-activated-text: var(--connect__assistive-500);
@@ -253,7 +250,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__caution-500);
 
     --connect__color-plain-activated-text: var(--connect__caution-500);
@@ -276,7 +272,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__negative-500);
 
     --connect__color-plain-activated-text: var(--connect__negative-500);
@@ -299,7 +294,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__constructive-500);
 
     --connect__color-plain-activated-text: var(--connect__constructive-500);
@@ -322,7 +316,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__positive-500);
 
     --connect__color-plain-activated-text: var(--connect__positive-500);
@@ -345,7 +338,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__neutral-500);
 
     --connect__color-plain-activated-text: var(--connect__neutral-500);
@@ -388,6 +380,8 @@ Buttons take variables in the following format
 
   &-text,
   &-plain {
+    --connect__color-plain-text: var(--connect__surface-dark);
+
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
 
