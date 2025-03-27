@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.25.1
+
+### Patch Changes
+
+- 9ea5616: Fixed an issue for supporting older buttons with icons
+
 ## 1.25.0
 
 ### Minor Changes
