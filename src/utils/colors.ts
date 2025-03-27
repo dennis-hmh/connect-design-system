@@ -67,6 +67,10 @@ export type Color =
   | 'essential-guide-green'
   | 'essential-guide-cerise'
 
+  // Reading palette
+  | 'periwinkle-s10'
+  | 'periwinkle-s25'
+
   // Special values
   | 'transparent'
   | 'unset'
@@ -168,6 +172,10 @@ const Colors: Record<Color, string> = {
   'essential-guide-red': 'var(--connect__red-c50)',
   'essential-guide-green': 'var(--connect__green-c50)',
   'essential-guide-cerise': 'var(--connect__cerise-c50)',
+
+  'periwinkle-s10': 'var(--connect__periwinkle-s10)',
+  'periwinkle-s25': 'var(--connect__periwinkle-s25)',
+
 
   // Special values
   transparent: 'transparent',
