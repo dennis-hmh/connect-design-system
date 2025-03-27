@@ -466,7 +466,7 @@ Buttons take variables in the following format
   // Elevation variants
   &-no-elevation {
     --connect__color-inner-status-color: var(--connect__transparent);
-
+    --connect__effects-shadow: var(--connect__shadow-null);
     box-shadow: var(--connect__shadow-null);
 
     &:hover,
