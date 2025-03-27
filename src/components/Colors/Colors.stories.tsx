@@ -98,6 +98,9 @@ const groupColors = (colors: Record<string, string>) => {
     'Essential Guides': {
       'Essential Guide': {},
     },
+    Reading: {
+      Reading: {},
+    },
     Deprecated: {
       Gray: {},
       Red: {},
@@ -133,6 +136,8 @@ const groupColors = (colors: Record<string, string>) => {
       groups['Brand']['Brand'][name] = value;
     } else if (name.startsWith('essential-guide-')) {
       groups['Essential Guides']['Essential Guide'][name] = value;
+    } else if (name.startsWith('periwinkle-')) {
+      groups['Reading']['Reading'][name] = value;
     } else if (name.startsWith('gray-')) {
       groups['Deprecated']['Gray'][name] = value;
     } else if (name.startsWith('red-')) {
