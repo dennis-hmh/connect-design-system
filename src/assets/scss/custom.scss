@@ -124,6 +124,7 @@ Buttons take variables in the following format
   font-weight: var(--variant__btn-fw, var(--connect__fw-regular, initial));
   gap: var(--variant__btn-gap, var(--connect__spacer-sm));
   grid-auto-columns: max-content;
+  grid-auto-flow: column;   // for andrew later
   height: var(--connect__btn-h, auto);
   justify-content: var(--variant__btn-justify, center);
   line-height: var(--variant__btn-lh, var(--connect__body-sm-lheight));
@@ -133,6 +134,7 @@ Buttons take variables in the following format
   transition-property: color, background-color, box-shadow;
   transition-timing-function: var(--connect__ease-out);
   width: var(--connect__btn-w, auto);
+
 
   &:not(:disabled) {
     &:hover {
@@ -148,12 +150,14 @@ Buttons take variables in the following format
     }
   }
 
-  &:disabled {
+  &.connect__button-disabled {
     --variant__btn-bg: var(--connect__passive-100);
     --connect__inner-status-color-state: var(--connect__transparent);
 
     --connect__state-based-pointer: var(--connect__disabled-cursor);
     --active-color: var(--connect__passive-500);
+
+    box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
   }
 
   * {
@@ -181,7 +185,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__primary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__primary-500);
@@ -207,7 +210,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__secondary-400);
     --connect__color-plain-activated-bg: var(--connect__surface-white);
     --connect__color-plain-activated-text: var(--connect__secondary-500);
@@ -230,7 +232,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__assistive-500);
 
     --connect__color-plain-activated-text: var(--connect__assistive-500);
@@ -253,7 +254,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__caution-500);
 
     --connect__color-plain-activated-text: var(--connect__caution-500);
@@ -276,7 +276,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__negative-500);
 
     --connect__color-plain-activated-text: var(--connect__negative-500);
@@ -299,7 +298,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__surface-white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__constructive-500);
 
     --connect__color-plain-activated-text: var(--connect__constructive-500);
@@ -322,7 +320,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__positive-500);
 
     --connect__color-plain-activated-text: var(--connect__positive-500);
@@ -345,7 +342,6 @@ Buttons take variables in the following format
 
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
-    --connect__color-plain-text: var(--connect__surface-dark);
     --connect__color-hover-plain-text: var(--connect__neutral-500);
 
     --connect__color-plain-activated-text: var(--connect__neutral-500);
@@ -381,20 +377,45 @@ Buttons take variables in the following format
   &-text {
     box-shadow: var(--connect__shadow-null);
 
+    &.connect__button-activated:not(.connect__button-disabled) {
+      --variant__btn-bg: var(--connect__color-activated-bg, var(--connect__surface-white));
+      --active-color: var(--connect__color-activated-text);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+      &:not(:disabled) {
+        &:hover {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
+        }
+
+        &:active {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+        }
+      }
+    }
+
     &:not(:disabled):hover {
       box-shadow: var(--connect__shadow-lvl-4);
+    }
+
+    &:not(:disabled):active {
+      box-shadow: var(--connect__shadow-null);
+    }
+
+    &.connect__button-disabled {
+      box-shadow: var(--connect__shadow-null);
     }
   }
 
   &-text,
   &-plain {
+    --connect__color-plain-text: var(--connect__surface-dark);
+
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
 
     --variant__btn-bg: var(--connect__color-plain-bg);
     --active-color: var(--connect__color-plain-text);
 
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
@@ -404,7 +425,8 @@ Buttons take variables in the following format
         --active-color: var(--connect__color-visited-text);
       }
     }
-    &.connect__button-activated {
+
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
@@ -415,31 +437,31 @@ Buttons take variables in the following format
       }
     }
 
-    &:hover {
+    &:not(.connect__button-disabled):hover {
       --variant__btn-bg: var(--connect__color-hover-plain-bg);
-      --active-color: var(--connect__color-hover-plain-text);
+      --active-color: var(--connect__color-hover-plain-text, var(--connect__surface-dark));
     }
   }
 
   &-contained {
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
     }
 
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-activated-bg);
       --active-color: var(--connect__color-activated-text);
     }
   }
 
   &-outlined {
-    &.connect__button-visited {
+    &.connect__button-visited:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__transparent);
       --variant__btn-bg: var(--connect__color-visited-bg);
       --active-color: var(--connect__color-visited-text);
     }
-    &.connect__button-activated {
+    &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
       --active-color: var(--connect__color-plain-activated-text);
@@ -461,13 +483,33 @@ Buttons take variables in the following format
 
   // Elevation variants
   &-no-elevation {
-    --connect__color-inner-status-color: var(--connect__transparent);
+    // &.connect__button-text {
+    //   box-shadow: var(--connect__shadow-null);
 
-    box-shadow: var(--connect__shadow-null);
+    //   &:not(:disabled) {
+    //     &:hover {
+    //       box-shadow: var(--connect__shadow-lvl-4);
+    //     }
 
-    &:hover,
-    &:active {
-      --connect__effects-shadow: var(--connect__shadow-null);
+    //     &:active {
+    //       box-shadow: var(--connect__shadow-lvl-0);
+    //     }
+    //   }
+    // }
+
+    &.connect__button-plain {
+      --connect__color-plain-bg: var(--connect__white);
+      box-shadow: var(--connect__shadow-lvl-0);
+
+      &:not(.connect__button-disabled) {
+        &:hover {
+          box-shadow: var(--connect__shadow-lvl-2);
+        }
+
+        &:active {
+          box-shadow: var(--connect__shadow-lvl-0);
+        }
+      }
     }
   }
 

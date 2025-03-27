@@ -85,10 +85,29 @@ const App: React.FC = () => {
                 <Button variant="outlined" color="secondary">
                   Button
                 </Button>
-                <Button variant="outlined" color="secondary">
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  Button
+                </Button>
+                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                  <Typography>Button</Typography>
+                </Button>
+                <Button primary>
+                  <Icon size="md" id="add" />
+                  Button
+                </Button>
+                <Button primary>
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
+                <Button variant='contained' color='primary'>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+                <Button primary={false}>
+                  <Icon size="md" id="add" />
+                  <Typography>Button</Typography>
+                </Button>
+
                 <IconButton variant='contained' color='primary' ariaLabel='add' classes={isClicked ? 'connect__button-activated' : ''} onClick={handleClick}
 >
                   <Icon size="md" id="add" />
@@ -198,7 +217,7 @@ const App: React.FC = () => {
             </Button>
           </GridItem>
           <GridItem>
-            <Button ariaLabel="Icon Button Right Arrow" color="primary" type="button">
+            <Button ariaLabel="Icon Button Right Arrow" primary type="button">
               <Icon size="md" id="arrowUp" />
               <Typography>Hi there</Typography>
             </Button>

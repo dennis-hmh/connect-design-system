@@ -72,6 +72,7 @@ export const ButtonBase: React.FC<ButtonBaseProps> = ({
     variant && `connect__button-${variant}`,
     state && `connect__button-${state}`,
     color && `connect__button-${color}`,
+    disabled && 'connect__button-disabled',
     size === 'sm' && 'connect__button-small',
     disableElevation && 'connect__button-no-elevation',
   ]

@@ -1,12 +1,9 @@
 import React from 'react';
 import { ButtonBase, ButtonBaseProps } from '../ButtonBase/ButtonBase';
-import { GradeBand } from '../../enum/gradeband';
 
 export type IconButtonProps = {
-  children: React.ReactNode;
   ariaLabel: string;
   rounded?: boolean;
-  gradeBand?: GradeBand;
 };
 
 export const IconButton: React.FC<ButtonBaseProps & IconButtonProps> = ({
