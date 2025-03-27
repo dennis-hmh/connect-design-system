@@ -386,7 +386,6 @@ Buttons take variables in the following format
     &.connect__button-disabled {
       box-shadow: var(--connect__shadow-null);
     }
-
   }
 
   &-text,
@@ -422,7 +421,7 @@ Buttons take variables in the following format
 
     &:not(.connect__button-disabled):hover {
       --variant__btn-bg: var(--connect__color-hover-plain-bg);
-      --active-color: var(--connect__color-hover-plain-text);
+      --active-color: var(--connect__color-hover-plain-text, var(--connect__surface-dark));
     }
   }
 
