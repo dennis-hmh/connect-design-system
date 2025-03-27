@@ -6,7 +6,7 @@ export type ButtonBaseProps = {
   children?: React.ReactNode;
   id?: string;
   classes?: string;
-  variant?: 'text' | 'contained' | 'outlined' | 'plain';
+  variant?: 'text' | 'contained' | 'outlined' | 'plain' | 'frameless';
   state?: 'activated' | 'visited';
   color?: SemanticColorToken;
   disableElevation?: boolean;

@@ -375,6 +375,21 @@ Buttons take variables in the following format
   &-text {
     box-shadow: var(--connect__shadow-null);
 
+    &.connect__button-activated {
+      --variant__btn-bg: var(--connect__color-activated-bg, var(--connect__surface-white));
+      --active-color: var(--connect__color-activated-text);
+      box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+      &:not(:disabled) {
+        &:hover {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-4);
+        }
+
+        &:active {
+          box-shadow: var(--connect__effects-shadow), var(--connect__shadow-lvl-0);
+        }
+      }
+    }
+
     &:not(:disabled):hover {
       box-shadow: var(--connect__shadow-lvl-4);
     }
@@ -408,6 +423,7 @@ Buttons take variables in the following format
         --active-color: var(--connect__color-visited-text);
       }
     }
+
     &.connect__button-activated:not(.connect__button-disabled) {
       --connect__inner-status-color: var(--connect__color-plain-activated-inner-status-color);
       --variant__btn-bg: var(--connect__transparent);
@@ -465,13 +481,33 @@ Buttons take variables in the following format
 
   // Elevation variants
   &-no-elevation {
-    --connect__color-inner-status-color: var(--connect__transparent);
+    // &.connect__button-text {
+    //   box-shadow: var(--connect__shadow-null);
 
-    box-shadow: var(--connect__shadow-null);
+    //   &:not(:disabled) {
+    //     &:hover {
+    //       box-shadow: var(--connect__shadow-lvl-4);
+    //     }
 
-    &:hover,
-    &:active {
-      --connect__effects-shadow: var(--connect__shadow-null);
+    //     &:active {
+    //       box-shadow: var(--connect__shadow-lvl-0);
+    //     }
+    //   }
+    // }
+
+    &.connect__button-plain {
+      --connect__color-plain-bg: var(--connect__white);
+      box-shadow: var(--connect__shadow-lvl-0);
+
+      &:not(.connect__button-disabled) {
+        &:hover {
+          box-shadow: var(--connect__shadow-lvl-2);
+        }
+
+        &:active {
+          box-shadow: var(--connect__shadow-lvl-0);
+        }
+      }
     }
   }
 
