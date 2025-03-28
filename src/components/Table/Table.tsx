@@ -49,7 +49,7 @@ function byShownColumn<T extends DataSourceItem>({ hidden = false }: ColumnType<
   return !hidden;
 }
 
-function TableCell<T extends DataSourceItem, V = any>(props: {
+function TableCell<T extends DataSourceItem, V extends ReactNode = any>(props: {
   column: ColumnType<T, V>;
   value: V;
 }) {
