@@ -171,7 +171,7 @@ Buttons take variables in the following format
     --connect__color-contained-bg: var(--connect__primary-400);
     --connect__color-contained-text: var(--connect__surface-white);
 
-    --connect__color-outlined-bg: var(--connect__transparent);
+    --connect__color-outlined-bg: var(--connect__surface-white);
     --connect__color-outlined-text: var(--connect__surface-dark);
     --connect__color-inner-status-color: var(--connect__primary-400);
 
@@ -194,7 +194,7 @@ Buttons take variables in the following format
     --connect__color-contained-bg: var(--connect__secondary-400);
     --connect__color-contained-text: var(--connect__surface-white);
 
-    --connect__color-outlined-bg: var(--connect__transparent);
+    --connect__color-outlined-bg: var(--connect__surface-white);
     --connect__color-outlined-active-bg: var(--connect__surface-white);
     --connect__color-outlined-text: var(--connect__surface-dark);
 
@@ -329,7 +329,7 @@ Buttons take variables in the following format
     --connect__color-contained-bg: var(--connect__neutral-100);
     --connect__color-contained-text: var(--connect__neutral-500);
 
-    --connect__color-outlined-bg: var(--connect__transparent);
+    --connect__color-outlined-bg: var(--connect__surface-white);
     --connect__color-outlined-text: var(--connect__neutral-500);
     --connect__color-inner-status-color: var(--connect__neutral-400);
 
