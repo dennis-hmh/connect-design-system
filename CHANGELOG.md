@@ -1,5 +1,15 @@
 # @connect/connect-design-system
 
+## 1.26.0
+
+### Minor Changes
+
+- 3a3f2ae: Update: Rework the Table Component
+
+### Patch Changes
+
+- 1c17037: Fix: typescript error in the Table component
+
 ## 1.25.3
 
 ### Patch Changes
