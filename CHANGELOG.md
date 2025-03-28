@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.25.3
+
+### Patch Changes
+
+- bde4425: Text button background is now transparent
+
 ## 1.25.2
 
 ### Patch Changes
