@@ -1,3 +1,20 @@
+### v1.25.3 Release Notice
+
+### Release date: March 28, 2025
+
+### Changelog:
+
+- Button variant background colors resolved
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.25.2 Release Notice
 
 ### Release date: March 27, 2025

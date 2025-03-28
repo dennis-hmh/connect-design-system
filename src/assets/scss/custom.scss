@@ -375,6 +375,7 @@ Buttons take variables in the following format
 
   &-text {
     box-shadow: var(--connect__shadow-null);
+    --variant__btn-bg: var(--connect__transparent);
 
     &.connect__button-activated:not(.connect__button-disabled) {
       --variant__btn-bg: var(--connect__color-activated-bg, var(--connect__surface-white));
@@ -404,6 +405,10 @@ Buttons take variables in the following format
     }
   }
 
+  &-plain {
+    --variant__btn-bg: var(--connect__color-plain-bg);
+  }
+  
   &-text,
   &-plain {
     --connect__color-plain-text: var(--connect__surface-dark);
@@ -411,7 +416,6 @@ Buttons take variables in the following format
     --connect__color-plain-bg: var(--connect__white);
     --connect__color-hover-plain-bg: var(--connect__surface-white);
 
-    --variant__btn-bg: var(--connect__color-plain-bg);
     --active-color: var(--connect__color-plain-text);
 
     &.connect__button-visited:not(.connect__button-disabled) {
