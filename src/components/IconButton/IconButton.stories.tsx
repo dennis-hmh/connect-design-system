@@ -24,7 +24,6 @@ const meta: Meta<typeof IconButton> = {
     onMouseDown: { table: { disable: true } },
     onMouseLeave: { table: { disable: true } },
     classes: { table: { disable: true } },
-    ariaLabel: { table: { disable: true } },
     ariaDescribedby: { table: { disable: true } },
     ariaLabelledby: { table: { disable: true } },
     ariaHidden: { table: { disable: true } },
@@ -39,7 +38,7 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-const Template: StoryFn<IconButtonProps> = (args) => {
+const Template: StoryFn<IconButtonProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
   const [clicked, setClicked] = useState(false);
   const [classes, setClasses] = useState<string>('');
@@ -89,6 +88,13 @@ Plain.args = {
   variant: 'plain',
 };
 
+export const Flat: Story = Template.bind({});
+Flat.args = {
+  ...Default.args,
+  variant: 'plain',
+  disableElevation: true,
+};
+
 export const Rounded: Story = Template.bind({});
 Rounded.args = {
   ...Default.args,
@@ -115,6 +121,7 @@ IconColor.args = {
 export const NoElevationButton: Story = Template.bind({});
 NoElevationButton.args = {
   ...Default.args,
+  variant: 'plain',
   disableElevation: true,
 };
 
