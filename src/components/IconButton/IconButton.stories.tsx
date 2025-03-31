@@ -95,6 +95,12 @@ Flat.args = {
   disableElevation: true,
 };
 
+export const Text: Story = Template.bind({});
+Text.args = {
+  ...Default.args,
+  variant: 'text',
+};
+
 export const Rounded: Story = Template.bind({});
 Rounded.args = {
   ...Default.args,
@@ -116,13 +122,6 @@ IconColor.args = {
   rounded: true,
   variant: 'plain',
   ariaLabel: 'Plain reload rounded button custom icon color',
-};
-
-export const NoElevationButton: Story = Template.bind({});
-NoElevationButton.args = {
-  ...Default.args,
-  variant: 'plain',
-  disableElevation: true,
 };
 
 export const Disabled: Story = Template.bind({});
