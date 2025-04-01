@@ -5,7 +5,6 @@ The `Sidebar` component is a versatile UI element designed to provide a collapsi
 ## Features
 
 - **TypeScript Support**: Utilizes TypeScript for type safety and to define props clearly, making the component easy to use and integrate.
-- **Collapsible**: Provides functionality to collapse and expand the sidebar.
 - **Customizable**: Offers various props to customize the sidebar's appearance and behavior.
 - **Easy to Use**: Designed with simplicity in mind, making it straightforward to integrate into any React project.
 
@@ -32,12 +31,12 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Sidebar, SidebarProps } from './Sidebar';
 import { List } from '../List/List';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
 import { Divider } from '../Divider/Divider';
 import { Stack } from '../Stack/Stack';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Layout/Sidebar',
@@ -67,20 +66,42 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: (
     <Stack>
-      <ButtonMenuProvider>
-        <ButtonMenu
-          id="example-button-menu"
-          children="Example"
-          iconId="add"
-          iconSize="sm"
-          additionalClass="custom-class"
-          clickedClass="clicked-class"
-          ariaLabel="Example Button Menu"
-        />
-      </ButtonMenuProvider>
+      <List
+        data={[
+          {
+            content: (
+              <IconButton variant="text" ariaLabel="Info">
+                <Icon id="info" size="sm" />
+              </IconButton>
+            ),
+          },
+        ]}
+      />
       <Divider orientation="horizontal" />
       <List
-        data={[{ content: 'List item 1' }, { content: 'List item 2' }, { content: 'List item 3' }]}
+        data={[
+          {
+            content: (
+              <IconButton variant="text" ariaLabel="Desmos Calculator">
+                <Icon id="desmos" size="sm" />
+              </IconButton>
+            ),
+          },
+          {
+            content: (
+              <IconButton variant="text" ariaLabel="Group Activity">
+                <Icon id="groupActivity" size="sm" />
+              </IconButton>
+            ),
+          },
+          {
+            content: (
+              <IconButton variant="text" ariaLabel="Add">
+                <Icon id="add" size="sm" />
+              </IconButton>
+            ),
+          },
+        ]}
       />
     </Stack>
   ),
@@ -92,5 +113,5 @@ Default.args = {
 
 The Sidebar component accepts the following props:
 
-children required: React.ReactNode - The content inside the sidebar.
-gradeBand required: GradeBand - Specifies the grade band for the sidebar ~ only used in story.
+- `children` **required**: React.ReactNode - The content inside the sidebar.
+- `gradeBand` **required**: GradeBand - Specifies the grade band for the sidebar ~ only used in story.

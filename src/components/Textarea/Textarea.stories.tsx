@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Textarea, TextareaProps } from './Textarea';
 import { Stack } from '../Stack/Stack';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -99,8 +100,12 @@ Toolbar.args = {
         paddingY: 'sm',
       }}
     >
-      <ButtonMenu iconId="add" />
-      <ButtonMenu iconId="micFilled" backgroundColor="primary-mid" fill="white" />
+      <IconButton variant="text" ariaLabel="Add">
+        <Icon id="add" size="sm" />
+      </IconButton>
+      <IconButton variant="contained" color="primary" ariaLabel="Mic">
+        <Icon id="micFilled" size="sm" />
+      </IconButton>
     </Stack>
   ),
   placeholderText: 'Input your response',

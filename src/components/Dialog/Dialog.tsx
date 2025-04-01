@@ -3,7 +3,7 @@ import { Paper } from '../Paper/Paper';
 import { Stack } from '../Stack/Stack';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
 import { GradeBand } from 'src/enum/gradeband';
 import { Typography } from '../Typography/Typography';
 
@@ -79,13 +79,23 @@ const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
                 alignItems: 'center',
               }}
             >
-              {expand && <ButtonMenu iconId="expand" iconSize="sm"></ButtonMenu>}
-              {collapse && <ButtonMenu iconId="collapse" iconSize="sm"></ButtonMenu>}
-              <ButtonMenu
-                iconId="close"
-                iconSize="sm"
+              {expand && (
+                <IconButton variant="text" ariaLabel="Expland">
+                  <Icon id="expand" size="sm" />
+                </IconButton>
+              )}
+              {collapse && (
+                <IconButton variant="text" ariaLabel="Collapse">
+                  <Icon id="collapse" size="sm" />
+                </IconButton>
+              )}
+              <IconButton
+                variant="text"
+                ariaLabel="Close"
                 onClick={() => (ref as React.RefObject<HTMLDialogElement>).current?.close()}
-              ></ButtonMenu>
+              >
+                <Icon id="close" size="md" />
+              </IconButton>
             </Stack>
           </Stack>
         </Paper>
