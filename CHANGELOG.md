@@ -1,5 +1,20 @@
 # @connect/connect-design-system
 
+## 1.26.1
+
+### Patch Changes
+
+- 61e9e66: - New Component: N/A
+  - Updated Component:
+    - `<Grid />`: BreakpointValue type name updated.
+    - `<Stackj />`: BreakpointVlaue type name updated.
+  - Bug Fix: N/A
+  - Other: Updated component exports
+- 912b24e: - New Component: N/A
+  - Updated Component: n/A
+  - Bug Fix: N/A
+  - Other: Updated component exports
+
 ## 1.26.0
 
 ### Minor Changes
