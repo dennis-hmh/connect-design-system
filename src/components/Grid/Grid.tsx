@@ -4,7 +4,7 @@ import { GradeBand } from 'src/enum/gradeband';
 type GapSizes = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type SpacingSizes = 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type BreakpointValues = {
+export type GridBreakpointValues = {
   justifyContent?:
     | 'start'
     | 'center'
@@ -35,11 +35,11 @@ export type BreakpointValues = {
 
 export type GridProps = {
   children: React.ReactNode;
-  xs?: BreakpointValues;
-  sm?: BreakpointValues;
-  md?: BreakpointValues;
-  lg?: BreakpointValues;
-  xl?: BreakpointValues;
+  xs?: GridBreakpointValues;
+  sm?: GridBreakpointValues;
+  md?: GridBreakpointValues;
+  lg?: GridBreakpointValues;
+  xl?: GridBreakpointValues;
   gridTemplateColumns?: string;
   gridTemplateRows?: string;
   gap?: GapSizes;
@@ -65,7 +65,7 @@ const gapSizes: { [key in GapSizes]: string } = {
 };
 
 const setGridVariables = (
-  values: BreakpointValues | undefined,
+  values: GridBreakpointValues | undefined,
   prefix: string = '',
 ): Record<string, string> => {
   if (!values) return {};
