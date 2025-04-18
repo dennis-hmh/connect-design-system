@@ -1,5 +1,15 @@
 # @connect/connect-design-system
 
+## 1.26.2
+
+### Patch Changes
+
+- b457013: - New Component: N/A
+  - Updated Component:
+    - `<Avatar />`: `<ButtonMenu />` update to `<IconButton />` for close button.
+  - Bug Fix: N/A
+  - Other: Updated ButtonMenu to IconButton in Storybook
+
 ## 1.26.1
 
 ### Patch Changes
