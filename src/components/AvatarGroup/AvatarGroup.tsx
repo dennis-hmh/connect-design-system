@@ -3,10 +3,10 @@
 import React from 'react';
 import { Avatar, AvatarProps } from '../Avatar/Avatar';
 import { Typography } from '../Typography/Typography';
-import { Stack, BreakpointValues } from '../Stack/Stack';
+import { Stack, StackBreakpointValues } from '../Stack/Stack';
 import { GradeBand } from '../../enum/gradeband';
 
-type SpacingSizes = NonNullable<BreakpointValues['spacing']>;
+type SpacingSizes = NonNullable<StackBreakpointValues['spacing']>;
 
 export interface AvatarGroupProps {
   children: React.ReactElement<AvatarProps>[]; // added this this morning, i think it's the only way to access the props

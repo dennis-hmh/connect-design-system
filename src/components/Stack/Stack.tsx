@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 type SpacingSizes = 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type BreakpointValues = {
+export type StackBreakpointValues = {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   spacing?: SpacingSizes;
   alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
@@ -17,19 +17,19 @@ export type BreakpointValues = {
 export type StackProps = {
   children: React.ReactNode;
   element?: React.ElementType;
-  direction?: BreakpointValues['direction'];
-  spacing?: BreakpointValues['spacing'];
-  alignItems?: BreakpointValues['alignItems'];
-  alignSelf?: BreakpointValues['alignSelf'];
-  justifyContent?: BreakpointValues['justifyContent'];
-  flexWrap?: BreakpointValues['flexWrap'];
-  paddingX?: BreakpointValues['paddingX'];
-  paddingY?: BreakpointValues['paddingY'];
-  xs?: BreakpointValues;
-  sm?: BreakpointValues;
-  md?: BreakpointValues;
-  lg?: BreakpointValues;
-  xl?: BreakpointValues;
+  direction?: StackBreakpointValues['direction'];
+  spacing?: StackBreakpointValues['spacing'];
+  alignItems?: StackBreakpointValues['alignItems'];
+  alignSelf?: StackBreakpointValues['alignSelf'];
+  justifyContent?: StackBreakpointValues['justifyContent'];
+  flexWrap?: StackBreakpointValues['flexWrap'];
+  paddingX?: StackBreakpointValues['paddingX'];
+  paddingY?: StackBreakpointValues['paddingY'];
+  xs?: StackBreakpointValues;
+  sm?: StackBreakpointValues;
+  md?: StackBreakpointValues;
+  lg?: StackBreakpointValues;
+  xl?: StackBreakpointValues;
   className?: string;
   dataTestId?: string;
   flex?: 'auto' | 'grow' | 'shrink' | 'none' | 'fill' | number | boolean;
@@ -52,7 +52,7 @@ const generateFlexValue = (flex: StackProps['flex']): string => {
 };
 
 const setStackVariables = (
-  values: BreakpointValues | undefined,
+  values: StackBreakpointValues | undefined,
   prefix: string = '',
 ): Record<string, string> => {
   const variables: Record<string, string> = {};

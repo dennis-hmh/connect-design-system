@@ -1,0 +1,425 @@
+[
+  {
+    "id": 1,
+    "name": "George Washington",
+    "age": 57,
+    "party": "None",
+    "yearsInOffice": "1789-1797",
+    "state": "Virginia",
+    "vicePresident": ["John Adams"]
+  },
+  {
+    "id": 2,
+    "name": "John Adams",
+    "age": 61,
+    "party": "Federalist",
+    "yearsInOffice": "1797-1801",
+    "state": "Massachusetts",
+    "vicePresident": ["Thomas Jefferson"]
+  },
+  {
+    "id": 3,
+    "name": "Thomas Jefferson",
+    "age": 57,
+    "party": "Democratic-Republican",
+    "yearsInOffice": "1801-1809",
+    "state": "Virginia",
+    "vicePresident": ["Aaron Burr", "George Clinton"]
+  },
+  {
+    "id": 4,
+    "name": "James Madison",
+    "age": 57,
+    "party": "Democratic-Republican",
+    "yearsInOffice": "1809-1817",
+    "state": "Virginia",
+    "vicePresident": ["George Clinton", "Elbridge Gerry"]
+  },
+  {
+    "id": 5,
+    "name": "James Monroe",
+    "age": 58,
+    "party": "Democratic-Republican",
+    "yearsInOffice": "1817-1825",
+    "state": "Virginia",
+    "vicePresident": ["Daniel D. Tompkins"]
+  },
+  {
+    "id": 6,
+    "name": "John Quincy Adams",
+    "age": 57,
+    "party": "Democratic-Republican",
+    "yearsInOffice": "1825-1829",
+    "state": "Massachusetts",
+    "vicePresident": ["John C. Calhoun"]
+  },
+  {
+    "id": 7,
+    "name": "Andrew Jackson",
+    "age": 61,
+    "party": "Democratic",
+    "yearsInOffice": "1829-1837",
+    "state": "Tennessee",
+    "vicePresident": ["John C. Calhoun", "Martin Van Buren"]
+  },
+  {
+    "id": 8,
+    "name": "Martin Van Buren",
+    "age": 54,
+    "party": "Democratic",
+    "yearsInOffice": "1837-1841",
+    "state": "New York",
+    "vicePresident": ["Richard Mentor Johnson"]
+  },
+  {
+    "id": 9,
+    "name": "William Henry Harrison",
+    "age": 68,
+    "party": "Whig",
+    "yearsInOffice": "1841",
+    "state": "Ohio",
+    "vicePresident": ["John Tyler"]
+  },
+  {
+    "id": 10,
+    "name": "John Tyler",
+    "age": 51,
+    "party": "Whig",
+    "yearsInOffice": "1841-1845",
+    "state": "Virginia",
+    "vicePresident": []
+  },
+  {
+    "id": 11,
+    "name": "James K. Polk",
+    "age": 49,
+    "party": "Democratic",
+    "yearsInOffice": "1845-1849",
+    "state": "Tennessee",
+    "vicePresident": ["George M. Dallas"]
+  },
+  {
+    "id": 12,
+    "name": "Zachary Taylor",
+    "age": 64,
+    "party": "Whig",
+    "yearsInOffice": "1849-1850",
+    "state": "Louisiana",
+    "vicePresident": ["Millard Fillmore"]
+  },
+  {
+    "id": 13,
+    "name": "Millard Fillmore",
+    "age": 50,
+    "party": "Whig",
+    "yearsInOffice": "1850-1853",
+    "state": "New York",
+    "vicePresident": []
+  },
+  {
+    "id": 14,
+    "name": "Franklin Pierce",
+    "age": 48,
+    "party": "Democratic",
+    "yearsInOffice": "1853-1857",
+    "state": "New Hampshire",
+    "vicePresident": ["William R. King"]
+  },
+  {
+    "id": 15,
+    "name": "James Buchanan",
+    "age": 65,
+    "party": "Democratic",
+    "yearsInOffice": "1857-1861",
+    "state": "Pennsylvania",
+    "vicePresident": ["John C. Breckinridge"]
+  },
+  {
+    "id": 16,
+    "name": "Abraham Lincoln",
+    "age": 52,
+    "party": "Republican",
+    "yearsInOffice": "1861-1865",
+    "state": "Illinois",
+    "vicePresident": ["Hannibal Hamlin", "Andrew Johnson"]
+  },
+  {
+    "id": 17,
+    "name": "Andrew Johnson",
+    "age": 56,
+    "party": "National Union",
+    "yearsInOffice": "1865-1869",
+    "state": "Tennessee",
+    "vicePresident": []
+  },
+  {
+    "id": 18,
+    "name": "Ulysses S. Grant",
+    "age": 46,
+    "party": "Republican",
+    "yearsInOffice": "1869-1877",
+    "state": "Illinois",
+    "vicePresident": ["Schuyler Colfax", "Henry Wilson"]
+  },
+  {
+    "id": 19,
+    "name": "Rutherford B. Hayes",
+    "age": 54,
+    "party": "Republican",
+    "yearsInOffice": "1877-1881",
+    "state": "Ohio",
+    "vicePresident": ["William A. Wheeler"]
+  },
+  {
+    "id": 20,
+    "name": "James A. Garfield",
+    "age": 49,
+    "party": "Republican",
+    "yearsInOffice": "1881",
+    "state": "Ohio",
+    "vicePresident": ["Chester A. Arthur"]
+  },
+  {
+    "id": 21,
+    "name": "Chester A. Arthur",
+    "age": 51,
+    "party": "Republican",
+    "yearsInOffice": "1881-1885",
+    "state": "New York",
+    "vicePresident": []
+  },
+  {
+    "id": 22,
+    "name": "Grover Cleveland",
+    "age": 47,
+    "party": "Democratic",
+    "yearsInOffice": "1885-1889",
+    "state": "New York",
+    "vicePresident": ["Thomas A. Hendricks"]
+  },
+  {
+    "id": 23,
+    "name": "Benjamin Harrison",
+    "age": 55,
+    "party": "Republican",
+    "yearsInOffice": "1889-1893",
+    "state": "Indiana",
+    "vicePresident": ["Levi P. Morton"]
+  },
+  {
+    "id": 24,
+    "name": "Grover Cleveland",
+    "age": 55,
+    "party": "Democratic",
+    "yearsInOffice": "1893-1897",
+    "state": "New York",
+    "vicePresident": ["Adlai E. Stevenson"]
+  },
+  {
+    "id": 25,
+    "name": "William McKinley",
+    "age": 54,
+    "party": "Republican",
+    "yearsInOffice": "1897-1901",
+    "state": "Ohio",
+    "vicePresident": ["Garret A. Hobart", "Theodore Roosevelt"]
+  },
+  {
+    "id": 26,
+    "name": "Theodore Roosevelt",
+    "age": 42,
+    "party": "Republican",
+    "yearsInOffice": "1901-1909",
+    "state": "New York",
+    "vicePresident": ["Charles W. Fairbanks"]
+  },
+  {
+    "id": 27,
+    "name": "William Howard Taft",
+    "age": 51,
+    "party": "Republican",
+    "yearsInOffice": "1909-1913",
+    "state": "Ohio",
+    "vicePresident": ["James S. Sherman"]
+  },
+  {
+    "id": 28,
+    "name": "Woodrow Wilson",
+    "age": 56,
+    "party": "Democratic",
+    "yearsInOffice": "1913-1921",
+    "state": "New Jersey",
+    "vicePresident": ["Thomas R. Marshall"]
+  },
+  {
+    "id": 29,
+    "name": "Warren G. Harding",
+    "age": 55,
+    "party": "Republican",
+    "yearsInOffice": "1921-1923",
+    "state": "Ohio",
+    "vicePresident": ["Calvin Coolidge"]
+  },
+  {
+    "id": 30,
+    "name": "Calvin Coolidge",
+    "age": 51,
+    "party": "Republican",
+    "yearsInOffice": "1923-1929",
+    "state": "Massachusetts",
+    "vicePresident": ["Charles G. Dawes"]
+  },
+  {
+    "id": 31,
+    "name": "Herbert Hoover",
+    "age": 54,
+    "party": "Republican",
+    "yearsInOffice": "1929-1933",
+    "state": "California",
+    "vicePresident": ["Charles Curtis"]
+  },
+  {
+    "id": 32,
+    "name": "Franklin D. Roosevelt",
+    "age": 51,
+    "party": "Democratic",
+    "yearsInOffice": "1933-1945",
+    "state": "New York",
+    "vicePresident": ["John Nance Garner", "Henry A. Wallace", "Harry S. Truman"]
+  },
+  {
+    "id": 33,
+    "name": "Harry S. Truman",
+    "age": 60,
+    "party": "Democratic",
+    "yearsInOffice": "1945-1953",
+    "state": "Missouri",
+    "vicePresident": ["Alben W. Barkley"]
+  },
+  {
+    "id": 34,
+    "name": "Dwight D. Eisenhower",
+    "age": 62,
+    "party": "Republican",
+    "yearsInOffice": "1953-1961",
+    "state": "Kansas",
+    "vicePresident": ["Richard Nixon"]
+  },
+  {
+    "id": 35,
+    "name": "John F. Kennedy",
+    "age": 43,
+    "party": "Democratic",
+    "yearsInOffice": "1961-1963",
+    "state": "Massachusetts",
+    "vicePresident": ["Lyndon B. Johnson"]
+  },
+  {
+    "id": 36,
+    "name": "Lyndon B. Johnson",
+    "age": 55,
+    "party": "Democratic",
+    "yearsInOffice": "1963-1969",
+    "state": "Texas",
+    "vicePresident": ["Hubert Humphrey"]
+  },
+  {
+    "id": 37,
+    "name": "Richard Nixon",
+    "age": 56,
+    "party": "Republican",
+    "yearsInOffice": "1969-1974",
+    "state": "California",
+    "vicePresident": ["Spiro Agnew", "Gerald Ford"]
+  },
+  {
+    "id": 38,
+    "name": "Gerald Ford",
+    "age": 61,
+    "party": "Republican",
+    "yearsInOffice": "1974-1977",
+    "state": "Michigan",
+    "vicePresident": ["Nelson Rockefeller"]
+  },
+  {
+    "id": 39,
+    "name": "Jimmy Carter",
+    "age": 52,
+    "party": "Democratic",
+    "yearsInOffice": "1977-1981",
+    "state": "Georgia",
+    "vicePresident": ["Walter Mondale"]
+  },
+  {
+    "id": 40,
+    "name": "Ronald Reagan",
+    "age": 69,
+    "party": "Republican",
+    "yearsInOffice": "1981-1989",
+    "state": "California",
+    "vicePresident": ["George H. W. Bush"]
+  },
+  {
+    "id": 41,
+    "name": "George H. W. Bush",
+    "age": 64,
+    "party": "Republican",
+    "yearsInOffice": "1989-1993",
+    "state": "Texas",
+    "vicePresident": ["Dan Quayle"]
+  },
+  {
+    "id": 42,
+    "name": "Bill Clinton",
+    "age": 46,
+    "party": "Democratic",
+    "yearsInOffice": "1993-2001",
+    "state": "Arkansas",
+    "vicePresident": ["Al Gore"]
+  },
+  {
+    "id": 43,
+    "name": "George W. Bush",
+    "age": 54,
+    "party": "Republican",
+    "yearsInOffice": "2001-2009",
+    "state": "Texas",
+    "vicePresident": ["Dick Cheney"]
+  },
+  {
+    "id": 44,
+    "name": "Barack Obama",
+    "age": 47,
+    "party": "Democratic",
+    "yearsInOffice": "2009-2017",
+    "state": "Illinois",
+    "vicePresident": ["Joe Biden"]
+  },
+  {
+    "id": 45,
+    "name": "Donald Trump",
+    "age": 70,
+    "party": "Republican",
+    "yearsInOffice": "2017-2021",
+    "state": "New York",
+    "vicePresident": ["Mike Pence"]
+  },
+  {
+    "id": 46,
+    "name": "Joe Biden",
+    "age": 78,
+    "party": "Democratic",
+    "yearsInOffice": "2021-2025",
+    "state": "Delaware",
+    "vicePresident": ["Kamala Harris"]
+  },
+  {
+    "id": 47,
+    "name": "...",
+    "age": "...",
+    "party": "...",
+    "yearsInOffice": "...",
+    "state": "...",
+    "vicePresident": ["..."]
+  }
+]

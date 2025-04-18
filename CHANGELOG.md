@@ -1,5 +1,36 @@
 # @connect/connect-design-system
 
+## 1.26.1
+
+### Patch Changes
+
+- 61e9e66: - New Component: N/A
+  - Updated Component:
+    - `<Grid />`: BreakpointValue type name updated.
+    - `<Stackj />`: BreakpointVlaue type name updated.
+  - Bug Fix: N/A
+  - Other: Updated component exports
+- 912b24e: - New Component: N/A
+  - Updated Component: n/A
+  - Bug Fix: N/A
+  - Other: Updated component exports
+
+## 1.26.0
+
+### Minor Changes
+
+- 3a3f2ae: Update: Rework the Table Component
+
+### Patch Changes
+
+- 1c17037: Fix: typescript error in the Table component
+
+## 1.25.3
+
+### Patch Changes
+
+- bde4425: Text button background is now transparent
+
 ## 1.25.2
 
 ### Patch Changes
