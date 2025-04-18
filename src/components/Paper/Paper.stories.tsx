@@ -10,7 +10,7 @@ import {
   List,
   Dropdown,
   Divider,
-  ButtonMenu,
+  IconButton,
   Grid,
   GridItem,
 } from '../index';
@@ -292,19 +292,14 @@ Sidebar.args = {
   ...Default.args,
   children: (
     <>
-      <Stack xs={{ direction: 'column' }}>
+      <Stack direction="column" spacing="sm">
         <List
           data={[
             {
               content: (
-                <ButtonMenu
-                  id="info"
-                  iconId="info"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Info"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Info">
+                  <Icon id="info" size="sm" />
+                </IconButton>
               ),
             },
           ]}
@@ -314,38 +309,23 @@ Sidebar.args = {
           data={[
             {
               content: (
-                <ButtonMenu
-                  id="desmos"
-                  iconId="desmos"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Desnos Calculator"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Desmos Calculator">
+                  <Icon id="desmos" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="group-activity"
-                  iconId="groupActivity"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Group Activity"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Group Activity">
+                  <Icon id="groupActivity" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="add"
-                  iconId="add"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Add"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Add">
+                  <Icon id="add" size="sm" />
+                </IconButton>
               ),
             },
           ]}

@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { ButtonGroup, ButtonGroupProps } from './ButtonGroup';
 import { Button } from '../Button/Button';
+import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
 
 const meta: Meta<typeof ButtonGroup> = {
   component: ButtonGroup,
@@ -80,12 +81,22 @@ DisableElevation.args = {
   disableElevation: true,
 };
 
-export const Icon: Story = Template.bind({});
-Icon.args = {
+export const Icons: Story = Template.bind({});
+Icons.args = {
   ...PrimaryContained.args,
-  children: [<ButtonMenu iconId="undo"></ButtonMenu>, <ButtonMenu iconId="redo"></ButtonMenu>],
+  children: [
+    <>
+      <IconButton variant="text" ariaLabel="Undo">
+        <Icon id="undo" size="sm" />
+      </IconButton>
+      <IconButton variant="text" ariaLabel="Redo">
+        <Icon id="redo" size="sm" />
+      </IconButton>
+    </>,
+  ],
   ariaLabel: 'Icon Button Group',
-  color: 'white',
+  variant: 'plain',
+  color: 'primary',
   disableElevation: false,
 };
 

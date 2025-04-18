@@ -1,3 +1,24 @@
+### v1.26.2 Release Notice
+
+### Release date: March 28, 2025
+
+### Changelog:
+
+- New Component: N/A
+- Updated Component:
+  - `<Avatar />`: `<ButtonMenu />` update to `<IconButton />` for close button.
+- Bug Fix: N/A
+- Other: Updated ButtonMenu to IconButton in Storybook
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.26.1 Release Notice
 
 ### Release date: March 28, 2025

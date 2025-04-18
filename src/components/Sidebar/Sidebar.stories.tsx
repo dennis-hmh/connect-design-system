@@ -3,11 +3,12 @@ import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Sidebar, SidebarProps } from './Sidebar';
 import { List } from '../List/List';
 import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
 import { Divider } from '../Divider/Divider';
 import { Stack } from '../Stack/Stack';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
-import { ButtonMenuProvider } from '../../context/ButtonMenuContext';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'Pattern/Sidebar',
@@ -23,6 +24,11 @@ type Story = StoryObj<typeof Sidebar>;
 
 const Template: StoryFn<SidebarProps & { gradeBand: GradeBand }> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
+  const [selectedButtonId, setSelectedButtonId] = React.useState<string | null>(null);
+
+  const handleClick = (id: string) => {
+    setSelectedButtonId((prevId) => (prevId === id ? null : id));
+  };
 
   return (
     <ConnectTheme gradeBand={args.gradeBand} themeWrapperRef={themeWrapperRef}>
@@ -33,25 +39,74 @@ const Template: StoryFn<SidebarProps & { gradeBand: GradeBand }> = (args) => {
   );
 };
 
-const classcraftLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24" fill="none" class="connect__icon connect__icon-md">
-     <rect x="10.5272" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 10.5272 0)" fill="url(#paint0_linear_1128_1272)"></rect>
-     <rect x="18.5195" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 18.5195 0)" fill="url(#paint1_linear_1128_1272)"></rect>
-     <rect x="26.512" width="6.148" height="23.3551" rx="3.074" transform="rotate(26.7913 26.512 0)" fill="url(#paint2_linear_1128_1272)"></rect>
-     <defs>
-      <linearGradient id="paint0_linear_1128_1272" x1="16.8218" y1="11.6948" x2="10.5399" y2="11.694" gradientUnits="userSpaceOnUse">
-       <stop stop-color="#CC00C0"></stop>
-       <stop offset="1" stop-color="#DF04D2"></stop>
+const ClasscraftLogo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 24"
+    fill="none"
+    className="connect__icon connect__icon-md"
+  >
+    <rect
+      x="10.5272"
+      width="6.148"
+      height="23.3551"
+      rx="3.074"
+      transform="rotate(26.7913 10.5272 0)"
+      fill="url(#paint0_linear_1128_1272)"
+    ></rect>
+    <rect
+      x="18.5195"
+      width="6.148"
+      height="23.3551"
+      rx="3.074"
+      transform="rotate(26.7913 18.5195 0)"
+      fill="url(#paint1_linear_1128_1272)"
+    ></rect>
+    <rect
+      x="26.512"
+      width="6.148"
+      height="23.3551"
+      rx="3.074"
+      transform="rotate(26.7913 26.512 0)"
+      fill="url(#paint2_linear_1128_1272)"
+    ></rect>
+    <defs>
+      <linearGradient
+        id="paint0_linear_1128_1272"
+        x1="16.8218"
+        y1="11.6948"
+        x2="10.5399"
+        y2="11.694"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#CC00C0"></stop>
+        <stop offset="1" stop-color="#DF04D2"></stop>
       </linearGradient>
-      <linearGradient id="paint1_linear_1128_1272" x1="24.8141" y1="11.6948" x2="18.5322" y2="11.694" gradientUnits="userSpaceOnUse">
-       <stop stop-color="#CC00C0"></stop>
-       <stop offset="1" stop-color="#DF04D2"></stop>
+      <linearGradient
+        id="paint1_linear_1128_1272"
+        x1="24.8141"
+        y1="11.6948"
+        x2="18.5322"
+        y2="11.694"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#CC00C0"></stop>
+        <stop offset="1" stop-color="#DF04D2"></stop>
       </linearGradient>
-      <linearGradient id="paint2_linear_1128_1272" x1="32.8066" y1="11.6948" x2="26.5247" y2="11.694" gradientUnits="userSpaceOnUse">
-       <stop stop-color="#CC00C0"></stop>
-       <stop offset="1" stop-color="#DF04D2"></stop>
+      <linearGradient
+        id="paint2_linear_1128_1272"
+        x1="32.8066"
+        y1="11.6948"
+        x2="26.5247"
+        y2="11.694"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#CC00C0"></stop>
+        <stop offset="1" stop-color="#DF04D2"></stop>
       </linearGradient>
-     </defs>
-    </svg>`;
+    </defs>
+  </svg>
+);
 
 export const Default: Story = Template.bind({});
 Default.args = {
@@ -66,7 +121,7 @@ Logo.args = {
     <List
       data={[
         {
-          content: <div dangerouslySetInnerHTML={{ __html: classcraftLogo }} />,
+          content: <ClasscraftLogo />,
         },
       ]}
     />
@@ -75,58 +130,45 @@ Logo.args = {
 
 export const WithMenu: Story = Template.bind({});
 WithMenu.args = {
-  ...Default.args,
+  gradeBand: GradeBand.G4_5,
   children: (
-    <ButtonMenuProvider>
+    <>
       <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {
               content: (
-                <ButtonMenu
-                  id="info"
-                  iconId="info"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
+                <IconButton
+                  variant="text"
                   ariaLabel="Info"
-                  children=""
-                ></ButtonMenu>
+                  onClick={(e) => {
+                    const button = e.currentTarget;
+                    button.classList.toggle('connect__selected');
+                  }}
+                >
+                  <Icon id="info" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="desmos"
-                  iconId="desmos"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Desnos Calculator"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Desmos Calculator">
+                  <Icon id="desmos" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="group-activity"
-                  iconId="groupActivity"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Group Activity"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Group Activity">
+                  <Icon id="groupActivity" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="add"
-                  iconId="add"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Add"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Add">
+                  <Icon id="add" size="sm" />
+                </IconButton>
               ),
             },
           ]}
@@ -135,11 +177,11 @@ WithMenu.args = {
       <List
         data={[
           {
-            content: <div dangerouslySetInnerHTML={{ __html: classcraftLogo }} />,
+            content: <ClasscraftLogo />,
           },
         ]}
       />
-    </ButtonMenuProvider>
+    </>
   ),
 };
 
@@ -147,20 +189,15 @@ export const WithDivider: Story = Template.bind({});
 WithDivider.args = {
   ...Default.args,
   children: (
-    <ButtonMenuProvider>
+    <>
       <Stack xs={{ direction: 'column' }}>
         <List
           data={[
             {
               content: (
-                <ButtonMenu
-                  id="info"
-                  iconId="info"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Info"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Info">
+                  <Icon id="info" size="sm" />
+                </IconButton>
               ),
             },
           ]}
@@ -170,38 +207,23 @@ WithDivider.args = {
           data={[
             {
               content: (
-                <ButtonMenu
-                  id="desmos"
-                  iconId="desmos"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Desnos Calculator"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Desmos Calculator">
+                  <Icon id="desmos" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="group-activity"
-                  iconId="groupActivity"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Group Activity"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Group Activity">
+                  <Icon id="groupActivity" size="sm" />
+                </IconButton>
               ),
             },
             {
               content: (
-                <ButtonMenu
-                  id="add"
-                  iconId="add"
-                  iconSize="sm"
-                  clickedClass="connect__selected"
-                  ariaLabel="Add"
-                  children=""
-                ></ButtonMenu>
+                <IconButton variant="text" ariaLabel="Add">
+                  <Icon id="add" size="sm" />
+                </IconButton>
               ),
             },
           ]}
@@ -210,10 +232,10 @@ WithDivider.args = {
       <List
         data={[
           {
-            content: <div dangerouslySetInnerHTML={{ __html: classcraftLogo }} />,
+            content: <ClasscraftLogo />,
           },
         ]}
       />
-    </ButtonMenuProvider>
+    </>
   ),
 };

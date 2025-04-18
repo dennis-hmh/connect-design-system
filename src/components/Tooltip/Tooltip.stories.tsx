@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Tooltip, TooltipProps } from './Tooltip';
 import { Stack } from '../Stack/Stack';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -34,7 +35,11 @@ const Template: StoryFn<TooltipProps & { gradeBand: GradeBand }> = (args) => {
 export const Default: Story = Template.bind({});
 Default.args = {
   title: 'This is a tooltip',
-  children: <ButtonMenu id="info" iconId="info" iconSize="sm" ariaLabel="Info" />,
+  children: (
+    <IconButton variant="text" ariaLabel="Info">
+      <Icon id="info" size="sm" />
+    </IconButton>
+  ),
   color: 'white',
   placement: 'top',
   elevation: 4,
@@ -58,12 +63,20 @@ export const WithCustomPlacement: Story = Template.bind({});
 WithCustomPlacement.args = {
   ...Default.args,
   placement: 'right-start',
-  children: <ButtonMenu id="desmos" iconId="desmos" iconSize="sm" ariaLabel="Desmos Calculator" />,
+  children: (
+    <IconButton variant="text" ariaLabel="Desmos Calculator">
+      <Icon id="desmos" size="sm" />
+    </IconButton>
+  ),
 };
 
 export const CustomStyle: Story = Template.bind({});
 CustomStyle.args = {
   ...Default.args,
   backgroundColor: 'primary-mid',
-  children: <ButtonMenu id="info" iconId="info" iconSize="lg" ariaLabel="Information" />,
+  children: (
+    <IconButton variant="text" ariaLabel="Info">
+      <Icon id="info" size="lg" />
+    </IconButton>
+  ),
 };

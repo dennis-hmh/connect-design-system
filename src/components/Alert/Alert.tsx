@@ -4,7 +4,7 @@ import { Stack } from '../Stack/Stack';
 import { Icon } from '../Icon/Icon';
 import { IconId } from '../../utils/icon-list';
 import { Color } from '../../utils/colors';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
 import { GradeBand } from 'src/enum/gradeband';
 
 export type AlertProps = {
@@ -84,7 +84,9 @@ export const Alert: React.FC<AlertProps> = ({
               paddingY: 'zero',
             }}
           >
-            <ButtonMenu iconId="close" iconSize="sm" ariaLabel="Close" onClick={handleClick} />
+            <IconButton variant="plain" ariaLabel="Close" onClick={handleClick}>
+              <Icon id="close" size="sm" />
+            </IconButton>
           </Stack>
         )}
       </Stack>

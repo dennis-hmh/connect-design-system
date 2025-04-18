@@ -11,7 +11,7 @@ import { Image } from '../Image/Image';
 import { InputBox } from '../InputBox/InputBox';
 import { Textarea } from '../Textarea/Textarea';
 import { Icon } from '../Icon/Icon';
-import { ButtonMenu } from '../ButtonMenu/ButtonMenu';
+import { IconButton } from '../IconButton/IconButton';
 import { ConnectTheme } from '../ConnectTheme';
 import { GradeBand } from '../../enum/gradeband';
 
@@ -489,8 +489,12 @@ export const SpeechToText: Story = (args) => {
                       paddingY="sm"
                       flexWrap="nowrap"
                     >
-                      <ButtonMenu iconId="add" />
-                      <ButtonMenu iconId="micFilled" backgroundColor="primary-mid" fill="white" />
+                      <IconButton variant="text" disableElevation={true} ariaLabel="Add">
+                        <Icon id="add" size="md" />
+                      </IconButton>
+                      <IconButton variant="contained" color="primary" ariaLabel="Mic">
+                        <Icon id="micFilled" size="md" />
+                      </IconButton>
                     </Stack>
                   }
                 />
