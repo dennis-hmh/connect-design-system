@@ -13,6 +13,7 @@ export * from './Chip/Chip';
 export * from './Dialog/Dialog';
 export * from './Divider/Divider';
 export * from './Dropdown/Dropdown';
+export * from './FlipCard';
 export * from './Icon/Icon';
 export * from './IconButton/IconButton';
 export * from './Image/Image';

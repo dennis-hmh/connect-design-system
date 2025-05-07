@@ -1,0 +1,78 @@
+.connect__flipcard {
+  cursor: var(--connect__flipard-cursor, pointer);
+  height: 100%;
+  perspective: 1000px;
+  perspective-origin: center center;
+  transition: transform var(--connect__transition-speed);
+  width: 100%;
+}
+
+.connect__flipcard:hover {
+  transform: scale(var(--connect__transform-scale));
+}
+
+.connect__flipcard:hover .connect__flipcard-front,
+.connect__flipcard:hover .connect__flipcard-back {
+  box-shadow: var(--connect__effects-paper), var(--connect__shadow-lvl-6);
+}
+
+.connect__flipcard:focus-visible .connect__flipcard-inner {
+  border-radius: var(--connect__radius-sm);
+  box-shadow: var(--connect__inner-shadow), var(--connect__shadow-lvl-focus);
+  outline: none;
+}
+
+.connect__flipcard.connect__flipcard-with-button {
+  --connect__flipard-cursor: auto;
+}
+
+.connect__flipcard-inner.connect__flipcard-flipped {
+  transform: rotateY(180deg);
+}
+
+.connect__flipcard-inner {
+  --connect__transition-s: var(--connect__transition-speed, var(--connect__transition-slow));
+  display: grid;
+  height: var(--connect__flipcard-height, 100%);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform var(--connect__transition-s);
+  width: var(--connect__flipcard-width, 100%);
+  will-change: transform;
+}
+
+.connect__flipcard-inner p {
+  overflow-y: auto;
+}
+
+.connect__flipcard-front,
+.connect__flipcard-back {
+  align-items: center;
+  backface-visibility: hidden;
+  display: flex;
+  grid-area: 1/1;
+  height: var(--connect__full-h, 100%);
+  justify-content: center;
+  overflow: hidden;
+  width: var(--connect__full-w, 100%);
+  will-change: transform;
+}
+
+.connect__flipcard-front {
+  transform: rotateY(0deg) translateZ(0);
+}
+
+.connect__flipcard-back {
+  transform: rotateY(180deg) translateZ(0.01px);
+}
+
+.connect__flipcard-with-button .connect__flipcard-button {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  transform: translate(calc(var(--connect__spacer-md) * -1), calc(var(--connect__spacer-md) * -1));
+}
+
+.connect__flipcard-back-drop {
+  display: contents;
+}

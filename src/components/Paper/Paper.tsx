@@ -4,9 +4,11 @@ import { Color } from '../../utils/colors';
 import { RoundedCorner } from '../../utils/radius';
 
 export type PaperProps = {
+  ariaHidden?: boolean;
   children: React.ReactNode;
   element?: React.ElementType;
   id?: string;
+  inert?: boolean;
   elevation?: -2 | 0 | 2 | 4 | 6;
   roundedCorner?: RoundedCorner;
   outline?: Color;
@@ -19,9 +21,11 @@ export type PaperProps = {
 };
 
 export const Paper: React.FC<PaperProps> = ({
+  ariaHidden,
   children,
   element: Component = 'div',
   id,
+  inert,
   elevation,
   roundedCorner,
   outline = 'transparent',
@@ -79,13 +83,17 @@ export const Paper: React.FC<PaperProps> = ({
     } as React.CSSProperties;
   }
 
+  const inertAttribute = inert ? { inert: '' } : {};
+
   return (
     <Component
       id={id}
+      aria-hidden={ariaHidden}
       className={paperClassName}
       data-testid={dataTestId}
       style={paperProps}
       role={role}
+      {...inertAttribute}
     >
       {children}
     </Component>
