@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.1
+
+### Patch Changes
+
+- 6ba65e4: Fix: moved public images into a public folder for storybook specifically
+
 ## 1.27.0
 
 ### Minor Changes
