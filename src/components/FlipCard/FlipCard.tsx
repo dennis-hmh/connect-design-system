@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useCallback, useRef } from 'react';
 import cn from 'classnames';
-import styles from './Flipcard.module.css';
+import styles from './FlipCard.module.css';
 
 import { isRenderProp, type PropsWithOptionalRenderProp } from '../../types/renderProps';
 

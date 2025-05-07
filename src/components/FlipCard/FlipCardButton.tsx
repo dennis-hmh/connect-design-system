@@ -3,7 +3,7 @@ import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 import { Icon } from '../Icon/Icon';
 import { type ButtonBaseProps } from '../ButtonBase/ButtonBase';
 
-import styles from './Flipcard.module.css';
+import styles from './FlipCard.module.css';
 import { useFlipCardContext } from './FlipCardContext';
 
 export type FlipcardButtonProps = Partial<IconButtonProps> & {
