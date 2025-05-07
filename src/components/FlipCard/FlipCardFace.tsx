@@ -1,8 +1,10 @@
 import { type PropsWithChildren } from 'react';
+
 import { Paper, PaperProps } from '../Paper/Paper';
-import styles from './Flipcard.module.css';
 import { useFlipCardContext } from './FlipCardContext';
 import { FlipCardBackDrop } from './FlipCardBackdrop';
+
+import styles from './FlipCard.module.css';
 
 type BaseFlipCardFaceProps = PaperProps & {
   face: 'front' | 'back';
