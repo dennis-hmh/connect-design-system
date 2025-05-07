@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.0
+
+### Minor Changes
+
+- 3028838: New: FlipCard Component
+
 ## 1.26.2
 
 ### Patch Changes
