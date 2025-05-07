@@ -2,7 +2,7 @@ import styles from './FlipCard.module.css';
 import { FlipCardContextContextType, useFlipCardContext } from './FlipCardContext';
 
 const interactiveElementsSelector =
-  'a, button, input, dialog, textarea, select, label, summary, [contenteditable="true"], [tabindex]:not([tabindex="-1"])';
+  'a, button, input, dialog, textarea, select, label, summary, [contenteditable="true"]';
 
 const makeHandleStopPropagation =
   (ref: FlipCardContextContextType['ref']) => (e: React.SyntheticEvent<HTMLElement>) => {

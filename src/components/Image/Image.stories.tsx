@@ -30,7 +30,7 @@ const Template: StoryFn<ImageProps> = (args) => {
 
 export const Default: Story = Template.bind({});
 Default.args = {
-  imageSrc: '',
+  imageSrc: '/images/default.png',
   altText: 'This is Alt Text',
   roundedCorners: false,
   className: '',

@@ -12,13 +12,6 @@ export type ImageProps = {
   gradeBand?: GradeBand;
 };
 
-// const defaultImageSrc =
-//   import.meta.env.PROD === true && import.meta.env.VITE_ENV !== 'chromatic'
-//     ? '/node_modules/@connect/connect-design-system/dist/images/zelda.jpg'
-//     : '/images/zelda.jpg';
-
-const defaultImageSrc = '/images/default.png';
-
 export const Image: React.FC<ImageProps> = ({
   imageSrc,
   altText,
@@ -60,12 +53,5 @@ export const Image: React.FC<ImageProps> = ({
     .filter(Boolean)
     .join(' ');
 
-  return (
-    <img
-      className={classNames}
-      src={imageSrc || defaultImageSrc}
-      alt={altText}
-      data-testid={dataTestId}
-    />
-  );
+  return <img className={classNames} src={imageSrc} alt={altText} data-testid={dataTestId} />;
 };

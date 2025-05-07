@@ -307,7 +307,7 @@ WithButtonCheckboxes.args = {
   height: 400,
 };
 
-const flipCardAssetsBasePath = `/.storybook/assets/FlipCard`;
+const flipCardAssetsBasePath = `/images/FlipCard`;
 
 const StudentResponseCardFaceContainer = ({ children }) => (
   <Stack flex={1} paddingY="md" spacing="md" paddingX="md" direction="column">
