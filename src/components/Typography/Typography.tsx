@@ -84,6 +84,8 @@ export const Typography: React.FC<TypographyProps> = ({
     typoProps.fontSize = `var(--connect__${size})`;
     typoProps.lineHeight = `var(--connect__${size}-lheight)`;
     const spacerSizeToUse = spacerSize || size;
+    
+    typoProps.paddingBlockStart = `max(0px, calc(var(--connect__${spacerSizeToUse}-lheight) / var(--font-offset-multi)))`;
     if (spacer) {
       typoProps.marginBottom = `var(--connect__${spacerSizeToUse}-spacer)`;
     }
