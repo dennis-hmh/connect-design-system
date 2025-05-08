@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.2
+
+### Patch Changes
+
+- 4082838: Added type support for grade banded fonts being off-centered
+
 ## 1.27.1
 
 ### Patch Changes
