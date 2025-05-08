@@ -779,11 +779,11 @@ button-group
   font-weight: var(--connect__fw-regular);
   line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
-  padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   padding-block-start: calc(
     var(--connect__spacer-xs) +
       max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)))
   );
+  padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
   position: var(--connect__relative);
   width: var(--connect__full-w);
 
