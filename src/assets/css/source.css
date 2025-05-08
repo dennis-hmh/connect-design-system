@@ -71,7 +71,8 @@
   font-display: swap;
   font-stretch: normal;
   font-style: normal;
-  font-weight: 400;;
+  font-weight: 400;
+  ;
   src: url('https://d16qzots3do3wk.cloudfront.net/master-fonts/frutigerltstd-roman.otf') format('opentype');
 }
 
@@ -858,17 +859,20 @@
 
 .connect__gk2,
 .connect__g23 {
+  --font-offset-multi: 8;
   --connect__font-sans: 'AvenirPrimaryHMH', 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
 }
 
 .connect__g35,
 .connect__g45 {
+  --font-offset-multi: 8;
   --connect__font-sans: 'Frutiger', 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
 }
 
 .connect__g68,
 .connect__g912,
 .connect__teach {
+  --font-offset-multi: -1;
   --connect__font-sans: 'Source Sans Pro', 'Helvetica', 'Verdana', sans-serif;
 }
 

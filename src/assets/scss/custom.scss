@@ -149,6 +149,10 @@ Buttons take variables in the following format
     }
   }
 
+  .connect__typography {
+    padding-block-start: max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)));
+  }
+
   &.connect__button-disabled {
     --variant__btn-bg: var(--connect__passive-100);
     --connect__inner-status-color-state: var(--connect__transparent);
@@ -408,7 +412,7 @@ Buttons take variables in the following format
   &-plain {
     --variant__btn-bg: var(--connect__color-plain-bg);
   }
-  
+
   &-text,
   &-plain {
     --connect__color-plain-text: var(--connect__surface-dark);
@@ -776,6 +780,10 @@ button-group
   line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
   padding-right: calc(var(--connect__spacer-sm) + var(--connect__icon-md));
+  padding-block-start: calc(
+    var(--connect__spacer-xs) +
+      max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)))
+  );
   position: var(--connect__relative);
   width: var(--connect__full-w);
 
@@ -1438,6 +1446,10 @@ THIS WILL BE PROP BASED WHEN DESIGN UPDATES RADIUS
   line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__spacer-xs) var(--connect__spacer-lg) var(--connect__spacer-xs)
     var(--connect__spacer-md);
+  padding-block-start: calc(
+    var(--connect__spacer-xs) +
+      max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)))
+  );
 }
 
 /*
@@ -1575,6 +1587,11 @@ Padding on MCQ labels is the total border + spacer
   justify-content: flex-start;
   line-height: var(--connect__body-sm-lheight);
   padding: var(--connect__label-padding-y) var(--connect__label-padding-x);
+
+  padding-block-start: calc(
+    var(--connect__label-padding-y) +
+      max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)))
+  );
   position: var(--connect__relative);
   transition-duration: var(--connect__transition-rapid);
   transition-property: color, background-color, border-color, box-shadow;
@@ -2514,7 +2531,7 @@ dropdown
   min-width: var(--connect__dropdown-min-w);
   overflow: var(--connect__overflow-hidden);
   padding: 0 var(--connect__spacer-xs);
-  text-overflow: var(--connect__text-ellipsis);
+  padding-block-start: max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)));
   white-space: var(--connect__white-space-nowrap);
   z-index: 2;
 }
@@ -2555,6 +2572,10 @@ dropdown
   line-height: var(--connect__body-sm-lheight);
   overflow: var(--connect__overflow-hidden);
   padding: var(--connect__spacer-xs) var(--connect__spacer-sm);
+  padding-block-start: calc(
+    var(--connect__spacer-xs) +
+      max(0px, calc(var(--connect__body-sm-lheight) / var(--font-offset-multi)))
+  );
   text-overflow: var(--connect__text-ellipsis);
   white-space: var(--connect__white-space-nowrap);
 
