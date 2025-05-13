@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.3
+
+### Patch Changes
+
+- 751e1e0: Fix: stop using CSS.px and CSS.percent for better compatibility
+
 ## 1.27.2
 
 ### Patch Changes
