@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.4
+
+### Patch Changes
+
+- 80a2fbd: Fix: remove CSS.number from the FlipCard
+
 ## 1.27.3
 
 ### Patch Changes
