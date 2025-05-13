@@ -19,7 +19,7 @@ export function Accordion({ data, variants = 'default', dataTestId }: AccordionP
   );
 }
 
-// can we add Typography rather than h5? 
+// can we add Typography rather than h5?
 function ListItem<T extends React.ReactNode>({ data }: { data: { title: string; content: T }[] }) {
   return (
     <>

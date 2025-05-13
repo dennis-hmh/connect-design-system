@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, TypographyProps } from '../Typography/Typography';
 
-// Open to discussion on the picks props, i picked just the one from the css 
+// Open to discussion on the picks props, i picked just the one from the css
 
 export type HintProps = {
   children: React.ReactNode;

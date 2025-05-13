@@ -51,31 +51,6 @@ export type Color =
   | 'content-purple-300'
   | 'content-purple-400'
   | 'content-purple-500'
-  | 'content-poppy-100'
-  | 'content-poppy-200'
-  | 'content-poppy-300'
-  | 'content-poppy-400'
-  | 'content-poppy-500'
-  | 'content-red-100'
-  | 'content-red-200'
-  | 'content-red-300'
-  | 'content-red-400'
-  | 'content-red-500'
-  | 'content-cerise-100'
-  | 'content-cerise-200'
-  | 'content-cerise-300'
-  | 'content-cerise-400'
-  | 'content-cerise-500'
-  | 'content-grape-100'
-  | 'content-grape-200'
-  | 'content-grape-300'
-  | 'content-grape-400'
-  | 'content-grape-500'
-  | 'content-teal-100'
-  | 'content-teal-200'
-  | 'content-teal-300'
-  | 'content-teal-400'
-  | 'content-teal-500'
 
   // Brand colors
   | 'brand-gold-100'
@@ -205,7 +180,25 @@ export type Color =
   | 'apple-c10'
   | 'green-s40'
   | 'green-c55'
-  | 'green-c25';
+  | 'green-c25'
+
+  // Neutral Colors
+  | 'neutral-light-01'
+  | 'neutral-light-02'
+  | 'neutral-light-03'
+  | 'neutral-light-04'
+  | 'neutral-light-05'
+  | 'neutral-light-06'
+  | 'neutral-light-07'
+  | 'neutral-light-08'
+  | 'neutral-dark-01'
+  | 'neutral-dark-02'
+  | 'neutral-dark-03'
+  | 'neutral-dark-04'
+  | 'neutral-dark-05'
+  | 'neutral-dark-06'
+  | 'neutral-dark-07'
+  | 'neutral-dark-08';
 
 const Colors: Record<Color, string> = {
   // Special values
@@ -269,24 +262,24 @@ const Colors: Record<Color, string> = {
   // Brand colors
   'brand-gold-100': '#fff9d1',
   'brand-gold-200': '#ffeb99',
-  'brand-gold-300': '#ffdb66',
-  'brand-gold-400': '#fdb913',
+  'brand-gold-300': '#fdb913',
+  'brand-gold-400': '#e59900',
   'brand-gold-500': '#d97e00',
   'brand-orange-100': '#fff0ec',
   'brand-orange-200': '#ffd4c7',
-  'brand-orange-300': '#ff9878',
-  'brand-orange-400': '#ff6d3f',
-  'brand-orange-500': '#ed5700',
+  'brand-orange-300': '#ff5e24',
+  'brand-orange-400': '#d64000',
+  'brand-orange-500': '#b03800',
   'brand-magenta-100': '#ffeef7',
   'brand-magenta-200': '#ffd9ec',
-  'brand-magenta-300': '#ff70c8',
-  'brand-magenta-400': '#ff00b3',
-  'brand-magenta-500': '#de009b',
+  'brand-magenta-300': '#ff00b3',
+  'brand-magenta-400': '#d90098',
+  'brand-magenta-500': '#bf0086',
   'brand-deep-magenta-100': '#ffeefe',
   'brand-deep-magenta-200': '#ffd6fc',
-  'brand-deep-magenta-300': '#ff99f8',
-  'brand-deep-magenta-400': '#cc00c0',
-  'brand-deep-magenta-500': '#b800ac',
+  'brand-deep-magenta-300': '#cc00c0',
+  'brand-deep-magenta-400': '#b200a7',
+  'brand-deep-magenta-500': '#9e0094',
 
   // Legacy colors (deprecated but still supported)
   // Surface colors
@@ -386,6 +379,24 @@ const Colors: Record<Color, string> = {
   'green-s40': 'rgb(0, 173, 0)',
   'green-c55': 'rgb(25, 120, 17)',
   'green-c25': 'rgb(145, 219, 105)',
+
+  // Neutral Colors
+  'neutral-light-01': 'var(--connect__neutral-light-01)',
+  'neutral-light-02': 'var(--connect__neutral-light-02)',
+  'neutral-light-03': 'var(--connect__neutral-light-03)',
+  'neutral-light-04': 'var(--connect__neutral-light-04)',
+  'neutral-light-05': 'var(--connect__neutral-light-05)',
+  'neutral-light-06': 'var(--connect__neutral-light-06)',
+  'neutral-light-07': 'var(--connect__neutral-light-07)',
+  'neutral-light-08': 'var(--connect__neutral-light-08)',
+  'neutral-dark-01': 'var(--connect__neutral-dark-01)',
+  'neutral-dark-02': 'var(--connect__neutral-dark-02)',
+  'neutral-dark-03': 'var(--connect__neutral-dark-03)',
+  'neutral-dark-04': 'var(--connect__neutral-dark-04)',
+  'neutral-dark-05': 'var(--connect__neutral-dark-05)',
+  'neutral-dark-06': 'var(--connect__neutral-dark-06)',
+  'neutral-dark-07': 'var(--connect__neutral-dark-07)',
+  'neutral-dark-08': 'var(--connect__neutral-dark-08)',
 };
 
 export default Colors;

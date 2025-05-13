@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { GradeBand } from 'src/enum/gradeband';
-import { timerStates } from './TimerUtils'
+import { timerStates } from './TimerUtils';
 
 type Size =
   | 'heading-xl'

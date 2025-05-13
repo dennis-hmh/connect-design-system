@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Colors, { Color } from '../../utils/colors';
 import { Stack } from '../Stack/Stack';
+import { Grid } from '../Grid/Grid';
+import { GridItem } from '../GridItem/GridItem';
 import { Typography } from '../Typography/Typography';
 import { Paper } from '../Paper/Paper';
 import { ConnectTheme } from '../ConnectTheme';
@@ -60,10 +62,12 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
           paddingY: 'xs',
         }}
       >
-        <Typography element="p" weight={500} size="body-lg">
+        <Typography element="p" weight={500} size="caption">
           {colorName}
         </Typography>
-        <Typography element="p">{colorValue}</Typography> 
+        <Typography element="p" size="credits">
+          {colorValue}
+        </Typography>
       </Stack>
     </Stack>
   </Paper>
@@ -93,19 +97,19 @@ const groupColors = (colors: Record<string, string>) => {
       'Light Pack': {},
       'Dark Pack': {},
     },
-    'Deprecated': {
-      'Surface': {},
-      'Feedback': {},
-      'State': {},
-      'Primary': {},
-      'Hint': {},
-      'Focus': {},
-      'Brand': {},
+    Deprecated: {
+      Surface: {},
+      Feedback: {},
+      State: {},
+      Primary: {},
+      Hint: {},
+      Focus: {},
+      Brand: {},
       'Essential Guides': {},
       'Reading Palette': {},
       'Special Values': {},
       'Legacy Colors': {},
-    }
+    },
   };
 
   Object.entries(colors).forEach(([name, value]) => {
@@ -121,50 +125,61 @@ const groupColors = (colors: Record<string, string>) => {
         groups['Content Colors'][`${colorName} Pack`][name] = value;
       }
     }
-    // Handle new brand colors
-    else if (name.startsWith('brand-') && /brand-\w+-\d+/.test(name)) {
-      const [_, color, shade] = name.split('-');
-      let colorName = color.charAt(0).toUpperCase() + color.slice(1);
-      if (color === 'deep-magenta') {
-        colorName = 'Deep Magenta';
+    // Handle new brand colors (not deprecated)
+    else if (name.startsWith('brand-')) {
+      // Match brand-<color>-<number> (e.g., brand-deep-magenta-100)
+      const match = name.match(/^brand-(.+)-(\d+)$/);
+      if (match) {
+        let color = match[1];
+        let colorName =
+          color.charAt(0).toUpperCase() +
+          color.slice(1).replace(/-([a-z])/g, (_, c) => ' ' + c.toUpperCase());
+        if (color === 'deep-magenta') colorName = 'Deep Magenta';
+        if (groups['Brand Colors'][`${colorName} Pack`]) {
+          groups['Brand Colors'][`${colorName} Pack`][name] = value;
+        }
+      } else {
+        // All other brand-* colors (not 100-500) are deprecated
+        groups['Deprecated']['Brand'][name] = value;
       }
-      if (groups['Brand Colors'][`${colorName} Pack`]) {
-        groups['Brand Colors'][`${colorName} Pack`][name] = value;
+    }
+    // Handle deprecated cc-* colors
+    else if (name.startsWith('cc-')) {
+      groups['Deprecated']['Brand'][name] = value;
+    }
+    // Handle neutral colors
+    else if (name.startsWith('neutral-')) {
+      if (name.includes('light-')) {
+        groups['Neutral Colors']['Light Pack'][name] = value;
+      } else if (name.includes('dark-')) {
+        groups['Neutral Colors']['Dark Pack'][name] = value;
       }
     }
     // Handle all deprecated colors
     else {
       if (name.startsWith('surface-')) {
         groups['Deprecated']['Surface'][name] = value;
-      }
-      else if (name.startsWith('correct-') || name.startsWith('incorrect-') || name.startsWith('shown-')) {
+      } else if (
+        name.startsWith('correct-') ||
+        name.startsWith('incorrect-') ||
+        name.startsWith('shown-')
+      ) {
         groups['Deprecated']['Feedback'][name] = value;
-      }
-      else if (name.startsWith('success-') || name.startsWith('error-')) {
+      } else if (name.startsWith('success-') || name.startsWith('error-')) {
         groups['Deprecated']['State'][name] = value;
-      }
-      else if (name.startsWith('primary-')) {
+      } else if (name.startsWith('primary-')) {
         groups['Deprecated']['Primary'][name] = value;
-      }
-      else if (name.startsWith('hint-')) {
+      } else if (name.startsWith('hint-')) {
         groups['Deprecated']['Hint'][name] = value;
-      }
-      else if (name.startsWith('focus-')) {
+      } else if (name.startsWith('focus-')) {
         groups['Deprecated']['Focus'][name] = value;
-      }
-      else if (name.startsWith('cc-') || (name.startsWith('brand-') && !/brand-\w+-\d+/.test(name))) {
-        groups['Deprecated']['Brand'][name] = value;
-      }
-      else if (name.startsWith('essential-guide-')) {
+      } else if (name.startsWith('essential-guide-')) {
         groups['Deprecated']['Essential Guides'][name] = value;
-      }
-      else if (name.startsWith('periwinkle-')) {
+      } else if (name.startsWith('periwinkle-')) {
         groups['Deprecated']['Reading Palette'][name] = value;
-      }
-      else if (['white', 'black', 'unset', 'transparent'].includes(name)) {
+      } else if (['white', 'black', 'unset', 'transparent'].includes(name)) {
         groups['Deprecated']['Special Values'][name] = value;
-      }
-      else {
+      } else {
         // All other legacy colors (gray-c70, red-c55, etc.)
         groups['Deprecated']['Legacy Colors'][name] = value;
       }
@@ -182,49 +197,48 @@ export const ColorPalette: Story = {
     return (
       <ConnectTheme gradeBand={args.gradeBand ?? GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
         <div ref={themeWrapperRef}>
-          <Stack
-            xs={{
-              direction: 'column',
-              alignItems: 'stretch',
-              justifyContent: 'start',
-              paddingX: 'md',
-              paddingY: 'lg',
-              spacing: 'xl',
-            }}
-          >
+          <Paper elevation={0} backgroundColor="surface-0">
             <Stack
               xs={{
                 direction: 'column',
                 alignItems: 'stretch',
                 justifyContent: 'start',
-                paddingX: 'zero',
-                paddingY: 'zero',
-                spacing: 'sm',
+                paddingX: 'md',
+                paddingY: 'lg',
+                spacing: 'xl',
               }}
+              customStyle={{ maxWidth: '1024px', margin: 'auto' }}
             >
-              <Typography element="h1">Color palette</Typography>
-              <Typography element="p">
-                This page outlines the color palette available in the Connect design system.
-              </Typography>
-            </Stack>
-            {Object.entries(colorGroups).map(([groupName, subGroups]) => (
               <Stack
-                key={groupName}
                 xs={{
                   direction: 'column',
                   alignItems: 'stretch',
                   justifyContent: 'start',
                   paddingX: 'zero',
                   paddingY: 'zero',
-                  spacing: 'md',
+                  spacing: 'sm',
                 }}
               >
-                <Typography element="h2" size="heading-sm">
-                  {groupName}
+                <Typography element="h1" size="heading-lg">
+                  Color palette
                 </Typography>
-                {Object.entries(subGroups).map(([subGroupName, colors]) => (
+                <Typography element="p">
+                  This page outlines the color palette available in the Connect design system v1.
+                </Typography>
+              </Stack>
+              {Object.entries(colorGroups).map(([groupName, subGroups]) => (
+                <Stack
+                  key={groupName}
+                  xs={{
+                    direction: 'column',
+                    alignItems: 'stretch',
+                    justifyContent: 'start',
+                    paddingX: 'zero',
+                    paddingY: 'zero',
+                    spacing: 'xl',
+                  }}
+                >
                   <Stack
-                    key={subGroupName}
                     xs={{
                       direction: 'column',
                       alignItems: 'stretch',
@@ -232,29 +246,49 @@ export const ColorPalette: Story = {
                       spacing: 'md',
                     }}
                   >
-                    <Typography element="h3" size='body-lg'>
-                      {subGroupName}
+                    <Typography element="h2" size="body-lg">
+                      {groupName}
                     </Typography>
+                  </Stack>
+                  {Object.entries(subGroups).map(([subGroupName, colors]) => (
                     <Stack
+                      key={subGroupName}
                       xs={{
-                        direction: 'row',
-                        alignItems: 'start',
+                        direction: 'column',
+                        alignItems: 'stretch',
                         justifyContent: 'start',
-                        flexWrap: 'wrap',
-                        spacing: 'lg',
+                        spacing: 'md',
                       }}
                     >
-                      {Object.entries(colors).map(([name, value]) => (
-                        <Stack flex="shrink" key={name}>
-                          <ColorSwatch colorName={name} colorValue={value} />
-                        </Stack>
-                      ))}
+                      <Stack
+                        xs={{
+                          direction: 'column',
+                          alignItems: 'stretch',
+                          justifyContent: 'start',
+                          spacing: 'xs',
+                        }}
+                      >
+                        <Typography element="h3" size="body-md">
+                          {subGroupName}
+                        </Typography>
+                      </Stack>
+                      <Grid
+                        xs={{ alignItems: 'stretch' }}
+                        gap="sm"
+                        gridTemplateColumns="repeat(auto-fit,minmax(min(180px, 100%), 1fr))"
+                      >
+                        {Object.entries(colors).map(([name, value]) => (
+                          <GridItem key={name} xs={{ spanCol: 1 }}>
+                            <ColorSwatch colorName={name} colorValue={value} />
+                          </GridItem>
+                        ))}
+                      </Grid>
                     </Stack>
-                  </Stack>
-                ))}
-              </Stack>
-            ))}
-          </Stack>
+                  ))}
+                </Stack>
+              ))}
+            </Stack>
+          </Paper>
         </div>
       </ConnectTheme>
     );

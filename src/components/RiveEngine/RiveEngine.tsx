@@ -34,7 +34,7 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
   ignoreReducedMotion = false,
   ignoreDarkMode = false,
   debug: DEBUG = false,
-  style
+  style,
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const prefersDarkMode = usePrefersDarkMode();
@@ -185,13 +185,13 @@ export const RiveEngine: React.FC<RiveEngineProps> = ({
     <div
       ref={divRef}
       style={{
-        height: '100%', 
+        height: '100%',
         ...(sizeByHeight && aspectRatio ? { width: calculatedWidth } : { width: '100%' }),
-        ...style
-        }}
+        ...style,
+      }}
     >
       <RiveComponent />
-      <Typography element="p" ariaLive="polite" className='connect__visually-hidden'>
+      <Typography element="p" ariaLive="polite" className="connect__visually-hidden">
         {desc}
       </Typography>
     </div>
