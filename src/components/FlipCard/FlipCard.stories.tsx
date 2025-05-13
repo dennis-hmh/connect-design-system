@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 
-import { Flipcard, FlipcardProps } from './FlipCard';
+import { FlipCard, FlipCardProps } from './FlipCard';
 import { Stack } from '../Stack/Stack';
 import { Typography } from '../Typography/Typography';
 import { Avatar } from '../Avatar/Avatar';
@@ -15,10 +15,10 @@ import { Checkbox } from '../Checkbox/Checkbox';
 import { FlipCardFace } from './FlipCardFace';
 import { GradeBand } from '../../enum/gradeband';
 
-type FlipCardStoryProps = FlipcardProps & { gradeBand: GradeBand };
+type FlipCardStoryProps = FlipCardProps & { gradeBand: GradeBand };
 
 const meta: Meta<FlipCardStoryProps> = {
-  component: Flipcard,
+  component: FlipCard,
   title: 'Draft/Flipcard',
   tags: ['autodocs'],
   parameters: {
@@ -78,7 +78,7 @@ const Template: StoryFn<FlipCardStoryProps> = ({ gradeBand, ...args }) => {
   return (
     <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
       <div ref={themeWrapperRef} style={{ display: 'flex' }}>
-        <Flipcard {...args} />
+        <FlipCard {...args} />
       </div>
     </ConnectTheme>
   );

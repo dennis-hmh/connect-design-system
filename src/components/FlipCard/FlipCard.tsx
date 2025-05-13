@@ -23,12 +23,12 @@ type BaseFlipCardProps = FlipCardWrapperProps & {
   onChange?: () => void;
 };
 
-export type FlipcardProps = PropsWithOptionalRenderProp<
+export type FlipCardProps = PropsWithOptionalRenderProp<
   BaseFlipCardProps,
   FlipCardContextContextType
 >;
 
-export const Flipcard: React.FC<FlipcardProps> = ({
+export const FlipCard: React.FC<FlipCardProps> = ({
   children,
   defaultFlipped = false,
   flipped,
@@ -86,7 +86,7 @@ function FlipCardWrapper({
   );
   const style: React.CSSProperties = {
     '--connect__transition-speed': `var(--connect__transition-${transitionSpeed})`,
-    '--connect__transform-scale': CSS.number(transformScale),
+    '--connect__transform-scale': transformScale,
   } as React.CSSProperties;
 
   return (
@@ -121,7 +121,7 @@ function useFlipOnHover({
   flipTrigger,
   toggle,
 }: {
-  flipTrigger: FlipcardProps['flipTrigger'];
+  flipTrigger: FlipCardProps['flipTrigger'];
   toggle: FlipCardContextContextType['toggle'];
 }) {
   const handleMouseEnterOrLeaveCallback = useCallback((value: boolean) => toggle(value), [toggle]);
