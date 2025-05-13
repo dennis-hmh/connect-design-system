@@ -1225,6 +1225,370 @@
   --connect__positive-200: var(--connect__lime-s25);
   --connect__positive-100: var(--connect__apple-s15);
 
+    --connect__white: rgb(255, 255, 255);
+      --connect__black: rgb(30, 30, 30);
+      --connect__unset: unset;
+
+      /* Gray Scale
+         * ----------
+          * Neutral colours used for text, backgrounds, and borders.
+        */
+
+      --connect__warm-gray-c5: rgb(247, 245, 242);
+      --connect__warm-gray-c10: rgb(239, 236, 234);
+
+      --connect__stone-s5: rgb(248, 246, 244);
+      --connect__stone-s10: rgb(242, 240, 237);
+      --connect__stone-s15: rgb(235, 232, 230);
+      --connect__stone-s20: rgb(224, 222, 220);
+      --connect__stone-s30: rgb(196, 194, 192);
+      --connect__stone-s40: rgb(148, 147, 145);
+      --connect__stone-s50: rgb(105, 103, 102);
+      --connect__stone-s55: rgb(84, 83, 82);
+      --connect__stone-s60: rgb(64, 63, 62);
+      --connect__stone-s70: rgb(45, 45, 45);
+
+
+
+      /* colour Families
+        * -------------
+          * Organized collections of related colours with varying saturations and intensities.
+          * These are used to create the colour palette for the design system.
+        */
+
+      /* Yellow Family */
+      --connect__yellow-s15: rgb(255, 248, 117);
+      --connect__yellow-s20: rgb(255, 242, 0);
+
+      /* Sunflower Family */
+      --connect__sunflower-s15: rgb(255, 233, 122);
+      --connect__sunflower-s20: rgb(255, 208, 51);
+
+      /* Orange/Papaya Family */
+      --connect__orange-s10: rgb(255, 224, 199);
+      --connect__orange-s15: rgb(255, 198, 158);
+      --connect__orange-s35: rgb(255, 120, 11);
+      --connect__orange-s40: rgb(238, 107, 0);
+      --connect__orange-s50: rgb(194, 84, 0);
+
+      /* Papaya Family */
+      --connect__papaya-s25: rgb(255, 167, 51);
+      --connect__papaya-s30: rgb(255, 151, 5);
+
+      /* Poppy Family */
+      --connect__poppy-s40: rgb(255, 92, 0);
+      --connect__poppy-s45: rgb(235, 78, 0);
+      --connect__poppy-s50: rgb(214, 64, 0);
+      --connect__poppy-s55: rgb(178, 54, 0);
+      --connect__poppy-s60: rgb(143, 43, 0);
+
+      /* Red Family */
+      --connect__red-s10: rgb(255, 230, 230);
+      --connect__red-s15: rgb(255, 204, 204);
+      --connect__red-s25: rgb(255, 144, 144);
+      --connect__red-s35: rgb(255, 88, 88);
+      --connect__red-s40: rgb(255, 51, 51);
+      --connect__red-s45: rgb(248, 8, 0);
+      --connect__red-s50: rgb(235, 0, 0);
+      --connect__red-s55: rgb(189, 0, 0);
+      --connect__red-s60: rgb(148, 0, 0);
+
+      /* Cerise Family */
+      --connect__cerise-s10: rgb(255, 230, 245);
+      --connect__cerise-s25: rgb(255, 146, 211);
+      --connect__cerise-s40: rgb(255, 46, 171);
+      --connect__cerise-s50: rgb(224, 0, 151);
+      --connect__cerise-c50: rgb(209, 52, 133);
+      --connect__cerise-s55: rgb(189, 0, 127);
+      --connect__cerise-s70: rgb(117, 0, 78);
+
+      /* Ruby Family */
+      --connect__ruby-s40: rgb(255, 50, 112);
+
+      /* Purple/Grape Family */
+      --connect__purple-s25: rgb(214, 160, 255);
+      --connect__purple-s35: rgb(219, 102, 255);
+      --connect__purple-s40: rgb(185, 80, 255);
+      --connect__purple-s45: rgb(175, 70, 255);
+      --connect__purple-s50: rgb(167, 51, 255);
+      --connect__purple-s55: rgb(133, 0, 250);
+      --connect__purple-s60: rgb(102, 2, 202);
+      --connect__purple-c70: rgb(64, 29, 82);
+      --connect__grape-s10: rgb(249, 229, 255);
+      --connect__grape-s15: rgb(243, 204, 255);
+      --connect__grape-s25: rgb(232, 158, 255);
+      --connect__grape-s40: rgb(207, 81, 246);
+      --connect__grape-s55: rgb(153, 0, 204);
+      --connect__grape-s60: rgb(126, 0, 168);
+
+      /* Violet/Periwinkle Family */
+      --connect__violet-s15: rgb(230, 209, 255);
+      --connect__violet-s25: rgb(214, 160, 255);
+      --connect__violet-s50: rgb(127, 66, 255);
+      --connect__violet-s55: rgb(113, 47, 253);
+      --connect__periwinkle-s25: rgb(163, 174, 255);
+      --connect__periwinkle-s40: rgb(125, 125, 255);
+      --connect__periwinkle-s55: rgb(84, 71, 255);
+      --connect__periwinkle-s60: rgb(67, 47, 253);
+
+      /* Blue/Marine Family */
+      --connect__blue-c5: rgb(234, 244, 255);
+      --connect__blue-c10: rgb(230, 240, 255);
+      --connect__blue-m5: rgb(222, 228, 242);
+      --connect__blue-m50: rgb(40, 90, 146);
+      --connect__blue-m70: rgb(3, 38, 92);
+      --connect__blue-s15: rgb(209, 228, 255);
+      --connect__blue-s30: rgb(115, 173, 255);
+      --connect__blue-s50: rgb(0, 106, 255);
+      --connect__blue-s60: rgb(0, 62, 220);
+      --connect__marine-s10: rgb(219, 243, 255);
+      --connect__marine-s35: rgb(10, 165, 255);
+      --connect__marine-s40: rgb(0, 151, 245);
+      --connect__marine-s50: rgb(0, 115, 209);
+      --connect__marine-s60: rgb(0, 79, 163);
+
+      /* Teal/Turquoise/Aqua Family */
+      --connect__aqua-m5: rgb(214, 234, 246);
+      --connect__aqua-c65: rgb(0, 74, 97);
+      --connect__teal-s10: rgb(217, 254, 255);
+      --connect__teal-s15: rgb(166, 252, 255);
+      --connect__teal-s25: rgb(21, 235, 247);
+      --connect__teal-s40: rgb(0, 159, 184);
+      --connect__teal-s50: rgb(0, 125, 153);
+      --connect__teal-s60: rgb(0, 97, 120);
+      --connect__turquoise-c5: rgb(227, 250, 245);
+      --connect__turquoise-s10: rgb(217, 255, 246);
+      --connect__turquoise-s15: rgb(181, 255, 242);
+      --connect__turquoise-s25: rgb(18, 243, 224);
+      --connect__turquoise-s35: rgb(0, 196, 195);
+      --connect__turquoise-s45: rgb(0, 147, 147);
+      --connect__turquoise-s55: rgb(0, 117, 115);
+
+      /* Slate Family */
+      --connect__slate-s10: rgb(215, 231, 241);
+      --connect__slate-s15: rgb(200, 221, 237);
+      --connect__slate-s40: rgb(158, 195, 228);
+      --connect__slate-s50: rgb(137, 163, 186);
+      --connect__slate-s60: rgb(115, 130, 143);
+
+      /* Green/Lime/Apple Family */
+      --connect__green-m70: rgb(0, 62, 34);
+      --connect__green-s35: rgb(0, 204, 0);
+      --connect__green-s40: rgb(0, 173, 0);
+      --connect__green-s45: rgb(0, 153, 0);
+      --connect__green-s50: rgb(0, 138, 0);
+      --connect__green-s55: rgb(0, 120, 0);
+      --connect__green-s60: rgb(0, 97, 0);
+      --connect__lime-s10: rgb(225, 255, 204);
+      --connect__lime-s15: rgb(203, 255, 163);
+      --connect__lime-s25: rgb(156, 237, 69);
+      --connect__apple-s15: rgb(220, 255, 161);
+      --connect__apple-s20: rgb(202, 255, 89);
+
+      /* Mint Family */
+      --connect__mint-s30: rgb(39, 231, 164);
+
+      /* =====================
+          BRAND colour MAPPING
+          ======================*/
+      --connect__brand-gold-100: #fff9d1;
+      --connect__brand-gold-200: #ffeb99;
+      --connect__brand-gold-300: #ffdb66;
+      --connect__brand-gold-400: #fdb913;
+      --connect__brand-gold-500: #d97e00;
+
+      --connect__brand-orange-100: #fff0ec;
+      --connect__brand-orange-200: #ffd4c7;
+      --connect__brand-orange-300: #ff9878;
+      --connect__brand-orange-400: #ff6d3f;
+      --connect__brand-orange-500: #ed5700;
+
+      --connect__brand-magenta-100: #ffeef7;
+      --connect__brand-magenta-200: #ffd9ec;
+      --connect__brand-magenta-300: #ff70c8;
+      --connect__brand-magenta-400: #ff00b3;
+      --connect__brand-magenta-500: #de009b;
+
+      --connect__brand-deep-magenta-100: #ffeefe;
+      --connect__brand-deep-magenta-200: #ffd6fc;
+      --connect__brand-deep-magenta-300: #ff99f8;
+      --connect__brand-deep-magenta-400: #cc00c0;
+      --connect__brand-deep-magenta-500: #b800ac;
+
+      --connect__neutral-light-01: var(--connect__warm-gray-c5);
+      --connect__neutral-light-02: var(--connect__warm-gray-c10);
+      --connect__neutral-light-03: var(--connect__blue-c5);
+      --connect__neutral-light-04: var(--connect__blue-c10);
+      --connect__neutral-light-05: var(--connect__turquoise-c5);
+      --connect__neutral-light-06: var(--connect__aqua-m5);
+      --connect__neutral-light-07: var(--connect__teal-s10);
+      --connect__neutral-light-08: var(--connect__blue-m5);
+
+      --connect__neutral-dark-01: var(--connect__purple-c70);
+      --connect__neutral-dark-02: var(--connect__cerise-s70);
+      --connect__neutral-dark-03: var(--connect__marine-s60);
+      --connect__neutral-dark-04: var(--connect__blue-m70);
+      --connect__neutral-dark-05: var(--connect__green-m70);
+      --connect__neutral-dark-06: var(--connect__blue-m50);
+      --connect__neutral-dark-07: var(--connect__aqua-c65);     
+      --connect__neutral-dark-08: var(--connect__stone-s60);
+
+      /* =====================
+          SURFACE colour MAPPING
+          ======================*/
+
+      /* Base Surface colours (Original scale for reference) */
+      --connect__surface-0: var(--connect__white);
+      --connect__surface-50: var(--connect__stone-s5);
+      --connect__surface-100: var(--connect__stone-s10);
+      --connect__surface-200: var(--connect__stone-s15);
+      --connect__surface-300: var(--connect__stone-s20);
+      --connect__surface-400: var(--connect__stone-s30);
+      --connect__surface-500: var(--connect__stone-s40);
+      --connect__surface-600: var(--connect__stone-s50);
+      --connect__surface-700: var(--connect__stone-s55);
+      --connect__surface-800: var(--connect__stone-s60);
+      --connect__surface-900: var(--connect__stone-s70);
+      --connect__surface-1000: var(--connect__black);
+      --connect__surface-null: rgba(255, 255, 255, 0);
+
+      /* =====================
+          NEUTRAL colour MAPPING
+          ======================*/
+      --connect__neutral-light-100: var(--connect__neutral-light-01);
+      --connect__neutral-light-200: var(--connect__neutral-light-02);
+      --connect__neutral-light-300: var(--connect__neutral-light-03);
+      --connect__neutral-light-400: var(--connect__neutral-light-04);
+      --connect__neutral-light-500: var(--connect__neutral-light-05);
+      --connect__neutral-light-600: var(--connect__neutral-light-06);
+      --connect__neutral-light-700: var(--connect__neutral-light-07);
+      --connect__neutral-light-800: var(--connect__neutral-light-08);
+
+      --connect__neutral-dark-100: var(--connect__neutral-dark-01);
+      --connect__neutral-dark-200: var(--connect__neutral-dark-02);
+      --connect__neutral-dark-300: var(--connect__neutral-dark-03);
+      --connect__neutral-dark-400: var(--connect__neutral-dark-04);
+      --connect__neutral-dark-500: var(--connect__neutral-dark-05);
+      --connect__neutral-dark-600: var(--connect__neutral-dark-06);
+      --connect__neutral-dark-700: var(--connect__neutral-dark-07);
+      --connect__neutral-dark-800: var(--connect__neutral-dark-08);
+  
+      /* Orange Pack */
+      --connect__content-orange-100: var(--connect__sunflower-s15);
+      --connect__content-orange-200: var(--connect__papaya-s25);
+      --connect__content-orange-300: var(--connect__orange-s35);
+      --connect__content-orange-400: var(--connect__poppy-s45);
+      --connect__content-orange-500: var(--connect__poppy-s55);
+
+      /* Yellow Pack */
+      --connect__content-yellow-100: var(--connect__yellow-s15);
+      --connect__content-yellow-200: var(--connect__sunflower-s20);
+      --connect__content-yellow-300: var(--connect__papaya-s30);
+      --connect__content-yellow-400: var(--connect__orange-s40);
+      --connect__content-yellow-500: var(--connect__poppy-s50);
+
+      /* Green Pack */
+      --connect__content-green-100: var(--connect__apple-s15);
+      --connect__content-green-200: var(--connect__lime-s25);
+      --connect__content-green-300: var(--connect__green-s35);
+      --connect__content-green-400: var(--connect__green-s45);
+      --connect__content-green-500: var(--connect__green-s55);
+
+      /* Aqua Pack */
+      --connect__content-aqua-100: var(--connect__turquoise-s15);
+      --connect__content-aqua-200: var(--connect__turquoise-s25);
+      --connect__content-aqua-300: var(--connect__turquoise-s35);
+      --connect__content-aqua-400: var(--connect__turquoise-s45);
+      --connect__content-aqua-500: var(--connect__turquoise-s55);
+
+      /* Blue Pack */
+      --connect__content-blue-100: var(--connect__teal-s15);
+      --connect__content-blue-200: var(--connect__teal-s25);
+      --connect__content-blue-300: var(--connect__marine-s35);
+      --connect__content-blue-400: var(--connect__marine-s50);
+      --connect__content-blue-500: var(--connect__marine-s60);
+
+      /* Violet Pack */
+      --connect__content-violet-100: var(--connect__blue-s15);
+      --connect__content-violet-200: var(--connect__periwinkle-s25);
+      --connect__content-violet-300: var(--connect__periwinkle-s40);
+      --connect__content-violet-400: var(--connect__periwinkle-s55);
+      --connect__content-violet-500: var(--connect__periwinkle-s60);
+
+      /* Purple Pack */
+      --connect__content-purple-100: var(--connect__violet-s15);
+      --connect__content-purple-200: var(--connect__purple-s25);
+      --connect__content-purple-300: var(--connect__purple-s40);
+      --connect__content-purple-400: var(--connect__grape-s55);
+      --connect__content-purple-500: var(--connect__grape-s60);
+
+
+      --connect__accent-yellow: var(--connect__yellow-s20);
+      --connect__accent-sunflower: var(--connect__sunflower-s20);
+      --connect__accent-papaya: var(--connect__papaya-s25);
+      --connect__accent-poppy: var(--connect__poppy-s40);
+      --connect__accent-ruby: var(--connect__ruby-s40);
+      --connect__accent-cerise: var(--connect__cerise-s55);
+      --connect__accent-grape: var(--connect__grape-s40);
+      --connect__accent-purple: var(--connect__purple-s55);
+      --connect__accent-violet: var(--connect__violet-s55);
+      --connect__accent-periwinkle: var(--connect__periwinkle-s40);
+      --connect__accent-marine: var(--connect__marine-s40);
+      --connect__accent-teal: var(--connect__teal-s25);
+      --connect__accent-mint: var(--connect__mint-s30);
+      --connect__accent-lime: var(--connect__lime-s25);
+      --connect__accent-apple: var(--connect__apple-s20);
+
+      --connect__primary-muted: var(--connect__primary-100);
+      --connect__primary-pale: var(--connect__primary-200);
+      --connect__primary-mid: var(--connect__primary-300);
+      --connect__primary-core: var(--connect__primary-400);
+      --connect__primary-dark: var(--connect__primary-500);
+
+      --connect__secondary-muted: var(--connect__secondary-100);
+      --connect__secondary-pale: var(--connect__secondary-200);
+      --connect__secondary-mid: var(--connect__secondary-300);
+      --connect__secondary-core: var(--connect__secondary-400);
+      --connect__secondary-dark: var(--connect__secondary-500);
+
+      --connect__success-muted: var(--connect__positive-100);
+      --connect__success-pale: var(--connect__positive-200);
+      --connect__success-mid: var(--connect__positive-300);
+      --connect__success-core: var(--connect__positive-400);
+      --connect__success-dark: var(--connect__positive-500);
+
+      --connect__error-muted: var(--connect__negative-100);
+      --connect__error-pale: var(--connect__negative-200);
+      --connect__error-mid: var(--connect__negative-300);
+      --connect__error-core: var(--connect__negative-400);
+      --connect__error-dark: var(--connect__negative-500);
+
+      --connect__danger-muted: var(--connect__danger-100);
+      --connect__danger-pale: var(--connect__danger-200);
+      --connect__danger-mid: var(--connect__danger-300);
+      --connect__danger-core: var(--connect__danger-400);
+      --connect__danger-dark: var(--connect__danger-500);
+
+      --connect__caution-muted: var(--connect__caution-100);
+      --connect__caution-pale: var(--connect__caution-200);
+      --connect__caution-mid: var(--connect__caution-300);
+      --connect__caution-core: var(--connect__caution-400);
+      --connect__caution-dark: var(--connect__caution-500);
+
+      --connect__assistive-muted: var(--connect__assistive-100);
+      --connect__assistive-pale: var(--connect__assistive-200);
+      --connect__assistive-mid: var(--connect__assistive-300);
+      --connect__assistive-core: var(--connect__assistive-400);
+      --connect__assistive-dark: var(--connect__assistive-500);
+
+      --connect__passive-muted: var(--connect__passive-100);
+      --connect__passive-pale: var(--connect__passive-200);
+      --connect__passive-mid: var(--connect__passive-300);
+      --connect__passive-core: var(--connect__passive-400);
+      --connect__passive-dark: var(--connect__passive-500);
+  
+
+
 
   /*
       4: Shadows

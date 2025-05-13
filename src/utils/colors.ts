@@ -1,4 +1,105 @@
 export type Color =
+
+  // Surface colors
+  | 'surface-0'
+  | 'surface-50'
+  | 'surface-100'
+  | 'surface-200'
+  | 'surface-300'
+  | 'surface-400'
+  | 'surface-500'
+  | 'surface-600'
+  | 'surface-700'
+  | 'surface-800'
+  | 'surface-900'
+  | 'surface-1000'
+  | 'surface-null'
+
+  // Content color packs (new 100-500 scale)
+  | 'content-orange-100'
+  | 'content-orange-200'
+  | 'content-orange-300'
+  | 'content-orange-400'
+  | 'content-orange-500'
+  | 'content-yellow-100'
+  | 'content-yellow-200'
+  | 'content-yellow-300'
+  | 'content-yellow-400'
+  | 'content-yellow-500'
+  | 'content-green-100'
+  | 'content-green-200'
+  | 'content-green-300'
+  | 'content-green-400'
+  | 'content-green-500'
+  | 'content-aqua-100'
+  | 'content-aqua-200'
+  | 'content-aqua-300'
+  | 'content-aqua-400'
+  | 'content-aqua-500'
+  | 'content-blue-100'
+  | 'content-blue-200'
+  | 'content-blue-300'
+  | 'content-blue-400'
+  | 'content-blue-500'
+  | 'content-violet-100'
+  | 'content-violet-200'
+  | 'content-violet-300'
+  | 'content-violet-400'
+  | 'content-violet-500'
+  | 'content-purple-100'
+  | 'content-purple-200'
+  | 'content-purple-300'
+  | 'content-purple-400'
+  | 'content-purple-500'
+  | 'content-poppy-100'
+  | 'content-poppy-200'
+  | 'content-poppy-300'
+  | 'content-poppy-400'
+  | 'content-poppy-500'
+  | 'content-red-100'
+  | 'content-red-200'
+  | 'content-red-300'
+  | 'content-red-400'
+  | 'content-red-500'
+  | 'content-cerise-100'
+  | 'content-cerise-200'
+  | 'content-cerise-300'
+  | 'content-cerise-400'
+  | 'content-cerise-500'
+  | 'content-grape-100'
+  | 'content-grape-200'
+  | 'content-grape-300'
+  | 'content-grape-400'
+  | 'content-grape-500'
+  | 'content-teal-100'
+  | 'content-teal-200'
+  | 'content-teal-300'
+  | 'content-teal-400'
+  | 'content-teal-500'
+
+  // Brand colors
+  | 'brand-gold-100'
+  | 'brand-gold-200'
+  | 'brand-gold-300'
+  | 'brand-gold-400'
+  | 'brand-gold-500'
+  | 'brand-orange-100'
+  | 'brand-orange-200'
+  | 'brand-orange-300'
+  | 'brand-orange-400'
+  | 'brand-orange-500'
+  | 'brand-magenta-100'
+  | 'brand-magenta-200'
+  | 'brand-magenta-300'
+  | 'brand-magenta-400'
+  | 'brand-magenta-500'
+  | 'brand-deep-magenta-100'
+  | 'brand-deep-magenta-200'
+  | 'brand-deep-magenta-300'
+  | 'brand-deep-magenta-400'
+  | 'brand-deep-magenta-500'
+
+  // Legacy colors (deprecated but still supported)
   // Surface colors
   | 'surface-dark'
   | 'surface-mid'
@@ -72,9 +173,11 @@ export type Color =
   | 'periwinkle-s25'
 
   // Special values
-  | 'transparent'
-  | 'unset'
   | 'white'
+  | 'black'
+  | 'unset'
+  | 'transparent'
+
 
   | 'gray-c70'
   | 'gray-c55'
@@ -105,6 +208,87 @@ export type Color =
   | 'green-c25';
 
 const Colors: Record<Color, string> = {
+  // Special values
+  'white': 'rgb(255, 255, 255)',
+  'black': 'rgb(30, 30, 30)',
+  'unset': 'unset',
+  'transparent': 'transparent',
+
+  // Surface colors
+  'surface-0': 'var(--connect__white)',
+  'surface-50': 'var(--connect__stone-s5)',
+  'surface-100': 'var(--connect__stone-s10)',
+  'surface-200': 'var(--connect__stone-s15)',
+  'surface-300': 'var(--connect__stone-s20)',
+  'surface-400': 'var(--connect__stone-s30)',
+  'surface-500': 'var(--connect__stone-s40)',
+  'surface-600': 'var(--connect__stone-s50)',
+  'surface-700': 'var(--connect__stone-s55)',
+  'surface-800': 'var(--connect__stone-s60)',
+  'surface-900': 'var(--connect__stone-s70)',
+  'surface-1000': 'var(--connect__black)',
+  'surface-null': 'rgba(255, 255, 255, 0)',
+
+  // Content color packs (new 100-500 scale)
+  'content-orange-100': 'var(--connect__sunflower-s15)',
+  'content-orange-200': 'var(--connect__papaya-s25)',
+  'content-orange-300': 'var(--connect__orange-s35)',
+  'content-orange-400': 'var(--connect__poppy-s45)',
+  'content-orange-500': 'var(--connect__poppy-s55)',
+  'content-yellow-100': 'var(--connect__yellow-s15)',
+  'content-yellow-200': 'var(--connect__sunflower-s20)',
+  'content-yellow-300': 'var(--connect__papaya-s30)',
+  'content-yellow-400': 'var(--connect__orange-s40)',
+  'content-yellow-500': 'var(--connect__poppy-s50)',
+  'content-green-100': 'var(--connect__apple-s15)',
+  'content-green-200': 'var(--connect__lime-s25)',
+  'content-green-300': 'var(--connect__green-s35)',
+  'content-green-400': 'var(--connect__green-s45)',
+  'content-green-500': 'var(--connect__green-s55)',
+  'content-aqua-100': 'var(--connect__turquoise-s15)',
+  'content-aqua-200': 'var(--connect__turquoise-s25)',
+  'content-aqua-300': 'var(--connect__turquoise-s35)',
+  'content-aqua-400': 'var(--connect__turquoise-s45)',
+  'content-aqua-500': 'var(--connect__turquoise-s55)',
+  'content-blue-100': 'var(--connect__teal-s15)',
+  'content-blue-200': 'var(--connect__teal-s25)',
+  'content-blue-300': 'var(--connect__marine-s35)',
+  'content-blue-400': 'var(--connect__marine-s50)',
+  'content-blue-500': 'var(--connect__marine-s60)',
+  'content-violet-100': 'var(--connect__blue-s15)',
+  'content-violet-200': 'var(--connect__periwinkle-s25)',
+  'content-violet-300': 'var(--connect__periwinkle-s40)',
+  'content-violet-400': 'var(--connect__periwinkle-s55)',
+  'content-violet-500': 'var(--connect__periwinkle-s60)',
+  'content-purple-100': 'var(--connect__violet-s15)',
+  'content-purple-200': 'var(--connect__purple-s25)',
+  'content-purple-300': 'var(--connect__purple-s40)',
+  'content-purple-400': 'var(--connect__grape-s55)',
+  'content-purple-500': 'var(--connect__grape-s60)',
+
+  // Brand colors
+  'brand-gold-100': '#fff9d1',
+  'brand-gold-200': '#ffeb99',
+  'brand-gold-300': '#ffdb66',
+  'brand-gold-400': '#fdb913',
+  'brand-gold-500': '#d97e00',
+  'brand-orange-100': '#fff0ec',
+  'brand-orange-200': '#ffd4c7',
+  'brand-orange-300': '#ff9878',
+  'brand-orange-400': '#ff6d3f',
+  'brand-orange-500': '#ed5700',
+  'brand-magenta-100': '#ffeef7',
+  'brand-magenta-200': '#ffd9ec',
+  'brand-magenta-300': '#ff70c8',
+  'brand-magenta-400': '#ff00b3',
+  'brand-magenta-500': '#de009b',
+  'brand-deep-magenta-100': '#ffeefe',
+  'brand-deep-magenta-200': '#ffd6fc',
+  'brand-deep-magenta-300': '#ff99f8',
+  'brand-deep-magenta-400': '#cc00c0',
+  'brand-deep-magenta-500': '#b800ac',
+
+  // Legacy colors (deprecated but still supported)
   // Surface colors
   'surface-dark': 'var(--connect__surface-dark)',
   'surface-mid': 'var(--connect__surface-mid)',
@@ -112,7 +296,6 @@ const Colors: Record<Color, string> = {
   'surface-pale': 'var(--connect__surface-pale)',
   'surface-white': 'var(--connect__surface-white)',
   'surface-black': 'var(--connect__surface-black)',
-  'surface-null': 'var(--connect__surface-null)',
 
   // Feedback colors
   'correct-dark': 'var(--connect__correct-dark)',
@@ -176,13 +359,6 @@ const Colors: Record<Color, string> = {
   'periwinkle-s10': 'var(--connect__periwinkle-s10)',
   'periwinkle-s25': 'var(--connect__periwinkle-s25)',
 
-
-  // Special values
-  transparent: 'transparent',
-  unset: 'unset',
-  white: '#fff',
-
-  // Deprecated 
   'gray-c70': 'rgb(45, 45, 45)',
   'gray-c55': 'rgb(93, 95, 95)',
   'gray-c40': 'rgb(137, 141, 141)',
