@@ -26,6 +26,7 @@ const meta: Meta<FlipCardStoryProps> = {
   },
   args: {
     gradeBand: GradeBand.Teach,
+    fullWidth: false,
   },
   argTypes: {
     gradeBand: {
@@ -40,27 +41,43 @@ const meta: Meta<FlipCardStoryProps> = {
 export default meta;
 type Story = StoryObj<FlipCardStoryProps>;
 
+const FlipCardFaceContainer = ({ children }) => (
+  <Stack
+    alignItems="center"
+    justifyContent="center"
+    paddingX="md"
+    paddingY="md"
+    customStyle={{ width: '250px', height: '350px' }}
+  >
+    {children}
+  </Stack>
+);
+
 const defaultFlipCardChildren = (
   <>
     <FlipCardFace face="front" backgroundColor="primary-mid">
-      <Typography element="h4" color="white" size="body-lg">
-        Flipcard Front
-      </Typography>
+      <FlipCardFaceContainer>
+        <Typography element="h4" color="white" size="body-lg">
+          Flipcard Front
+        </Typography>
+      </FlipCardFaceContainer>
     </FlipCardFace>
 
     <FlipCardFace face="back" backgroundColor="brand-magenta">
-      <Typography element="h4" color="white" size="body-lg">
-        Flipcard Back
-      </Typography>
+      <FlipCardFaceContainer>
+        <Typography element="h4" color="white" size="body-lg">
+          Flipcard Back
+        </Typography>
+      </FlipCardFaceContainer>
     </FlipCardFace>
   </>
 );
 
 const Template: StoryFn<FlipCardStoryProps> = ({ gradeBand, ...args }) => {
-  const ref = useRef(null);
+  const themeWrapperRef = useRef(null);
   return (
-    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={ref}>
-      <div ref={ref}>
+    <ConnectTheme gradeBand={gradeBand} themeWrapperRef={themeWrapperRef}>
+      <div ref={themeWrapperRef} style={{ display: 'flex' }}>
         <Flipcard {...args} />
       </div>
     </ConnectTheme>
@@ -71,8 +88,6 @@ export const Default: Story = Template.bind({});
 Default.args = {
   children: defaultFlipCardChildren,
   transitionSpeed: 'medium',
-  width: 250,
-  height: 350,
   flipTrigger: 'click',
 };
 
@@ -91,17 +106,21 @@ ScaleOnHover.args = {
 const flipCardWithButtonChildren = (
   <>
     <FlipCardFace face="front" backgroundColor="primary-mid">
-      <Typography element="h4" color="white" size="body-lg">
-        Flipcard Front
-        <FlipCardButton />
-      </Typography>
+      <FlipCardFaceContainer>
+        <Typography element="h4" color="white" size="body-lg">
+          Flipcard Front
+          <FlipCardButton />
+        </Typography>
+      </FlipCardFaceContainer>
     </FlipCardFace>
 
     <FlipCardFace face="back" backgroundColor="brand-magenta">
-      <Typography element="h4" color="white" size="body-lg">
-        Flipcard Back
-        <FlipCardButton />
-      </Typography>
+      <FlipCardFaceContainer>
+        <Typography element="h4" color="white" size="body-lg">
+          Flipcard Back
+          <FlipCardButton />
+        </Typography>
+      </FlipCardFaceContainer>
     </FlipCardFace>
   </>
 );
@@ -123,13 +142,13 @@ const withImageChildren = (
   <>
     <FlipCardFace face="front">
       <Stack paddingY="zero" paddingX="zero">
-        <Image imageSrc="" altText="Default Image" />
+        <Image imageSrc="/images/default.png" altText="Default Image" />
       </Stack>
     </FlipCardFace>
 
     <FlipCardFace face="back">
       <Stack paddingY="zero" paddingX="zero">
-        <Image imageSrc="" altText="Default Image" />
+        <Image imageSrc="/images/default.png" altText="Default Image" />
       </Stack>
     </FlipCardFace>
   </>
@@ -140,15 +159,13 @@ WithImageOnHover.args = {
   ...Default.args,
   children: withImageChildren,
   transitionSpeed: 'slow',
-  width: 445,
-  height: 250,
   flipTrigger: 'hover',
 };
 
 const withTextChildren = (
   <>
     <FlipCardFace face="front">
-      <Stack paddingY="sm" paddingX="sm">
+      <Stack alignItems="center" paddingY="sm" paddingX="sm">
         <Typography element="p" size="body-lg">
           The Connect Design System provides a comprehensive set of reusable components, design
           tokens that streamline the development process while maintaining a cohesive user
@@ -275,7 +292,7 @@ const ListComponent: React.FC = () => {
 const withButtonCheckboxesChildren = (
   <>
     <FlipCardFace face="front">
-      <Stack spacing="sm" paddingY="sm" paddingX="sm" justifyContent="space-between">
+      <FlipCardFaceContainer>
         <Typography element="p" size="body-lg">
           The Connect Design System provides a comprehensive set of reusable components, design
           tokens that streamline the development process while maintaining a cohesive user
@@ -283,19 +300,19 @@ const withButtonCheckboxesChildren = (
         </Typography>
 
         <ButtonDialogComponent />
-      </Stack>
+      </FlipCardFaceContainer>
     </FlipCardFace>
 
     <FlipCardFace face="back">
-      <Stack paddingY="sm" paddingX="sm" justifyContent="space-between">
-        <Image imageSrc="" altText="Default Image" />
+      <FlipCardFaceContainer>
+        <Image imageSrc="/images/default.png" altText="Default Image" />
         <Stack spacing="sm">
           <Typography element="p" size="body-lg">
             Select an option:
           </Typography>
           <ListComponent />
         </Stack>
-      </Stack>
+      </FlipCardFaceContainer>
     </FlipCardFace>
   </>
 );
@@ -304,7 +321,6 @@ export const WithButtonCheckboxes: Story = Template.bind({});
 WithButtonCheckboxes.args = {
   ...Default.args,
   children: withButtonCheckboxesChildren,
-  height: 400,
 };
 
 const flipCardAssetsBasePath = `/images/FlipCard`;

@@ -10,8 +10,7 @@ import { FlipCardContext, FlipCardContextContextType, useFlipCardContext } from 
 type FlipCardWrapperProps = {
   id?: string;
   flipTrigger?: 'click' | 'hover' | 'button';
-  height?: number;
-  width?: number;
+  fullWidth?: boolean;
   transitionSpeed?: 'rapid' | 'fast' | 'medium' | 'slow' | 'slowest';
   transformScale?: number | undefined;
   dataTestId?: string;
@@ -64,10 +63,9 @@ function FlipCardWrapper({
   children,
   dataTestId,
   flipTrigger = 'click',
-  height,
+  fullWidth = false,
   transformScale = 1,
   transitionSpeed = 'medium',
-  width,
 }: PropsWithChildren<FlipCardWrapperProps>) {
   const { flip, toggle, ref } = useFlipCardContext();
 
@@ -79,9 +77,14 @@ function FlipCardWrapper({
     toggle,
   });
 
+  const classNames = cn(
+    {
+      [styles['connect__full-width']]: fullWidth,
+    },
+    styles['connect__flipcard'],
+    className,
+  );
   const style: React.CSSProperties = {
-    '--connect__flipcard-width': width ? CSS.px(width) : CSS.percent(100),
-    '--connect__flipcard-height': height ? CSS.px(height) : CSS.percent(100),
     '--connect__transition-speed': `var(--connect__transition-${transitionSpeed})`,
     '--connect__transform-scale': CSS.number(transformScale),
   } as React.CSSProperties;
@@ -89,7 +92,7 @@ function FlipCardWrapper({
   return (
     <div
       id={id}
-      className={cn(styles['connect__flipcard'], className)}
+      className={classNames}
       role={role}
       tabIndex={tabIndex}
       aria-pressed={flip}
