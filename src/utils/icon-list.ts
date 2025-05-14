@@ -60,7 +60,7 @@ export type IconId =
   | 'isParallelTo'
   | 'isPerpendicularTo'
   | 'isSimilarTo'
-  | 'layout-column'
+  | 'layout-col'
   | 'layout-grid-2'
   | 'layout-grid-3'
   | 'line'
