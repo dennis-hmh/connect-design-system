@@ -60,6 +60,9 @@ export type IconId =
   | 'isParallelTo'
   | 'isPerpendicularTo'
   | 'isSimilarTo'
+  | 'layout-col'
+  | 'layout-grid-2'
+  | 'layout-grid-3'
   | 'line'
   | 'lineArrow'
   | 'lineDashed'
@@ -136,6 +139,11 @@ export type IconId =
   | 'volumeOffFilled'
   | 'volumeUp'
   | 'volumeUpFilled'
-  | 'zero';
+  | 'zero'
+  | 'material-action-swap_vert'
+  | 'material-action-visibility_off'
+  | 'material-communication-cancel_presentation'
+  | 'material-communication-present_to_all'
+  | 'material-content-filter_list';
 
 // To generate lists run 'Node src/utils/sprite-ids.js'
