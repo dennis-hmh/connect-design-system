@@ -184,6 +184,14 @@ const miscIcons: IconId[] = [
   'user',
 ];
 
+const materialIcons: IconId[] = [
+  'material-action-swap_vert',
+  'material-action-visibility_off',
+  'material-communication-cancel_presentation',
+  'material-communication-present_to_all',
+  'material-content-filter_list',
+];
+
 const Template: StoryFn<IconProps> = (args) => {
   const themeWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -330,6 +338,27 @@ const Template: StoryFn<IconProps> = (args) => {
               ))}
             </Grid>
           </Stack>
+
+          <Stack spacing="sm">
+            <Typography size="body-lg" weight={600}>
+              Material Icons (Symbols)
+            </Typography>
+            <Grid gridTemplateColumns="repeat(var(--connect__icon-size), 1fr))" gap="sm">
+              {materialIcons.map((icon) => (
+                <GridItem key={icon} xs={1}>
+                  <Icon
+                    id={icon}
+                    size={args.size}
+                    fill={args.fill}
+                    stroke={args.stroke}
+                    aria-hidden="true"
+                    focusable={false}
+                  />
+                </GridItem>
+              ))}
+            </Grid>
+          </Stack>
+
         </Stack>
       </div>
     </ConnectTheme>
