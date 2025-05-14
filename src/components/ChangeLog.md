@@ -1,3 +1,28 @@
+### v1.26.3 Release Notice
+
+### Release date: May 14, 2025
+
+### Changelog:
+
+- Addition of new icons
+  - layout-col
+  - layout-grid-2
+  - layout-grid-3
+  - material-action-swap_vert
+  - material-action-visibility_off
+  - material-communication-cancel_presentation
+  - material-communication-present_to_all
+  - material-content-filter_list
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
 ### v1.26.2 Release Notice
 
 ### Release date: March 28, 2025
