@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.5
+
+### Patch Changes
+
+- 5ae39a0: Addition of layout and material icons
+
 ## 1.27.4
 
 ### Patch Changes
