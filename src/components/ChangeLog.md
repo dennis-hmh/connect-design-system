@@ -1,4 +1,21 @@
-### v1.26.3 Release Notice
+### v1.27.6 Release Notice
+
+### Release date: May 15, 2025
+
+### Changelog:
+
+- Addition of new icon: material-action-visibility
+
+#### Repo:
+
+- Git Repo: https://scm.eng.hmhco.com/Core-Digital-Production/connect_system
+- Storybook: https://main--650211df9f7d78be97a6f39a.chromatic.com/
+
+&nbsp;
+
+---
+
+### v1.27.5 Release Notice
 
 ### Release date: May 14, 2025
 
