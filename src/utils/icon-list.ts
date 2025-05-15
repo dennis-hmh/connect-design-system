@@ -141,6 +141,7 @@ export type IconId =
   | 'volumeUpFilled'
   | 'zero'
   | 'material-action-swap_vert'
+  | 'material-action-visibility'
   | 'material-action-visibility_off'
   | 'material-communication-cancel_presentation'
   | 'material-communication-present_to_all'
