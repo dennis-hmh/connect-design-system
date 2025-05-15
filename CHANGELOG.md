@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.6
+
+### Patch Changes
+
+- ac74f95: Visibility icon added
+
 ## 1.27.5
 
 ### Patch Changes
