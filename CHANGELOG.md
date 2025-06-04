@@ -1,5 +1,11 @@
 # @connect/connect-design-system
 
+## 1.27.7
+
+### Patch Changes
+
+- 4f45ed1: Updating colour values to match design
+
 ## 1.27.6
 
 ### Patch Changes
