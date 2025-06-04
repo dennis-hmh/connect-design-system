@@ -1,5 +1,29 @@
 # @connect/connect-design-system
 
+## 1.27.6
+
+### Patch Changes
+
+- ac74f95: Visibility icon added
+
+## 1.27.5
+
+### Patch Changes
+
+- 5ae39a0: Addition of layout and material icons
+
+## 1.27.4
+
+### Patch Changes
+
+- 80a2fbd: Fix: remove CSS.number from the FlipCard
+
+## 1.27.3
+
+### Patch Changes
+
+- 751e1e0: Fix: stop using CSS.px and CSS.percent for better compatibility
+
 ## 1.27.2
 
 ### Patch Changes
