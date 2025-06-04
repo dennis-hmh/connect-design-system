@@ -1,4 +1,90 @@
 export type Color =
+  | 'primary-100'
+  | 'primary-200'
+  | 'primary-300'
+  | 'primary-400'
+  | 'primary-500'
+  | 'secondary-100'
+  | 'secondary-200'
+  | 'secondary-300'
+  | 'secondary-400'
+  | 'secondary-500'
+
+  // Surface colors
+  | 'surface-0'
+  | 'surface-50'
+  | 'surface-100'
+  | 'surface-200'
+  | 'surface-300'
+  | 'surface-400'
+  | 'surface-500'
+  | 'surface-600'
+  | 'surface-700'
+  | 'surface-800'
+  | 'surface-900'
+  | 'surface-1000'
+  | 'surface-null'
+
+  // Content color packs (new 100-500 scale)
+  | 'content-orange-100'
+  | 'content-orange-200'
+  | 'content-orange-300'
+  | 'content-orange-400'
+  | 'content-orange-500'
+  | 'content-yellow-100'
+  | 'content-yellow-200'
+  | 'content-yellow-300'
+  | 'content-yellow-400'
+  | 'content-yellow-500'
+  | 'content-green-100'
+  | 'content-green-200'
+  | 'content-green-300'
+  | 'content-green-400'
+  | 'content-green-500'
+  | 'content-aqua-100'
+  | 'content-aqua-200'
+  | 'content-aqua-300'
+  | 'content-aqua-400'
+  | 'content-aqua-500'
+  | 'content-blue-100'
+  | 'content-blue-200'
+  | 'content-blue-300'
+  | 'content-blue-400'
+  | 'content-blue-500'
+  | 'content-violet-100'
+  | 'content-violet-200'
+  | 'content-violet-300'
+  | 'content-violet-400'
+  | 'content-violet-500'
+  | 'content-purple-100'
+  | 'content-purple-200'
+  | 'content-purple-300'
+  | 'content-purple-400'
+  | 'content-purple-500'
+
+  // Brand colors
+  | 'brand-gold-100'
+  | 'brand-gold-200'
+  | 'brand-gold-300'
+  | 'brand-gold-400'
+  | 'brand-gold-500'
+  | 'brand-orange-100'
+  | 'brand-orange-200'
+  | 'brand-orange-300'
+  | 'brand-orange-400'
+  | 'brand-orange-500'
+  | 'brand-magenta-100'
+  | 'brand-magenta-200'
+  | 'brand-magenta-300'
+  | 'brand-magenta-400'
+  | 'brand-magenta-500'
+  | 'brand-deep-magenta-100'
+  | 'brand-deep-magenta-200'
+  | 'brand-deep-magenta-300'
+  | 'brand-deep-magenta-400'
+  | 'brand-deep-magenta-500'
+
+  // Legacy colors (deprecated but still supported)
   // Surface colors
   | 'surface-dark'
   | 'surface-mid'
@@ -72,10 +158,10 @@ export type Color =
   | 'periwinkle-s25'
 
   // Special values
-  | 'transparent'
-  | 'unset'
   | 'white'
-
+  | 'black'
+  | 'unset'
+  | 'transparent'
   | 'gray-c70'
   | 'gray-c55'
   | 'gray-c40'
@@ -102,9 +188,120 @@ export type Color =
   | 'apple-c10'
   | 'green-s40'
   | 'green-c55'
-  | 'green-c25';
+  | 'green-c25'
+
+  // Neutral Colors
+  | 'neutral-light-01'
+  | 'neutral-light-02'
+  | 'neutral-light-03'
+  | 'neutral-light-04'
+  | 'neutral-light-05'
+  | 'neutral-light-06'
+  | 'neutral-light-07'
+  | 'neutral-light-08'
+  | 'neutral-dark-01'
+  | 'neutral-dark-02'
+  | 'neutral-dark-03'
+  | 'neutral-dark-04'
+  | 'neutral-dark-05'
+  | 'neutral-dark-06'
+  | 'neutral-dark-07'
+  | 'neutral-dark-08';
 
 const Colors: Record<Color, string> = {
+  // Special values
+  white: 'rgb(255, 255, 255)',
+  black: 'rgb(30, 30, 30)',
+  unset: 'unset',
+  transparent: 'transparent',
+
+  // Primary colors
+  'primary-100': 'var(--connect__primary-100)',
+  'primary-200': 'var(--connect__primary-200)',
+  'primary-300': 'var(--connect__primary-300)',
+  'primary-400': 'var(--connect__primary-400)',
+  'primary-500': 'var(--connect__primary-500)',
+  'secondary-100': 'var(--connect__secondary-100)',
+  'secondary-200': 'var(--connect__secondary-200)',
+  'secondary-300': 'var(--connect__secondary-300)',
+  'secondary-400': 'var(--connect__secondary-400)',
+  'secondary-500': 'var(--connect__secondary-500)',
+
+  // Surface colors
+  'surface-0': 'var(--connect__white)',
+  'surface-50': 'var(--connect__stone-s5)',
+  'surface-100': 'var(--connect__stone-s10)',
+  'surface-200': 'var(--connect__stone-s15)',
+  'surface-300': 'var(--connect__stone-s20)',
+  'surface-400': 'var(--connect__stone-s30)',
+  'surface-500': 'var(--connect__stone-s40)',
+  'surface-600': 'var(--connect__stone-s50)',
+  'surface-700': 'var(--connect__stone-s55)',
+  'surface-800': 'var(--connect__stone-s60)',
+  'surface-900': 'var(--connect__stone-s70)',
+  'surface-1000': 'var(--connect__black)',
+  'surface-null': 'rgba(255, 255, 255, 0)',
+
+  // Content color packs (new 100-500 scale)
+  'content-orange-100': 'var(--connect__sunflower-s15)',
+  'content-orange-200': 'var(--connect__papaya-s25)',
+  'content-orange-300': 'var(--connect__orange-s35)',
+  'content-orange-400': 'var(--connect__poppy-s45)',
+  'content-orange-500': 'var(--connect__poppy-s55)',
+  'content-yellow-100': 'var(--connect__yellow-s15)',
+  'content-yellow-200': 'var(--connect__sunflower-s20)',
+  'content-yellow-300': 'var(--connect__papaya-s30)',
+  'content-yellow-400': 'var(--connect__orange-s40)',
+  'content-yellow-500': 'var(--connect__poppy-s50)',
+  'content-green-100': 'var(--connect__apple-s15)',
+  'content-green-200': 'var(--connect__lime-s25)',
+  'content-green-300': 'var(--connect__green-s35)',
+  'content-green-400': 'var(--connect__green-s45)',
+  'content-green-500': 'var(--connect__green-s55)',
+  'content-aqua-100': 'var(--connect__turquoise-s15)',
+  'content-aqua-200': 'var(--connect__turquoise-s25)',
+  'content-aqua-300': 'var(--connect__turquoise-s35)',
+  'content-aqua-400': 'var(--connect__turquoise-s45)',
+  'content-aqua-500': 'var(--connect__turquoise-s55)',
+  'content-blue-100': 'var(--connect__teal-s15)',
+  'content-blue-200': 'var(--connect__teal-s25)',
+  'content-blue-300': 'var(--connect__marine-s35)',
+  'content-blue-400': 'var(--connect__marine-s50)',
+  'content-blue-500': 'var(--connect__marine-s60)',
+  'content-violet-100': 'var(--connect__blue-s15)',
+  'content-violet-200': 'var(--connect__periwinkle-s25)',
+  'content-violet-300': 'var(--connect__periwinkle-s40)',
+  'content-violet-400': 'var(--connect__periwinkle-s55)',
+  'content-violet-500': 'var(--connect__periwinkle-s60)',
+  'content-purple-100': 'var(--connect__violet-s15)',
+  'content-purple-200': 'var(--connect__purple-s25)',
+  'content-purple-300': 'var(--connect__purple-s40)',
+  'content-purple-400': 'var(--connect__grape-s55)',
+  'content-purple-500': 'var(--connect__grape-s60)',
+
+  // Brand colors
+  'brand-gold-100': 'var(--connect__sunflower-s5)',
+  'brand-gold-200': 'var(--connect__golden-s15)',
+  'brand-gold-300': 'var(--connect__golden-s25)',
+  'brand-gold-400': 'var(--connect__papaya-s35)',
+  'brand-gold-500': 'var(--connect__papaya-s45)',
+  'brand-orange-100': 'var(--connect__poppy-s5)',
+  'brand-orange-200': 'var(--connect__poppy-s20)',
+  'brand-orange-300': 'var(--connect__poppy-s40)',
+  'brand-orange-400': 'var(--connect__poppy-s50)',
+  'brand-orange-500': 'var(--connect__poppy-s60)',
+  'brand-magenta-100': 'var(--connect__cerise-s5)',
+  'brand-magenta-200': 'var(--connect__cerise-s10)',
+  'brand-magenta-300': 'var(--connect__cerise-s20)',
+  'brand-magenta-400': 'var(--connect__cerise-s30)',
+  'brand-magenta-500': 'var(--connect__cerise-s40)',
+  'brand-deep-magenta-100': 'var(--connect__magenta-s10)',
+  'brand-deep-magenta-200': 'var(--connect__magenta-s20)',
+  'brand-deep-magenta-300': 'var(--connect__magenta-s30)',
+  'brand-deep-magenta-400': 'var(--connect__magenta-s40)',
+  'brand-deep-magenta-500': 'var(--connect__magenta-s50)',
+
+  // Legacy colors (deprecated but still supported)
   // Surface colors
   'surface-dark': 'var(--connect__surface-dark)',
   'surface-mid': 'var(--connect__surface-mid)',
@@ -112,7 +309,6 @@ const Colors: Record<Color, string> = {
   'surface-pale': 'var(--connect__surface-pale)',
   'surface-white': 'var(--connect__surface-white)',
   'surface-black': 'var(--connect__surface-black)',
-  'surface-null': 'var(--connect__surface-null)',
 
   // Feedback colors
   'correct-dark': 'var(--connect__correct-dark)',
@@ -176,13 +372,6 @@ const Colors: Record<Color, string> = {
   'periwinkle-s10': 'var(--connect__periwinkle-s10)',
   'periwinkle-s25': 'var(--connect__periwinkle-s25)',
 
-
-  // Special values
-  transparent: 'transparent',
-  unset: 'unset',
-  white: '#fff',
-
-  // Deprecated 
   'gray-c70': 'rgb(45, 45, 45)',
   'gray-c55': 'rgb(93, 95, 95)',
   'gray-c40': 'rgb(137, 141, 141)',
@@ -210,6 +399,24 @@ const Colors: Record<Color, string> = {
   'green-s40': 'rgb(0, 173, 0)',
   'green-c55': 'rgb(25, 120, 17)',
   'green-c25': 'rgb(145, 219, 105)',
+
+  // Neutral Colors
+  'neutral-light-01': 'var(--connect__neutral-light-01)',
+  'neutral-light-02': 'var(--connect__neutral-light-02)',
+  'neutral-light-03': 'var(--connect__neutral-light-03)',
+  'neutral-light-04': 'var(--connect__neutral-light-04)',
+  'neutral-light-05': 'var(--connect__neutral-light-05)',
+  'neutral-light-06': 'var(--connect__neutral-light-06)',
+  'neutral-light-07': 'var(--connect__neutral-light-07)',
+  'neutral-light-08': 'var(--connect__neutral-light-08)',
+  'neutral-dark-01': 'var(--connect__neutral-dark-01)',
+  'neutral-dark-02': 'var(--connect__neutral-dark-02)',
+  'neutral-dark-03': 'var(--connect__neutral-dark-03)',
+  'neutral-dark-04': 'var(--connect__neutral-dark-04)',
+  'neutral-dark-05': 'var(--connect__neutral-dark-05)',
+  'neutral-dark-06': 'var(--connect__neutral-dark-06)',
+  'neutral-dark-07': 'var(--connect__neutral-dark-07)',
+  'neutral-dark-08': 'var(--connect__neutral-dark-08)',
 };
 
 export default Colors;

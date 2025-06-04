@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Colors, { Color } from '../../utils/colors';
 import { Stack } from '../Stack/Stack';
+import { Grid } from '../Grid/Grid';
+import { GridItem } from '../GridItem/GridItem';
 import { Typography } from '../Typography/Typography';
 import { Paper } from '../Paper/Paper';
 import { ConnectTheme } from '../ConnectTheme';
@@ -48,7 +50,7 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
         backgroundColor={colorName as Color}
         fullWidth={true}
       >
-        <div style={{ height: 'var(--connect__spacer-xxl)' }} />
+        <div style={{ height: 'calc(var(--connect__spacer-xxl) * 3)' }} />
       </Paper>
       <Stack
         xs={{
@@ -60,10 +62,12 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
           paddingY: 'xs',
         }}
       >
-        <Typography element="p" weight={500} size="body-lg">
+        <Typography element="p" weight={500} size="caption">
           {colorName}
         </Typography>
-        <Typography element="p">{colorValue}</Typography>
+        <Typography element="p" size="credits">
+          {colorValue}
+        </Typography>
       </Stack>
     </Stack>
   </Paper>
@@ -71,89 +75,114 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
 
 const groupColors = (colors: Record<string, string>) => {
   const groups: Record<string, Record<string, Record<string, string>>> = {
+    'Primary Colors': {
+      'Primary Pack': {},
+      'Secondary Pack': {},
+    },
     'Surface Colors': {
-      Surface: {},
+      'Surface Pack': {},
     },
-    Feedback: {
-      Correct: {},
-      Incorrect: {},
-      Shown: {},
+    'Content Colors': {
+      'Orange Pack': {},
+      'Yellow Pack': {},
+      'Green Pack': {},
+      'Aqua Pack': {},
+      'Blue Pack': {},
+      'Violet Pack': {},
+      'Purple Pack': {},
     },
-    States: {
-      Success: {},
-      Error: {},
+    'Accent Colors': {
+      'Gold Pack': {},
+      'Orange Pack': {},
+      'Magenta Pack': {},
+      'Deep Magenta Pack': {},
     },
-    Primary: {
-      Primary: {},
-    },
-    Hint: {
-      Hint: {},
-    },
-    Focus: {
-      Focus: {},
-    },
-    Brand: {
-      Brand: {},
-    },
-    'Essential Guides': {
-      'Essential Guide': {},
-    },
-    Reading: {
-      Reading: {},
+    'Neutral Colors': {
+      'Light Pack': {},
+      'Dark Pack': {},
     },
     Deprecated: {
-      Gray: {},
-      Red: {},
-      Cerise: {},
-      Purple: {},
-      Blue: {},
-      Aqua: {},
-      Apple: {},
-      Green: {},
+      Surface: {},
+      Feedback: {},
+      State: {},
+      Primary: {},
+      Hint: {},
+      Focus: {},
+      Brand: {},
+      'Essential Guides': {},
+      'Reading Palette': {},
+      'Special Values': {},
+      'Legacy Colors': {},
     },
   };
 
   Object.entries(colors).forEach(([name, value]) => {
-    if (name.startsWith('surface-')) {
-      groups['Surface Colors']['Surface'][name] = value;
-    } else if (name.startsWith('correct-')) {
-      groups['Feedback']['Correct'][name] = value;
-    } else if (name.startsWith('incorrect-')) {
-      groups['Feedback']['Incorrect'][name] = value;
-    } else if (name.startsWith('shown-')) {
-      groups['Feedback']['Shown'][name] = value;
-    } else if (name.startsWith('success-')) {
-      groups['States']['Success'][name] = value;
-    } else if (name.startsWith('error-')) {
-      groups['States']['Error'][name] = value;
-    } else if (name.startsWith('primary-')) {
-      groups['Primary']['Primary'][name] = value;
-    } else if (name.startsWith('hint-')) {
-      groups['Hint']['Hint'][name] = value;
-    } else if (name.startsWith('focus-')) {
-      groups['Focus']['Focus'][name] = value;
-    } else if (name.startsWith('cc-purple') || name.startsWith('brand-')) {
-      groups['Brand']['Brand'][name] = value;
-    } else if (name.startsWith('essential-guide-')) {
-      groups['Essential Guides']['Essential Guide'][name] = value;
-    } else if (name.startsWith('periwinkle-')) {
-      groups['Reading']['Reading'][name] = value;
-    } else if (name.startsWith('gray-')) {
-      groups['Deprecated']['Gray'][name] = value;
-    } else if (name.startsWith('red-')) {
-      groups['Deprecated']['Red'][name] = value;
-    } else if (name.startsWith('cerise-')) {
-      groups['Deprecated']['Cerise'][name] = value;
-    } else if (name.startsWith('purple-')) {
-      groups['Deprecated']['Purple'][name] = value;
-    } else if (name.startsWith('blue-')) {
-      groups['Deprecated']['Blue'][name] = value;
-    } else if (name.startsWith('aqua-')) {
-      groups['Deprecated']['Aqua'][name] = value;
-    } else if (name.startsWith('apple-')) {
-      groups['Deprecated']['Apple'][name] = value;
-    } else if (name.startsWith('green-')) {
-      groups['Deprecated']['Green'][name] = value;
+    if (name.match(/^(primary|secondary)-\d+$/)) {
+      const [colorType] = name.split('-');
+      const colorName = colorType.charAt(0).toUpperCase() + colorType.slice(1);
+      groups['Primary Colors'][`${colorName} Pack`][name] = value;
+    } else if (
+      (name.startsWith('surface-') && /surface-\d+/.test(name)) ||
+      name === 'surface-null'
+    ) {
+      groups['Surface Colors']['Surface Pack'][name] = value;
+    } else if (name.startsWith('content-')) {
+      const [_, color, shade] = name.split('-');
+      const colorName = color.charAt(0).toUpperCase() + color.slice(1);
+      if (groups['Content Colors'][`${colorName} Pack`]) {
+        groups['Content Colors'][`${colorName} Pack`][name] = value;
+      }
+    } else if (name.startsWith('brand-')) {
+      // Match brand-<color>-<number> (e.g., brand-deep-magenta-100)
+      const match = name.match(/^brand-(.+)-(\d+)$/);
+      if (match) {
+        let color = match[1];
+        let colorName =
+          color.charAt(0).toUpperCase() +
+          color.slice(1).replace(/-([a-z])/g, (_, c) => ' ' + c.toUpperCase());
+        if (color === 'deep-magenta') colorName = 'Deep Magenta';
+        if (groups['Accent Colors'][`${colorName} Pack`]) {
+          groups['Accent Colors'][`${colorName} Pack`][name] = value;
+        }
+      } else {
+        groups['Deprecated']['Brand'][name] = value;
+      }
+    } else if (name.startsWith('cc-')) {
+      groups['Deprecated']['Brand'][name] = value;
+    } else if (name.startsWith('neutral-')) {
+      if (name.includes('light-')) {
+        groups['Neutral Colors']['Light Pack'][name] = value;
+      } else if (name.includes('dark-')) {
+        groups['Neutral Colors']['Dark Pack'][name] = value;
+      }
+    }
+    // Legacy primary/secondary colors the ones with dark mid etc
+    else if (name.match(/^(primary|secondary)-(dark|mid|light|pale)$/)) {
+      groups['Deprecated']['Primary'][name] = value;
+    } else {
+      if (name.startsWith('surface-')) {
+        groups['Deprecated']['Surface'][name] = value;
+      } else if (
+        name.startsWith('correct-') ||
+        name.startsWith('incorrect-') ||
+        name.startsWith('shown-')
+      ) {
+        groups['Deprecated']['Feedback'][name] = value;
+      } else if (name.startsWith('success-') || name.startsWith('error-')) {
+        groups['Deprecated']['State'][name] = value;
+      } else if (name.startsWith('hint-')) {
+        groups['Deprecated']['Hint'][name] = value;
+      } else if (name.startsWith('focus-')) {
+        groups['Deprecated']['Focus'][name] = value;
+      } else if (name.startsWith('essential-guide-')) {
+        groups['Deprecated']['Essential Guides'][name] = value;
+      } else if (name.startsWith('periwinkle-')) {
+        groups['Deprecated']['Reading Palette'][name] = value;
+      } else if (['white', 'black', 'unset', 'transparent'].includes(name)) {
+        groups['Deprecated']['Special Values'][name] = value;
+      } else {
+        groups['Deprecated']['Legacy Colors'][name] = value;
+      }
     }
   });
 
@@ -168,129 +197,98 @@ export const ColorPalette: Story = {
     return (
       <ConnectTheme gradeBand={args.gradeBand ?? GradeBand.G4_5} themeWrapperRef={themeWrapperRef}>
         <div ref={themeWrapperRef}>
-          <Stack
-            xs={{
-              direction: 'column',
-              alignItems: 'stretch',
-              justifyContent: 'start',
-              paddingX: 'md',
-              paddingY: 'lg',
-              spacing: 'xl',
-            }}
-          >
+          <Paper elevation={0} backgroundColor="surface-0">
             <Stack
               xs={{
                 direction: 'column',
                 alignItems: 'stretch',
                 justifyContent: 'start',
-                paddingX: 'zero',
-                paddingY: 'zero',
-                spacing: 'sm',
+                paddingX: 'md',
+                paddingY: 'lg',
+                spacing: 'xl',
               }}
+              customStyle={{ maxWidth: '1024px', margin: 'auto' }}
             >
-              <Typography element="h1">Color palette</Typography>
-              <Typography element="p">
-                This page outlines the color palette available in the Connect design system.
-              </Typography>
-            </Stack>
-            {Object.entries(colorGroups).map(([groupName, subGroups]) => (
               <Stack
-                key={groupName}
                 xs={{
                   direction: 'column',
                   alignItems: 'stretch',
                   justifyContent: 'start',
                   paddingX: 'zero',
                   paddingY: 'zero',
-                  spacing: 'xl',
+                  spacing: 'sm',
                 }}
               >
+                <Typography element="h1" size="heading-lg">
+                  Color palette
+                </Typography>
+                <Typography element="p">
+                  This page outlines the color palette available in the Connect design system v1.
+                </Typography>
+              </Stack>
+              {Object.entries(colorGroups).map(([groupName, subGroups]) => (
                 <Stack
                   key={groupName}
                   xs={{
                     direction: 'column',
-                    alignItems: 'start',
+                    alignItems: 'stretch',
                     justifyContent: 'start',
                     paddingX: 'zero',
                     paddingY: 'zero',
-                    spacing: 'xs',
+                    spacing: 'xl',
                   }}
                 >
-                  <Typography element="h2" size="heading-sm">
-                    {groupName}
-                  </Typography>
-                  {groupName === 'Surface Colors' && (
-                    <Typography element="p">
-                      Surface colors are used as the background for various UI components, providing
-                      a base for other elements and helping to create a visual hierarchy.
-                    </Typography>
-                  )}
-                  {groupName === 'Feedback' && (
-                    <Typography element="p">
-                      Feedback colors indicate the status of UI elements, such as success (correct),
-                      error (incorrect), and shown states.
-                    </Typography>
-                  )}
-                  {groupName === 'States' && (
-                    <Typography element="p">
-                      State colors indicate the success or error of actions taken by the user.
-                    </Typography>
-                  )}
-                  {groupName === 'Primary' && (
-                    <Typography element="p">
-                      Primary colors are used for key interactive elements in the UI.
-                    </Typography>
-                  )}
-                  {groupName === 'Hint' && (
-                    <Typography element="p">
-                      Hint colors provide additional context or guidance to users.
-                    </Typography>
-                  )}
-                  {groupName === 'Focus' && (
-                    <Typography element="p">
-                      Focus colors are used to indicate elements that are currently focused.
-                    </Typography>
-                  )}
-                  {groupName === 'Brand' && (
-                    <Typography element="p">
-                      Brand colors represent the brand identity and are applied to key components.
-                    </Typography>
-                  )}
-                  {groupName === 'Essential Guides' && (
-                    <Typography element="p">
-                      Essential guide colors provide additional context or guidance to users, often
-                      used in instructional elements.
-                    </Typography>
-                  )}
-                  {groupName === 'Deprecated' && (
-                    <Typography element="p">
-                      These colors are used to make up the colors listed above and should not be
-                      passed directly. By using the colors above we can support theming in the
-                      future.
-                    </Typography>
-                  )}
-                </Stack>
-                {Object.entries(subGroups).map(([subGroupName, colors]) => (
                   <Stack
-                    key={subGroupName}
                     xs={{
-                      direction: 'row',
-                      alignItems: 'start',
+                      direction: 'column',
+                      alignItems: 'stretch',
                       justifyContent: 'start',
-                      flexWrap: 'wrap',
-                      spacing: 'lg',
+                      spacing: 'md',
                     }}
                   >
-                    {Object.entries(colors).map(([name, value]) => (
-                      <Stack flex="shrink" key={name}>
-                        <ColorSwatch colorName={name} colorValue={value} />
-                      </Stack>
-                    ))}
+                    <Typography element="h2" size="body-lg">
+                      {groupName}
+                    </Typography>
                   </Stack>
-                ))}
-              </Stack>
-            ))}
-          </Stack>
+                  {Object.entries(subGroups).map(([subGroupName, colors]) => (
+                    <Stack
+                      key={subGroupName}
+                      xs={{
+                        direction: 'column',
+                        alignItems: 'stretch',
+                        justifyContent: 'start',
+                        spacing: 'md',
+                      }}
+                    >
+                      <Stack
+                        xs={{
+                          direction: 'column',
+                          alignItems: 'stretch',
+                          justifyContent: 'start',
+                          spacing: 'xs',
+                        }}
+                      >
+                        <Typography element="h3" size="body-md">
+                          {subGroupName}
+                        </Typography>
+                      </Stack>
+                      <Grid
+                        xs={{ alignItems: 'stretch' }}
+                        gap="sm"
+                        gridTemplateColumns="repeat(auto-fit,minmax(min(180px, 100%), 1fr))"
+                      >
+                        {Object.entries(colors).map(([name, value]) => (
+                          <GridItem key={name} xs={{ spanCol: 1 }}>
+                            <ColorSwatch colorName={name} colorValue={value} />
+                          </GridItem>
+                        ))}
+                      </Grid>
+                    </Stack>
+                  ))}
+                </Stack>
+              ))}
+            </Stack>
+          </Paper>
         </div>
       </ConnectTheme>
     );

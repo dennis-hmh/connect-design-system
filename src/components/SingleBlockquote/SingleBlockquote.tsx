@@ -4,14 +4,10 @@ import { Blockquote, BlockquoteProps } from '../Blockquote/Blockquote';
 
 export type SingleBlockquoteProps = BlockquoteProps & FigureProps;
 
-export const SingleBlockquote: React.FC<SingleBlockquoteProps> = ({
-    children,
-    caption,
-    cite
-}) => {
-    return (
-        <Figure caption={caption} cite={cite}>
-            <Blockquote>{children}</Blockquote>
-        </Figure>
-    )
-}
+export const SingleBlockquote: React.FC<SingleBlockquoteProps> = ({ children, caption, cite }) => {
+  return (
+    <Figure caption={caption} cite={cite}>
+      <Blockquote>{children}</Blockquote>
+    </Figure>
+  );
+};

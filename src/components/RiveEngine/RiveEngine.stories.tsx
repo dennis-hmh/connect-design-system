@@ -31,15 +31,22 @@ export default meta;
 type Story = StoryObj<RiveEngineProps>;
 
 const Template: StoryFn<RiveEngineProps> = (args) => {
-  const riveState = useRive({
-    autoplay: true,
-    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
-    stateMachines: 'State Machine 1',
-  }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const riveState = useRive(
+    {
+      autoplay: true,
+      src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/reduced_motion_test.riv',
+      stateMachines: 'State Machine 1',
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
 
-  return (<div style={{width: '500px'}} ><RiveEngine {...args} {...riveState} /></div>);
+  return (
+    <div style={{ width: '500px' }}>
+      <RiveEngine {...args} {...riveState} />
+    </div>
+  );
 };
 
 /** An example of showing a Rive animation! One special thing to note about this example is that it automatically responds to changes in the "Reduced Motion" and "Dark Mode" system preferences.
@@ -72,9 +79,12 @@ const TimerToolExample: StoryFn<TimerToolExampleProps> = (args) => {
   const gradeBand = args.gradeBand;
   const src = getGradeBandFile_timer(gradeBand);
 
-  const riveState = useRive({ autoplay: true, src, stateMachines: 'State Machine 1' }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const riveState = useRive(
+    { autoplay: true, src, stateMachines: 'State Machine 1' },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
   useReactStateMachineInput(
     riveState.rive,
     'State Machine 1',
@@ -233,18 +243,23 @@ function getGradeBandFile_timer(gradeBand: GradeBand) {
 
 const StudentPickerToolExample: StoryFn<RiveEngineProps & { gradeBand: GradeBand }> = (args) => {
   //RiveEngine component setup
-  const riveState = useRive({
-    autoplay: true,
-    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
-    stateMachines: 'State Machine 1',
-  }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const riveState = useRive(
+    {
+      autoplay: true,
+      src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/student_picker.riv',
+      stateMachines: 'State Machine 1',
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
   const pickStudent = useReactStateMachineInput(riveState.rive, 'State Machine 1', 'pickStudent');
   const pickRandomStudentClicked = () => pickStudent?.fire();
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}>
+    <div
+      style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px' }}
+    >
       <RiveEngine {...riveState} />
       <Button primary clickHandler={pickRandomStudentClicked} additionalClass={'connect__g68'}>
         Pick Random Student
@@ -269,13 +284,16 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   //The star rating state
 
   //RiveEngine component setup
-  const riveState = useRive({
-    autoplay: true,
-    src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
-    stateMachines: 'State Machine 1',
-  }, {
-    fitCanvasToArtboardHeight: true
-  });
+  const riveState = useRive(
+    {
+      autoplay: true,
+      src: 'https://hmh-eodrisceoil.github.io/hmh-rive/rive-react-test/dist/rive/star-rating.riv',
+      stateMachines: 'State Machine 1',
+    },
+    {
+      fitCanvasToArtboardHeight: true,
+    },
+  );
   const [ratingValue, setRatingValue] = useState(0);
   useReactStateMachineInput(
     riveState.rive,
@@ -286,7 +304,15 @@ const LinkInputValueToStateExample: StoryFn<RiveEngineProps> = (args) => {
   );
 
   return (
-    <div style={{ textAlign: 'center', justifyItems: 'center', justifySelf: 'center', width: '400px', height: ' 400px' }}>
+    <div
+      style={{
+        textAlign: 'center',
+        justifyItems: 'center',
+        justifySelf: 'center',
+        width: '400px',
+        height: ' 400px',
+      }}
+    >
       <Typography element="h1" family="sans" size="heading-lg" style="normal">
         <span style={{ fontSize: 'x-large' }}>{ratingValue}</span>
       </Typography>

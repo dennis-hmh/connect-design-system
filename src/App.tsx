@@ -85,10 +85,10 @@ const App: React.FC = () => {
                 <Button variant="outlined" color="secondary">
                   Button
                 </Button>
-                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                <Button primary iconId="add" iconPosition="before" iconSize="md">
                   Button
                 </Button>
-                <Button primary iconId="add" iconPosition='before' iconSize='md'>
+                <Button primary iconId="add" iconPosition="before" iconSize="md">
                   <Typography>Button</Typography>
                 </Button>
                 <Button primary>
@@ -99,7 +99,7 @@ const App: React.FC = () => {
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
-                <Button variant='contained' color='primary'>
+                <Button variant="contained" color="primary">
                   <Icon size="md" id="add" />
                   <Typography>Button</Typography>
                 </Button>
@@ -108,8 +108,13 @@ const App: React.FC = () => {
                   <Typography>Button</Typography>
                 </Button>
 
-                <IconButton variant='contained' color='primary' ariaLabel='add' classes={isClicked ? 'connect__button-activated' : ''} onClick={handleClick}
->
+                <IconButton
+                  variant="contained"
+                  color="primary"
+                  ariaLabel="add"
+                  classes={isClicked ? 'connect__button-activated' : ''}
+                  onClick={handleClick}
+                >
                   <Icon size="md" id="add" />
                 </IconButton>
                 <ButtonGroup
@@ -119,14 +124,9 @@ const App: React.FC = () => {
                   // type="button"
                   variant="contained"
                 >
-                  <Button>
-                    Option 1
-                  </Button>
-                  <Button>
-                    Option 2
-                  </Button>
+                  <Button>Option 1</Button>
+                  <Button>Option 2</Button>
                 </ButtonGroup>
-
               </Stack>
             </GridItem>
             <GridItem lg={{ startCol: 7, spanCol: 6 }}>

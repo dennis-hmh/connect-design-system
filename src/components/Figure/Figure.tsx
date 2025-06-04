@@ -11,10 +11,14 @@ export type FigureProps = {
   gradeBand?: GradeBand;
 };
 
-export const Figure: React.FC<FigureProps> = ({ children, caption, cite, className, dataTestId }) => {
-  const classNames = ['connect__figure', className]
-  .filter(Boolean)
-  .join(' ');
+export const Figure: React.FC<FigureProps> = ({
+  children,
+  caption,
+  cite,
+  className,
+  dataTestId,
+}) => {
+  const classNames = ['connect__figure', className].filter(Boolean).join(' ');
 
   return (
     <figure className={classNames} data-testid={dataTestId}>
