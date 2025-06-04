@@ -1,4 +1,14 @@
 export type Color =
+  | 'primary-100'
+  | 'primary-200'
+  | 'primary-300'
+  | 'primary-400'
+  | 'primary-500'
+  | 'secondary-100'
+  | 'secondary-200'
+  | 'secondary-300'
+  | 'secondary-400'
+  | 'secondary-500'
 
   // Surface colors
   | 'surface-0'
@@ -152,8 +162,6 @@ export type Color =
   | 'black'
   | 'unset'
   | 'transparent'
-
-
   | 'gray-c70'
   | 'gray-c55'
   | 'gray-c40'
@@ -202,10 +210,22 @@ export type Color =
 
 const Colors: Record<Color, string> = {
   // Special values
-  'white': 'rgb(255, 255, 255)',
-  'black': 'rgb(30, 30, 30)',
-  'unset': 'unset',
-  'transparent': 'transparent',
+  white: 'rgb(255, 255, 255)',
+  black: 'rgb(30, 30, 30)',
+  unset: 'unset',
+  transparent: 'transparent',
+
+  // Primary colors
+  'primary-100': 'var(--connect__primary-100)',
+  'primary-200': 'var(--connect__primary-200)',
+  'primary-300': 'var(--connect__primary-300)',
+  'primary-400': 'var(--connect__primary-400)',
+  'primary-500': 'var(--connect__primary-500)',
+  'secondary-100': 'var(--connect__secondary-100)',
+  'secondary-200': 'var(--connect__secondary-200)',
+  'secondary-300': 'var(--connect__secondary-300)',
+  'secondary-400': 'var(--connect__secondary-400)',
+  'secondary-500': 'var(--connect__secondary-500)',
 
   // Surface colors
   'surface-0': 'var(--connect__white)',
@@ -260,26 +280,26 @@ const Colors: Record<Color, string> = {
   'content-purple-500': 'var(--connect__grape-s60)',
 
   // Brand colors
-  'brand-gold-100': '#fff9d1',
-  'brand-gold-200': '#ffeb99',
-  'brand-gold-300': '#fdb913',
-  'brand-gold-400': '#e59900',
-  'brand-gold-500': '#d97e00',
-  'brand-orange-100': '#fff0ec',
-  'brand-orange-200': '#ffd4c7',
-  'brand-orange-300': '#ff5e24',
-  'brand-orange-400': '#d64000',
-  'brand-orange-500': '#b03800',
-  'brand-magenta-100': '#ffeef7',
-  'brand-magenta-200': '#ffd9ec',
-  'brand-magenta-300': '#ff00b3',
-  'brand-magenta-400': '#d90098',
-  'brand-magenta-500': '#bf0086',
-  'brand-deep-magenta-100': '#ffeefe',
-  'brand-deep-magenta-200': '#ffd6fc',
-  'brand-deep-magenta-300': '#cc00c0',
-  'brand-deep-magenta-400': '#b200a7',
-  'brand-deep-magenta-500': '#9e0094',
+  'brand-gold-100': 'var(--connect__sunflower-s5)',
+  'brand-gold-200': 'var(--connect__golden-s15)',
+  'brand-gold-300': 'var(--connect__golden-s25)',
+  'brand-gold-400': 'var(--connect__papaya-s35)',
+  'brand-gold-500': 'var(--connect__papaya-s45)',
+  'brand-orange-100': 'var(--connect__poppy-s5)',
+  'brand-orange-200': 'var(--connect__poppy-s20)',
+  'brand-orange-300': 'var(--connect__poppy-s40)',
+  'brand-orange-400': 'var(--connect__poppy-s50)',
+  'brand-orange-500': 'var(--connect__poppy-s60)',
+  'brand-magenta-100': 'var(--connect__cerise-s5)',
+  'brand-magenta-200': 'var(--connect__cerise-s10)',
+  'brand-magenta-300': 'var(--connect__cerise-s20)',
+  'brand-magenta-400': 'var(--connect__cerise-s30)',
+  'brand-magenta-500': 'var(--connect__cerise-s40)',
+  'brand-deep-magenta-100': 'var(--connect__magenta-s10)',
+  'brand-deep-magenta-200': 'var(--connect__magenta-s20)',
+  'brand-deep-magenta-300': 'var(--connect__magenta-s30)',
+  'brand-deep-magenta-400': 'var(--connect__magenta-s40)',
+  'brand-deep-magenta-500': 'var(--connect__magenta-s50)',
 
   // Legacy colors (deprecated but still supported)
   // Surface colors

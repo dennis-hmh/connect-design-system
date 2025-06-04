@@ -75,6 +75,10 @@ const ColorSwatch = ({ colorName, colorValue }: { colorName: string; colorValue:
 
 const groupColors = (colors: Record<string, string>) => {
   const groups: Record<string, Record<string, Record<string, string>>> = {
+    'Primary Colors': {
+      'Primary Pack': {},
+      'Secondary Pack': {},
+    },
     'Surface Colors': {
       'Surface Pack': {},
     },
@@ -87,7 +91,7 @@ const groupColors = (colors: Record<string, string>) => {
       'Violet Pack': {},
       'Purple Pack': {},
     },
-    'Brand Colors': {
+    'Accent Colors': {
       'Gold Pack': {},
       'Orange Pack': {},
       'Magenta Pack': {},
@@ -113,20 +117,22 @@ const groupColors = (colors: Record<string, string>) => {
   };
 
   Object.entries(colors).forEach(([name, value]) => {
-    // Handle new surface colors (0-1000) and surface-null
-    if ((name.startsWith('surface-') && /surface-\d+/.test(name)) || name === 'surface-null') {
+    if (name.match(/^(primary|secondary)-\d+$/)) {
+      const [colorType] = name.split('-');
+      const colorName = colorType.charAt(0).toUpperCase() + colorType.slice(1);
+      groups['Primary Colors'][`${colorName} Pack`][name] = value;
+    } else if (
+      (name.startsWith('surface-') && /surface-\d+/.test(name)) ||
+      name === 'surface-null'
+    ) {
       groups['Surface Colors']['Surface Pack'][name] = value;
-    }
-    // Handle content colors
-    else if (name.startsWith('content-')) {
+    } else if (name.startsWith('content-')) {
       const [_, color, shade] = name.split('-');
       const colorName = color.charAt(0).toUpperCase() + color.slice(1);
       if (groups['Content Colors'][`${colorName} Pack`]) {
         groups['Content Colors'][`${colorName} Pack`][name] = value;
       }
-    }
-    // Handle new brand colors (not deprecated)
-    else if (name.startsWith('brand-')) {
+    } else if (name.startsWith('brand-')) {
       // Match brand-<color>-<number> (e.g., brand-deep-magenta-100)
       const match = name.match(/^brand-(.+)-(\d+)$/);
       if (match) {
@@ -135,28 +141,25 @@ const groupColors = (colors: Record<string, string>) => {
           color.charAt(0).toUpperCase() +
           color.slice(1).replace(/-([a-z])/g, (_, c) => ' ' + c.toUpperCase());
         if (color === 'deep-magenta') colorName = 'Deep Magenta';
-        if (groups['Brand Colors'][`${colorName} Pack`]) {
-          groups['Brand Colors'][`${colorName} Pack`][name] = value;
+        if (groups['Accent Colors'][`${colorName} Pack`]) {
+          groups['Accent Colors'][`${colorName} Pack`][name] = value;
         }
       } else {
-        // All other brand-* colors (not 100-500) are deprecated
         groups['Deprecated']['Brand'][name] = value;
       }
-    }
-    // Handle deprecated cc-* colors
-    else if (name.startsWith('cc-')) {
+    } else if (name.startsWith('cc-')) {
       groups['Deprecated']['Brand'][name] = value;
-    }
-    // Handle neutral colors
-    else if (name.startsWith('neutral-')) {
+    } else if (name.startsWith('neutral-')) {
       if (name.includes('light-')) {
         groups['Neutral Colors']['Light Pack'][name] = value;
       } else if (name.includes('dark-')) {
         groups['Neutral Colors']['Dark Pack'][name] = value;
       }
     }
-    // Handle all deprecated colors
-    else {
+    // Legacy primary/secondary colors the ones with dark mid etc
+    else if (name.match(/^(primary|secondary)-(dark|mid|light|pale)$/)) {
+      groups['Deprecated']['Primary'][name] = value;
+    } else {
       if (name.startsWith('surface-')) {
         groups['Deprecated']['Surface'][name] = value;
       } else if (
@@ -167,8 +170,6 @@ const groupColors = (colors: Record<string, string>) => {
         groups['Deprecated']['Feedback'][name] = value;
       } else if (name.startsWith('success-') || name.startsWith('error-')) {
         groups['Deprecated']['State'][name] = value;
-      } else if (name.startsWith('primary-')) {
-        groups['Deprecated']['Primary'][name] = value;
       } else if (name.startsWith('hint-')) {
         groups['Deprecated']['Hint'][name] = value;
       } else if (name.startsWith('focus-')) {
@@ -180,7 +181,6 @@ const groupColors = (colors: Record<string, string>) => {
       } else if (['white', 'black', 'unset', 'transparent'].includes(name)) {
         groups['Deprecated']['Special Values'][name] = value;
       } else {
-        // All other legacy colors (gray-c70, red-c55, etc.)
         groups['Deprecated']['Legacy Colors'][name] = value;
       }
     }
