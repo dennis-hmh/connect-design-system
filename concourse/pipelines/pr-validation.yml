@@ -1,0 +1,187 @@
+# To push updates to Concourse:
+#   fly -t connect-design-system-nonprod login --team-name connect-design-system-nonprod --concourse-url https://concourse.tsg.hmhco.com
+#   fly -t connect-design-system-nonprod set-pipeline -p pr-validation-legacy -c concourse/pipelines/pr-validation.yml -v "namespace=connect-design-system-nonprod" --load-vars-from=concourse/vars/pr-validation-vars.yml
+
+#################
+# VAR SOURCES
+#################
+var_sources:
+  - name: vault
+    type: vault
+    config:
+      url: https://vault.br.internal
+      namespace: ((namespace))
+      path_prefix: secrets/
+      auth_backend: approle
+      auth_params:
+        role_id: ((namespace-approle-secret.role_id))
+        secret_id: ((namespace-approle-secret.secret_id))
+      ca_cert: ((root_ca))
+
+#################
+# RESOURCE TYPES
+#################
+resource_types:
+  - name: pull-request
+    type: docker-image
+    source:
+      repository: docker.br.hmheng.io/concourse-resources/production/github-pr-resource
+      tag: 1.0.0
+
+#################
+# RESOURCES
+#################
+x-source-template: &source-template
+  access_token: ((ghe-edlearning.bot-pat))
+  repository: Ed-Learning/((repo_name))
+  base_branch: main
+  skip_ssl_verification: true
+  v3_endpoint: https://scm.eng.hmhco.com/api/v3
+  v4_endpoint: https://scm.eng.hmhco.com/api/graphql
+
+resources:
+  - name: source-repo
+    icon: github
+    type: pull-request
+    webhook_token: ((vault:common/connect-design-system-gh.webhook-token))
+    check_every: 1m
+    source:
+      <<: *source-template
+
+  - name: source-repo-image
+    type: docker-image
+    icon: docker
+    source:
+      repository: docker-edlearning-ga.br.hmheng.io/connect_system
+      username: ((docker-auth-edlearning.user_name))
+      password: ((docker-auth-edlearning.access_token))
+
+#################
+# JOB TEMPLATES
+#################
+x-task-run-pnpm-command: &task-run-pnpm-command
+  task: run-pnpm-command
+  image: source-repo-image
+  file: source-repo/concourse/tasks/run-pnpm-command.yml
+
+x-get-source-repo: &get-source-repo
+  get: source-repo
+  trigger: true
+  version: every
+  params:
+    integration_tool: checkout
+
+x-get-source-repo-image: &get-source-repo-image
+  get: source-repo-image
+  trigger: false
+
+x-pr-gate-pending: &pr-status-pending
+  put: source-repo-pending-status
+  resource: source-repo
+  params:
+    path: source-repo
+    status: pending
+  get_params: { skip_download: true }
+
+x-pr-gate-failure: &pr-status-failure
+  put: source-repo-failure-status
+  resource: source-repo
+  params:
+    path: source-repo
+    status: failure
+
+x-pr-gate-success: &pr-status-success
+  put: source-repo-success-status
+  resource: source-repo
+  params:
+    path: source-repo
+    status: success
+
+#################
+# JOBS
+#################
+jobs:
+  # - name: put-source-repo-image
+  #   plan:
+  #     - <<: *get-source-repo
+  #     - put: source-repo-image
+  #       params:
+  #         build: source-repo
+  #         tag_file: source-repo/source-repo-tag-file
+
+  - name: pr-status-pending
+    plan:
+      - <<: *get-source-repo
+      - <<: *pr-status-pending
+
+  - name: changeset-check
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: pnpm change:check
+    on_failure: *pr-status-failure
+
+  - name: type-check
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: type:check
+    on_failure: *pr-status-failure
+
+  - name: lint
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: lint
+    on_failure: *pr-status-failure
+
+  - name: stylelint
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: stylelint
+    on_failure: *pr-status-failure
+
+  - name: test
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: test
+    on_failure: *pr-status-failure
+
+  - name: build-check
+    plan:
+      - <<: *get-source-repo
+        passed: [pr-status-pending]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: build:check
+    on_failure: *pr-status-failure
+
+  - name: pr-status-success
+    plan:
+      - <<: *get-source-repo
+        passed: [changeset-check, type-check, stylelint, lint, test, build-check]
+    on_success: *pr-status-success

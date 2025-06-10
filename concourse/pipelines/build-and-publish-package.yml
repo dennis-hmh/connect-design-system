@@ -1,6 +1,6 @@
 # To push updates to Concourse:
-#   fly -t classcraft-ui-nonprod login --team-name classcraft-ui-nonprod --concourse-url https://concourse.tsg.hmhco.com
-#   fly -t classcraft-ui-nonprod set-pipeline -p build-and-publish-connect -c concourse/pipelines/build-and-publish-connect.yml -v "namespace=classcraft-ui-nonprod" --load-vars-from=concourse/vars/build-and-publish-connect-vars.yml
+#   fly -t connect-design-system-prod login --team-name connect-design-system-prod --concourse-url https://concourse.tsg.hmhco.com
+#   fly -t connect-design-system-prod set-pipeline -p build-and-publish-package-legacy -c concourse/pipelines/build-and-publish-package.yml -v "namespace=connect-design-system-prod" --load-vars-from=concourse/vars/build-and-publish-package-vars.yml
 
 #################
 # VAR SOURCES
@@ -35,9 +35,9 @@ resource_types:
 #################
 x-source-template: &source-template
   branch: ((app_base_branch))
-  uri: git@scm.eng.hmhco.com:Core-Digital-Production/((repo_name)).git
-  private_key: ((vault:common/connect-gh.private-key))
-  private_key_passphrase: ((vault:common/connect-gh.private-key-passphrase))
+  uri: git@scm.eng.hmhco.com:Ed-Learning/((repo_name)).git
+  private_key: ((vault:common/connect-design-system-gh.private-key))
+  private_key_passphrase: ((vault:common/connect-design-system-gh.private-key-passphrase))
   skip_ssl_verification: true
 
 resources:
@@ -61,7 +61,7 @@ resources:
     type: docker-image
     icon: docker
     source:
-      repository: docker-edlearning-ga.br.hmheng.io/((repo_name))
+      repository: docker-edlearning-ga.br.hmheng.io/connect_system
       username: ((docker-auth-edlearning.user_name))
       password: ((docker-auth-edlearning.access_token))
 
@@ -69,7 +69,7 @@ resources:
     icon: microsoft-teams
     type: teams-notifications
     source:
-      url: ((vault:common/connect-gh.teams-webhook-url))
+      url: ((vault:common/microsoft-teams.teams-webhook-url))
 
 #################
 # JOB TEMPLATES
@@ -96,6 +96,10 @@ x-get-source-repo: &get-source-repo
   get: source-repo
   trigger: true
 
+x-get-source-repo-put: &get-source-repo-put
+  get: source-repo-put
+  trigger: true
+
 x-get-source-repo-image: &get-source-repo-image
   get: source-repo-image
   trigger: false
@@ -109,6 +113,11 @@ x-task-run-pnpm-command: &task-run-pnpm-command
   task: run-pnpm-command
   image: source-repo-image
   file: source-repo/concourse/tasks/run-pnpm-command.yml
+
+x-task-run-pnpm-command: &task-run-build-and-publish
+  task: run-build-and-publish
+  image: source-repo-image
+  file: source-repo-put/concourse/tasks/run-build-and-publish.yml
 
 x-task-run-version-bump: &task-run-version-bump
   task: run-version-bump
@@ -149,18 +158,32 @@ jobs:
           pnpm-command: test
     on_failure: *teams-failure-notification
 
-  - name: build-and-publish
+  - name: stylelint
     plan:
       - <<: *get-source-repo
-        passed: [type-check, lint, test]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-pnpm-command
+        vars:
+          pnpm-command: stylelint
+    on_failure: *teams-failure-notification
+
+  - name: version-bump
+    plan:
+      - <<: *get-source-repo
+        passed: [type-check, lint, test, stylelint]
       - <<: *get-source-repo-image
 
       - <<: *task-run-version-bump
       - <<: *put-source-repo
 
-      - <<: *task-run-pnpm-command
-        vars:
-          pnpm-command: build-and-publish
+  - name: build-and-publish
+    plan:
+      - <<: *get-source-repo-put
+        passed: [version-bump]
+      - <<: *get-source-repo-image
+
+      - <<: *task-run-build-and-publish
         params:
           ARTIFACTORY_TOKEN: ((vault:common/artifactory.access-token))
     on_failure: *teams-failure-notification
