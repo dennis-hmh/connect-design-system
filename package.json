@@ -15,6 +15,7 @@
   },
   "scripts": {
     "build": "VITE_ENV=build tsc && vite build",
+    "build:dist": "VITE_ENV=build tsc && vite build --outDir dist",
     "build:check": "pnpm build",
     "build-and-publish": "pnpm build && pnpm publish --no-git-checks",
     "build-storybook": "storybook build",
