@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@connect/hmh-rive':
-    specifier: 2.0.4
-    version: 2.0.4
   '@rive-app/react-canvas':
     specifier: 4.18.0
     version: 4.18.0(react@18.2.0)
@@ -781,12 +778,6 @@ packages:
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
     engines: {node: '>=0.1.90'}
     dev: true
-
-  /@connect/hmh-rive@2.0.4:
-    resolution: {integrity: sha512-7g/XqEYbogozuYgRgpUdJa0fT6qWfg24Ar2ALKYhlVuiTSehHrRFouAceDwvFrAKxP+nCD43N5soGS5iVvPzoQ==, tarball: https://repo.br.hmheng.io/artifactory/api/npm/content-engg-npm/@connect/hmh-rive/-/@connect/hmh-rive-2.0.4.tgz}
-    dependencies:
-      '@rive-app/canvas': 2.23.11
-    dev: false
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -2148,10 +2139,6 @@ packages:
       '@resvg/resvg-js-win32-ia32-msvc': 2.6.2
       '@resvg/resvg-js-win32-x64-msvc': 2.6.2
     dev: true
-
-  /@rive-app/canvas@2.23.11:
-    resolution: {integrity: sha512-guP2youHA1yFegD8ziiPEtkUXJs+wwkPh6lV3ihfyvUlLXgDDLwccD/ypAbKej1zBee7Z9tlp0c9oehHEEkLMg==}
-    dev: false
 
   /@rive-app/canvas@2.26.1:
     resolution: {integrity: sha512-u1v0736FMzxS5E6h7M0xdN59VA1B+Y8dNedwRdItrl2nsgfFUzcFKfL3PT1mCA0RzeUxD7duOmPyPPfb8d9dxw==}

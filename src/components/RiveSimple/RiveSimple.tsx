@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { GradeBandContext } from '../../context/GradeBandContext';
 import { GradeBand } from '../../enum/gradeband';
-import '@connect/hmh-rive';
 
 export type RiveSimpleProps = {
   gradeBand?: GradeBand;

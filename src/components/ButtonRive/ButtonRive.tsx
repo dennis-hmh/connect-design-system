@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button, ButtonProps } from '../Button/Button';
 import { Typography } from '../Typography/Typography';
 import { GradeBand } from 'src/enum/gradeband';
-import '@connect/hmh-rive';
 
 export type ButtonRiveProps = ButtonProps & {
   textTransform?: React.CSSProperties['textTransform'];
